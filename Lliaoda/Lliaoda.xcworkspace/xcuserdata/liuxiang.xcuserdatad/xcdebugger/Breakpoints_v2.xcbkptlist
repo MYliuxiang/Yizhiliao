@@ -25,8 +25,8 @@
                   symbolName = "-[XLPhotoBrowser showFirstImage]"
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuxiang/Desktop/meme_ios/Lliaoda/Lliaoda/XLPhotoBrowser/XLPhotoBrowser.m"
-                  timestampString = "521952754.880047"
+                  urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/XLPhotoBrowser/XLPhotoBrowser.m"
+                  timestampString = "521958999.489455"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "734"
@@ -40,8 +40,8 @@
                   symbolName = "-[XLPhotoBrowser showFirstImage]"
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuxiang/Desktop/meme_ios/Lliaoda/Lliaoda/XLPhotoBrowser/XLPhotoBrowser.m"
-                  timestampString = "521952754.882332"
+                  urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/XLPhotoBrowser/XLPhotoBrowser.m"
+                  timestampString = "521958999.491414"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "734"
@@ -171,6 +171,38 @@
             endingLineNumber = "517"
             landmarkName = "-buttonAC:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PersonalVC buttonAC:]"
+                  moduleName = "Lliaoda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
+                  timestampString = "521958999.514409"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "519"
+                  endingLineNumber = "519"
+                  offsetFromSymbolStart = "1052">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PersonalVC buttonAC:]"
+                  moduleName = "Lliaoda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
+                  timestampString = "521958999.516278"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "519"
+                  endingLineNumber = "519"
+                  offsetFromSymbolStart = "1088">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

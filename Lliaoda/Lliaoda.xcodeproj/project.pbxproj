@@ -3732,7 +3732,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6XYUMP9S7J;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3812,8 +3812,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.yizhiliaotw.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51c2d4dc-4605-48cc-88a2-9ea664726908";
-				PROVISIONING_PROFILE_SPECIFIER = "tw store";
+				PROVISIONING_PROFILE = "17c0d952-0fe4-4c97-bcaf-1015a8fc81c8";
+				PROVISIONING_PROFILE_SPECIFIER = deveTW;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -3826,7 +3826,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6XYUMP9S7J;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3906,8 +3906,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.yizhiliaotw.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51c2d4dc-4605-48cc-88a2-9ea664726908";
-				PROVISIONING_PROFILE_SPECIFIER = "tw store";
+				PROVISIONING_PROFILE = "17c0d952-0fe4-4c97-bcaf-1015a8fc81c8";
+				PROVISIONING_PROFILE_SPECIFIER = deveTW;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
