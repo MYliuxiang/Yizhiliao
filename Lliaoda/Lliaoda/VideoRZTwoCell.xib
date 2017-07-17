@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="KGk-i7-Jjw" customClass="VideoRZTwoCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F98-8J-T9i">
+                        <rect key="frame" x="15" y="15" width="290" height="185"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yaoqiu" translatesAutoresizingMaskIntoConstraints="NO" id="Hjz-EP-awL">
+                        <rect key="frame" x="30" y="38" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="5un-cA-WCT"/>
+                            <constraint firstAttribute="height" constant="22" id="DLy-eP-Hgk"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="認證要求" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gj0-qm-r6o">
+                        <rect key="frame" x="62" y="40.5" width="58" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.本人半身錄影，10秒－15秒之間，需正面，五官清晰，包含自我介紹語音；\n2.個人主頁的照片必須與錄影為同一人，保證為本人\n3.模仿範例錄影可提高認證通過率！\n4.認證錄影不對外公開，我們將對你的認證錄影嚴格保密" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxh-Ds-efm">
+                        <rect key="frame" x="62" y="68" width="228" height="117"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVk-Jf-pdD">
+                        <rect key="frame" x="50" y="185" width="240" height="15"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="SUI-mf-MZR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="F98-8J-T9i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="12J-8a-RAf"/>
+                    <constraint firstItem="Gj0-qm-r6o" firstAttribute="centerY" secondItem="Hjz-EP-awL" secondAttribute="centerY" id="7YW-13-WNd"/>
+                    <constraint firstAttribute="trailing" secondItem="kxh-Ds-efm" secondAttribute="trailing" constant="30" id="Obl-HA-qSO"/>
+                    <constraint firstItem="Hjz-EP-awL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="30" id="RCN-4S-bB0"/>
+                    <constraint firstItem="Gj0-qm-r6o" firstAttribute="leading" secondItem="Hjz-EP-awL" secondAttribute="trailing" constant="10" id="SlN-1R-tCa"/>
+                    <constraint firstItem="OVk-Jf-pdD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="V6V-qL-qSu"/>
+                    <constraint firstItem="OVk-Jf-pdD" firstAttribute="top" secondItem="kxh-Ds-efm" secondAttribute="bottom" id="WdQ-Rv-E8Y"/>
+                    <constraint firstItem="F98-8J-T9i" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="b0H-8c-yGj"/>
+                    <constraint firstItem="F98-8J-T9i" firstAttribute="bottom" secondItem="OVk-Jf-pdD" secondAttribute="bottom" id="gZW-7g-gfl"/>
+                    <constraint firstItem="kxh-Ds-efm" firstAttribute="top" secondItem="Gj0-qm-r6o" secondAttribute="bottom" constant="10" id="jse-yG-CEs"/>
+                    <constraint firstItem="Hjz-EP-awL" firstAttribute="left" secondItem="H2p-sc-9uM" secondAttribute="left" constant="30" id="o8W-bh-fFo"/>
+                    <constraint firstAttribute="trailing" secondItem="OVk-Jf-pdD" secondAttribute="trailing" constant="30" id="pBF-Dx-dci"/>
+                    <constraint firstAttribute="trailing" secondItem="F98-8J-T9i" secondAttribute="trailing" constant="15" id="xei-0N-UqM"/>
+                    <constraint firstItem="kxh-Ds-efm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="62" id="yQ9-05-Uf0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bgImgeView" destination="F98-8J-T9i" id="o37-fA-vsI"/>
+                <outlet property="tlabel" destination="kxh-Ds-efm" id="rnx-Xg-GU4"/>
+            </connections>
+            <point key="canvasLocation" x="-54" y="0.0"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="yaoqiu" width="28" height="28"/>
+    </resources>
+</document>

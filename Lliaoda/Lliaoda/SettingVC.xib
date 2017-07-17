@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFe-JR-3zZ">
+                    <rect key="frame" x="0.0" y="84" width="375" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="fAY-Du-iU3"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="lLv-Tl-Or6"/>
+                    </constraints>
+                    <state key="normal" title="關於我們">
+                        <color key="titleColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="aboutAC:" destination="-1" eventType="touchUpInside" id="au2-WA-c62"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZO-hY-hVC">
+                    <rect key="frame" x="0.0" y="164" width="375" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="7Ma-oT-osm"/>
+                    </constraints>
+                    <state key="normal" title="退出登陸">
+                        <color key="titleColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loginout:" destination="-1" eventType="touchUpInside" id="eiq-eB-t6e"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="lFe-JR-3zZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="Ejl-LY-juU"/>
+                <constraint firstAttribute="trailing" secondItem="OZO-hY-hVC" secondAttribute="trailing" id="ZL4-kd-fiS"/>
+                <constraint firstItem="OZO-hY-hVC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="d6x-e3-a2R"/>
+                <constraint firstItem="OZO-hY-hVC" firstAttribute="top" secondItem="lFe-JR-3zZ" secondAttribute="bottom" constant="20" id="elV-P4-c2Z"/>
+                <constraint firstAttribute="trailing" secondItem="lFe-JR-3zZ" secondAttribute="trailing" id="fWt-ED-KeY"/>
+                <constraint firstItem="lFe-JR-3zZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wqb-07-tEx"/>
+            </constraints>
+            <point key="canvasLocation" x="-84" y="100"/>
+        </view>
+    </objects>
+</document>

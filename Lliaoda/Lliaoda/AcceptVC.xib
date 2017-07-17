@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AcceptVC">
+            <connections>
+                <outlet property="invitationBtn" destination="30Z-Ig-JOG" id="7y4-KG-TM0"/>
+                <outlet property="textField" destination="X8E-au-bgM" id="foP-A6-5Cl"/>
+                <outlet property="tijiaoBtn" destination="Qid-os-Ew6" id="jYt-g6-XZ1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uP-zI-2gn">
+                    <rect key="frame" x="0.0" y="64" width="375" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邀請碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ub-VR-9x8">
+                            <rect key="frame" x="15" y="22" width="43" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MAm-ti-M43">
+                            <rect key="frame" x="15" y="59" width="345" height="1"/>
+                            <color key="backgroundColor" red="0.77057291670000005" green="0.77057291670000005" blue="0.77057291670000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="Q6e-1X-y7m"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請輸入5位邀請碼，即可獲得獎勵" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X8E-au-bgM">
+                            <rect key="frame" x="63" y="21.5" width="297" height="17"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="X8E-au-bgM" secondAttribute="trailing" constant="15" id="Dyt-H1-KWm"/>
+                        <constraint firstAttribute="height" constant="60" id="KJZ-hB-50e"/>
+                        <constraint firstItem="8Ub-VR-9x8" firstAttribute="leading" secondItem="6uP-zI-2gn" secondAttribute="leading" constant="15" id="Mvj-9e-j7p"/>
+                        <constraint firstAttribute="bottom" secondItem="MAm-ti-M43" secondAttribute="bottom" id="RuF-Y3-B8R"/>
+                        <constraint firstItem="X8E-au-bgM" firstAttribute="centerY" secondItem="6uP-zI-2gn" secondAttribute="centerY" id="ZvU-0H-Ray"/>
+                        <constraint firstItem="X8E-au-bgM" firstAttribute="leading" secondItem="8Ub-VR-9x8" secondAttribute="trailing" constant="5" id="frY-ZD-LJ5"/>
+                        <constraint firstItem="MAm-ti-M43" firstAttribute="leading" secondItem="6uP-zI-2gn" secondAttribute="leading" constant="15" id="gOP-9l-EuV"/>
+                        <constraint firstItem="8Ub-VR-9x8" firstAttribute="centerY" secondItem="6uP-zI-2gn" secondAttribute="centerY" id="niK-TX-eAa"/>
+                        <constraint firstAttribute="trailing" secondItem="MAm-ti-M43" secondAttribute="trailing" constant="15" id="uBr-e1-Jem"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="填入好友分享的邀請碼，即可獲得獎勵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emd-Oq-Vsf">
+                    <rect key="frame" x="15" y="139" width="243" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qid-os-Ew6">
+                    <rect key="frame" x="15" y="196" width="165" height="44"/>
+                    <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Auu-9q-o7c"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="提交">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="tijiaoAC:" destination="-1" eventType="touchUpInside" id="YE7-YQ-ow2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30Z-Ig-JOG">
+                    <rect key="frame" x="195" y="196" width="165" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="yR1-lz-vFb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="我要去邀請">
+                        <color key="titleColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="invitationAC:" destination="-1" eventType="touchUpInside" id="tQJ-ZR-YCD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="30Z-Ig-JOG" firstAttribute="width" secondItem="Qid-os-Ew6" secondAttribute="width" id="05d-CP-7R0"/>
+                <constraint firstItem="6uP-zI-2gn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2bh-b2-g8K"/>
+                <constraint firstAttribute="trailing" secondItem="30Z-Ig-JOG" secondAttribute="trailing" constant="15" id="46Q-fc-cE1"/>
+                <constraint firstAttribute="trailing" secondItem="6uP-zI-2gn" secondAttribute="trailing" id="CxB-bj-2TA"/>
+                <constraint firstItem="Qid-os-Ew6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="J0D-JD-0f5"/>
+                <constraint firstItem="Qid-os-Ew6" firstAttribute="baseline" secondItem="30Z-Ig-JOG" secondAttribute="baseline" id="VjP-kJ-t09"/>
+                <constraint firstItem="Emd-Oq-Vsf" firstAttribute="top" secondItem="6uP-zI-2gn" secondAttribute="bottom" constant="15" id="WUM-MW-A5e"/>
+                <constraint firstItem="Qid-os-Ew6" firstAttribute="top" secondItem="Emd-Oq-Vsf" secondAttribute="bottom" constant="40" id="YEs-n9-lAM"/>
+                <constraint firstItem="30Z-Ig-JOG" firstAttribute="height" secondItem="Qid-os-Ew6" secondAttribute="height" id="bjy-H5-VFa"/>
+                <constraint firstItem="6uP-zI-2gn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="cFC-21-hoQ"/>
+                <constraint firstItem="30Z-Ig-JOG" firstAttribute="leading" secondItem="Qid-os-Ew6" secondAttribute="trailing" constant="15" id="goy-xP-FYy"/>
+                <constraint firstItem="Emd-Oq-Vsf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="o05-44-MFy"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="95.5"/>
+        </view>
+    </objects>
+</document>

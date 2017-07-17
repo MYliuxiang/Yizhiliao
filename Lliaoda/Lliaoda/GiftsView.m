@@ -1,0 +1,317 @@
+//
+//  GiftsView.m
+//  Lliaoda
+//
+//  Created by 刘翔 on 2017/6/23.
+//  Copyright © 2017年 刘翔. All rights reserved.
+//
+
+#import "GiftsView.h"
+
+@implementation GiftsView
+
+static NSString *identifire = @"GiftID";
+
+- (instancetype)initGiftsView
+{
+    self = [super init];
+    
+    if (self) {
+        self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
+        self.frame = CGRectMake(15, kScreenHeight, kScreenWidth - 30, 305);
+        self.layer.masksToBounds = YES;
+        self.layer.cornerRadius = 5;
+        self.chonBtn.layer.masksToBounds = YES;
+        self.chonBtn.layer.cornerRadius = 5;
+        self.pageControl.currentPage = 0;
+        _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
+        self.dataList = [NSMutableArray array];
+        [self creatCollectionView];
+        [self loagGifts];
+     
+    }
+    
+    return self;
+}
+
+- (void)loagGifts
+{
+    NSDictionary *params;
+    [WXDataService requestAFWithURL:Url_gifts params:params httpMethod:@"GET" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+               
+                NSArray *array = result[@"data"][@"gifts"];
+                NSMutableArray *marray = [NSMutableArray array];
+                for (NSDictionary *dic in array) {
+                    
+                    MGiftModel *model = [MGiftModel mj_objectWithKeyValues:dic];
+                    [marray addObject:model];
+                    [self.dataList addObject:model];
+//                    if (marray.count == 8) {
+//                        NSArray *array = [NSArray arrayWithArray:marray];
+//                        [self.dataList addObject:array];
+//                        [marray removeAllObjects];
+//                    }
+                    
+                }
+                
+//                if (marray.count < 8 && marray.count > 0) {
+//                    [self.dataList addObject:marray];
+//                }
+                
+                int i;
+                if (self.dataList.count <= 8) {
+                    self.pageControl.hidden = YES;
+                }else{
+                
+                    self.pageControl.hidden = NO;
+                }
+                self.pageControl.numberOfPages = self.dataList.count / 8 + 1;
+                [self.collectionView reloadData];
+                
+            }else{    //请求失败
+                
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        
+    }];
+
+}
+
+- (void)creatCollectionView
+{
+
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.gifLayout = [[GiftLayout alloc] init];
+
+    _gifLayout.minimumLineSpacing= (kScreenWidth - 30 - 240) / 5.0;
+    _gifLayout.minimumInteritemSpacing= 5;
+    _gifLayout.itemSize = CGSizeMake(60,100);
+    _gifLayout.sectionInset=UIEdgeInsetsMake(0, (kScreenWidth - 30 - 240) / 5.0, 0, (kScreenWidth - 30 - 240) / 5.0);
+
+    [_gifLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];//滚动方向
+    //設定代理
+    self.collectionView.showsVerticalScrollIndicator = NO;
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
+    self.collectionView.collectionViewLayout = self.gifLayout;
+    [_collectionView registerNib:[UINib nibWithNibName:@"GiftCell" bundle:nil] forCellWithReuseIdentifier:identifire];
+    _collectionView.backgroundColor = [UIColor clearColor];
+
+}
+
+//設定页码
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    int page = (int)(scrollView.contentOffset.x/scrollView.frame.size.width + 0.5)%5;
+    
+    self.pageControl.currentPage = page;
+    
+}
+
+#pragma mark - UICollectionView Delegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+    
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    int count;
+    if (self.dataList.count % 8) {
+        count = self.dataList.count/8 + 1;
+    }else{
+    
+        count = self.dataList.count/8;
+    }
+    return count * 8;
+    
+//    NSArray *array = self.dataList[section];
+//    return 8;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    //如果有闲置的就拿到使用,如果没有,系统自动的去创建
+    GiftCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifire forIndexPath:indexPath];
+    NSArray *array = self.dataList[indexPath.section];
+//    if (array.count < 8) {
+//        if (indexPath.row < array.count) {
+//            
+//            MGiftModel *model = self.dataList[indexPath.section][indexPath.row];
+//            cell.model = model;
+//        }
+//        
+//    }else{
+//        
+//        MGiftModel *model = self.dataList[indexPath.section][indexPath.row];
+//        cell.model = model;
+//    }
+    
+    if (indexPath.row < _dataList.count) {
+        
+        MGiftModel *model = self.dataList[indexPath.row];
+        cell.model = model;
+    }else{
+    
+        cell.model = nil;
+    }
+    
+    [cell setNeedsLayout];
+    return cell;
+    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    if (indexPath.row > _dataList.count) {
+     
+        return;
+    }
+    
+    MGiftModel *model = self.dataList[indexPath.row];
+    NSDictionary *params;
+    params = @{@"uid":model.uid,@"receiverId":self.pmodel.uid,@"quantity":@1};
+    [WXDataService requestAFWithURL:Url_giftsend params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                
+                NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
+                NSString *str = [NSString stringWithFormat:@"余额:%@鑽",deposit];
+                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
+                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
+                
+                self.elabel.attributedText = alertControllerMessageStr;
+                
+                
+                NSString *uid = [NSString stringWithFormat:@"%@",result[@"data"][@"uid"]];
+                // 礼物模型
+                GiftModel *giftModel = [[GiftModel alloc] init];
+                giftModel.giftImage = model.icon;
+                giftModel.giftName = [NSString stringWithFormat:@"送出%@",model.name];
+                giftModel.giftCount = 1;
+                giftModel.giftUid = model.uid;
+                giftModel.diamonds = model.diamonds;
+                
+                NSString *userId = [NSString stringWithFormat:@"%@%@",[LXUserDefaults objectForKey:UID],model.uid];
+                AnimOperationManager *manager = [AnimOperationManager sharedManager];
+                manager.parentView = self.superview;
+                [manager animWithUserID:userId model:giftModel finishedBlock:^(BOOL result) {
+                    
+                }];
+                
+                long idate = [[NSDate date] timeIntervalSince1970]*1000;
+                NSDictionary *dic = @{
+                                      @"message": @{
+                                              @"messageID": @"-1",
+                                       @"event": @"gift",
+                                        @"content": uid,
+                                        @"time": [NSString stringWithFormat:@"%ld",idate]
+                                              }
+                                      };
+                
+                NSString *msgStr = [InputCheck convertToJSONData:dic];
+                [_inst messageInstantSend:self.pmodel.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"-1"]];
+                
+            }else{    //请求失败
+                
+                if ([[result objectForKey:@"result"] integerValue] == 8) {
+                    
+                    
+                    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"购买鑽石" message:@"啊噢～餘額不太夠，儲值後才能送禮物喲！" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"［暫時不用］" destructiveButtonTitle:@"［快速儲值］" delegate:nil];
+                    lg.destructiveButtonBackgroundColor = Color_nav;
+                    lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                    lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+                    lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+                    lg.cancelButtonTitleColor = Color_nav;
+                    lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
+                        self.superview.hidden = YES;
+                        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+                        AccountVC *vc = [[AccountVC alloc] init];
+                        vc.isCall = YES;
+                        vc.clickBlock = ^(){
+                            
+                            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+                            self.superview.hidden = NO;
+                            
+                            
+                        };
+                        [[self topViewController].navigationController pushViewController:vc animated:YES];
+                        
+                    };
+                    [lg showAnimated:YES completionHandler:nil];
+                    
+                    
+                }
+
+                
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        
+    }];
+    
+}
+
+- (UIViewController *)topViewController {
+    UIViewController *resultVC;
+    resultVC = [self _topViewController:[[AppDelegate shareAppDelegate].window rootViewController]];
+    while (resultVC.presentedViewController) {
+        resultVC = [self _topViewController:resultVC.presentedViewController];
+    }
+    return resultVC;
+}
+
+- (UIViewController *)_topViewController:(UIViewController *)vc {
+    if ([vc isKindOfClass:[UINavigationController class]]) {
+        
+        return [self _topViewController:[(UINavigationController *)vc topViewController]];
+        
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        
+        return [self _topViewController:[(UITabBarController *)vc selectedViewController]];
+        
+    }else{
+        
+        return vc;
+    }
+    
+    return nil;
+}
+
+
+- (IBAction)chongAC:(id)sender {
+    
+ [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    self.superview.hidden = YES;
+    AccountVC *vc = [[AccountVC alloc] init];
+    vc.isCall = YES;
+    vc.clickBlock = ^(){
+    
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    self.superview.hidden = NO;
+        
+    };
+     [[self topViewController].navigationController pushViewController:vc animated:YES];
+}
+@end

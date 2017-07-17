@@ -1,0 +1,35 @@
+project 'Lliaoda.xcodeproj'
+
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Lliaoda' do
+  # Uncomment this line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for Lliaoda
+
+  pod 'FMDB'
+  pod 'AFNetworking'
+  pod 'SDWebImage'
+  pod 'MJRefresh'
+  pod 'MJExtension'
+  pod 'SVProgressHUD'
+  #import "MBProgressHUD.h"
+  pod 'MBProgressHUD'
+  pod 'LGAlertView'
+  pod 'AliyunOSSiOS'
+  pod 'UMengAnalytics'
+  pod 'UAProgressView'
+  pod 'JPush'
+  target 'LliaodaTests' do
+    inherit! :search_paths
+#    Pods for testing
+  end
+
+  target 'LliaodaUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

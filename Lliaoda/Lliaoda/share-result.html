@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>邀请有奖</title>
+    <meta name="keywords" content="小牛,邀请有奖">
+    <meta name="description" content="邀请有奖">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <style type="text/css">
+        html {
+            font-size: 20px
+        }
+
+        @media screen and (max-width: 319px) {
+            html {
+                font-size: 20px !important
+            }
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 374px) {
+            html {
+                font-size: 21.3px !important
+            }
+        }
+
+        @media screen and (min-width: 375px) and (max-width: 413px) {
+            html {
+                font-size: 25px !important
+            }
+        }
+
+        @media screen and (min-width: 414px) {
+            html {
+                font-size: 27.6px !important
+            }
+        }
+
+        @media screen and (min-width: 428px) {
+            html {
+                font-size: 26.75px !important
+            }
+        }
+
+        @media screen and (min-width: 481px) {
+            html {
+                font-size: 30px !important
+            }
+        }
+
+        @media screen and (min-width: 569px) {
+            html {
+                font-size: 35px !important
+            }
+        }
+
+        @media screen and (min-width: 641px) {
+            html {
+                font-size: 40px !important
+            }
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+            font-size: 0.7rem;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+        }
+
+        .divider {
+            height: 0.3rem;
+            background-color: #d8d8d8;
+        }
+
+        .container {
+            padding: 0.6rem;
+        }
+
+        .half-block {
+            width: 50%;
+            height: 100%;
+        }
+
+        .half-block .hb-title {
+            height: 50%;
+            color: #999999;
+            font-size: 0.6rem;
+            text-align: center;
+        }
+
+        .half-block .hb-body {
+            height: 50%;
+            color: #FB3476;
+            font-size: 0.7rem;
+            text-align: center;
+        }
+
+        .border-r {
+            border-right: solid 1px #d8d8d8;
+        }
+
+        .color-active {
+            color: #FB3476;
+        }
+
+        table {
+            width: 100%;
+            max-width: 1125px;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+        }
+
+        tr {
+            padding: 0;
+            margin: 0;
+        }
+
+        td {
+            margin: 0;
+            padding: 0;
+        }
+
+        td img {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: center;">
+    <table border="0" cellspacing="0">
+        <tr>
+            <td colspan="3"><img src="https://static.yizhiliao.tv/assets/images/share-top_01.jpg"></td>
+        </tr>
+        <tr>
+            <td rowspan="2"><img src="https://static.yizhiliao.tv/assets/images/share-top_02.jpg"></td>
+            <td style="height: 100%; background-color: #fb3475; color: white; font-size: 0.8rem">你将获得<span id="share-award">奖励</span></td>
+            <td rowspan="2"><img src="https://static.yizhiliao.tv/assets/images/share-top_04.jpg"></td>
+        </tr>
+        <tr>
+            <td><img src="https://static.yizhiliao.tv/assets/images/share-top_05.jpg"></td>
+        </tr>
+    </table>
+</div>
+<div class="divider"></div>
+<div class="container" style="height: 2rem">
+    <div class="half-block" style="float: left;">
+        <div class="border-r" style="height: 100%;">
+            <div class="hb-title">累计邀请</div>
+            <div class="hb-body"><span id="invited">0</span> 人</div>
+        </div>
+    </div>
+    <div class="half-block" style="float: right;">
+        <div style="height: 100%;">
+            <div class="hb-title">累计奖励</div>
+            <div class="hb-body"><span id="accumulated">0</span></div>
+        </div>
+    </div>
+</div>
+<div class="divider"></div>
+<div class="container">
+    <p class="color-active" style="font-weight: 500">邀请步骤</p>
+    <p>1. 点击本页下方“立刻邀请”按钮，分享给好友</p>
+    <p>2. 好友收到你的分享后，打开訊息，下载我们的APP并注册</p>
+    <p>3. 注册后，进入“我的”页面，点击“接受邀请”，填入邀請碼：<span id="inviteCode" class="color-active"></span></p>
+    <p>4. 对方正确输入邀請碼并收到“输入成功”提示后, 双方将获得－主播：<span id="share-score">200聊币</span>；用户：<span id="share-diamonds">20鑽</span></p>
+    <p>前1000个分享有效，先到先得哦～</p>
+    <p><button onclick="tianbai.call()">点我测试</button></p>
+</div>
+</body>
+<script src="///cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script type="text/javascript">
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return decodeURIComponent(r[2]);
+        return null;
+    }
+
+    var auth = GetQueryString('auth');
+    if (auth == '2') {
+        $('#share-img').attr('src', 'https://static.yizhiliao.tv/assets/images/share-a-top.jpg');
+        $('#share-desc').text('你将获得500聊币，同时对方获得50鑽')
+    }
+
+    app.Ajax('get','api/account/share', null, 'callback');
+
+
+    function callback(res) {
+        alert("成功");
+        var result = JSON.parse(res);
+
+        $('#invited').text(result.data.count);
+        $('#share-score').text(result.data.shareScore + '聊币');
+        $('#share-diamonds').text(result.data.shareDiamonds + '鑽');
+
+        if (auth == '2') {
+            $('#share-award').text(result.data.shareScore + '聊币');
+            $('#accumulated').text(result.data.score + ' 聊币');
+        } else {
+            $('#share-award').text(result.data.shareDiamonds + '鑽');
+            $('#accumulated').text(result.data.diamonds + ' 鑽');
+        }
+        $('#inviteCode').text(result.data.code);
+    }
+
+
+     var call = function()
+         {
+          var callInfo = JSON.stringify({"jianshu": "http://www.jianshu.com/users/55c8fdc3c6e7/latest_articles"});
+        tianbai.getCall(callInfo);
+         }
+
+    var Callback = function(str)
+        {
+    alert(str);
+         }
+
+    var alerCallback = function()
+               {
+    alert('成功');
+        }
+
+
+<!--      function test(name) {-->
+<!--         alert(123);-->
+<!--       };-->
+
+</script>
+</html>

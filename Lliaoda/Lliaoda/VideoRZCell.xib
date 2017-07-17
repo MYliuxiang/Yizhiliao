@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="KGk-i7-Jjw" customClass="VideoRZCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hbV-Kp-xOT">
+                        <rect key="frame" x="15" y="15" width="290" height="47"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rezheng" translatesAutoresizingMaskIntoConstraints="NO" id="GFe-p5-idr">
+                        <rect key="frame" x="30" y="30" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="F5H-3K-keN"/>
+                            <constraint firstAttribute="width" constant="22" id="Xfg-Yz-e0W"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qefqwf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOG-C6-mZj">
+                        <rect key="frame" x="67" y="30" width="223" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmN-wx-gkp">
+                        <rect key="frame" x="66" y="47" width="225" height="15"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="TfK-Nr-1xA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hbV-Kp-xOT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="3ak-t6-t4A"/>
+                    <constraint firstItem="hbV-Kp-xOT" firstAttribute="bottom" secondItem="hmN-wx-gkp" secondAttribute="bottom" id="5Ra-O2-JmJ"/>
+                    <constraint firstAttribute="trailing" secondItem="wOG-C6-mZj" secondAttribute="trailing" constant="30" id="8cy-6F-Ob9"/>
+                    <constraint firstItem="wOG-C6-mZj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="Avi-Pj-NBx"/>
+                    <constraint firstItem="hmN-wx-gkp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="66" id="Crg-rQ-GYb"/>
+                    <constraint firstItem="GFe-p5-idr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="Iyy-nu-tkN"/>
+                    <constraint firstItem="hbV-Kp-xOT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="JZc-R5-LT5"/>
+                    <constraint firstItem="GFe-p5-idr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="JyQ-eh-rYK"/>
+                    <constraint firstItem="hmN-wx-gkp" firstAttribute="top" secondItem="wOG-C6-mZj" secondAttribute="bottom" id="YZ4-gJ-MjQ"/>
+                    <constraint firstAttribute="trailing" secondItem="hbV-Kp-xOT" secondAttribute="trailing" constant="15" id="bBO-mp-po3"/>
+                    <constraint firstAttribute="trailing" secondItem="hmN-wx-gkp" secondAttribute="trailing" constant="29" id="piK-zX-AfH"/>
+                    <constraint firstItem="wOG-C6-mZj" firstAttribute="leading" secondItem="GFe-p5-idr" secondAttribute="trailing" constant="15" id="ra8-Vq-JOV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bgImgeView" destination="hbV-Kp-xOT" id="i93-DG-dRR"/>
+                <outlet property="tLabel" destination="wOG-C6-mZj" id="HI6-ys-bs7"/>
+            </connections>
+            <point key="canvasLocation" x="-497" y="106.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="rezheng" width="28" height="28"/>
+    </resources>
+</document>

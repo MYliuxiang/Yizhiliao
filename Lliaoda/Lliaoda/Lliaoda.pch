@@ -1,0 +1,243 @@
+//
+//  Lliaoda.pch
+//  Lliaoda
+//
+//  Created by 刘翔 on 2017/4/17.
+//  Copyright © 2017年 刘翔. All rights reserved.
+//
+
+#ifndef Lliaoda_pch
+#define Lliaoda_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+/*
+ 微信：
+ AppID: wxa46aa4d04c27e207
+ AppSecret: a92eed84c13b089441327a02696c44a8 
+ */
+
+/*
+ 声网：
+ 账号：4137962@163.com
+ 密码：zpx4137962
+  */
+
+/*
+ 友盟：591bf75ea40fa331a8000e7a
+ 
+ */
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+//#define DLog(s,...) NSLog(@"%s LINE:%d < %@ >",__FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__]);
+
+
+
+#define  kScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define  kScreenWidth [[UIScreen mainScreen] bounds].size.width
+
+//色值
+#define UIColorFromRGB(rgbValue) \
+[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0x00FF00) >>  8))/255.0 \
+blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0 \
+alpha:1.0]
+#define Color(r,g,b)  [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
+#define ColorRGB(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+//颜色
+#define Color_bg     [MyColor colorWithHexString:@"#F7FCFF"];
+#define Color_nav    UIColorFromRGB(0xFB3476)  
+#define Color_green  UIColorFromRGB(0x7ED321)
+
+#define Color_Text_black      UIColorFromRGB(0x333333)
+#define Color_Text_gray       UIColorFromRGB(0x999999)
+#define Color_Text_lightGray  UIColorFromRGB(0x666666)
+
+#define Color_Cell  UIColorFromRGB(0xFFFFFF)
+
+
+
+
+//常用属性
+#define LXUserDefaults  [NSUserDefaults standardUserDefaults]
+
+#define kIsFirstLauchApp @"kIsFirstLauchApp"
+
+//参考的屏幕宽度和高度 - 适配尺寸
+#define referenceBoundsHeight 568.0
+#define referenceBoundsWight 320.0
+#define ratioHeight kScreenHeight/referenceBoundsHeight
+#define ratioWidth kScreenWidth/referenceBoundsWight
+
+//通知
+#define NotiCenter_TabbarSeleced @"NotiCenter_TabbarSeleced"  //Tabbar选中页面
+
+
+//常用的类
+#import "UIViewExt.h"
+#import "UIView+ViewController.h"
+#import "MyColor.h"
+#import <LGAlertView/LGAlertView.h>
+#import "UITableViewCell+WHC_AutoHeightForCell.h"
+#import "UIView+WHC_AutoLayout.h"
+#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
+#import "AFNetworking.h"
+#import "NetWorkManager.h"
+#import "JKDBModel.h"
+#import "MJRefresh.h"
+#import "WXDataService.h"
+#import "UIImageView+WebCache.h"
+#import "LxCache.h"
+#import "InputCheck.h"
+#import "MJExtension.h"
+#import "CityTool.h"
+#import <AliyunOSSiOS/OSSService.h>
+#import "SDImageCache.h"
+
+#import "LHConfig.h"
+#import "UIView+frameAdjust.h"
+#import "LHConfig.h"
+#import "UIViewController+Set.h"
+#import "LHConst.h"
+#import "UIColor+RGB.h"
+#import "UIImage+Common.h"
+#import "UIView+Addtions.h"
+#import "UIButton+WebCache.h"
+#import "VideoCallView.h"
+#import "Message.h"
+#import "MessageCount.h"
+#import "NetWorkManager.h"
+#import "LHTools.h"
+#import "UMMobClick/MobClick.h"
+#import "BlackName.h"
+
+#import "agorasdk.h"
+#import <videoprp/AgoraYuvEnhancerObjc.h>
+
+#define CityCache @"CityCache"
+
+
+
+#define ISMEiGUO @"meiguo"
+#define itemIndex 1
+
+#define Url_cities                        @"cities"//登入
+#define Url_recommend                     @"recommend"//首页
+#define Url_account                       @"account"//获取主播信息
+#define Url_like                          @"like"//設定当前用户与直播的讚状态
+#define Url_recommendusers                @"recommend/users"//首页
+#define Url_report                        @"report"//舉報主播
+#define Url_commodities                   @"commodities"//获取可售卖商品
+#define Url_payzpayprepare                @"pay/qpay/prepare"//使用zpay支付
+#define Url_accountshow                   @"account/show"//获取当前用户展示信息，用于显示在个人展示页面
+#define Url_payiappaynotify               @"pay/iappay/notify"//获取当前用户展示信息，用于显示在个人展示页面
+#define Url_wechatpayapp                  @"pay/wechatpayapp/prepare"//使用zpay支付
+#define Url_ordercreate                   @"order/create"//创建订单，非支付订单，用户根据订单选择支付方式
+#define Url_apiaccountshare               @"account/share"//创建订单，非支付订单，用户根据订单选择支付方式
+#define Url_accountfund                   @"account/fund"//获取当前账户资产信息
+#define Url_storagekey                    @"storage/upload/apply"//获取当前账户资产信息
+#define Url_logout                        @"account/logout"//退出登陸
+#define Url_accountLogin                  @"account/login"//登入
+#define Url_accountmedia                  @"account/media"//
+#define Url_accountauth                   @"account/auth"//提交认证信息
+#define Url_gifts                         @"gifts"//获取礼物信息
+#define Url_giftsend                      @"gift/send"//向对方发送礼物
+#define Url_gift                          @"gift"//向对方发送礼物
+#define Url_accountcharge                 @"account/charge"//主播收費設定，非主播設定会返回错误
+#define Url_accountmediaremove            @"account/media/remove"//提交认证信息
+#define Url_accountmediarecover           @"account/media/cover"//提交认证信息
+#define Url_chatsignallogin               @"chat/signal/login"//登入聊天系统，返回声网信号连接token
+#define Url_chatsignallogout              @"chat/signal/logout"//登出聊天系统,注：客户端请不要直接调用这个接口
+#define Url_chatvideocall                 @"chat/video/call"//呼叫視訊聊天
+#define Url_chatvideorefuse               @"chat/video/refuse"//呼叫視訊聊天
+#define Url_chatvideoreend                @"chat/video/end"//结束通话
+#define Url_chatvideoreleave              @"chat/video/leave"//呼叫視訊聊天
+#define Url_chatvideorecancel             @"chat/video/cancel"//呼叫視訊聊天
+#define Url_appconfig                     @"app/config"//获取服务器端設定
+#define Url_match                         @"match"//获取匹配的主播列表
+#define Url_chatvideojoin                 @"chat/video/join"//被呼叫方同意之后，加入聊天频道。如果主叫/被叫用户已经在其他频道了，将被迫退出当前频道
+#define Url_chatvideorenew                @"chat/video/renew"//更新频道密钥，以便继续聊天
+#define Url_chatvideoquit                 @"chat/video/quit"//离开频道
+#define Url_accountshareactivate          @"account/share/activate"//激活邀請碼
+#define Url_accountshare                  @"account/share"//获取用户分享信息
+#define Url_chatmessagesend               @"chat/message/send"//发送訊息内容到服务器
+#define Url_accountheartbeat              @"account/heartbeat"//app在激活状态时发送给服务器
+
+
+//-------------微信登入---------
+#define WX_CODE         @"weixincode"
+#define LXAppkey        @"appkeylx"
+#define Expire          @"expire"
+
+#define UID             @"uid"
+#define AGORETOKEN      @"token"
+#define NickName        @"nickname"
+#define Portrait        @"portrait"
+#define payEnable       @"payEnable"
+
+//-----------声网通知----------
+#define Notice_onLogin                         @"onLogin" //正在登陆
+#define Notice_onLoginSuccess                  @"onLoginSuccess" //登入成功、
+#define Notice_onLoginFailed                   @"onLoginFailed" //登入失败
+#define Notice_onReconnected                   @"onReconnected" //当重连成功会触发此回调。重连失败会触发onLogout回调。
+#define Notice_onReconnecting                  @"onReconnecting" ////登入成功后，丢失连接触发本回调。
+#define Notice_messageVideoTime                @"messageVideoTime" //
+#define Notice_onLogout                        @"onLogout" //退出登陸回调(onLogout)
+#define Notice_onInviteFailed                  @"onInviteFailed" //呼叫失败回调(onInviteFailed)
+#define Notice_onInviteReceivedByPeer          @"onInviteReceivedByPeer" //远端已收到呼叫回调(onInviteReceivedByPeer,
+#define Notice_onInviteAcceptedByPeer          @"onInviteAcceptedByPeer" ////远端已接受呼叫回调(onInviteAcceptedByPeer)
+#define Notice_onInviteRefusedByPeer           @"onInviteRefusedByPeer"    //当呼叫被对方拒绝时触发。
+#define Notice_onInviteEndByPeer               @"onInviteEndByPeer"    //远端结束呼叫
+#define Notice_noMonny                         @"noMonny"    //远端没有钱
+#define Notice_ReceivedGift                    @"ReceivedGift"    //远端没有钱
+#define Notice_onMessageSendError              @"onMessageSendError"    //发送訊息失败。
+#define Notice_onMessageSendSuccess            @"onMessageSendSuccess"    //发送訊息成功。
+#define Notice_appPaySugerss                   @"appPaySugerss"    //发送訊息成功。
+#define Notice_onMessageInstantReceive         @"onMessageInstantReceive"    //收到訊息。
+#define Notice_weiXinPay                       @"weiXinPay"    //微信支付。
+#define Notice_weiXinShare                     @"weiXinShare"    //微信分享。
+
+//--------------网络请求--------
+
+#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://apl.yizhiliao.tv/api/":@"https://www.yizhiliao.tv/api/"//主URL
+
+
+#define MAINURL  MAINURLStr//主URL
+
+//#define MAINURL @"https://www.yizhiliao.tv/api/"//主URL
+//https://www.yizhiliao.tv/api/
+//信令
+#define agoreappID @"e063233af0694b93a6639bbd7e92b26a" //正式
+//#define agoreappID   @"c21bbe14f2ad406d94a92146ee60aab0" //demo
+#define certificate1 @"d5e0a27cec6f4b06b0f0003d826bbee9"
+#define enableMediaCertificate 1
+
+/*
+ Face boolk
+ APP ID：443120286052900
+ APP Secret：e8f35a8e087f81ed8b78c3ea5bbc1e54
+ */
+
+
+/*
+ uid: 2
+ appkey: 96003ff4-3e0a-431c-adda-cecf77003c0b
+ 1:5EA6E6443C9B41FF9C785A0A4ABC7F29:1495095443:de572e3c9011209a844424139c527acc
+ */
+/*
+ appleid lx921102@icloud.com
+         Lx2345678
+ 15820466014   liuxiang
+ */
+
+#endif /* Lliaoda_pch */
+
+
+

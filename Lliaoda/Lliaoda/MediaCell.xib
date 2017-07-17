@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MediaCell">
+            <rect key="frame" x="0.0" y="0.0" width="159" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="159" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vhz-Gc-DuO">
+                        <rect key="frame" x="0.0" y="0.0" width="159" height="100"/>
+                        <color key="backgroundColor" red="0.77057291670000005" green="0.77057291670000005" blue="0.77057291670000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shipin" translatesAutoresizingMaskIntoConstraints="NO" id="c13-wc-etR">
+                        <rect key="frame" x="127" y="68" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="52O-Vk-02b"/>
+                            <constraint firstAttribute="height" constant="22" id="ccp-4t-azW"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="vhz-Gc-DuO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3WJ-OA-A2o"/>
+                <constraint firstItem="vhz-Gc-DuO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6Du-N3-EDO"/>
+                <constraint firstAttribute="bottom" secondItem="c13-wc-etR" secondAttribute="bottom" constant="10" id="Bb8-9u-hnf"/>
+                <constraint firstAttribute="bottom" secondItem="vhz-Gc-DuO" secondAttribute="bottom" id="Ivo-ev-CoR"/>
+                <constraint firstAttribute="trailing" secondItem="vhz-Gc-DuO" secondAttribute="trailing" id="MAk-3p-Gar"/>
+                <constraint firstAttribute="trailing" secondItem="c13-wc-etR" secondAttribute="trailing" constant="10" id="sdl-4q-iuf"/>
+            </constraints>
+            <size key="customSize" width="159" height="100"/>
+            <connections>
+                <outlet property="coverImageView" destination="vhz-Gc-DuO" id="xLb-rt-epZ"/>
+                <outlet property="videoImageView" destination="c13-wc-etR" id="hwB-lG-vZN"/>
+            </connections>
+            <point key="canvasLocation" x="87.5" y="142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="shipin" width="22" height="22"/>
+    </resources>
+</document>

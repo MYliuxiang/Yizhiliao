@@ -1,0 +1,734 @@
+Local Date: Thu Jun 22 16:30:27 2017
+Build info: Jun  2 2017 11:47:25 r
+
+INFO    (16:30:27:522 |    0)   1027; Agora Rtc Engine SDK ver 1.11.0 build 200, built on Jun  2 2017 11:27:59
+INFO    (16:30:27:523 |    1)  32875; Thread with name:Trace started 
+WARN    (16:30:27:526 |    3)   1027; CacheManager: load cache from storage error, err=2 elapsed 1
+ERROR   (16:30:27:526 |    0)   1027; CacheManager: load report cache from storage error, err=2 elapsed 0
+INFO    (16:30:27:526 |    0)   1027; use event engine
+INFO    (16:30:27:528 |    2)   1027; API call to setChannelProfile 0
+INFO    (16:30:27:529 |    1)   1027; API call to enable video
+INFO    (16:30:27:529 |    0)   1027; API call to setVideoProfile 30 swap false
+INFO    (16:30:27:529 |    0)  40707; Agora Rtc Engine started
+INFO    (16:30:27:559 |   30)  40707; network: 'NETWORK_UNKOWN' -> 'WIFI' ipv4/v6 '192.168.1.151'/'fe80::caf:c829:9d73:3a44' gw '192.168.1.1'/'' subtype 0 level -1 ssid 'niuniu_2.4' bssid '34:96:72:fb:2:7e' rssi 0 asu 0
+INFO    (16:30:27:559 |    0)  40707; initialize plugin manager
+INFO    (16:30:27:560 |    1)  40707; built-in encryption is enabled
+INFO    (16:30:27:571 |   11)  40707; [ps] starting
+INFO    (16:30:27:572 |    1)   1027; [API] userManagerPendingView: user 0 window 5870172864
+INFO    (16:30:27:572 |    0)   1027; API call to start preview
+INFO    (16:30:27:572 |    0)   1027; API call to join channel '1' uid 0, SDK ver 1.11.0 build 200
+INFO    (16:30:27:573 |    1)   1027; API call to create data stream, id = 49153
+INFO    (16:30:27:579 |    6)  40707; found 'iPhone/iPhone7' for device 'iPhone/iPhone7,1/iOS/10.3.2'
+INFO    (16:30:27:579 |    0)  40707; [rp] {"rtc.channel_profile":0}
+INFO    (16:30:27:579 |    0)  40707; [rp] {"rtc.video.enabled":true}
+INFO    (16:30:27:579 |    0)  40707; API call to enable video
+INFO    (16:30:27:579 |    0)  40707; [rp] {"che.video.view_orientation":{"uid":0,"orientation":1}}
+INFO    (16:30:27:579 |    0)  40707; [rp] {"rtc.video.profile":[30,false]}
+INFO    (16:30:27:579 |    0)  40707; video profile is set to 30 swap false
+INFO    (16:30:27:579 |    0)  40707; [API] userManagerBindUserView: user 0 mode 2 window 5870172864
+INFO    (16:30:27:579 |    0)  40707; Create participant 0
+INFO    (16:30:27:579 |    0)  40707; [rp] {"rtc.video.preview":true}
+INFO    (16:30:27:579 |    0)  40707; API call to start video preview
+INFO    (16:30:27:579 |    0)  40707; addRef of media engine, ref=1
+INFO    (16:30:27:579 |    0)  40707; [che] create chat engine, ctx:0x0
+INFO    (16:30:27:579 |    0)  40707; [MYDEBUG] large group call false
+INFO    (16:30:27:579 |    0)  40707; ChatEngineParameterHelper::applyMediaEngineMode: 
+INFO    (16:30:27:579 |    0)  40707; applyMediaEngineMode(): Hardware encoding false Hardware decoding false
+INFO    (16:30:27:626 |   47)  40707; output: kPlatformDefaultAudio
+INFO    (16:30:27:628 |    2)  40707; [adm] AudioDeviceIOS: ctor<NSThread: 0x170479f00>{number = 5, name = (null)}
+INFO    (16:30:27:717 |   89)  40707; ChEBaseImpl, audio routing is changed to 3
+INFO    (16:30:27:719 |    2)  40707; StereoPlayoutIsAvailable(), output: available=0
+INFO    (16:30:27:719 |    0)  40707; stereo playout not supported on this platform
+INFO    (16:30:27:719 |    0)  40707; StereoRecordingIsAvailable(), output: available=0
+INFO    (16:30:27:719 |    0)  40707; stereo recording not supported on this platform
+INFO    (16:30:27:719 |    0)  43779; Thread with name:EngineMonitorThread started 
+INFO    (16:30:27:720 |    1)  40707; setMuteStatus, muted: Off
+INFO    (16:30:27:720 |    0)  40707; setMuteOutput, muted: false
+WARN    (16:30:27:720 |    0)  40707; setMicSensitivity failed, legal values are between [0, 10]
+INFO    (16:30:27:720 |    0)  40707; Audio Engine Init success
+INFO    (16:30:27:721 |    1)  40707; Available number of cores:2
+INFO    (16:30:27:722 |    1)  40707; init: feature prerotation disabled
+INFO    (16:30:27:722 |    0)  40707; init: no custom rotation
+INFO    (16:30:27:783 |   61)  40707; RefreshCameraList: found 2 cameras
+INFO    (16:30:27:795 |   12)  40707; Camera 0: name Back Camera id com.apple.avfoundation.avcapturedevice.built-in_video:0
+INFO    (16:30:27:795 |    0)  40707; Camera 1: name Front Camera id com.apple.avfoundation.avcapturedevice.built-in_video:1
+INFO    (16:30:27:795 |    0)  40707; Agora Engine video codec set to custom mode role mode 0
+INFO    (16:30:27:795 |    0)  40707; Agora Engine video codec index 1
+INFO    (16:30:27:795 |    0)  40707; Agora Engine video stream type = 0
+INFO    (16:30:27:801 |    6)  32547; Thread with name:VideoEncodeThread started 
+INFO    (16:30:27:801 |    0)  45315; Thread with name:VideoProcessThread started 
+INFO    (16:30:27:801 |    0)  40707; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (16:30:27:802 |    1)  40707; h264WebInteropEnable: enable 0
+INFO    (16:30:27:802 |    0)  40707; setMaxVideoBitrate: max bitrate=0
+INFO    (16:30:27:802 |    0)  40707; VideoEngine::setViewOrientation for uid 0 orientation 1
+INFO    (16:30:27:802 |    0)  40707; setViewOrientation: called from sdk, uid(0) ori(1)
+INFO    (16:30:27:802 |    0)  40707; [che] applyVideoProfile: 640x360 15 fps 400 kbps
+INFO    (16:30:27:802 |    0)  40707; validateVideoParameters: validate video parameters resolution 640x360, fps 15, rate 400000
+INFO    (16:30:27:802 |    0)  40707; setMaxVideoBitrate: max bitrate=400000
+INFO    (16:30:27:802 |    0)  40707; setCodecRates: set frame rate to 15
+INFO    (16:30:27:802 |    0)  40707; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (16:30:27:802 |    0)  40707; setCodecResolution: set to 640 x 360
+INFO    (16:30:27:802 |    0)  40707; [che] chat engine initialized
+INFO    (16:30:27:803 |    1)  40707; [che] applyVideoProfile: 640x360 15 fps 400 kbps
+INFO    (16:30:27:803 |    0)  40707; validateVideoParameters: validate video parameters resolution 640x360, fps 15, rate 400000
+INFO    (16:30:27:803 |    0)  40707; setMaxVideoBitrate: max bitrate=400000
+INFO    (16:30:27:803 |    0)  40707; setCodecRates: set frame rate to 15
+INFO    (16:30:27:803 |    0)  40707; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (16:30:27:803 |    0)  40707; setCodecResolution: set to 640 x 360
+INFO    (16:30:27:803 |    0)  40707; startCapture: device? 1 init? 1 local enabled? 1 capturing? 0 rendering? 0
+INFO    (16:30:27:807 |    4)  46087; Thread with name:ViECaptureThread started 
+INFO    (16:30:27:808 |    1)  40707; Enable camera ...
+INFO    (16:30:27:808 |    0)  40707; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (16:30:27:808 |    0)  40707; setMaxVideoBitrate: max bitrate=400000
+INFO    (16:30:27:808 |    0)  40707; Wanted 640x480 @15 fps
+INFO    (16:30:27:808 |    0)  40707; startCapture: startCapture success
+INFO    (16:30:27:808 |    0)  40707; EnableLowBitRateStream: dual streams enabled 0
+INFO    (16:30:27:808 |    0)  40707; RequestEncodeKeyFrame
+INFO    (16:30:27:808 |    0)  40707; stopLocalRender: Cannot stop renderer 4097 (not exist)
+INFO    (16:30:27:808 |    0)  40707; doStartLocalRender: init? 1 capture id 4097 device 1 capturing? 1 rendering? 0
+INFO    (16:30:27:808 |    0)   1027; create child view
+INFO    (16:30:27:812 |    4)  46599; Thread with name:VideoRenderIosGles_65535 started 
+INFO    (16:30:27:812 |    0)  47107; Thread with name:WebRtc_event_timer_thread started 
+INFO    (16:30:27:862 |   50)  49419; Thread with name:IncomingVideoStreamThread started 
+INFO    (16:30:27:862 |    0)  50435; Thread with name:WebRtc_event_timer_thread started 
+INFO    (16:30:27:862 |    0)  40707; stopLocalRender
+INFO    (16:30:27:862 |    0)  50435; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (16:30:27:868 |    6)  49419; Thread with name:IncomingVideoStreamThread stopped
+WARN    (16:30:27:875 |    7)  40707; Stop: Not running
+INFO    (16:30:27:875 |    0)  46599; Thread with name:VideoRenderIosGles_65535 stopped
+INFO    (16:30:27:875 |    0)  47107; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (16:30:27:875 |    0)  21263; Capturer: use capability 640 x 480 quality is AVCaptureSessionPreset640x480
+
+INFO    (16:30:27:878 |    3)  40707; doStartLocalRender: init? 1 capture id 4097 device 1 capturing? 1 rendering? 0
+INFO    (16:30:27:878 |    0)   1027; reuse the existent child view
+INFO    (16:30:27:882 |    4)  50695; Thread with name:VideoRenderIosGles_65535 started 
+INFO    (16:30:27:882 |    0)  51203; Thread with name:WebRtc_event_timer_thread started 
+INFO    (16:30:27:942 |   60)  51715; Thread with name:IncomingVideoStreamThread started 
+INFO    (16:30:27:942 |    0)  52227; Thread with name:WebRtc_event_timer_thread started 
+INFO    (16:30:27:953 |   11)  40707; ***CALL BEGIN: appid:'c2****************************b0' cname:'1' info:'' sid:'802DDACDE72D46A792C25F55673A6120'
+INFO    (16:30:27:953 |    0)  40707; addRef of media engine, ref=2
+INFO    (16:30:27:955 |    2)  40707; [tactics] config json version:20150101-0000 duallinkd:true poor0
+INFO    (16:30:27:955 |    0)  40707; [tactics] parse config for beckon error for tactics size:15
+INFO    (16:30:27:958 |    3)  40707; [vocs] vocs initialized
+INFO    (16:30:27:959 |    1)  40707; add ping address 192.168.1.1
+INFO    (16:30:27:959 |    0)  40707; PING 192.168.1.1:0 16(44) bytes of data
+INFO    (16:30:27:961 |    2)  40707; CacheManager: save cache to storage elapsed 2
+INFO    (16:30:27:961 |    0)  40707; [cm] emit join channel signal, size=3
+INFO    (16:30:27:972 |   11)  40707; CacheManager: save cache to storage elapsed 5
+INFO    (16:30:27:977 |    5)  40707; [rs] report server ip: 221.228.78.123:8000
+INFO    (16:30:27:979 |    2)  40707; [rlbs] selected: 221.228.78.123:9700
+INFO    (16:30:27:979 |    0)  40707; [rlbs] request rs list from 221.228.78.123:9700.......
+INFO    (16:30:28: 24 |    0)  40707; [vocs] lookup channel...
+INFO    (16:30:28: 25 |    1)  40707; [vocs] selected: 119.9.92.49:8000
+INFO    (16:30:28: 26 |    1)  40707; connecting to 119.9.92.49:8000 handle 5de53c00, 37
+INFO    (16:30:28: 26 |    0)  40707; [vocs] creating channel with 119.9.92.49:8000, ts 1498120228026.......
+INFO    (16:30:28: 29 |    3)  40707; [vocs] selected: 70.39.189.65:8000
+INFO    (16:30:28: 29 |    0)  40707; [vocs] creating channel with 70.39.189.65:8000, ts 1498120228029.......
+INFO    (16:30:28: 33 |    4)  40707; [vocs] selected: 221.228.202.134:8000
+INFO    (16:30:28: 33 |    0)  40707; [vocs] creating channel with 221.228.202.134:8000, ts 1498120228033.......
+INFO    (16:30:28: 35 |    2)  40707; [rp] {"che.audio.output.routing":3}
+INFO    (16:30:28: 39 |    4)  40707; SetHowlingControl enable = 1
+INFO    (16:30:28: 39 |    0)  40707; Application Config module:  Route 3, NS off, AEC N, AGC off, BSS off
+INFO    (16:30:28: 39 |    0)  40707; MID = 1005, Routing = 3
+INFO    (16:30:28: 39 |    0)  40707; [rp] {"che.audio.backup_audio_session_category":"AVAudioSessionCategorySoloAmbient"}
+INFO    (16:30:28: 39 |    0)  40707; [rp] {"che.audio.backup_audio_session_mode":"AVAudioSessionModeDefault"}
+INFO    (16:30:28: 39 |    0)  40707; [rp] {"che.audio.notify.routing":3}
+INFO    (16:30:28: 39 |    0)  40707; [rp] {"che.audio.output.routing":3}
+INFO    (16:30:28: 39 |    0)  40707; SetHowlingControl enable = 1
+INFO    (16:30:28: 39 |    0)  40707; Application Config module:  Route 3, NS off, AEC N, AGC off, BSS off
+INFO    (16:30:28: 39 |    0)  40707; MID = 1005, Routing = 3
+INFO    (16:30:28: 41 |    2)  40707; [rlbs/u] responsed from 221.228.78.123:9700 with servers 123.155.154.122:8000
+INFO    (16:30:28: 41 |    0)  40707; [dns] parsed ip 119.9.116.105
+INFO    (16:30:28: 41 |    0)  40707; [dns] parsed ip 139.196.91.69
+INFO    (16:30:28: 41 |    0)  40707; [vocs/t] tcp create channel connected with 0x10a100000
+INFO    (16:30:28: 41 |    0)  40707; [vocs] tcp - creating channel with 119.9.92.49:8000, ts 1498120228041.......
+ERROR   (16:30:28: 50 |    9)  40707; [vocs/u] responsed from 119.9.92.49:8000 with error: 9, elapsed: 477, server ts: 0. connection aborted
+INFO    (16:30:28: 50 |    0)  40707; [vocs] 119.9.92.49:8000 is reported failure, and will be disabled for 4000 ms
+INFO    (16:30:28: 59 |    9)  40707; [ps] error received, deviceIndexRequest, err 404
+INFO    (16:30:28: 59 |    0)  40707; [ps] udpate priority: 2
+INFO    (16:30:28: 60 |    1)  40707; [ps] received ok, globalPolicyRequest
+INFO    (16:30:28: 60 |    0)  40707; [ps] udpate priority: 1
+INFO    (16:30:28: 62 |    2)  40707; [ps] error received, vendorPolicyRequest, err 404
+INFO    (16:30:28: 62 |    0)  40707; [ps] udpate priority: 3
+INFO    (16:30:28: 72 |   10)  40707; [ps] error received, versionPolicyRequest, err 404
+INFO    (16:30:28: 72 |    0)  40707; [ps] udpate priority: 4
+INFO    (16:30:28: 74 |    2)  40707; CacheManager: save cache to storage elapsed 2
+INFO    (16:30:28: 75 |    1)  40707; [ps] start to apply
+ERROR   (16:30:28: 75 |    0)  40707; [vocs/u] responsed from 221.228.202.134:8000 with error: 9, elapsed: 502, server ts: 0. connection aborted
+INFO    (16:30:28: 75 |    0)  40707; [vocs] 221.228.202.134:8000 is reported failure, and will be disabled for 4000 ms
+ERROR   (16:30:28:201 |  126)  40707; [vocs/u] responsed from 70.39.189.65:8000 with error: 15, elapsed: 628, server ts: 0. connection aborted
+INFO    (16:30:28:201 |    0)  40707; [vocs] 70.39.189.65:8000 is reported failure, and will be disabled for 4000 ms
+INFO    (16:30:28:294 |   93)  40707; [dns] parsed ip 125.88.159.162
+INFO    (16:30:28:294 |    0)  40707; [dns] parsed ip 101.201.199.195
+INFO    (16:30:28:294 |    0)  40707; [dns] parsed ip 115.231.73.203
+INFO    (16:30:28:294 |    0)  40707; [dns] parsed ip 221.228.202.134
+INFO    (16:30:28:418 |  124)  46087; [che] onVideoSizeChanged: uid 0 640x360 rotate 90
+INFO    (16:30:28:423 |    5)  51715; User 0's view size is changed to 0 * 0
+INFO    (16:30:28:423 |    0)  51715; Local stream (4097) first rendered with resolution 640 * 360
+INFO    (16:30:28:424 |    1)  40707; onFirstVideoFrame local 0 resolution 640 * 360, elapsed 621
+INFO    (16:30:29:499 |   75)  40707; [dns] parsed ip 114.236.141.253
+INFO    (16:30:29:499 |    0)  40707; [dns] parsed ip 124.116.195.133
+INFO    (16:30:29:499 |    0)  40707; [dns] parsed ip 58.211.16.86
+INFO    (16:30:29:499 |    0)  40707; [dns] parsed ip 115.231.160.214
+INFO    (16:30:29:499 |    0)  40707; [rs] dns parse result code: 0, servers size: 4
+INFO    (16:30:29:883 |  384)  50695; Render buffer size 1242 x 2208
+
+INFO    (16:30:29:908 |   25)  50695; Setup: uid 0 width 300, height 300
+INFO    (16:30:29:967 |   59)  50695; SetCoordinates: uid 0 overflowMode 2
+INFO    (16:30:29:967 |    0)  50695; SetViewOrientation: uid 4097 viewOri 1
+INFO    (16:30:29:967 |    0)  50695; SetRotateInfo: uid 4097 videoRotate: 0 devRotate: 0 
+INFO    (16:30:29:967 |    0)  50695; SetCameraOrientation: uid 4097 camera ori: 90 index: 1 
+INFO    (16:30:29:980 |   13)  50695; Render buffer size 1242 x 2208
+
+INFO    (16:30:30: 36 |    0)  51715; User 0's view size is changed to 1242 * 2208
+INFO    (16:30:42:535 |  499)  40707; [rs] dns parse result code: 0, servers size: 4
+INFO    (16:30:42:535 |    0)  40707; [rs] dns parse retry time: 1
+INFO    (16:30:57:131 |    0)  40707; socket 37 119.9.92.49:8000 error 11
+ERROR   (16:30:57:131 |    0)  40707; [vocs] socket error on tcp link 0x10a100000
+INFO    (16:30:57:534 |  403)  40707; [rs] dns parse result code: 0, servers size: 4
+INFO    (16:30:57:534 |    0)  40707; [rs] dns parse retry time: 2
+INFO    (16:31: 1:535 |    1)  40707; **CALL STATS: duraton 31s cpu app/total 14.15/44.72 tx/rx: 0/0 kbps 2.26K/598 bytes
+Local Date: Thu Jun 22 16:31:37 2017
+Build info: Jun  2 2017 11:47:25 r
+
+INFO    (16:31:37:726 |    0)  31583; Thread with name:Trace started 
+INFO    (16:31:37:727 |    1)   1027; Agora Rtc Engine SDK ver 1.11.0 build 200, built on Jun  2 2017 11:27:59
+INFO    (16:31:37:730 |    3)   1027; CacheManager: load cache from storage elapsed 1
+ERROR   (16:31:37:730 |    0)   1027; CacheManager: load report cache from storage error, err=2 elapsed 0
+INFO    (16:31:37:730 |    0)   1027; use event engine
+INFO    (16:31:37:732 |    2)  40963; Agora Rtc Engine started
+INFO    (16:31:37:732 |    0)   1027; API call to setChannelProfile 0
+INFO    (16:31:37:732 |    0)   1027; API call to enable video
+INFO    (16:31:37:732 |    0)   1027; API call to setVideoProfile 30 swap false
+INFO    (16:31:37:742 |   10)  40963; network: 'NETWORK_UNKOWN' -> 'WIFI' ipv4/v6 '192.168.1.151'/'fe80::caf:c829:9d73:3a44' gw '192.168.1.1'/'' subtype 0 level -1 ssid 'niuniu_2.4' bssid '34:96:72:fb:2:7e' rssi 0 asu 0
+INFO    (16:31:37:742 |    0)  40963; initialize plugin manager
+INFO    (16:31:37:742 |    0)  40963; built-in encryption is enabled
+INFO    (16:31:37:751 |    9)  40963; [ps] start to apply
+INFO    (16:31:37:753 |    2)  40963; [ps] applied
+INFO    (16:31:37:753 |    0)  40963; found 'iPhone/iPhone7' for device 'iPhone/iPhone7,1/iOS/10.3.2'
+INFO    (16:31:37:753 |    0)  40963; [rp] {"rtc.channel_profile":0}
+INFO    (16:31:37:753 |    0)  40963; [rp] {"rtc.video.enabled":true}
+INFO    (16:31:37:753 |    0)  40963; API call to enable video
+INFO    (16:31:37:753 |    0)  40963; [rp] {"che.video.view_orientation":{"uid":0,"orientation":1}}
+INFO    (16:31:37:753 |    0)  40963; [rp] {"rtc.video.profile":[30,false]}
+INFO    (16:31:37:753 |    0)  40963; video profile is set to 30 swap false
+INFO    (16:31:37:767 |   14)   1027; [API] userManagerPendingView: user 0 window 4494380320
+INFO    (16:31:37:767 |    0)  40963; [API] userManagerBindUserView: user 0 mode 2 window 4494380320
+INFO    (16:31:37:767 |    0)  40963; Create participant 0
+INFO    (16:31:37:767 |    0)   1027; API call to start preview
+INFO    (16:31:37:767 |    0)   1027; API call to join channel '2' uid 0, SDK ver 1.11.0 build 200
+INFO    (16:31:37:768 |    1)  40963; [rp] {"rtc.video.preview":true}
+INFO    (16:31:37:768 |    0)  40963; API call to start video preview
+INFO    (16:31:37:768 |    0)  40963; addRef of media engine, ref=1
+INFO    (16:31:37:768 |    0)  40963; [che] create chat engine, ctx:0x0
+INFO    (16:31:37:768 |    0)   1027; API call to create data stream, id = 49153
+INFO    (16:31:37:770 |    2)  40963; [MYDEBUG] large group call false
+INFO    (16:31:37:770 |    0)  40963; ChatEngineParameterHelper::applyMediaEngineMode: 
+INFO    (16:31:37:770 |    0)  40963; applyMediaEngineMode(): Hardware encoding false Hardware decoding false
+INFO    (16:31:37:788 |   18)  40963; output: kPlatformDefaultAudio
+INFO    (16:31:37:789 |    1)  40963; [adm] AudioDeviceIOS: ctor<NSThread: 0x17426b9c0>{number = 5, name = (null)}
+INFO    (16:31:37:840 |   51)  40963; ChEBaseImpl, audio routing is changed to 3
+INFO    (16:31:37:842 |    2)  40963; StereoPlayoutIsAvailable(), output: available=0
+INFO    (16:31:37:842 |    0)  40963; stereo playout not supported on this platform
+INFO    (16:31:37:842 |    0)  40963; StereoRecordingIsAvailable(), output: available=0
+INFO    (16:31:37:842 |    0)  40963; stereo recording not supported on this platform
+INFO    (16:31:37:843 |    1)  44035; Thread with name:EngineMonitorThread started 
+INFO    (16:31:37:843 |    0)  40963; setMuteStatus, muted: Off
+INFO    (16:31:37:843 |    0)  40963; setMuteOutput, muted: false
+WARN    (16:31:37:843 |    0)  40963; setMicSensitivity failed, legal values are between [0, 10]
+INFO    (16:31:37:844 |    1)  40963; Audio Engine Init success
+INFO    (16:31:37:844 |    0)  40963; Available number of cores:2
+INFO    (16:31:37:845 |    1)  40963; init: feature prerotation disabled
+INFO    (16:31:37:845 |    0)  40963; init: no custom rotation
+INFO    (16:31:37:867 |   22)  40963; RefreshCameraList: found 2 cameras
+INFO    (16:31:37:871 |    4)  40963; Camera 0: name Back Camera id com.apple.avfoundation.avcapturedevice.built-in_video:0
+INFO    (16:31:37:871 |    0)  40963; Camera 1: name Front Camera id com.apple.avfoundation.avcapturedevice.built-in_video:1
+INFO    (16:31:37:871 |    0)  40963; Agora Engine video codec set to custom mode role mode 0
+INFO    (16:31:37:871 |    0)  40963; Agora Engine video codec index 1
+INFO    (16:31:37:872 |    1)  40963; Agora Engine video stream type = 0
+INFO    (16:31:37:872 |    0)  45339; Thread with name:VideoEncodeThread started 
+INFO    (16:31:37:873 |    1)  45827; Thread with name:VideoProcessThread started 
+INFO    (16:31:37:873 |    0)  40963; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (16:31:37:873 |    0)  40963; h264WebInteropEnable: enable 0
+INFO    (16:31:37:873 |    0)  40963; setMaxVideoBitrate: max bitrate=0
+INFO    (16:31:37:873 |    0)  40963; VideoEngine::setViewOrientation for uid 0 orientation 1
+INFO    (16:31:37:873 |    0)  40963; setViewOrientation: called from sdk, uid(0) ori(1)
+INFO    (16:31:37:873 |    0)  40963; [che] applyVideoProfile: 640x360 15 fps 400 kbps
+INFO    (16:31:37:873 |    0)  40963; validateVideoParameters: validate video parameters resolution 640x360, fps 15, rate 400000
+INFO    (16:31:37:873 |    0)  40963; setMaxVideoBitrate: max bitrate=400000
+INFO    (16:31:37:873 |    0)  40963; setCodecRates: set frame rate to 15
+INFO    (16:31:37:873 |    0)  40963; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (16:31:37:873 |    0)  40963; setCodecResolution: set to 640 x 360
+INFO    (16:31:37:873 |    0)  40963; [che] chat engine initialized
+INFO    (16:31:37:874 |    1)  40963; [che] applyVideoProfile: 640x360 15 fps 400 kbps
+INFO    (16:31:37:874 |    0)  40963; validateVideoParameters: validate video parameters resolution 640x360, fps 15, rate 400000
+INFO    (16:31:37:874 |    0)  40963; setMaxVideoBitrate: max bitrate=400000
+INFO    (16:31:37:874 |    0)  40963; setCodecRates: set frame rate to 15
+INFO    (16:31:37:874 |    0)  40963; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (16:31:37:874 |    0)  40963; setCodecResolution: set to 640 x 360
+INFO    (16:31:37:874 |    0)  40963; startCapture: device? 1 init? 1 local enabled? 1 capturing? 0 rendering? 0
+INFO    (16:31:37:878 |    4)  46599; Thread with name:ViECaptureThread started 
+INFO    (16:31:37:879 |    1)  40963; Enable camera ...
+INFO    (16:31:37:879 |    0)  40963; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (16:31:37:879 |    0)  40963; setMaxVideoBitrate: max bitrate=400000
+INFO    (16:31:37:879 |    0)  40963; Wanted 640x480 @15 fps
+INFO    (16:31:37:879 |    0)  40963; startCapture: startCapture success
+INFO    (16:31:37:879 |    0)  40963; EnableLowBitRateStream: dual streams enabled 0
+INFO    (16:31:37:879 |    0)  40963; RequestEncodeKeyFrame
+INFO    (16:31:37:879 |    0)  40963; stopLocalRender: Cannot stop renderer 4097 (not exist)
+INFO    (16:31:37:879 |    0)  40963; doStartLocalRender: init? 1 capture id 4097 device 1 capturing? 1 rendering? 0
+INFO    (16:31:37:879 |    0)   1027; create child view
+INFO    (16:31:37:880 |    1)  47623; Thread with name:VideoRenderIosGles_65535 started 
+INFO    (16:31:37:881 |    1)  48387; Thread with name:WebRtc_event_timer_thread started 
+INFO    (16:31:37:903 |   22)  34819; Capturer: use capability 640 x 480 quality is AVCaptureSessionPreset640x480
+
+INFO    (16:31:37:934 |   31)  51203; Thread with name:IncomingVideoStreamThread started 
+INFO    (16:31:37:934 |    0)  51715; Thread with name:WebRtc_event_timer_thread started 
+INFO    (16:31:37:934 |    0)  40963; stopLocalRender
+INFO    (16:31:37:934 |    0)  51715; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (16:31:37:940 |    6)  51203; Thread with name:IncomingVideoStreamThread stopped
+WARN    (16:31:37:947 |    7)  40963; Stop: Not running
+INFO    (16:31:37:947 |    0)  47623; Thread with name:VideoRenderIosGles_65535 stopped
+INFO    (16:31:37:947 |    0)  48387; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (16:31:37:947 |    0)  40963; doStartLocalRender: init? 1 capture id 4097 device 1 capturing? 1 rendering? 0
+INFO    (16:31:37:947 |    0)   1027; reuse the existent child view
+INFO    (16:31:37:947 |    0)  48391; Thread with name:VideoRenderIosGles_65535 started 
+INFO    (16:31:37:947 |    0)  48655; Thread with name:WebRtc_event_timer_thread started 
+INFO    (16:31:38:  2 |    0)  51207; Thread with name:IncomingVideoStreamThread started 
+INFO    (16:31:38:  2 |    0)  51719; Thread with name:WebRtc_event_timer_thread started 
+INFO    (16:31:38: 10 |    8)  40963; ***CALL BEGIN: appid:'c2****************************b0' cname:'2' info:'' sid:'369C404BFF6041E8BB121D7F882278FD'
+INFO    (16:31:38: 10 |    0)  40963; addRef of media engine, ref=2
+INFO    (16:31:38: 12 |    2)  40963; [tactics] config json version:20160225-1625 duallinkd:true poor0
+INFO    (16:31:38: 12 |    0)  40963; [tactics] parse config done: 15 13  1
+INFO    (16:31:38: 14 |    2)  40963; [vocs] vocs initialized
+INFO    (16:31:38: 15 |    1)  40963; add ping address 192.168.1.1
+INFO    (16:31:38: 15 |    0)  40963; PING 192.168.1.1:0 16(44) bytes of data
+ERROR   (16:31:38: 15 |    0)  40963; [cm] session '802DDACDE72D46A792C25F55673A6120' was not terminated properly
+INFO    (16:31:38: 16 |    1)  40963; CacheManager: save cache to storage elapsed 1
+INFO    (16:31:38: 16 |    0)  40963; [cm] emit join channel signal, size=3
+INFO    (16:31:38: 16 |    0)  40963; [rs] report server ip: 221.228.78.123:8000
+INFO    (16:31:38: 17 |    1)  40963; [rlbs] selected: 221.228.78.123:9700
+INFO    (16:31:38: 17 |    0)  40963; [rlbs] request rs list from 221.228.78.123:9700.......
+INFO    (16:31:38: 17 |    0)  40963; [vocs] lookup channel...
+INFO    (16:31:38: 18 |    1)  40963; [vocs] selected: 119.9.92.49:8000
+INFO    (16:31:38: 18 |    0)  40963; connecting to 119.9.92.49:8000 handle be68940, 28
+INFO    (16:31:38: 18 |    0)  40963; [vocs] creating channel with 119.9.92.49:8000, ts 1498120298018.......
+INFO    (16:31:38: 18 |    0)  40963; [vocs] selected: 70.39.189.65:8000
+INFO    (16:31:38: 18 |    0)  40963; [vocs] creating channel with 70.39.189.65:8000, ts 1498120298018.......
+INFO    (16:31:38: 18 |    0)  40963; [vocs] selected: 221.228.202.134:8000
+INFO    (16:31:38: 18 |    0)  40963; [vocs] creating channel with 221.228.202.134:8000, ts 1498120298018.......
+INFO    (16:31:38: 18 |    0)  40963; [rp] {"che.audio.output.routing":3}
+INFO    (16:31:38: 19 |    1)  40963; SetHowlingControl enable = 1
+INFO    (16:31:38: 19 |    0)  40963; Application Config module:  Route 3, NS off, AEC N, AGC off, BSS off
+INFO    (16:31:38: 19 |    0)  40963; MID = 1005, Routing = 3
+INFO    (16:31:38: 19 |    0)  40963; [rp] {"che.audio.backup_audio_session_category":"AVAudioSessionCategorySoloAmbient"}
+INFO    (16:31:38: 19 |    0)  40963; [rp] {"che.audio.backup_audio_session_mode":"AVAudioSessionModeDefault"}
+INFO    (16:31:38: 20 |    1)  40963; [rp] {"che.audio.notify.routing":3}
+INFO    (16:31:38: 20 |    0)  40963; [rp] {"che.audio.output.routing":3}
+INFO    (16:31:38: 20 |    0)  40963; SetHowlingControl enable = 1
+INFO    (16:31:38: 20 |    0)  40963; Application Config module:  Route 3, NS off, AEC N, AGC off, BSS off
+INFO    (16:31:38: 20 |    0)  40963; MID = 1005, Routing = 3
+INFO    (16:31:38: 34 |   14)  40963; [vocs/t] tcp create channel connected with 0x10a160000
+INFO    (16:31:38: 34 |    0)  40963; [vocs] tcp - creating channel with 119.9.92.49:8000, ts 1498120298034.......
+ERROR   (16:31:38: 37 |    3)  40963; [vocs/u] responsed from 119.9.92.49:8000 with error: 9, elapsed: 269, server ts: 0. connection aborted
+INFO    (16:31:38: 37 |    0)  40963; [vocs] 119.9.92.49:8000 is reported failure, and will be disabled for 4000 ms
+INFO    (16:31:38: 48 |   11)  40963; [rlbs/u] responsed from 221.228.78.123:9700 with servers 112.11.130.226:8000
+INFO    (16:31:38: 52 |    4)  40963; [dns] parsed ip 58.211.16.86
+INFO    (16:31:38: 53 |    1)  40963; [dns] parsed ip 115.231.160.214
+INFO    (16:31:38: 53 |    0)  40963; [dns] parsed ip 124.116.195.133
+INFO    (16:31:38: 53 |    0)  40963; [dns] parsed ip 114.236.141.253
+INFO    (16:31:38: 53 |    0)  40963; [rs] dns parse result code: 0, servers size: 4
+ERROR   (16:31:38: 53 |    0)  40963; [vocs/u] responsed from 221.228.202.134:8000 with error: 9, elapsed: 285, server ts: 0. connection aborted
+INFO    (16:31:38: 53 |    0)  40963; [vocs] 221.228.202.134:8000 is reported failure, and will be disabled for 4000 ms
+ERROR   (16:31:38:188 |  135)  40963; [vocs/u] responsed from 70.39.189.65:8000 with error: 15, elapsed: 420, server ts: 0. connection aborted
+INFO    (16:31:38:188 |    0)  40963; [vocs] 70.39.189.65:8000 is reported failure, and will be disabled for 4000 ms
+INFO    (16:31:38:316 |  128)  40963; [dns] parsed ip 221.228.202.134
+INFO    (16:31:38:316 |    0)  40963; [dns] parsed ip 101.201.199.195
+INFO    (16:31:38:316 |    0)  40963; [dns] parsed ip 125.88.159.162
+INFO    (16:31:38:316 |    0)  40963; [dns] parsed ip 115.231.73.203
+INFO    (16:31:38:352 |   36)  46599; [che] onVideoSizeChanged: uid 0 640x360 rotate 90
+INFO    (16:31:38:356 |    4)  51207; User 0's view size is changed to 0 * 0
+INFO    (16:31:38:357 |    1)  51207; Local stream (4097) first rendered with resolution 640 * 360
+INFO    (16:31:38:357 |    0)  40963; onFirstVideoFrame local 0 resolution 640 * 360, elapsed 483
+INFO    (16:31:38:511 |  154)  48391; Render buffer size 1242 x 2208
+
+INFO    (16:31:38:511 |    0)  48391; Setup: uid 0 width 300, height 300
+INFO    (16:31:38:515 |    4)  48391; SetCoordinates: uid 0 overflowMode 2
+INFO    (16:31:38:515 |    0)  48391; SetViewOrientation: uid 4097 viewOri 1
+INFO    (16:31:38:515 |    0)  48391; SetRotateInfo: uid 4097 videoRotate: 0 devRotate: 0 
+INFO    (16:31:38:515 |    0)  48391; SetCameraOrientation: uid 4097 camera ori: 90 index: 1 
+INFO    (16:31:38:561 |   46)  48391; Render buffer size 1242 x 2208
+
+INFO    (16:31:38:563 |    2)  51207; User 0's view size is changed to 1242 * 2208
+INFO    (16:31:54:654 |   91)  40963; [rs] dns parse result code: 0, servers size: 4
+INFO    (16:31:54:654 |    0)  40963; [rs] dns parse retry time: 1
+INFO    (16:32: 7: 54 |    0)  40963; socket 28 119.9.92.49:8000 error 11
+ERROR   (16:32: 7: 54 |    0)  40963; [vocs] socket error on tcp link 0x10a160000
+INFO    (16:32: 7:774 |  720)  40963; [rs] dns parse result code: 0, servers size: 4
+INFO    (16:32: 7:774 |    0)  40963; [rs] dns parse retry time: 2
+INFO    (16:32:10:828 |   54)  40963; **CALL STATS: duraton 30s cpu app/total 11.74/38.13 tx/rx: 1/0 kbps 4.212K/439 bytes
+INFO    (16:32:22:771 |    0)  40963; [rs] dns parse result code: 0, servers size: 4
+INFO    (16:32:22:771 |    0)  40963; [rs] dns parse retry time: 3
+INFO    (16:32:34:647 |    0)  40963; CacheManager: save report cache to storage elapsed 3
+INFO    (16:32:42:824 |  177)  40963; **CALL STATS: duraton 1m2s cpu app/total 15.39/53.86 tx/rx: 1/0 kbps 9.694K/559 bytes
+INFO    (16:33:12:826 |    2)  40963; **CALL STATS: duraton 1m32s cpu app/total 15.39/39.3 tx/rx: 0/0 kbps 17.190K/599 bytes
+INFO    (16:33:49: 15 |    0)  40963; **CALL STATS: duraton 1m53s cpu app/total 15.85/60.64 tx/rx: 1/0 kbps 22.828K/599 bytes
+INFO    (16:34:58:158 |  143)  40963; **CALL STATS: duraton 2m15s cpu app/total 6.15/32.42 tx/rx: 0/0 kbps 25.543K/759 bytes
+INFO    (16:35:28:165 |    7)  40963; **CALL STATS: duraton 3m48s cpu app/total 15.5/43.12 tx/rx: 0/0 kbps 34.248K/759 bytes
+INFO    (16:36: 0:162 |    0)  40963; **CALL STATS: duraton 4m20s cpu app/total 12.65/41.75 tx/rx: 0/0 kbps 42.799K/919 bytes
+INFO    (16:36:32:160 |    0)  40963; **CALL STATS: duraton 4m52s cpu app/total 12.99/72.7 tx/rx: 8/0 kbps 53.518K/999 bytes
+INFO    (16:37: 2:162 |    2)  40963; **CALL STATS: duraton 5m22s cpu app/total 14.15/60.50 tx/rx: 8/0 kbps 62.629K/1.135K bytes
+Local Date: Thu Jun 22 17:18:42 2017
+Build info: Jun  2 2017 11:47:25 r
+
+INFO    (17:18:42:817 |    0)  40211; Thread with name:Trace started 
+INFO    (17:18:42:822 |    5)   1027; Agora Rtc Engine SDK ver 1.11.0 build 200, built on Jun  2 2017 11:27:59
+INFO    (17:18:42:825 |    3)   1027; CacheManager: load cache from storage elapsed 3
+INFO    (17:18:42:829 |    4)   1027; CacheManager: load report cache from storage elapsed 4
+INFO    (17:18:42:829 |    0)   1027; use event engine
+INFO    (17:18:42:831 |    2)   1027; API call to setChannelProfile 0
+INFO    (17:18:42:832 |    1)  40963; Agora Rtc Engine started
+INFO    (17:18:42:832 |    0)   1027; API call to enable video
+INFO    (17:18:42:832 |    0)   1027; API call to setVideoProfile 30 swap false
+INFO    (17:18:42:834 |    2)   1027; [API] userManagerPendingView: user 0 window 4320319936
+INFO    (17:18:42:858 |   24)  40963; network: 'NETWORK_UNKOWN' -> 'WIFI' ipv4/v6 '192.168.1.151'/'fe80::caf:c829:9d73:3a44' gw '192.168.1.1'/'' subtype 0 level -1 ssid 'niuniu_2.4' bssid '34:96:72:fb:2:7e' rssi 0 asu 0
+INFO    (17:18:42:858 |    0)  40963; initialize plugin manager
+INFO    (17:18:42:859 |    1)  40963; loading encryption module: '/var/containers/Bundle/Application/F0A402E2-0513-40F0-8CD7-5AC4CAC176F4/OpenVideoCall.app/libagora-crypto.so'
+INFO    (17:18:42:859 |    0)  40963; loading encryption module: 'libcrypto.so'
+INFO    (17:18:42:860 |    1)   1027; API call to start preview
+INFO    (17:18:42:860 |    0)   1027; API call to join channel '2' uid 0, SDK ver 1.11.0 build 200
+INFO    (17:18:42:864 |    4)  40963; [ps] start to apply
+INFO    (17:18:42:867 |    3)  40963; [ps] applied
+INFO    (17:18:42:867 |    0)  40963; found 'iPhone/iPhone7' for device 'iPhone/iPhone7,1/iOS/10.3.2'
+INFO    (17:18:42:889 |   22)  40963; [rp] {"rtc.channel_profile":0}
+INFO    (17:18:42:890 |    1)  40963; [rp] {"rtc.video.enabled":true}
+INFO    (17:18:42:890 |    0)  40963; API call to enable video
+INFO    (17:18:42:890 |    0)  40963; [rp] {"che.video.view_orientation":{"uid":0,"orientation":1}}
+INFO    (17:18:42:890 |    0)  40963; [rp] {"rtc.video.profile":[30,false]}
+INFO    (17:18:42:890 |    0)  40963; video profile is set to 30 swap false
+INFO    (17:18:42:890 |    0)  40963; [API] userManagerBindUserView: user 0 mode 2 window 4320319936
+INFO    (17:18:42:890 |    0)  40963; Create participant 0
+INFO    (17:18:42:890 |    0)  40963; [rp] {"rtc.video.preview":true}
+INFO    (17:18:42:890 |    0)  40963; API call to start video preview
+INFO    (17:18:42:890 |    0)  40963; addRef of media engine, ref=1
+INFO    (17:18:42:890 |    0)  40963; [che] create chat engine, ctx:0x0
+INFO    (17:18:42:891 |    1)  40963; [MYDEBUG] large group call false
+INFO    (17:18:42:891 |    0)  40963; ChatEngineParameterHelper::applyMediaEngineMode: 
+INFO    (17:18:42:891 |    0)  40963; applyMediaEngineMode(): Hardware encoding false Hardware decoding false
+INFO    (17:18:42:905 |   14)  40963; output: kPlatformDefaultAudio
+INFO    (17:18:42:905 |    0)  40963; [adm] AudioDeviceIOS: ctor<NSThread: 0x17047aec0>{number = 5, name = (null)}
+INFO    (17:18:42:944 |   39)  40963; ChEBaseImpl, audio routing is changed to 3
+INFO    (17:18:42:945 |    1)  40963; StereoPlayoutIsAvailable(), output: available=0
+INFO    (17:18:42:945 |    0)  40963; stereo playout not supported on this platform
+INFO    (17:18:42:945 |    0)  40963; StereoRecordingIsAvailable(), output: available=0
+INFO    (17:18:42:945 |    0)  40963; stereo recording not supported on this platform
+INFO    (17:18:42:945 |    0)  44035; Thread with name:EngineMonitorThread started 
+INFO    (17:18:42:946 |    1)  40963; setMuteStatus, muted: Off
+INFO    (17:18:42:946 |    0)  40963; setMuteOutput, muted: false
+WARN    (17:18:42:946 |    0)  40963; setMicSensitivity failed, legal values are between [0, 10]
+INFO    (17:18:42:946 |    0)  40963; Audio Engine Init success
+INFO    (17:18:42:946 |    0)  40963; Available number of cores:2
+INFO    (17:18:42:947 |    1)  40963; init: feature prerotation disabled
+INFO    (17:18:42:947 |    0)  40963; init: no custom rotation
+INFO    (17:18:42:988 |   41)  40963; RefreshCameraList: found 2 cameras
+INFO    (17:18:42:995 |    7)  40963; Camera 0: name Back Camera id com.apple.avfoundation.avcapturedevice.built-in_video:0
+INFO    (17:18:42:995 |    0)  40963; Camera 1: name Front Camera id com.apple.avfoundation.avcapturedevice.built-in_video:1
+INFO    (17:18:42:995 |    0)  40963; Agora Engine video codec set to custom mode role mode 0
+INFO    (17:18:42:995 |    0)  40963; Agora Engine video codec index 1
+INFO    (17:18:42:995 |    0)  40963; Agora Engine video stream type = 0
+INFO    (17:18:42:999 |    4)  45339; Thread with name:VideoEncodeThread started 
+INFO    (17:18:43:  0 |    0)  45827; Thread with name:VideoProcessThread started 
+INFO    (17:18:43:  0 |    0)  40963; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (17:18:43:  0 |    0)  40963; h264WebInteropEnable: enable 0
+INFO    (17:18:43:  1 |    0)  40963; setMaxVideoBitrate: max bitrate=0
+INFO    (17:18:43:  1 |    0)  40963; VideoEngine::setViewOrientation for uid 0 orientation 1
+INFO    (17:18:43:  1 |    0)  40963; setViewOrientation: called from sdk, uid(0) ori(1)
+INFO    (17:18:43:  1 |    0)  40963; [che] applyVideoProfile: 640x360 15 fps 400 kbps
+INFO    (17:18:43:  1 |    0)  40963; validateVideoParameters: validate video parameters resolution 640x360, fps 15, rate 400000
+INFO    (17:18:43:  1 |    0)  40963; setMaxVideoBitrate: max bitrate=400000
+INFO    (17:18:43:  1 |    0)  40963; setCodecRates: set frame rate to 15
+INFO    (17:18:43:  1 |    0)  40963; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (17:18:43:  1 |    0)  40963; setCodecResolution: set to 640 x 360
+INFO    (17:18:43:  1 |    0)  40963; [che] chat engine initialized
+INFO    (17:18:43:  1 |    0)  40963; [che] applyVideoProfile: 640x360 15 fps 400 kbps
+INFO    (17:18:43:  1 |    0)  40963; validateVideoParameters: validate video parameters resolution 640x360, fps 15, rate 400000
+INFO    (17:18:43:  1 |    0)  40963; setMaxVideoBitrate: max bitrate=400000
+INFO    (17:18:43:  1 |    0)  40963; setCodecRates: set frame rate to 15
+INFO    (17:18:43:  1 |    0)  40963; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (17:18:43:  1 |    0)  40963; setCodecResolution: set to 640 x 360
+INFO    (17:18:43:  1 |    0)  40963; startCapture: device? 1 init? 1 local enabled? 1 capturing? 0 rendering? 0
+INFO    (17:18:43:  5 |    4)  46599; Thread with name:ViECaptureThread started 
+INFO    (17:18:43:  5 |    0)  40963; Enable camera ...
+INFO    (17:18:43:  5 |    0)  40963; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (17:18:43:  5 |    0)  40963; setMaxVideoBitrate: max bitrate=400000
+INFO    (17:18:43:  5 |    0)  40963; Wanted 640x480 @15 fps
+INFO    (17:18:43:  5 |    0)  40963; startCapture: startCapture success
+INFO    (17:18:43:  5 |    0)  40963; EnableLowBitRateStream: dual streams enabled 0
+INFO    (17:18:43:  5 |    0)  40963; RequestEncodeKeyFrame
+INFO    (17:18:43:  5 |    0)  40963; stopLocalRender: Cannot stop renderer 4097 (not exist)
+INFO    (17:18:43:  5 |    0)  40963; doStartLocalRender: init? 1 capture id 4097 device 1 capturing? 1 rendering? 0
+INFO    (17:18:43:  6 |    1)   1027; create child view
+INFO    (17:18:43:  8 |    2)  46855; Thread with name:VideoRenderIosGles_65535 started 
+INFO    (17:18:43:  9 |    1)  47875; Thread with name:WebRtc_event_timer_thread started 
+INFO    (17:18:43: 62 |   53)  48935; Thread with name:IncomingVideoStreamThread started 
+INFO    (17:18:43: 70 |    8)   4355; Capturer: use capability 640 x 480 quality is AVCaptureSessionPreset640x480
+
+INFO    (17:18:43: 71 |    1)  49923; Thread with name:WebRtc_event_timer_thread started 
+INFO    (17:18:43: 71 |    0)  40963; stopLocalRender
+INFO    (17:18:43: 71 |    0)  49923; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (17:18:43: 76 |    5)  48935; Thread with name:IncomingVideoStreamThread stopped
+WARN    (17:18:43: 83 |    7)  40963; Stop: Not running
+INFO    (17:18:43: 83 |    0)  46855; Thread with name:VideoRenderIosGles_65535 stopped
+INFO    (17:18:43: 83 |    0)  47875; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (17:18:43: 83 |    0)  40963; doStartLocalRender: init? 1 capture id 4097 device 1 capturing? 1 rendering? 0
+INFO    (17:18:43: 83 |    0)   1027; reuse the existent child view
+INFO    (17:18:43: 84 |    1)  47879; Thread with name:VideoRenderIosGles_65535 started 
+INFO    (17:18:43: 84 |    0)  46859; Thread with name:WebRtc_event_timer_thread started 
+INFO    (17:18:43:137 |   53)  48939; Thread with name:IncomingVideoStreamThread started 
+INFO    (17:18:43:137 |    0)   1651; Thread with name:WebRtc_event_timer_thread started 
+INFO    (17:18:43:144 |    7)  40963; ***CALL BEGIN: appid:'c2****************************b0' cname:'2' info:'' sid:'8C31B73319314F87BEFF506F104D6A62'
+INFO    (17:18:43:144 |    0)  40963; addRef of media engine, ref=2
+INFO    (17:18:43:146 |    2)  40963; [tactics] config json version:20160225-1625 duallinkd:true poor0
+INFO    (17:18:43:146 |    0)  40963; [tactics] parse config done: 15 13  1
+INFO    (17:18:43:148 |    2)  40963; [vocs] vocs initialized
+INFO    (17:18:43:149 |    1)  40963; add ping address 192.168.1.1
+INFO    (17:18:43:149 |    0)  40963; PING 192.168.1.1:0 16(44) bytes of data
+ERROR   (17:18:43:150 |    1)  40963; [cm] session '369C404BFF6041E8BB121D7F882278FD' was not terminated properly
+INFO    (17:18:43:151 |    1)  40963; CacheManager: save cache to storage elapsed 0
+INFO    (17:18:43:152 |    1)  40963; [cm] emit join channel signal, size=3
+INFO    (17:18:43:152 |    0)  40963; [rs] report server ip: 221.228.78.123:8000
+INFO    (17:18:43:153 |    1)  40963; [rlbs] selected: 221.228.78.123:9700
+INFO    (17:18:43:153 |    0)  40963; [rlbs] request rs list from 221.228.78.123:9700.......
+INFO    (17:18:43:154 |    1)  40963; [vocs] lookup channel...
+INFO    (17:18:43:154 |    0)  40963; [vocs] selected: 119.9.92.49:8000
+INFO    (17:18:43:155 |    1)  40963; connecting to 119.9.92.49:8000 handle 1863730, 26
+INFO    (17:18:43:155 |    0)  40963; [vocs] creating channel with 119.9.92.49:8000, ts 1498123123155.......
+INFO    (17:18:43:155 |    0)  40963; [vocs] selected: 70.39.189.65:8000
+INFO    (17:18:43:155 |    0)  40963; [vocs] creating channel with 70.39.189.65:8000, ts 1498123123155.......
+INFO    (17:18:43:155 |    0)  40963; [vocs] selected: 221.228.202.134:8000
+INFO    (17:18:43:155 |    0)  40963; [vocs] creating channel with 221.228.202.134:8000, ts 1498123123155.......
+INFO    (17:18:43:155 |    0)  40963; [rp] {"che.audio.output.routing":3}
+INFO    (17:18:43:156 |    1)  40963; SetHowlingControl enable = 1
+INFO    (17:18:43:156 |    0)  40963; Application Config module:  Route 3, NS off, AEC N, AGC off, BSS off
+INFO    (17:18:43:156 |    0)  40963; MID = 1005, Routing = 3
+INFO    (17:18:43:156 |    0)  40963; [rp] {"che.audio.backup_audio_session_category":"AVAudioSessionCategorySoloAmbient"}
+INFO    (17:18:43:156 |    0)  40963; [rp] {"che.audio.backup_audio_session_mode":"AVAudioSessionModeDefault"}
+INFO    (17:18:43:156 |    0)  40963; [rp] {"che.audio.notify.routing":3}
+INFO    (17:18:43:156 |    0)  40963; [rp] {"che.audio.output.routing":3}
+INFO    (17:18:43:156 |    0)  40963; SetHowlingControl enable = 1
+INFO    (17:18:43:156 |    0)  40963; Application Config module:  Route 3, NS off, AEC N, AGC off, BSS off
+INFO    (17:18:43:156 |    0)  40963; MID = 1005, Routing = 3
+INFO    (17:18:43:176 |   20)  40963; [vocs/t] tcp create channel connected with 0x10b3c4000
+INFO    (17:18:43:176 |    0)  40963; [vocs] tcp - creating channel with 119.9.92.49:8000, ts 1498123123176.......
+INFO    (17:18:43:187 |   11)  40963; [rlbs/u] responsed from 221.228.78.123:9700 with servers 123.155.154.122:8000
+ERROR   (17:18:43:193 |    6)  40963; [vocs/u] responsed from 221.228.202.134:8000 with error: 9, elapsed: 333, server ts: 0. connection aborted
+INFO    (17:18:43:193 |    0)  40963; [vocs] 221.228.202.134:8000 is reported failure, and will be disabled for 4000 ms
+INFO    (17:18:43:378 |  185)  40963; CacheManager: save report cache to storage elapsed 0
+ERROR   (17:18:43:445 |   67)  40963; [vocs/u] responsed from 70.39.189.65:8000 with error: 15, elapsed: 585, server ts: 0. connection aborted
+INFO    (17:18:43:445 |    0)  40963; [vocs] 70.39.189.65:8000 is reported failure, and will be disabled for 4000 ms
+INFO    (17:18:43:485 |   40)  40963; [dns] parsed ip 115.231.73.203
+INFO    (17:18:43:485 |    0)  40963; [dns] parsed ip 101.201.199.195
+INFO    (17:18:43:485 |    0)  40963; [dns] parsed ip 125.88.159.162
+INFO    (17:18:43:485 |    0)  40963; [dns] parsed ip 221.228.202.134
+INFO    (17:18:43:552 |   67)  46599; [che] onVideoSizeChanged: uid 0 640x360 rotate 90
+INFO    (17:18:43:554 |    2)  48939; User 0's view size is changed to 0 * 0
+INFO    (17:18:43:555 |    1)  48939; Local stream (4097) first rendered with resolution 640 * 360
+INFO    (17:18:43:555 |    0)  40963; onFirstVideoFrame local 0 resolution 640 * 360, elapsed 554
+INFO    (17:18:43:771 |  216)  47879; Render buffer size 1242 x 2208
+
+INFO    (17:18:43:773 |    2)  47879; Setup: uid 0 width 300, height 300
+INFO    (17:18:43:803 |   30)  47879; SetCoordinates: uid 0 overflowMode 2
+INFO    (17:18:43:803 |    0)  47879; SetViewOrientation: uid 4097 viewOri 1
+INFO    (17:18:43:803 |    0)  47879; SetRotateInfo: uid 4097 videoRotate: 0 devRotate: 0 
+INFO    (17:18:43:803 |    0)  47879; SetCameraOrientation: uid 4097 camera ori: 90 index: 1 
+INFO    (17:18:43:837 |   34)  47879; Render buffer size 1242 x 2208
+
+INFO    (17:18:43:844 |    7)  48939; User 0's view size is changed to 1242 * 2208
+INFO    (17:18:44:423 |    0)  40963; [dns] parsed ip 58.211.16.86
+INFO    (17:18:44:423 |    0)  40963; [dns] parsed ip 124.116.195.133
+INFO    (17:18:44:423 |    0)  40963; [dns] parsed ip 115.231.160.214
+INFO    (17:18:44:423 |    0)  40963; [dns] parsed ip 114.236.141.253
+INFO    (17:18:44:423 |    0)  40963; [rs] dns parse result code: 0, servers size: 4
+INFO    (17:18:46:592 |  169)  40963; [rp] {"che.video.local.camera_index":0}
+INFO    (17:18:46:592 |    0)  40963; setCaptureDevice: index=0
+INFO    (17:18:46:592 |    0)  40963; stopLocalRender
+INFO    (17:18:46:592 |    0)   1651; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (17:18:46:597 |    5)  48939; Thread with name:IncomingVideoStreamThread stopped
+WARN    (17:18:46:604 |    7)  40963; Stop: Not running
+INFO    (17:18:46:605 |    1)  46859; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (17:18:46:645 |   40)  47879; Thread with name:VideoRenderIosGles_65535 stopped
+INFO    (17:18:46:655 |   10)  46599; Thread with name:ViECaptureThread stopped
+INFO    (17:18:46:656 |    1)  40963; stopCapture: stopCapture success
+INFO    (17:18:46:656 |    0)  40963; startCapture: device? 0 init? 1 local enabled? 1 capturing? 0 rendering? 0
+INFO    (17:18:46:661 |    5)  46347; Thread with name:ViECaptureThread started 
+INFO    (17:18:46:661 |    0)  40963; Enable camera ...
+INFO    (17:18:46:661 |    0)  40963; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (17:18:46:661 |    0)  40963; setMaxVideoBitrate: max bitrate=400000
+INFO    (17:18:46:661 |    0)  40963; Wanted 640x480 @15 fps
+INFO    (17:18:46:661 |    0)  40963; startCapture: startCapture success
+INFO    (17:18:46:661 |    0)  40963; EnableLowBitRateStream: dual streams enabled 0
+INFO    (17:18:46:661 |    0)  40963; RequestEncodeKeyFrame
+INFO    (17:18:46:662 |    1)  40963; stopLocalRender: Cannot stop renderer 4097 (not exist)
+INFO    (17:18:46:662 |    0)  40963; doStartLocalRender: init? 1 capture id 4097 device 0 capturing? 1 rendering? 0
+INFO    (17:18:46:662 |    0)   1027; reuse the existent child view
+INFO    (17:18:46:662 |    0)  53275; Thread with name:VideoRenderIosGles_65535 started 
+INFO    (17:18:46:662 |    0)  55823; Thread with name:WebRtc_event_timer_thread started 
+INFO    (17:18:46:714 |   52)  47371; Thread with name:IncomingVideoStreamThread started 
+INFO    (17:18:46:714 |    0)  51719; Thread with name:WebRtc_event_timer_thread started 
+WARN    (17:18:46:715 |    1)  40963; doStartLocalRender: Local renderer is rendering
+INFO    (17:18:46:810 |   95)  19207; Capturer: use capability 640 x 480 quality is AVCaptureSessionPreset640x480
+
+INFO    (17:18:47:252 |    0)  47371; User 0's view size is changed to 1242 * 2208
+INFO    (17:18:47:252 |    0)  47371; Local stream (4097) first rendered with resolution 640 * 360
+INFO    (17:18:47:274 |   22)  40963; onFirstVideoFrame local 0 resolution 640 * 360, elapsed 4273
+INFO    (17:18:47:294 |   20)  53275; Render buffer size 1242 x 2208
+
+INFO    (17:18:47:305 |   11)  53275; Setup: uid 0 width 1242, height 2208
+INFO    (17:18:47:308 |    3)  53275; SetCoordinates: uid 0 overflowMode 2
+INFO    (17:18:47:308 |    0)  53275; SetViewOrientation: uid 4097 viewOri 1
+INFO    (17:18:47:308 |    0)  53275; SetRotateInfo: uid 4097 videoRotate: 0 devRotate: 0 
+INFO    (17:18:47:308 |    0)  53275; SetCameraOrientation: uid 4097 camera ori: 90 index: 0 
+INFO    (17:18:48:545 |  237)  40963; [rp] {"rtc.video.mute_me":true,"che.video.local.send":false}
+INFO    (17:18:48:545 |    0)  40963; enableLocalVideoSend: enable=0
+INFO    (17:18:50:136 |    0)  40963; [rp] {"rtc.video.mute_me":false,"che.video.local.send":true}
+INFO    (17:18:50:137 |    1)  40963; enableLocalVideoSend: enable=1
+INFO    (17:18:51:203 |   66)  40963; [rp] {"rtc.video.mute_me":true,"che.video.local.send":false}
+INFO    (17:18:51:203 |    0)  40963; enableLocalVideoSend: enable=0
+INFO    (17:18:55:205 |    2)  40963; [rp] {"rtc.video.mute_me":false,"che.video.local.send":true}
+INFO    (17:18:55:205 |    0)  40963; enableLocalVideoSend: enable=1
+INFO    (17:18:57:835 |  630)  40963; [rs] dns parse result code: 0, servers size: 4
+INFO    (17:18:57:836 |    1)  40963; [rs] dns parse retry time: 1
+INFO    (17:18:58:372 |    0)  40963; [rp] {"rtc.video.mute_me":true,"che.video.local.send":false}
+INFO    (17:18:58:372 |    0)  40963; enableLocalVideoSend: enable=0
+INFO    (17:19: 0:611 |  239)  40963; [rp] {"rtc.video.mute_me":false,"che.video.local.send":true}
+INFO    (17:19: 0:611 |    0)  40963; enableLocalVideoSend: enable=1
+INFO    (17:19: 1:960 |  349)  40963; [rp] {"rtc.video.mute_me":true,"che.video.local.send":false}
+INFO    (17:19: 1:961 |    1)  40963; enableLocalVideoSend: enable=0
+INFO    (17:19: 3:280 |    0)  40963; [rp] {"che.audio.notify.routing":3}
+INFO    (17:19: 3:280 |    0)  40963; [rp] {"che.audio.output.routing":3}
+INFO    (17:19: 3:281 |    1)  40963; SetHowlingControl enable = 1
+INFO    (17:19: 3:281 |    0)  40963; Application Config module:  Route 3, NS off, AEC N, AGC off, BSS off
+INFO    (17:19: 3:281 |    0)  40963; MID = 1005, Routing = 3
+INFO    (17:19: 3:970 |  689)  40963; [rp] {"che.audio.notify.routing":3}
+INFO    (17:19: 3:970 |    0)  40963; [rp] {"che.audio.output.routing":3}
+INFO    (17:19: 3:970 |    0)  40963; SetHowlingControl enable = 1
+INFO    (17:19: 3:970 |    0)  40963; Application Config module:  Route 3, NS off, AEC N, AGC off, BSS off
+INFO    (17:19: 3:970 |    0)  40963; MID = 1005, Routing = 3
+INFO    (17:19: 4:362 |    0)  40963; [rp] {"che.audio.notify.routing":3}
+INFO    (17:19: 4:362 |    0)  40963; [rp] {"che.audio.output.routing":3}
+INFO    (17:19: 4:363 |    1)  40963; SetHowlingControl enable = 1
+INFO    (17:19: 4:363 |    0)  40963; Application Config module:  Route 3, NS off, AEC N, AGC off, BSS off
+INFO    (17:19: 4:363 |    0)  40963; MID = 1005, Routing = 3
+INFO    (17:19: 4:972 |  609)  40963; [rp] {"che.audio.notify.routing":3}
+INFO    (17:19: 4:977 |    5)  40963; [rp] {"che.audio.output.routing":3}
+INFO    (17:19: 4:977 |    0)  40963; SetHowlingControl enable = 1
+INFO    (17:19: 4:977 |    0)  40963; Application Config module:  Route 3, NS off, AEC N, AGC off, BSS off
+INFO    (17:19: 4:977 |    0)  40963; MID = 1005, Routing = 3
+INFO    (17:19: 7:509 |    0)  40963; [rp] {"rtc.video.mute_me":false,"che.video.local.send":true}
+INFO    (17:19: 7:509 |    0)  40963; enableLocalVideoSend: enable=1
+INFO    (17:19: 8:599 |   90)  40963; [rp] {"rtc.video.mute_me":true,"che.video.local.send":false}
+INFO    (17:19: 8:600 |    1)  40963; enableLocalVideoSend: enable=0
+INFO    (17:19:10:224 |    0)  40963; [rp] {"rtc.video.mute_me":false,"che.video.local.send":true}
+INFO    (17:19:10:224 |    0)  40963; enableLocalVideoSend: enable=1
+INFO    (17:19:11:111 |    0)  40963; [rp] {"rtc.video.mute_me":true,"che.video.local.send":false}
+INFO    (17:19:11:111 |    0)  40963; enableLocalVideoSend: enable=0
+INFO    (17:19:12:263 |  152)  40963; socket 26 119.9.92.49:8000 error 11
+ERROR   (17:19:12:263 |    0)  40963; [vocs] socket error on tcp link 0x10b3c4000
+INFO    (17:19:12:743 |  480)  40963; [rp] {"rtc.video.mute_me":false,"che.video.local.send":true}
+INFO    (17:19:12:744 |    1)  40963; enableLocalVideoSend: enable=1
+INFO    (17:19:12:845 |  101)  40963; [rs] dns parse result code: 0, servers size: 4
+INFO    (17:19:12:845 |    0)  40963; [rs] dns parse retry time: 2
+INFO    (17:19:14:178 |    0)  40963; [rp] {"che.video.local.camera_index":1}
+INFO    (17:19:14:178 |    0)  40963; setCaptureDevice: index=1
+INFO    (17:19:14:180 |    2)  40963; stopLocalRender
+INFO    (17:19:14:180 |    0)  51719; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (17:19:14:180 |    0)  47371; Thread with name:IncomingVideoStreamThread stopped
+WARN    (17:19:14:193 |   13)  40963; Stop: Not running
+INFO    (17:19:14:211 |   18)  53275; Thread with name:VideoRenderIosGles_65535 stopped
+INFO    (17:19:14:211 |    0)  55823; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (17:19:14:213 |    2)  46347; Thread with name:ViECaptureThread stopped
+INFO    (17:19:14:218 |    5)  40963; stopCapture: stopCapture success
+INFO    (17:19:14:218 |    0)  40963; startCapture: device? 1 init? 1 local enabled? 1 capturing? 0 rendering? 0
+INFO    (17:19:14:219 |    1)  54295; Thread with name:ViECaptureThread started 
+INFO    (17:19:14:219 |    0)  40963; Enable camera ...
+INFO    (17:19:14:219 |    0)  40963; setCodec: index=1 width=640 height=360 framerate=15
+INFO    (17:19:14:233 |   14)  40963; setMaxVideoBitrate: max bitrate=400000
+INFO    (17:19:14:233 |    0)  40963; Wanted 640x480 @15 fps
+INFO    (17:19:14:233 |    0)  40963; startCapture: startCapture success
+INFO    (17:19:14:233 |    0)  40963; EnableLowBitRateStream: dual streams enabled 0
+INFO    (17:19:14:233 |    0)  40963; RequestEncodeKeyFrame
+INFO    (17:19:14:233 |    0)  40963; stopLocalRender: Cannot stop renderer 4097 (not exist)
+INFO    (17:19:14:233 |    0)  40963; doStartLocalRender: init? 1 capture id 4097 device 1 capturing? 1 rendering? 0
+INFO    (17:19:14:233 |    0)   1027; reuse the existent child view
+INFO    (17:19:14:233 |    0)  56911; Thread with name:VideoRenderIosGles_65535 started 
+INFO    (17:19:14:234 |    1)  49683; Thread with name:WebRtc_event_timer_thread started 
+INFO    (17:19:14:285 |   51)  50447; Thread with name:IncomingVideoStreamThread started 
+INFO    (17:19:14:285 |    0)  49943; Thread with name:WebRtc_event_timer_thread started 
+WARN    (17:19:14:285 |    0)  40963; doStartLocalRender: Local renderer is rendering
+INFO    (17:19:14:452 |  167)  52783; Capturer: use capability 640 x 480 quality is AVCaptureSessionPreset640x480
+
+INFO    (17:19:14:652 |  200)  50447; User 0's view size is changed to 1242 * 2208
+INFO    (17:19:14:653 |    1)  50447; Local stream (4097) first rendered with resolution 640 * 360
+INFO    (17:19:14:653 |    0)  40963; onFirstVideoFrame local 0 resolution 640 * 360, elapsed 31652
+INFO    (17:19:14:707 |   54)  56911; Render buffer size 1242 x 2208
+
+INFO    (17:19:14:707 |    0)  56911; Setup: uid 0 width 1242, height 2208
+INFO    (17:19:14:712 |    5)  56911; SetCoordinates: uid 0 overflowMode 2
+INFO    (17:19:14:712 |    0)  56911; SetViewOrientation: uid 4097 viewOri 1
+INFO    (17:19:14:712 |    0)  56911; SetRotateInfo: uid 4097 videoRotate: 0 devRotate: 0 
+INFO    (17:19:14:712 |    0)  56911; SetCameraOrientation: uid 4097 camera ori: 90 index: 1 
+INFO    (17:19:15:743 |   31)  40963; [rp] {"rtc.video.mute_me":true,"che.video.local.send":false}
+INFO    (17:19:15:743 |    0)  40963; enableLocalVideoSend: enable=0
+INFO    (17:19:16:838 |   95)  40963; **CALL STATS: duraton 31s cpu app/total 22.35/47.50 tx/rx: 0/0 kbps 3.186K/818 bytes
+INFO    (17:19:18: 62 |    0)  40963; [rp] {"rtc.video.mute_me":false,"che.video.local.send":true}
+INFO    (17:19:18: 62 |    0)  40963; enableLocalVideoSend: enable=1
+INFO    (17:19:20:929 |  867)   1027; [API] userManagerPendingView: user 0 window 0
+INFO    (17:19:20:930 |    1)   1027; API call to leave channel
+INFO    (17:19:20:932 |    2)   1027; API call to stop preview
+INFO    (17:19:20:942 |   10)  40963; [API] userManagerBindUserView: user 0 mode 1 window 0
+INFO    (17:19:20:950 |    8)  40963; stopLocalRender
+INFO    (17:19:20:952 |    2)  49943; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (17:19:20:952 |    0)  50447; Thread with name:IncomingVideoStreamThread stopped
+WARN    (17:19:20:965 |   13)  40963; Stop: Not running
+INFO    (17:19:20:981 |   16)  49683; Thread with name:WebRtc_event_timer_thread stopped
+INFO    (17:19:20:990 |    9)  56911; Thread with name:VideoRenderIosGles_65535 stopped
+INFO    (17:19:21:  3 |    0)  40963; stopInvisibleRenderers: user 0 is invisible, stop rendering
+INFO    (17:19:21:  3 |    0)  40963; stopLocalRender: Cannot stop renderer 4097 (not exist)
+INFO    (17:19:21:  3 |    0)  40963; doStartLocalRender: init? 1 capture id 4097 device 1 capturing? 1 rendering? 0
+ERROR   (17:19:21:  3 |    0)  40963; doStartLocalRender: cannot start Local Render with nil view 0x0 0
+INFO    (17:19:21: 19 |   16)  40963; [rp] {"che.audio.mute.speakerphone":true}
+WARN    (17:19:21: 19 |    0)  40963; leaving channel that was not joined yet
+INFO    (17:19:21: 19 |    0)  40963; [cm] emit leave channel signal
+INFO    (17:19:21:349 |  330)  40963; stopRemoteRender
+INFO    (17:19:21:349 |    0)  40963; [che] stopCall begins
+INFO    (17:19:21:349 |    0)  40963; [che] stop call returns -1, elapsed 0
+INFO    (17:19:21:349 |    0)  40963; enableLocalVideoSend: enable=1
+INFO    (17:19:21:350 |    1)  40963; [rs] report stats: TX 17 N/A 12
+INFO    (17:19:21:350 |    0)  40963; **CALL STATS: duration 38s, tx 3.502K bytes, rx 818 bytes, total 4.296K bytes
+INFO    (17:19:21:355 |    5)  40963; CacheManager: save cache to storage elapsed 3
+INFO    (17:19:21:358 |    3)  40963; delRef of media engine, ref=1
+INFO    (17:19:21:358 |    0)  40963; ***CALL END
+INFO    (17:19:21:359 |    1)  40963; setMuteStatus, muted: Off
+INFO    (17:19:21:359 |    0)  40963; enableLocalVideoSend: enable=1
+INFO    (17:19:21:359 |    0)  40963; [rp] {"rtc.video.preview":false}
+INFO    (17:19:21:359 |    0)  40963; API call to stop video preview
+INFO    (17:19:21:359 |    0)  40963; delRef of media engine, ref=0
+INFO    (17:19:21:359 |    0)  40963; [che] chat engine destroying
+INFO    (17:19:21:359 |    0)  40963; stopLocalRender: Cannot stop renderer 4097 (not exist)
+INFO    (17:19:21:360 |    1)  54295; Thread with name:ViECaptureThread stopped
+INFO    (17:19:21:363 |    3)  40963; stopCapture: stopCapture success
+INFO    (17:19:21:364 |    1)  40963; stopRemoteRender
+INFO    (17:19:21:364 |    0)  40963; [che] stopCall begins
+INFO    (17:19:21:364 |    0)  40963; [che] stop call returns -1, elapsed 0
+INFO    (17:19:21:364 |    0)  40963; enableLocalVideoSend: enable=1
+INFO    (17:19:21:364 |    0)  40963; stopLocalRender: Cannot stop renderer -1 (not exist)
+INFO    (17:19:21:364 |    0)  40963; stopRemoteRender
+WARN    (17:19:21:364 |    0)  40963; stopCapture: VideoEngine haven't startCapture
+INFO    (17:19:21:364 |    0)  45827; Thread with name:VideoProcessThread stopped
+WARN    (17:19:21:376 |   12)  40963; terminate: VideoEngine haven't init
+INFO    (17:19:21:377 |    1)  40963; [DEBUGG] ViERenderManager Destructor, engine_id: 0
+INFO    (17:19:21:380 |    3)  45339; Thread with name:VideoEncodeThread stopped
+INFO    (17:19:21:409 |   29)  44035; Thread with name:EngineMonitorThread stopped
+INFO    (17:19:21:430 |   21)  40963; [che] chat engine destroyed
+INFO    (17:19:27:835 |  405)  40963; [rs] dns parse result code: 0, servers size: 4
+INFO    (17:19:27:836 |    1)  40963; [rs] dns parse retry time: 3

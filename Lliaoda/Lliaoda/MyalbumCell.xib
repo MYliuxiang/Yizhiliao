@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MyalbumCell">
+            <rect key="frame" x="0.0" y="0.0" width="116" height="189"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="116" height="189"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eed-sM-ubD">
+                        <rect key="frame" x="0.0" y="0.0" width="116" height="189"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNq-d7-7hH">
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="15"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fengmian" translatesAutoresizingMaskIntoConstraints="NO" id="8ff-6X-Jp9">
+                                <rect key="frame" x="0.0" y="0.0" width="35" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="Pv0-ea-ZOC"/>
+                                    <constraint firstAttribute="height" constant="15" id="Sge-Ov-h04"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="封面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Hf-cj-T5h">
+                                <rect key="frame" x="0.0" y="0.0" width="35" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="dnx-zX-I7E"/>
+                                    <constraint firstAttribute="width" constant="35" id="g6J-Tv-ssZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Hf-cj-T5h" firstAttribute="top" secondItem="JNq-d7-7hH" secondAttribute="top" id="H3N-JW-8PD"/>
+                            <constraint firstItem="8ff-6X-Jp9" firstAttribute="leading" secondItem="JNq-d7-7hH" secondAttribute="leading" id="JAw-EA-C9D"/>
+                            <constraint firstItem="2Hf-cj-T5h" firstAttribute="leading" secondItem="JNq-d7-7hH" secondAttribute="leading" id="YBv-ld-3x1"/>
+                            <constraint firstItem="8ff-6X-Jp9" firstAttribute="top" secondItem="JNq-d7-7hH" secondAttribute="top" id="oHg-Ea-PtA"/>
+                            <constraint firstAttribute="height" constant="15" id="sNr-uV-BPq"/>
+                            <constraint firstAttribute="width" constant="40" id="ym6-Go-znx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="JNq-d7-7hH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5kA-R2-X3J"/>
+                <constraint firstItem="eed-sM-ubD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7yb-WH-rqW"/>
+                <constraint firstAttribute="bottom" secondItem="eed-sM-ubD" secondAttribute="bottom" id="Mps-yJ-Tkd"/>
+                <constraint firstAttribute="trailing" secondItem="eed-sM-ubD" secondAttribute="trailing" id="N2Q-so-yHb"/>
+                <constraint firstItem="eed-sM-ubD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fer-BO-KIn"/>
+                <constraint firstItem="JNq-d7-7hH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nxN-Rd-FXb"/>
+            </constraints>
+            <size key="customSize" width="116" height="189"/>
+            <connections>
+                <outlet property="bgImageView" destination="eed-sM-ubD" id="8HY-L5-5Ty"/>
+                <outlet property="feiView" destination="JNq-d7-7hH" id="iEb-CA-B1s"/>
+            </connections>
+            <point key="canvasLocation" x="66" y="89.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="fengmian" width="35" height="15"/>
+    </resources>
+</document>

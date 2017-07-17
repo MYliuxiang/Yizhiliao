@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfitVC">
+            <connections>
+                <outlet property="footerView" destination="yOs-9V-CsY" id="xcs-ZC-dk9"/>
+                <outlet property="tableView" destination="tYV-CD-XuW" id="sLA-VF-QRJ"/>
+                <outlet property="tixianBtn" destination="XWx-fK-IDs" id="fh3-eq-Wiw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tYV-CD-XuW">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="shO-j1-WNa"/>
+                        <outlet property="delegate" destination="-1" id="t1u-u3-p50"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="tYV-CD-XuW" secondAttribute="trailing" id="0uL-Z6-ZQj"/>
+                <constraint firstItem="tYV-CD-XuW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="H2R-gl-TyO"/>
+                <constraint firstAttribute="bottom" secondItem="tYV-CD-XuW" secondAttribute="bottom" id="bBD-WG-IQ1"/>
+                <constraint firstItem="tYV-CD-XuW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="po8-ap-Zr1"/>
+            </constraints>
+        </view>
+        <view contentMode="scaleToFill" id="yOs-9V-CsY">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="137"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWx-fK-IDs">
+                    <rect key="frame" x="50" y="40" width="275" height="45"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="FIU-Xp-3g3"/>
+                        <constraint firstAttribute="width" constant="275" id="KIr-6m-OBO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="提款">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="tixianAC:" destination="-1" eventType="touchUpInside" id="ZQn-jM-4jl"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="XWx-fK-IDs" firstAttribute="centerX" secondItem="yOs-9V-CsY" secondAttribute="centerX" id="9rG-bd-haw"/>
+                <constraint firstItem="XWx-fK-IDs" firstAttribute="top" secondItem="yOs-9V-CsY" secondAttribute="top" constant="40" id="phI-Hw-qXE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-468" y="-218"/>
+        </view>
+    </objects>
+</document>

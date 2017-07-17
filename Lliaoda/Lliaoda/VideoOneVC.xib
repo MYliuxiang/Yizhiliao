@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoOneVC">
+            <connections>
+                <outlet property="doneBtn" destination="3nB-A4-39i" id="1jx-u0-pns"/>
+                <outlet property="videlImageView" destination="t1C-RP-pey" id="2a8-zW-HqS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t1C-RP-pey">
+                    <rect key="frame" x="60" y="104" width="255" height="255"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="t1C-RP-pey" secondAttribute="height" multiplier="1:1" id="P0q-qJ-WbQ"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bed-GP-RJH">
+                    <rect key="frame" x="162" y="206.5" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="JgJ-h5-xok"/>
+                        <constraint firstAttribute="width" constant="50" id="lsI-Rs-C91"/>
+                    </constraints>
+                    <state key="normal" image="shipin_big"/>
+                    <connections>
+                        <action selector="playAC:" destination="-1" eventType="touchUpInside" id="IJ3-ug-iQk"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nB-A4-39i">
+                    <rect key="frame" x="60" y="450" width="255" height="44"/>
+                    <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="EIy-aR-2Jf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="确认上传">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="doneAC:" destination="-1" eventType="touchUpInside" id="bfI-7G-Pxg"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請確認當前大頭照與認證錄影都是您本人，否則無法通過認證！系統將在1-2個工作日完整審核，請耐心等待！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmN-Oy-Za5">
+                    <rect key="frame" x="60" y="369" width="255" height="50.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vmN-Oy-Za5" firstAttribute="top" secondItem="t1C-RP-pey" secondAttribute="bottom" constant="10" id="5G1-ge-WeF"/>
+                <constraint firstItem="t1C-RP-pey" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="A9J-na-hpj"/>
+                <constraint firstItem="3nB-A4-39i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="BhC-PD-ndH"/>
+                <constraint firstItem="vmN-Oy-Za5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="KKV-D4-ttc"/>
+                <constraint firstItem="t1C-RP-pey" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="104" id="ReB-u8-LdF"/>
+                <constraint firstItem="t1C-RP-pey" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="SJY-uM-V6B"/>
+                <constraint firstAttribute="trailing" secondItem="t1C-RP-pey" secondAttribute="trailing" constant="60" id="YMV-Sj-0MF"/>
+                <constraint firstItem="bed-GP-RJH" firstAttribute="centerX" secondItem="t1C-RP-pey" secondAttribute="centerX" id="cMr-gM-HbQ"/>
+                <constraint firstItem="bed-GP-RJH" firstAttribute="centerY" secondItem="t1C-RP-pey" secondAttribute="centerY" id="cxa-TQ-DP2"/>
+                <constraint firstItem="3nB-A4-39i" firstAttribute="top" secondItem="vmN-Oy-Za5" secondAttribute="bottom" constant="30" id="dUy-qG-6lS"/>
+                <constraint firstAttribute="trailing" secondItem="3nB-A4-39i" secondAttribute="trailing" constant="60" id="fZg-E5-zQb"/>
+                <constraint firstAttribute="trailing" secondItem="vmN-Oy-Za5" secondAttribute="trailing" constant="60" id="hmb-fP-gcn"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="100.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="shipin_big" width="60" height="60"/>
+    </resources>
+</document>
