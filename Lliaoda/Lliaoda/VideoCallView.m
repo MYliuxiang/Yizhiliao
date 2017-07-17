@@ -1020,7 +1020,7 @@
         [self removeFromSuperview];
     
     AnimOperationManager *manager = [AnimOperationManager sharedManager];
-    [manager.parentView removeFromSuperview];
+    [AnimOperationManager attemptDealloc];
     
     if (self.keytimer) {
         [self.keytimer invalidate];
@@ -1567,7 +1567,7 @@
         [self removeFromSuperview];
         
         AnimOperationManager *manager = [AnimOperationManager sharedManager];
-        [manager.parentView removeFromSuperview];
+        [AnimOperationManager attemptDealloc];
         if (self.keytimer) {
             [self.keytimer invalidate];
             self.keytimer = nil;

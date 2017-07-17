@@ -357,6 +357,10 @@
 		2244B4681F00B96800685217 /* AnimOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2244B4611F00B96700685217 /* AnimOperation.m */; };
 		2244B4691F00B96800685217 /* AnimOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2244B4631F00B96700685217 /* AnimOperationManager.m */; };
 		2244B46D1F00E02400685217 /* MGiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2244B46C1F00E02400685217 /* MGiftModel.m */; };
+		22453BA91F1C73FF0000C006 /* ProfitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22453BA71F1C73FF0000C006 /* ProfitVC.m */; };
+		22453BAA1F1C73FF0000C006 /* ProfitVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22453BA81F1C73FF0000C006 /* ProfitVC.xib */; };
+		22453BAE1F1C74290000C006 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22453BAC1F1C74290000C006 /* UserCell.m */; };
+		22453BAF1F1C74290000C006 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22453BAD1F1C74290000C006 /* UserCell.xib */; };
 		224601E91EB317B9000D4A96 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 224601E81EB317B9000D4A96 /* Message.m */; };
 		224A4D9B1EBC56BD000D17B5 /* MessageCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A4D9A1EBC56BD000D17B5 /* MessageCount.m */; };
 		224F244F1EA732C800C0FDC6 /* VideoRZVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F244D1EA732C800C0FDC6 /* VideoRZVC.m */; };
@@ -389,8 +393,6 @@
 		225FA96E1EFB7E590086287E /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = 225FA96C1EFB7E590086287E /* note.txt */; };
 		225FA9801EFBA01F0086287E /* AgoraRtcCryptoLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA97D1EFBA01F0086287E /* AgoraRtcCryptoLoader.framework */; };
 		225FA9821EFBA01F0086287E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA97F1EFBA01F0086287E /* libcrypto.a */; };
-		225FA9871EFBB0BF0086287E /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225FA9851EFBB0BF0086287E /* UserCell.m */; };
-		225FA9881EFBB0BF0086287E /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225FA9861EFBB0BF0086287E /* UserCell.xib */; };
 		225FA9931EFBBA0D0086287E /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA9921EFBBA0D0086287E /* AgoraRtcEngineKit.framework */; };
 		225FA9EE1EFBD6C90086287E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 225FA9ED1EFBD6C90086287E /* UserModel.m */; };
 		225FA9F41EFBEE3D0086287E /* AGVideoPreProcessing.mm in Sources */ = {isa = PBXBuildFile; fileRef = 225FA9F31EFBEE3D0086287E /* AGVideoPreProcessing.mm */; };
@@ -510,8 +512,6 @@
 		22CDA9791EA6045A006CD611 /* AccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CDA9771EA6045A006CD611 /* AccountVC.xib */; };
 		22CDA97E1EA6076C006CD611 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CDA97C1EA6076C006CD611 /* AccountCell.m */; };
 		22CDA97F1EA6076C006CD611 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CDA97D1EA6076C006CD611 /* AccountCell.xib */; };
-		22CDA9831EA60C2B006CD611 /* ProfitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CDA9811EA60C2B006CD611 /* ProfitVC.m */; };
-		22CDA9841EA60C2B006CD611 /* ProfitVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CDA9821EA60C2B006CD611 /* ProfitVC.xib */; };
 		22D7A2EF1EA5AFA800A631B5 /* PersonalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2ED1EA5AFA800A631B5 /* PersonalVC.m */; };
 		22D7A2F01EA5AFA800A631B5 /* PersonalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A2EE1EA5AFA800A631B5 /* PersonalVC.xib */; };
 		22E8D76E1EA49AE300C5FC6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E8D76D1EA49AE300C5FC6B /* main.m */; };
@@ -1021,6 +1021,12 @@
 		2244B4631F00B96700685217 /* AnimOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimOperationManager.m; sourceTree = "<group>"; };
 		2244B46B1F00E02400685217 /* MGiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGiftModel.h; sourceTree = "<group>"; };
 		2244B46C1F00E02400685217 /* MGiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGiftModel.m; sourceTree = "<group>"; };
+		22453BA61F1C73FF0000C006 /* ProfitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitVC.h; sourceTree = "<group>"; };
+		22453BA71F1C73FF0000C006 /* ProfitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitVC.m; sourceTree = "<group>"; };
+		22453BA81F1C73FF0000C006 /* ProfitVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitVC.xib; sourceTree = "<group>"; };
+		22453BAB1F1C74290000C006 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		22453BAC1F1C74290000C006 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		22453BAD1F1C74290000C006 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		224601E71EB317B9000D4A96 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		224601E81EB317B9000D4A96 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		224A4D991EBC56BD000D17B5 /* MessageCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCount.h; sourceTree = "<group>"; };
@@ -1071,9 +1077,6 @@
 		225FA96C1EFB7E590086287E /* note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
 		225FA97D1EFBA01F0086287E /* AgoraRtcCryptoLoader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcCryptoLoader.framework; sourceTree = "<group>"; };
 		225FA97F1EFBA01F0086287E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		225FA9841EFBB0BF0086287E /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
-		225FA9851EFBB0BF0086287E /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
-		225FA9861EFBB0BF0086287E /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		225FA9921EFBBA0D0086287E /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
 		225FA9EC1EFBD6C90086287E /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		225FA9ED1EFBD6C90086287E /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
@@ -1279,9 +1282,6 @@
 		22CDA97B1EA6076C006CD611 /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
 		22CDA97C1EA6076C006CD611 /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
 		22CDA97D1EA6076C006CD611 /* AccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
-		22CDA9801EA60C2B006CD611 /* ProfitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitVC.h; sourceTree = "<group>"; };
-		22CDA9811EA60C2B006CD611 /* ProfitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitVC.m; sourceTree = "<group>"; };
-		22CDA9821EA60C2B006CD611 /* ProfitVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitVC.xib; sourceTree = "<group>"; };
 		22D7A2EC1EA5AFA800A631B5 /* PersonalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalVC.h; sourceTree = "<group>"; };
 		22D7A2ED1EA5AFA800A631B5 /* PersonalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalVC.m; sourceTree = "<group>"; };
 		22D7A2EE1EA5AFA800A631B5 /* PersonalVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalVC.xib; sourceTree = "<group>"; };
@@ -2420,12 +2420,12 @@
 				223BDF0C1EA70547006DCD65 /* SettingVC.h */,
 				223BDF0D1EA70547006DCD65 /* SettingVC.m */,
 				223BDF0E1EA70547006DCD65 /* SettingVC.xib */,
+				22453BA61F1C73FF0000C006 /* ProfitVC.h */,
+				22453BA71F1C73FF0000C006 /* ProfitVC.m */,
+				22453BA81F1C73FF0000C006 /* ProfitVC.xib */,
 				22CDA9751EA6045A006CD611 /* AccountVC.h */,
 				22CDA9761EA6045A006CD611 /* AccountVC.m */,
 				22CDA9771EA6045A006CD611 /* AccountVC.xib */,
-				22CDA9801EA60C2B006CD611 /* ProfitVC.h */,
-				22CDA9811EA60C2B006CD611 /* ProfitVC.m */,
-				22CDA9821EA60C2B006CD611 /* ProfitVC.xib */,
 				22CDA9661EA5E653006CD611 /* FixpersonalVC.h */,
 				22CDA9671EA5E653006CD611 /* FixpersonalVC.m */,
 				22CDA9681EA5E653006CD611 /* FixpersonalVC.xib */,
@@ -2631,9 +2631,9 @@
 				22721FAA1EE7E3E7003A19D3 /* MediaCell.h */,
 				22721FAB1EE7E3E7003A19D3 /* MediaCell.m */,
 				22721FAC1EE7E3E7003A19D3 /* MediaCell.xib */,
-				225FA9841EFBB0BF0086287E /* UserCell.h */,
-				225FA9851EFBB0BF0086287E /* UserCell.m */,
-				225FA9861EFBB0BF0086287E /* UserCell.xib */,
+				22453BAB1F1C74290000C006 /* UserCell.h */,
+				22453BAC1F1C74290000C006 /* UserCell.m */,
+				22453BAD1F1C74290000C006 /* UserCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3042,7 +3042,6 @@
 				222AA0711EB071910038416D /* B_40@2x.gif in Resources */,
 				222AA0A41EB071910038416D /* B_87@2x.gif in Resources */,
 				225827791ECC09CC0049A6C1 /* start.wav in Resources */,
-				225FA9881EFBB0BF0086287E /* UserCell.xib in Resources */,
 				222AA0531EB071910038416D /* B_13@2x.gif in Resources */,
 				222AA08E1EB071910038416D /* B_67@2x.gif in Resources */,
 				222B385A1ED96843009DB58F /* mss_browseLoading@3x.png in Resources */,
@@ -3061,6 +3060,7 @@
 				222AA0521EB071910038416D /* B_12@2x.gif in Resources */,
 				222AA0481EB071910038416D /* B_110@2x.gif in Resources */,
 				222AA0B41EB071910038416D /* emotion1.plist in Resources */,
+				22453BAF1F1C74290000C006 /* UserCell.xib in Resources */,
 				222AA03E1EB071910038416D /* B_101@2x.gif in Resources */,
 				222AA01A1EB071910038416D /* C_108@2x.png in Resources */,
 				229094361EF2756200715841 /* AgreementVC.xib in Resources */,
@@ -3074,7 +3074,6 @@
 				222AA0A11EB071910038416D /* B_84@2x.gif in Resources */,
 				222AA08C1EB071910038416D /* B_65@2x.gif in Resources */,
 				222AA0671EB071910038416D /* B_31@2x.gif in Resources */,
-				22CDA9841EA60C2B006CD611 /* ProfitVC.xib in Resources */,
 				225DC9CF1ED803BB002ADA8F /* InvitationVC.xib in Resources */,
 				222AA0171EB071910038416D /* C_105@2x.png in Resources */,
 				222AA0181EB071910038416D /* C_106@2x.png in Resources */,
@@ -3149,6 +3148,7 @@
 				222AA0891EB071910038416D /* B_62@2x.gif in Resources */,
 				222AA1631EB071C20038416D /* Keyboard_first_emoticon@2x.png in Resources */,
 				22A454F01F064C1E0020225E /* share-result.html in Resources */,
+				22453BAA1F1C73FF0000C006 /* ProfitVC.xib in Resources */,
 				222AA0211EB071910038416D /* C_82@2x.png in Resources */,
 				222AA0511EB071910038416D /* B_11@2x.gif in Resources */,
 				222B38241ED9642B009DB58F /* FSActionSheet_cancel@2x.png in Resources */,
@@ -3370,7 +3370,6 @@
 				222B38261ED9642B009DB58F /* TAAbstractDotView.m in Sources */,
 				2286DC6B1EF26AFE00FDF801 /* LHChatBarMoreView.m in Sources */,
 				222AA14C1EB071C10038416D /* UIColor+RGB.m in Sources */,
-				22CDA9831EA60C2B006CD611 /* ProfitVC.m in Sources */,
 				222AA16A1EB071C20038416D /* KeyboardButton.m in Sources */,
 				228CF7391EDE7D070045986D /* MyVideoCell.m in Sources */,
 				222AA1D91EB0775B0038416D /* NSAttributedString+YYText.m in Sources */,
@@ -3432,7 +3431,6 @@
 				22E8D7711EA49AE300C5FC6B /* AppDelegate.m in Sources */,
 				22CDA9781EA6045A006CD611 /* AccountVC.m in Sources */,
 				222AA14A1EB071C10038416D /* NSDate+Judge.m in Sources */,
-				225FA9871EFBB0BF0086287E /* UserCell.m in Sources */,
 				222AA1C31EB0775B0038416D /* NSString+YYAdd.m in Sources */,
 				222AA0CF1EB071A50038416D /* TZAssetCell.m in Sources */,
 				222FA86E1EFD150400E91AE5 /* GiftsView.m in Sources */,
@@ -3445,6 +3443,7 @@
 				22B1092F1EA4A5D500E35B74 /* MyVC.m in Sources */,
 				222AA0D41EB071A50038416D /* TZPhotoPickerController.m in Sources */,
 				222B38601ED96843009DB58F /* MSSBrowseLocalViewController.m in Sources */,
+				22453BA91F1C73FF0000C006 /* ProfitVC.m in Sources */,
 				229094351EF2756200715841 /* AgreementVC.m in Sources */,
 				22B109191EA4A4E200E35B74 /* BaseViewController.m in Sources */,
 				222AA14F1EB071C10038416D /* UIView+Addtions.m in Sources */,
@@ -3463,6 +3462,7 @@
 				222B383A1ED9642B009DB58F /* XLPhotoBrowser.m in Sources */,
 				22844F571ED2A1B800A9E32E /* IQTextView.m in Sources */,
 				22721FAD1EE7E3E7003A19D3 /* MediaCell.m in Sources */,
+				22453BAE1F1C74290000C006 /* UserCell.m in Sources */,
 				2286DC6F1EF26AFE00FDF801 /* LHChatViewCell.m in Sources */,
 				222B38271ED9642B009DB58F /* TAAnimatedDotView.m in Sources */,
 				2286DC671EF26AFE00FDF801 /* LHChatImageBubbleView.m in Sources */,
