@@ -34,6 +34,8 @@
     [self.heagImage sd_setImageWithURL:[NSURL URLWithString:model.portrait]];
     self.nickLabel.text = model.nickname;
 
+    self.heagImage.layer.borderWidth = 1;
+    self.heagImage.layer.borderColor = [UIColorFromRGB(0xcccccc) CGColor];
 }
 
 - (IBAction)callAC:(id)sender {
@@ -47,7 +49,7 @@
     
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前网络不可用，请检查您的网络設定" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前网络不可用，请检查您的网络设置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         
         return;
@@ -56,7 +58,7 @@
        AppDelegate *app = [AppDelegate shareAppDelegate];
     if(![app.inst isOnline]){
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正处于离线状态" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正处于离线状态" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         return;
     }

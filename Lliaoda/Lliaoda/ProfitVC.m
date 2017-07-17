@@ -18,10 +18,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.text = @"收入";
-    self.dataList = @[@"通話收入",@"禮物及紅包收入",@"總收入",@"可提現總收入"];
+    self.text = @"收益";
+//    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"可提现总收益"];
+    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"邀请",@"可提现总收益"];
     self.tixianBtn.layer.cornerRadius = 22.5;
     self.tixianBtn.layer.masksToBounds = YES;
+    self.tixianBtn.backgroundColor = UIColorFromRGB(0xFB3476);
     [self loadData];
 }
 
@@ -101,13 +103,17 @@
     
         cell.textLabel.textColor = Color_Text_black;
         cell.detailTextLabel.textColor = Color_Text_gray;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
 
-    }else{
+    } else if (indexPath.row == 3) {
+        cell.textLabel.textColor = Color_Text_black;
+        cell.detailTextLabel.textColor = Color_Text_gray;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
+    } else{
     
         cell.textLabel.textColor = Color_nav;
         cell.detailTextLabel.textColor = Color_nav;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.settled];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
     }
     cell.textLabel.font = [UIFont systemFontOfSize:14];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
@@ -142,5 +148,7 @@
 }
 
 - (IBAction)tixianAC:(id)sender {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提现" message:@"提现相关事宜，请联系客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
 }
 @end

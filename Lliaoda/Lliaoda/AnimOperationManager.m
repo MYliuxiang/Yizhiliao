@@ -10,22 +10,7 @@
 #import "AnimOperation.h"
 
 @interface AnimOperationManager ()
-/// 队列1
-@property (nonatomic,strong) NSOperationQueue *queue1;
-/// 队列2
-@property (nonatomic,strong) NSOperationQueue *queue2;
 
-/// 操作缓存池
-@property (nonatomic,strong) NSCache *operationCache;
-/// 维护用户礼物信息
-@property (nonatomic,strong) NSCache *userGigtInfos;
-
-//礼物的id
-@property (nonatomic,strong) NSCache *gifInfos;
-
-@property (nonatomic,copy) NSString *oldUser;
-
-@property (nonatomic,assign) int count;
 
 
 @end
@@ -33,16 +18,22 @@
 
 @implementation AnimOperationManager
 
+static AnimOperationManager *manager;
+static dispatch_once_t onceToken;
 + (instancetype)sharedManager
 {
-    static AnimOperationManager *manager;
     
-    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[AnimOperationManager alloc] init];
         
     });
     return manager;
+}
+
++ (void)attemptDealloc
+{
+    onceToken = 0;
+    manager = nil;
 }
 
 - (instancetype)init
@@ -56,7 +47,8 @@
 
 /// 动画操作 : 需要UserID和回调
 - (void)animWithUserID:(NSString *)userID model:(GiftModel *)model finishedBlock:(void(^)(BOOL result))finishedBlock {
-   
+    
+    //跟之前的礼物id比较
     if ([self.oldUser isEqualToString:userID]) {
         
         //在有用户礼物信息时
@@ -112,7 +104,7 @@
         // 在没有用户礼物信息时
         else
         {   // 如果有操作缓存，则直接累加，不需要重新创建op
-            if ([self.operationCache objectForKey:userID]!=nil) {
+            if ([self.operationCache objectForKey:userID] !=nil) {
                 AnimOperation *op = [self.operationCache objectForKey:userID];
                 op.presentView.model = model;
                 [op.presentView shakeNumberLabel];
@@ -153,21 +145,15 @@
             }
             
         }
-
-    
+        
+        
+        
     }else{
-    
+        //之前没送过这个礼物
         self.count ++;
         //在有用户礼物信息时
         if ([self.userGigtInfos objectForKey:userID]) {
-            // 如果有操作缓存，则直接累加，不需要重新创建op
-//            if ([self.operationCache objectForKey:userID]!=nil) {
-//                AnimOperation *op = [self.operationCache objectForKey:userID];
-//                op.presentView.giftCount = model.giftCount;
-//                [op.presentView shakeNumberLabel];
-//                return;
-//            }
-            // 没有操作缓存，创建op
+            
             AnimOperation *op = [AnimOperation animOperationWithUserID:userID model:model finishedBlock:^(BOOL result,NSInteger finishCount) {
                 // 回调
                 if (finishedBlock) {
@@ -210,12 +196,6 @@
         // 在没有用户礼物信息时
         else
         {   // 如果有操作缓存，则直接累加，不需要重新创建op
-//            if ([self.operationCache objectForKey:userID]!=nil) {
-//                AnimOperation *op = [self.operationCache objectForKey:userID];
-//                op.presentView.giftCount = model.giftCount;
-//                [op.presentView shakeNumberLabel];
-//                return;
-//            }
             
             AnimOperation *op = [AnimOperation animOperationWithUserID:userID model:model finishedBlock:^(BOOL result,NSInteger finishCount) {
                 // 回调
@@ -249,15 +229,11 @@
                     [self.queue2 addOperation:op];
                 }
             }
-            
         }
-        
-
-    
     }
     
     self.oldUser = userID;
-
+    
 }
 
 /// 取消上一次的动画操作 暂时没用到
