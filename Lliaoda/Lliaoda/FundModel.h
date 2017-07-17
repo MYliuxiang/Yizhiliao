@@ -15,5 +15,7 @@
 @property(nonatomic,assign)int settled;	//Int	已结算的积分收益
 @property(nonatomic,assign)int video;	//Int	已结算的积分收益
 @property(nonatomic,assign)int gift;	//Int	已结算的积分收益
+@property(nonatomic,assign)int share;	//Int	已结算的积分收益
+
 
 @end
