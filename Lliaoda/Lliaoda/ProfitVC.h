@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 #import "FundModel.h"
-
+#import "ProfitCell.h"
 @interface ProfitVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *tixianBtn;
 - (IBAction)tixianAC:(id)sender;

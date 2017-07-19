@@ -29,6 +29,8 @@
 @property(nonatomic,assign)int deposit;	//Int	賬戶餘額，鑽石数量
 @property(nonatomic,assign)int income;	//Int	账户总收益，积分
 
+@property (nonatomic, assign) long vipEndTime; // vip到期时间
+@property (nonatomic, assign) int totalInpour; // 总充值的钻石数量
 @property (nonatomic,retain) NSArray *charges;
 
 @end

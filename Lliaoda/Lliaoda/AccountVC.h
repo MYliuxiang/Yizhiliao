@@ -18,10 +18,17 @@ typedef NS_ENUM(NSInteger, PayType) {
     AppPay
 };
 
-@interface AccountVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,WXApiDelegate>
+@interface AccountVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,WXApiDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+{
+    Mymodel *myModel;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *accountLab;
+
+@property (strong, nonatomic) UICollectionView *collectionView;
+@property (strong, nonatomic) UICollectionViewFlowLayout *collectionViewLayout;
+
 @property (nonatomic,retain)NSMutableArray *dataList;
 @property (nonatomic,assign) int deposit;
 @property (nonatomic,copy) void(^clickBlock)(void);

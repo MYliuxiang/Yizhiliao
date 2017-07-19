@@ -14,5 +14,6 @@
 @property(nonatomic,assign)int price;	//商品价格，分，前端格式化显示
 @property(nonatomic,copy)NSString *icon;	//商品展示的图标地址
 @property(nonatomic,assign)int bonus;	//商品价格，分，前端格式化显示
-
+@property (nonatomic, assign) int vipDays; // 赠送的VIP天数
+@property (nonatomic, assign) int isVipForFirstTopUp; // 是否首冲
 @end
