@@ -403,7 +403,6 @@
 		225FA9821EFBA01F0086287E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA97F1EFBA01F0086287E /* libcrypto.a */; };
 		225FA9931EFBBA0D0086287E /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA9921EFBBA0D0086287E /* AgoraRtcEngineKit.framework */; };
 		225FA9EE1EFBD6C90086287E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 225FA9ED1EFBD6C90086287E /* UserModel.m */; };
-		225FA9F41EFBEE3D0086287E /* AGVideoPreProcessing.mm in Sources */ = {isa = PBXBuildFile; fileRef = 225FA9F31EFBEE3D0086287E /* AGVideoPreProcessing.mm */; };
 		2263D3E81EF392BD0020E092 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263D3E71EF392BD0020E092 /* AboutVC.m */; };
 		226BA90F1ED7E324004D983A /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BA90D1ED7E324004D983A /* MyCell.m */; };
 		226BA9101ED7E324004D983A /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BA90E1ED7E324004D983A /* MyCell.xib */; };
@@ -534,6 +533,12 @@
 		22FD1DAD1F0A1F95007D52DE /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FD1DAC1F0A1F95007D52DE /* libstdc++.tbd */; };
 		22FD1DAF1F0A1FA7007D52DE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FD1DAE1F0A1FA7007D52DE /* Accounts.framework */; };
 		3D3E40C562B4BFD65DEADDD7 /* libPods-LliaodaUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F302B5D440D27C314936B16F /* libPods-LliaodaUITests.a */; };
+		840BE3191F1F01A70004B6D9 /* AccountCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE3141F1F01A70004B6D9 /* AccountCollectionCell.m */; };
+		840BE31A1F1F01A70004B6D9 /* AccountCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE3151F1F01A70004B6D9 /* AccountCollectionCell.xib */; };
+		840BE31B1F1F01A70004B6D9 /* CollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE3171F1F01A70004B6D9 /* CollectionHeaderView.m */; };
+		840BE31C1F1F01A70004B6D9 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE3181F1F01A70004B6D9 /* CollectionHeaderView.xib */; };
+		840BE3201F1F02C40004B6D9 /* ProfitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE31E1F1F02C40004B6D9 /* ProfitCell.m */; };
+		840BE3211F1F02C40004B6D9 /* ProfitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */; };
 		CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */; };
 /* End PBXBuildFile section */
 
@@ -1123,8 +1128,6 @@
 		225FA9921EFBBA0D0086287E /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
 		225FA9EC1EFBD6C90086287E /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		225FA9ED1EFBD6C90086287E /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
-		225FA9F21EFBEE3D0086287E /* AGVideoPreProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGVideoPreProcessing.h; sourceTree = "<group>"; };
-		225FA9F31EFBEE3D0086287E /* AGVideoPreProcessing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AGVideoPreProcessing.mm; sourceTree = "<group>"; };
 		2263D3E61EF392BD0020E092 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
 		2263D3E71EF392BD0020E092 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
 		226BA90C1ED7E324004D983A /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
@@ -1352,6 +1355,15 @@
 		4BF6322471433B628FE99BE6 /* Pods-LliaodaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LliaodaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LliaodaUITests/Pods-LliaodaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E8CFC75B02E9FDC4BF5498E /* Pods-Lliaoda.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lliaoda.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda.debug.xcconfig"; sourceTree = "<group>"; };
 		54DEB78F28699835C10D929F /* Pods-LliaodaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LliaodaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LliaodaTests/Pods-LliaodaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		840BE3131F1F01A70004B6D9 /* AccountCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCollectionCell.h; sourceTree = "<group>"; };
+		840BE3141F1F01A70004B6D9 /* AccountCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCollectionCell.m; sourceTree = "<group>"; };
+		840BE3151F1F01A70004B6D9 /* AccountCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCollectionCell.xib; sourceTree = "<group>"; };
+		840BE3161F1F01A70004B6D9 /* CollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionHeaderView.h; sourceTree = "<group>"; };
+		840BE3171F1F01A70004B6D9 /* CollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionHeaderView.m; sourceTree = "<group>"; };
+		840BE3181F1F01A70004B6D9 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionHeaderView.xib; sourceTree = "<group>"; };
+		840BE31D1F1F02C40004B6D9 /* ProfitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitCell.h; sourceTree = "<group>"; };
+		840BE31E1F1F02C40004B6D9 /* ProfitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitCell.m; sourceTree = "<group>"; };
+		840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitCell.xib; sourceTree = "<group>"; };
 		B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lliaoda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C168064B372F162D1F5BB065 /* Pods-Lliaoda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lliaoda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda.release.xcconfig"; sourceTree = "<group>"; };
 		E528CC8DA412F4F2C12F8084 /* libPods-LliaodaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LliaodaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1489,8 +1501,6 @@
 				222396EB1EB1DE4F001D4814 /* VideoCallView.h */,
 				222396EC1EB1DE4F001D4814 /* VideoCallView.m */,
 				222396EE1EB1ED33001D4814 /* VideoCallView.xib */,
-				225FA9F21EFBEE3D0086287E /* AGVideoPreProcessing.h */,
-				225FA9F31EFBEE3D0086287E /* AGVideoPreProcessing.mm */,
 				222FA8671EFCF34200E91AE5 /* VideoCallRedView.h */,
 				222FA8681EFCF34200E91AE5 /* VideoCallRedView.m */,
 				222FA86A1EFCF35500E91AE5 /* VideoCallRedView.xib */,
@@ -2768,6 +2778,15 @@
 				228CF7361EDE7D070045986D /* MyVideoCell.h */,
 				228CF7371EDE7D070045986D /* MyVideoCell.m */,
 				228CF7381EDE7D070045986D /* MyVideoCell.xib */,
+				840BE31D1F1F02C40004B6D9 /* ProfitCell.h */,
+				840BE31E1F1F02C40004B6D9 /* ProfitCell.m */,
+				840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */,
+				840BE3131F1F01A70004B6D9 /* AccountCollectionCell.h */,
+				840BE3141F1F01A70004B6D9 /* AccountCollectionCell.m */,
+				840BE3151F1F01A70004B6D9 /* AccountCollectionCell.xib */,
+				840BE3161F1F01A70004B6D9 /* CollectionHeaderView.h */,
+				840BE3171F1F01A70004B6D9 /* CollectionHeaderView.m */,
+				840BE3181F1F01A70004B6D9 /* CollectionHeaderView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3044,6 +3063,7 @@
 				222AA0691EB071910038416D /* B_33@2x.gif in Resources */,
 				223BDF101EA70547006DCD65 /* SettingVC.xib in Resources */,
 				222AA08F1EB071910038416D /* B_68@2x.gif in Resources */,
+				840BE31A1F1F01A70004B6D9 /* AccountCollectionCell.xib in Resources */,
 				222B38591ED96843009DB58F /* mss_browseLoading@2x.png in Resources */,
 				222AA0731EB071910038416D /* B_42@2x.gif in Resources */,
 				222AA0561EB071910038416D /* B_16@2x.gif in Resources */,
@@ -3141,6 +3161,7 @@
 				222AA0131EB071910038416D /* C_101@2x.png in Resources */,
 				222AA0251EB071910038416D /* C_86@2x.png in Resources */,
 				222AA0B01EB071910038416D /* B_98@2x.gif in Resources */,
+				840BE3211F1F02C40004B6D9 /* ProfitCell.xib in Resources */,
 				222AA0801EB071910038416D /* B_54@2x.gif in Resources */,
 				222AA0711EB071910038416D /* B_40@2x.gif in Resources */,
 				222AA0A41EB071910038416D /* B_87@2x.gif in Resources */,
@@ -3161,6 +3182,7 @@
 				222AA0311EB071910038416D /* C_98@2x.png in Resources */,
 				222AA01E1EB071910038416D /* C_112@2x.png in Resources */,
 				222AA0521EB071910038416D /* B_12@2x.gif in Resources */,
+				840BE31C1F1F01A70004B6D9 /* CollectionHeaderView.xib in Resources */,
 				222AA0481EB071910038416D /* B_110@2x.gif in Resources */,
 				222AA0B41EB071910038416D /* emotion1.plist in Resources */,
 				22453BAF1F1C74290000C006 /* UserCell.xib in Resources */,
@@ -3506,6 +3528,7 @@
 				222AA1E11EB0775B0038416D /* YYLabel.m in Sources */,
 				222B38211ED9642B009DB58F /* FSActionSheetCell.m in Sources */,
 				222DD1A61EADCCF500B7A8D7 /* CityTool.m in Sources */,
+				840BE31B1F1F01A70004B6D9 /* CollectionHeaderView.m in Sources */,
 				222396ED1EB1DE4F001D4814 /* VideoCallView.m in Sources */,
 				222B385F1ED96843009DB58F /* MSSBrowseLoadingImageView.m in Sources */,
 				222AA1DD1EB0775B0038416D /* YYTextAsyncLayer.m in Sources */,
@@ -3603,8 +3626,8 @@
 				222B38281ED9642B009DB58F /* TADotView.m in Sources */,
 				222AA1751EB071C20038416D /* LHPhotoPreviewCell.m in Sources */,
 				222B385D1ED96843009DB58F /* MSSBrowseBaseViewController.m in Sources */,
+				840BE3201F1F02C40004B6D9 /* ProfitCell.m in Sources */,
 				227971CC1EF8DC0900BC8E18 /* DateUnit.m in Sources */,
-				225FA9F41EFBEE3D0086287E /* AGVideoPreProcessing.mm in Sources */,
 				2258D2921EB834ED006D29DC /* Charge.m in Sources */,
 				2286DC661EF26AFE00FDF801 /* LHChatBaseBubbleView.m in Sources */,
 				22FAD5541EE11FB100BF8BDB /* Reachability.m in Sources */,
@@ -3669,6 +3692,7 @@
 				223740C51EA9AB1500EFB6D8 /* LxCache.m in Sources */,
 				2286DC6E1EF26AFE00FDF801 /* LHChatViewBaseCell.m in Sources */,
 				224F246A1EA74B6700C0FDC6 /* FMImagePicker.m in Sources */,
+				840BE3191F1F01A70004B6D9 /* AccountCollectionCell.m in Sources */,
 				222AA0D71EB071A50038416D /* TZVideoPlayerController.m in Sources */,
 				222AA0D61EB071A50038416D /* TZPhotoPreviewController.m in Sources */,
 				222AA1CF1EB0775B0038416D /* YYTextKeyboardManager.m in Sources */,

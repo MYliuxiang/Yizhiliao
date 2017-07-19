@@ -26,7 +26,7 @@
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/XLPhotoBrowser/XLPhotoBrowser.m"
-                  timestampString = "522127925.904218"
+                  timestampString = "522131731.515255"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "734"
@@ -41,7 +41,7 @@
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/XLPhotoBrowser/XLPhotoBrowser.m"
-                  timestampString = "522127925.906111"
+                  timestampString = "522131731.517382"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "734"
@@ -147,22 +147,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AppDelegate.m"
-            timestampString = "521699507.678833"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1251"
-            endingLineNumber = "1251"
-            landmarkName = "-application:openURL:options:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Lliaoda/PersonalVC.m"
             timestampString = "521634850.661205"
             startingColumnNumber = "9223372036854775807"
@@ -180,7 +164,7 @@
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
-                  timestampString = "522127925.930198"
+                  timestampString = "522131731.541063"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "519"
@@ -195,7 +179,7 @@
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
-                  timestampString = "522127925.931817"
+                  timestampString = "522131731.544702"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "519"
@@ -228,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/VideoCallView.m"
-            timestampString = "521721687.546423"
+            timestampString = "522131730.072133"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "950"
-            endingLineNumber = "950"
+            startingLineNumber = "1002"
+            endingLineNumber = "1002"
             landmarkName = "-dismiss"
             landmarkType = "7">
          </BreakpointContent>
@@ -244,11 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/VideoCallView.m"
-            timestampString = "521721613.886308"
+            timestampString = "522131730.072133"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "955"
-            endingLineNumber = "955"
+            startingLineNumber = "1007"
+            endingLineNumber = "1007"
             landmarkName = "-dismiss"
             landmarkType = "7">
          </BreakpointContent>

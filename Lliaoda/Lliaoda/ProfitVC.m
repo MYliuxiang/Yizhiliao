@@ -8,7 +8,7 @@
 
 #import "ProfitVC.h"
 
-@interface ProfitVC ()
+@interface ProfitVC ()<ProfitCellDelegate>
 
 @end
 
@@ -20,7 +20,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.text = @"收益";
 //    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"可提现总收益"];
-    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"邀请",@"可提现总收益"];
+//    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"邀请",@"可提现总收益"];
+    self.dataList = @[@"通话收益",@"礼物及红包收益",@"邀请"];
     self.tixianBtn.layer.cornerRadius = 22.5;
     self.tixianBtn.layer.masksToBounds = YES;
     self.tixianBtn.backgroundColor = UIColorFromRGB(0xFB3476);
@@ -69,75 +70,134 @@
 #pragma  mark --------UITableView Delegete----------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+//    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataList.count;
+//    return self.dataList.count;
+    if (section == 1) {
+        return 3;
+    } else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    static NSString *identifire = @"cellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
+    if (indexPath.section == 0) {
+        ProfitCell *cell = [ProfitCell tableView:tableView
+                                       indexPath:indexPath
+                                        delegate:self];
+        cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
+        cell.tixianButton.layer.cornerRadius = 20;
+        cell.tixianButton.layer.borderWidth = 1;
+        cell.tixianButton.layer.borderColor = [UIColor whiteColor].CGColor;
+        return cell;
+    } else if (indexPath.section == 1) {
+        static NSString *identifire = @"cellID";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
+            
+        }
         
-    }
-    
-    cell.textLabel.text = self.dataList[indexPath.row];
-    if (indexPath.row == 0) {
+        cell.textLabel.text = self.dataList[indexPath.row];
+        if (indexPath.row == 0) {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.video];
+        }else if (indexPath.row == 1){
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.gift];
+        }else if(indexPath.row == 2){
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
+        }
         cell.textLabel.textColor = Color_Text_black;
-        cell.detailTextLabel.textColor = Color_Text_gray;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.video];
-
-    }else if (indexPath.row == 1){
-        
-        cell.textLabel.textColor = Color_Text_black;
-        cell.detailTextLabel.textColor = Color_Text_gray;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.gift];
-    
-    }else if(indexPath.row == 2){
-    
-        cell.textLabel.textColor = Color_Text_black;
-        cell.detailTextLabel.textColor = Color_Text_gray;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
-
-    } else if (indexPath.row == 3) {
-        cell.textLabel.textColor = Color_Text_black;
-        cell.detailTextLabel.textColor = Color_Text_gray;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
-    } else{
-    
-        cell.textLabel.textColor = Color_nav;
         cell.detailTextLabel.textColor = Color_nav;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+        cell.detailTextLabel.top = cell.detailTextLabel.top + 1;
+        
+        return cell;
+
+    } else {
+        static NSString *identifire = @"cellID";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
+        }
+        cell.textLabel.text = @"累计提现";
+        cell.textLabel.textColor = Color_Text_black;
+        cell.detailTextLabel.textColor = Color_nav;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
+        return cell;
     }
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-    cell.detailTextLabel.top = cell.detailTextLabel.top + 1;
-    
-    return cell;
-    
+//    static NSString *identifire = @"cellID";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
+//        
+//    }
+//    
+//    cell.textLabel.text = self.dataList[indexPath.row];
+//    if (indexPath.row == 0) {
+//        cell.textLabel.textColor = Color_Text_black;
+//        cell.detailTextLabel.textColor = Color_Text_gray;
+//        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.video];
+//
+//    }else if (indexPath.row == 1){
+//        
+//        cell.textLabel.textColor = Color_Text_black;
+//        cell.detailTextLabel.textColor = Color_Text_gray;
+//        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.gift];
+//    
+//    }else if(indexPath.row == 2){
+//    
+//        cell.textLabel.textColor = Color_Text_black;
+//        cell.detailTextLabel.textColor = Color_Text_gray;
+//        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
+//
+//    } else if (indexPath.row == 3) {
+//        cell.textLabel.textColor = Color_Text_black;
+//        cell.detailTextLabel.textColor = Color_Text_gray;
+//        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
+//    } else{
+//    
+//        cell.textLabel.textColor = Color_nav;
+//        cell.detailTextLabel.textColor = Color_nav;
+//        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
+//    }
+//    cell.textLabel.font = [UIFont systemFontOfSize:14];
+//    cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+//    cell.detailTextLabel.top = cell.detailTextLabel.top + 1;
+//    
+//    return cell;
+//    
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return .1;
+//    if (section == 0) {
+//        return 0;
+//    }
+    return 0;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return .1;
+    if (section == 2) {
+        return 0;
+    }
+    return 10;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        return 200;
+    }
     return 60;
 }
 
@@ -148,6 +208,12 @@
 }
 
 - (IBAction)tixianAC:(id)sender {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提现" message:@"提现相关事宜，请联系客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
+}
+
+#pragma mark - ProfitCellDelegate
+- (void)btnClick:(ProfitCell *)cell {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提现" message:@"提现相关事宜，请联系客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alertView show];
 }
