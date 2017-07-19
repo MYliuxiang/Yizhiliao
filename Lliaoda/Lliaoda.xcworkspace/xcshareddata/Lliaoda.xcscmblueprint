@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "589D3838CA5196775B1DBFCF2AB0FE77F14623B7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "589D3838CA5196775B1DBFCF2AB0FE77F14623B7" : 9223372036854775807,
+    "35F4CC40FC410FE2B37A6DA91196E134027E0693" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D9A067BA-1356-4357-A1DD-E6E51FE33E9F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "589D3838CA5196775B1DBFCF2AB0FE77F14623B7" : "TW\/",
+    "35F4CC40FC410FE2B37A6DA91196E134027E0693" : "meme_ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Lliaoda",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Lliaoda\/Lliaoda.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.coding.net\/niuniugo\/meme_ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "35F4CC40FC410FE2B37A6DA91196E134027E0693"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.coding.net\/liuxiang444\/TW.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "589D3838CA5196775B1DBFCF2AB0FE77F14623B7"
+    }
+  ]
+}

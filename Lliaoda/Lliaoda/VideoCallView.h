@@ -25,6 +25,7 @@
 #import "GSPChatMessage.h"
 #import "RecordGiftModel.h"
 #import "Mymodel.h"
+#import "AGVideoProcessing.h"
 
 @interface VideoCallView : UIView<AgoraRtcEngineDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *refuseBtn;

@@ -22,14 +22,15 @@
                         <color key="selectedImageTintColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="fnG-AO-TeC" kind="relationship" relationship="viewControllers" id="nen-0a-fyH"/>
-                        <segue destination="4eq-dL-Fxh" kind="relationship" relationship="viewControllers" id="ku0-9r-Zk3"/>
-                        <segue destination="O9h-5L-P6f" kind="relationship" relationship="viewControllers" id="y5N-Yb-ua1"/>
+                        <segue destination="UFQ-jh-YFA" kind="relationship" relationship="viewControllers" id="Cc4-OZ-1ei"/>
+                        <segue destination="fnG-AO-TeC" kind="relationship" relationship="viewControllers" id="kSe-fe-a2U"/>
+                        <segue destination="4eq-dL-Fxh" kind="relationship" relationship="viewControllers" id="PfY-ko-JPs"/>
+                        <segue destination="O9h-5L-P6f" kind="relationship" relationship="viewControllers" id="zdR-EH-IRd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uF-ev-KIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2985" y="0.0"/>
+            <point key="canvasLocation" x="-3593" y="-648"/>
         </scene>
         <!--我的-->
         <scene sceneID="ge4-k5-Hnb">
@@ -194,7 +195,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddB-mt-pJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1876" y="-566"/>
+            <point key="canvasLocation" x="-1734" y="-832"/>
         </scene>
         <!--发现-->
         <scene sceneID="teg-fc-tn4">

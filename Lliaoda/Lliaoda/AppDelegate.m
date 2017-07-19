@@ -101,11 +101,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
-        
+//    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
+    
         [self appconfig];
 
-    }
+//    }
     [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
     [LXUserDefaults synchronize];
     
@@ -191,11 +191,52 @@
 //        [LXUserDefaults setBool:YES forKey:ISMEiGUO];
 //    }
 //    [LXUserDefaults synchronize];
-    
+    [self updataFinalCallTime];
     [self.window makeKeyWindow];
     return YES;
     
 }
+
+- (void)updataFinalCallTime
+{
+    
+    NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    
+    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",uid];
+    
+    NSArray *array = [CallTime findByCriteria:criteria];
+    
+    if (array.count == 0) {
+        return;
+    }
+    NSMutableArray *marray = [NSMutableArray array];
+    for (CallTime *call in array) {
+        
+        NSDictionary *dic = @{@"channelId":@(call.channelId),@"endedAt":@(call.endedAt),@"duration":@(call.duration)};
+        [marray addObject:dic];
+        
+    }
+    
+    NSDictionary *params = @{@"calls":marray};
+    
+    [WXDataService requestAFWithURL:Url_chatvideoreport params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                
+                for (CallTime *call in array) {
+                    [call deleteObject];
+                }
+                
+            }else{
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+    }];
+    
+    
+}
+
 
 //监听购买结果
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{

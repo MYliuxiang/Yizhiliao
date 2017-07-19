@@ -120,6 +120,8 @@ alpha:1.0]
 
 #import "agorasdk.h"
 #import <videoprp/AgoraYuvEnhancerObjc.h>
+//#import "CallTime.h"
+
 
 #define CityCache @"CityCache"
 
@@ -169,6 +171,7 @@ alpha:1.0]
 #define Url_accountshare                  @"account/share"//获取用户分享信息
 #define Url_chatmessagesend               @"chat/message/send"//发送訊息内容到服务器
 #define Url_accountheartbeat              @"account/heartbeat"//app在激活状态时发送给服务器
+#define Url_chatvideoreport               @"chat/video/report"//设置当前用户与直播的喜欢状态
 
 
 //-------------微信登入---------
