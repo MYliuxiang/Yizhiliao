@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mapImage;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImage;
+@property (nonatomic,assign) BOOL first;
 
 - (IBAction)closeAC:(id)sender;
 

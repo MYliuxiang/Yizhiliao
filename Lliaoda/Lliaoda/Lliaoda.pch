@@ -164,6 +164,7 @@ alpha:1.0]
 #define Url_chatvideorecancel             @"chat/video/cancel"//呼叫視訊聊天
 #define Url_appconfig                     @"app/config"//获取服务器端設定
 #define Url_match                         @"match"//获取匹配的主播列表
+#define Url_behavior                      @"behavior"//获取匹配的主播列表
 #define Url_chatvideojoin                 @"chat/video/join"//被呼叫方同意之后，加入聊天频道。如果主叫/被叫用户已经在其他频道了，将被迫退出当前频道
 #define Url_chatvideorenew                @"chat/video/renew"//更新频道密钥，以便继续聊天
 #define Url_chatvideoquit                 @"chat/video/quit"//离开频道

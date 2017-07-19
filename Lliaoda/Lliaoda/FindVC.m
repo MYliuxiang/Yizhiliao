@@ -162,6 +162,31 @@
         _threeTimer = nil;
     }
 
+    if (!self.first) {
+        NSDictionary *params;
+        params = @{@"action":@(1)};
+        [WXDataService requestAFWithURL:Url_behavior params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+            if(result){
+                if ([[result objectForKey:@"result"] integerValue] == 0) {
+                    
+                    
+                }else{    //请求失败
+                    //                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                    //                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                    //                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    //                        [SVProgressHUD dismiss];
+                    //                    });
+                    
+                }
+            }
+            
+        } errorBlock:^(NSError *error) {
+            
+            
+        }];
+        
+    }
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -176,8 +201,7 @@
 
     }
     
-    
-
+    self.first = YES;
 
 }
 
@@ -211,10 +235,13 @@
 - (void)getMatchUser
 {
     NSDictionary *params;
+    params = @{@"first":@(self.first)};
+
     [WXDataService requestAFWithURL:Url_match params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
-                
+                self.first = NO;
+
                 NSMutableArray *marray = [NSMutableArray array];
                 NSArray *array = result[@"data"][@"broadcasters"];
                 for (NSDictionary *subDic in array) {
@@ -255,23 +282,39 @@
 - (void)showPoint:(NSTimer *)timer
 {
 
-    if (_time == 8) {
+    if (self.pointsModels.count < 8) {
         
-        if (timer) {
+        if (_time == 8) {
             
-            [self disaplayFindCard:self.displayModel];
-            [_timer invalidate];
-            _timer = nil;
-            _time = 0;
+            if (timer) {
+                
+                [self disaplayFindCard:self.displayModel];
+                [_timer invalidate];
+                _timer = nil;
+                _time = 0;
+            }
+            
         }
+    }else{
         
+        if (_time == self.pointsModels.count) {
+            
+            if (timer) {
+                
+                [self disaplayFindCard:self.displayModel];
+                [_timer invalidate];
+                _timer = nil;
+                _time = 0;
+            }
+            
+        }
     }
     
-    if (_time >= self.pointsModels.count) {
+    
+    if (_time > self.pointsModels.count) {
         
         return;
     }
-    
     
     if(self.pointsViewArray.count == 3){
             JXRadarPointView *dismisspointView = self.pointsViewArray[0];
