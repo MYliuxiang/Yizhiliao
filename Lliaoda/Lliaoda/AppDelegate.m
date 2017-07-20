@@ -890,7 +890,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     [MobClick profileSignInWithPUID:uid provider:@"WX"];
                     [MobClick event:@"Forward"];
 
-                    
+                    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+
                     NSDictionary *params;
                     [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:YES isErrorHud:NO finishBlock:^(id result) {
                         if(result){
