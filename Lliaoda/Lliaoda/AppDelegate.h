@@ -13,6 +13,7 @@
 #import "UMMobClick/MobClick.h"
 #import <AgoraRtcEngineKit/AgoraRtcEngineKit.h>
 #import "IAPModel.h"
+#import "Mymodel.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,UIAlertViewDelegate>
 
@@ -24,6 +25,7 @@
 @property (nonatomic,retain) NSTimer *timer;
 @property (nonatomic,retain) NSMutableArray *notices;
 @property (nonatomic,retain) NSTimer *heartBeatTimer;
+@property (nonatomic,retain) Mymodel *model;
 
 - (void)isLogin;
 

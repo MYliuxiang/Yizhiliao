@@ -26,7 +26,7 @@
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/XLPhotoBrowser/XLPhotoBrowser.m"
-                  timestampString = "521958999.489455"
+                  timestampString = "522240865.764513"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "734"
@@ -41,7 +41,7 @@
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/XLPhotoBrowser/XLPhotoBrowser.m"
-                  timestampString = "521958999.491414"
+                  timestampString = "522240865.766743"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "734"
@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/AccountVC.m"
-            timestampString = "521029149.029679"
+            timestampString = "522239167.981809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "-weiXinPay:"
             landmarkType = "7">
          </BreakpointContent>
@@ -116,45 +116,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/AccountVC.m"
-            timestampString = "521029149.029679"
+            timestampString = "522239167.981809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "-paymentQueue:updatedTransactions:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AccountVC.m"
-            timestampString = "521029149.029679"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "-weiXinPay:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AppDelegate.m"
-            timestampString = "521699507.678833"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1251"
-            endingLineNumber = "1251"
-            landmarkName = "-application:openURL:options:"
-            landmarkType = "7">
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "@implementation AccountVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -180,7 +148,7 @@
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
-                  timestampString = "521958999.514409"
+                  timestampString = "522240865.782582"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "519"
@@ -195,7 +163,7 @@
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
-                  timestampString = "521958999.516278"
+                  timestampString = "522240865.784341"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "519"
@@ -228,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/VideoCallView.m"
-            timestampString = "521721687.546423"
+            timestampString = "522131730.072133"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "950"
-            endingLineNumber = "950"
+            startingLineNumber = "1002"
+            endingLineNumber = "1002"
             landmarkName = "-dismiss"
             landmarkType = "7">
          </BreakpointContent>
@@ -244,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/VideoCallView.m"
-            timestampString = "521721613.886308"
+            timestampString = "522131730.072133"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "955"
-            endingLineNumber = "955"
+            startingLineNumber = "1007"
+            endingLineNumber = "1007"
             landmarkName = "-dismiss"
             landmarkType = "7">
          </BreakpointContent>

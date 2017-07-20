@@ -359,6 +359,33 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:Notice_messageVideoTime object:nil userInfo:@{@"msg":messageModel}];
 
+        NSString *criteria1 = [NSString stringWithFormat:@"WHERE channelId = %@",self.channel];
+        CallTime *call = [CallTime findFirstByCriteria:criteria1];
+        
+        call.channelId = [self.channel intValue];
+        call.endedAt = idate;
+        call.duration = self.callTime * 1000;
+        call.uid = [self.uid integerValue];
+        
+        
+        NSDictionary *params = @{@"calls":@[@{@"channelId":@(call.channelId),@"endedAt":@(call.endedAt),@"duration":@(call.duration)}]};
+        
+        [WXDataService requestAFWithURL:Url_chatvideoreport params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+            if(result){
+                if ([[result objectForKey:@"result"] integerValue] == 0) {
+                    
+                    [call deleteObject];
+                    
+                }else{
+                    [call update];
+                }
+            }
+            
+        } errorBlock:^(NSError *error) {
+            [call update];
+        }];
+        
+        
     }   
 
 }
@@ -919,6 +946,31 @@
             [count save];
         }
 
+        NSString *criteria1 = [NSString stringWithFormat:@"WHERE channelId = %@",self.channel];
+        CallTime *call = [CallTime findFirstByCriteria:criteria1];
+        call.channelId = [self.channel intValue];
+        call.endedAt = idate;
+        call.duration = self.callTime * 1000;
+        call.uid = [self.uid intValue];
+        
+        NSDictionary *params = @{@"calls":@[@{@"channelId":@(call.channelId),@"endedAt":@(call.endedAt),@"duration":@(call.duration)}]};
+        
+        [WXDataService requestAFWithURL:Url_chatvideoreport params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+            if(result){
+                if ([[result objectForKey:@"result"] integerValue] == 0) {
+                    [call deleteObject];
+                    
+                }else{
+                    [call update];
+                }
+            }
+            
+        } errorBlock:^(NSError *error) {
+            [call update];
+        }];
+        
+
+        
         NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
         NSString *itemcriteria = [NSString stringWithFormat:@"WHERE uid = %@ order by timeDate DESC",selfuid];
         NSArray *array = [MessageCount findByCriteria:criteria];
@@ -928,7 +980,7 @@
             count += mcount.count;
         }
         
-        UITabBarItem *item=[[MainTabBarController shareMainTabBarController].tabBar.items objectAtIndex:itemIndex];
+        UITabBarItem *item=[[MainTabBarController shareMainTabBarController].tabBar.items objectAtIndex:[[LXUserDefaults objectForKey:itemNumber] intValue]];
         // 显示
         item.badgeValue=[NSString stringWithFormat:@"%d",count];
         if(count == 0){
@@ -1447,6 +1499,33 @@
     }
     NSString *timeStr = [self timeFormatted:self.callTime];
     self.timeLab.text = timeStr;
+    
+    if (self.callTime % 30 == 0) {
+        
+        [AGVideoProcessing registerVideoPreprocessing:_instMedia withchanel:self.channel];
+    }
+
+    long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+    NSString *criteria = [NSString stringWithFormat:@"where channelId = %@",self.channel];
+    
+    CallTime *call = [CallTime findFirstByCriteria:criteria];
+    if (call == nil) {
+        call = [[CallTime alloc] init];
+        call.channelId = [self.channel intValue];
+        call.endedAt = idate;
+        call.duration = self.callTime * 1000;
+        call.uid = [self.uid intValue];
+        [call save];
+    }else{
+        
+        call.channelId = [self.channel intValue];
+        call.endedAt = idate;
+        call.duration = self.callTime * 1000;
+        call.uid = [self.uid intValue];
+        [call update];
+        
+    }
+
 
 }
 
@@ -1544,7 +1623,7 @@
             count += mcount.count;
         }
         
-        UITabBarItem *item=[[MainTabBarController shareMainTabBarController].tabBar.items objectAtIndex:itemIndex];
+        UITabBarItem *item=[[MainTabBarController shareMainTabBarController].tabBar.items objectAtIndex:[[LXUserDefaults objectForKey:itemNumber] intValue]];
         // 显示
         item.badgeValue=[NSString stringWithFormat:@"%d",count];
         if(count == 0){

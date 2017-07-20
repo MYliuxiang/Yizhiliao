@@ -129,8 +129,8 @@
                                 <constraint firstAttribute="height" constant="13" id="jcU-Ek-72l"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5钻石" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drP-Ug-xyK">
-                            <rect key="frame" x="116" y="13" width="38" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5鑽石" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drP-Ug-xyK">
+                            <rect key="frame" x="25" y="-144" width="129" height="174"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -190,7 +190,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixL-OQ-SWO">
-                    <rect key="frame" x="197.5" y="567" width="60" height="60"/>
+                    <rect key="frame" x="198" y="567" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="Q2F-Nh-W9u"/>
                         <constraint firstAttribute="height" constant="60" id="t7O-jK-SOb"/>
@@ -201,7 +201,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBB-s6-GAQ">
-                    <rect key="frame" x="117.5" y="567" width="60" height="60"/>
+                    <rect key="frame" x="118" y="567" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="Aha-1w-8gF"/>
                         <constraint firstAttribute="width" constant="60" id="sJj-O8-ci8"/>

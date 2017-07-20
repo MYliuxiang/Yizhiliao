@@ -15,7 +15,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "UMMobClick/MobClick.h"
 #import <AgoraRtcEngineKit/AgoraRtcEngineKit.h>
-#import "AGVideoPreProcessing.h"
 #import "VideoCallRedView.h"
 #import "GiftsView.h"
 #import "PresentView.h"
@@ -25,6 +24,7 @@
 #import "GSPChatMessage.h"
 #import "RecordGiftModel.h"
 #import "Mymodel.h"
+#import "AGVideoProcessing.h"
 
 @interface VideoCallView : UIView<AgoraRtcEngineDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *refuseBtn;

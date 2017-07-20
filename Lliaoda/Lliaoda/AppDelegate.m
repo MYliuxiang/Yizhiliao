@@ -102,7 +102,7 @@
     // Override point for customization after application launch.
 
     if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
-        
+    
         [self appconfig];
 
     }
@@ -191,11 +191,52 @@
 //        [LXUserDefaults setBool:YES forKey:ISMEiGUO];
 //    }
 //    [LXUserDefaults synchronize];
-    
+    [self updataFinalCallTime];
     [self.window makeKeyWindow];
     return YES;
     
 }
+
+- (void)updataFinalCallTime
+{
+    
+    NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    
+    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",uid];
+    
+    NSArray *array = [CallTime findByCriteria:criteria];
+    
+    if (array.count == 0) {
+        return;
+    }
+    NSMutableArray *marray = [NSMutableArray array];
+    for (CallTime *call in array) {
+        
+        NSDictionary *dic = @{@"channelId":@(call.channelId),@"endedAt":@(call.endedAt),@"duration":@(call.duration)};
+        [marray addObject:dic];
+        
+    }
+    
+    NSDictionary *params = @{@"calls":marray};
+    
+    [WXDataService requestAFWithURL:Url_chatvideoreport params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                
+                for (CallTime *call in array) {
+                    [call deleteObject];
+                }
+                
+            }else{
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+    }];
+    
+    
+}
+
 
 //监听购买结果
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
@@ -736,11 +777,61 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 [MobClick profileSignInWithPUID:uid provider:@"WX"];
                 [MobClick event:@"Forward"];
                 
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                
-                self.window.rootViewController = tab;
-                self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
+                NSDictionary *params;
+                [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:YES isErrorHud:NO finishBlock:^(id result) {
+                    if(result){
+                        if ([[result objectForKey:@"result"] integerValue] == 0) {
+                            
+                            self.model = [Mymodel mj_objectWithKeyValues:result[@"data"]];
+                            if (self.model.auth == 2) {
+                                //是主播
+                                [LXUserDefaults setObject:@"1" forKey:itemNumber];
+                                [LXUserDefaults synchronize];
+                                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+                                tab.iszhubo = YES;
+                                
+                                self.window.rootViewController = tab;
+                                self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
+                                
+                            }else{
+                                
+                                [LXUserDefaults setObject:@"2" forKey:itemNumber];
+                                [LXUserDefaults synchronize];
+                                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+                                tab.iszhubo = NO;
+                                
+                                self.window.rootViewController = tab;
+                                self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
+                                
+                            }
+                            
+                        } else{
+                            [LXUserDefaults setObject:@"2" forKey:itemNumber];
+                            [LXUserDefaults synchronize];
+                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                            MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+                            tab.iszhubo = NO;
+                            
+                            self.window.rootViewController = tab;
+                            self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
+                            
+                        }
+                    }
+                    
+                } errorBlock:^(NSError *error) {
+                    NSLog(@"%@",error);
+                    [LXUserDefaults setObject:@"2" forKey:itemNumber];
+                    [LXUserDefaults synchronize];
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+                    tab.iszhubo = NO;
+                    
+                    self.window.rootViewController = tab;
+                    self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
+                }];
+
                 [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
 
 
@@ -799,13 +890,62 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     [MobClick profileSignInWithPUID:uid provider:@"WX"];
                     [MobClick event:@"Forward"];
 
-                    
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                  
-                    self.window.rootViewController = tab;
-                    self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
+                    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
 
+                    NSDictionary *params;
+                    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:YES isErrorHud:NO finishBlock:^(id result) {
+                        if(result){
+                            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                                
+                                self.model = [Mymodel mj_objectWithKeyValues:result[@"data"]];
+                                if (self.model.auth == 2) {
+                                    //是主播
+                                    [LXUserDefaults setObject:@"1" forKey:itemNumber];
+                                    [LXUserDefaults synchronize];
+                                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+                                    tab.iszhubo = YES;
+                                    
+                                    self.window.rootViewController = tab;
+                                    self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
+                                    
+                                }else{
+                                    
+                                    [LXUserDefaults setObject:@"2" forKey:itemNumber];
+                                    [LXUserDefaults synchronize];
+                                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+                                    tab.iszhubo = NO;
+                                    
+                                    self.window.rootViewController = tab;
+                                    self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
+                                    
+                                }
+                                
+                            } else{
+                                [LXUserDefaults setObject:@"2" forKey:itemNumber];
+                                [LXUserDefaults synchronize];
+                                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+                                tab.iszhubo = NO;
+                                
+                                self.window.rootViewController = tab;
+                                self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
+                                
+                            }
+                        }
+                        
+                    } errorBlock:^(NSError *error) {
+                        NSLog(@"%@",error);
+                        [LXUserDefaults setObject:@"2" forKey:itemNumber];
+                        [LXUserDefaults synchronize];
+                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                        MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+                        tab.iszhubo = NO;
+                        
+                        self.window.rootViewController = tab;
+                        self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
+                    }];
 
                 }else{
                     //登入失败

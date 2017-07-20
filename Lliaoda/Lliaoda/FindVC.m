@@ -19,7 +19,7 @@
 @property (nonatomic, strong) UIView *pointsView;
 @property (nonatomic, strong) NSMutableArray *pointsViewArray;
 @property (nonatomic,retain) NSMutableArray *pointsModels;
-@property (nonatomic,retain) FindModel *displayModel;
+@property (nonatomic,retain) SelectedModel *displayModel;
 @property (nonatomic,retain) NSTimer *timer;
 @property (nonatomic,retain) NSTimer *threeTimer;
 @property (nonatomic,assign) int time;
@@ -76,7 +76,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.text = @"发现";
+    self.text = @"發現";
     
     self.pointsModels = [NSMutableArray array];
     self.finBtn.layer.cornerRadius = 22;
@@ -162,6 +162,31 @@
         _threeTimer = nil;
     }
 
+    if (!self.first) {
+        NSDictionary *params;
+        params = @{@"action":@(1)};
+        [WXDataService requestAFWithURL:Url_behavior params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+            if(result){
+                if ([[result objectForKey:@"result"] integerValue] == 0) {
+                    
+                    
+                }else{    //请求失败
+                    //                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                    //                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                    //                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    //                        [SVProgressHUD dismiss];
+                    //                    });
+                    
+                }
+            }
+            
+        } errorBlock:^(NSError *error) {
+            
+            
+        }];
+        
+    }
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -176,8 +201,7 @@
 
     }
     
-    
-
+    self.first = YES;
 
 }
 
@@ -211,14 +235,17 @@
 - (void)getMatchUser
 {
     NSDictionary *params;
+    params = @{@"first":@(self.first)};
+
     [WXDataService requestAFWithURL:Url_match params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
-                
+                self.first = NO;
+
                 NSMutableArray *marray = [NSMutableArray array];
                 NSArray *array = result[@"data"][@"broadcasters"];
                 for (NSDictionary *subDic in array) {
-                    FindModel *model = [FindModel mj_objectWithKeyValues:subDic];
+                    SelectedModel *model = [SelectedModel mj_objectWithKeyValues:subDic];
                     [marray addObject:model];
                     if (model.selected) {
                         self.displayModel = model;
@@ -255,23 +282,39 @@
 - (void)showPoint:(NSTimer *)timer
 {
 
-    if (_time == 8) {
+    if (self.pointsModels.count < 8) {
         
-        if (timer) {
+        if (_time == 8) {
             
-            [self disaplayFindCard:self.displayModel];
-            [_timer invalidate];
-            _timer = nil;
-            _time = 0;
+            if (timer) {
+                
+                [self disaplayFindCard:self.displayModel];
+                [_timer invalidate];
+                _timer = nil;
+                _time = 0;
+            }
+            
         }
+    }else{
         
+        if (_time == self.pointsModels.count) {
+            
+            if (timer) {
+                
+                [self disaplayFindCard:self.displayModel];
+                [_timer invalidate];
+                _timer = nil;
+                _time = 0;
+            }
+            
+        }
     }
     
-    if (_time >= self.pointsModels.count) {
+    
+    if (_time > self.pointsModels.count) {
         
         return;
     }
-    
     
     if(self.pointsViewArray.count == 3){
             JXRadarPointView *dismisspointView = self.pointsViewArray[0];
@@ -373,8 +416,7 @@
 - (void)tap:(UITapGestureRecognizer *)tap{
     
     JXRadarPointView *pointView = (JXRadarPointView *)tap.view;
-    FindModel *model = self.pointsModels[pointView.tag];
-    [self disaplayFindCard:model];
+    //    [self disaplayFindCard:model];
     
     if (_timer) {
         
@@ -384,16 +426,21 @@
         
     }
     
+    SelectedModel *model = self.pointsModels[pointView.tag];
+    PersonalVC *vc = [[PersonalVC alloc] init];
+    vc.model = model;
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
-- (void)disaplayFindCard:(FindModel *)model
+- (void)disaplayFindCard:(SelectedModel *)model
 {
     
     [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.portrait]];
     
     self.rechargeBtn.hidden = YES;
     self.displayModel = model;
-    self.tishiLabel.text = @"已为你匹配到一位有缘人\n3秒后将发起通话";
+    self.tishiLabel.text = @"已為您匹配到一位有緣人\n3秒後將發起視訊通話";
     self.nickLabel.text = model.nickname;
    
     self.placelabel.text = [[CityTool sharedCityTool] getCityWithCountrieId:model.country WithprovinceId:model.province WithcityId:model.city];
@@ -443,7 +490,7 @@
 - (void)call
 {
     self.tishiLabel.text = @"正在发起通话…";
-    FindModel *model = self.displayModel;
+    SelectedModel *model = self.displayModel;
     
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
        
@@ -508,7 +555,7 @@
 
 }
 
-- (void)videoCallAC:(FindModel *)model
+- (void)videoCallAC:(SelectedModel *)model
 {
     NSDictionary *params;
     params = @{@"uid":model.uid};
@@ -577,5 +624,27 @@
        }];
     
     
+}
+
+- (IBAction)closeMatch:(id)sender {
+    
+    [_radarView stopAnimation];
+    for (JXRadarPointView *item in self.pointsViewArray) {
+        [item removeFromSuperview];
+    }
+    [self.pointsViewArray removeAllObjects];
+    if(_callTimer){
+        [_callTimer invalidate];
+        _callTimer = nil;
+    }
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+    if (_threeTimer) {
+        [_threeTimer invalidate];
+        _threeTimer = nil;
+    }
+    self.findView.hidden = YES;
 }
 @end
