@@ -730,14 +730,14 @@ controller   didAuthorizePayment:(PKPayment *)payment
     } else {
         if (model.vipDays > 0) {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:@"赠送VIP %d 天 + %d 钻", model.vipDays, model.bonus];
+                cell.detailLabel.text = [NSString stringWithFormat:@"赠送VIP %d 天 + %d 鑽", model.vipDays, model.bonus];
             } else {
                 cell.detailLabel.text = [NSString stringWithFormat:@"赠送VIP %d 天", model.vipDays];
             }
             
         } else {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:@"赠送 %d 钻", model.bonus];
+                cell.detailLabel.text = [NSString stringWithFormat:@"赠送 %d 鑽", model.bonus];
             } else {
                 cell.detailLabel.text = @"";
             }

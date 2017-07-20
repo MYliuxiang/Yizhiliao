@@ -76,7 +76,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.text = @"发现";
+    self.text = @"發現";
     
     self.pointsModels = [NSMutableArray array];
     self.finBtn.layer.cornerRadius = 22;
@@ -440,7 +440,7 @@
     
     self.rechargeBtn.hidden = YES;
     self.displayModel = model;
-    self.tishiLabel.text = @"已为你匹配到一位有缘人\n3秒后将发起通话";
+    self.tishiLabel.text = @"已為您匹配到一位有緣人\n3秒後將發起視訊通話";
     self.nickLabel.text = model.nickname;
    
     self.placelabel.text = [[CityTool sharedCityTool] getCityWithCountrieId:model.country WithprovinceId:model.province WithcityId:model.city];

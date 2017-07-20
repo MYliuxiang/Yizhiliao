@@ -125,7 +125,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYB-I5-nHK">
-                            <rect key="frame" x="169" y="151" width="30" height="34"/>
+                            <rect key="frame" x="169" y="152" width="30" height="34"/>
                             <connections>
                                 <action selector="personalAC:" destination="5yS-vI-yoS" eventType="touchUpInside" id="m4r-dy-u1q"/>
                             </connections>
@@ -245,7 +245,7 @@
                                     <constraint firstAttribute="height" constant="44" id="OqX-b1-jEP"/>
                                     <constraint firstAttribute="width" constant="200" id="aUR-L3-QbG"/>
                                 </constraints>
-                                <state key="normal" title="发现有缘人">
+                                <state key="normal" title="發現有緣人">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -348,20 +348,20 @@
                                             <rect key="frame" x="15" y="31" width="100" height="37"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="山东" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d68-ag-ANK">
-                                                    <rect key="frame" x="13" y="26" width="21" height="12"/>
+                                                    <rect key="frame" x="13" y="25" width="21" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_hui" translatesAutoresizingMaskIntoConstraints="NO" id="j0r-zJ-zcj">
-                                                    <rect key="frame" x="0.0" y="27" width="8" height="10"/>
+                                                    <rect key="frame" x="0.0" y="26" width="8" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="8" id="Kv6-GH-Gol"/>
                                                         <constraint firstAttribute="height" constant="10" id="mcZ-1L-RZz"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="曾晓夏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAt-nM-tIM">
-                                                    <rect key="frame" x="0.0" y="1" width="43" height="17"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="43" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -422,13 +422,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="592" height="444"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在为您寻找有缘人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rP2-ma-gxD">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在為您尋找有緣人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rP2-ma-gxD">
                             <rect key="frame" x="232" y="360" width="129" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击任意大頭貼可以进入Ta的主页哦～" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afH-DJ-73q">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="點擊任意大頭照可以進入Ta的主頁喔！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afH-DJ-73q">
                             <rect key="frame" x="174" y="387" width="244" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
