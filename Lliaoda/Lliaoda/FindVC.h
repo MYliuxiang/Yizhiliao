@@ -10,7 +10,8 @@
 #import "JXCircleView.h"
 #import "WKFRadarView.h"
 #import "JXRadarPointView.h"
-#import "FindModel.h"
+#import "PersonalVC.h"
+#import "SelectedModel.h"
 
 @interface FindVC : BaseViewController
 @property (weak, nonatomic) IBOutlet UIButton *finBtn;
@@ -29,5 +30,6 @@
 @property (nonatomic,assign) BOOL first;
 
 - (IBAction)closeAC:(id)sender;
+- (IBAction)closeMatch:(id)sender;
 
 @end

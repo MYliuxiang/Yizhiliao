@@ -19,7 +19,7 @@
 @property (nonatomic, strong) UIView *pointsView;
 @property (nonatomic, strong) NSMutableArray *pointsViewArray;
 @property (nonatomic,retain) NSMutableArray *pointsModels;
-@property (nonatomic,retain) FindModel *displayModel;
+@property (nonatomic,retain) SelectedModel *displayModel;
 @property (nonatomic,retain) NSTimer *timer;
 @property (nonatomic,retain) NSTimer *threeTimer;
 @property (nonatomic,assign) int time;
@@ -245,7 +245,7 @@
                 NSMutableArray *marray = [NSMutableArray array];
                 NSArray *array = result[@"data"][@"broadcasters"];
                 for (NSDictionary *subDic in array) {
-                    FindModel *model = [FindModel mj_objectWithKeyValues:subDic];
+                    SelectedModel *model = [SelectedModel mj_objectWithKeyValues:subDic];
                     [marray addObject:model];
                     if (model.selected) {
                         self.displayModel = model;
@@ -416,8 +416,7 @@
 - (void)tap:(UITapGestureRecognizer *)tap{
     
     JXRadarPointView *pointView = (JXRadarPointView *)tap.view;
-    FindModel *model = self.pointsModels[pointView.tag];
-    [self disaplayFindCard:model];
+    //    [self disaplayFindCard:model];
     
     if (_timer) {
         
@@ -427,9 +426,14 @@
         
     }
     
+    SelectedModel *model = self.pointsModels[pointView.tag];
+    PersonalVC *vc = [[PersonalVC alloc] init];
+    vc.model = model;
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
-- (void)disaplayFindCard:(FindModel *)model
+- (void)disaplayFindCard:(SelectedModel *)model
 {
     
     [self.thumbImage sd_setImageWithURL:[NSURL URLWithString:model.portrait]];
@@ -486,7 +490,7 @@
 - (void)call
 {
     self.tishiLabel.text = @"正在发起通话…";
-    FindModel *model = self.displayModel;
+    SelectedModel *model = self.displayModel;
     
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
        
@@ -551,7 +555,7 @@
 
 }
 
-- (void)videoCallAC:(FindModel *)model
+- (void)videoCallAC:(SelectedModel *)model
 {
     NSDictionary *params;
     params = @{@"uid":model.uid};
@@ -620,5 +624,27 @@
        }];
     
     
+}
+
+- (IBAction)closeMatch:(id)sender {
+    
+    [_radarView stopAnimation];
+    for (JXRadarPointView *item in self.pointsViewArray) {
+        [item removeFromSuperview];
+    }
+    [self.pointsViewArray removeAllObjects];
+    if(_callTimer){
+        [_callTimer invalidate];
+        _callTimer = nil;
+    }
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+    if (_threeTimer) {
+        [_threeTimer invalidate];
+        _threeTimer = nil;
+    }
+    self.findView.hidden = YES;
 }
 @end

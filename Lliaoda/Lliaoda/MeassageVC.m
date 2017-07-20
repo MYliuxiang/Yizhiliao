@@ -107,7 +107,7 @@ static MeassageVC *this;
         count += mcount.count;
     }
     
-    UITabBarItem *item=[self.tabBarController.tabBar.items objectAtIndex:itemIndex];
+    UITabBarItem *item=[self.tabBarController.tabBar.items objectAtIndex:[[LXUserDefaults objectForKey:itemNumber] intValue]];
     // 显示
     item.badgeValue=[NSString stringWithFormat:@"%d",count];
     if(count == 0){
@@ -362,7 +362,7 @@ static MeassageVC *this;
     chatVC.sendUid = count.sendUid;
     chatVC.count = self.dataList[indexPath.row];
     
-    UITabBarItem * item=[self.tabBarController.tabBar.items objectAtIndex:itemIndex];
+    UITabBarItem * item=[self.tabBarController.tabBar.items objectAtIndex:[[LXUserDefaults objectForKey:itemNumber] intValue]];
     int oldValue = [item.badgeValue intValue];
     int newValue = oldValue - count.count;
     if (newValue > 0) {

@@ -542,7 +542,7 @@ static NSString *const headerId = @"headerId";
 //            [alertController addAction:aliAction1];
     
     //    if ([LXUserDefaults boolForKey:payEnable]) {
-    [alertController addAction:defaultAction];
+    [alertController addAction:defaultAction1];
     //    }
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];

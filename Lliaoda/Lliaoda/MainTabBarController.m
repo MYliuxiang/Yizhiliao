@@ -34,8 +34,14 @@ static MainTabBarController *mainTVC = nil;
             }
     //自定义标签栏
     [self _initTabBar];
-//    self.tabBar.selectedImageTintColor = [UIColor colorWithRed:65/255.0 green:205/255.0 blue:62/255.0 alpha:1];
     
+    if (self.iszhubo) {
+        [self zhuViewcontrollers];
+    }else{
+        
+        [self nozhuViewcontrollers];
+    }
+
     //点击tabbar
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabbarSelect:) name:NotiCenter_TabbarSeleced object:nil];
     
@@ -51,7 +57,7 @@ static MainTabBarController *mainTVC = nil;
         count += mcount.count;
         
     }
-    UITabBarItem *item=[self.tabBar.items objectAtIndex:itemIndex];
+    UITabBarItem *item=[self.tabBar.items objectAtIndex:[[LXUserDefaults objectForKey:itemNumber] intValue]];
     // 显示
     item.badgeValue=[NSString stringWithFormat:@"%d",count];
     if(count == 0){
@@ -59,23 +65,68 @@ static MainTabBarController *mainTVC = nil;
         item.badgeValue = nil;
     }
     
-//    NSDictionary *params;
-//    [WXDataService requestAFWithURL:Url_chatvideoreend params:params httpMethod:@"POST" isHUD:YES finishBlock:^(id result) {
-//        if(result){
-//            if ([[result objectForKey:@"result"] integerValue] == 0) {
-//                
-//            }else{    //请求失败
-//                
-//            }
-//        }
-//        
-//    } errorBlock:^(NSError *error) {
-//        
-//    }];
-//
-    
+
    
 }
+
+- (void)nozhuViewcontrollers
+{
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    FindVC *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
+    BaseNavigationController *nav_main = [[BaseNavigationController alloc]initWithRootViewController:homeVC];
+    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"发现" image:[UIImage imageNamed:@"faxian"] selectedImage:[UIImage imageNamed:@"faxian"]];
+    homeVC.tabBarItem = tabBarItem1;
+    
+    
+    SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
+    BaseNavigationController *nav_managementVC = [[BaseNavigationController alloc]initWithRootViewController:managementVC];
+    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"精选" image:[UIImage imageNamed:@"jingxuan_n"] selectedImage:[UIImage imageNamed:@"jingxuan_h"]];
+    managementVC.tabBarItem = tabBarItem2;
+    
+    
+    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
+    BaseNavigationController *nav_vipbusinessVC = [[BaseNavigationController alloc]initWithRootViewController:vipbusinessVC];
+    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"消息" image:[UIImage imageNamed:@"xiaoxi_h"] selectedImage:[UIImage imageNamed:@"xiaoxi_n"]];
+    vipbusinessVC.tabBarItem = tabBarItem3;
+    
+    
+    MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
+    BaseNavigationController *nav_myVC = [[BaseNavigationController alloc]initWithRootViewController:myVC];
+    UITabBarItem *tabBarItem4 = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"me_n"] selectedImage:[UIImage imageNamed:@"me_h"]];
+    myVC.tabBarItem = tabBarItem4;
+    
+    self.viewControllers = @[nav_main,nav_managementVC,nav_vipbusinessVC,nav_myVC];
+    
+}
+
+- (void)zhuViewcontrollers
+{
+    
+    // 1.获取当前的StoryBoard面板
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
+    BaseNavigationController *nav_managementVC = [[BaseNavigationController alloc]initWithRootViewController:managementVC];
+    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"精选" image:[UIImage imageNamed:@"jingxuan_n"] selectedImage:[UIImage imageNamed:@"jingxuan_h"]];
+    managementVC.tabBarItem = tabBarItem1;
+    
+    
+    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
+    BaseNavigationController *nav_vipbusinessVC = [[BaseNavigationController alloc]initWithRootViewController:vipbusinessVC];
+    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"消息" image:[UIImage imageNamed:@"xiaoxi_h"] selectedImage:[UIImage imageNamed:@"xiaoxi_n"]];
+    vipbusinessVC.tabBarItem = tabBarItem2;
+    
+    MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
+    BaseNavigationController *nav_myVC = [[BaseNavigationController alloc]initWithRootViewController:myVC];
+    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"me_n"] selectedImage:[UIImage imageNamed:@"me_h"]];
+    myVC.tabBarItem = tabBarItem3;
+    
+    self.viewControllers = @[nav_managementVC,nav_vipbusinessVC,nav_myVC];
+    
+}
+
 
 - (void)onMessageInstantReceive:(NSNotification *)notification
 {
@@ -88,7 +139,7 @@ static MainTabBarController *mainTVC = nil;
         count += mcount.count;
         
     }
-    UITabBarItem *item=[self.tabBar.items objectAtIndex:itemIndex];
+    UITabBarItem *item=[self.tabBar.items objectAtIndex:[[LXUserDefaults objectForKey:itemNumber] intValue]];
     // 显示
     item.badgeValue=[NSString stringWithFormat:@"%d",count];
     if(count == 0){

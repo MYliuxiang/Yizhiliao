@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Mymodel.h"
 
 @interface MainTabBarController : UITabBarController
 
 + (instancetype)shareMainTabBarController;
+@property (nonatomic,assign) BOOL iszhubo;
+@property (nonatomic,retain) Mymodel *model;
 
 @end

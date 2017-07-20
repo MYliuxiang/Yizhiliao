@@ -45,6 +45,9 @@
 @property (nonatomic,assign)int deposit;
 @property (nonatomic,assign)int income;
 
+@property(nonatomic,assign) int like;
+@property (nonatomic,retain) NSArray *charges;
+@property (nonatomic,assign)BOOL selected;
 
 
 
