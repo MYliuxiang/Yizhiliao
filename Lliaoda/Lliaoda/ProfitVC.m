@@ -21,7 +21,7 @@
     self.text = @"收益";
 //    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"可提现总收益"];
 //    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"邀请",@"可提现总收益"];
-    self.dataList = @[@"通话收益",@"礼物及红包收益",@"邀请"];
+    self.dataList = @[@"通話收益",@" 禮物及紅包收益",@"邀請"];
     self.tixianBtn.layer.cornerRadius = 22.5;
     self.tixianBtn.layer.masksToBounds = YES;
     self.tixianBtn.backgroundColor = UIColorFromRGB(0xFB3476);
@@ -125,7 +125,7 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
         }
-        cell.textLabel.text = @"累计提现";
+        cell.textLabel.text = @"累計提現";
         cell.textLabel.textColor = Color_Text_black;
         cell.detailTextLabel.textColor = Color_nav;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
@@ -208,13 +208,13 @@
 }
 
 - (IBAction)tixianAC:(id)sender {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提现" message:@"提现相关事宜，请联系客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提現" message:@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alertView show];
 }
 
 #pragma mark - ProfitCellDelegate
 - (void)btnClick:(ProfitCell *)cell {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提现" message:@"提现相关事宜，请联系客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提現" message:@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alertView show];
 }
 @end
