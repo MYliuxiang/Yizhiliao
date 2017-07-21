@@ -770,9 +770,7 @@ NSString *const kTableViewFrame = @"frame";
     @"time":[NSString stringWithFormat:@"%lld",idate],
     }};
     NSString *msgStr = [InputCheck convertToJSONData:msg];
-    
-   
-    
+        
     NSDictionary *params;
     params = @{@"uid":self.sendUid,@"message":content};
     [WXDataService requestAFWithURL:Url_chatmessagesend params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
@@ -791,6 +789,13 @@ NSString *const kTableViewFrame = @"frame";
             [self.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 
          [_inst messageInstantSend:self.sendUid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
+        }else{
+            [SVProgressHUD showErrorWithStatus:result[@"message"]];
+            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+            });
+        
         }
         
     } errorBlock:^(NSError *error) {
@@ -1113,6 +1118,13 @@ NSString *const kTableViewFrame = @"frame";
                 [self.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 
              [_inst messageInstantSend:self.sendUid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%d",[LXUserDefaults objectForKey:UID],idate]];
+            }else{
+            
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                });
             }
             
         } errorBlock:^(NSError *error) {

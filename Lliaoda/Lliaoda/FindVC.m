@@ -492,22 +492,29 @@
 
 - (void)call
 {
-    self.tishiLabel.text = @"正在发起通话…";
+    self.tishiLabel.text = @"正在發起通話…";
     SelectedModel *model = self.displayModel;
     
+    [_radarView stopAnimation];
+    for (JXRadarPointView *item in self.pointsViewArray) {
+        [item removeFromSuperview];
+    }
+    [self.pointsViewArray removeAllObjects];
+    if(_callTimer){
+        [_callTimer invalidate];
+        _callTimer = nil;
+    }
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
     if (_threeTimer) {
         [_threeTimer invalidate];
         _threeTimer = nil;
     }
-    [UIView animateWithDuration:.35 animations:^{
-        self.findBgView.hidden = YES;
-    } completion:^(BOOL finished) {
-        
-        [self getMatchUser];
-        
-    }];
+    self.findView.hidden = YES;
+    self.findBgView.hidden = YES;
 
-    
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
        
         
