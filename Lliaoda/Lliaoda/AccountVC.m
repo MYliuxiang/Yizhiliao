@@ -723,9 +723,43 @@ controller   didAuthorizePayment:(PKPayment *)payment
     }
     
    
-    if (model.isVipForFirstTopUp == 1 && myModel.totalInpour > 0) {
-        cell.detailLabel.text = @"";
+//    if (model.isVipForFirstTopUp == 1 && myModel.totalInpour > 0) {
+//        cell.detailLabel.text = @"";
+//    } else {
+//        if (model.vipDays > 0) {
+//            if (model.bonus > 0) {
+//                cell.detailLabel.text = [NSString stringWithFormat:@"贈送VIP %d 天 + %d 鑽", model.vipDays, model.bonus];
+//            } else {
+//                cell.detailLabel.text = [NSString stringWithFormat:@"贈送VIP %d 天", model.vipDays];
+//            }
+//            
+//        } else {
+//            if (model.bonus > 0) {
+//                cell.detailLabel.text = [NSString stringWithFormat:@"贈送 %d 鑽", model.bonus];
+//            } else {
+//                cell.detailLabel.text = @"";
+//            }
+//        }
+//    }
+    if (myModel.totalInpour == 0 && model.isVipForFirstTopUp == 1) {
+        cell.biaoqianImageView.hidden = NO;
+        
+        if (model.vipDays > 0) {
+            if (model.bonus > 0) {
+                cell.detailLabel.text = [NSString stringWithFormat:@"首充贈送VIP %d 天 + %d 鑽", model.vipDays, model.bonus];
+            } else {
+                cell.detailLabel.text = [NSString stringWithFormat:@"首充贈送VIP %d 天", model.vipDays];
+            }
+            
+        } else {
+            if (model.bonus > 0) {
+                cell.detailLabel.text = [NSString stringWithFormat:@"首充贈送 %d 鑽", model.bonus];
+            } else {
+                cell.detailLabel.text = @"";
+            }
+        }
     } else {
+        cell.biaoqianImageView.hidden = YES;
         if (model.vipDays > 0) {
             if (model.bonus > 0) {
                 cell.detailLabel.text = [NSString stringWithFormat:@"贈送VIP %d 天 + %d 鑽", model.vipDays, model.bonus];
@@ -740,11 +774,6 @@ controller   didAuthorizePayment:(PKPayment *)payment
                 cell.detailLabel.text = @"";
             }
         }
-    }
-    if (myModel.totalInpour == 0 && model.isVipForFirstTopUp == 1) {
-        cell.biaoqianImageView.hidden = NO;
-    } else {
-        cell.biaoqianImageView.hidden = YES;
     }
     cell.moneyButton.layer.cornerRadius = 20;
     cell.moneyButton.layer.borderWidth = 1;
