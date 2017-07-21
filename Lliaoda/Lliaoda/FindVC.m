@@ -492,6 +492,19 @@
     self.tishiLabel.text = @"正在发起通话…";
     SelectedModel *model = self.displayModel;
     
+    if (_threeTimer) {
+        [_threeTimer invalidate];
+        _threeTimer = nil;
+    }
+    [UIView animateWithDuration:.35 animations:^{
+        self.findBgView.hidden = YES;
+    } completion:^(BOOL finished) {
+        
+        [self getMatchUser];
+        
+    }];
+
+    
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
        
         
