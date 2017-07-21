@@ -730,14 +730,14 @@ controller   didAuthorizePayment:(PKPayment *)payment
     } else {
         if (model.vipDays > 0) {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:@"赠送VIP %d 天 + %d 鑽", model.vipDays, model.bonus];
+                cell.detailLabel.text = [NSString stringWithFormat:@"贈送VIP %d 天 + %d 鑽", model.vipDays, model.bonus];
             } else {
-                cell.detailLabel.text = [NSString stringWithFormat:@"赠送VIP %d 天", model.vipDays];
+                cell.detailLabel.text = [NSString stringWithFormat:@"贈送VIP %d 天", model.vipDays];
             }
             
         } else {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:@"赠送 %d 鑽", model.bonus];
+                cell.detailLabel.text = [NSString stringWithFormat:@"贈送 %d 鑽", model.bonus];
             } else {
                 cell.detailLabel.text = @"";
             }
@@ -768,7 +768,7 @@ controller   didAuthorizePayment:(PKPayment *)payment
         if (myModel.vipEndTime == 0) {
             // 没有vip
             headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon02"];
-            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:@"充值赠送VIP，私信畅聊无限制~"];
+            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:@"充值贈送VIP，私信暢聊無限制~"];
             [attributedStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(2, 5)];
             headerView.timeLabel.attributedText = attributedStr;
             
