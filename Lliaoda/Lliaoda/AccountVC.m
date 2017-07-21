@@ -743,7 +743,11 @@ controller   didAuthorizePayment:(PKPayment *)payment
             }
         }
     }
-    
+    if (myModel.totalInpour == 0 && model.isVipForFirstTopUp == 1) {
+        cell.biaoqianImageView.hidden = NO;
+    } else {
+        cell.biaoqianImageView.hidden = YES;
+    }
     cell.moneyButton.layer.cornerRadius = 20;
     cell.moneyButton.layer.borderWidth = 1;
     cell.moneyButton.layer.borderColor = Color_nav.CGColor;
