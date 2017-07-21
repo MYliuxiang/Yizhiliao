@@ -514,7 +514,7 @@ static NSString *const headerId = @"headerId";
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    UIAlertAction *defaultAction1 = [UIAlertAction actionWithTitle:@"AppPay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *defaultAction1 = [UIAlertAction actionWithTitle:@"Apple Pay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         [self btnClick:sender.tag];
         

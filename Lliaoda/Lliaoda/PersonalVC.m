@@ -598,7 +598,29 @@
                         [WXDataService requestAFWithURL:Url_chatmessagesend params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
                             if ([[result objectForKey:@"result"] integerValue] == 0) {
                                 [_inst messageInstantSend:self.model.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
+                            }if ([[result objectForKey:@"result"] integerValue] == 29) {
+                                
+                                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"成为VIP" message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"获取VIP" delegate:nil];
+                                lg.destructiveButtonBackgroundColor = Color_nav;
+                                lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                                lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+                                lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+                                lg.cancelButtonTitleColor = Color_nav;
+                                lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
+                                    AccountVC *vc = [[AccountVC alloc] init];
+                                    [self.navigationController pushViewController:vc animated:YES];
+                                    
+                                };
+                                [lg showAnimated:YES completionHandler:nil];
+                            }else{
+                                
+                                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                                    [SVProgressHUD dismiss];
+                                });
                             }
+
                             
                         } errorBlock:^(NSError *error) {
                             NSLog(@"%@",error);

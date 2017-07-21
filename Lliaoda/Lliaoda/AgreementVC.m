@@ -40,7 +40,7 @@
     _webView.delegate = self;
     [self.view addSubview:_webView];
     
-    NSString *urlstring = @"https://www.yizhiliao.tv/pages/zh-tw/agreement.html";
+    NSString *urlstring = @"https://static.yizhiliao.tv/pages/zh-tw/agreement.html";
     
     NSURL *url = [NSURL URLWithString:urlstring];
     NSURLRequest *resquest = [NSURLRequest requestWithURL:url];

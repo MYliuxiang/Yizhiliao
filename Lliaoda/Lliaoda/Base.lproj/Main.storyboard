@@ -253,7 +253,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GnZ-CA-oFA" firstAttribute="top" secondItem="vD4-1q-QjJ" secondAttribute="bottom" constant="50" id="Fp6-dA-h2f"/>
                             <constraint firstItem="vD4-1q-QjJ" firstAttribute="centerX" secondItem="Aje-gA-5E6" secondAttribute="centerX" id="njQ-0A-fI7"/>

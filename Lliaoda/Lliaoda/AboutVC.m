@@ -42,7 +42,6 @@
     NSURLRequest *resquest = [NSURLRequest requestWithURL:url];
     [_webView loadRequest:resquest];
     
-    
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {

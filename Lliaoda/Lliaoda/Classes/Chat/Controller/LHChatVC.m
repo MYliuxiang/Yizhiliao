@@ -790,11 +790,29 @@ NSString *const kTableViewFrame = @"frame";
 
          [_inst messageInstantSend:self.sendUid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
         }else{
+            
+            if ([[result objectForKey:@"result"] integerValue] == 29) {
+
+            LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"购买鑽石" message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"快速购买" delegate:nil];
+            lg.destructiveButtonBackgroundColor = Color_nav;
+            lg.destructiveButtonTitleColor = [UIColor whiteColor];
+            lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+            lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+            lg.cancelButtonTitleColor = Color_nav;
+            lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
+                AccountVC *vc = [[AccountVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            };
+            [lg showAnimated:YES completionHandler:nil];
+            }else{
+        
             [SVProgressHUD showErrorWithStatus:result[@"message"]];
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 [SVProgressHUD dismiss];
             });
+            }
         
         }
         
@@ -1120,11 +1138,29 @@ NSString *const kTableViewFrame = @"frame";
              [_inst messageInstantSend:self.sendUid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%d",[LXUserDefaults objectForKey:UID],idate]];
             }else{
             
-                [SVProgressHUD showErrorWithStatus:result[@"message"]];
-                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                    [SVProgressHUD dismiss];
-                });
+                if ([[result objectForKey:@"result"] integerValue] == 29) {
+                    
+                    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"购买鑽石" message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"快速购买" delegate:nil];
+                    lg.destructiveButtonBackgroundColor = Color_nav;
+                    lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                    lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+                    lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+                    lg.cancelButtonTitleColor = Color_nav;
+                    lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
+                        AccountVC *vc = [[AccountVC alloc] init];
+                        [self.navigationController pushViewController:vc animated:YES];
+                        
+                    };
+                    [lg showAnimated:YES completionHandler:nil];
+                }else{
+                    
+                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                        [SVProgressHUD dismiss];
+                    });
+                }
+
             }
             
         } errorBlock:^(NSError *error) {

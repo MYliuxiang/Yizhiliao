@@ -98,7 +98,18 @@
     AVCaptureDeviceInput *newVideoInput;
     newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self frontCamera] error:nil];
 
-    [session addInput:newVideoInput];
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (authStatus == AVAuthorizationStatusRestricted|| authStatus == AVAuthorizationStatusDenied) {
+        
+        // 获取摄像头失败
+        
+    }else{
+        
+        // 获取摄像头成功
+        [session addInput:newVideoInput];
+
+    }
+    
 //    [session addOutput:output];
     //設定扫码支持的编码格式(如下設定条形码和二维码兼容)
 //    output.metadataObjectTypes=@[AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
@@ -495,26 +506,6 @@
     self.tishiLabel.text = @"正在發起通話…";
     SelectedModel *model = self.displayModel;
     
-    [_radarView stopAnimation];
-    for (JXRadarPointView *item in self.pointsViewArray) {
-        [item removeFromSuperview];
-    }
-    [self.pointsViewArray removeAllObjects];
-    if(_callTimer){
-        [_callTimer invalidate];
-        _callTimer = nil;
-    }
-    if (_timer) {
-        [_timer invalidate];
-        _timer = nil;
-    }
-    if (_threeTimer) {
-        [_threeTimer invalidate];
-        _threeTimer = nil;
-    }
-    self.findView.hidden = YES;
-    self.findBgView.hidden = YES;
-
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
        
         
@@ -586,6 +577,26 @@
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
+                [_radarView stopAnimation];
+                for (JXRadarPointView *item in self.pointsViewArray) {
+                    [item removeFromSuperview];
+                }
+                [self.pointsViewArray removeAllObjects];
+                if(_callTimer){
+                    [_callTimer invalidate];
+                    _callTimer = nil;
+                }
+                if (_timer) {
+                    [_timer invalidate];
+                    _timer = nil;
+                }
+                if (_threeTimer) {
+                    [_threeTimer invalidate];
+                    _threeTimer = nil;
+                }
+                self.findView.hidden = YES;
+                self.findBgView.hidden = YES;
+                
                 NSString *channel = [NSString stringWithFormat:@"%@",result[@"data"][@"channel"]];
                 VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:model.uid withIsSend:YES];
                 [video show];
@@ -609,6 +620,7 @@
         }
         
     } errorBlock:^(NSError *error) {
+        
         
     }];
 }
