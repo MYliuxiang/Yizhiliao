@@ -21,7 +21,7 @@
     self.text = @"收益";
 //    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"可提现总收益"];
 //    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"邀请",@"可提现总收益"];
-    self.dataList = @[@"通話收益",@" 禮物及紅包收益",@"邀請"];
+    self.dataList = @[@"通話收益",@"禮物及紅包收益",@"邀請"];
     self.tixianBtn.layer.cornerRadius = 22.5;
     self.tixianBtn.layer.masksToBounds = YES;
     self.tixianBtn.backgroundColor = UIColorFromRGB(0xFB3476);
@@ -129,6 +129,8 @@
         cell.textLabel.textColor = Color_Text_black;
         cell.detailTextLabel.textColor = Color_nav;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
         return cell;
     }
 //    static NSString *identifire = @"cellID";
