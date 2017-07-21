@@ -980,7 +980,7 @@
             count += mcount.count;
         }
         
-        UITabBarItem *item=[[MainTabBarController shareMainTabBarController].tabBar.items objectAtIndex:[[LXUserDefaults objectForKey:itemNumber] intValue]];
+        UITabBarItem *item=[[MainTabBarController shareMainTabBarController].tabBar.items objectAtIndex:[MainTabBarController shareMainTabBarController].tabBar.items.count - 2];
         // 显示
         item.badgeValue=[NSString stringWithFormat:@"%d",count];
         if(count == 0){
@@ -1624,7 +1624,7 @@
             count += mcount.count;
         }
         
-        UITabBarItem *item=[[MainTabBarController shareMainTabBarController].tabBar.items objectAtIndex:[[LXUserDefaults objectForKey:itemNumber] intValue]];
+        UITabBarItem *item=[[MainTabBarController shareMainTabBarController].tabBar.items objectAtIndex:[MainTabBarController shareMainTabBarController].tabBar.items.count - 2];
         // 显示
         item.badgeValue=[NSString stringWithFormat:@"%d",count];
         if(count == 0){
