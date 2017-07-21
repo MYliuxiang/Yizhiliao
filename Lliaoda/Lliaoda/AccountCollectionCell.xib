@@ -52,6 +52,9 @@
                         <color key="textColor" red="1" green="0.75294117647058822" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biaoqian1" translatesAutoresizingMaskIntoConstraints="NO" id="LSF-I3-yw1">
+                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
@@ -60,14 +63,17 @@
                 <constraint firstItem="ORh-1Z-16L" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Xf8-O0-5qf"/>
                 <constraint firstItem="ORh-1Z-16L" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="XqZ-E9-A15"/>
                 <constraint firstItem="0Nd-p5-mef" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aXY-bN-SzS"/>
+                <constraint firstItem="LSF-I3-yw1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="g6f-pl-Tzi"/>
                 <constraint firstAttribute="trailing" secondItem="reC-i8-eOX" secondAttribute="trailing" id="jKx-hw-ieI"/>
                 <constraint firstItem="reC-i8-eOX" firstAttribute="top" secondItem="ORh-1Z-16L" secondAttribute="bottom" constant="15" id="jvO-e9-uBW"/>
                 <constraint firstItem="reC-i8-eOX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kfE-jL-rIr"/>
                 <constraint firstItem="0Nd-p5-mef" firstAttribute="top" secondItem="eJe-j0-VgQ" secondAttribute="bottom" constant="9" id="o66-PV-2cz"/>
                 <constraint firstAttribute="trailing" secondItem="eJe-j0-VgQ" secondAttribute="trailing" id="tXY-J6-2R8"/>
+                <constraint firstItem="LSF-I3-yw1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vBD-Vi-ZHr"/>
             </constraints>
             <size key="customSize" width="228" height="220"/>
             <connections>
+                <outlet property="biaoqianImageView" destination="LSF-I3-yw1" id="xSN-X8-6Hz"/>
                 <outlet property="countLabel" destination="reC-i8-eOX" id="G5C-Ks-n4S"/>
                 <outlet property="detailLabel" destination="eJe-j0-VgQ" id="Knc-u9-aKj"/>
                 <outlet property="imageView" destination="ORh-1Z-16L" id="TCB-0Z-qkU"/>
@@ -76,4 +82,7 @@
             <point key="canvasLocation" x="123" y="46"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="biaoqian1" width="70" height="70"/>
+    </resources>
 </document>
