@@ -20,7 +20,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="F6w-a7-i0c"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -41,16 +41,16 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP有效期至：2017-03-20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C87-vf-rRN">
-                    <rect key="frame" x="78" y="150" width="218" height="20"/>
+                    <rect key="frame" x="112.5" y="150" width="149" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Iz1-3a-coy"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VIP-icon01" translatesAutoresizingMaskIntoConstraints="NO" id="ICP-09-k67">
-                    <rect key="frame" x="49" y="150" width="20" height="20"/>
+                    <rect key="frame" x="83.5" y="150" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="HdX-Re-ftT"/>
                         <constraint firstAttribute="width" constant="20" id="iHd-mv-BZs"/>
