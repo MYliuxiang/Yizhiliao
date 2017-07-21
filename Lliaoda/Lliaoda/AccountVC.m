@@ -93,7 +93,7 @@ static NSString *const headerId = @"headerId";
         
     }
     
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+//    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     
     [self createPay];
     
@@ -110,7 +110,7 @@ static NSString *const headerId = @"headerId";
 
 - (void)createPay
 {
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+//    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     
     //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     //    button.frame = CGRectMake(100, 100, 100, 100);
@@ -129,7 +129,6 @@ static NSString *const headerId = @"headerId";
     }else{
         NSLog(@"不允许程序内付费");
         [SVProgressHUD showErrorWithStatus:@"不允许程序内付费..."];
-        
     }
 }
 
@@ -170,6 +169,7 @@ static NSString *const headerId = @"headerId";
     SKMutablePayment *payment = [SKMutablePayment paymentWithProduct:response.products.firstObject];
     payment.applicationUsername = [LXUserDefaults objectForKey:UID];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
+    
 }
 
 //请求失败
@@ -282,11 +282,9 @@ static NSString *const headerId = @"headerId";
 //    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 //}
 
-//-(void)dealloc
+//- (void)dealloc
 //{
-//    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];//解除监听
-//    
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:Notice_weiXinPay object:nil];
+//   
 //    
 //}
 

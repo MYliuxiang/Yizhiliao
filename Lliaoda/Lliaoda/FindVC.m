@@ -284,7 +284,8 @@
 
     if (self.pointsModels.count < 8) {
         
-        if (_time == 8) {
+        
+        if (_time == self.pointsModels.count) {
             
             if (timer) {
                 
@@ -295,9 +296,11 @@
             }
             
         }
+
+        
     }else{
         
-        if (_time == self.pointsModels.count) {
+        if (_time == 8) {
             
             if (timer) {
                 

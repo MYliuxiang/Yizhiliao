@@ -1006,6 +1006,7 @@
         
         return;
     }
+    
     self.isfist = NO;
     self.endtime = [[NSDate date] timeIntervalSince1970] * 1000;
     NSString *startTime = [NSString stringWithFormat:@"%lld",self.starttime];
