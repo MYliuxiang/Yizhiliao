@@ -48,7 +48,7 @@ static NSString *const headerId = @"headerId";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.text = @"账户";
+    self.text = @"帳戶";
     self.view.backgroundColor = UIColorFromRGB(0xf0f0f0);
     self.dataList = [NSMutableArray array];
 //    self.accountLab.text = [NSString stringWithFormat:@"%d",self.deposit];

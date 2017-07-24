@@ -487,12 +487,23 @@ NSString *const kTableViewFrame = @"frame";
             Message *model = (Message *)obj;
             if (model.date == messageModel.date) {
                 
-                [self.dataSource replaceObjectAtIndex:i withObject:messageModel];
-                NSIndexPath *indexPath=[NSIndexPath indexPathForRow:i inSection:0];
-                [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+                model.status = MessageDeliveryState_Failure;
+                break;
             }
         }
     }
+    
+    NSArray *cells = [self.tableView visibleCells];
+    [cells enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[LHChatViewCell class]]) {
+            LHChatViewCell *messagecell = (LHChatViewCell *)obj;
+            if (messagecell.messageModel.date == messageModel.date) {
+                //                messagecell.messageModel.status = MessageDeliveryState_Failure;
+                [messagecell layoutSubviews];
+                *stop = YES;
+            }
+        }
+    }];
     
 }
 
@@ -537,18 +548,29 @@ NSString *const kTableViewFrame = @"frame";
     messageModel.status = MessageDeliveryState_Delivered;
     
     for (int i = 0 ; i < self.dataSource.count; i++) {
-         NSObject *obj = [self.dataSource objectAtIndex:i];
+        NSObject *obj = [self.dataSource objectAtIndex:i];
         if ([obj isKindOfClass:[NSString class]]) {
         }else{
             Message *model = (Message *)obj;
-        if (model.date == messageModel.date) {
-            
-            [self.dataSource replaceObjectAtIndex:i withObject:messageModel];
-            NSIndexPath *indexPath=[NSIndexPath indexPathForRow:i inSection:0];
-            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+            if (model.date == messageModel.date) {
+                
+                model.status = MessageDeliveryState_Delivered;
+                break;
+            }
         }
-      }
     }
+    
+    NSArray *cells = [self.tableView visibleCells];
+    [cells enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[LHChatViewCell class]]) {
+            LHChatViewCell *messagecell = (LHChatViewCell *)obj;
+            if (messagecell.messageModel.date == messageModel.date) {
+                //                messagecell.messageModel.status = MessageDeliveryState_Delivered;
+                [messagecell layoutSubviews];
+                *stop = YES;
+            }
+        }
+    }];
     
 }
 

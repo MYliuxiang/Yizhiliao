@@ -374,8 +374,6 @@
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
-
-
 - (void)appconfig
 {
     
