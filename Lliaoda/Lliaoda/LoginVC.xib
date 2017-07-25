@@ -35,7 +35,7 @@
                     </connections>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhN-x8-Nrp">
-                    <rect key="frame" x="142" y="150" width="90" height="90"/>
+                    <rect key="frame" x="142" y="100" width="90" height="90"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="qZH-Xw-cBT"/>
@@ -100,7 +100,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Candy Talk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1R-If-70e">
-                    <rect key="frame" x="142.5" y="255" width="90" height="22"/>
+                    <rect key="frame" x="142.5" y="205" width="90" height="22"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -184,7 +184,7 @@
                 <constraint firstItem="mk7-q2-v3v" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rj3-z2-2ee"/>
                 <constraint firstAttribute="bottom" secondItem="mk7-q2-v3v" secondAttribute="bottom" constant="10" id="vUh-sD-N1f"/>
                 <constraint firstItem="i1R-If-70e" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vYX-Bq-z31"/>
-                <constraint firstItem="VhN-x8-Nrp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="w0c-cM-mcT"/>
+                <constraint firstItem="VhN-x8-Nrp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="w0c-cM-mcT"/>
                 <constraint firstAttribute="trailing" secondItem="i80-mO-LJU" secondAttribute="trailing" id="xmB-Qo-g36"/>
             </constraints>
             <point key="canvasLocation" x="-63.5" y="-50.5"/>

@@ -509,46 +509,47 @@ static NSString *const headerId = @"headerId";
 - (void)buttonAC:(UIButton *)sender
 {
     
-    AccountModel *model = self.dataList[sender.tag];
-    
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction *defaultAction1 = [UIAlertAction actionWithTitle:@"Apple Pay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        [self btnClick:sender.tag];
-        
-    }];
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"微信支付" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        
-        [self orderCreate:model.uid withType:WeixinPay];
-        
-    }];
-    
-    UIAlertAction *aliAction1 = [UIAlertAction actionWithTitle:@"支付宝支付" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        
-        [self orderCreate:model.uid withType:AliPay];
-        
-    }];
-    
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-    [defaultAction setValue:[MyColor colorWithHexString:@"#4FB854"] forKey:@"_titleTextColor"];
-    [aliAction1 setValue:[MyColor colorWithHexString:@"#4FB854"] forKey:@"_titleTextColor"];
-    
-    [defaultAction1 setValue:[MyColor colorWithHexString:@"#4FB854"] forKey:@"_titleTextColor"];
-    
-//            [alertController addAction:defaultAction1];
-    
-//            [alertController addAction:aliAction1];
-    
-    //    if ([LXUserDefaults boolForKey:payEnable]) {
-    [alertController addAction:defaultAction1];
-    //    }
-    [alertController addAction:cancelAction];
-    [self presentViewController:alertController animated:YES completion:nil];
+    [self btnClick:sender.tag];
+
+//    AccountModel *model = self.dataList[sender.tag];
+//    
+//    
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//    
+//    UIAlertAction *defaultAction1 = [UIAlertAction actionWithTitle:@"Apple Pay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        
+//        
+//    }];
+//    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"微信支付" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        
+//        
+//        [self orderCreate:model.uid withType:WeixinPay];
+//        
+//    }];
+//    
+//    UIAlertAction *aliAction1 = [UIAlertAction actionWithTitle:@"支付宝支付" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        
+//        
+//        [self orderCreate:model.uid withType:AliPay];
+//        
+//    }];
+//    
+//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+//    [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
+//    [defaultAction setValue:[MyColor colorWithHexString:@"#4FB854"] forKey:@"_titleTextColor"];
+//    [aliAction1 setValue:[MyColor colorWithHexString:@"#4FB854"] forKey:@"_titleTextColor"];
+//    
+//    [defaultAction1 setValue:[MyColor colorWithHexString:@"#4FB854"] forKey:@"_titleTextColor"];
+//    
+////            [alertController addAction:defaultAction1];
+//    
+////            [alertController addAction:aliAction1];
+//    
+//    //    if ([LXUserDefaults boolForKey:payEnable]) {
+//    [alertController addAction:defaultAction1];
+//    //    }
+//    [alertController addAction:cancelAction];
+//    [self presentViewController:alertController animated:YES completion:nil];
     
 }
 
