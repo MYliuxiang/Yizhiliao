@@ -37,7 +37,14 @@ const NSInteger INSETS = 8;
     bgView.backgroundColor = [UIColor clearColor];
     [self addSubview:bgView];
     CGFloat width = self.frame.size.width;
-    NSArray *nameArr = @[@"送禮物", @"視頻通訊", @"充值"];
+    NSString *item = [LXUserDefaults objectForKey:itemNumber];
+    NSArray *nameArr;
+    if ([item isEqualToString:@"1"]) { // 是主播
+        nameArr = @[@"提示用戶送禮", @"視頻通訊", @"提示用戶充值"];
+    } else { // 是用户
+        nameArr = @[@"送禮物", @"視頻通訊", @"充值"];
+    }
+    
     NSArray *imageNameArr = @[@"chongzhi_01", @"liwu_01", @"shipin_01"];
     NSArray *selectImageNameArr = @[@"chongzhi_02", @"liwu_02", @"shipin_02"];
     for (int i = 0; i < nameArr.count; i++) {
@@ -71,7 +78,8 @@ const NSInteger INSETS = 8;
     }
     
     
-//    
+    
+//
 //    _giftButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [_giftButton setFrame:CGRectMake(insets, 25, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
 //    [_giftButton setImage:[UIImage imageNamed:@"shipingongneng"] forState:UIControlStateNormal];

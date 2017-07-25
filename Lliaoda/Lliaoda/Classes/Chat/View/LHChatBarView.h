@@ -14,10 +14,14 @@
 
 @required
 - (void)videoCall;
-
+// 用戶
 - (void)giftGive;
 
 - (void)chongZhi;
+// 主播
+- (void)remindGiveGift;
+
+- (void)remindChongZhi;
 @end
 
 
