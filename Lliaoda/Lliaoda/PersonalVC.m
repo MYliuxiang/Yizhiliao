@@ -25,7 +25,8 @@
     self.chatBtn.layer.cornerRadius = 22;
     self.chatBtn.layer.masksToBounds = YES;
 
-
+    UITapGestureRecognizer *hidRandG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideRenandGift)];
+    [self.blackView addGestureRecognizer:hidRandG];
     
 //    [self haveVideoLoadData];
     [self _loadData];
@@ -45,7 +46,7 @@
     scaleAnimation.repeatCount = HUGE_VALF;  //重复次数       from到to
     scaleAnimation.duration = 0.8;    //一次时间
     [self.hongBtn.layer addAnimation:scaleAnimation forKey:@"scaleAnimation"]; //key -- value.
-    
+    [self _loadData1];
 }
 
 - (void)haveVideoLoadData
@@ -712,6 +713,78 @@
     
     InvitationVC *vc = [[InvitationVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+- (IBAction)giftBtnClick:(id)sender {
+    [self newgiftView];
+    self.giftsView.pmodel = self.pmodel;
+    [UIView animateWithDuration:.35 animations:^{
+        _blackView.hidden = NO;
+        self.giftsView.top = kScreenHeight - 300;
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (IBAction)topupBtnClick:(id)sender {
+    
+    AccountVC *vc = [[AccountVC alloc] init];
+    vc.isCall = NO;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)hideRenandGift {
+    if (self.giftsView.top != kScreenHeight) {
+        [UIView animateWithDuration:.35 animations:^{
+            _blackView.hidden = YES;
+            self.giftsView.top = kScreenHeight;
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+}
+#pragma mark - 获取用户钻石数量
+- (void)_loadData1
+{
+    NSDictionary *params;
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
+                NSString *str = [NSString stringWithFormat:@"余额:%@鑽",deposit];
+                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
+                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
+                [self newgiftView];
+                self.giftsView.elabel.attributedText = alertControllerMessageStr;
+                
+            } else{
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+}
+
+- (void)newgiftView{
+    
+    if (self.giftsView == nil) {
+        
+        self.giftsView = [[GiftsView alloc] initGiftsView];
+    }
+    
+    [self.view addSubview:self.giftsView];
     
 }
 

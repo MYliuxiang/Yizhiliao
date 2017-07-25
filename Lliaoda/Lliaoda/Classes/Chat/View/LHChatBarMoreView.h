@@ -15,6 +15,8 @@
 @required
 - (void)moreViewTakePicAction:(LHChatBarMoreView *)moreView;
 - (void)moreViewPhotoAction:(LHChatBarMoreView *)moreView;
+- (void)moreViewGiftAction:(LHChatBarMoreView *)moreView;
+- (void)moreViewChongZhiAction:(LHChatBarMoreView *)moreView;
 
 @end
 
