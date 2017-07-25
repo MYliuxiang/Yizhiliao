@@ -26,6 +26,7 @@ NSString *const kTableViewFrame = @"frame";
 }
 
 @property (strong, nonatomic) UITableView *tableView;
+@property (nonatomic, strong) UIView *blackView;
 @property (nonatomic, strong) LHChatBarView *chatBarView;
 // 满足刷新
 @property (nonatomic, assign, getter=isMeetRefresh) BOOL meetRefresh;
@@ -62,7 +63,7 @@ NSString *const kTableViewFrame = @"frame";
     [super viewWillDisappear:animated];
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
-    
+    [self hideBlack];
 
 }
 #pragma mark - 初始化
@@ -96,6 +97,7 @@ NSString *const kTableViewFrame = @"frame";
     
     [self scrollToBottomAnimated:NO refresh:YES];
     
+    [self loadYUe];
 }
 
 - (void)leftAction
@@ -334,6 +336,33 @@ NSString *const kTableViewFrame = @"frame";
 }
 
 #pragma mark -----LHChatBarViewDelegate------
+- (void)chongZhi {
+    AccountVC *vc = [[AccountVC alloc] init];
+    vc.isCall = NO;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)giftGive {
+    self.blackView.hidden = NO;
+    [self newgiftView];
+    self.giftsView.pmodel = self.pmodel;
+    [UIView animateWithDuration:.35 animations:^{
+        _blackView.hidden = NO;
+        self.giftsView.top = kScreenHeight - 300;
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+- (void)newgiftView{
+    
+    if (self.giftsView == nil) {
+        
+        self.giftsView = [[GiftsView alloc] initGiftsView];
+    }
+    
+    [self.view addSubview:self.giftsView];
+    
+}
 - (void)videoCall
 {
     
@@ -382,8 +411,6 @@ NSString *const kTableViewFrame = @"frame";
         [self videoCallAC];
        
     }
-   
-
 }
 
 - (void)videoCallAC
@@ -578,6 +605,7 @@ NSString *const kTableViewFrame = @"frame";
     
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.chatBarView];
+    [self.view addSubview:self.blackView];
     self.leftbutton.hidden = YES;
     
     _deleteView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, 49)];
@@ -596,8 +624,57 @@ NSString *const kTableViewFrame = @"frame";
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.chatBarView action:@selector(hideKeyboard)];
     tapGesture.delegate = self;
     [self.tableView addGestureRecognizer:tapGesture];
+    
+    UITapGestureRecognizer *tapBlack = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideBlack)];
+    [self.blackView addGestureRecognizer:tapBlack];
 }
 
+- (void)hideBlack {
+    self.blackView.hidden = YES;
+    [self hideRenandGift];
+}
+
+#pragma mark - 获取用户钻石数量
+- (void)loadYUe
+{
+    NSDictionary *params;
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
+                NSString *str = [NSString stringWithFormat:@"余额:%@鑽",deposit];
+                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
+                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
+                [self newgiftView];
+                self.giftsView.elabel.attributedText = alertControllerMessageStr;
+                
+            } else{
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+}
+
+- (void)hideRenandGift {
+    if (self.giftsView.top != kScreenHeight) {
+        [UIView animateWithDuration:.35 animations:^{
+            self.giftsView.top = kScreenHeight;
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+}
 //多选删除
 - (void)buttonAC
 {
@@ -1434,6 +1511,17 @@ NSString *const kTableViewFrame = @"frame";
         [_tableView addObserver:self forKeyPath:kTableViewFrame options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     }
     return _tableView;
+}
+
+- (UIView *)blackView {
+    if (!_blackView) {
+        _blackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
+        _blackView.backgroundColor = [UIColor blackColor];
+        _blackView.alpha = .7;
+        _blackView.hidden = YES;
+        
+    }
+    return _blackView;
 }
 
 - (LHChatBarView *)chatBarView {

@@ -15,6 +15,9 @@
 @required
 - (void)videoCall;
 
+- (void)giftGive;
+
+- (void)chongZhi;
 @end
 
 

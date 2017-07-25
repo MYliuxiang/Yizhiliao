@@ -26,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *hongBtn;
 
 - (IBAction)hongVC:(id)sender;
+- (IBAction)giftBtnClick:(id)sender;
+- (IBAction)topupBtnClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *blackView;
 
 - (IBAction)videoCall:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -41,5 +44,5 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
-
+@property (nonatomic,retain) GiftsView *giftsView;
 @end
