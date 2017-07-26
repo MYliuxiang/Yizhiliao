@@ -25,9 +25,15 @@ const NSInteger INSETS = 8;
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor lh_colorWithHex:0xf2f2f6];
-        [self setupSubviews];
     }
     return self;
+}
+
+- (void)setIsZhubo:(BOOL)isZhubo
+{
+    _isZhubo =  isZhubo;
+    [self setupSubviews];
+
 }
 
 - (void)setupSubviews {
@@ -37,16 +43,15 @@ const NSInteger INSETS = 8;
     bgView.backgroundColor = [UIColor clearColor];
     [self addSubview:bgView];
     CGFloat width = self.frame.size.width;
-    NSString *item = [LXUserDefaults objectForKey:itemNumber];
     NSArray *nameArr;
-    if ([item isEqualToString:@"1"]) { // 是主播
+    if (_isZhubo) { // 是主播
         nameArr = @[@"提示用戶送禮", @"視頻通訊", @"提示用戶充值"];
     } else { // 是用户
         nameArr = @[@"送禮物", @"視頻通訊", @"充值"];
     }
     
-    NSArray *imageNameArr = @[@"chongzhi_01", @"liwu_01", @"shipin_01"];
-    NSArray *selectImageNameArr = @[@"chongzhi_02", @"liwu_02", @"shipin_02"];
+    NSArray *imageNameArr = @[ @"liwu_01", @"shipin_01", @"chongzhi_01"];
+    NSArray *selectImageNameArr = @[@"liwu_02", @"shipin_02",@"chongzhi_02"];
     for (int i = 0; i < nameArr.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.tag = 100 + i;
@@ -61,19 +66,38 @@ const NSInteger INSETS = 8;
         label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:label];
         
-        if (i == 0) {
-            
-            [button addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
-            button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-            label.frame = CGRectMake(button.frame.origin.x, CGRectGetMaxY(button.frame) + 10, CHAT_BUTTON_SIZE, 12);
-        } else if (i == 1) {
-            [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
-            button.frame = CGRectMake((width - CHAT_BUTTON_SIZE) / 2, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-            label.frame = CGRectMake(button.frame.origin.x, CGRectGetMaxY(button.frame) + 10, CHAT_BUTTON_SIZE, 12);
-        } else {
-            [button addTarget:self action:@selector(chongzhiAction) forControlEvents:UIControlEventTouchUpInside];
-            button.frame = CGRectMake(width - 30 - CHAT_BUTTON_SIZE, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-            label.frame = CGRectMake(button.frame.origin.x, CGRectGetMaxY(button.frame) + 10, CHAT_BUTTON_SIZE, 12);
+        if (_isZhubo) { // 是主播
+            if (i == 0) {
+                
+                [button addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
+                button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
+                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 12);
+                NSLog(@"%f",label.x);
+//                label.center =CGPointMake(button.center.x, CGRectGetMaxY(button.frame) + 10) ;
+            } else if (i == 1) {
+                [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
+                button.frame = CGRectMake((width - CHAT_BUTTON_SIZE) / 2, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
+                label.frame = CGRectMake(button.frame.origin.x, CGRectGetMaxY(button.frame) + 10, CHAT_BUTTON_SIZE, 12);
+            } else {
+                [button addTarget:self action:@selector(chongzhiAction) forControlEvents:UIControlEventTouchUpInside];
+                button.frame = CGRectMake(width - 30 - CHAT_BUTTON_SIZE, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
+                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 12);
+            }
+        } else { // 是用户
+            if (i == 0) {
+                
+                [button addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
+                button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
+                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 12);
+            } else if (i == 1) {
+                [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
+                button.frame = CGRectMake((width - CHAT_BUTTON_SIZE) / 2, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
+                label.frame = CGRectMake(button.frame.origin.x, CGRectGetMaxY(button.frame) + 10, CHAT_BUTTON_SIZE, 12);
+            } else {
+                [button addTarget:self action:@selector(chongzhiAction) forControlEvents:UIControlEventTouchUpInside];
+                button.frame = CGRectMake(width - 30 - CHAT_BUTTON_SIZE, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
+                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 12);
+            }
         }
     }
     

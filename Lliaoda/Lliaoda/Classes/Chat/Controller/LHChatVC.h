@@ -22,6 +22,8 @@
 
 @property (nonatomic,retain) MessageCount *count;
 
+@property (nonatomic, retain) Mymodel *myModel;
+
 @property (nonatomic,retain) NSMutableArray *deltedArray;
 
 @property (nonatomic,retain) GiftsView *giftsView;

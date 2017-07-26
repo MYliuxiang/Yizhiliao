@@ -1346,20 +1346,85 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     [count save];
                 }
                 
-                Message *messageModel = [Message new];
-                messageModel.isSender = NO;
-                messageModel.isRead = YES;
-                messageModel.status = MessageDeliveryState_Delivered;
-                messageModel.date = [timestr longLongValue];
-                messageModel.type = MessageBodyType_Text;
-                messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
-                messageModel.uid = account;
-                messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
-                messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-                messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
-                [messageModel save];
-                [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
-            
+                NSString *request = dic[@"message"][@"request"];
+                NSString *event = dic[@"message"][@"event"];
+                if ([request isEqualToString:@"-3"]) {
+                    if ([event isEqualToString:@"gift"]) {
+                        Message *messageModel = [Message new];
+                        messageModel.isSender = NO;
+                        messageModel.isRead = YES;
+                        messageModel.status = MessageDeliveryState_Delivered;
+                        messageModel.date = [timestr longLongValue];
+                        messageModel.type = MessageBodyType_Text;
+                        messageModel.content = [NSString stringWithFormat:@"收到我送出的：%@",dic[@"message"][@"content"]];
+                        messageModel.uid = account;
+                        messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
+                        messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                        messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
+                        [messageModel save];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
+                    } else {
+                        Message *messageModel = [Message new];
+                        messageModel.isSender = NO;
+                        messageModel.isRead = YES;
+                        messageModel.status = MessageDeliveryState_Delivered;
+                        messageModel.date = [timestr longLongValue];
+                        messageModel.type = MessageBodyType_ChongZhi;
+                        messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
+                        messageModel.uid = account;
+                        messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
+                        messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                        messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
+                        [messageModel save];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
+                    }
+                    
+                } else if ([request isEqualToString:@"-2"]) {
+                    if ([event isEqualToString:@"gift"]) {
+                        Message *messageModel = [Message new];
+                        messageModel.isSender = NO;
+                        messageModel.isRead = YES;
+                        messageModel.status = MessageDeliveryState_Delivered;
+                        messageModel.date = [timestr longLongValue];
+                        messageModel.type = MessageBodyType_Gift;
+                        messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
+                        messageModel.uid = account;
+                        messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
+                        messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                        messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
+                        [messageModel save];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
+                    } else {
+                        Message *messageModel = [Message new];
+                        messageModel.isSender = NO;
+                        messageModel.isRead = YES;
+                        messageModel.status = MessageDeliveryState_Delivered;
+                        messageModel.date = [timestr longLongValue];
+                        messageModel.type = MessageBodyType_ChongZhi;
+                        messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
+                        messageModel.uid = account;
+                        messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
+                        messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                        messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
+                        [messageModel save];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
+                    }
+                } else {
+                    Message *messageModel = [Message new];
+                    messageModel.isSender = NO;
+                    messageModel.isRead = YES;
+                    messageModel.status = MessageDeliveryState_Delivered;
+                    messageModel.date = [timestr longLongValue];
+                    messageModel.type = MessageBodyType_Text;
+                    messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
+                    messageModel.uid = account;
+                    messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
+                    messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                    messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
+                    [messageModel save];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
+                }
+                
             }
             
             //.....

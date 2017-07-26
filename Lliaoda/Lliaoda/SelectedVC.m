@@ -62,13 +62,15 @@
                 
                 self.model = [Mymodel mj_objectWithKeyValues:result[@"data"]];
                 if (self.model.auth == 2) {
-                    
+                    [LXUserDefaults setObject:@"1" forKey:itemNumber];
+                    [LXUserDefaults synchronize];
                     self.tableView.hidden = NO;
                     self.collectionView.hidden = YES;
                     [_tableView.mj_header beginRefreshing];
                     
                 }else{
-                    
+                    [LXUserDefaults setObject:@"2" forKey:itemNumber];
+                    [LXUserDefaults synchronize];
                     self.tableView.hidden = YES;
                     self.collectionView.hidden = NO;
                     [_collectionView.mj_header beginRefreshing];

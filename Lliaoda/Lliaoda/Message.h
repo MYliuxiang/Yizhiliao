@@ -18,6 +18,8 @@
  @constant MessageBodyType_Voice 语音类型
  @constant MessageBodyType_File 文件类型
  @constant MessageBodyType_Command 命令类型
+ @constant MessageBodyType_Gift 禮物類型
+ @constant MessageBodyType_Gift 充值類型
  */
 typedef enum {
     MessageBodyType_Text = 1,
@@ -26,7 +28,9 @@ typedef enum {
     MessageBodyType_Location,
     MessageBodyType_Voice,
     MessageBodyType_File,
-    MessageBodyType_Command
+    MessageBodyType_Command,
+    MessageBodyType_Gift,
+    MessageBodyType_ChongZhi
 }MessageBodyType;
 
 

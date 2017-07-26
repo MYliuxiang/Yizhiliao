@@ -12,7 +12,8 @@
 #import "LHChatAudioBubbleView.h"
 #import "LHChatVideoBubbleView.h"
 #import "LHChatLocationBubbleView.h"
-
+#import "LHChatGiftBubbleView.h"
+#import "LHChatChongZhiBubbleView.h"
 
 
 @interface LHChatViewCell : LHChatViewBaseCell

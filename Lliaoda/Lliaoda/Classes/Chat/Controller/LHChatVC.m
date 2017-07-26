@@ -23,6 +23,7 @@ NSString *const kTableViewFrame = @"frame";
 
 @interface LHChatVC () <UITableViewDelegate, UITableViewDataSource, XSBrowserDelegate,LHChatBarViewDelegate> {
     NSArray *_imageKeys;
+    BOOL isZhubo;
 }
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -88,16 +89,49 @@ NSString *const kTableViewFrame = @"frame";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageVideoTime:) name:Notice_messageVideoTime object:nil];
 
     [self addrightImage:@"dengdeng"];
+    
+    [self _loadData1];
+
 
     [self loadData];
     
-    [self setupInit];
 
     [self loadMessageWithDate:0];
     
     [self scrollToBottomAnimated:NO refresh:YES];
     
     [self loadYUe];
+    
+}
+
+- (void)_loadData1
+{
+    NSDictionary *params;
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                self.myModel = [Mymodel mj_objectWithKeyValues:result[@"data"]];
+                
+                    if (self.myModel.auth == 2) {
+                        isZhubo = YES;
+                    }else{
+                        isZhubo = NO;
+                    }
+                [self setupInit];
+
+                
+            } else{
+                
+                [self setupInit];
+
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        [self setupInit];
+
+    }];
 }
 
 - (void)leftAction
@@ -336,15 +370,111 @@ NSString *const kTableViewFrame = @"frame";
 }
 
 #pragma mark -----LHChatBarViewDelegate------
+- (void)sendMessageToUserType:(MessageBodyType)type name:(NSString *)name types:(NSString *)types {
+    NSString *message = [NSString stringWithFormat:@"我已對%@發送了%@提示~", _pmodel.nickname, name];
+    long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+    __block Message *messageModel = [Message new];
+    messageModel.isSender = YES;
+    messageModel.isRead = NO;
+    messageModel.status = MessageDeliveryState_Delivering;
+    messageModel.date = idate;
+    messageModel.messageID = [NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate];
+    messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],self.sendUid];
+    messageModel.type = MessageBodyType_Text;
+    messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    messageModel.sendUid = self.sendUid;
+    switch (type) {
+        case MessageBodyType_Text: {
+            messageModel.content = message;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    
+    NSDictionary *params;
+    params = @{@"uid":self.sendUid, @"message":message, @"type":@"0"};
+    [WXDataService requestAFWithURL:Url_chatmessagesend params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO  finishBlock:^(id result) {
+        if ([[result objectForKey:@"result"] integerValue] == 0) {
+            [messageModel save];
+            NSString *time = [LHTools processingTimeWithDate:[NSString stringWithFormat:@"%lld",messageModel.date]];
+            if (![time isEqualToString:self.lastTime]) {
+                [self insertNewMessageOrTime:time];
+                self.lastTime = time;
+            }
+            NSIndexPath *index = [self insertNewMessageOrTime:messageModel];
+            [self.messages addObject:messageModel];
+            [self.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            
+            NSDictionary *dic = @{
+                                  @"message": @{
+                                          @"messageID": messageModel.messageID,
+                                          @"event": types,
+                                          @"content": @"",
+                                          @"request": @"-2",
+                                          @"time": [NSString stringWithFormat:@"%lld",idate]
+                                          }
+                                  };
+            
+            NSString *msgStr = [InputCheck convertToJSONData:dic];
+            [_inst messageInstantSend:self.sendUid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
+            
+        }else{
+            if ([[result objectForKey:@"result"] integerValue] == 31) {
+                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"提示" message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"好的" destructiveButtonTitle:nil delegate:nil];
+                lg.destructiveButtonBackgroundColor = Color_nav;
+                lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+                lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+                lg.cancelButtonTitleColor = Color_nav;
+                [lg showAnimated:YES completionHandler:nil];
+                
+            }else if ([[result objectForKey:@"result"] integerValue] == 30) {
+                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"提示" message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"好的" destructiveButtonTitle:nil delegate:nil];
+                lg.destructiveButtonBackgroundColor = Color_nav;
+                lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+                lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+                lg.cancelButtonTitleColor = Color_nav;
+                [lg showAnimated:YES completionHandler:nil];
+                
+            }else{
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                });
+            }
+            
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+        
+    }];
+}
+// 主播提醒用户送礼物
+- (void)remindGiveGift {
+    [self sendMessageToUserType:MessageBodyType_Text name:@"送禮" types:@"gift"];
+}
+// 主播提醒用户充值
+- (void)remindChongZhi {
+    [self sendMessageToUserType:MessageBodyType_Text name:@"充值" types:@"recharge"];
+}
+// 用户充值
 - (void)chongZhi {
     AccountVC *vc = [[AccountVC alloc] init];
     vc.isCall = NO;
     [self.navigationController pushViewController:vc animated:YES];
 }
+// 用户送礼物
 - (void)giftGive {
     self.blackView.hidden = NO;
     [self newgiftView];
     self.giftsView.pmodel = self.pmodel;
+    self.giftsView.isVideoBool = NO;
     [UIView animateWithDuration:.35 animations:^{
         _blackView.hidden = NO;
         self.giftsView.top = kScreenHeight - 300;
@@ -360,6 +490,54 @@ NSString *const kTableViewFrame = @"frame";
         self.giftsView = [[GiftsView alloc] initGiftsView];
     }
     
+    
+    __weak LHChatVC *this = self;
+    self.giftsView.giftBlock = ^(NSString *giftName, int diamonds, NSString *giftUid) {
+        
+        NSString *content = [NSString stringWithFormat:@"我送出：%@(%d鉆)", giftName, diamonds];
+        NSString *contents = [NSString stringWithFormat:@"%@(%d鉆)", giftName, diamonds];
+        long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+        __block Message *messageModel = [Message new];
+        messageModel.isSender = YES;
+        messageModel.isRead = NO;
+        messageModel.status = MessageDeliveryState_Delivering;
+        messageModel.date = idate;
+        messageModel.messageID = [NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate];
+        messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],this.pmodel.uid];
+        messageModel.type = MessageBodyType_Text;
+        messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        messageModel.sendUid = this.pmodel.uid;
+        messageModel.content = content;
+        [messageModel save];
+        
+        NSString *time = [LHTools processingTimeWithDate:[NSString stringWithFormat:@"%lld",messageModel.date]];
+        if (![time isEqualToString:this.lastTime]) {
+            [this insertNewMessageOrTime:time];
+            this.lastTime = time;
+        }
+        NSIndexPath *index = [this insertNewMessageOrTime:messageModel];
+        [this.messages addObject:messageModel];
+        [this.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        
+        [SVProgressHUD showInfoWithStatus:@"贈送成功"];
+        dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+        dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+            
+            [SVProgressHUD dismiss];
+        });
+        
+        NSDictionary *dic = @{
+                              @"message": @{
+                                      @"messageID": [NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
+                                      @"event": @"gift",
+                                      @"content": contents,
+                                      @"request": @"-3",
+                                      @"time": [NSString stringWithFormat:@"%lld",idate]
+                                      }
+                              };
+        NSString *msgStr = [InputCheck convertToJSONData:dic];
+        [this.inst messageInstantSend:this.pmodel.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
+    };
     [self.view addSubview:self.giftsView];
     
 }
@@ -1489,7 +1667,7 @@ NSString *const kTableViewFrame = @"frame";
         if ([obj isKindOfClass:[LHChatViewCell class]]) {
             LHChatViewCell *cell = (LHChatViewCell *)obj;
             if (cell.messageModel.type == MessageBodyType_Image) {
-                if ([[NSString stringWithFormat:@"%d",cell.messageModel.date] isEqualToString:_imageKeys[index]]) {
+                if ([[NSString stringWithFormat:@"%lld",cell.messageModel.date] isEqualToString:_imageKeys[index]]) {
                     isVisual = NO;
                     *stop = YES;
                 }
@@ -1531,6 +1709,7 @@ NSString *const kTableViewFrame = @"frame";
         _chatBarView.backgroundColor = [UIColor lh_colorWithHex:0xf8f8fa];
         _chatBarView.delegate = self;
         _chatBarView.tableView = self.tableView;
+        _chatBarView.isZhubo = isZhubo;
         _chatBarView.sendContent = ^(LHContentModel *content) {
             [weakSelf sendMessage:content];
         };

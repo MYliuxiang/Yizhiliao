@@ -23,5 +23,5 @@
 @interface LHChatBarMoreView : UIView
 
 @property (nonatomic, weak) id<LHChatBarMoreViewDelegate> delegate;
-
+@property (nonatomic, assign) BOOL isZhubo;
 @end

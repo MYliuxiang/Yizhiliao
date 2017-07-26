@@ -34,5 +34,6 @@
 @property (nonatomic, strong) void(^sendContent)(LHContentModel *content);
 @property (nonatomic,assign)id<LHChatBarViewDelegate> delegate;
 - (void)hideKeyboard;
+@property (nonatomic, assign) BOOL isZhubo;
 
 @end
