@@ -719,6 +719,7 @@
 - (IBAction)giftBtnClick:(id)sender {
     [self newgiftView];
     self.giftsView.pmodel = self.pmodel;
+    self.giftsView.isVideoBool = NO;
     [UIView animateWithDuration:.35 animations:^{
         _blackView.hidden = NO;
         self.giftsView.top = kScreenHeight - 300;

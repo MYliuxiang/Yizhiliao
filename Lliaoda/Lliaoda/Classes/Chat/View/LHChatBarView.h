@@ -14,10 +14,14 @@
 
 @required
 - (void)videoCall;
-
+// 用戶
 - (void)giftGive;
 
 - (void)chongZhi;
+// 主播
+- (void)remindGiveGift;
+
+- (void)remindChongZhi;
 @end
 
 
@@ -30,5 +34,6 @@
 @property (nonatomic, strong) void(^sendContent)(LHContentModel *content);
 @property (nonatomic,assign)id<LHChatBarViewDelegate> delegate;
 - (void)hideKeyboard;
+@property (nonatomic, assign) BOOL isZhubo;
 
 @end

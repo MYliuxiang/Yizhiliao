@@ -158,6 +158,14 @@ CGFloat const SEND_STATUS_SIZE = 20.0f;
             return [[LHChatVideoBubbleView alloc] init];
         }
             break;
+        case MessageBodyType_Gift: {
+            return [[LHChatGiftBubbleView alloc] init];
+        }
+            break;
+        case MessageBodyType_ChongZhi: {
+            return [[LHChatChongZhiBubbleView alloc] init];
+        }
+            break;
         default:
             break;
     }
@@ -185,6 +193,14 @@ CGFloat const SEND_STATUS_SIZE = 20.0f;
             break;
         case MessageBodyType_Video: {
             return [LHChatVideoBubbleView heightForBubbleWithObject:messageModel];
+        }
+            break;
+        case MessageBodyType_Gift: {
+            return [LHChatGiftBubbleView heightForBubbleWithObject:messageModel];
+        }
+            break;
+        case MessageBodyType_ChongZhi: {
+            return [LHChatChongZhiBubbleView heightForBubbleWithObject:messageModel];
         }
             break;
         default:

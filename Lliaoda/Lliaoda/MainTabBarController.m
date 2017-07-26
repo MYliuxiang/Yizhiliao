@@ -57,7 +57,7 @@ static MainTabBarController *mainTVC = nil;
         count += mcount.count;
         
     }
-    UITabBarItem *item=[self.tabBar.items objectAtIndex:[[LXUserDefaults objectForKey:itemNumber] intValue]];
+    UITabBarItem *item=[self.tabBar.items objectAtIndex:self.tabBar.items.count - 2];
     // 显示
     item.badgeValue=[NSString stringWithFormat:@"%d",count];
     if(count == 0){
@@ -139,7 +139,7 @@ static MainTabBarController *mainTVC = nil;
         count += mcount.count;
         
     }
-    UITabBarItem *item=[self.tabBar.items objectAtIndex:[[LXUserDefaults objectForKey:itemNumber] intValue]];
+    UITabBarItem *item=[self.tabBar.items objectAtIndex:self.tabBar.items.count - 2];
     // 显示
     item.badgeValue=[NSString stringWithFormat:@"%d",count];
     if(count == 0){

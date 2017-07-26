@@ -435,27 +435,47 @@ CGFloat const kChatBatItemWH = 26.0f;
 
 
 - (void)moreViewGiftAction:(LHChatBarMoreView *)moreView {
-    self.moreKeyboard = YES;
-    self.showingSystemKeyboard = YES;
-    self.moreBtn.selected = NO;
-    self.emojiBtn.selected = NO;
-    self.y = SCREEN_H - self.height;
-    _tableView.height = self.y - kNavBarHeight;
-    [UIView animateWithDuration:_animationDuration delay:0 options:(_animationCurve << 16 | UIViewAnimationOptionBeginFromCurrentState) animations:^{
-        self.moreView.y = SCREEN_H - kChatMoreHeight;
-        [self.superview layoutIfNeeded];
-    } completion:^(BOOL finished) {
-        [self.moreView removeFromSuperview];
-    }];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(giftGive)]) {
-        [self.delegate giftGive];
+    NSString *item = [LXUserDefaults objectForKey:itemNumber];
+    if ([item isEqualToString:@"1"]) {// 主播
+        if (self.delegate && [self.delegate respondsToSelector:@selector(remindGiveGift)]) {
+            [self.delegate remindGiveGift];
+        }
+        self.textView.text = @"";
+        self.contentModel =  [LHContentModel contentModelWitiPhotos:self.photos words:self.textView.text];
+//        !self.sendContent ? : self.sendContent(self.contentModel);
+        
+    } else { // 用戶
+        self.moreKeyboard = YES;
+        self.showingSystemKeyboard = YES;
+        self.moreBtn.selected = NO;
+        self.emojiBtn.selected = NO;
+        self.y = SCREEN_H - self.height;
+        _tableView.height = self.y - kNavBarHeight;
+        [UIView animateWithDuration:_animationDuration delay:0 options:(_animationCurve << 16 | UIViewAnimationOptionBeginFromCurrentState) animations:^{
+            self.moreView.y = SCREEN_H - kChatMoreHeight;
+            [self.superview layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [self.moreView removeFromSuperview];
+        }];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(giftGive)]) {
+            [self.delegate giftGive];
+        }
     }
+    
 }
 
 - (void)moreViewChongZhiAction:(LHChatBarMoreView *)moreView {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(chongZhi)]) {
-        [self.delegate chongZhi];
+    NSString *item = [LXUserDefaults objectForKey:itemNumber];
+    if ([item isEqualToString:@"1"]) { // 主播
+        if (self.delegate && [self.delegate respondsToSelector:@selector(remindChongZhi)]) {
+            [self.delegate remindChongZhi];
+        }
+    } else { // 用户
+        if (self.delegate && [self.delegate respondsToSelector:@selector(chongZhi)]) {
+            [self.delegate chongZhi];
+        }
     }
+    
 }
 
 
@@ -612,6 +632,7 @@ CGFloat const kChatBatItemWH = 26.0f;
         _moreView.backgroundColor = [UIColor lh_colorWithHex:0xf8f8f8];
         _moreView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
         _moreView.delegate = self;
+        _moreView.isZhubo = _isZhubo;
         [self.superview addSubview:_moreView];
     }
     return _moreView;

@@ -60,7 +60,7 @@ static NSString *identifire = @"GiftID";
 //                    [self.dataList addObject:marray];
 //                }
                 
-                int i;
+//                int i;
                 if (self.dataList.count <= 8) {
                     self.pageControl.hidden = YES;
                 }else{
@@ -128,7 +128,7 @@ static NSString *identifire = @"GiftID";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    int count;
+    NSInteger count;
     if (self.dataList.count % 8) {
         count = self.dataList.count/8 + 1;
     }else{
@@ -184,7 +184,7 @@ static NSString *identifire = @"GiftID";
     
     MGiftModel *model = self.dataList[indexPath.row];
     NSDictionary *params;
-    params = @{@"uid":model.uid,@"receiverId":self.pmodel.uid,@"quantity":@1};
+    params = @{@"uid":[NSString stringWithFormat:@"%@", model.uid],@"receiverId":self.pmodel.uid,@"quantity":@1};
     [WXDataService requestAFWithURL:Url_giftsend params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
@@ -207,24 +207,32 @@ static NSString *identifire = @"GiftID";
                 giftModel.diamonds = model.diamonds;
                 
                 NSString *userId = [NSString stringWithFormat:@"%@%@",[LXUserDefaults objectForKey:UID],model.uid];
-                AnimOperationManager *manager = [AnimOperationManager sharedManager];
-                manager.parentView = self.superview;
-                [manager animWithUserID:userId model:giftModel finishedBlock:^(BOOL result) {
+                if (self.isVideoBool) {
+                    AnimOperationManager *manager = [AnimOperationManager sharedManager];
+                    manager.parentView = self.superview;
+                    [manager animWithUserID:userId model:giftModel finishedBlock:^(BOOL result) {
+                        
+                    }];
+                    long idate = [[NSDate date] timeIntervalSince1970]*1000;
+                    NSDictionary *dic = @{
+                                          @"message": @{
+                                                  @"messageID": @"-1",
+                                                  @"event": @"gift",
+                                                  @"content": uid,
+                                                  @"time": [NSString stringWithFormat:@"%ld",idate]
+                                                  }
+                                          };
                     
-                }];
+                    NSString *msgStr = [InputCheck convertToJSONData:dic];
+                    [_inst messageInstantSend:self.pmodel.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"-1"]];
+                    
+                } else {
+                    // 向服務器發送禮物數據
+                    [self sendGiftMessage:model.name diamonds:model.diamonds giftUid:giftModel.giftUid];
+                }
                 
-                long idate = [[NSDate date] timeIntervalSince1970]*1000;
-                NSDictionary *dic = @{
-                                      @"message": @{
-                                              @"messageID": @"-1",
-                                       @"event": @"gift",
-                                        @"content": uid,
-                                        @"time": [NSString stringWithFormat:@"%ld",idate]
-                                              }
-                                      };
                 
-                NSString *msgStr = [InputCheck convertToJSONData:dic];
-                [_inst messageInstantSend:self.pmodel.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"-1"]];
+                
                 
             }else{    //请求失败
                 
@@ -301,17 +309,61 @@ static NSString *identifire = @"GiftID";
 
 
 - (IBAction)chongAC:(id)sender {
-    
  [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     self.superview.hidden = YES;
     AccountVC *vc = [[AccountVC alloc] init];
     vc.isCall = YES;
     vc.clickBlock = ^(){
-    
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     self.superview.hidden = NO;
         
     };
      [[self topViewController].navigationController pushViewController:vc animated:YES];
+}
+
+- (void)sendGiftMessage:(NSString *)giftName diamonds:(int)diamonds giftUid:(NSString *)giftUid{
+    
+    if (self.giftBlock) {
+        
+        self.giftBlock(giftName, diamonds, giftUid);
+        return;
+        
+    }
+    NSString *content = [NSString stringWithFormat:@"我送出：%@(%d鉆)", giftName, diamonds];
+    NSString *contents = [NSString stringWithFormat:@"%@(%d)", giftName, diamonds];
+    long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+    __block Message *messageModel = [Message new];
+    messageModel.isSender = YES;
+    messageModel.isRead = NO;
+    messageModel.status = MessageDeliveryState_Delivering;
+    messageModel.date = idate;
+    messageModel.messageID = [NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate];
+    messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],self.pmodel.uid];
+    messageModel.type = MessageBodyType_Text;
+    messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    messageModel.sendUid = self.pmodel.uid;
+    messageModel.content = content;
+    
+    [messageModel save];
+    [SVProgressHUD showInfoWithStatus:@"贈送成功"];
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        
+        [SVProgressHUD dismiss];
+    });
+
+    NSDictionary *dic = @{
+                          @"message": @{
+                                  @"messageID": @"-3",
+                                  @"event": @"gift",
+                                  @"content": contents,
+                                  @"request": @"1",
+                                  @"time": [NSString stringWithFormat:@"%lld",idate]
+                                  }
+                          };
+
+    NSString *msgStr = [InputCheck convertToJSONData:dic];
+    [_inst messageInstantSend:self.pmodel.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
+    
 }
 @end

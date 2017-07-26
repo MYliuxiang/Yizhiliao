@@ -540,6 +540,8 @@
 		840BE31C1F1F01A70004B6D9 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE3181F1F01A70004B6D9 /* CollectionHeaderView.xib */; };
 		840BE3201F1F02C40004B6D9 /* ProfitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE31E1F1F02C40004B6D9 /* ProfitCell.m */; };
 		840BE3211F1F02C40004B6D9 /* ProfitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */; };
+		8420E7221F2773F000ADA26E /* LHChatGiftBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8420E7211F2773F000ADA26E /* LHChatGiftBubbleView.m */; };
+		8420E7251F2779E600ADA26E /* LHChatChongZhiBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8420E7241F2779E600ADA26E /* LHChatChongZhiBubbleView.m */; };
 		CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */; };
 /* End PBXBuildFile section */
 
@@ -1367,6 +1369,10 @@
 		840BE31D1F1F02C40004B6D9 /* ProfitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitCell.h; sourceTree = "<group>"; };
 		840BE31E1F1F02C40004B6D9 /* ProfitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitCell.m; sourceTree = "<group>"; };
 		840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitCell.xib; sourceTree = "<group>"; };
+		8420E7201F2773F000ADA26E /* LHChatGiftBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHChatGiftBubbleView.h; sourceTree = "<group>"; };
+		8420E7211F2773F000ADA26E /* LHChatGiftBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHChatGiftBubbleView.m; sourceTree = "<group>"; };
+		8420E7231F2779E600ADA26E /* LHChatChongZhiBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHChatChongZhiBubbleView.h; sourceTree = "<group>"; };
+		8420E7241F2779E600ADA26E /* LHChatChongZhiBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHChatChongZhiBubbleView.m; sourceTree = "<group>"; };
 		B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lliaoda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C168064B372F162D1F5BB065 /* Pods-Lliaoda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lliaoda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda.release.xcconfig"; sourceTree = "<group>"; };
 		E528CC8DA412F4F2C12F8084 /* libPods-LliaodaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LliaodaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2486,6 +2492,10 @@
 				2286DC561EF26AFE00FDF801 /* LHChatTextBubbleView.m */,
 				2286DC571EF26AFE00FDF801 /* LHChatVideoBubbleView.h */,
 				2286DC581EF26AFE00FDF801 /* LHChatVideoBubbleView.m */,
+				8420E7201F2773F000ADA26E /* LHChatGiftBubbleView.h */,
+				8420E7211F2773F000ADA26E /* LHChatGiftBubbleView.m */,
+				8420E7231F2779E600ADA26E /* LHChatChongZhiBubbleView.h */,
+				8420E7241F2779E600ADA26E /* LHChatChongZhiBubbleView.m */,
 			);
 			path = BubbleView;
 			sourceTree = "<group>";
@@ -3630,6 +3640,7 @@
 				222AA1CB1EB0775B0038416D /* YYTextContainerView.m in Sources */,
 				222B38641ED96843009DB58F /* MSSBrowseZoomScrollView.m in Sources */,
 				222B38281ED9642B009DB58F /* TADotView.m in Sources */,
+				8420E7221F2773F000ADA26E /* LHChatGiftBubbleView.m in Sources */,
 				222AA1751EB071C20038416D /* LHPhotoPreviewCell.m in Sources */,
 				222B385D1ED96843009DB58F /* MSSBrowseBaseViewController.m in Sources */,
 				840BE3201F1F02C40004B6D9 /* ProfitCell.m in Sources */,
@@ -3669,6 +3680,7 @@
 				222CD2351F1F10EE0069BDB3 /* CallTime.m in Sources */,
 				228CF7461EDEC8610045986D /* FindVC.m in Sources */,
 				2244B4691F00B96800685217 /* AnimOperationManager.m in Sources */,
+				8420E7251F2779E600ADA26E /* LHChatChongZhiBubbleView.m in Sources */,
 				22844F591ED2A1B800A9E32E /* IQTitleBarButtonItem.m in Sources */,
 				223BDF0F1EA70547006DCD65 /* SettingVC.m in Sources */,
 				224F24571EA7339200C0FDC6 /* UIView+WHC_AutoLayout.m in Sources */,
