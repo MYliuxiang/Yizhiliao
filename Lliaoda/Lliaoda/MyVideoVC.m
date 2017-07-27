@@ -312,6 +312,51 @@
               
     }];
 }
+//图片截取
+-(UIImage *)getSubImageWith:(UIImage *)originalImage
+{
+    
+    CGRect cropFrame = CGRectMake(0, 0, kScreenWidth, kScreenWidth);
+    CGRect squareFrame = CGRectMake(0, 0, kScreenWidth, kScreenWidth);
+    
+    CGFloat oriWidth = cropFrame.size.width;
+    CGFloat oriHeight = originalImage.size.height * (oriWidth / originalImage.size.width);
+    CGFloat oriX = cropFrame.origin.x + (cropFrame.size.width - oriWidth) / 2;
+    CGFloat oriY = cropFrame.origin.y + (cropFrame.size.height - oriHeight) / 2;
+    CGRect oldFrame = CGRectMake(oriX, oriY, oriWidth, oriHeight);
+    CGRect latestFrame = oldFrame;
+    
+    CGFloat scaleRatio = latestFrame.size.width / originalImage.size.width;
+    CGFloat x = (squareFrame.origin.x - latestFrame.origin.x) / scaleRatio;
+    CGFloat y = (squareFrame.origin.y - latestFrame.origin.y) / scaleRatio;
+    CGFloat w = squareFrame.size.width / scaleRatio;
+    CGFloat h = squareFrame.size.width / scaleRatio;
+    if (latestFrame.size.width < cropFrame.size.width) {
+        CGFloat newW = originalImage.size.width;
+        CGFloat newH = newW * (cropFrame.size.height /cropFrame.size.width);
+        x = 0; y = y + (h - newH) / 2;
+        w = newH; h = newH;
+    }
+    if (latestFrame.size.height < cropFrame.size.height) {
+        CGFloat newH = originalImage.size.height;
+        CGFloat newW = newH * (cropFrame.size.width / cropFrame.size.height);
+        x = x + (w - newW) / 2; y = 0;
+        w = newH; h = newH;
+    }
+    CGRect myImageRect = CGRectMake(x, y, w, h);
+    CGImageRef imageRef = originalImage.CGImage;
+    CGImageRef subImageRef = CGImageCreateWithImageInRect(imageRef, myImageRect);
+    CGSize size;
+    size.width = myImageRect.size.width;
+    size.height = myImageRect.size.height;
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextDrawImage(context, myImageRect, subImageRef);
+    UIImage* smallImage = [UIImage imageWithCGImage:subImageRef];
+    UIGraphicsEndImageContext();
+    return smallImage;
+}
+
 
 //转换格式为 mp4
 - (void)revoverToMp4Whith:(NSURL *)url
@@ -470,8 +515,10 @@
                 OSSPutObjectRequest *put1 = [OSSPutObjectRequest new];
                 put1.bucketName = result[@"data"][@"bucket"];
                 put1.objectKey = [NSString stringWithFormat:@"%@/auth/%@_cover.jpg",result[@"data"][@"path"],timeString];
-                NSData *photoData = UIImageJPEGRepresentation([self thumbnailImageForVideo:_videoUrl
-                                                                                    atTime:1], .3);
+                UIImage *cropImage = [self getSubImageWith:[self thumbnailImageForVideo:_videoUrl
+                                                                                 atTime:1]];
+                
+                NSData *photoData = UIImageJPEGRepresentation(cropImage, .3);
                 put1.uploadingData = photoData;
                 OSSTask *putTask = [client putObject:put];
                 OSSTask *putTask1 = [client putObject:put1];
