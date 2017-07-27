@@ -78,5 +78,7 @@ typedef enum {
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, strong) NSURL *imageRemoteURL;
 
-
+// 礼物和充值
+@property (nonatomic, copy) NSString *event;
+@property (nonatomic, copy) NSString *request;
 @end

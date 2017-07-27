@@ -542,6 +542,7 @@
 		840BE3211F1F02C40004B6D9 /* ProfitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */; };
 		8420E7221F2773F000ADA26E /* LHChatGiftBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8420E7211F2773F000ADA26E /* LHChatGiftBubbleView.m */; };
 		8420E7251F2779E600ADA26E /* LHChatChongZhiBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8420E7241F2779E600ADA26E /* LHChatChongZhiBubbleView.m */; };
+		843EC0261F29D9750051AFD3 /* OrderID.m in Sources */ = {isa = PBXBuildFile; fileRef = 843EC0251F29D9750051AFD3 /* OrderID.m */; };
 		CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */; };
 /* End PBXBuildFile section */
 
@@ -1373,6 +1374,8 @@
 		8420E7211F2773F000ADA26E /* LHChatGiftBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHChatGiftBubbleView.m; sourceTree = "<group>"; };
 		8420E7231F2779E600ADA26E /* LHChatChongZhiBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHChatChongZhiBubbleView.h; sourceTree = "<group>"; };
 		8420E7241F2779E600ADA26E /* LHChatChongZhiBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHChatChongZhiBubbleView.m; sourceTree = "<group>"; };
+		843EC0241F29D9750051AFD3 /* OrderID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderID.h; sourceTree = "<group>"; };
+		843EC0251F29D9750051AFD3 /* OrderID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderID.m; sourceTree = "<group>"; };
 		B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lliaoda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C168064B372F162D1F5BB065 /* Pods-Lliaoda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lliaoda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda.release.xcconfig"; sourceTree = "<group>"; };
 		E528CC8DA412F4F2C12F8084 /* libPods-LliaodaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LliaodaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2842,6 +2845,8 @@
 				22E8D7701EA49AE300C5FC6B /* AppDelegate.m */,
 				22ADAE291F0BC352005D08A4 /* IAPModel.h */,
 				22ADAE2A1F0BC352005D08A4 /* IAPModel.m */,
+				843EC0241F29D9750051AFD3 /* OrderID.h */,
+				843EC0251F29D9750051AFD3 /* OrderID.m */,
 				229094371EF2774100715841 /* start_30.wav */,
 				228CF7431EDEC8380045986D /* 发现 */,
 				222396EA1EB1DE33001D4814 /* 视频通话页面 */,
@@ -3524,6 +3529,7 @@
 				222B38291ED9642B009DB58F /* TAPageControl.m in Sources */,
 				228942041ED938380020C307 /* AlbumModel.m in Sources */,
 				2250E62D1EA9EE4D00849842 /* PersonCell.m in Sources */,
+				843EC0261F29D9750051AFD3 /* OrderID.m in Sources */,
 				222B38661ED96843009DB58F /* UIView+MSSLayout.m in Sources */,
 				224428001EA88D2800BF3E4D /* NetWorkManager.m in Sources */,
 				2286DC691EF26AFE00FDF801 /* LHChatTextBubbleView.m in Sources */,

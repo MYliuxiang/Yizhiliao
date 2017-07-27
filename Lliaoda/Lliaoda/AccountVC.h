@@ -33,4 +33,7 @@ typedef NS_ENUM(NSInteger, PayType) {
 @property (nonatomic,assign) int deposit;
 @property (nonatomic,copy) void(^clickBlock)(void);
 @property (nonatomic,assign) BOOL isCall;
+@property (nonatomic, copy) NSString *orderReferee;
+@property (nonatomic, copy) AgoraAPI *inst;
+@property (nonatomic,copy) void(^rechargeBlock)(NSString *uid, NSString *diamonds);
 @end

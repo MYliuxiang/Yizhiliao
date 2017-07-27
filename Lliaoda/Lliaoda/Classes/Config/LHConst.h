@@ -22,6 +22,8 @@ extern NSString *const kRouterEventChatHeadImageTapEventName;
 extern NSString *const kRouterEventTextURLTapEventName;
 extern NSString *const kRouterEventImageBubbleTapEventName;
 extern NSString *const kRouterEventBubbleLongTapEventName;
+extern NSString *const kRouterEventGiftBubbleLongTapEventName;
+extern NSString *const kRouterEventRechargeBubbleLongTapEventName;
 extern NSInteger kMessageCount;
 
 extern NSString *const kRouterEventBubbleMenuMore;

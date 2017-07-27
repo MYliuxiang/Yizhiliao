@@ -34,7 +34,8 @@ enum{
 {
     
     int buyType;
-    
+    NSString *diamondCount;
+    NSString *depositCount;
 }
 @property (nonatomic,strong) NSArray *profuctIdArr;
 @property (nonatomic,copy) NSString *currentProId;
@@ -59,6 +60,7 @@ static NSString *const headerId = @"headerId";
 //    self.view.backgroundColor = [UIColor whiteColor];
 //    self.tableView.backgroundColor = [UIColor clearColor];
     
+    _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
     // 注册cell、sectionHeader、sectionFooter
     _collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
     _collectionViewLayout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
@@ -103,7 +105,8 @@ static NSString *const headerId = @"headerId";
 - (void)appPaySugerss:(NSNotification *)notification
 {
     NSDictionary *userInfo = notification.userInfo;
-    self.accountLab.text = [NSString stringWithFormat:@"%@",userInfo[@"data"][@"deposit"]];
+    depositCount = [NSString stringWithFormat:@"%@",userInfo[@"data"][@"deposit"]];
+    [_collectionView reloadData];
     
 }
 
@@ -124,12 +127,20 @@ static NSString *const headerId = @"headerId";
 - (void)btnClick:(int)index
 {
     AccountModel *model = self.dataList[index];
-    if([SKPaymentQueue canMakePayments]){
-        [self requestProductData:model.uid];
-    }else{
-        NSLog(@"不允许程序内付费");
-        [SVProgressHUD showErrorWithStatus:@"不允许程序内付费..."];
-    }
+    [self orderCreate:model.uid withType:AppPay];
+    
+//    NSString *name = model.name;
+//    if (name.length >= 3) {
+//        NSString *count = [name substringToIndex:name.length - 3];
+//        diamondCount = [NSString stringWithFormat:@"%@鉆", count];
+//    }
+//    
+//    if([SKPaymentQueue canMakePayments]){
+//        [self requestProductData:model.uid];
+//    }else{
+//        NSLog(@"不允许程序内付费");
+//        [SVProgressHUD showErrorWithStatus:@"不允许程序内付费..."];
+//    }
 }
 
 //请求商品
@@ -222,13 +233,14 @@ static NSString *const headerId = @"headerId";
     NSLog(@"%@",dic);
     if([dic[@"status"] intValue]==0){
         NSLog(@"购买成功！");
+        
         NSDictionary *dicReceipt= dic[@"receipt"];
         NSDictionary *dicInApp=[dicReceipt[@"in_app"] firstObject];
         NSString *productIdentifier= dicInApp[@"product_id"];//读取产品标识
         //如果是消耗品则记录购买数量，非消耗品则记录是否购买过
         NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
         if ([productIdentifier isEqualToString:@"1"]) {
-            int purchasedCount= [defaults integerForKey:productIdentifier];//已购买数量
+            NSInteger purchasedCount= [defaults integerForKey:productIdentifier];//已购买数量
             [[NSUserDefaults standardUserDefaults] setInteger:(purchasedCount+1) forKey:productIdentifier];
         }else{
             [defaults setBool:YES forKey:productIdentifier];
@@ -387,7 +399,9 @@ static NSString *const headerId = @"headerId";
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
-                myModel = [Mymodel mj_objectWithKeyValues:result[@"data"]];                self.accountLab.text = [NSString stringWithFormat:@"%d",myModel.deposit];
+                myModel = [Mymodel mj_objectWithKeyValues:result[@"data"]];
+//                self.accountLab.text = [NSString stringWithFormat:@"%d",myModel.deposit];
+                depositCount = [NSString stringWithFormat:@"%d",myModel.deposit];
                 [_collectionView reloadData];
 //                [_tableView reloadData];
                 
@@ -555,15 +569,25 @@ static NSString *const headerId = @"headerId";
 
 - (void)orderCreate:(NSString *)uid withType:(PayType)type
 {
-    
-    NSDictionary *params = @{@"uid":uid};
+    NSDictionary *params = @{@"uid":[NSString stringWithFormat:@"%@", uid], @"referee":[NSString stringWithFormat:@"%@", self.orderReferee], @"system":@4};
     [WXDataService requestAFWithURL:Url_ordercreate params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
-                NSString *uid = result[@"data"][@"uid"];
+                NSString *uids = result[@"data"][@"uid"];
                 
-                [self Pay:uid withType:type];
+                OrderID *order = [[OrderID alloc] init];
+                order.orderID = uids;
+                [order save];
+            
+                if([SKPaymentQueue canMakePayments]){
+                    [self requestProductData:uid];
+                }else{
+                    NSLog(@"不允许程序内付费");
+                    [SVProgressHUD showErrorWithStatus:@"不允许程序内付费..."];
+                }
+                
+//                [self Pay:uid withType:type];
                 
                 
             }else{    //请求失败
@@ -796,7 +820,7 @@ controller   didAuthorizePayment:(PKPayment *)payment
             headerView = [[CollectionHeaderView alloc] init];
         }
         headerView.backgroundColor = [UIColor whiteColor];
-        headerView.countLabel.text = [NSString stringWithFormat:@"%d", myModel.deposit];
+        headerView.countLabel.text = depositCount;
         if (myModel.vipEndTime == 0) {
             // 没有vip
             headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon02"];
@@ -818,6 +842,43 @@ controller   didAuthorizePayment:(PKPayment *)payment
         view = headerView;
     }
     return view;
+}
+
+
+- (void)sendMessageToPerson:(NSString *)uid diamonds:(NSString *)diamonds {
+    NSString *content = [NSString stringWithFormat:@"我已通過你的頁面充值：%@鉆", diamonds];;
+    long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+    __block Message *messageModel = [Message new];
+    messageModel.isSender = YES;
+    messageModel.isRead = NO;
+    messageModel.status = MessageDeliveryState_Delivering;
+    messageModel.date = idate;
+    messageModel.messageID = [NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate];
+    messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],uid];
+    messageModel.type = MessageBodyType_Text;
+    messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    messageModel.sendUid = uid;
+    messageModel.content = content;
+    [messageModel save];
+    
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        
+        [SVProgressHUD dismiss];
+    });
+    
+    NSDictionary *dic = @{
+                          @"message": @{
+                                  @"messageID": messageModel.messageID,
+                                  @"event": @"recharge",
+                                  @"content": content,
+                                  @"request": @"-3",
+                                  @"time": [NSString stringWithFormat:@"%lld",idate]
+                                  }
+                          };
+    
+    NSString *msgStr = [InputCheck convertToJSONData:dic];
+    [_inst messageInstantSend:self.orderReferee uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
 }
 
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

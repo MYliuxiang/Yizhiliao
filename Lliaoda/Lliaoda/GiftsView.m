@@ -354,10 +354,10 @@ static NSString *identifire = @"GiftID";
 
     NSDictionary *dic = @{
                           @"message": @{
-                                  @"messageID": @"-3",
+                                  @"messageID": [NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
                                   @"event": @"gift",
                                   @"content": contents,
-                                  @"request": @"1",
+                                  @"request": @"-3",
                                   @"time": [NSString stringWithFormat:@"%lld",idate]
                                   }
                           };
