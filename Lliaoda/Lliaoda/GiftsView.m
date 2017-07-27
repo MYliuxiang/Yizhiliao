@@ -250,6 +250,7 @@ static NSString *identifire = @"GiftID";
                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                         AccountVC *vc = [[AccountVC alloc] init];
                         vc.isCall = YES;
+                        vc.orderReferee = self.pmodel.uid;
                         vc.clickBlock = ^(){
                             
                             [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
@@ -313,6 +314,7 @@ static NSString *identifire = @"GiftID";
     self.superview.hidden = YES;
     AccountVC *vc = [[AccountVC alloc] init];
     vc.isCall = YES;
+    vc.orderReferee = self.pmodel.uid;
     vc.clickBlock = ^(){
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     self.superview.hidden = NO;
@@ -329,6 +331,9 @@ static NSString *identifire = @"GiftID";
         return;
         
     }
+    
+    
+    
     NSString *content = [NSString stringWithFormat:@"我送出：%@(%d鉆)", giftName, diamonds];
     NSString *contents = [NSString stringWithFormat:@"%@(%d)", giftName, diamonds];
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
@@ -364,6 +369,51 @@ static NSString *identifire = @"GiftID";
 
     NSString *msgStr = [InputCheck convertToJSONData:dic];
     [_inst messageInstantSend:self.pmodel.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
+    
+    NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",self.pmodel.uid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
+    
+    if ([MessageCount findFirstByCriteria:criteria]) {
+        
+        MessageCount *count = [MessageCount findFirstByCriteria:criteria];
+        count.content = [NSString stringWithFormat:@"我送出：%@(%d鉆)", giftName, diamonds];
+        count.count = count.count;
+        
+        count.timeDate = idate;
+        count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        count.sendUid = dic[@"referee"];
+        [count update];
+        
+    }else{
+        
+        MessageCount *count = [[MessageCount alloc] init];
+        count.content = [NSString stringWithFormat:@"我送出：%@(%d鉆)", giftName, diamonds];
+        count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        count.sendUid = dic[@"referee"];
+        count.count = 0;
+        count.timeDate = idate;
+        [count save];
+    }
+    
+    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    NSString *criteria2 = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
+    NSArray *array = [MessageCount findByCriteria:criteria2];
+    int count = 0;
+    
+    for (MessageCount *mcount in array) {
+        count += mcount.count;
+        
+    }
+    UITabBarItem *item=[[MainTabBarController shareMainTabBarController].tabBar.items objectAtIndex:[MainTabBarController shareMainTabBarController].tabBar.items.count - 2];
+    // 显示
+    item.badgeValue=[NSString stringWithFormat:@"%d",count];
+    if(count == 0){
+        
+        item.badgeValue = nil;
+    }
+
+    
+    
+    
     
 }
 @end

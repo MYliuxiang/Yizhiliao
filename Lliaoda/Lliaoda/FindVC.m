@@ -631,7 +631,9 @@
     
     AccountVC *vc = [[AccountVC alloc] init];
     vc.isCall = YES;
+
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+    
     vc.clickBlock = ^{
         
         [self call];

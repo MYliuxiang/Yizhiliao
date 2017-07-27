@@ -28,6 +28,61 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click)];
     [self.headerImage addGestureRecognizer:tap];
 
+    LxCache *cahce = [LxCache sharedLxCache];
+    NSString *cacheKey = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    NSDictionary *dic = [cahce getCacheDataWithKey:cacheKey];
+    if (dic != nil) {
+        
+        self.model = [Mymodel mj_objectWithKeyValues:dic[@"data"]];
+        
+        self.nickLabel.text = self.model.nickname;
+        self.idLabel.text = [NSString stringWithFormat:@"聊号：%@",self.model.uid];
+        [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+        
+        NSArray *array;
+        if (self.model.activated == 0) {
+            array = @[@"邀请有奖",@"接受邀请"];
+        }else{
+            array = @[@"邀请有奖"];
+            
+        }
+        
+        if([LXUserDefaults boolForKey:ISMEiGUO]){
+            
+            if (self.model.auth == 2) {
+                
+                self.nameArray = [NSMutableArray arrayWithObjects:@[@"视频认证",@"收费设置",@"在线时段"],@[@"视频秀",@"相册"], @[@"设置"],nil];
+                
+                
+            }else{
+                
+                self.nameArray = [NSMutableArray arrayWithObjects:@[@"视频认证"],@[@"视频秀",@"相册"],@[@"设置"], nil];
+                
+            }
+            
+            
+        }else{
+            
+            if (self.model.auth == 2) {
+                
+                self.nameArray = [NSMutableArray arrayWithObjects:array,@[@"视频认证",@"收费设置",@"在线时段"],@[@"视频秀",@"相册"], @[@"设置"],nil];
+                
+                
+            }else{
+                
+                self.nameArray = [NSMutableArray arrayWithObjects:array,@[@"视频认证"],@[@"视频秀",@"相册"],@[@"设置"], nil];
+                
+            }
+            
+            
+        }
+        
+        
+        [_tableView reloadData];
+        
+    }
+
+    
     self.headerView.width = kScreenWidth;
     self.headerView.height = kScreenWidth*434/750.0;
     self.tableView.tableHeaderView = self.headerView;
@@ -317,6 +372,11 @@
                 
                 self.model = [Mymodel mj_objectWithKeyValues:result[@"data"]];
                 
+                LxCache *lxcache = [LxCache sharedLxCache];
+                NSString *cacheKey = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                [lxcache setCacheData:result WithKey:cacheKey];
+
+                
                 self.nickLabel.text = self.model.nickname;
                 self.idLabel.text = [NSString stringWithFormat:@"聊號：%@",self.model.uid];
                 [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
@@ -406,6 +466,9 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 self.model = [Mymodel mj_objectWithKeyValues:result[@"data"]];
+                LxCache *lxcache = [LxCache sharedLxCache];
+                NSString *cacheKey = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                [lxcache setCacheData:result WithKey:cacheKey];
                 
                 self.nickLabel.text = self.model.nickname;
                 self.idLabel.text = [NSString stringWithFormat:@"聊號：%@",self.model.uid];

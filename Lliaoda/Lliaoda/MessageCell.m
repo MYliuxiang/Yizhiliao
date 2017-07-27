@@ -65,24 +65,9 @@
     NSString *timestr = [NSString stringWithFormat:@"%lld",count.timeDate];
     self.timeLabel.text = [LHTools processingTimeWithDate:timestr];
     if (count.draft.length == 0) {
-        if ([count.request isEqualToString:@"-2"]) {
-            if ([count.event isEqualToString:@"gift"]) {
-                self.contentLab.text = @"收到我的送禮提醒";
-            } else {
-                self.contentLab.text = @"收到我的充值提醒";
-            }
-        } else {
-            if ([count.request isEqualToString:@"-3"]) {
-                if ([count.event isEqualToString:@"gift"]) {
-                    self.contentLab.text = [NSString stringWithFormat:@"收到我送出的：%@", count.content];
-                } else {
-                    self.contentLab.text = [NSString stringWithFormat:@"我已通過你的頁面充值：%@", count.content];
-                }
-            } else {
-                self.contentLab.text = count.content;
-            }
-            
-        }
+        
+        self.contentLab.text = count.content;
+        
     }else{
     
         NSString *contentStr = [NSString stringWithFormat:@"[草稿]%@",count.draft];
