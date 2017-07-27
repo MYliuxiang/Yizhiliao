@@ -65,6 +65,13 @@ NSString *const kTableViewFrame = @"frame";
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
     [self hideBlack];
+    
+    NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",_sendUid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
+     if ([MessageCount findFirstByCriteria:criteria]) {
+         MessageCount *count = [MessageCount findFirstByCriteria:criteria];
+         count.count = 0;
+         [count update];
+     }
 
 }
 #pragma mark - 初始化
@@ -570,6 +577,7 @@ NSString *const kTableViewFrame = @"frame";
                         lg.cancelButtonTitleColor = Color_nav;
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                             AccountVC *vc = [[AccountVC alloc] init];
+                            vc.orderReferee = self.sendUid;
                             [self.navigationController pushViewController:vc animated:YES];
                             
                         };
@@ -771,30 +779,46 @@ NSString *const kTableViewFrame = @"frame";
     }
     messageModel.status = MessageDeliveryState_Delivered;
     
+    BOOL ishaveMessage = NO;
     for (int i = 0 ; i < self.dataSource.count; i++) {
         NSObject *obj = [self.dataSource objectAtIndex:i];
         if ([obj isKindOfClass:[NSString class]]) {
         }else{
             Message *model = (Message *)obj;
             if (model.date == messageModel.date) {
-                
+                ishaveMessage = YES;
                 model.status = MessageDeliveryState_Delivered;
                 break;
             }
         }
     }
     
-    NSArray *cells = [self.tableView visibleCells];
-    [cells enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[LHChatViewCell class]]) {
-            LHChatViewCell *messagecell = (LHChatViewCell *)obj;
-            if (messagecell.messageModel.date == messageModel.date) {
-                //                messagecell.messageModel.status = MessageDeliveryState_Delivered;
-                [messagecell layoutSubviews];
-                *stop = YES;
+    if (ishaveMessage) {
+        
+        NSArray *cells = [self.tableView visibleCells];
+        [cells enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[LHChatViewCell class]]) {
+                LHChatViewCell *messagecell = (LHChatViewCell *)obj;
+                if (messagecell.messageModel.date == messageModel.date) {
+                    //                messagecell.messageModel.status = MessageDeliveryState_Delivered;
+                    [messagecell layoutSubviews];
+                    *stop = YES;
+                }
             }
+        }];
+    }else{
+    
+        NSString *time = [LHTools processingTimeWithDate:[NSString stringWithFormat:@"%lld",messageModel.date]];
+        if (![time isEqualToString:self.lastTime]) {
+            [self insertNewMessageOrTime:time];
+            self.lastTime = time;
         }
-    }];
+        NSIndexPath *index = [self insertNewMessageOrTime:messageModel];
+        [self.messages addObject:messageModel];
+        [self.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    
+    }
+   
     
 }
 
@@ -1097,6 +1121,8 @@ NSString *const kTableViewFrame = @"frame";
             lg.cancelButtonTitleColor = Color_nav;
             lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                 AccountVC *vc = [[AccountVC alloc] init];
+                vc.orderReferee = self.sendUid;
+
                 [self.navigationController pushViewController:vc animated:YES];
                 
             };
@@ -1464,6 +1490,8 @@ NSString *const kTableViewFrame = @"frame";
                     lg.cancelButtonTitleColor = Color_nav;
                     lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                         AccountVC *vc = [[AccountVC alloc] init];
+                        vc.orderReferee = self.sendUid;
+
                         [self.navigationController pushViewController:vc animated:YES];
                         
                     };

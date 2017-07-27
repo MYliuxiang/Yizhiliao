@@ -335,6 +335,7 @@
                                     NSString *uid = [dic objectForKey:@"uid"];
                                     if ([dic[@"status"] intValue] == 1) {
                                         if (dic[@"referee"] != nil) {
+                                            
                                             NSString *content = [NSString stringWithFormat:@"我已通過你的頁面充值:%@鉆", dic[@"diamonds"]];
                                             long long idate = [[NSDate date] timeIntervalSince1970]*1000;
                                             __block Message *messageModel = [Message new];
@@ -346,9 +347,53 @@
                                             messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],dic[@"referee"]];
                                             messageModel.type = MessageBodyType_Text;
                                             messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-                                            messageModel.sendUid = uid;
+                                            messageModel.sendUid = dic[@"referee"];
                                             messageModel.content = content;
                                             [messageModel save];
+                                            
+                                            
+                                             NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",dic[@"referee"],[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
+
+                                            if ([MessageCount findFirstByCriteria:criteria]) {
+                                                
+                                                MessageCount *count = [MessageCount findFirstByCriteria:criteria];
+                                                count.content = messageModel.content;
+                                                count.count = count.count + 1;
+                                                
+                                                count.timeDate = idate;
+                                                count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                                                count.sendUid = dic[@"referee"];
+                                                [count update];
+                                                
+                                            }else{
+                                                
+                                                MessageCount *count = [[MessageCount alloc] init];
+                                                count.content = messageModel.content;
+                                                count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                                                count.sendUid = dic[@"referee"];
+                                                count.count = 1;
+                                                count.timeDate = idate;
+                                                [count save];
+                                            }
+                                            
+                                            NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                                            NSString *criteria2 = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
+                                            NSArray *array = [MessageCount findByCriteria:criteria2];
+                                            int count = 0;
+                                            
+                                            for (MessageCount *mcount in array) {
+                                                count += mcount.count;
+                                                
+                                            }
+                                            UITabBarItem *item=[[MainTabBarController shareMainTabBarController].tabBar.items objectAtIndex:[MainTabBarController shareMainTabBarController].tabBar.items.count - 2];
+                                            // 显示
+                                            item.badgeValue=[NSString stringWithFormat:@"%d",count];
+                                            if(count == 0){
+                                                
+                                                item.badgeValue = nil;
+                                            }
+                                            
+
                                             
                                             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                                             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
@@ -1405,10 +1450,41 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",account,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
                 NSString *timestr = [NSString stringWithFormat:@"%@",dic[@"message"][@"time"]];
                 
+                NSString *request = dic[@"message"][@"request"];
+                NSString *event =  dic[@"message"][@"event"];
+                
                 if ([MessageCount findFirstByCriteria:criteria]) {
                     
                     MessageCount *count = [MessageCount findFirstByCriteria:criteria];
-                    count.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];;
+                    
+                    if ([request isEqualToString:@"-2"]) {
+                        if ([event isEqualToString:@"gift"]) {
+                            
+                            count.content = @"收到我送礼提醒";
+                            
+                        }else{
+                            
+                            count.content = count.content = @"收到我充值提醒";
+                        }
+                        
+                    }else if([request isEqualToString:@"-3"]){
+                        
+                        if ([event isEqualToString:@"gift"]) {
+                            
+                            count.content = [NSString stringWithFormat:@"收到我送出的：%@",dic[@"message"][@"content"]];;
+                        }else{
+                            
+                            count.content = [NSString stringWithFormat:@"我已通过你得页面充值:%@钻",dic[@"message"][@"content"]];
+                            
+                        }
+                        
+                        
+                    }else{
+                        
+                        count.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
+                        
+                    }
+
                     count.count = count.count + 1;
                   
                     count.timeDate = [timestr longLongValue];
@@ -1419,7 +1495,33 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 }else{
                     
                     MessageCount *count = [[MessageCount alloc] init];
-                    count.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
+                    if ([request isEqualToString:@"-2"]) {
+                        if ([event isEqualToString:@"gift"]) {
+                            
+                            count.content = @"收到我送礼提醒";
+                            
+                        }else{
+                            
+                            count.content = count.content = @"收到我充值提醒";
+                        }
+                        
+                    }else if([request isEqualToString:@"-3"]){
+                        
+                        if ([event isEqualToString:@"gift"]) {
+                            
+                            count.content = [NSString stringWithFormat:@"收到我送出的：%@",dic[@"message"][@"content"]];;
+                        }else{
+                            
+                            count.content = [NSString stringWithFormat:@"我已通过你得页面充值:%@钻",dic[@"message"][@"content"]];
+                            
+                        }
+                        
+                        
+                    }else{
+                        
+                        count.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
+                        
+                    }
                     count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
                     count.sendUid = account;
                     count.count = 1;
@@ -1427,98 +1529,50 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     [count save];
                 }
                 
-                NSString *request = dic[@"message"][@"request"];
-                NSString *event = dic[@"message"][@"event"];
-                if ([request isEqualToString:@"-3"]) {
-                    if ([MessageCount findFirstByCriteria:criteria]) {
-                        MessageCount *count = [MessageCount findFirstByCriteria:criteria];
-                        count.event = [NSString stringWithFormat:@"%@",dic[@"message"][@"event"]];;
-                        count.request = [NSString stringWithFormat:@"%@",dic[@"message"][@"request"]];;
-                        count.timeDate = [timestr longLongValue];
-                        count.sendUid = account;
-                        [count update];
-                    }else{
-                        MessageCount *count = [[MessageCount alloc] init];
-                        count.event = [NSString stringWithFormat:@"%@",dic[@"message"][@"event"]];;
-                        count.request = [NSString stringWithFormat:@"%@",dic[@"message"][@"request"]];;
-                        count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-                        count.sendUid = account;
-                        count.timeDate = [timestr longLongValue];
-                        [count save];
-                    }
-                    Message *messageModel = [Message new];
-                    messageModel.isSender = NO;
-                    messageModel.isRead = YES;
-                    messageModel.status = MessageDeliveryState_Delivered;
-                    messageModel.date = [timestr longLongValue];
-                    messageModel.type = MessageBodyType_Text;
+              
+                
+                Message *messageModel = [Message new];
+                messageModel.isSender = NO;
+                messageModel.isRead = YES;
+                messageModel.status = MessageDeliveryState_Delivered;
+                messageModel.date = [timestr longLongValue];
+                messageModel.type = MessageBodyType_Text;
+                
+                if ([request isEqualToString:@"-2"]) {
                     if ([event isEqualToString:@"gift"]) {
-                        messageModel.content = [NSString stringWithFormat:@"收到我送出的：%@",dic[@"message"][@"content"]];
-                    } else {
-                        messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
-                    }
-                    messageModel.uid = account;
-                    messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
-                    messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-                    messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
-                    [messageModel save];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
-                    
-                } else if ([request isEqualToString:@"-2"]) {
-
-                    if ([MessageCount findFirstByCriteria:criteria]) {
                         
-                        MessageCount *count = [MessageCount findFirstByCriteria:criteria];
-                        count.event = [NSString stringWithFormat:@"%@",dic[@"message"][@"event"]];;
-                        count.request = [NSString stringWithFormat:@"%@",dic[@"message"][@"request"]];;
-                        count.timeDate = [timestr longLongValue];
-                        count.sendUid = account;
-                        [count update];
+                        messageModel.content = @"收到我送礼提醒";
                         
                     }else{
                         
-                        MessageCount *count = [[MessageCount alloc] init];
-                        count.event = [NSString stringWithFormat:@"%@",dic[@"message"][@"event"]];;
-                        count.request = [NSString stringWithFormat:@"%@",dic[@"message"][@"request"]];;
-                        count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-                        count.sendUid = account;
-                        count.timeDate = [timestr longLongValue];
-                        [count save];
+                        messageModel.content = @"收到我充值提醒";
                     }
-                    Message *messageModel = [Message new];
-                    messageModel.isSender = NO;
-                    messageModel.isRead = YES;
+                    
+                }else if([request isEqualToString:@"-3"]){
+                    
                     if ([event isEqualToString:@"gift"]) {
-                        messageModel.type = MessageBodyType_Gift;
-                    } else {
-                        messageModel.type = MessageBodyType_ChongZhi;
+                        
+                        messageModel.content = [NSString stringWithFormat:@"收到我送出的：%@",dic[@"message"][@"content"]];;
+                    }else{
+                        
+                        messageModel.content = [NSString stringWithFormat:@"我已通过你得页面充值:%@钻",dic[@"message"][@"content"]];
+                        
                     }
-                    messageModel.status = MessageDeliveryState_Delivered;
-                    messageModel.date = [timestr longLongValue];
-                    messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
-                    messageModel.uid = account;
-                    messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
-                    messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-                    messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
-                    [messageModel save];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                     
                     
-                } else {
-                    Message *messageModel = [Message new];
-                    messageModel.isSender = NO;
-                    messageModel.isRead = YES;
-                    messageModel.status = MessageDeliveryState_Delivered;
-                    messageModel.date = [timestr longLongValue];
-                    messageModel.type = MessageBodyType_Text;
+                }else{
+                    
                     messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
-                    messageModel.uid = account;
-                    messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
-                    messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-                    messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
-                    [messageModel save];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
+                    
                 }
+
+                
+                messageModel.uid = account;
+                messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
+                messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
+                [messageModel save];
+                [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                 
             }
             
