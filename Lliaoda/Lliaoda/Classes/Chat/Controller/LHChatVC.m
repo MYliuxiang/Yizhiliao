@@ -67,6 +67,7 @@ NSString *const kTableViewFrame = @"frame";
     [self hideBlack];
     
     NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",_sendUid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
+    NSArray *array = [MessageCount findAll];
      if ([MessageCount findFirstByCriteria:criteria]) {
          MessageCount *count = [MessageCount findFirstByCriteria:criteria];
          count.count = 0;

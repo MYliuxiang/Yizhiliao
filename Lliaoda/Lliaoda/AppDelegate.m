@@ -1536,16 +1536,18 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 messageModel.isRead = YES;
                 messageModel.status = MessageDeliveryState_Delivered;
                 messageModel.date = [timestr longLongValue];
-                messageModel.type = MessageBodyType_Text;
                 
                 if ([request isEqualToString:@"-2"]) {
                     if ([event isEqualToString:@"gift"]) {
                         
                         messageModel.content = @"收到我送礼提醒";
-                        
+                        messageModel.type = MessageBodyType_Gift;
+
                     }else{
                         
                         messageModel.content = @"收到我充值提醒";
+                        messageModel.type = MessageBodyType_ChongZhi;
+
                     }
                     
                 }else if([request isEqualToString:@"-3"]){
@@ -1553,17 +1555,20 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     if ([event isEqualToString:@"gift"]) {
                         
                         messageModel.content = [NSString stringWithFormat:@"收到我送出的：%@",dic[@"message"][@"content"]];;
+                        messageModel.type = MessageBodyType_Text;
                     }else{
                         
                         messageModel.content = [NSString stringWithFormat:@"我已通过你得页面充值:%@钻",dic[@"message"][@"content"]];
-                        
+                        messageModel.type = MessageBodyType_Text;
+
                     }
                     
                     
                 }else{
                     
                     messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
-                    
+                    messageModel.type = MessageBodyType_Text;
+
                 }
 
                 
