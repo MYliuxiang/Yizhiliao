@@ -129,6 +129,8 @@ alpha:1.0]
 #import "SelectedVC.h"
 #import "MyVC.h"
 
+#import "OrderID.h"
+
 #define CityCache @"CityCache"
 
 
@@ -148,6 +150,7 @@ alpha:1.0]
 #define Url_wechatpayapp                  @"pay/wechatpayapp/prepare"//使用zpay支付
 #define Url_ordercreate                   @"order/create"//创建订单，非支付订单，用户根据订单选择支付方式
 #define Url_apiaccountshare               @"account/share"//创建订单，非支付订单，用户根据订单选择支付方式
+#define Url_orderQuery                    @"order" // 查询订单
 #define Url_accountfund                   @"account/fund"//获取当前账户资产信息
 #define Url_storagekey                    @"storage/upload/apply"//获取当前账户资产信息
 #define Url_logout                        @"account/logout"//退出登陸

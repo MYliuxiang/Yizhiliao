@@ -733,6 +733,7 @@
     
     AccountVC *vc = [[AccountVC alloc] init];
     vc.isCall = NO;
+    vc.orderReferee = self.model.uid;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

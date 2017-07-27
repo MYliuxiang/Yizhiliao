@@ -467,6 +467,7 @@ NSString *const kTableViewFrame = @"frame";
 - (void)chongZhi {
     AccountVC *vc = [[AccountVC alloc] init];
     vc.isCall = NO;
+    vc.orderReferee = self.sendUid;
     [self.navigationController pushViewController:vc animated:YES];
 }
 // 用户送礼物
@@ -657,19 +658,37 @@ NSString *const kTableViewFrame = @"frame";
     messageModel.status = MessageDeliveryState_Delivered;
     messageModel.date = [userInfo[@"msg"][@"time"] longLongValue];
     messageModel.type = MessageBodyType_Text;
-    messageModel.content = userInfo[@"msg"][@"content"];
     messageModel.uid = userInfo[@"account"];
     messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-    
+    messageModel.request = userInfo[@"msg"][@"request"];
+    if ([messageModel.request isEqualToString:@"-2"]) {
+        messageModel.event = userInfo[@"msg"][@"event"];
+        if ([messageModel.event isEqualToString:@"gift"]) {
+            messageModel.type = MessageBodyType_Gift;
+        } else {
+            messageModel.type = MessageBodyType_ChongZhi;
+        }
+    } else if ([messageModel.request isEqualToString:@"-3"]) {
+        messageModel.event = userInfo[@"msg"][@"event"];
+        if ([messageModel.event isEqualToString:@"gift"]) {
+            messageModel.content = [NSString stringWithFormat:@"收到我送出的：%@", userInfo[@"msg"][@"content"]];
+        } else {
+            messageModel.content = [NSString stringWithFormat:@"我已通過你的頁面充值：%@", userInfo[@"msg"][@"content"]];
+        }
+    } else {
+        messageModel.content = userInfo[@"msg"][@"content"];
+    }
     NSString *time = [LHTools processingTimeWithDate:[NSString stringWithFormat:@"%lld",messageModel.date]];
     if (![time isEqualToString:self.lastTime]) {
         [self insertNewMessageOrTime:time];
         self.lastTime = time;
     }
-                NSIndexPath *index = [self insertNewMessageOrTime:messageModel];
-                [self.messages addObject:messageModel];
-                [self.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    
+    NSIndexPath *index = [self insertNewMessageOrTime:messageModel];
+    [self.messages addObject:messageModel];
+    [self.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 
+    
 }
 
 //发送訊息失败
@@ -1194,6 +1213,26 @@ NSString *const kTableViewFrame = @"frame";
         Message *remodel = [userInfo objectForKey:kShouldResendCell];
         [self resend:remodel];
         
+    }
+    
+    if ([eventName isEqualToString:kRouterEventGiftBubbleLongTapEventName]) {
+        // 點擊彈出禮物框
+        self.blackView.hidden = NO;
+        [self newgiftView];
+        self.giftsView.pmodel = self.pmodel;
+        self.giftsView.isVideoBool = NO;
+        [UIView animateWithDuration:.35 animations:^{
+            _blackView.hidden = NO;
+            self.giftsView.top = kScreenHeight - 300;
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+    
+    if ([eventName isEqualToString:kRouterEventRechargeBubbleLongTapEventName]) {
+        // 點擊前往充值界面
+        [self chongZhi];
     }
     
     if([eventName isEqualToString:kRouterEventBubbleMenuMore]){

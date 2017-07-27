@@ -16,5 +16,6 @@
 @property (nonatomic,copy) NSString *uid;
 @property (nonatomic,copy) NSString *sendUid;
 @property (nonatomic,copy) NSString *draft;
-
+@property (nonatomic, copy) NSString *event;
+@property (nonatomic, copy) NSString *request;
 @end
