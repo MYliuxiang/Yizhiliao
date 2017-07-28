@@ -7,6 +7,7 @@
 //
 
 #import "LHChatBaseBubbleView.h"
+//　textLaebl 最大宽度
 
 @interface LHChatGiftBubbleView : LHChatBaseBubbleView
 
