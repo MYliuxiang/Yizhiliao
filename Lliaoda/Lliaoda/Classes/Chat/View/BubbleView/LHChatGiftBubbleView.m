@@ -33,6 +33,7 @@ CGFloat const LABEL_FONT_SIZE1 = 15.0f;
 //        [self addSubview:_detailButton];
         
         _detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom, _remindLabel.width, 30)];
+        _detailLabel.textColor = UIColorFromRGB(0xfa3575);
         _detailLabel.backgroundColor = [UIColor clearColor];
         _detailLabel.numberOfLines = 0;
         _detailLabel.textAlignment = NSTextAlignmentCenter;
@@ -67,7 +68,7 @@ CGFloat const LABEL_FONT_SIZE1 = 15.0f;
         CGFloat height2 = [self heightForText:@"對方點擊提醒可查看送禮頁" fontSize:12];
         _detailLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom, _remindLabel.width, height2);
         _detailLabel.text = @"對方點擊提醒可查看送禮頁";
-        _detailLabel.enabled = NO;
+        _detailLabel.userInteractionEnabled = NO;
     }
     
     if ([messageModel.sendUid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
@@ -77,7 +78,7 @@ CGFloat const LABEL_FONT_SIZE1 = 15.0f;
 //        _detailButton.enabled = YES;
         
         _detailLabel.text = @"點擊查看禮物詳情";
-        _detailLabel.enabled = YES;
+        _detailLabel.userInteractionEnabled = YES;
     }
 //    _detailLabel.textColor = [UIColor redColor];
 //    if ([[NSString stringWithFormat:@"%@", messageModel.uid] isEqualToString:[NSString stringWithFormat:@"%@", [LXUserDefaults objectForKey:UID]]]) {
