@@ -397,17 +397,18 @@ NSString *const kTableViewFrame = @"frame";
     messageModel.date = idate;
     messageModel.messageID = [NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate];
     messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],self.sendUid];
-    messageModel.type = MessageBodyType_Text;
+    messageModel.type = type;
     messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
     messageModel.sendUid = self.sendUid;
-    switch (type) {
-        case MessageBodyType_Text: {
-            messageModel.content = message;
-            break;
-        }
-        default:
-            break;
-    }
+    messageModel.content = message;
+//    switch (type) {
+//        case MessageBodyType_Text: {
+//            messageModel.content = message;
+//            break;
+//        }
+//        default:
+//            break;
+//    }
     
     
     NSDictionary *params;
@@ -474,12 +475,35 @@ NSString *const kTableViewFrame = @"frame";
 }
 // 主播提醒用户送礼物
 - (void)remindGiveGift {
-    [self sendMessageToUserType:MessageBodyType_Text name:@"送禮" types:@"gift"];
+//    RepetitionCount *re = [RepetitionCount sharedRepetition];
+//    long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+//    long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.sendUid]] longLongValue];
+//    if (idate - oldDate < 60 * 1000) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"發送太頻繁，會嚇走金主的~" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+//        [alert show];
+//    }else{
+//        [self sendMessageToUserType:MessageBodyType_Text name:@"送禮" types:@"gift"];
+        [self sendMessageToUserType:MessageBodyType_Gift name:@"送禮" types:@"gift"];
+//        [re.mdic setObject:@(idate) forKey:self.sendUid];
+//    }
+    
 }
+
 // 主播提醒用户充值
 - (void)remindChongZhi {
-    [self sendMessageToUserType:MessageBodyType_Text name:@"充值" types:@"recharge"];
+    RechargeCount *re = [RechargeCount sharedRecharge];
+    long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+    long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.sendUid]] longLongValue];
+    if (idate - oldDate < 60 * 1000) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"發送太頻繁，會嚇走金主的~" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [alert show];
+    }else{
+//        [self sendMessageToUserType:MessageBodyType_Text name:@"充值" types:@"recharge"];
+        [self sendMessageToUserType:MessageBodyType_ChongZhi name:@"充值" types:@"recharge"];
+        [re.mdic setObject:@(idate) forKey:self.sendUid];
+    }
 }
+
 // 用户充值
 - (void)chongZhi {
     AccountVC *vc = [[AccountVC alloc] init];
@@ -537,7 +561,7 @@ NSString *const kTableViewFrame = @"frame";
         [this.messages addObject:messageModel];
         [this.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         
-        [SVProgressHUD showInfoWithStatus:@"贈送成功"];
+        [SVProgressHUD showInfoWithStatus:@"禮物已發送，謝謝老闆打賞~"];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             

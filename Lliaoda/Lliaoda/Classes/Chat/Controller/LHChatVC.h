@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 #import "MessageCount.h"
-
+#import "RepetitionCount.h"
+#import "RechargeCount.h"
 @interface LHChatVC : BaseViewController<UIGestureRecognizerDelegate>
 
 @property (nonatomic,copy) NSString *channelId;

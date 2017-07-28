@@ -348,13 +348,12 @@ static NSString *identifire = @"GiftID";
     messageModel.content = content;
     
     [messageModel save];
-    [SVProgressHUD showInfoWithStatus:@"贈送成功"];
+    [SVProgressHUD showInfoWithStatus:@"禮物已發送，謝謝老闆打賞~"];
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         
         [SVProgressHUD dismiss];
     });
-
     NSDictionary *dic = @{
                           @"message": @{
                                   @"messageID": [NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
