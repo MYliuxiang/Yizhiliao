@@ -34,14 +34,18 @@ CGFloat const LABEL_FONT_SIZE2 = 15.0f;
 
 - (void)setMessageModel:(Message *)messageModel {
     [super setMessageModel:messageModel];
-    _remindLabel.text = @"收到我的充值提醒";
-    _imageView.image = [UIImage imageNamed:@"chongzhi"];
-    [_detailButton setTitle:@"點擊查看充值詳情" forState:UIControlStateNormal];
+    
     [_detailButton addTarget:self action:@selector(clickToRechargeVC) forControlEvents:UIControlEventTouchUpInside];
     if ([messageModel.sendUid isEqualToString:[LXUserDefaults objectForKey:UID]]) {
         _detailButton.enabled = NO;
+        _remindLabel.text = messageModel.content;
+        _imageView.image = [UIImage imageNamed:@"chongzhi"];
+        [_detailButton setTitle:@"點擊查看充值詳情" forState:UIControlStateNormal];
     } else {
         _detailButton.enabled = YES;
+        _remindLabel.text = @"收到我的充值提醒";
+        _imageView.image = [UIImage imageNamed:@"chongzhi"];
+        [_detailButton setTitle:@"點擊查看充值詳情" forState:UIControlStateNormal];
     }
 }
 

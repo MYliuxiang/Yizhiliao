@@ -543,6 +543,8 @@
 		840BE3211F1F02C40004B6D9 /* ProfitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */; };
 		8420E7221F2773F000ADA26E /* LHChatGiftBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8420E7211F2773F000ADA26E /* LHChatGiftBubbleView.m */; };
 		8420E7251F2779E600ADA26E /* LHChatChongZhiBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8420E7241F2779E600ADA26E /* LHChatChongZhiBubbleView.m */; };
+		843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31F71F2B3879003C4EB2 /* RepetitionCount.m */; };
+		843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */; };
 		843EC0261F29D9750051AFD3 /* OrderID.m in Sources */ = {isa = PBXBuildFile; fileRef = 843EC0251F29D9750051AFD3 /* OrderID.m */; };
 		CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */; };
 /* End PBXBuildFile section */
@@ -1376,6 +1378,10 @@
 		8420E7211F2773F000ADA26E /* LHChatGiftBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHChatGiftBubbleView.m; sourceTree = "<group>"; };
 		8420E7231F2779E600ADA26E /* LHChatChongZhiBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHChatChongZhiBubbleView.h; sourceTree = "<group>"; };
 		8420E7241F2779E600ADA26E /* LHChatChongZhiBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHChatChongZhiBubbleView.m; sourceTree = "<group>"; };
+		843E31F61F2B3879003C4EB2 /* RepetitionCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepetitionCount.h; sourceTree = "<group>"; };
+		843E31F71F2B3879003C4EB2 /* RepetitionCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepetitionCount.m; sourceTree = "<group>"; };
+		843E31F91F2B3B57003C4EB2 /* RechargeCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeCount.h; sourceTree = "<group>"; };
+		843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCount.m; sourceTree = "<group>"; };
 		843EC0241F29D9750051AFD3 /* OrderID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderID.h; sourceTree = "<group>"; };
 		843EC0251F29D9750051AFD3 /* OrderID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderID.m; sourceTree = "<group>"; };
 		B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lliaoda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2462,6 +2468,10 @@
 			children = (
 				2286DC491EF26AFE00FDF801 /* LHContentModel.h */,
 				2286DC4A1EF26AFE00FDF801 /* LHContentModel.m */,
+				843E31F61F2B3879003C4EB2 /* RepetitionCount.h */,
+				843E31F71F2B3879003C4EB2 /* RepetitionCount.m */,
+				843E31F91F2B3B57003C4EB2 /* RechargeCount.h */,
+				843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3649,6 +3659,7 @@
 				222AA1611EB071C20038416D /* KeyboardVC.m in Sources */,
 				222AA1CB1EB0775B0038416D /* YYTextContainerView.m in Sources */,
 				222B38641ED96843009DB58F /* MSSBrowseZoomScrollView.m in Sources */,
+				843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */,
 				222B38281ED9642B009DB58F /* TADotView.m in Sources */,
 				8420E7221F2773F000ADA26E /* LHChatGiftBubbleView.m in Sources */,
 				222AA1751EB071C20038416D /* LHPhotoPreviewCell.m in Sources */,
@@ -3697,6 +3708,7 @@
 				2286DC641EF26AFE00FDF801 /* LHContentModel.m in Sources */,
 				228B89D91EA866FB002B8D3C /* YYMemoryCache.m in Sources */,
 				227971CD1EF8DC0900BC8E18 /* FileUnit.m in Sources */,
+				843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */,
 				222AA1D41EB0775B0038416D /* YYTextArchiver.m in Sources */,
 				226E2EE71F0F3651009953FD /* BlackName.m in Sources */,
 				222AA1CC1EB0775B0038416D /* YYTextDebugOption.m in Sources */,
