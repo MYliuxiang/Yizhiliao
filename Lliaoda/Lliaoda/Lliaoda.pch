@@ -158,8 +158,8 @@ alpha:1.0]
 #define Url_accountmedia                  @"account/media"//
 #define Url_accountauth                   @"account/auth"//提交认证信息
 #define Url_gifts                         @"gifts"//获取礼物信息
-#define Url_giftsend                      @"gift/send"//向对方发送礼物
-#define Url_gift                          @"gift"//向对方发送礼物
+#define Url_giftsend                      @"gift/send"//向对方发送禮物
+#define Url_gift                          @"gift"//向对方发送禮物
 #define Url_accountcharge                 @"account/charge"//主播收費設定，非主播設定会返回错误
 #define Url_accountmediaremove            @"account/media/remove"//提交认证信息
 #define Url_accountmediarecover           @"account/media/cover"//提交认证信息

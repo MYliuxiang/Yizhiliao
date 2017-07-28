@@ -45,9 +45,9 @@ const NSInteger INSETS = 8;
     CGFloat width = self.frame.size.width;
     NSArray *nameArr;
     if (_isZhubo) { // 是主播
-        nameArr = @[@"視頻通訊", @"提示用戶送禮", @"提示用戶充值"];
+        nameArr = @[@"視頻通訊", @"提示用戶送禮", @"提示用戶儲值"];
     } else { // 是用户
-        nameArr = @[@"視頻通訊", @"送禮物", @"充值"];
+        nameArr = @[@"視頻通訊", @"送禮物", @"儲值"];
     }
     
     NSArray *imageNameArr = @[@"shipin_01", @"liwu_01", @"chongzhi_01"];
