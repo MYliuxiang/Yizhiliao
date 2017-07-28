@@ -13,5 +13,6 @@
 @property (nonatomic, strong) UILabel *remindLabel;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIButton *detailButton;
+@property (nonatomic, strong) UILabel *detailLabel;
 + (CGFloat)heightForBubbleWithObject:(Message *)object;
 @end

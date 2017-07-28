@@ -23,6 +23,7 @@
                 <outlet property="stateLabel1" destination="Esm-Ar-ZF8" id="ODe-Eb-q1S"/>
                 <outlet property="stateView" destination="LF6-42-hBm" id="q7a-H2-ddI"/>
                 <outlet property="tableView" destination="xX4-O2-swI" id="szS-Ec-4EU"/>
+                <outlet property="thankLabel" destination="bB0-1g-Fdc" id="rU4-R3-Asu"/>
                 <outlet property="videoBtn" destination="cGJ-wY-ZdT" id="LRT-9B-dYE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -55,17 +56,26 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="禮物已發送，謝謝老闆打賞~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB0-1g-Fdc">
+                    <rect key="frame" x="0.0" y="299" width="375" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.75294117650000003" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="hKI-tq-xuW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0qZ-I5-jRi"/>
+                <constraint firstItem="bB0-1g-Fdc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4t8-li-1Qe"/>
                 <constraint firstAttribute="bottom" secondItem="LOL-nl-cc1" secondAttribute="bottom" constant="90" id="AYF-nA-YSn"/>
                 <constraint firstItem="xX4-O2-swI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BWg-ns-okf"/>
                 <constraint firstAttribute="trailing" secondItem="LOL-nl-cc1" secondAttribute="trailing" constant="15" id="Fwz-P4-v7f"/>
                 <constraint firstAttribute="bottom" secondItem="xX4-O2-swI" secondAttribute="bottom" constant="64" id="HsT-lL-YQX"/>
                 <constraint firstAttribute="bottom" secondItem="hKI-tq-xuW" secondAttribute="bottom" id="SBA-qi-NSr"/>
                 <constraint firstAttribute="trailing" secondItem="hKI-tq-xuW" secondAttribute="trailing" id="f51-T3-kl3"/>
+                <constraint firstAttribute="trailing" secondItem="bB0-1g-Fdc" secondAttribute="trailing" id="hNf-c9-jgg"/>
                 <constraint firstItem="hKI-tq-xuW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iFq-d1-9Kj"/>
+                <constraint firstAttribute="bottom" secondItem="bB0-1g-Fdc" secondAttribute="bottom" constant="350" id="k0e-yn-WSx"/>
                 <constraint firstAttribute="trailing" secondItem="xX4-O2-swI" secondAttribute="trailing" id="q0f-sO-rE3"/>
                 <constraint firstItem="xX4-O2-swI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="63" id="q9D-Qy-Vtu"/>
             </constraints>
