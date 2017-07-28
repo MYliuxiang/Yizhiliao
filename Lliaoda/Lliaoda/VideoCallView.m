@@ -564,7 +564,6 @@
                         };
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                             AccountVC *vc = [[AccountVC alloc] init];
-                            vc.orderReferee = self.uid;
 
                             [[self topViewController].navigationController pushViewController:vc animated:YES];
 
@@ -1305,8 +1304,6 @@
                         };
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                             AccountVC *vc = [[AccountVC alloc] init];
-                            vc.orderReferee = self.uid;
-
                             [[self topViewController].navigationController pushViewController:vc animated:YES];
                             
                         };
@@ -1792,7 +1789,6 @@
     AccountVC *vc = [[AccountVC alloc] init];
     self.hidden = YES;
     vc.isCall = YES;
-    vc.orderReferee = self.uid;
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     vc.clickBlock = ^{
         

@@ -587,7 +587,6 @@ NSString *const kTableViewFrame = @"frame";
                         lg.cancelButtonTitleColor = Color_nav;
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                             AccountVC *vc = [[AccountVC alloc] init];
-                            vc.orderReferee = self.sendUid;
                             [self.navigationController pushViewController:vc animated:YES];
                             
                         };
@@ -1129,7 +1128,6 @@ NSString *const kTableViewFrame = @"frame";
             lg.cancelButtonTitleColor = Color_nav;
             lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                 AccountVC *vc = [[AccountVC alloc] init];
-                vc.orderReferee = self.sendUid;
 
                 [self.navigationController pushViewController:vc animated:YES];
                 
@@ -1498,7 +1496,6 @@ NSString *const kTableViewFrame = @"frame";
                     lg.cancelButtonTitleColor = Color_nav;
                     lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                         AccountVC *vc = [[AccountVC alloc] init];
-                        vc.orderReferee = self.sendUid;
 
                         [self.navigationController pushViewController:vc animated:YES];
                         

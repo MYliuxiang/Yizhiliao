@@ -387,8 +387,6 @@
                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                         AccountVC *vc = [[AccountVC alloc] init];
                         vc.isCall = YES;
-                        vc.orderReferee = self.pmodel.uid;
-
                         vc.clickBlock = ^(){
                             
                             [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
@@ -430,8 +428,6 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     self.superview.hidden = YES;
     AccountVC *vc = [[AccountVC alloc] init];
-    vc.orderReferee = self.pmodel.uid;
-
     vc.isCall = YES;
     vc.clickBlock = ^(){
         
