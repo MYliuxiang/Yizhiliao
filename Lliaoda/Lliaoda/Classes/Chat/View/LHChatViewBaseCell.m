@@ -179,6 +179,14 @@
             identifier = [identifier stringByAppendingString:@"Video"];
             break;
         }
+        case MessageBodyType_Gift: {
+            identifier = [identifier stringByAppendingString:@"gift"];
+            break;
+        }
+        case MessageBodyType_ChongZhi: {
+            identifier = [identifier stringByAppendingString:@"chongzhi"];
+            break;
+        }
             
         default:
             break;

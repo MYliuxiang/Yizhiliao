@@ -366,12 +366,21 @@ NSString *const kTableViewFrame = @"frame";
 
 }
 
+
 - (void)back
 {
     self.count.count = 0;
     self.count.draft = _chatBarView.textView.text;
     Message *me = self.messages.lastObject;
-    self.count.content = me.content;
+    if (me.type == MessageBodyType_Gift) {
+        
+    }else if(me.type == MessageBodyType_ChongZhi){
+    
+    }else{
+        
+        self.count.content = me.content;
+
+    }
     [self.count update];
     [self.navigationController popViewControllerAnimated:YES];
 
