@@ -25,12 +25,12 @@ CGFloat const LABEL_FONT_SIZE1 = 15.0f;
         _imageView.backgroundColor = [UIColor clearColor];
         [self addSubview:_imageView];
         
-//        _detailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        _detailButton.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom + 12, _remindLabel.width, 15);
-//        _detailButton.backgroundColor = [UIColor clearColor];
-//        [_detailButton setTitleColor:UIColorFromRGB(0xfa3575) forState:UIControlStateNormal];
-//        _detailButton.titleLabel.font = [UIFont systemFontOfSize:12];
-//        [self addSubview:_detailButton];
+        _detailButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _detailButton.frame = CGRectMake(0, 0, _remindLabel.width, 15);
+        _detailButton.backgroundColor = [UIColor clearColor];
+        [_detailButton setTitleColor:UIColorFromRGB(0xfa3575) forState:UIControlStateNormal];
+        _detailButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        [self addSubview:_detailButton];
         
         _detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom, _remindLabel.width, 30)];
         _detailLabel.textColor = UIColorFromRGB(0xfa3575);

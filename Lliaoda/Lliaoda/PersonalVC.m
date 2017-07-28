@@ -753,7 +753,7 @@
 - (void)_loadData1
 {
     NSDictionary *params;
-    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
@@ -764,13 +764,13 @@
                 self.giftsView.elabel.attributedText = alertControllerMessageStr;
                 
             } else{
+                
                 [SVProgressHUD showErrorWithStatus:result[@"message"]];
                 dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     
                     [SVProgressHUD dismiss];
                 });
-                
             }
         }
         
