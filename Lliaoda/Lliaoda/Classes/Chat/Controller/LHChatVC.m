@@ -908,8 +908,6 @@ NSString *const kTableViewFrame = @"frame";
     }
     [self.deltedArray removeAllObjects];
     
-    
-    
     [UIView animateWithDuration:.35 animations:^{
         _deleteView.top = kScreenHeight;
     } completion:^(BOOL finished) {
