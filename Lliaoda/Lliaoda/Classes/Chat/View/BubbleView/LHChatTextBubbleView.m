@@ -14,7 +14,7 @@
 #import "FaceDefine.h"
 
 //　textLaebl 最大宽度
-CGFloat const TEXTLABEL_MAX_WIDTH = 200.0f;
+CGFloat const TEXTLABEL_MAX_WIDTH = 180.0f;
 CGFloat const LABEL_FONT_SIZE = 15.0f;
 
 static CGSize kTextBoundingSize;

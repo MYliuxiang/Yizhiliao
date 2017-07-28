@@ -9,6 +9,9 @@
 #import "LHChatGiftBubbleView.h"
 //#import "YYLabel.h"r
 CGFloat const LABEL_FONT_SIZE1 = 15.0f;
+CGFloat const GIFTLABEL_MAX_WIDTH = 180.0f;
+static CGSize kGiftBoundingSize;
+
 @implementation LHChatGiftBubbleView
 
 
@@ -23,15 +26,17 @@ CGFloat const LABEL_FONT_SIZE1 = 15.0f;
         
         _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(_remindLabel.right, _remindLabel.top, 40, 40)];
         _imageView.backgroundColor = [UIColor clearColor];
+        _imageView.userInteractionEnabled = YES;
         [self addSubview:_imageView];
         
-//        _detailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        _detailButton.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom + 12, _remindLabel.width, 15);
-//        _detailButton.backgroundColor = [UIColor clearColor];
-//        [_detailButton setTitleColor:UIColorFromRGB(0xfa3575) forState:UIControlStateNormal];
-//        _detailButton.titleLabel.font = [UIFont systemFontOfSize:12];
-//        [self addSubview:_detailButton];
+        _detailButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _detailButton.frame = CGRectMake(0, 0, _remindLabel.width, 15);
+        _detailButton.backgroundColor = [UIColor clearColor];
+        [_detailButton setTitleColor:UIColorFromRGB(0xfa3575) forState:UIControlStateNormal];
+        _detailButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        [self addSubview:_detailButton];
         
+
         _detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom, _remindLabel.width, 30)];
         _detailLabel.textColor = UIColorFromRGB(0xfa3575);
         _detailLabel.backgroundColor = [UIColor clearColor];
@@ -40,6 +45,11 @@ CGFloat const LABEL_FONT_SIZE1 = 15.0f;
         _detailLabel.font = [UIFont systemFontOfSize:12];
         _detailLabel.userInteractionEnabled = YES;
         [self addSubview:_detailLabel];
+        
+        _detailButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _detailButton.frame = CGRectZero;
+        _detailButton.backgroundColor = [UIColor clearColor];
+        [self addSubview:_detailButton];
     }
     return self;
 }
@@ -54,46 +64,126 @@ CGFloat const LABEL_FONT_SIZE1 = 15.0f;
 - (void)setMessageModel:(Message *)messageModel {
     
     [super setMessageModel:messageModel];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickToGiftView)];
-    [_detailLabel addGestureRecognizer:tap];
-//    [_detailButton addTarget:self action:@selector(clickToGiftView) forControlEvents:UIControlEventTouchUpInside];
+    _imageView.image = [UIImage imageNamed:@"liwu"];
+    _detailButton.frame = CGRectMake(0, 0, self.width, self.height);
+    [_detailButton addTarget:self action:@selector(clickToGiftView) forControlEvents:UIControlEventTouchUpInside];
     if ([messageModel.uid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
         _remindLabel.text = messageModel.content;
-        _imageView.image = [UIImage imageNamed:@"liwu"];
-//        [_detailButton setTitle:@"對方點擊提醒可查看送禮頁" forState:UIControlStateNormal];
-//        _detailButton.enabled = NO;
-        CGFloat height1 = [self heightForText:messageModel.content fontSize:LABEL_FONT_SIZE1];
-        _remindLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, BUBBLE_VIEW_PADDING, 130, height1);
-        
-        CGFloat height2 = [self heightForText:@"對方點擊提醒可查看送禮頁" fontSize:12];
-        _detailLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom, _remindLabel.width, height2);
+        _remindLabel.textAlignment = NSTextAlignmentLeft;
+        _detailLabel.textAlignment = NSTextAlignmentLeft;
+        _remindLabel.textColor = [UIColor whiteColor];
+        _detailLabel.textColor = [UIColor whiteColor];
         _detailLabel.text = @"對方點擊提醒可查看送禮頁";
-        _detailLabel.userInteractionEnabled = NO;
+        _detailButton.enabled = NO;
     }
     
     if ([messageModel.sendUid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
         _remindLabel.text = @"收到我的送禮提醒";
-        _imageView.image = [UIImage imageNamed:@"liwu"];
-//        [_detailButton setTitle:@"點擊查看禮物詳情" forState:UIControlStateNormal];
-//        _detailButton.enabled = YES;
-        
+        _remindLabel.textAlignment = NSTextAlignmentCenter;
+        _detailLabel.textAlignment = NSTextAlignmentCenter;
+        _remindLabel.textColor = UIColorFromRGB(0x1d1d1d);
+        _detailLabel.textColor = UIColorFromRGB(0xfa3575);
         _detailLabel.text = @"點擊查看禮物詳情";
-        _detailLabel.userInteractionEnabled = YES;
+        _detailButton.enabled = YES;
     }
-//    _detailLabel.textColor = [UIColor redColor];
-//    if ([[NSString stringWithFormat:@"%@", messageModel.uid] isEqualToString:[NSString stringWithFormat:@"%@", [LXUserDefaults objectForKey:UID]]]) {
-//        _remindLabel.text = messageModel.content;
-//        _imageView.image = [UIImage imageNamed:@"liwu"];
-//        [_detailButton setTitle:@"對方點擊提醒可查看送禮頁" forState:UIControlStateNormal];
-//        _detailButton.enabled = NO;
-//    }
-//    if ([[NSString stringWithFormat:@"%@", messageModel.sendUid] isEqualToString:[LXUserDefaults objectForKey:UID]]) {
-//        _remindLabel.text = @"收到我的送禮提醒";
-//        _imageView.image = [UIImage imageNamed:@"liwu"];
-//        [_detailButton setTitle:@"點擊查看禮物詳情" forState:UIControlStateNormal];
-//        _detailButton.enabled = YES;
-//    }
     
+    
+    
+}
+
++ (CGFloat)heightForBubbleWithObject:(Message *)object {
+    
+    NSLog(@"%@",object.content);
+    
+    CGRect tempRect;
+    CGRect tempRect1;
+    if ([object.uid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
+        
+        
+       
+        
+         tempRect = [object.content  boundingRectWithSize:CGSizeMake(GIFTLABEL_MAX_WIDTH-40,2000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
+        
+        tempRect1 = [@"對方點擊提醒可查看送禮頁"  boundingRectWithSize:CGSizeMake(GIFTLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
+        
+    }
+    
+    if ([object.sendUid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
+//        _remindLabel.text = ;
+//        _detailLabel.text = ;
+        
+        tempRect = [@"收到我的送禮提醒"  boundingRectWithSize:CGSizeMake(GIFTLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
+        
+        tempRect1 = [@"點擊查看禮物詳情"  boundingRectWithSize:CGSizeMake(GIFTLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
+    }
+
+    kGiftBoundingSize = CGSizeMake(MAX(tempRect.size.width, tempRect1.size.width) + 40 + BUBBLE_VIEW_PADDING, tempRect.size.height + tempRect1.size.height);
+    
+    return  2 * BUBBLE_VIEW_PADDING + kGiftBoundingSize.height + 20;
+    
+}
+
+- (CGSize)sizeThatFits:(CGSize)size {
+    
+    
+    CGFloat height = 60;
+    if (2*BUBBLE_VIEW_PADDING + kGiftBoundingSize.height > height) {
+        height = 2*BUBBLE_VIEW_PADDING + kGiftBoundingSize.height;
+    }
+    
+    
+    CGFloat width = kGiftBoundingSize.width + BUBBLE_VIEW_PADDING*2 + BUBBLE_VIEW_PADDING;
+    if (width < 46.5) {
+        width = 46.5;
+    }
+    
+    return CGSizeMake(width, height);
+}
+
+
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    
+    //自己
+    
+    CGRect tempRect;
+    CGRect tempRect1;
+    if ([self.messageModel.uid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
+        
+        tempRect = [self.messageModel.content  boundingRectWithSize:CGSizeMake(GIFTLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
+        
+        tempRect1 = [@"對方點擊提醒可查看送禮頁"  boundingRectWithSize:CGSizeMake(GIFTLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
+        
+        _remindLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, BUBBLE_VIEW_PADDING, tempRect.size.width, tempRect.size.height);
+        _detailLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom, tempRect1.size.width, tempRect1.size.height);
+        _imageView.frame = CGRectMake(kGiftBoundingSize.width  - 40 + BUBBLE_VIEW_PADDING, (kGiftBoundingSize.height - 40) / 2.0 + BUBBLE_VIEW_PADDING, 40, 40);
+
+    }
+    
+    if ([self.messageModel.sendUid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
+        
+        tempRect = [@"收到我的送禮提醒"  boundingRectWithSize:CGSizeMake(GIFTLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
+        
+        tempRect1 = [@"點擊查看禮物詳情"  boundingRectWithSize:CGSizeMake(GIFTLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
+        _remindLabel.frame = CGRectMake(19 + 40 + 10, BUBBLE_VIEW_PADDING, tempRect.size.width, tempRect.size.height);
+        _detailLabel.frame = CGRectMake(_remindLabel.left, _remindLabel.bottom, tempRect1.size.width, tempRect1.size.height);
+        _imageView.frame = CGRectMake(19 , (kGiftBoundingSize.height - 40) / 2.0 + BUBBLE_VIEW_PADDING, 40, 40);
+
+
+    }
+    
+    
+//    if ([self.messageModel.uid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
+//        CGFloat height1 = [self heightForText:self.messageModel.content fontSize:LABEL_FONT_SIZE1];
+//        _remindLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, BUBBLE_VIEW_PADDING, 130, height1);
+//        CGFloat height2 = [self heightForText:@"對方點擊提醒可查看送禮頁" fontSize:12];
+//        _detailLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom, _remindLabel.width, height2);
+//    }
+//    
+//    if ([self.messageModel.sendUid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
+//        _remindLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, BUBBLE_VIEW_PADDING, 130, 15);
+//        _detailLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom + 12, _remindLabel.width, 13);
+//    }
 }
 
 - (void)clickToGiftView {
@@ -120,30 +210,6 @@ CGFloat const LABEL_FONT_SIZE1 = 15.0f;
     
 }
 
-- (CGSize)sizeThatFits:(CGSize)size {
-    
-//    CGSize retSize = CGSizeMake(self.messageModel.width, self.messageModel.height);//self.messageModel.size;
-//    if (retSize.width == 0 || retSize.height == 0) {
-//        retSize.width = 200;
-//        retSize.height = 30 + 24 + 15 + 30;
-//    }
-//    return retSize;
-    return CGSizeMake(200 , 30 + 24 + 15 + 20);
-}
-
-
--(void)layoutSubviews {
-    [super layoutSubviews];
-    
-    if (self.messageModel.isRead) {
-        
-        
-    }else{
-    
-        
-    
-    }
-}
 
 - (void)myDelete:(UIMenuController *) menu
 {
@@ -160,11 +226,6 @@ CGFloat const LABEL_FONT_SIZE1 = 15.0f;
                      userInfo:@{kMessageKey : self.messageModel}];
 }
 
-+ (CGFloat)heightForBubbleWithObject:(Message *)object {
-    
-    return 80 + 20;
-    
-}
 
 //是否可以成为第一相应
 -(BOOL)canBecomeFirstResponder{

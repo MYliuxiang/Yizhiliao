@@ -36,6 +36,7 @@
 @property (nonatomic,retain) SelectedModel *model;
 @property (nonatomic,retain) PersonModel *pmodel;
 @property (nonatomic,assign) BOOL videoEnble;
+@property (weak, nonatomic) IBOutlet UILabel *thankLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *stateView;
 @property (weak, nonatomic) IBOutlet UIView *stateLabel1;
