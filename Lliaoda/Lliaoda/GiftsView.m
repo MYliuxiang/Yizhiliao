@@ -18,7 +18,7 @@ static NSString *identifire = @"GiftID";
     
     if (self) {
         self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
-        self.frame = CGRectMake(15, kScreenHeight, kScreenWidth - 30, 305);
+        self.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 305);
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 5;
         self.chonBtn.layer.masksToBounds = YES;

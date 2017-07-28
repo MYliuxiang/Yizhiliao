@@ -104,7 +104,7 @@ static CGSize CZiftBoundingSize;
     [super layoutSubviews];
     
     //自己
-    
+    _detailButton.frame = CGRectMake(0, 0, self.width, self.height);
     CGRect tempRect;
     CGRect tempRect1;
     if ([self.messageModel.uid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
@@ -138,7 +138,7 @@ static CGSize CZiftBoundingSize;
 
 - (void)setMessageModel:(Message *)messageModel {
     [super setMessageModel:messageModel];
-    _detailButton.frame = CGRectMake(0, 0, self.width, self.height);
+    
     [_detailButton addTarget:self action:@selector(clickToRechargeVC) forControlEvents:UIControlEventTouchUpInside];
     if ([messageModel.uid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
         _detailButton.enabled = NO;
