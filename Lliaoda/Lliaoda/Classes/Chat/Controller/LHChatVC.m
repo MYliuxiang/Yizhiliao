@@ -1773,7 +1773,7 @@ NSString *const kTableViewFrame = @"frame";
 #pragma mark - lazy
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavBarHeight, SCREEN_W, SCREEN_H - kChatBarHeight - kNavBarHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavBarHeight -1, SCREEN_W, SCREEN_H - kChatBarHeight - kNavBarHeight) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [UIColor lh_colorWithHex:0xffffff];
         _tableView.delegate = self;
         _tableView.dataSource = self;
