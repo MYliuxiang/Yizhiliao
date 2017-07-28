@@ -59,17 +59,17 @@
             <point key="canvasLocation" x="32.5" y="44.5"/>
         </view>
         <view contentMode="scaleToFill" id="jUe-qs-erc">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="记得提醒好友下载注册以后填写邀请码: 78902159" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opz-rk-APd">
-                    <rect key="frame" x="15" y="20" width="345" height="21"/>
+                    <rect key="frame" x="15" y="59.5" width="345" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wL7-Mr-4fX">
-                    <rect key="frame" x="14" y="56" width="80" height="70"/>
+                    <rect key="frame" x="14" y="95.5" width="80" height="70"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="4NA-dc-0ci"/>
                         <constraint firstAttribute="height" constant="70" id="EHD-l2-9ob"/>
@@ -85,7 +85,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl9-XO-mQL">
-                    <rect key="frame" x="147.5" y="56" width="80" height="70"/>
+                    <rect key="frame" x="147.5" y="95.5" width="80" height="70"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="IDp-Fq-zUw"/>
                         <constraint firstAttribute="height" constant="70" id="sBJ-En-RAa"/>
@@ -101,7 +101,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-Nf-Pq9">
-                    <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="256" width="375" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="cfc-gU-CBo"/>
                     </constraints>
@@ -114,14 +114,14 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zoQ-iu-VLc">
-                    <rect key="frame" x="0.0" y="135.5" width="375" height="0.5"/>
+                    <rect key="frame" x="0.0" y="255.5" width="375" height="0.5"/>
                     <color key="backgroundColor" red="0.77057291670000005" green="0.77057291670000005" blue="0.77057291670000005" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="0.5" id="KH1-6d-6Sq"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOD-19-5y5">
-                    <rect key="frame" x="281.5" y="56" width="80" height="70"/>
+                    <rect key="frame" x="281.5" y="95.5" width="80" height="70"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="AkT-Oy-rhS"/>
                         <constraint firstAttribute="height" constant="70" id="WHX-v6-mMH"/>
@@ -136,20 +136,36 @@
                         <action selector="copyAC:" destination="-1" eventType="touchUpInside" id="f8G-fW-Bmg"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVn-mL-biC">
+                    <rect key="frame" x="14" y="175.5" width="80" height="70"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="-40" minY="0.0" maxX="0.0" maxY="-40"/>
+                    <inset key="imageEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="23"/>
+                    <state key="normal" title="FaceBook" image="Image-2">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="facebooShare:" destination="-1" eventType="touchUpInside" id="PcI-jZ-fQl"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="dpK-Nf-Pq9" secondAttribute="trailing" id="4cs-kc-bLW"/>
-                <constraint firstItem="zoQ-iu-VLc" firstAttribute="top" secondItem="wL7-Mr-4fX" secondAttribute="bottom" constant="10" id="7ZK-6l-OjN"/>
-                <constraint firstItem="zoQ-iu-VLc" firstAttribute="top" secondItem="wOD-19-5y5" secondAttribute="bottom" constant="10" id="9t4-ZT-kcK"/>
+                <constraint firstItem="fVn-mL-biC" firstAttribute="height" secondItem="wL7-Mr-4fX" secondAttribute="height" id="6Cd-hN-uXB"/>
+                <constraint firstItem="zoQ-iu-VLc" firstAttribute="top" secondItem="wL7-Mr-4fX" secondAttribute="bottom" constant="90" id="7ZK-6l-OjN"/>
+                <constraint firstItem="zoQ-iu-VLc" firstAttribute="top" secondItem="wOD-19-5y5" secondAttribute="bottom" constant="90" id="9t4-ZT-kcK"/>
                 <constraint firstItem="opz-rk-APd" firstAttribute="centerX" secondItem="jUe-qs-erc" secondAttribute="centerX" id="AIm-vT-NHZ"/>
+                <constraint firstItem="fVn-mL-biC" firstAttribute="leading" secondItem="wL7-Mr-4fX" secondAttribute="leading" id="Fal-aM-vAG"/>
                 <constraint firstItem="dpK-Nf-Pq9" firstAttribute="top" secondItem="zoQ-iu-VLc" secondAttribute="bottom" id="JrR-K4-ut7"/>
                 <constraint firstAttribute="trailing" secondItem="opz-rk-APd" secondAttribute="trailing" constant="15" id="L7p-37-CvW"/>
                 <constraint firstAttribute="trailing" secondItem="zoQ-iu-VLc" secondAttribute="trailing" id="Loa-J5-IdW"/>
                 <constraint firstItem="wL7-Mr-4fX" firstAttribute="trailing" secondItem="jUe-qs-erc" secondAttribute="centerX" multiplier="0.5" id="S6g-Zv-fJa"/>
                 <constraint firstItem="Wl9-XO-mQL" firstAttribute="centerX" secondItem="jUe-qs-erc" secondAttribute="centerX" id="VbQ-kT-k8B"/>
                 <constraint firstItem="zoQ-iu-VLc" firstAttribute="leading" secondItem="jUe-qs-erc" secondAttribute="leading" id="XNg-bu-3iw"/>
-                <constraint firstItem="zoQ-iu-VLc" firstAttribute="top" secondItem="Wl9-XO-mQL" secondAttribute="bottom" constant="10" id="br3-2N-65B"/>
+                <constraint firstItem="fVn-mL-biC" firstAttribute="width" secondItem="wL7-Mr-4fX" secondAttribute="width" id="YNL-am-XoB"/>
+                <constraint firstItem="zoQ-iu-VLc" firstAttribute="top" secondItem="Wl9-XO-mQL" secondAttribute="bottom" constant="90" id="br3-2N-65B"/>
+                <constraint firstItem="zoQ-iu-VLc" firstAttribute="top" secondItem="fVn-mL-biC" secondAttribute="bottom" constant="10" id="cPF-b2-pWn"/>
                 <constraint firstItem="wOD-19-5y5" firstAttribute="top" secondItem="opz-rk-APd" secondAttribute="bottom" constant="15" id="d61-bP-Jmv"/>
                 <constraint firstItem="dpK-Nf-Pq9" firstAttribute="leading" secondItem="jUe-qs-erc" secondAttribute="leading" id="izo-DO-5O9"/>
                 <constraint firstAttribute="bottom" secondItem="dpK-Nf-Pq9" secondAttribute="bottom" id="nBn-qc-quz"/>
@@ -157,10 +173,11 @@
                 <constraint firstItem="opz-rk-APd" firstAttribute="leading" secondItem="jUe-qs-erc" secondAttribute="leading" constant="15" id="pUa-Bc-pXT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="31" y="533"/>
+            <point key="canvasLocation" x="30.5" y="473"/>
         </view>
     </objects>
     <resources>
+        <image name="Image-2" width="40" height="40"/>
         <image name="fuzhilianjie" width="40" height="40"/>
         <image name="pengyouquan" width="40" height="40"/>
         <image name="weixin" width="40" height="39"/>

@@ -11,6 +11,7 @@
 		2204AA971EAD995F0034C0F3 /* Mymodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204AA961EAD995F0034C0F3 /* Mymodel.m */; };
 		2204AA9A1EADA8FE0034C0F3 /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204AA991EADA8FE0034C0F3 /* AccountModel.m */; };
 		220654501EDFF60E00DFE8EB /* JXRadarPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2206544F1EDFF60E00DFE8EB /* JXRadarPointView.m */; };
+		2223307A1F2AEA4F000D5FA2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222330791F2AEA4F000D5FA2 /* FBSDKShareKit.framework */; };
 		222396CF1EB1CDCC001D4814 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 222396CD1EB1CDCC001D4814 /* MessageCell.m */; };
 		222396D01EB1CDCC001D4814 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222396CE1EB1CDCC001D4814 /* MessageCell.xib */; };
 		222396E11EB1D972001D4814 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222396E01EB1D972001D4814 /* CoreMedia.framework */; };
@@ -570,6 +571,7 @@
 		2204AA991EADA8FE0034C0F3 /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountModel.m; sourceTree = "<group>"; };
 		2206544E1EDFF60E00DFE8EB /* JXRadarPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXRadarPointView.h; sourceTree = "<group>"; };
 		2206544F1EDFF60E00DFE8EB /* JXRadarPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXRadarPointView.m; sourceTree = "<group>"; };
+		222330791F2AEA4F000D5FA2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		222396CC1EB1CDCC001D4814 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		222396CD1EB1CDCC001D4814 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		222396CE1EB1CDCC001D4814 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
@@ -1415,6 +1417,7 @@
 				222747DB1ECC5B6D009E98EC /* Foundation.framework in Frameworks */,
 				2286DC3F1EF2374900FDF801 /* CoreFoundation.framework in Frameworks */,
 				222747151ECC4A0A009E98EC /* CFNetwork.framework in Frameworks */,
+				2223307A1F2AEA4F000D5FA2 /* FBSDKShareKit.framework in Frameworks */,
 				222396E31EB1D97A001D4814 /* CoreMotion.framework in Frameworks */,
 				222747111ECC49F9009E98EC /* CoreText.framework in Frameworks */,
 				222747131ECC4A00009E98EC /* QuartzCore.framework in Frameworks */,
@@ -2191,6 +2194,7 @@
 		222E9A941F04F92E00C252D2 /* FB */ = {
 			isa = PBXGroup;
 			children = (
+				222330791F2AEA4F000D5FA2 /* FBSDKShareKit.framework */,
 				227DE5DF1F0CDF9900FD7DD3 /* FBSDKLoginKit.framework */,
 				227DE5DD1F0CDF9300FD7DD3 /* FBSDKCoreKit.framework */,
 				227DE5DB1F0CDF8A00FD7DD3 /* Bolts.framework */,
@@ -3890,7 +3894,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 6XYUMP9S7J;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3973,8 +3977,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.yizhiliaotw.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cb7594ce-c098-4154-bf37-ce2d65c4ed42";
-				PROVISIONING_PROFILE_SPECIFIER = deveTW;
+				PROVISIONING_PROFILE = "06e58304-7b0c-49a9-877f-11e80188dc01";
+				PROVISIONING_PROFILE_SPECIFIER = "HC tw";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -3987,7 +3991,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 6XYUMP9S7J;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4070,8 +4074,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.yizhiliaotw.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cb7594ce-c098-4154-bf37-ce2d65c4ed42";
-				PROVISIONING_PROFILE_SPECIFIER = deveTW;
+				PROVISIONING_PROFILE = "06e58304-7b0c-49a9-877f-11e80188dc01";
+				PROVISIONING_PROFILE_SPECIFIER = "HC tw";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};

@@ -250,7 +250,6 @@ static NSString *identifire = @"GiftID";
                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                         AccountVC *vc = [[AccountVC alloc] init];
                         vc.isCall = YES;
-                        vc.orderReferee = self.pmodel.uid;
                         vc.clickBlock = ^(){
                             
                             [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
@@ -314,7 +313,6 @@ static NSString *identifire = @"GiftID";
     self.superview.hidden = YES;
     AccountVC *vc = [[AccountVC alloc] init];
     vc.isCall = YES;
-    vc.orderReferee = self.pmodel.uid;
     vc.clickBlock = ^(){
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     self.superview.hidden = NO;
