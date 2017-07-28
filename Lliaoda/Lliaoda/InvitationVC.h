@@ -10,6 +10,8 @@
 #import "WXApiObject.h"
 #import "WXApi.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 
 @protocol JSObjcDelegate <JSExport>
@@ -24,7 +26,7 @@
 - (void)getCall:(NSString *)callString;
 
 @end
-@interface InvitationVC : BaseViewController<UIWebViewDelegate,JSObjcDelegate>
+@interface InvitationVC : BaseViewController<UIWebViewDelegate,JSObjcDelegate,FBSDKSharingDelegate>
 {
     UIWebView *_webView;
     UIActivityIndicatorView *_actView;  //风火轮视图
@@ -39,6 +41,7 @@
 - (IBAction)weixinAC:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *yaoBtn;
 - (IBAction)yaoAC:(id)sender;
+- (IBAction)facebooShare:(id)sender;
 
 - (IBAction)pengAC:(id)sender;
 - (IBAction)cancleAC:(id)sender;

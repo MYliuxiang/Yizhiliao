@@ -122,7 +122,7 @@
                 [UIView animateWithDuration:.35 animations:^{
                     
                     self.maskView.hidden = NO;
-                    self.shareView.y = kScreenHeight - 180;
+                    self.shareView.y = kScreenHeight - 260;
                 } completion:^(BOOL finished) {
                   
                     
@@ -214,7 +214,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
     [self.maskView addGestureRecognizer:tap];
     
-    self.shareView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 180);
+    self.shareView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 260);
     [self.view addSubview:self.shareView];
     
     [self addrightImage:@"fenxiang"];
@@ -426,7 +426,7 @@
                 [UIView animateWithDuration:.35 animations:^{
                     
                     self.maskView.hidden = NO;
-                    self.shareView.y = kScreenHeight - 180;
+                    self.shareView.y = kScreenHeight - 260;
                 } completion:^(BOOL finished) {
                     
                     
@@ -449,6 +449,52 @@
     }];
     
     
+}
+
+- (IBAction)facebooShare:(id)sender {
+    
+    
+    NSString *urlStr = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+//     @"最美主播統統入駐，立刻下載，贏得獎勵";
+    
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentURL = [NSURL URLWithString:urlStr];
+    [FBSDKShareAPI shareWithContent:content delegate:self];
+    
+}
+
+- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
+{
+     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+    [SVProgressHUD showWithStatus:@"分享成功"];
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        
+        [SVProgressHUD dismiss];
+    });
+
+}
+
+
+- (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
+{
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+    [SVProgressHUD showWithStatus:@"分享失败"];
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        
+        [SVProgressHUD dismiss];
+    });
+}
+
+
+- (void)sharerDidCancel:(id<FBSDKSharing>)sharer
+{
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+    [SVProgressHUD showWithStatus:@"取消分享"];
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        
+        [SVProgressHUD dismiss];
+    });
+
 }
 
 - (IBAction)pengAC:(id)sender {
