@@ -65,8 +65,6 @@ static MainTabBarController *mainTVC = nil;
         item.badgeValue = nil;
     }
     
-
-   
 }
 
 - (void)nozhuViewcontrollers
