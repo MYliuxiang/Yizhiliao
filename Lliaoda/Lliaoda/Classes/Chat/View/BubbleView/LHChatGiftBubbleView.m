@@ -28,13 +28,13 @@ static CGSize kGiftBoundingSize;
         _imageView.backgroundColor = [UIColor clearColor];
         _imageView.userInteractionEnabled = YES;
         [self addSubview:_imageView];
-        
-        _detailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _detailButton.frame = CGRectMake(0, 0, _remindLabel.width, 15);
-        _detailButton.backgroundColor = [UIColor clearColor];
-        [_detailButton setTitleColor:UIColorFromRGB(0xfa3575) forState:UIControlStateNormal];
-        _detailButton.titleLabel.font = [UIFont systemFontOfSize:12];
-        [self addSubview:_detailButton];
+//        
+//        _detailButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        _detailButton.frame = CGRectMake(0, 0, _remindLabel.width, 15);
+//        _detailButton.backgroundColor = [UIColor clearColor];
+//        [_detailButton setTitleColor:UIColorFromRGB(0xfa3575) forState:UIControlStateNormal];
+//        _detailButton.titleLabel.font = [UIFont systemFontOfSize:12];
+//        [self addSubview:_detailButton];
         
 
         _detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom, _remindLabel.width, 30)];
@@ -65,7 +65,6 @@ static CGSize kGiftBoundingSize;
     
     [super setMessageModel:messageModel];
     _imageView.image = [UIImage imageNamed:@"liwu"];
-    _detailButton.frame = CGRectMake(0, 0, self.width, self.height);
     [_detailButton addTarget:self action:@selector(clickToGiftView) forControlEvents:UIControlEventTouchUpInside];
     if ([messageModel.uid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
         _remindLabel.text = messageModel.content;
@@ -145,6 +144,8 @@ static CGSize kGiftBoundingSize;
     [super layoutSubviews];
     
     //自己
+    _detailButton.frame = CGRectMake(0, 0, self.width, self.height);
+
     
     CGRect tempRect;
     CGRect tempRect1;
