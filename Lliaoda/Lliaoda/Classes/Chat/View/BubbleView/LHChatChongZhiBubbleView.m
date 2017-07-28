@@ -124,7 +124,7 @@ static CGSize CZiftBoundingSize;
         tempRect = [@"收到我的儲值提醒"  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
         
         tempRect1 = [@"點擊前往充值頁面"  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
-        _remindLabel.frame = CGRectMake(19 + 40, BUBBLE_VIEW_PADDING, tempRect.size.width, tempRect.size.height);
+        _remindLabel.frame = CGRectMake(19 + 40 + 10, BUBBLE_VIEW_PADDING, tempRect.size.width, tempRect.size.height);
         _detailLabel.frame = CGRectMake(_remindLabel.left, _remindLabel.bottom, tempRect1.size.width, tempRect1.size.height);
         _imageView.frame = CGRectMake(19 , (CZiftBoundingSize.height - 40) / 2.0 + BUBBLE_VIEW_PADDING, 40, 40);
         

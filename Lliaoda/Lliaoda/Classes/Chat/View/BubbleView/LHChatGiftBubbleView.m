@@ -165,7 +165,7 @@ static CGSize kGiftBoundingSize;
         tempRect = [@"收到我的送禮提醒"  boundingRectWithSize:CGSizeMake(GIFTLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
         
         tempRect1 = [@"點擊查看禮物詳情"  boundingRectWithSize:CGSizeMake(GIFTLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
-        _remindLabel.frame = CGRectMake(19 + 40, BUBBLE_VIEW_PADDING, tempRect.size.width, tempRect.size.height);
+        _remindLabel.frame = CGRectMake(19 + 40 + 10, BUBBLE_VIEW_PADDING, tempRect.size.width, tempRect.size.height);
         _detailLabel.frame = CGRectMake(_remindLabel.left, _remindLabel.bottom, tempRect1.size.width, tempRect1.size.height);
         _imageView.frame = CGRectMake(19 , (kGiftBoundingSize.height - 40) / 2.0 + BUBBLE_VIEW_PADDING, 40, 40);
 
