@@ -800,7 +800,7 @@ controller   didAuthorizePayment:(PKPayment *)payment
             }
         }
     }
-    cell.moneyButton.layer.cornerRadius = 20;
+    cell.moneyButton.layer.cornerRadius = 35 / 2;
     cell.moneyButton.layer.borderWidth = 1;
     cell.moneyButton.layer.borderColor = Color_nav.CGColor;
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.icon]];

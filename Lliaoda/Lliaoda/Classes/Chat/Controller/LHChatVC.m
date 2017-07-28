@@ -537,7 +537,7 @@ NSString *const kTableViewFrame = @"frame";
         [this.messages addObject:messageModel];
         [this.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         
-        [SVProgressHUD showInfoWithStatus:@"贈送成功"];
+        [SVProgressHUD showInfoWithStatus:@"禮物已發送，謝謝老闆打賞~"];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             
