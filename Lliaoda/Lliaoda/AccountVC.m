@@ -824,7 +824,7 @@ controller   didAuthorizePayment:(PKPayment *)payment
         if (myModel.vipEndTime == 0) {
             // 没有vip
             headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon02"];
-            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:@"充值贈送VIP，私信暢聊無限制~"];
+            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:@"儲值贈送VIP，私信暢聊無限制~"];
             [attributedStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(2, 5)];
             headerView.timeLabel.attributedText = attributedStr;
             
@@ -846,7 +846,7 @@ controller   didAuthorizePayment:(PKPayment *)payment
 
 
 - (void)sendMessageToPerson:(NSString *)uid diamonds:(NSString *)diamonds {
-    NSString *content = [NSString stringWithFormat:@"我已通過你的頁面充值：%@鉆", diamonds];;
+    NSString *content = [NSString stringWithFormat:@"我已通過你的頁面儲值：%@鉆", diamonds];;
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     __block Message *messageModel = [Message new];
     messageModel.isSender = YES;

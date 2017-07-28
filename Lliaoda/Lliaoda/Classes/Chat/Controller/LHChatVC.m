@@ -473,7 +473,7 @@ NSString *const kTableViewFrame = @"frame";
         
     }];
 }
-// 主播提醒用户送礼物
+// 主播提醒用户送禮物
 - (void)remindGiveGift {
 //    RepetitionCount *re = [RepetitionCount sharedRepetition];
 //    long long idate = [[NSDate date] timeIntervalSince1970]*1000;
@@ -489,7 +489,7 @@ NSString *const kTableViewFrame = @"frame";
     
 }
 
-// 主播提醒用户充值
+// 主播提醒用户儲值
 - (void)remindChongZhi {
     RechargeCount *re = [RechargeCount sharedRecharge];
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
@@ -498,20 +498,20 @@ NSString *const kTableViewFrame = @"frame";
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"發送太頻繁，會嚇走金主的~" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
         [alert show];
     }else{
-//        [self sendMessageToUserType:MessageBodyType_Text name:@"充值" types:@"recharge"];
-        [self sendMessageToUserType:MessageBodyType_ChongZhi name:@"充值" types:@"recharge"];
+//        [self sendMessageToUserType:MessageBodyType_Text name:@"儲值" types:@"recharge"];
+        [self sendMessageToUserType:MessageBodyType_ChongZhi name:@"儲值" types:@"recharge"];
         [re.mdic setObject:@(idate) forKey:self.sendUid];
     }
 }
 
-// 用户充值
+// 用户儲值
 - (void)chongZhi {
     AccountVC *vc = [[AccountVC alloc] init];
     vc.isCall = NO;
     vc.orderReferee = self.sendUid;
     [self.navigationController pushViewController:vc animated:YES];
 }
-// 用户送礼物
+// 用户送禮物
 - (void)giftGive {
     self.blackView.hidden = NO;
     [self newgiftView];
@@ -712,9 +712,9 @@ NSString *const kTableViewFrame = @"frame";
     } else if ([messageModel.request isEqualToString:@"-3"]) {
         messageModel.event = userInfo[@"msg"][@"event"];
         if ([messageModel.event isEqualToString:@"gift"]) {
-            messageModel.content = [NSString stringWithFormat:@"收到我送出的：%@", userInfo[@"msg"][@"content"]];
+            messageModel.content = [NSString stringWithFormat:@"我给你送了：%@，有空记得打给我哟～", userInfo[@"msg"][@"content"]];
         } else {
-            messageModel.content = [NSString stringWithFormat:@"我已通過你的頁面充值：%@", userInfo[@"msg"][@"content"]];
+            messageModel.content = [NSString stringWithFormat:@"我已通過你的頁面儲值：%@", userInfo[@"msg"][@"content"]];
         }
     } else {
         messageModel.content = userInfo[@"msg"][@"content"];
@@ -1287,7 +1287,7 @@ NSString *const kTableViewFrame = @"frame";
     }
     
     if ([eventName isEqualToString:kRouterEventRechargeBubbleLongTapEventName]) {
-        // 點擊前往充值界面
+        // 點擊前往儲值界面
         [self chongZhi];
     }
     

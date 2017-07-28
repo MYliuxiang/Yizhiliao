@@ -19,7 +19,7 @@
  @constant MessageBodyType_File 文件类型
  @constant MessageBodyType_Command 命令类型
  @constant MessageBodyType_Gift 禮物類型
- @constant MessageBodyType_Gift 充值類型
+ @constant MessageBodyType_Gift 儲值類型
  */
 typedef enum {
     MessageBodyType_Text = 1,
@@ -78,7 +78,7 @@ typedef enum {
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, strong) NSURL *imageRemoteURL;
 
-// 礼物和充值
+// 礼物和儲值
 @property (nonatomic, copy) NSString *event;
 @property (nonatomic, copy) NSString *request;
 @end

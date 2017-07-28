@@ -336,7 +336,7 @@
                                     if ([dic[@"status"] intValue] == 1) {
                                         if (dic[@"referee"] != nil) {
                                             
-                                            NSString *content = [NSString stringWithFormat:@"我已通過你的頁面充值:%@鉆", dic[@"diamonds"]];
+                                            NSString *content = [NSString stringWithFormat:@"我已通過你的頁面儲值:%@鉆", dic[@"diamonds"]];
                                             long long idate = [[NSDate date] timeIntervalSince1970]*1000;
                                             __block Message *messageModel = [Message new];
                                             messageModel.isSender = YES;
@@ -1508,21 +1508,21 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     if ([request isEqualToString:@"-2"]) {
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = @"收到我送礼提醒";
+                            count.content = @"收到我送禮提醒";
                             
                         }else{
                             
-                            count.content = count.content = @"收到我充值提醒";
+                            count.content = count.content = @"收到我儲值提醒";
                         }
                         
                     }else if([request isEqualToString:@"-3"]){
                         
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = [NSString stringWithFormat:@"收到我送出的：%@",dic[@"message"][@"content"]];;
+                            count.content = [NSString stringWithFormat:@"我给你送了：%@，有空记得打给我哟～",dic[@"message"][@"content"]];;
                         }else{
                             
-                            count.content = [NSString stringWithFormat:@"我已通过你得页面充值:%@钻",dic[@"message"][@"content"]];
+                            count.content = [NSString stringWithFormat:@"我已通过你得页面儲值:%@钻",dic[@"message"][@"content"]];
                             
                         }
                         
@@ -1546,21 +1546,21 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     if ([request isEqualToString:@"-2"]) {
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = @"收到我送礼提醒";
+                            count.content = @"收到我送禮提醒";
                             
                         }else{
                             
-                            count.content = count.content = @"收到我充值提醒";
+                            count.content = count.content = @"收到我儲值提醒";
                         }
                         
                     }else if([request isEqualToString:@"-3"]){
                         
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = [NSString stringWithFormat:@"收到我送出的：%@",dic[@"message"][@"content"]];;
+                            count.content = [NSString stringWithFormat:@"我给你送了：%@，有空记得打给我哟～",dic[@"message"][@"content"]];;
                         }else{
                             
-                            count.content = [NSString stringWithFormat:@"我已通过你得页面充值:%@钻",dic[@"message"][@"content"]];
+                            count.content = [NSString stringWithFormat:@"我已通过你得页面儲值:%@钻",dic[@"message"][@"content"]];
                             
                         }
                         
@@ -1588,12 +1588,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 if ([request isEqualToString:@"-2"]) {
                     if ([event isEqualToString:@"gift"]) {
                         
-                        messageModel.content = @"收到我送礼提醒";
+                        messageModel.content = @"收到我送禮提醒";
                         messageModel.type = MessageBodyType_Gift;
 
                     }else{
                         
-                        messageModel.content = @"收到我充值提醒";
+                        messageModel.content = @"收到我儲值提醒";
                         messageModel.type = MessageBodyType_ChongZhi;
 
                     }
@@ -1602,11 +1602,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     
                     if ([event isEqualToString:@"gift"]) {
                         
-                        messageModel.content = [NSString stringWithFormat:@"收到我送出的：%@",dic[@"message"][@"content"]];;
+                        messageModel.content = [NSString stringWithFormat:@"我给你送了：%@，有空记得打给我哟～",dic[@"message"][@"content"]];;
                         messageModel.type = MessageBodyType_Text;
                     }else{
                         
-                        messageModel.content = [NSString stringWithFormat:@"我已通过你得页面充值:%@钻",dic[@"message"][@"content"]];
+                        messageModel.content = [NSString stringWithFormat:@"我已通过你得页面儲值:%@钻",dic[@"message"][@"content"]];
                         messageModel.type = MessageBodyType_Text;
 
                     }

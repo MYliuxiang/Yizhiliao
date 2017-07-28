@@ -23,7 +23,7 @@ NSString *const kRouterEventTextURLTapEventName = @"kRouterEventTextURLTapEventN
 NSString *const kRouterEventImageBubbleTapEventName = @"kRouterEventImageBubbleTapEventName";
 NSString *const kRouterEventBubbleLongTapEventName = @"kRouterEventBubbleLongTapEventName";
 NSString *const kRouterEventGiftBubbleLongTapEventName = @"kRouterEventGiftBubbleLongTapEventName"; // 禮物
-NSString *const kRouterEventRechargeBubbleLongTapEventName = @"kRouterEventRechargeBubbleLongTapEventName"; // 點擊去充值
+NSString *const kRouterEventRechargeBubbleLongTapEventName = @"kRouterEventRechargeBubbleLongTapEventName"; // 點擊去儲值
 NSString *const kRouterEventBubbleMenuMore = @"kRouterEventBubbleMenuMore";
 
 NSString *const kRouterEventBubbleMenuDelete = @"kRouterEventBubbleMenuDelete";

@@ -12,7 +12,7 @@
 @interface GiftModel : NSObject
 @property (nonatomic,strong) UIImage *headImage; // 大頭貼
 @property (nonatomic,copy) NSString *giftImage; // 礼物
-@property (nonatomic,copy) NSString *name; // 送礼物者
+@property (nonatomic,copy) NSString *name; // 送禮物者
 @property (nonatomic,copy) NSString *giftName; // 礼物名称
 @property (nonatomic,assign) NSInteger giftCount; // 礼物个数
 @property (nonatomic,copy)NSString *giftUid;//礼物id
