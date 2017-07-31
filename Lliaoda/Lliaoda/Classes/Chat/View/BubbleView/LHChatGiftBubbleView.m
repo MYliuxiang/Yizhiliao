@@ -14,7 +14,6 @@ static CGSize kGiftBoundingSize;
 
 @implementation LHChatGiftBubbleView
 
-
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         _remindLabel = [[UILabel alloc] initWithFrame:CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, BUBBLE_VIEW_PADDING, 130, 40)];

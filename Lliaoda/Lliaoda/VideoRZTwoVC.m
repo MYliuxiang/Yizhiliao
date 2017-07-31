@@ -31,6 +31,8 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
     [self.view addGestureRecognizer:tap];
     
+    [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
 }
 
 - (void)tap
@@ -59,8 +61,6 @@
 }
 
 - (IBAction)completeAC:(id)sender {
-    
-   
     
     if (_textField.text.length != 10) {
         
