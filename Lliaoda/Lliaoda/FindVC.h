@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImage;
 @property (nonatomic,assign) BOOL first;
+@property (nonatomic,retain) NSArray *charges;
+
 
 - (IBAction)closeAC:(id)sender;
 - (IBAction)closeMatch:(id)sender;

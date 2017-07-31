@@ -437,6 +437,27 @@ NSString *const kTableViewFrame = @"frame";
             
             NSString *msgStr = [InputCheck convertToJSONData:dic];
             [_inst messageInstantSend:self.sendUid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
+            NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",self.sendUid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
+            if (![MessageCount findFirstByCriteria:criteria]){
+                
+                MessageCount *count = [[MessageCount alloc] init];
+                count.content = message;
+                count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                count.sendUid = self.sendUid;
+                count.count = 0;
+                count.timeDate = idate;
+                [count save];
+                
+            }else{
+                
+                _count.content = message;
+                _count.timeDate = messageModel.date;
+                _count.count = 0;
+                [_count saveOrUpdate];
+                
+            }
+
+            
             
         }else{
             if ([[result objectForKey:@"result"] integerValue] == 31) {
@@ -1137,6 +1158,27 @@ NSString *const kTableViewFrame = @"frame";
             [self.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 
          [_inst messageInstantSend:self.sendUid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
+            
+            NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",self.sendUid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
+            if (![MessageCount findFirstByCriteria:criteria]){
+                
+                MessageCount *count = [[MessageCount alloc] init];
+                count.content = messageModel.content;
+                count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                count.sendUid = self.sendUid;
+                count.count = 0;
+                count.timeDate = idate;
+                [count save];
+                
+            }else{
+                
+                _count.content = [NSString stringWithFormat:@"%@",messageModel.content];;
+                _count.timeDate = messageModel.date;
+                _count.count = 0;
+                [_count saveOrUpdate];
+                
+            }
+
         }else{
             
             if ([[result objectForKey:@"result"] integerValue] == 29) {
@@ -1177,26 +1219,7 @@ NSString *const kTableViewFrame = @"frame";
     //显示自己的
     //更新UI操作
    
-    NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",self.sendUid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
-    if (![MessageCount findFirstByCriteria:criteria]){
-        
-        MessageCount *count = [[MessageCount alloc] init];
-        count.content = messageModel.content;
-        count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-        count.sendUid = self.sendUid;
-        count.count = 0;
-        count.timeDate = idate;
-        [count save];
-        
-    }else{
-    
-        _count.content = [NSString stringWithFormat:@"%@",messageModel.content];;
-        _count.timeDate = messageModel.date;
-        _count.count = 0;
-        [_count saveOrUpdate];
-
-    }
-
+ 
 }
 
 #pragma mark - 事件监听

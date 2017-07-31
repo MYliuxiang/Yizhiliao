@@ -16,7 +16,7 @@
     
     if (self) {
         self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
-        self.frame = CGRectMake(15, kScreenHeight, kScreenWidth - 30, 321);
+        self.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 321);
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 5;
         

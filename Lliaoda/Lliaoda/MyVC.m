@@ -693,10 +693,10 @@
             
             if (indexPath.row == 0) {
                 
-                cell.detailTextLabel.text = @"请输入5位邀請碼,即可获得奖励";
+                cell.detailTextLabel.text = @"邀請好友，即可獲得獎勵";
             }else{
                 
-                cell.detailTextLabel.text = @"填入好友的分享的邀請碼，即可获奖励";
+                cell.detailTextLabel.text = @"填入邀請碼，即可獲得獎勵";
             }
             
         }else if (indexPath.section == 2){

@@ -265,6 +265,32 @@
 
                 self.pointsModels = marray;
                 
+                NSArray *charges = result[@"data"][@"charges"];
+                NSMutableArray *mc = [NSMutableArray array];
+                for (NSDictionary *subDic in charges) {
+                    Charge *model = [Charge mj_objectWithKeyValues:subDic];
+                    [mc addObject:model];
+                }
+                
+                self.charges = mc;
+                for (int i = 0; i < self.pointsModels.count; i++) {
+                    SelectedModel *model = self.pointsModels[i];
+                    if (model.selected) {
+                        
+                        if (self.pointsModels.count> 8) {
+                            
+                            [self.pointsModels exchangeObjectAtIndex:i withObjectAtIndex:7];
+                        }else{
+                            
+                            [self.pointsModels exchangeObjectAtIndex:i withObjectAtIndex:self.pointsModels.count - 1];
+                        }
+                        
+                        
+                        
+                    }
+                }
+          
+                
                 for (JXRadarPointView *item in self.pointsViewArray) {
                     [item removeFromSuperview];
                 }
@@ -307,7 +333,6 @@
             }
             
         }
-
         
     }else{
         
@@ -465,7 +490,7 @@
     }
     
     Charge *charge;
-    for (Charge *mo in model.charges) {
+    for (Charge *mo in self.charges) {
         if (mo.uid == model.charge) {
             charge = mo;
         }

@@ -1639,17 +1639,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     
     
-    return  [[FBSDKApplicationDelegate sharedInstance] application:application
-             
-                                                           openURL:url
-             
-                                                 sourceApplication:sourceApplication
-             
-                                                        annotation:annotation
-             
-             ];
-
-//        return  [WXApi handleOpenURL:url delegate:self];
+        return  [WXApi handleOpenURL:url delegate:self];
+        
     
 }
 
