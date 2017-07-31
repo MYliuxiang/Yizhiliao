@@ -459,14 +459,18 @@
     
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
     content.contentURL = [NSURL URLWithString:urlStr];
-    [FBSDKShareAPI shareWithContent:content delegate:self];
-    
+    [FBSDKShareDialog showFromViewController:self
+                                 withContent:content
+                                    delegate:self];
 }
 
 - (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
 {
      dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-    [SVProgressHUD showWithStatus:@"分享成功"];
+   
+    
+        [SVProgressHUD showWithStatus:@"分享成功"];
+
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         
         [SVProgressHUD dismiss];

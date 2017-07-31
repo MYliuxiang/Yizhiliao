@@ -211,8 +211,8 @@
 {
     if (self.gifts.count == 0) {
         
-        [self.timer invalidate];
-        self.timer = nil;
+        [self.giftTimer invalidate];
+        self.giftTimer = nil;
         
     }else{
         

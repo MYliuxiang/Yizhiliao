@@ -98,12 +98,13 @@
 {
         
     self.videoSucess(info);
-    
+    [[AVAudioSession sharedInstance] setActive:NO error:nil];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
+    [[AVAudioSession sharedInstance] setActive:NO error:nil];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
     

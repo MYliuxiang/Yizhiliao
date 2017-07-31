@@ -21,7 +21,7 @@
     self.text = @"收益";
 //    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"可提现总收益"];
 //    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"邀请",@"可提现总收益"];
-    self.dataList = @[@"通話收益",@"禮物及紅包收益",@"邀請"];
+    self.dataList = @[@"通話收益",@"禮物及紅包收益",@"储值提成收益",@"邀請"];
     self.tixianBtn.layer.cornerRadius = 22.5;
     self.tixianBtn.layer.masksToBounds = YES;
     self.tixianBtn.backgroundColor = UIColorFromRGB(0xFB3476);
@@ -78,7 +78,7 @@
 {
 //    return self.dataList.count;
     if (section == 1) {
-        return 3;
+        return 4;
     } else {
         return 1;
     }
@@ -109,7 +109,11 @@
         }else if (indexPath.row == 1){
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.gift];
         }else if(indexPath.row == 2){
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.order];
+
+        }else{
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
+
         }
         cell.textLabel.textColor = Color_Text_black;
         cell.detailTextLabel.textColor = Color_nav;

@@ -134,7 +134,8 @@
         [self.navigationController pushViewController:VC animated:YES];
     
     };
-    [self presentViewController:picker animated:YES completion:nil];
+
+    [self.navigationController presentViewController:picker animated:YES completion:nil];
 }
 @end
 
