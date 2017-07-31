@@ -918,6 +918,8 @@
                     
                     [SVProgressHUD dismiss];
                     self.model.portrait = result[@"data"][@"portrait"];
+                    [LXUserDefaults setObject:result[@"data"][@"portrait"] forKey:Portrait];
+                    [LXUserDefaults synchronize];
                     [self.tableView reloadData];
                     
                 } else{
