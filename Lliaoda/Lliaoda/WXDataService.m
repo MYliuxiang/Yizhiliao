@@ -86,8 +86,8 @@
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [manager.requestSerializer setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    
-    NSString *agent = [NSString stringWithFormat:@"%@,%@",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
+    NSString *phoneVersion = [[UIDevice currentDevice] systemVersion];
+    NSString *agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
     
     [manager.requestSerializer setValue:agent forHTTPHeaderField:@"user-agent"];
 
@@ -201,7 +201,7 @@
     
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *phoneVersion = [[UIDevice currentDevice] systemVersion];
-    NSString *agent = [NSString stringWithFormat:@"%@,%@,ios,%@,3",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+    NSString *agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
     
     [manager.requestSerializer setValue:agent forHTTPHeaderField:@"user-agent"];
 

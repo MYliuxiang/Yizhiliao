@@ -410,9 +410,14 @@ NSString *const kTableViewFrame = @"frame";
 //            break;
 //    }
     
-    
     NSDictionary *params;
-    params = @{@"uid":self.sendUid, @"message":message, @"type":@"0"};
+    if (type == MessageBodyType_Gift) {
+        params = @{@"uid":self.sendUid, @"message":message, @"type":@1};
+
+    }else if(type == MessageBodyType_ChongZhi){
+        params = @{@"uid":self.sendUid, @"message":message, @"type":@2};
+
+    }
     [WXDataService requestAFWithURL:Url_chatmessagesend params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO  finishBlock:^(id result) {
         if ([[result objectForKey:@"result"] integerValue] == 0) {
             [messageModel save];
@@ -730,7 +735,7 @@ NSString *const kTableViewFrame = @"frame";
     } else if ([messageModel.request isEqualToString:@"-3"]) {
         messageModel.event = userInfo[@"msg"][@"event"];
         if ([messageModel.event isEqualToString:@"gift"]) {
-            messageModel.content = [NSString stringWithFormat:@"我给你送了：%@，有空记得打给我哟～", userInfo[@"msg"][@"content"]];
+            messageModel.content = [NSString stringWithFormat:@"我给你送了：%@鑽，有空记得打给我哟～", userInfo[@"msg"][@"content"]];
         } else {
             messageModel.content = [NSString stringWithFormat:@"我已通過你的頁面儲值：%@", userInfo[@"msg"][@"content"]];
         }

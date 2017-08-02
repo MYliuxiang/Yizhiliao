@@ -507,7 +507,7 @@
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *phoneVersion = [[UIDevice currentDevice] systemVersion];
 
-    NSString *agent = [NSString stringWithFormat:@"%@,%@,ios,%@,3",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+    NSString *agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
     
     NSMutableString *mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
     NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
@@ -1519,7 +1519,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                         
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = [NSString stringWithFormat:@"我给你送了：%@，有空记得打给我哟～",dic[@"message"][@"content"]];;
+                            count.content = [NSString stringWithFormat:@"我给你送了：%@鑽，有空记得打给我哟～",dic[@"message"][@"content"]];;
                         }else{
                             
                             count.content = [NSString stringWithFormat:@"我已通过你得页面儲值:%@钻",dic[@"message"][@"content"]];
@@ -1557,7 +1557,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                         
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = [NSString stringWithFormat:@"我给你送了：%@，有空记得打给我哟～",dic[@"message"][@"content"]];;
+                            count.content = [NSString stringWithFormat:@"我给你送了：%@鑽，有空记得打给我哟～",dic[@"message"][@"content"]];;
                         }else{
                             
                             count.content = [NSString stringWithFormat:@"我已通过你得页面儲值:%@钻",dic[@"message"][@"content"]];
@@ -1602,7 +1602,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     
                     if ([event isEqualToString:@"gift"]) {
                         
-                        messageModel.content = [NSString stringWithFormat:@"我给你送了：%@，有空记得打给我哟～",dic[@"message"][@"content"]];;
+                        messageModel.content = [NSString stringWithFormat:@"我给你送了：%@鑽，有空记得打给我哟～",dic[@"message"][@"content"]];;
                         messageModel.type = MessageBodyType_Text;
                     }else{
                         

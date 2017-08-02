@@ -94,10 +94,10 @@ static NSString *identifire = @"GiftID";
     self.collectionView.dataSource = self;
     self.gifLayout = [[GiftLayout alloc] init];
 
-    _gifLayout.minimumLineSpacing= (kScreenWidth - 30 - 240) / 5.0;
+    _gifLayout.minimumLineSpacing= (kScreenWidth - 240) / 5.0;
     _gifLayout.minimumInteritemSpacing= 5;
     _gifLayout.itemSize = CGSizeMake(60,100);
-    _gifLayout.sectionInset=UIEdgeInsetsMake(0, (kScreenWidth - 30 - 240) / 5.0, 0, (kScreenWidth - 30 - 240) / 5.0);
+    _gifLayout.sectionInset=UIEdgeInsetsMake(0, (kScreenWidth - 240) / 5.0, 0, (kScreenWidth - 240) / 5.0);
 
     [_gifLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];//滚动方向
     //設定代理

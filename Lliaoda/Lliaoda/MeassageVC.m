@@ -31,7 +31,6 @@ static MeassageVC *this;
                 isB = YES;
                 [count deleteObject];
             }
-            
         }
         
         if (!isB) {
@@ -64,6 +63,7 @@ static MeassageVC *this;
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.text = @"訊息";
@@ -115,10 +115,10 @@ static MeassageVC *this;
         item.badgeValue = nil;
     }
     [self.tableView reloadData];
-    
     [self _initView];
     [self initAgore];
     [self addNotice];
+    
 }
 
 - (void)onMessageInstantReceive:(NSNotification *)notification

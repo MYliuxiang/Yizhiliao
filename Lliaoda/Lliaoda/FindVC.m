@@ -151,9 +151,9 @@
 
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     [session stopRunning];
     [_radarView stopAnimation];
     for (JXRadarPointView *item in self.pointsViewArray) {
@@ -192,7 +192,6 @@
             }
             
         } errorBlock:^(NSError *error) {
-            
             
         }];
         
