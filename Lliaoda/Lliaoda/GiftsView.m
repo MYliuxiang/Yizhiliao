@@ -309,16 +309,25 @@ static NSString *identifire = @"GiftID";
 
 
 - (IBAction)chongAC:(id)sender {
- [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    if(self.isVideoBool){
+        
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+
+    }
     self.superview.hidden = YES;
     AccountVC *vc = [[AccountVC alloc] init];
     vc.isCall = YES;
     vc.clickBlock = ^(){
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+        if(self.isVideoBool){
+            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+
+        }
     self.superview.hidden = NO;
         
     };
      [[self topViewController].navigationController pushViewController:vc animated:YES];
+    
+    
 }
 
 - (void)sendGiftMessage:(NSString *)giftName diamonds:(int)diamonds giftUid:(NSString *)giftUid{

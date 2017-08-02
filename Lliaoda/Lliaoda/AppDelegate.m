@@ -537,16 +537,13 @@
                                 
                             }
                             
-                
                         }
-
 
         }
         dispatch_semaphore_signal(semaphore);   //发送信号
 
     }];
     [dataTask resume];
-    
     dispatch_semaphore_wait(semaphore,DISPATCH_TIME_FOREVER);  //等待
 
     
@@ -580,13 +577,11 @@
         
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.downAppUrl]];
     }
-
 }
 
 - (void)initAgora
 {
     _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
-    
 }
 
 #pragma mark - NetWorkManagerDelegate
@@ -639,15 +634,11 @@
         baseNAV = [[BaseNavigationController alloc] initWithRootViewController:loginVC];
         self.window.rootViewController =baseNAV;
         
-       
-        
     } else if(result == NSOrderedSame){
         
-       
         LoginVC *loginVC = [[LoginVC alloc]init];
         baseNAV = [[BaseNavigationController alloc] initWithRootViewController:loginVC];
         self.window.rootViewController =baseNAV;
-        
         
     }else{
     
