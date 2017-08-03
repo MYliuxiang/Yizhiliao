@@ -14,6 +14,8 @@
     [super awakeFromNib];
     // Initialization code
     
+    [self.photoBtn setTitle:@"相册(23)" forState:UIControlStateNormal];
+      [self.videoBtn setTitle:@"影片(3)" forState:UIControlStateNormal];
     self.videoBtn.selected = NO;
     self.photoBtn.selected = YES;
     self.videoIV.hidden = YES;

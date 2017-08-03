@@ -26,7 +26,9 @@
     
     self.yaoBtn.hidden =YES;
     
-    
+    [self.btn1 setTitle:@"复制链接" forState:UIControlStateNormal];
+    [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+
     
     [self loadData];
 

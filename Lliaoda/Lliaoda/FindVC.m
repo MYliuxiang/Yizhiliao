@@ -25,6 +25,8 @@
 @property (nonatomic,assign) int time;
 @property (nonatomic,retain) NSTimer *callTimer;
 
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
 
 @end
 
@@ -78,6 +80,10 @@
     // Do any additional setup after loading the view.
     self.text = @"發現";
     
+    [self.rechargeBtn setTitle:@"快速儲值" forState:UIControlStateNormal];
+    self.label1.text = @"正在為您尋找有緣人";
+    self.label2.text = @"點擊任意大頭照可以進入Ta的主頁喔！";
+
     self.pointsModels = [NSMutableArray array];
     self.finBtn.layer.cornerRadius = 22;
     self.finBtn.layer.masksToBounds = YES;

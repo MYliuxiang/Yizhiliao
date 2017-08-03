@@ -37,6 +37,11 @@
 @property (nonatomic, strong) JSContext *jsContext;
 
 
+
+@property (weak, nonatomic) IBOutlet UIButton *btn1;
+
+@property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
+
 - (IBAction)copyAC:(id)sender;
 - (IBAction)weixinAC:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *yaoBtn;

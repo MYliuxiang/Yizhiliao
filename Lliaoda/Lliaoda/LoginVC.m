@@ -12,6 +12,9 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface LoginVC ()
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
+
 
 @end
 
@@ -21,6 +24,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navbarHiden = YES;
+    
+    self.label.text = @"已閱讀並同意用戶使用協定";
+    [self.loginBtn setTitle:@"Facebook登入" forState:UIControlStateNormal];
+    [self.faceBtn setTitle:@"WeChat登入" forState:UIControlStateNormal];
+    [self.noWeixinBtn setTitle:@"登入" forState:UIControlStateNormal];
+
     self.logoBtn.layer.masksToBounds = YES;
     self.logoBtn.layer.cornerRadius = 5;
     

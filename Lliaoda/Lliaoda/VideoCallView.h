@@ -128,4 +128,20 @@
 - (IBAction)redAC:(id)sender;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *refuse;
+
+@property (weak, nonatomic) IBOutlet UIButton *acceptBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *likeLab;
+
+@property (weak, nonatomic) IBOutlet UILabel *yeLab;
+
+
+
+
+
+
+
+
+
 @end

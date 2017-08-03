@@ -20,6 +20,16 @@
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 5;
         
+        self.jineLab.text = @"金額";
+        self.zuanLabel.text = @"鑽";
+        self.lab1.text = @"單個紅包數額不可低於100鑽";
+        self.label2.text = @"個數";
+        self.label3.text = @"個";
+        [self.sendBtn setTitle:@"發送紅包" forState:UIControlStateNormal];
+        [self.chongBtn setTitle:@"快速儲值" forState:UIControlStateNormal];
+
+        
+        
         _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
 
         self.textView.delegate = self;

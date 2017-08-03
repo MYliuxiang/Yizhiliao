@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoOneVC">
             <connections>
                 <outlet property="doneBtn" destination="3nB-A4-39i" id="1jx-u0-pns"/>
+                <outlet property="label1" destination="vmN-Oy-Za5" id="Qqf-ei-0yc"/>
                 <outlet property="videlImageView" destination="t1C-RP-pey" id="2a8-zW-HqS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

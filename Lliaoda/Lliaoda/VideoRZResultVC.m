@@ -20,6 +20,7 @@
     self.text = @"視頻認證";
     self.failBtn.layer.cornerRadius = 22;
     self.failBtn.layer.masksToBounds = YES;
+    [self.failBtn setTitle:@"重新认证" forState:UIControlStateNormal];
     if (self.sucuress) {
         //成功
         [self loadData];

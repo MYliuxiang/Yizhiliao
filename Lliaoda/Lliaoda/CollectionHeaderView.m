@@ -10,6 +10,14 @@
 
 @implementation CollectionHeaderView
 
+- (void)awakeFromNib {
+
+    [super awakeFromNib];
+
+    self.label1.text = @"賬戶餘額(鑽石)";
+
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

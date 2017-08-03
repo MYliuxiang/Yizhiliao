@@ -25,6 +25,7 @@
     self.nameArray = [NSMutableArray array];
     self.headerImage.layer.cornerRadius = 75 / 2.0;
     self.headerImage.layer.masksToBounds = YES;
+    [self.editBtn setTitle:@"編輯" forState:UIControlStateNormal];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click)];
     [self.headerImage addGestureRecognizer:tap];
 

@@ -92,6 +92,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="E3b-Oe-DdA"/>
                     <connections>
+                        <outlet property="editBtn" destination="sF8-TQ-0uP" id="e3s-3v-K6a"/>
                         <outlet property="headerImage" destination="YEk-ul-jmL" id="o7H-bv-CJW"/>
                         <outlet property="headerView" destination="Vkj-OE-cCt" id="YsQ-mc-xy5"/>
                         <outlet property="idLabel" destination="dI0-M3-sQY" id="LJA-92-cOJ"/>
@@ -265,6 +266,8 @@
                         <outlet property="findBgView" destination="Ktq-NC-Tl2" id="BMp-36-fiJ"/>
                         <outlet property="findCardView" destination="dVk-0R-A7i" id="11k-pg-7U3"/>
                         <outlet property="findView" destination="c5s-bo-MOc" id="20a-q7-pCO"/>
+                        <outlet property="label1" destination="rP2-ma-gxD" id="FQk-mT-kcC"/>
+                        <outlet property="label2" destination="afH-DJ-73q" id="k3a-EN-SCF"/>
                         <outlet property="mapImage" destination="j0r-zJ-zcj" id="Gh7-jK-vBX"/>
                         <outlet property="nickLabel" destination="EAt-nM-tIM" id="hc7-Dq-V2v"/>
                         <outlet property="placelabel" destination="d68-ag-ANK" id="wxR-ZR-K90"/>

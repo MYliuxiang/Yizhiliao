@@ -10,5 +10,6 @@
 
 @interface PersonCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *tText;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

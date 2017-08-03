@@ -39,6 +39,8 @@ enum{
 }
 @property (nonatomic,strong) NSArray *profuctIdArr;
 @property (nonatomic,copy) NSString *currentProId;
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *label1;
 
 @end
 
@@ -50,6 +52,9 @@ static NSString *const headerId = @"headerId";
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.text = @"帳戶";
+    self.label1.text = @"账户余额";
+    self.label.text = @"鑽石";
+
     self.view.backgroundColor = UIColorFromRGB(0xf0f0f0);
     self.dataList = [NSMutableArray array];
 //    self.accountLab.text = [NSString stringWithFormat:@"%d",self.deposit];

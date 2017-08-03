@@ -11,6 +11,7 @@
 
 
 @interface VideoOneVC ()
+@property (weak, nonatomic) IBOutlet UILabel *label1;
 
 @end
 
@@ -20,11 +21,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = @"視訊上传";
+    self.label1.text = @"請確認當前大頭照與認證錄影都是您本人，否則無法通過認證！系統將在1-2個工作日完整審核，請耐心等待！";
+    [self.doneBtn setTitle:@"确认上传" forState:UIControlStateNormal];
     self.doneBtn.layer.cornerRadius = 22;
     self.doneBtn.layer.masksToBounds = YES;
     
     self.videlImageView.image = [self thumbnailImageForVideo:     [self.infodic objectForKey:UIImagePickerControllerMediaURL]
                             atTime:1];
+    
+    
 }
 
 #pragma mark - 取出視訊图片

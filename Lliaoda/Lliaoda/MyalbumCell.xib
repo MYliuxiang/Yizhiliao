@@ -67,6 +67,7 @@
             <connections>
                 <outlet property="bgImageView" destination="eed-sM-ubD" id="8HY-L5-5Ty"/>
                 <outlet property="feiView" destination="JNq-d7-7hH" id="iEb-CA-B1s"/>
+                <outlet property="label" destination="2Hf-cj-T5h" id="wfo-fY-agq"/>
             </connections>
             <point key="canvasLocation" x="66" y="89.5"/>
         </collectionViewCell>

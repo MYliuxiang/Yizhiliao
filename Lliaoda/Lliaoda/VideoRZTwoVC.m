@@ -16,6 +16,9 @@
     NSDate       *_startDate;
     
 }
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
 
 @end
 
@@ -25,6 +28,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = @"視頻認證";
+    self.label1.text = @"距離完成認證僅差一步，請如實填寫手機號，以便我們及時聯繫你，賺取更多的收益！";
+    self.label2.text = @"手機號碼";
+    self.label3.text = @"公会名称";
+    [self.completeBtn setTitle:@"完成" forState:UIControlStateNormal];
+    self.ghuiLabel.placeholder = @"如沒有公會號，填寫000";
+    self.textField.placeholder = @"請輸入您真實的行動電話號碼";
+
     self.completeBtn.layer.cornerRadius = 22;
     self.completeBtn.layer.masksToBounds = YES;
     self.textField.delegate = self;

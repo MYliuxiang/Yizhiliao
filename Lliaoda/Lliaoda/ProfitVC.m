@@ -25,6 +25,7 @@
     self.tixianBtn.layer.cornerRadius = 22.5;
     self.tixianBtn.layer.masksToBounds = YES;
     self.tixianBtn.backgroundColor = UIColorFromRGB(0xFB3476);
+    [self.tixianBtn setTitle:@"去提现" forState:UIControlStateNormal];
     [self loadData];
 }
 

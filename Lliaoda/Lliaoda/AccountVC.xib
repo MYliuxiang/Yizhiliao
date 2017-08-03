@@ -15,6 +15,8 @@
             <connections>
                 <outlet property="accountLab" destination="jK3-qD-C2f" id="ZM6-sg-F7w"/>
                 <outlet property="headerView" destination="QZo-ec-Xlu" id="DBa-nU-AnM"/>
+                <outlet property="label" destination="g3l-Fq-WTI" id="mrt-NG-Vpc"/>
+                <outlet property="label1" destination="nuK-Ik-Sjm" id="l4T-Fg-9QS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

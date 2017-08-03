@@ -14,7 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     
-    
+    self.label.text = @"封面";
     
 }
 

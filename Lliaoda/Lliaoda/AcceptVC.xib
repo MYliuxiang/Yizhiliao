@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AcceptVC">
             <connections>
                 <outlet property="invitationBtn" destination="30Z-Ig-JOG" id="7y4-KG-TM0"/>
+                <outlet property="label1" destination="8Ub-VR-9x8" id="Cd4-zT-Bij"/>
+                <outlet property="label2" destination="Emd-Oq-Vsf" id="4Fq-B2-Fyf"/>
                 <outlet property="textField" destination="X8E-au-bgM" id="foP-A6-5Cl"/>
                 <outlet property="tijiaoBtn" destination="Qid-os-Ew6" id="jYt-g6-XZ1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

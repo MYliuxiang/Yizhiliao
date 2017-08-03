@@ -23,6 +23,8 @@
     self.yanzBtn.layer.cornerRadius = 22;
     self.yanzBtn.layer.masksToBounds = YES;
   
+    [self.yanzBtn setTitle:@"馬上驗證" forState:UIControlStateNormal];
+    
     self.footerView.width = kScreenWidth;
     self.footerView.height = 30 + 44;
     self.tableView.tableFooterView = self.footerView;

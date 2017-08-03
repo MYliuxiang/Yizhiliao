@@ -220,6 +220,10 @@
                 <outlet property="countText" destination="XBY-f8-pMr" id="26M-wh-fpS"/>
                 <outlet property="eLabel" destination="foP-WY-yG7" id="Ru5-FK-skZ"/>
                 <outlet property="firstView" destination="twA-uz-hfG" id="BvN-Lb-Ed7"/>
+                <outlet property="jineLab" destination="CLD-V5-lJX" id="4XO-0K-2rp"/>
+                <outlet property="lab1" destination="nOP-tf-nh8" id="wrd-Dd-xYi"/>
+                <outlet property="label2" destination="Wph-t6-MxL" id="88I-os-UIf"/>
+                <outlet property="label3" destination="l18-1c-LG5" id="vNU-6m-AO7"/>
                 <outlet property="onetextField" destination="WyW-h6-6ve" id="dB9-xp-I9e"/>
                 <outlet property="sendBtn" destination="EXc-jO-GHt" id="dEC-D6-GrV"/>
                 <outlet property="sendView" destination="vXP-47-uyp" id="1ue-cE-WKv"/>
@@ -227,6 +231,7 @@
                 <outlet property="textViewP" destination="lMX-mp-Xie" id="MUp-sh-WIT"/>
                 <outlet property="threeView" destination="nPL-au-Fup" id="3kR-I4-fhI"/>
                 <outlet property="twotextField" destination="Y41-Dt-cD8" id="X4k-gG-VdA"/>
+                <outlet property="zuanLabel" destination="4TZ-lc-exv" id="afm-9t-oXp"/>
             </connections>
             <point key="canvasLocation" x="31.5" y="109"/>
         </view>

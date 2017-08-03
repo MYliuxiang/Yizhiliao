@@ -13,6 +13,9 @@
             <connections>
                 <outlet property="completeBtn" destination="RKb-Jb-bAM" id="71o-Lc-Bnx"/>
                 <outlet property="ghuiLabel" destination="lYj-1c-Bj5" id="bxk-l9-GfQ"/>
+                <outlet property="label1" destination="vAn-lz-BoY" id="ede-fv-XUa"/>
+                <outlet property="label2" destination="VOb-Yu-hGI" id="Ul7-Nz-vFa"/>
+                <outlet property="label3" destination="WxZ-3h-Qwa" id="4uj-UQ-TIv"/>
                 <outlet property="textField" destination="GY0-4F-1zw" id="v4T-ad-tfF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

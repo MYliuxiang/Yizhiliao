@@ -10,7 +10,9 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <Accelerate/Accelerate.h>
 
+
 @implementation VideoCallView
+
 
 - (instancetype)initVideoCallViewWithChancel:(NSString *)chancel withUid:(NSString *)uid withIsSend:(BOOL)isSend
 {
@@ -20,6 +22,13 @@
         self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
         self.clipsToBounds = YES;
         self.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        [self.refuse setTitle:@"拒绝" forState:UIControlStateNormal];
+        [self.acceptBtn setTitle:@"接受" forState:UIControlStateNormal];
+        self.yeLab.text = @"账户余额";
+        [self.gotoMoneyBtn setTitle:@"去充值" forState:UIControlStateNormal];
+
+        
+        
          _instMedia = [AgoraRtcEngineKit sharedEngineWithAppId:agoreappID delegate:self];
         _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
         

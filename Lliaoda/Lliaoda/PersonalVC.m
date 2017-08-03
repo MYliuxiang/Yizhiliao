@@ -10,6 +10,10 @@
 #import <LGAlertView/LGAlertView.h>
 
 @interface PersonalVC ()
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
+@property (weak, nonatomic) IBOutlet UILabel *label4;
 
 @end
 
@@ -19,6 +23,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.label1.text = @"送禮物";
+    self.label2.text = @"聊天";
+    self.label3.text = @"視頻通訊";
+    self.label4.text = @"去充值";
+
     self.videoBtn.layer.cornerRadius = 22;
     self.videoBtn.layer.masksToBounds = YES;
     

@@ -12,6 +12,7 @@
 @interface MyalbumCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIView *feiView;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 @property (nonatomic,assign) BOOL isFirst;
 @property (nonatomic,retain) AlbumModel *model;
 @property (nonatomic,retain) Photo *photo;

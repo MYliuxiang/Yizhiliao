@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC">
             <connections>
                 <outlet property="faceBtn" destination="xsn-p2-H3M" id="Hnj-K0-mdb"/>
+                <outlet property="label" destination="mk7-q2-v3v" id="Gve-18-Eas"/>
                 <outlet property="loginBtn" destination="xEL-n5-5yL" id="JSR-Oy-KbN"/>
                 <outlet property="logoBtn" destination="VhN-x8-Nrp" id="VDJ-eh-0Og"/>
                 <outlet property="noWeixinBtn" destination="fEN-im-qCT" id="th7-RF-ph1"/>
@@ -132,8 +133,8 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEN-im-qCT">
-                            <rect key="frame" x="0.0" y="116" width="249" height="44"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEN-im-qCT">
+                            <rect key="frame" x="0.0" y="156" width="249" height="44"/>
                             <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Ynz-NI-MPV"/>

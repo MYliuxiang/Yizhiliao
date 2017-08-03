@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *tixianButton;
 - (IBAction)tixianBtnClick:(id)sender;
 @property (nonatomic, assign) id<ProfitCellDelegate>delegate;
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UIButton *label2;
 
 + (ProfitCell *)tableView:(UITableView *)tableView
                 indexPath:(NSIndexPath *)indexPath

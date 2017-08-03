@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 - (IBAction)playAC:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImgeView;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 @end

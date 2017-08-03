@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *vipImageView;
+@property (weak, nonatomic) IBOutlet UILabel *label1;
 
 @end

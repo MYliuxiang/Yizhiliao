@@ -10,6 +10,11 @@
 
 @interface AcceptVC ()
 
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+
+
+
 @end
 
 @implementation AcceptVC
@@ -25,6 +30,12 @@
     self.invitationBtn.layer.masksToBounds = YES;
     self.invitationBtn.layer.borderWidth = 1;
     self.invitationBtn.layer.borderColor = Color_nav.CGColor;
+    self.label1.text = @"邀請碼";
+    self.label2.text = @"填入好友分享的邀請碼，即可獲得獎勵";
+    self.textField.placeholder = @"請輸入5位邀請碼，即可獲得獎勵";
+    [self.tijiaoBtn setTitle:@"提交" forState:UIControlStateNormal];
+    [self.tijiaoBtn setTitle:@"我要去邀請" forState:UIControlStateNormal];
+
 
 }
 

@@ -11,5 +11,6 @@
 @interface VideoRZTwoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *tlabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImgeView;
+@property (weak, nonatomic) IBOutlet UILabel *label1;
 
 @end

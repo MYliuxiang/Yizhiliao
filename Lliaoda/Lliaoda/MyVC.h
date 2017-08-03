@@ -34,6 +34,7 @@
 @property (nonatomic, strong)UIView *pickerBG;//选择器底
 @property (nonatomic,retain) UIView *maskView;
 
+@property (weak, nonatomic) IBOutlet UIButton *editBtn;
 
 - (IBAction)personalAC:(id)sender;
 - (IBAction)tap:(id)sender;

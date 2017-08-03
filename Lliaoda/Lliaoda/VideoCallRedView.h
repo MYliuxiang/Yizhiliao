@@ -34,5 +34,10 @@
 
 @property (nonatomic,retain)CAEmitterCell *snowflake;
 
+@property (weak, nonatomic) IBOutlet UILabel *jineLab;
+@property (weak, nonatomic) IBOutlet UILabel *zuanLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lab1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
 
 @end
