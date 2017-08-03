@@ -14,7 +14,7 @@
                 <outlet property="blackView" destination="hKI-tq-xuW" id="Xjp-XE-Nwf"/>
                 <outlet property="chatBtn" destination="Vdv-tP-V7E" id="wNi-6b-Krf"/>
                 <outlet property="constraint" destination="HsT-lL-YQX" id="Qcd-yS-YVs"/>
-                <outlet property="footerView" destination="Hid-ii-JCF" id="GmN-b3-9gq"/>
+                <outlet property="footerView" destination="Hid-ii-JCF" id="cRa-ZN-P8a"/>
                 <outlet property="headerIV" destination="5vR-dZ-iKw" id="Qe5-Gf-drA"/>
                 <outlet property="headerImage" destination="KrR-tN-xxK" id="KVO-R1-8hl"/>
                 <outlet property="headerView" destination="TR7-fv-yai" id="54T-ui-GKd"/>
