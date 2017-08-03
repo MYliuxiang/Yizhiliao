@@ -14,7 +14,7 @@
                 <outlet property="blackView" destination="hKI-tq-xuW" id="Xjp-XE-Nwf"/>
                 <outlet property="chatBtn" destination="Vdv-tP-V7E" id="wNi-6b-Krf"/>
                 <outlet property="constraint" destination="HsT-lL-YQX" id="Qcd-yS-YVs"/>
-                <outlet property="footerView" destination="Hid-ii-JCF" id="GmN-b3-9gq"/>
+                <outlet property="footerView" destination="Hid-ii-JCF" id="cRa-ZN-P8a"/>
                 <outlet property="headerIV" destination="5vR-dZ-iKw" id="Qe5-Gf-drA"/>
                 <outlet property="headerImage" destination="KrR-tN-xxK" id="KVO-R1-8hl"/>
                 <outlet property="headerView" destination="TR7-fv-yai" id="54T-ui-GKd"/>
@@ -179,13 +179,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="聊天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDU-Cz-K5U">
-                    <rect key="frame" x="129" y="39" width="25" height="15"/>
+                    <rect key="frame" x="128.5" y="39" width="25" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdv-tP-V7E">
-                    <rect key="frame" x="94" y="10" width="94" height="44"/>
+                    <rect key="frame" x="94" y="10" width="93.5" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="0.0" maxY="0.0"/>
@@ -206,7 +206,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGJ-wY-ZdT">
-                    <rect key="frame" x="188" y="10" width="93" height="44"/>
+                    <rect key="frame" x="187.5" y="10" width="94" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="0.0" maxY="0.0"/>
@@ -227,7 +227,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLY-dP-9ei">
-                    <rect key="frame" x="281" y="10" width="94" height="44"/>
+                    <rect key="frame" x="281.5" y="10" width="93.5" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="0.0" maxY="0.0"/>
