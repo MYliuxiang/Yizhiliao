@@ -195,98 +195,98 @@
     switch (i_month) {
         case 1:
             if(i_day>=20 && i_day<=31){
-                retStr=@"水瓶座";
+                retStr=DTLocalizedString(@"水瓶座", nil);
             }
             if(i_day>=1 && i_day<=19){
-                retStr=@"摩羯座";
+                retStr=DTLocalizedString(@"摩羯座", nil);
             }
             break;
         case 2:
             if(i_day>=1 && i_day<=18){
-                retStr=@"水瓶座";
+                retStr=DTLocalizedString(@"水瓶座", nil);
             }
             if(i_day>=19 && i_day<=31){
-                retStr=@"雙魚座";
+                retStr=DTLocalizedString(@"雙魚座", nil);
             }
             break;
         case 3:
             if(i_day>=1 && i_day<=20){
-                retStr=@"雙魚座";
+                retStr=DTLocalizedString(@"雙魚座", nil);
             }
             if(i_day>=21 && i_day<=31){
-                retStr=@"牡羊座";
+                retStr=DTLocalizedString(@"牡羊座", nil);
             }
             break;
         case 4:
             if(i_day>=1 && i_day<=19){
-                retStr=@"牡羊座";
+                retStr=DTLocalizedString(@"牡羊座", nil);
             }
             if(i_day>=20 && i_day<=31){
-                retStr=@"金牛座";
+                retStr=DTLocalizedString(@"金牛座", nil);
             }
             break;
         case 5:
             if(i_day>=1 && i_day<=20){
-                retStr=@"金牛座";
+                retStr=DTLocalizedString(@"金牛座", nil);
             }
             if(i_day>=21 && i_day<=31){
-                retStr=@"雙子座";
+                retStr=DTLocalizedString(@"雙子座", nil);
             }
             break;
         case 6:
             if(i_day>=1 && i_day<=21){
-                retStr=@"雙子座";
+                retStr=DTLocalizedString(@"雙子座", nil);
             }
             if(i_day>=22 && i_day<=31){
-                retStr=@"巨蟹座";
+                retStr=DTLocalizedString(@"巨蟹座", nil);
             }
             break;
         case 7:
             if(i_day>=1 && i_day<=22){
-                retStr=@"巨蟹座";
+                retStr=DTLocalizedString(@"巨蟹座", nil);
             }
             if(i_day>=23 && i_day<=31){
-                retStr=@"獅子座";
+                retStr=DTLocalizedString(@"獅子座", nil);
             }
             break;
         case 8:
             if(i_day>=1 && i_day<=22){
-                retStr=@"獅子座";
+                retStr=DTLocalizedString(@"獅子座", nil);
             }
             if(i_day>=23 && i_day<=31){
-                retStr=@"處女座";
+                retStr=DTLocalizedString(@"處女座", nil);
             }
             break;
         case 9:
             if(i_day>=1 && i_day<=22){
-                retStr=@"處女座";
+                retStr=DTLocalizedString(@"處女座", nil);
             }
             if(i_day>=23 && i_day<=31){
-                retStr=@"天秤座";
+                retStr=DTLocalizedString(@"天秤座", nil);
             }
             break;
         case 10:
             if(i_day>=1 && i_day<=23){
-                retStr=@"天秤座";
+                retStr=DTLocalizedString(@"天秤座", nil);
             }
             if(i_day>=24 && i_day<=31){
-                retStr=@"天蝎座";
+                retStr=DTLocalizedString(@"天蝎座", nil);
             }
             break;
         case 11:
             if(i_day>=1 && i_day<=21){
-                retStr=@"天蝎座";
+                retStr=DTLocalizedString(@"天蝎座", nil);
             }
             if(i_day>=22 && i_day<=31){
-                retStr=@"射手座";
+                retStr=DTLocalizedString(@"射手座", nil);
             }
             break;
         case 12:
             if(i_day>=1 && i_day<=21){
-                retStr=@"射手座";
+                retStr=DTLocalizedString(@"射手座", nil);
             }
             if(i_day>=21 && i_day<=31){
-                retStr=@"摩羯座";
+                retStr=DTLocalizedString(@"摩羯座", nil);
             }
             break;
     }
@@ -312,26 +312,26 @@
     //与现在的时间差
     NSString *result;
     if (timeInterval < 60) {
-        result = [NSString stringWithFormat:@"正在活躍"];
+        result = [NSString stringWithFormat:@"%@", DTLocalizedString(@"正在活躍", nil)];
     }
     else if((temp = timeInterval/60) <60){
-        result = [NSString stringWithFormat:@"%ld分鐘前活躍",temp];
+        result = [NSString stringWithFormat:DTLocalizedString(@"%ld分鐘前活躍", nil),temp];
     }
     
     else if((temp = temp/60) <24){
-        result = [NSString stringWithFormat:@"%ld小時前活躍",temp];
+        result = [NSString stringWithFormat:DTLocalizedString(@"%ld小時前活躍", nil),temp];
     }
     
     else if((temp = temp/24) <30){
-        result = [NSString stringWithFormat:@"%ld天前活躍",temp];
+        result = [NSString stringWithFormat:DTLocalizedString(@"%ld天前活躍", nil),temp];
     }
     
     else if((temp = temp/30) <12){
-        result = [NSString stringWithFormat:@"%ld月前活跃",temp];
+        result = [NSString stringWithFormat:DTLocalizedString(@"%ld月前活跃", nil),temp];
     }
     else{
         temp = temp/12;
-        result = [NSString stringWithFormat:DTLocalizedString(@"%ld年前活跃", nil),temp];
+        result = [NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"%ld年前活跃", nil), nil),temp];
     }
     
     return  result;

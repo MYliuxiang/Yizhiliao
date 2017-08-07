@@ -80,7 +80,7 @@
     // Do any additional setup after loading the view.
     self.text = @"發現";
     
-    [self.rechargeBtn setTitle:@"快速儲值" forState:UIControlStateNormal];
+    [self.rechargeBtn setTitle:DTLocalizedString(@"快速儲值", nil) forState:UIControlStateNormal];
     self.label1.text = @"正在為您尋找有緣人";
     self.label2.text = @"點擊任意大頭照可以進入Ta的主頁喔！";
 
