@@ -17,9 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = @"修改暱稱";
+    self.text = DTLocalizedString(@"修改暱稱", nil);
     self.textField.text = self.model.nickname;
-    [self addrighttitleString:@"保存"];
+    [self addrighttitleString:DTLocalizedString(@"保存", nil)];
 }
 
 - (void)rightAction

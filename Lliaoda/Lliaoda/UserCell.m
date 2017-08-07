@@ -49,7 +49,7 @@
     
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前网络不可用，请检查您的网络设置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"当前网络不可用，请检查您的网络设置" delegate:nil cancelButtonTitle:DTLocalizedString(@"确定", nil) otherButtonTitles:nil, nil];
         [alert show];
         
         return;
@@ -58,7 +58,7 @@
        AppDelegate *app = [AppDelegate shareAppDelegate];
     if(![app.inst isOnline]){
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正处于离线状态" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"您正处于离线状态", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"确定", nil) otherButtonTitles:nil, nil];
         [alert show];
         return;
     }

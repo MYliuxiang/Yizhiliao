@@ -42,7 +42,7 @@
         self.stateView.layer.masksToBounds = YES;
         self.stateView.layer.borderWidth = .5;
         self.stateLabel1.backgroundColor = Color_green;
-        self.stateLabel.text = @"空闲";
+        self.stateLabel.text = DTLocalizedString(@"空闲", nil);
         self.stateLabel1.layer.cornerRadius = 8;
         self.stateLabel1.layer.masksToBounds = YES;
 
@@ -56,7 +56,7 @@
         self.stateView.layer.masksToBounds = YES;
         self.stateView.layer.borderWidth = .5;
         self.stateLabel1.backgroundColor = Color_green;
-        self.stateLabel.text = @"空闲";
+        self.stateLabel.text = DTLocalizedString(@"空闲", nil);
         self.stateLabel1.layer.cornerRadius = 8;
         self.stateLabel1.layer.masksToBounds = YES;
         
@@ -69,7 +69,7 @@
         self.stateView.layer.masksToBounds = YES;
         self.stateView.layer.borderWidth = .5;
         self.stateLabel1.backgroundColor = Color_nav;
-        self.stateLabel.text = @"忙碌";
+        self.stateLabel.text = DTLocalizedString(@"忙碌", nil);
         self.stateLabel1.layer.cornerRadius = 8;
         self.stateLabel1.layer.masksToBounds = YES;
         

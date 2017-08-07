@@ -22,10 +22,10 @@
         self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
         self.clipsToBounds = YES;
         self.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-        [self.refuse setTitle:@"拒绝" forState:UIControlStateNormal];
-        [self.acceptBtn setTitle:@"接受" forState:UIControlStateNormal];
-        self.yeLab.text = @"账户余额";
-        [self.gotoMoneyBtn setTitle:@"去充值" forState:UIControlStateNormal];
+        [self.refuse setTitle:DTLocalizedString(@"拒绝", nil) forState:UIControlStateNormal];
+        [self.acceptBtn setTitle:DTLocalizedString(@"接受", nil) forState:UIControlStateNormal];
+        self.yeLab.text = DTLocalizedString(@"账户余额", nil);
+        [self.gotoMoneyBtn setTitle:DTLocalizedString(@"去充值", nil) forState:UIControlStateNormal];
 
         
         
@@ -332,7 +332,7 @@
 - (void)onInviteEndByPeer
 {
     [self stop];
-    self.headeLab.text = [NSString stringWithFormat:@"对方取消呼叫"];
+    self.headeLab.text = [NSString stringWithFormat:DTLocalizedString(@"对方取消呼叫", nil)];
     [self.endPlayer play];
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
@@ -403,7 +403,7 @@
 - (void)onInviteRefusedByPeer
 {
     [self stop];
-    self.headeLab.text = @"对方已拒绝";
+    self.headeLab.text = DTLocalizedString(@"对方已拒绝", nil);
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
 
@@ -499,7 +499,7 @@
                 if(peerSustain <= 2 && peerSustain != -1 && !self.islow){
                 
                     self.islow = YES;
-                    [SVProgressHUD showWithStatus:@"对方余额已经不足两分钟了"];
+                    [SVProgressHUD showWithStatus:DTLocalizedString(@"对方余额已经不足两分钟了", nil)];
                     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                         
@@ -555,14 +555,14 @@
                             @"message": @{
                                 @"messageID": [NSString stringWithFormat:@"%@_%ld",[LXUserDefaults objectForKey:UID],idate],
                                 @"event": @"call-end",
-                                @"content": @"对方餘額不足",
+                                @"content": DTLocalizedString(@"对方餘額不足", nil),
                                 @"time": [NSString stringWithFormat:@"%ld",idate],
                             }
                             };
                         NSString *msgStr = [InputCheck convertToJSONData:dic];
                          [_inst messageInstantSend:self.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%ld",[LXUserDefaults objectForKey:UID],idate]];
                         
-                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"购买鑽石" message:@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"快速购买" delegate:nil];
+                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
                         lg.destructiveButtonBackgroundColor = Color_nav;
                         lg.destructiveButtonTitleColor = [UIColor whiteColor];
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -608,7 +608,7 @@
 - (void)onInviteFailed
 {
     [self endPlayer];
-    self.headeLab.text = @"对方暂未接听";
+    self.headeLab.text = DTLocalizedString(@"对方暂未接听", nil);
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         [self dismiss];
@@ -708,7 +708,7 @@
         
             [self stop];
         [self.endPlayer play];
-        self.headeLab.text = @"对方未回应";
+        self.headeLab.text = DTLocalizedString(@"对方未回应", nil);
             
         //未接通
             
@@ -1130,7 +1130,7 @@
     
     if(self.iscalling){
         
-        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"確定退出" message:@"確定退出視訊通話吗？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"確定" delegate:nil];
+        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"確定退出", nil) message:@"確定退出視訊通話吗？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"確定", nil) delegate:nil];
         lg.destructiveButtonBackgroundColor = [UIColor whiteColor];
         lg.destructiveButtonTitleColor = Color_nav;
         lg.destructiveButtonFont = [UIFont systemFontOfSize:16];
@@ -1177,7 +1177,7 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 [_inst channelInviteRefuse:self.channel account:self.uid uid:0 extra:nil];
-                self.headeLab.text = [NSString stringWithFormat:@"您已拒绝"];
+                self.headeLab.text = [NSString stringWithFormat:DTLocalizedString(@"您已拒绝", nil)];
                 dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     [self dismiss];
@@ -1245,7 +1245,7 @@
                 if(peerSustain <= 2 && peerSustain != -1 && !self.islow){
                     
                     self.islow = YES;
-                    [SVProgressHUD showWithStatus:@"对方余额已经不足两分钟了"];
+                    [SVProgressHUD showWithStatus:DTLocalizedString(@"对方余额已经不足两分钟了", nil)];
                     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                         
@@ -1280,7 +1280,7 @@
                 }];
                 
                 _keytimer =  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(keyrew:) userInfo:nil repeats:YES];
-                self.headeLab.text = @"正在加入";
+                self.headeLab.text = DTLocalizedString(@"正在加入", nil);
                 
             }else{    //请求失败
                 
@@ -1295,14 +1295,14 @@
                                               @"message": @{
                                                       @"messageID": [NSString stringWithFormat:@"-1"],
                                                       @"event": @"call-end",
-                                                      @"content": @"对方餘額不足",
+                                                      @"content": DTLocalizedString(@"对方餘額不足", nil),
                                                       @"time": [NSString stringWithFormat:@"%ld",idate],
                                                       }
                                               };
                         NSString *msgStr = [InputCheck convertToJSONData:dic];
                         [_inst messageInstantSend:self.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%ld",[LXUserDefaults objectForKey:UID],idate]];
                         
-                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"购买鑽石" message:@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"快速购买" delegate:nil];
+                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
                         lg.destructiveButtonBackgroundColor = Color_nav;
                         lg.destructiveButtonTitleColor = [UIColor whiteColor];
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -1371,7 +1371,7 @@
                 
                 if(peerSustain <= 2 && peerSustain != -1 && !self.islow){
                     self.islow = YES;
-                    [SVProgressHUD showWithStatus:@"对方余额已经不足两分钟了"];
+                    [SVProgressHUD showWithStatus:DTLocalizedString(@"对方余额已经不足两分钟了", nil)];
                     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                         
@@ -1726,7 +1726,7 @@
                 int peerSustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"peerSustain"]] intValue];
                 if(peerSustain <= 2 && peerSustain != -1 && !self.islow){
                     self.islow = YES;
-                        [SVProgressHUD showWithStatus:@"对方余额已经不足两分钟了"];
+                        [SVProgressHUD showWithStatus:DTLocalizedString(@"对方余额已经不足两分钟了", nil)];
                         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                             

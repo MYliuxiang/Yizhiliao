@@ -319,7 +319,7 @@
     [self addSubview:indexLabel];
     
     UIButton *saveButton = [[UIButton alloc] init];
-    [saveButton setTitle:@"保存" forState:UIControlStateNormal];
+    [saveButton setTitle:DTLocalizedString(@"保存", nil) forState:UIControlStateNormal];
     [saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     saveButton.backgroundColor = [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.90f];
     saveButton.layer.cornerRadius = 5;

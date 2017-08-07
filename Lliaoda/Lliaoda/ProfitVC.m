@@ -18,14 +18,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.text = @"收益";
-//    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"可提现总收益"];
-//    self.dataList = @[@"通话收益",@"礼物及红包收益",@"总收益",@"邀请",@"可提现总收益"];
-    self.dataList = @[@"通話收益",@"禮物及紅包收益",@"储值提成收益",@"邀請"];
+    self.text = DTLocalizedString(@"收益", nil);
+//    self.dataList = @[DTLocalizedString(@"通话收益", nil),DTLocalizedString(@"礼物及红包收益", nil),DTLocalizedString(@"总收益", nil),DTLocalizedString(@"可提现总收益", nil)];
+//    self.dataList = @[DTLocalizedString(@"通话收益", nil),DTLocalizedString(@"礼物及红包收益", nil),DTLocalizedString(@"总收益", nil),DTLocalizedString(@"邀请", nil),DTLocalizedString(@"可提现总收益", nil)];
+    self.dataList = @[DTLocalizedString(@"通話收益", nil),DTLocalizedString(@"禮物及紅包收益", nil),DTLocalizedString(@"储值提成收益", nil),DTLocalizedString(@"邀請", nil)];
     self.tixianBtn.layer.cornerRadius = 22.5;
     self.tixianBtn.layer.masksToBounds = YES;
     self.tixianBtn.backgroundColor = UIColorFromRGB(0xFB3476);
-    [self.tixianBtn setTitle:@"去提现" forState:UIControlStateNormal];
+    [self.tixianBtn setTitle:DTLocalizedString(@"去提现", nil) forState:UIControlStateNormal];
     [self loadData];
 }
 
@@ -130,7 +130,7 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
         }
-        cell.textLabel.text = @"累計提現";
+        cell.textLabel.text = DTLocalizedString(@"累計提現", nil);
         cell.textLabel.textColor = Color_Text_black;
         cell.detailTextLabel.textColor = Color_nav;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
@@ -215,13 +215,13 @@
 }
 
 - (IBAction)tixianAC:(id)sender {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提現" message:@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提現", nil) message:@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alertView show];
 }
 
 #pragma mark - ProfitCellDelegate
 - (void)btnClick:(ProfitCell *)cell {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提現" message:@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提現", nil) message:@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alertView show];
 }
 @end

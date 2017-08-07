@@ -25,7 +25,7 @@
     self.nameArray = [NSMutableArray array];
     self.headerImage.layer.cornerRadius = 75 / 2.0;
     self.headerImage.layer.masksToBounds = YES;
-    [self.editBtn setTitle:@"編輯" forState:UIControlStateNormal];
+    [self.editBtn setTitle:DTLocalizedString(@"編輯", nil) forState:UIControlStateNormal];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click)];
     [self.headerImage addGestureRecognizer:tap];
 
@@ -42,9 +42,9 @@
         
         NSArray *array;
         if (self.model.activated == 0) {
-            array = @[@"邀请有奖",@"接受邀请"];
+            array = @[DTLocalizedString(@"邀请有奖", nil),DTLocalizedString(@"接受邀请", nil)];
         }else{
-            array = @[@"邀请有奖"];
+            array = @[DTLocalizedString(@"邀请有奖", nil)];
             
         }
         
@@ -52,12 +52,12 @@
             
             if (self.model.auth == 2) {
                 
-                self.nameArray = [NSMutableArray arrayWithObjects:@[@"视频认证",@"收费设置",@"在线时段"],@[@"视频秀",@"相册"], @[@"设置"],nil];
+                self.nameArray = [NSMutableArray arrayWithObjects:@[DTLocalizedString(@"视频认证", nil),DTLocalizedString(@"收费设置", nil),DTLocalizedString(@"在线时段", nil)],@[DTLocalizedString(@"视频秀", nil),DTLocalizedString(@"相册", nil)], @[DTLocalizedString(@"设置", nil)],nil];
                 
                 
             }else{
                 
-                self.nameArray = [NSMutableArray arrayWithObjects:@[@"视频认证"],@[@"视频秀",@"相册"],@[@"设置"], nil];
+                self.nameArray = [NSMutableArray arrayWithObjects:@[DTLocalizedString(@"视频认证", nil)],@[DTLocalizedString(@"视频秀", nil),DTLocalizedString(@"相册", nil)],@[DTLocalizedString(@"设置", nil)], nil];
                 
             }
             
@@ -66,12 +66,12 @@
             
             if (self.model.auth == 2) {
                 
-                self.nameArray = [NSMutableArray arrayWithObjects:array,@[@"视频认证",@"收费设置",@"在线时段"],@[@"视频秀",@"相册"], @[@"设置"],nil];
+                self.nameArray = [NSMutableArray arrayWithObjects:array,@[DTLocalizedString(@"视频认证", nil),DTLocalizedString(@"收费设置", nil),DTLocalizedString(@"在线时段", nil)],@[DTLocalizedString(@"视频秀", nil),DTLocalizedString(@"相册", nil)], @[DTLocalizedString(@"设置", nil)],nil];
                 
                 
             }else{
                 
-                self.nameArray = [NSMutableArray arrayWithObjects:array,@[@"视频认证"],@[@"视频秀",@"相册"],@[@"设置"], nil];
+                self.nameArray = [NSMutableArray arrayWithObjects:array,@[DTLocalizedString(@"视频认证", nil)],@[DTLocalizedString(@"视频秀", nil),DTLocalizedString(@"相册", nil)],@[DTLocalizedString(@"设置", nil)], nil];
                 
             }
             
@@ -134,7 +134,7 @@
     UIButton *cancel = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 60, 0,50,40)];
     cancel.titleLabel.font = [UIFont systemFontOfSize:14];
     [cancel setTitleColor:Color_nav forState:UIControlStateNormal];
-    [cancel setTitle:@"保存" forState:UIControlStateNormal];
+    [cancel setTitle:DTLocalizedString(@"保存", nil) forState:UIControlStateNormal];
     [toolView addSubview:cancel];
     [cancel addTarget:self action:@selector(enterAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -148,14 +148,14 @@
     [enter addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
     
         UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 47.5, kScreenWidth / 2.0, 20)];
-        label1.text = @"上線時間";
+        label1.text = DTLocalizedString(@"上線時間", nil);
         label1.textColor = Color_nav;
         label1.textAlignment = NSTextAlignmentCenter;
         label1.font = [UIFont systemFontOfSize:14];
         [_pickerBG addSubview:label1];
         
         UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth / 2.0, 47.5, kScreenWidth / 2.0, 20)];
-        label2.text = @"下線時間";
+        label2.text = DTLocalizedString(@"下線時間", nil);
         label2.textColor = Color_nav;
         label2.textAlignment = NSTextAlignmentCenter;
         label2.font = [UIFont systemFontOfSize:14];
@@ -384,21 +384,21 @@
                 
                 NSArray *array;
                 if (self.model.activated == 0) {
-                    array = @[@"邀請有獎",@"接受邀请"];
+                    array = @[DTLocalizedString(@"邀請有獎", nil),DTLocalizedString(@"接受邀请", nil)];
                 }else{
-                    array = @[@"邀請有獎"];
+                    array = @[DTLocalizedString(@"邀請有獎", nil)];
 
                 }
                 if([LXUserDefaults boolForKey:ISMEiGUO]){
                     
                     if (self.model.auth == 2) {
                         
-                        self.nameArray = [NSMutableArray arrayWithObjects:@[@"視頻認證",@"收費設定",@"在線時段"],@[@"小視頻",@"相薄"], @[@"設定"],nil];
+                        self.nameArray = [NSMutableArray arrayWithObjects:@[DTLocalizedString(@"視頻認證", nil),DTLocalizedString(@"收費設定", nil),DTLocalizedString(@"在線時段", nil)],@[DTLocalizedString(@"小視頻", nil),DTLocalizedString(@"相薄", nil)], @[DTLocalizedString(@"設定", nil)],nil];
                         
                         
                     }else{
                         
-                        self.nameArray = [NSMutableArray arrayWithObjects:@[@"視頻認證"],@[@"小視頻",@"相薄"],@[@"設定"], nil];
+                        self.nameArray = [NSMutableArray arrayWithObjects:@[DTLocalizedString(@"視頻認證", nil)],@[DTLocalizedString(@"小視頻", nil),DTLocalizedString(@"相薄", nil)],@[DTLocalizedString(@"設定", nil)], nil];
                         
                     }
                     
@@ -407,12 +407,12 @@
                     
                     if (self.model.auth == 2) {
                         
-                        self.nameArray = [NSMutableArray arrayWithObjects:array,@[@"視頻認證",@"收費設定",@"在線時段"],@[@"小視頻",@"相薄"], @[@"設定"],nil];
+                        self.nameArray = [NSMutableArray arrayWithObjects:array,@[DTLocalizedString(@"視頻認證", nil),DTLocalizedString(@"收費設定", nil),DTLocalizedString(@"在線時段", nil)],@[DTLocalizedString(@"小視頻", nil),DTLocalizedString(@"相薄", nil)], @[DTLocalizedString(@"設定", nil)],nil];
                         
                         
                     }else{
                         
-                        self.nameArray = [NSMutableArray arrayWithObjects:array,@[@"視頻認證"],@[@"小視頻",@"相薄"],@[@"設定"], nil];
+                        self.nameArray = [NSMutableArray arrayWithObjects:array,@[DTLocalizedString(@"視頻認證", nil)],@[DTLocalizedString(@"小視頻", nil),DTLocalizedString(@"相薄", nil)],@[DTLocalizedString(@"設定", nil)], nil];
                         
                     }
                     
@@ -477,21 +477,21 @@
                                
                 NSArray *array;
                 if (self.model.activated == 0) {
-                    array = @[@"邀請有獎",@"接受邀请"];
+                    array = @[DTLocalizedString(@"邀請有獎", nil),DTLocalizedString(@"接受邀请", nil)];
                 }else{
-                    array = @[@"邀請有獎"];
+                    array = @[DTLocalizedString(@"邀請有獎", nil)];
                     
                 }
                 if([LXUserDefaults boolForKey:ISMEiGUO]){
                 
                     if (self.model.auth == 2) {
                         
-                        self.nameArray = [NSMutableArray arrayWithObjects:@[@"視頻認證",@"收費設定",@"在線時段"],@[@"小視頻",@"相薄"], @[@"設定"],nil];
+                        self.nameArray = [NSMutableArray arrayWithObjects:@[DTLocalizedString(@"視頻認證", nil),DTLocalizedString(@"收費設定", nil),DTLocalizedString(@"在線時段", nil)],@[DTLocalizedString(@"小視頻", nil),DTLocalizedString(@"相薄", nil)], @[DTLocalizedString(@"設定", nil)],nil];
                         
                         
                     }else{
                         
-                        self.nameArray = [NSMutableArray arrayWithObjects:@[@"視頻認證"],@[@"小視頻",@"相薄"],@[@"設定"], nil];
+                        self.nameArray = [NSMutableArray arrayWithObjects:@[DTLocalizedString(@"視頻認證", nil)],@[DTLocalizedString(@"小視頻", nil),DTLocalizedString(@"相薄", nil)],@[DTLocalizedString(@"設定", nil)], nil];
                         
                     }
                     
@@ -500,12 +500,12 @@
                 
                     if (self.model.auth == 2) {
                         
-                        self.nameArray = [NSMutableArray arrayWithObjects:array,@[@"視頻認證",@"收費設定",@"在線時段"],@[@"小視頻",@"相薄"], @[@"設定"],nil];
+                        self.nameArray = [NSMutableArray arrayWithObjects:array,@[DTLocalizedString(@"視頻認證", nil),DTLocalizedString(@"收費設定", nil),DTLocalizedString(@"在線時段", nil)],@[DTLocalizedString(@"小視頻", nil),DTLocalizedString(@"相薄", nil)], @[DTLocalizedString(@"設定", nil)],nil];
                         
                         
                     }else{
                         
-                        self.nameArray = [NSMutableArray arrayWithObjects:array,@[@"視頻認證"],@[@"小視頻",@"相薄"],@[@"設定"], nil];
+                        self.nameArray = [NSMutableArray arrayWithObjects:array,@[DTLocalizedString(@"視頻認證", nil)],@[DTLocalizedString(@"小視頻", nil),DTLocalizedString(@"相薄", nil)],@[DTLocalizedString(@"設定", nil)], nil];
                         
                     }
                     
@@ -633,25 +633,25 @@
                 
                 if(self.model.auth == 0){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"未认证"];
+                    cell.detailTextLabel.text = [NSString stringWithFormat:DTLocalizedString(@"未认证", nil)];
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                     
                 }else if (self.model.auth == 1){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"认证中"];
+                    cell.detailTextLabel.text = [NSString stringWithFormat:DTLocalizedString(@"认证中", nil)];
                     cell.accessoryType = UITableViewCellAccessoryNone;
                     
                     
                 }else if (self.model.auth == 2){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"認證成功"];
+                    cell.detailTextLabel.text = [NSString stringWithFormat:DTLocalizedString(@"認證成功", nil)];
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                     
                 }else{
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"認證失敗"];
+                    cell.detailTextLabel.text = [NSString stringWithFormat:DTLocalizedString(@"認證失敗", nil)];
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                 }
@@ -706,25 +706,25 @@
                 
                 if(self.model.auth == 0){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"未认证"];
+                    cell.detailTextLabel.text = [NSString stringWithFormat:DTLocalizedString(@"未认证", nil)];
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                     
                 }else if (self.model.auth == 1){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"认证中"];
+                    cell.detailTextLabel.text = [NSString stringWithFormat:DTLocalizedString(@"认证中", nil)];
                     cell.accessoryType = UITableViewCellAccessoryNone;
                     
                     
                 }else if (self.model.auth == 2){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"認證成功"];
+                    cell.detailTextLabel.text = [NSString stringWithFormat:DTLocalizedString(@"認證成功", nil)];
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                     
                 }else{
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"認證失敗"];
+                    cell.detailTextLabel.text = [NSString stringWithFormat:DTLocalizedString(@"認證失敗", nil)];
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                 }
@@ -1001,7 +1001,7 @@
     
     
     // 設定长按手势弹出的地步ActionSheet数据,不实现此方法则没有长按手势
-    [browser setActionSheetWithTitle:@"个人封面" delegate:self cancelButtonTitle:nil deleteButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相薄选择",@"保存图片",nil];
+    [browser setActionSheetWithTitle:DTLocalizedString(@"个人封面", nil) delegate:self cancelButtonTitle:nil deleteButtonTitle:nil otherButtonTitles:DTLocalizedString(@"拍照", nil),DTLocalizedString(@"从手机相薄选择", nil),DTLocalizedString(@"保存图片", nil),nil];
 }
 
 
@@ -1087,7 +1087,7 @@
                 }      //请求失败
                 if ([[result objectForKey:@"result"] integerValue] == 1) {
                     
-                    [SVProgressHUD showErrorWithStatus:@"网络失败"];
+                    [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"网络失败", nil)];
                     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                         

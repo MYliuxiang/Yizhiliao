@@ -79,23 +79,23 @@ static MeassageVC *this;
    
     
     // Do any additional setup after loading the view.
-    self.text = @"訊息";
+    self.text = DTLocalizedString(@"訊息", nil);
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         // 当网络状态改变时调用
         switch (status) {
             case AFNetworkReachabilityStatusUnknown:
-                NSLog(@"未知网络");
+                NSLog(DTLocalizedString(@"未知网络", nil));
                 self.isNoWifi = NO;
                 [self.tableView reloadData];
                 break;
             case AFNetworkReachabilityStatusNotReachable:
-                NSLog(@"没有网络");
+                NSLog(DTLocalizedString(@"没有网络", nil));
                 self.isNoWifi = YES;
                 [self.tableView reloadData];
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
-                NSLog(@"手机自带网络");
+                NSLog(DTLocalizedString(@"手机自带网络", nil));
                 self.isNoWifi = NO;
                 [self.tableView reloadData];
                 break;
@@ -203,7 +203,7 @@ static MeassageVC *this;
  //登入成功、
 - (void)onLoginSuccess
 {
-    self.text = @"訊息";
+    self.text = DTLocalizedString(@"訊息", nil);
     [self.actView stopAnimating];
 
 }
@@ -211,7 +211,7 @@ static MeassageVC *this;
 //当重连成功会触发此回调。重连失败会触发onLogout回调。
 - (void)onReconnected
 {
-    self.text = @"訊息";
+    self.text = DTLocalizedString(@"訊息", nil);
     [self.actView stopAnimating];
 
 }
@@ -255,7 +255,7 @@ static MeassageVC *this;
     
 //    if([self.inst isOnline]){
 //    
-//        self.text = @"訊息";
+//        self.text = DTLocalizedString(@"訊息", nil);
 //        
 //    }else{
 //    
@@ -337,7 +337,7 @@ static MeassageVC *this;
 
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     //添加一个删除按钮
-    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:(UITableViewRowActionStyleDestructive) title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:(UITableViewRowActionStyleDestructive) title:DTLocalizedString(@"删除", nil) handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         //1.更新数据
         
         MessageCount *count = self.dataList[indexPath.row];

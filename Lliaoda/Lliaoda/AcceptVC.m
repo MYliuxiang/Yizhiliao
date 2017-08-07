@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = @"输入邀請碼";
+    self.text = DTLocalizedString(@"输入邀請碼", nil);
     self.tijiaoBtn.layer.cornerRadius = 22;
     self.tijiaoBtn.layer.masksToBounds = YES;
     
@@ -30,11 +30,11 @@
     self.invitationBtn.layer.masksToBounds = YES;
     self.invitationBtn.layer.borderWidth = 1;
     self.invitationBtn.layer.borderColor = Color_nav.CGColor;
-    self.label1.text = @"邀請碼";
+    self.label1.text = DTLocalizedString(@"邀請碼", nil);
     self.label2.text = @"填入好友分享的邀請碼，即可獲得獎勵";
     self.textField.placeholder = @"請輸入5位邀請碼，即可獲得獎勵";
-    [self.tijiaoBtn setTitle:@"提交" forState:UIControlStateNormal];
-    [self.tijiaoBtn setTitle:@"我要去邀請" forState:UIControlStateNormal];
+    [self.tijiaoBtn setTitle:DTLocalizedString(@"提交", nil) forState:UIControlStateNormal];
+    [self.tijiaoBtn setTitle:DTLocalizedString(@"我要去邀請", nil) forState:UIControlStateNormal];
 
 
 }
@@ -49,7 +49,7 @@
 
     if (self.textField.text.length == 0) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写验证码！" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"確定", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"请填写验证码！" delegate:nil cancelButtonTitle:nil otherButtonTitles:DTLocalizedString(@"確定", nil), nil];
         [alert show];
         return;
     }
@@ -59,7 +59,7 @@
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
-                [SVProgressHUD showSuccessWithStatus:@"激活成功"];
+                [SVProgressHUD showSuccessWithStatus:DTLocalizedString(@"激活成功", nil)];
                 dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     

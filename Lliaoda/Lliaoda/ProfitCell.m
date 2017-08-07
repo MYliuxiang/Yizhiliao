@@ -27,7 +27,7 @@
     // Initialization code
     self.contentView.backgroundColor = Color_nav;
     self.label1.text = @"可提現總收入(聊幣)";
-    [self.tixianButton setTitle:@"提現" forState:UIControlStateNormal];;
+    [self.tixianButton setTitle:DTLocalizedString(@"提現", nil) forState:UIControlStateNormal];;
 
 }
 

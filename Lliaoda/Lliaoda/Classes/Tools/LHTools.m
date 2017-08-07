@@ -28,7 +28,7 @@
     if (authStatus == AVAuthorizationStatusRestricted ||
         authStatus == AVAuthorizationStatusDenied){
         
-        NSLog(@"相机权限受限");
+        NSLog(DTLocalizedString(@"相机权限受限", nil));
         
         return NO;
         

@@ -1785,10 +1785,10 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
             @"tr" : @[ @"Vazgeç", @"Yinele", @"Yazmayı Yinele", @"Geri Al", @"Yazmayı Geri Al" ],
             @"uk" : @[ @"Скасувати", @"Повторити", @"Повторити введення", @"Відмінити", @"Відмінити введення" ],
             @"vi" : @[ @"Hủy", @"Làm lại", @"Làm lại thao tác Nhập", @"Hoàn tác", @"Hoàn tác thao tác Nhập" ],
-            @"zh" : @[ @"取消", @"重做", @"重做键入", @"撤销", @"撤销键入" ],
-            @"zh_CN" : @[ @"取消", @"重做", @"重做键入", @"撤销", @"撤销键入" ],
-            @"zh_HK" : @[ @"取消", @"重做", @"重做輸入", @"還原", @"還原輸入" ],
-            @"zh_TW" : @[ @"取消", @"重做", @"重做輸入", @"還原", @"還原輸入" ]
+            @"zh" : @[ DTLocalizedString(@"取消", nil), DTLocalizedString(@"重做", nil), DTLocalizedString(@"重做键入", nil), DTLocalizedString(@"撤销", nil), DTLocalizedString(@"撤销键入", nil) ],
+            @"zh_CN" : @[ DTLocalizedString(@"取消", nil), DTLocalizedString(@"重做", nil), DTLocalizedString(@"重做键入", nil), DTLocalizedString(@"撤销", nil), DTLocalizedString(@"撤销键入", nil) ],
+            @"zh_HK" : @[ DTLocalizedString(@"取消", nil), DTLocalizedString(@"重做", nil), DTLocalizedString(@"重做輸入", nil), DTLocalizedString(@"還原", nil), DTLocalizedString(@"還原輸入", nil) ],
+            @"zh_TW" : @[ DTLocalizedString(@"取消", nil), DTLocalizedString(@"重做", nil), DTLocalizedString(@"重做輸入", nil), DTLocalizedString(@"還原", nil), DTLocalizedString(@"還原輸入", nil) ]
         };
         NSString *preferred = [[NSBundle mainBundle] preferredLocalizations].firstObject;
         if (preferred.length == 0) preferred = @"English";

@@ -32,7 +32,7 @@
     UIButton *cancel = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth-60, 0,50,50)];
     cancel.titleLabel.font = [UIFont systemFontOfSize:14];
     [cancel setTitleColor:Color_nav forState:UIControlStateNormal];
-    [cancel setTitle:@"確定" forState:UIControlStateNormal];
+    [cancel setTitle:DTLocalizedString(@"確定", nil) forState:UIControlStateNormal];
     [toolView addSubview:cancel];
     [cancel addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -145,7 +145,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = @"收費設定";
+    self.text = DTLocalizedString(@"收費設定", nil);
     
     
     self.priceBtn.layer.borderColor = Color_nav.CGColor;
@@ -159,7 +159,7 @@
 //        [self.priceBtn setTitle:[NSString stringWithFormat:@"%d鑽/分钟",self.model.charge] forState:UIControlStateNormal];
 //    }else{
 //        
-//    [self.priceBtn setTitle:[NSString stringWithFormat:@"未設定"] forState:UIControlStateNormal];
+//    [self.priceBtn setTitle:[NSString stringWithFormat:DTLocalizedString(@"未設定", nil)] forState:UIControlStateNormal];
 //    }
     
     Charge *charge;

@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.label = @"簽名檔";
+    self.label = DTLocalizedString(@"簽名檔", nil);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
