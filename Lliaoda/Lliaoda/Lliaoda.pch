@@ -230,6 +230,11 @@ alpha:1.0]
 #define certificate1 @"d5e0a27cec6f4b06b0f0003d826bbee9"
 #define enableMediaCertificate 1
 
+
+// 多语言相关
+#define DTLocalizedString(key, comment) [LocalizationUtils DPLocalizedString:(key)]
+#define Language @"language"   //对应的语言
+
 /*
  Face boolk
  APP ID：443120286052900
