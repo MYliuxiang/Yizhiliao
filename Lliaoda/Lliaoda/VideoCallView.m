@@ -27,6 +27,7 @@
         self.yeLab.text = DTLocalizedString(@"账户余额", nil);
         [self.gotoMoneyBtn setTitle:DTLocalizedString(@"去充值", nil) forState:UIControlStateNormal];
 
+
         
         
          _instMedia = [AgoraRtcEngineKit sharedEngineWithAppId:agoreappID delegate:self];
@@ -265,7 +266,7 @@
                     giftModel.headImage = [UIImage imageNamed:@"红包雨02"];
                     
                 }else{
-                giftModel.giftName = [NSString stringWithFormat:@"收到%@",model.name];
+                giftModel.giftName = [NSString stringWithFormat:DTLocalizedString(@"收到%@", nil),model.name];
                 giftModel.giftImage = model.icon;
 
                 }
@@ -355,7 +356,7 @@
         messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
         messageModel.sendUid = self.uid;
         NSString *timeStr = [self timeFormatted:self.callTime];
-        messageModel.content = [NSString stringWithFormat:@"你與%@愉快地進行了通話,時長:%@",self.model.nickname,timeStr];
+        messageModel.content = [NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"你與%@愉快地進行了通話,時長:%@", nil), nil),self.model.nickname,timeStr];
         [messageModel save];
         
         NSDictionary *msg = @{@"message":@{
@@ -492,8 +493,8 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 NSString *key = result[@"data"][@"key"];
                 
-                self.accountLabel.text = [NSString stringWithFormat:@"%@鑽石",result[@"data"][@"deposit"]];
-                self.lowTimeLabel.text = [NSString stringWithFormat:@"可通话时长%@分钟",result[@"data"][@"sustain"]];
+                self.accountLabel.text = [NSString stringWithFormat:DTLocalizedString(@"%@鑽石", nil),result[@"data"][@"deposit"]];
+                self.lowTimeLabel.text = [NSString stringWithFormat:DTLocalizedString(@"可通话时长%@分钟", nil),result[@"data"][@"sustain"]];
                 int sustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"sustain"]] intValue];
                 int peerSustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"peerSustain"]] intValue];
                 if(peerSustain <= 2 && peerSustain != -1 && !self.islow){
@@ -563,6 +564,7 @@
                          [_inst messageInstantSend:self.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%ld",[LXUserDefaults objectForKey:UID],idate]];
                         
                         LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
+
                         lg.destructiveButtonBackgroundColor = Color_nav;
                         lg.destructiveButtonTitleColor = [UIColor whiteColor];
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -682,7 +684,7 @@
         
 //        [AGVideoPreProcessing registerVideoPreprocessing:_instMedia];
 
-        self.headeLab.text = [NSString stringWithFormat:@"正在呼叫%@...",self.model.nickname];
+        self.headeLab.text = [NSString stringWithFormat:DTLocalizedString(@"正在呼叫%@...", nil),self.model.nickname];
         [_inst channelInviteUser:self.channel account:self.uid uid:0];
         _longTime = 0;
         _longTimer =  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(longtime:) userInfo:nil repeats:YES];
@@ -690,7 +692,7 @@
     }else{
         
         //被动呼叫
-        self.headeLab.text = [NSString stringWithFormat:@"%@邀请你加入視訊通話",self.model.nickname];
+        self.headeLab.text = [NSString stringWithFormat:DTLocalizedString(@"%@邀请你加入視訊通話", nil),self.model.nickname];
         self.agreeBtn.hidden = NO;
         self.refuseBtn.hidden = NO;
         
@@ -715,7 +717,7 @@
             long long idate = [[NSDate date] timeIntervalSince1970]*1000;
             NSDictionary *msg = @{@"message":@{
                                           @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
-                                          @"content":[NSString stringWithFormat:@"你有一个来自%@的未接来电，记得回拨哟～",[LXUserDefaults objectForKey:NickName]],
+                                          @"content":[NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"你有一个来自%@的未接来电，记得回拨哟～", nil), nil),[LXUserDefaults objectForKey:NickName]],
                                           @"type":@(MessageBodyType_Video),
                                           @"time":[NSString stringWithFormat:@"%lld",idate],
                                           }};
@@ -929,7 +931,7 @@
         messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
         messageModel.sendUid = self.uid;
         NSString *timeStr = [self timeFormatted:self.callTime];
-        messageModel.content = [NSString stringWithFormat:@"你與%@愉快地進行了通話,時長:%@",self.model.nickname,timeStr];
+        messageModel.content = [NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"你與%@愉快地進行了通話,時長:%@", nil), nil),self.model.nickname,timeStr];
         [messageModel save];
         
         NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",self.uid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
@@ -937,7 +939,7 @@
         if ([MessageCount findFirstByCriteria:criteria]) {
             
             MessageCount *count = [MessageCount findFirstByCriteria:criteria];
-            count.content = [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"你與%@愉快地進行了通話,時長:%@",self.model.nickname,timeStr]];
+            count.content = [NSString stringWithFormat:@"%@",[NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"你與%@愉快地進行了通話,時長:%@", nil), nil),self.model.nickname,timeStr]];
             count.count = count.count + 1;
             
             count.timeDate = idate;
@@ -948,7 +950,7 @@
         }else{
             
             MessageCount *count = [[MessageCount alloc] init];
-            count.content = [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"你與%@愉快地進行了通話,時長:%@",self.model.nickname,timeStr]];
+            count.content = [NSString stringWithFormat:@"%@",[NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"你與%@愉快地進行了通話,時長:%@", nil), nil),self.model.nickname,timeStr]];
             count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
             count.sendUid = self.uid;
             count.count = 1;
@@ -1155,7 +1157,7 @@
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     NSDictionary *msg = @{@"message":@{
                                   @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
-                                  @"content":[NSString stringWithFormat:@"你有一个来自%@的未接来电，记得回拨哟～",[LXUserDefaults objectForKey:NickName]],
+                                  @"content":[NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"你有一个来自%@的未接来电，记得回拨哟～", nil), nil),[LXUserDefaults objectForKey:NickName]],
                                   @"type":@(MessageBodyType_Video),
                                   @"time":[NSString stringWithFormat:@"%lld",idate],
                                   }};
@@ -1237,8 +1239,8 @@
                 
                 NSLog(@"%@",result);
                 NSString *key = result[@"data"][@"key"];
-                self.accountLabel.text = [NSString stringWithFormat:@"%@鑽石",result[@"data"][@"deposit"]];
-                self.lowTimeLabel.text = [NSString stringWithFormat:@"可通话时长%@分钟",result[@"data"][@"sustain"]];
+                self.accountLabel.text = [NSString stringWithFormat:DTLocalizedString(@"%@鑽石", nil),result[@"data"][@"deposit"]];
+                self.lowTimeLabel.text = [NSString stringWithFormat:DTLocalizedString(@"可通话时长%@分钟", nil),result[@"data"][@"sustain"]];
                 int sustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"sustain"]] intValue];
                 int peerSustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"peerSustain"]] intValue];
                 
@@ -1352,8 +1354,8 @@
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 NSString *key = result[@"data"][@"key"];
-                self.accountLabel.text = [NSString stringWithFormat:@"%@鑽石",result[@"data"][@"deposit"]];
-                self.lowTimeLabel.text = [NSString stringWithFormat:@"可通话时长%@分钟",result[@"data"][@"sustain"]];
+                self.accountLabel.text = [NSString stringWithFormat:DTLocalizedString(@"%@鑽石", nil),result[@"data"][@"deposit"]];
+                self.lowTimeLabel.text = [NSString stringWithFormat:DTLocalizedString(@"可通话时长%@分钟", nil),result[@"data"][@"sustain"]];
                 int sustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"sustain"]] intValue];
                 int peerSustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"peerSustain"]] intValue];
                 
@@ -1488,7 +1490,7 @@
         
         
         
-    self.headeLab.text = [NSString stringWithFormat:@"与 %@ 通话",self.model.nickname];
+    self.headeLab.text = [NSString stringWithFormat:DTLocalizedString(@"与 %@ 通话", nil),self.model.nickname];
     self.callTime = 0;
     _timer =  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(function:) userInfo:nil repeats:YES];
     }
@@ -1546,7 +1548,7 @@
 {
     
     if(uid == [self.uid integerValue]){
-    self.headeLab.text = [NSString stringWithFormat:@"%@已离开",self.model.nickname];
+    self.headeLab.text = [NSString stringWithFormat:DTLocalizedString(@"%@已离开", nil),self.model.nickname];
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         
@@ -1594,7 +1596,7 @@
         messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
         messageModel.sendUid = self.uid;
         NSString *timeStr = [self timeFormatted:self.callTime];
-        messageModel.content = [NSString stringWithFormat:@"你與%@愉快地進行了通話,時長:%@",self.model.nickname,timeStr];
+        messageModel.content = [NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"你與%@愉快地進行了通話,時長:%@", nil), nil),self.model.nickname,timeStr];
         [messageModel save];
         
         
@@ -1604,7 +1606,7 @@
         if ([MessageCount findFirstByCriteria:criteria]) {
             
             MessageCount *count = [MessageCount findFirstByCriteria:criteria];
-            count.content = [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"你與%@愉快地進行了通話,時長:%@",self.model.nickname,timeStr]];
+            count.content = [NSString stringWithFormat:@"%@",[NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"你與%@愉快地進行了通話,時長:%@", nil), nil),self.model.nickname,timeStr]];
             count.count = count.count + 1;
             
             count.timeDate = idate;
@@ -1616,7 +1618,7 @@
         }else{
             
             MessageCount *count = [[MessageCount alloc] init];
-            count.content = [NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"你與%@愉快地進行了通話,時長:%@",self.model.nickname,timeStr]];
+            count.content = [NSString stringWithFormat:@"%@",[NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"你與%@愉快地進行了通話,時長:%@", nil), nil),self.model.nickname,timeStr]];
             count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
             count.sendUid = self.uid;
             count.count = 1;
@@ -1700,7 +1702,7 @@
 //网络连接丢失回调 (rtcEngineConnectionDidLost)
 - (void)rtcEngineConnectionDidLost:(AgoraRtcEngineKit *)engine
 {
-    self.headeLab.text = @"网络连接失败，请检查网络!";
+    self.headeLab.text = DTLocalizedString(@"网络连接失败，请检查网络!", nil);
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
 
@@ -1720,8 +1722,8 @@
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 NSString *key = result[@"data"][@"key"];
-                self.accountLabel.text = [NSString stringWithFormat:@"%@鑽石",result[@"data"][@"deposit"]];
-                self.lowTimeLabel.text = [NSString stringWithFormat:@"可通话时长%@分钟",result[@"data"][@"sustain"]];
+                self.accountLabel.text = [NSString stringWithFormat:DTLocalizedString(@"%@鑽石", nil),result[@"data"][@"deposit"]];
+                self.lowTimeLabel.text = [NSString stringWithFormat:DTLocalizedString(@"可通话时长%@分钟", nil),result[@"data"][@"sustain"]];
                 int sustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"sustain"]] intValue];
                 int peerSustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"peerSustain"]] intValue];
                 if(peerSustain <= 2 && peerSustain != -1 && !self.islow){

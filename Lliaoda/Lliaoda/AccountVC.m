@@ -55,6 +55,7 @@ static NSString *const headerId = @"headerId";
     self.label1.text = DTLocalizedString(@"账户余额", nil);
     self.label.text = DTLocalizedString(@"鑽石", nil);
 
+
     self.view.backgroundColor = UIColorFromRGB(0xf0f0f0);
     self.dataList = [NSMutableArray array];
 //    self.accountLab.text = [NSString stringWithFormat:@"%d",self.deposit];

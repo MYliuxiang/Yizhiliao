@@ -82,7 +82,7 @@
     
     [self.rechargeBtn setTitle:DTLocalizedString(@"快速儲值", nil) forState:UIControlStateNormal];
     self.label1.text = DTLocalizedString(@"正在為您尋找有緣人", nil);
-    self.label2.text = @"點擊任意大頭照可以進入Ta的主頁喔！";
+    self.label2.text = DTLocalizedString(@"點擊任意大頭照可以進入Ta的主頁喔！",nil);
 
     self.pointsModels = [NSMutableArray array];
     self.finBtn.layer.cornerRadius = 22;

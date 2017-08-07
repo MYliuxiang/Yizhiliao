@@ -626,7 +626,8 @@ NSString *const kTableViewFrame = @"frame";
                     
                     if ([[result objectForKey:@"result"] integerValue] == 8) {
                         
-                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
+                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:DTLocalizedString(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？", nil) style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
+                       
                         lg.destructiveButtonBackgroundColor = Color_nav;
                         lg.destructiveButtonTitleColor = [UIColor whiteColor];
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];

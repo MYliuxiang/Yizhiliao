@@ -312,26 +312,26 @@
     //与现在的时间差
     NSString *result;
     if (timeInterval < 60) {
-        result = [NSString stringWithFormat:DTLocalizedString(@"正在活躍", nil)];
+        result = [NSString stringWithFormat:@"%@", DTLocalizedString(@"正在活躍", nil)];
     }
     else if((temp = timeInterval/60) <60){
-        result = [NSString stringWithFormat:@"%ld分鐘前活躍",temp];
+        result = [NSString stringWithFormat:DTLocalizedString(@"%ld分鐘前活躍", nil),temp];
     }
     
     else if((temp = temp/60) <24){
-        result = [NSString stringWithFormat:@"%ld小時前活躍",temp];
+        result = [NSString stringWithFormat:DTLocalizedString(@"%ld小時前活躍", nil),temp];
     }
     
     else if((temp = temp/24) <30){
-        result = [NSString stringWithFormat:@"%ld天前活躍",temp];
+        result = [NSString stringWithFormat:DTLocalizedString(@"%ld天前活躍", nil),temp];
     }
     
     else if((temp = temp/30) <12){
-        result = [NSString stringWithFormat:@"%ld月前活跃",temp];
+        result = [NSString stringWithFormat:DTLocalizedString(@"%ld月前活跃", nil),temp];
     }
     else{
         temp = temp/12;
-        result = [NSString stringWithFormat:DTLocalizedString(@"%ld年前活跃", nil),temp];
+        result = [NSString stringWithFormat:DTLocalizedString(DTLocalizedString(@"%ld年前活跃", nil), nil),temp];
     }
     
     return  result;
