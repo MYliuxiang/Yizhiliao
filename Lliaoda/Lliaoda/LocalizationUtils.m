@@ -13,20 +13,26 @@
 //处理默认语言
 + (NSString *)DPLocalizedString:(NSString *)translation_key {
     
-    NSString * s = NSLocalizedString(translation_key, nil);
-    NSString *lang = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:Language]];
-//    if (![lang isEqual:@"1"]) {
-//        NSString * path = [[NSBundle mainBundle] pathForResource:@"Base" ofType:@"lproj"];
-//        NSBundle * languageBundle = [NSBundle bundleWithPath:path];
-//        s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
-//    }else{
+    NSString *s = NSLocalizedString(translation_key, nil);
+    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+//  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLanguage) name:@"changeLanguage" object:nil];
+
+    if ([lang hasPrefix:@"zh-hant"]) {
+        NSString * path = [[NSBundle mainBundle] pathForResource:@"Traditional" ofType:@"lproj"];
+        NSBundle * languageBundle = [NSBundle bundleWithPath:path];
+        s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
+    }else if ([lang hasPrefix:@"id"]){
+        NSString * path = [[NSBundle mainBundle] pathForResource:@"Indonesia" ofType:@"lproj"];
+        NSBundle * languageBundle = [NSBundle bundleWithPath:path];
+        s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
+    }else{
         NSString * path = [[NSBundle mainBundle] pathForResource:@"Base" ofType:@"lproj"];
         NSBundle * languageBundle = [NSBundle bundleWithPath:path];
         s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
-//    }
-    
+    }
    
     return s;
 }
+
 
 @end

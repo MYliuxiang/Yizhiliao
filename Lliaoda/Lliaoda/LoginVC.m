@@ -338,10 +338,14 @@
 }
 - (IBAction)chineseButtonAC:(id)sender {
     self.languageBGView.hidden = YES;
+    [LXUserDefaults setObject:@"zh-hant" forKey:@"userLanguage"];
+    [LXUserDefaults synchronize];
     
 }
 
 - (IBAction)indonesiaButtonAC:(id)sender {
     self.languageBGView.hidden = YES;
+    [LXUserDefaults setObject:@"id" forKey:@"userLanguage"];
+    [LXUserDefaults synchronize];
 }
 @end

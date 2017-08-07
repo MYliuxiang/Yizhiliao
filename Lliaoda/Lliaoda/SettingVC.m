@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.text = DTLocalizedString(@"设置", nil);
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     _maskView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.3];

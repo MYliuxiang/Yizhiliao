@@ -408,6 +408,7 @@
 		2263D3E81EF392BD0020E092 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263D3E71EF392BD0020E092 /* AboutVC.m */; };
 		226B6FF11F38591000AEC7D2 /* LocalizationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 226B6FF01F38591000AEC7D2 /* LocalizationUtils.m */; };
 		226B6FF41F38649E00AEC7D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 226B6FF61F38649E00AEC7D2 /* InfoPlist.strings */; };
+		226B70411F389B0400AEC7D2 /* NSString+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = 226B70401F389B0300AEC7D2 /* NSString+Localization.m */; };
 		226BA90F1ED7E324004D983A /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BA90D1ED7E324004D983A /* MyCell.m */; };
 		226BA9101ED7E324004D983A /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BA90E1ED7E324004D983A /* MyCell.xib */; };
 		226CB6221EE6653700FF7EC8 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 226CB6211EE6653700FF7EC8 /* libWeChatSDK.a */; };
@@ -1149,6 +1150,8 @@
 		226B6FF71F3864A100AEC7D2 /* id-ID */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id-ID"; path = "id-ID.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		226B6FF81F3864A200AEC7D2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		226B703E1F38819D00AEC7D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		226B703F1F389B0300AEC7D2 /* NSString+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Localization.h"; sourceTree = "<group>"; };
+		226B70401F389B0300AEC7D2 /* NSString+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Localization.m"; sourceTree = "<group>"; };
 		226BA90C1ED7E324004D983A /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
 		226BA90D1ED7E324004D983A /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
 		226BA90E1ED7E324004D983A /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
@@ -2878,6 +2881,8 @@
 				222740181EC56A95002FEF5B /* 启动视屏 */,
 				22E8D76F1EA49AE300C5FC6B /* AppDelegate.h */,
 				22E8D7701EA49AE300C5FC6B /* AppDelegate.m */,
+				226B703F1F389B0300AEC7D2 /* NSString+Localization.h */,
+				226B70401F389B0300AEC7D2 /* NSString+Localization.m */,
 				22ADAE291F0BC352005D08A4 /* IAPModel.h */,
 				22ADAE2A1F0BC352005D08A4 /* IAPModel.m */,
 				843EC0241F29D9750051AFD3 /* OrderID.h */,
@@ -3694,6 +3699,7 @@
 				222B385D1ED96843009DB58F /* MSSBrowseBaseViewController.m in Sources */,
 				840BE3201F1F02C40004B6D9 /* ProfitCell.m in Sources */,
 				227971CC1EF8DC0900BC8E18 /* DateUnit.m in Sources */,
+				226B70411F389B0400AEC7D2 /* NSString+Localization.m in Sources */,
 				2258D2921EB834ED006D29DC /* Charge.m in Sources */,
 				2286DC661EF26AFE00FDF801 /* LHChatBaseBubbleView.m in Sources */,
 				22FAD5541EE11FB100BF8BDB /* Reachability.m in Sources */,
