@@ -133,7 +133,7 @@
     _enterMainButton.layer.borderWidth =1;
     _enterMainButton.layer.cornerRadius = 24;
     _enterMainButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    [_enterMainButton setTitle:@"进入应用" forState:UIControlStateNormal];
+    [_enterMainButton setTitle:DTLocalizedString(@"进入应用", nil) forState:UIControlStateNormal];
     _enterMainButton.hidden = YES;
     [self.view addSubview:_enterMainButton];
     [_enterMainButton addTarget:self action:@selector(enterMainAction:) forControlEvents:UIControlEventTouchUpInside];

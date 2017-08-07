@@ -74,7 +74,7 @@
             [cell.loadingView stopAnimation];
             if(error)
             {
-                [self showBrowseRemindViewWithText:@"图片加载失败"];
+                [self showBrowseRemindViewWithText:DTLocalizedString(@"图片加载失败", nil)];
             }
             else
             {

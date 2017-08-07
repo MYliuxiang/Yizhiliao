@@ -112,12 +112,12 @@
     if (!cell.longPressGestureBlock) {
         LHWeakSelf;
         cell.longPressGestureBlock = ^(UIImage *image) {
-            [UIActionSheet showInView:self.view withTitle:@"保存图片到相薄" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"保存"] tapBlock:^(UIActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
+            [UIActionSheet showInView:self.view withTitle:DTLocalizedString(@"保存图片到相薄", nil) cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:nil otherButtonTitles:@[DTLocalizedString(@"保存", nil)] tapBlock:^(UIActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
                 if (!buttonIndex) {
                     dispatch_async(dispatch_get_global_queue(0, 0), ^{
                         UIImageWriteToSavedPhotosAlbum(image, nil, nil,nil);
                         dispatch_sync(dispatch_get_main_queue(), ^{
-                            [weakSelf showReminderWithContent:@"图片已保存到相薄"];
+                            [weakSelf showReminderWithContent:DTLocalizedString(@"图片已保存到相薄", nil)];
                         });
                     });
                     

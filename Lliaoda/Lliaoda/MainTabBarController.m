@@ -74,25 +74,25 @@ static MainTabBarController *mainTVC = nil;
     
     FindVC *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
     BaseNavigationController *nav_main = [[BaseNavigationController alloc]initWithRootViewController:homeVC];
-    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"發現" image:[UIImage imageNamed:@"faxian"] selectedImage:[UIImage imageNamed:@"faxian"]];
+    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc] initWithTitle:DTLocalizedString(@"發現", nil) image:[UIImage imageNamed:@"faxian"] selectedImage:[UIImage imageNamed:@"faxian"]];
     homeVC.tabBarItem = tabBarItem1;
     
     
     SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
     BaseNavigationController *nav_managementVC = [[BaseNavigationController alloc]initWithRootViewController:managementVC];
-    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"精選" image:[UIImage imageNamed:@"jingxuan_n"] selectedImage:[UIImage imageNamed:@"jingxuan_h"]];
+    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc] initWithTitle:DTLocalizedString(@"精選", nil) image:[UIImage imageNamed:@"jingxuan_n"] selectedImage:[UIImage imageNamed:@"jingxuan_h"]];
     managementVC.tabBarItem = tabBarItem2;
     
     
     MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
     BaseNavigationController *nav_vipbusinessVC = [[BaseNavigationController alloc]initWithRootViewController:vipbusinessVC];
-    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"訊息" image:[UIImage imageNamed:@"xiaoxi_h"] selectedImage:[UIImage imageNamed:@"xiaoxi_n"]];
+    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc] initWithTitle:DTLocalizedString(@"訊息", nil) image:[UIImage imageNamed:@"xiaoxi_h"] selectedImage:[UIImage imageNamed:@"xiaoxi_n"]];
     vipbusinessVC.tabBarItem = tabBarItem3;
     
     
     MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
     BaseNavigationController *nav_myVC = [[BaseNavigationController alloc]initWithRootViewController:myVC];
-    UITabBarItem *tabBarItem4 = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"me_n"] selectedImage:[UIImage imageNamed:@"me_h"]];
+    UITabBarItem *tabBarItem4 = [[UITabBarItem alloc] initWithTitle:DTLocalizedString(@"我的", nil) image:[UIImage imageNamed:@"me_n"] selectedImage:[UIImage imageNamed:@"me_h"]];
     myVC.tabBarItem = tabBarItem4;
     
     self.viewControllers = @[nav_main,nav_managementVC,nav_vipbusinessVC,nav_myVC];
@@ -107,18 +107,18 @@ static MainTabBarController *mainTVC = nil;
     
     SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
     BaseNavigationController *nav_managementVC = [[BaseNavigationController alloc]initWithRootViewController:managementVC];
-    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"精選" image:[UIImage imageNamed:@"jingxuan_n"] selectedImage:[UIImage imageNamed:@"jingxuan_h"]];
+    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc] initWithTitle:DTLocalizedString(@"精選", nil) image:[UIImage imageNamed:@"jingxuan_n"] selectedImage:[UIImage imageNamed:@"jingxuan_h"]];
     managementVC.tabBarItem = tabBarItem1;
     
     
     MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
     BaseNavigationController *nav_vipbusinessVC = [[BaseNavigationController alloc]initWithRootViewController:vipbusinessVC];
-    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"訊息" image:[UIImage imageNamed:@"xiaoxi_h"] selectedImage:[UIImage imageNamed:@"xiaoxi_n"]];
+    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc] initWithTitle:DTLocalizedString(@"訊息", nil) image:[UIImage imageNamed:@"xiaoxi_h"] selectedImage:[UIImage imageNamed:@"xiaoxi_n"]];
     vipbusinessVC.tabBarItem = tabBarItem2;
     
     MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
     BaseNavigationController *nav_myVC = [[BaseNavigationController alloc]initWithRootViewController:myVC];
-    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"me_n"] selectedImage:[UIImage imageNamed:@"me_h"]];
+    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc] initWithTitle:DTLocalizedString(@"我的", nil) image:[UIImage imageNamed:@"me_n"] selectedImage:[UIImage imageNamed:@"me_h"]];
     myVC.tabBarItem = tabBarItem3;
     
     self.viewControllers = @[nav_managementVC,nav_vipbusinessVC,nav_myVC];

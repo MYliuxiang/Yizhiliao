@@ -63,7 +63,7 @@
 //    //检查用户是否可进行某种卡的支付，是否支持Amex、MasterCard、Visa与银联四种卡，根据自己项目的需要进行检测
 //    NSArray *supportedNetworks = @[PKPaymentNetworkAmex, PKPaymentNetworkMasterCard,PKPaymentNetworkVisa,PKPaymentNetworkChinaUnionPay];
 //    if (![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:supportedNetworks]) {
-//        NSLog(@"没有绑定支付卡");
+//        NSLog(DTLocalizedString(@"没有绑定支付卡", nil));
 //        return;
 //    }
     

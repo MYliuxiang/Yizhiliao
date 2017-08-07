@@ -301,7 +301,7 @@
     [_browseActionSheet removeFromSuperview];
     _browseActionSheet = nil;
     __weak __typeof(self)weakSelf = self;
-    _browseActionSheet = [[MSSBrowseActionSheet alloc]initWithTitleArray:@[@"保存图片",@"复制图片地址"] cancelButtonTitle:@"取消" didSelectedBlock:^(NSInteger index) {
+    _browseActionSheet = [[MSSBrowseActionSheet alloc]initWithTitleArray:@[DTLocalizedString(@"保存图片", nil),DTLocalizedString(@"复制图片地址", nil)] cancelButtonTitle:DTLocalizedString(@"取消", nil) didSelectedBlock:^(NSInteger index) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         [strongSelf browseActionSheetDidSelectedAtIndex:index currentCell:browseCell];
     }];
@@ -378,7 +378,7 @@
         MSSBrowseModel *currentBwowseItem = _browseItemArray[_currentIndex];
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         pasteboard.string = currentBwowseItem.bigImageUrl;
-        [self showBrowseRemindViewWithText:@"复制图片地址成功"];
+        [self showBrowseRemindViewWithText:DTLocalizedString(@"复制图片地址成功", nil)];
     }
 }
 
@@ -387,11 +387,11 @@
     NSString *text = nil;
     if(error)
     {
-        text = @"保存图片失败";
+        text = DTLocalizedString(@"保存图片失败", nil);
     }
     else
     {
-        text = @"保存图片成功";
+        text = DTLocalizedString(@"保存图片成功", nil);
     }
     [self showBrowseRemindViewWithText:text];
 }

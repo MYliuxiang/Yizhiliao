@@ -124,7 +124,7 @@ typedef NS_ENUM(NSInteger, RequestType) {
             
         }else{
         
-//            failure(@"没有网络");
+//            failure(DTLocalizedString(@"没有网络", nil));
 
         }
         

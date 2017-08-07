@@ -17,13 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = @"視頻認證";
+    self.text = DTLocalizedString(@"視頻認證", nil);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor clearColor];
     self.yanzBtn.layer.cornerRadius = 22;
     self.yanzBtn.layer.masksToBounds = YES;
   
-    [self.yanzBtn setTitle:@"馬上驗證" forState:UIControlStateNormal];
+    [self.yanzBtn setTitle:DTLocalizedString(@"馬上驗證", nil) forState:UIControlStateNormal];
     
     self.footerView.width = kScreenWidth;
     self.footerView.height = 30 + 44;

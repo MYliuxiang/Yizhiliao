@@ -60,7 +60,7 @@ static NSString * const kFSActionSheetCellIdentifier = @"kFSActionSheetCellIdent
     
     self.title = title?:@"";
     self.delegate = delegate;
-    self.cancelTitle = (cancelButtonTitle && cancelButtonTitle.length != 0)?cancelButtonTitle:@"取消";
+    self.cancelTitle = (cancelButtonTitle && cancelButtonTitle.length != 0)?cancelButtonTitle:DTLocalizedString(@"取消", nil);
     self.items = titleItems;
     
     [self addSubview:self.tableView];
@@ -75,7 +75,7 @@ static NSString * const kFSActionSheetCellIdentifier = @"kFSActionSheetCellIdent
     [self baseSetting];
     
     self.title = title?:@"";
-    self.cancelTitle = (cancelTitle && cancelTitle.length != 0)?cancelTitle:@"取消";
+    self.cancelTitle = (cancelTitle && cancelTitle.length != 0)?cancelTitle:DTLocalizedString(@"取消", nil);
     self.items = items?:@[];
     
     [self addSubview:self.tableView];

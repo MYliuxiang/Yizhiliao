@@ -23,10 +23,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.label1.text = @"送禮物";
-    self.label2.text = @"聊天";
-    self.label3.text = @"視頻通訊";
-    self.label4.text = @"去充值";
+    self.label1.text = DTLocalizedString(@"送禮物", nil);
+    self.label2.text = DTLocalizedString(@"聊天", nil);
+    self.label3.text = DTLocalizedString(@"視頻通訊", nil);
+    self.label4.text = DTLocalizedString(@"去充值", nil);
 
     self.videoBtn.layer.cornerRadius = 22;
     self.videoBtn.layer.masksToBounds = YES;
@@ -77,7 +77,7 @@
                     self.constraint.constant = 64;
                     [self.videoBtn setImage:[UIImage imageNamed:@"shipin_bai"] forState:UIControlStateNormal];
 
-                    [self.videoBtn setTitle:@"視訊通话" forState:UIControlStateNormal];
+                    [self.videoBtn setTitle:DTLocalizedString(@"視訊通话", nil) forState:UIControlStateNormal];
                     
                 }else{
                     
@@ -87,7 +87,7 @@
                     [self.view addSubview:self.footerView];
                     self.constraint.constant = 64;
                     [self.videoBtn setImage:[UIImage imageNamed:@"liaotian"] forState:UIControlStateNormal];
-                     [self.videoBtn setTitle:@"聊天" forState:UIControlStateNormal];
+                     [self.videoBtn setTitle:DTLocalizedString(@"聊天", nil) forState:UIControlStateNormal];
                     self.constraint.constant = 64;
                 }
                 
@@ -120,7 +120,7 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
             
                 self.pmodel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
-                self.dataList = @[@[@"20鑽/分钟"],@[@"相薄視訊"],@[@"聊號",@"地區",@"星座",@"经常出没"],@[@"簽名檔"]];
+                self.dataList = @[@[@"20鑽/分钟"],@[DTLocalizedString(@"相薄視訊", nil)],@[DTLocalizedString(@"聊號", nil),DTLocalizedString(@"地區", nil),DTLocalizedString(@"星座", nil),DTLocalizedString(@"经常出没", nil)],@[DTLocalizedString(@"簽名檔", nil)]];
                 self.text = self.pmodel.nickname;
                 Present *present = self.pmodel.presents[0];
                 if ([present.type isEqualToString:@"video"]) {
@@ -144,7 +144,7 @@
                     self.stateView.layer.cornerRadius = 10;
                     self.stateView.layer.masksToBounds = YES;
                     self.stateView.layer.borderWidth = .5;
-                    self.stateLabel.text = @"离线";
+                    self.stateLabel.text = DTLocalizedString(@"离线", nil);
                     self.stateLabel1.backgroundColor = Color_Text_gray;
                     self.stateLabel1.layer.cornerRadius = 8;
                     self.stateLabel1.layer.masksToBounds = YES;
@@ -159,7 +159,7 @@
                     self.stateView.layer.cornerRadius = 10;
                     self.stateView.layer.masksToBounds = YES;
                     self.stateView.layer.borderWidth = .5;
-                    self.stateLabel.text = @"我有空";
+                    self.stateLabel.text = DTLocalizedString(@"我有空", nil);
                     self.stateLabel1.backgroundColor = Color_green;
                     self.stateLabel1.layer.cornerRadius = 8;
                     self.stateLabel1.layer.masksToBounds = YES;
@@ -173,7 +173,7 @@
                     self.stateView.layer.cornerRadius = 10;
                     self.stateView.layer.masksToBounds = YES;
                     self.stateView.layer.borderWidth = .5;
-                    self.stateLabel.text = @"忙碌";
+                    self.stateLabel.text = DTLocalizedString(@"忙碌", nil);
                     self.stateLabel1.backgroundColor = Color_nav;
                     self.stateLabel1.layer.cornerRadius = 8;
                     self.stateLabel1.layer.masksToBounds = YES;
@@ -209,9 +209,9 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"舉報" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"舉報", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-         UIAlertController *alertController1 = [UIAlertController alertControllerWithTitle:nil message:@"请选择舉報类型" preferredStyle:UIAlertControllerStyleActionSheet];
+         UIAlertController *alertController1 = [UIAlertController alertControllerWithTitle:nil message:DTLocalizedString(@"请选择舉報类型", nil) preferredStyle:UIAlertControllerStyleActionSheet];
         
         NSString *nickName = self.pmodel.nickname;
         
@@ -222,31 +222,31 @@
         [alertControllerStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, str.length)];
         [alertController1 setValue:alertControllerStr forKey:@"_attributedTitle"];
         
-        UIAlertAction *aletAction1 = [UIAlertAction actionWithTitle:@"广告欺骗" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *aletAction1 = [UIAlertAction actionWithTitle:DTLocalizedString(@"广告欺骗", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self jubaoWithtype:0];
             
         }];
         
-        UIAlertAction *aletAction2 = [UIAlertAction actionWithTitle:@"淫秽色情" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *aletAction2 = [UIAlertAction actionWithTitle:DTLocalizedString(@"淫秽色情", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self jubaoWithtype:1];
 
         }];
         
-        UIAlertAction *aletAction3 = [UIAlertAction actionWithTitle:@"政治反动" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *aletAction3 = [UIAlertAction actionWithTitle:DTLocalizedString(@"政治反动", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self jubaoWithtype:2];
 
         }];
         
-        UIAlertAction *aletAction4 = [UIAlertAction actionWithTitle:@"其他" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *aletAction4 = [UIAlertAction actionWithTitle:DTLocalizedString(@"其他", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self jubaoWithtype:3];
 
         }];
         
-         UIAlertAction *cancelAction1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+         UIAlertAction *cancelAction1 = [UIAlertAction actionWithTitle:DTLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
         
         [cancelAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
         [aletAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
@@ -263,17 +263,17 @@
 
     }];
    
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
     [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
     [defaultAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
     
-    UIAlertAction *lahei = [UIAlertAction actionWithTitle:@"拉黑" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *lahei = [UIAlertAction actionWithTitle:DTLocalizedString(@"拉黑", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         BlackName *name = [[BlackName alloc] init];
         name.uid = self.model.uid;
         [name save];
         
-        [SVProgressHUD showSuccessWithStatus:@"拉黑成功"];
+        [SVProgressHUD showSuccessWithStatus:DTLocalizedString(@"拉黑成功", nil)];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             
@@ -478,7 +478,7 @@
 {
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"亲，当前用户是您自己，不能設定讚与不讚！" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"亲，当前用户是您自己，不能設定讚与不讚！" delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -610,7 +610,7 @@
                                 [_inst messageInstantSend:self.model.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
                             }if ([[result objectForKey:@"result"] integerValue] == 29) {
                                 
-                                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"成为VIP" message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"获取VIP" delegate:nil];
+                                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"成为VIP" message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:@"获取VIP" delegate:nil];
                                 lg.destructiveButtonBackgroundColor = Color_nav;
                                 lg.destructiveButtonTitleColor = [UIColor whiteColor];
                                 lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -675,7 +675,7 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 
-                [SVProgressHUD showSuccessWithStatus:@"舉報成功"];
+                [SVProgressHUD showSuccessWithStatus:DTLocalizedString(@"舉報成功", nil)];
                 dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     
@@ -707,7 +707,7 @@
     
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"不能与自己聊天。" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"不能与自己聊天。" delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -804,14 +804,14 @@
     
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"不能给自己打电话。" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"不能给自己打电话。" delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
 
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前网络不可用，请检查您的网络設定" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"当前网络不可用，请检查您的网络設定" delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
         [alert show];
         
         return;
@@ -819,14 +819,14 @@
 
     if (self.pmodel.state == 2) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前用户正在忙碌" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"当前用户正在忙碌", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
     AppDelegate *app = [AppDelegate shareAppDelegate];
     if(![app.inst isOnline]){
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正处于离线状态" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"您正处于离线状态", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -843,7 +843,7 @@
 //
 //    NSString *str = charge.name;
 //    NSString *str1 = [NSString stringWithFormat:@"与当前用户視訊通话，每分钟需支付%@，是否继续通话",str];
-//    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"提示" message:str1 style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"確定" delegate:nil];
+//    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:str1 style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"確定", nil) delegate:nil];
 //    lg.destructiveButtonBackgroundColor = [UIColor whiteColor];
 //    lg.destructiveButtonTitleColor = Color_nav;
 //    lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -886,7 +886,8 @@
                     
                     if ([[result objectForKey:@"result"] integerValue] == 8) {
                         
-                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"购买鑽石" message:DTLocalizedString(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？", nil) style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"快速购买" delegate:nil];
+                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:DTLocalizedString(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？", nil) style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
+
                         lg.destructiveButtonBackgroundColor = Color_nav;
                         lg.destructiveButtonTitleColor = [UIColor whiteColor];
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];

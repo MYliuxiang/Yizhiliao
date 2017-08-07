@@ -70,7 +70,7 @@
         if (itunesVersion != nil) {
             
             if (![itunesVersion isEqualToString:[self getTheCurrentVersion]]) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"检查更新", nil) message:DTLocalizedString(@"有新版本是否更新？", nil) delegate:self cancelButtonTitle:DTLocalizedString(@"暂不升级", nil) otherButtonTitles:DTLocalizedString(@"升级", nil), nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(DTLocalizedString(@"检查更新", nil), nil) message:DTLocalizedString(@"有新版本是否更新？", nil) delegate:self cancelButtonTitle:DTLocalizedString(DTLocalizedString(@"暂不升级", nil), nil) otherButtonTitles:DTLocalizedString(DTLocalizedString(@"升级", nil), nil), nil];
                 [alert show];
             }
             
@@ -268,7 +268,7 @@
     NSData *receiptData = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] appStoreReceiptURL]];
     NSString *receipt = [receiptData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];//转化为base64字符
     if ([receipt length] > 0 && [productIdentifier length] > 0) {
-        [SVProgressHUD showSuccessWithStatus:@"支付成功"];
+        [SVProgressHUD showSuccessWithStatus:DTLocalizedString(@"支付成功", nil)];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             
@@ -473,7 +473,7 @@
 
 - (void)dl_failedTransaction:(SKPaymentTransaction *)transaction {
     if(transaction.error.code != SKErrorPaymentCancelled) {
-        [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"用户取消支付", nil)];
+        [SVProgressHUD showErrorWithStatus:DTLocalizedString(DTLocalizedString(@"用户取消支付", nil), nil)];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             
@@ -482,7 +482,7 @@
         });
         
     } else {
-        [SVProgressHUD showErrorWithStatus:@"支付失败"];
+        [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"支付失败", nil)];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             
@@ -606,7 +606,7 @@
 
 - (void)netWorkStatusWillDisconnection
 {
-    // @"网络断开";
+    // DTLocalizedString(@"网络断开", nil);
     
 }
 
@@ -1133,7 +1133,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         }else{
         //登入失败
             
-            [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"登入失败", nil)];
+            [SVProgressHUD showErrorWithStatus:DTLocalizedString(DTLocalizedString(@"登入失败", nil), nil)];
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 
@@ -1499,11 +1499,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     if ([request isEqualToString:@"-2"]) {
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = DTLocalizedString(@"收到我送禮提醒", nil);
+                            count.content = DTLocalizedString(DTLocalizedString(@"收到我送禮提醒", nil), nil);
                             
                         }else{
                             
-                            count.content = count.content = DTLocalizedString(@"收到我儲值提醒", nil);
+                            count.content = count.content = DTLocalizedString(DTLocalizedString(@"收到我儲值提醒", nil), nil);
                         }
                         
                     }else if([request isEqualToString:@"-3"]){
@@ -1537,11 +1537,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     if ([request isEqualToString:@"-2"]) {
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = DTLocalizedString(@"收到我送禮提醒", nil);
+                            count.content = DTLocalizedString(DTLocalizedString(@"收到我送禮提醒", nil), nil);
                             
                         }else{
                             
-                            count.content = count.content = DTLocalizedString(@"收到我儲值提醒", nil);
+                            count.content = count.content = DTLocalizedString(DTLocalizedString(@"收到我儲值提醒", nil), nil);
                         }
                         
                     }else if([request isEqualToString:@"-3"]){
@@ -1579,12 +1579,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 if ([request isEqualToString:@"-2"]) {
                     if ([event isEqualToString:@"gift"]) {
                         
-                        messageModel.content = DTLocalizedString(@"收到我送禮提醒", nil);
+                        messageModel.content = DTLocalizedString(DTLocalizedString(@"收到我送禮提醒", nil), nil);
                         messageModel.type = MessageBodyType_Gift;
 
                     }else{
                         
-                        messageModel.content = DTLocalizedString(@"收到我儲值提醒", nil);
+                        messageModel.content = DTLocalizedString(DTLocalizedString(@"收到我儲值提醒", nil), nil);
                         messageModel.type = MessageBodyType_ChongZhi;
 
                     }

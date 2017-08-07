@@ -411,10 +411,10 @@ CGFloat const kChatBatItemWH = 26.0f;
 - (void)moreViewTakePicAction:(LHChatBarMoreView *)moreView {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"错误"
-                                                            message:@"设备没有摄像头"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"错误", nil)
+                                                            message:DTLocalizedString(@"设备没有摄像头", nil)
                                                            delegate:nil
-                                                  cancelButtonTitle:@"好的"
+                                                  cancelButtonTitle:DTLocalizedString(@"好的", nil)
                                                   otherButtonTitles: nil];
         [alertView show];
     } else {
@@ -424,7 +424,7 @@ CGFloat const kChatBatItemWH = 26.0f;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         
         if (![LHTools cameraLimit]) {
-            UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:nil message:@"请在iPhone的\"設定-隐私-相机\"选项中,允许LHChatUI访问你的相机" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+            UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:nil message:@"请在iPhone的\"設定-隐私-相机\"选项中,允许LHChatUI访问你的相机" delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
             [alertView show];
             return;
         }
@@ -482,14 +482,14 @@ CGFloat const kChatBatItemWH = 26.0f;
 #warning 对視訊-------
 - (void)moreViewPhotoAction:(LHChatBarMoreView *)moreVie {
     
-    NSLog(@"視訊");
+    NSLog(DTLocalizedString(@"視訊", nil));
     if (self.delegate && [self.delegate respondsToSelector:@selector(videoCall)]) {
         
         [self.delegate videoCall];
     }
     
 //    if (![LHTools photoLimit]) {
-//        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:nil message:@"请在iPhone的\"設定-隐私-照片\"选项中,允许LHChatUI访问你的照片" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+//        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:nil message:@"请在iPhone的\"設定-隐私-照片\"选项中,允许LHChatUI访问你的照片" delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
 //        [alertView show];
 //        return;
 //    }

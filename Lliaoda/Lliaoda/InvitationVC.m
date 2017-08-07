@@ -19,15 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = @"邀請有獎";
+    self.text = DTLocalizedString(@"邀請有獎", nil);
     self.yaoBtn.layer.cornerRadius = 22;
     self.yaoBtn.layer.masksToBounds = YES;
     self.isBack = YES;
     
     self.yaoBtn.hidden =YES;
     
-    [self.btn1 setTitle:@"复制链接" forState:UIControlStateNormal];
-    [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [self.btn1 setTitle:DTLocalizedString(@"复制链接", nil) forState:UIControlStateNormal];
+    [self.cancelBtn setTitle:DTLocalizedString(@"取消", nil) forState:UIControlStateNormal];
 
     
     [self loadData];
@@ -54,7 +54,7 @@
     switch (errcode) {
         case 0:
             //payResoult = @"支付结果：成功！";
-            [SVProgressHUD showWithStatus:@"分享成功"];
+            [SVProgressHUD showWithStatus:DTLocalizedString(@"分享成功", nil)];
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 
                 [SVProgressHUD dismiss];
@@ -63,7 +63,7 @@
             break;
         case -1:
             //payResoult = @"支付结果：失败！";
-            [SVProgressHUD showWithStatus:@"分享失败"];
+            [SVProgressHUD showWithStatus:DTLocalizedString(@"分享失败", nil)];
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 
                 [SVProgressHUD dismiss];
@@ -369,8 +369,8 @@
         
         //没有微信
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"请先安装微信客户端" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:DTLocalizedString(@"温馨提示", nil) message:DTLocalizedString(@"请先安装微信客户端", nil) preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:DTLocalizedString(@"確定", nil) style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:actionConfirm];
         [self presentViewController:alert animated:YES completion:nil];
         
@@ -471,7 +471,7 @@
      dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
    
     
-        [SVProgressHUD showWithStatus:@"分享成功"];
+        [SVProgressHUD showWithStatus:DTLocalizedString(@"分享成功", nil)];
 
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         
@@ -484,7 +484,7 @@
 - (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
 {
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-    [SVProgressHUD showWithStatus:@"分享失败"];
+    [SVProgressHUD showWithStatus:DTLocalizedString(@"分享失败", nil)];
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         
         [SVProgressHUD dismiss];
@@ -495,7 +495,7 @@
 - (void)sharerDidCancel:(id<FBSDKSharing>)sharer
 {
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-    [SVProgressHUD showWithStatus:@"取消分享"];
+    [SVProgressHUD showWithStatus:DTLocalizedString(@"取消分享", nil)];
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         
         [SVProgressHUD dismiss];
@@ -512,8 +512,8 @@
         
         //没有微信
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"请先安装微信客户端" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:DTLocalizedString(@"温馨提示", nil) message:DTLocalizedString(@"请先安装微信客户端", nil) preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:DTLocalizedString(@"確定", nil) style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:actionConfirm];
         [self presentViewController:alert animated:YES completion:nil];
         

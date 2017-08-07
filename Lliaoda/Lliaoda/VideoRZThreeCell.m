@@ -18,7 +18,7 @@
     self.bgImgeView.layer.shadowOpacity = 0.7;//阴影透明度，默认0
     self.bgImgeView.layer.shadowRadius = 3;//阴影半径，默认3
     
-   self.label.text = @"範例錄影";
+   self.label.text = DTLocalizedString(@"範例錄影", nil);
     self.bgImgeView.layer.masksToBounds = NO;
     self.bgImgeView.layer.cornerRadius = 5.f;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];

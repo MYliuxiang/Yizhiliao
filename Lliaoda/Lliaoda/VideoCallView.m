@@ -25,7 +25,8 @@
         [self.refuse setTitle:DTLocalizedString(@"拒绝", nil) forState:UIControlStateNormal];
         [self.acceptBtn setTitle:DTLocalizedString(@"接受", nil) forState:UIControlStateNormal];
         self.yeLab.text = DTLocalizedString(@"账户余额", nil);
-        [self.gotoMoneyBtn setTitle:@"去充值" forState:UIControlStateNormal];
+        [self.gotoMoneyBtn setTitle:DTLocalizedString(@"去充值", nil) forState:UIControlStateNormal];
+
 
         
         
@@ -562,7 +563,8 @@
                         NSString *msgStr = [InputCheck convertToJSONData:dic];
                          [_inst messageInstantSend:self.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%ld",[LXUserDefaults objectForKey:UID],idate]];
                         
-                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"购买鑽石" message:DTLocalizedString(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？", nil) style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"快速购买" delegate:nil];
+                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
+
                         lg.destructiveButtonBackgroundColor = Color_nav;
                         lg.destructiveButtonTitleColor = [UIColor whiteColor];
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -1130,7 +1132,7 @@
     
     if(self.iscalling){
         
-        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"確定退出", nil) message:DTLocalizedString(@"確定退出視訊通話吗？", nil) style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"確定" delegate:nil];
+        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"確定退出", nil) message:@"確定退出視訊通話吗？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"確定", nil) delegate:nil];
         lg.destructiveButtonBackgroundColor = [UIColor whiteColor];
         lg.destructiveButtonTitleColor = Color_nav;
         lg.destructiveButtonFont = [UIFont systemFontOfSize:16];
@@ -1302,7 +1304,7 @@
                         NSString *msgStr = [InputCheck convertToJSONData:dic];
                         [_inst messageInstantSend:self.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%ld",[LXUserDefaults objectForKey:UID],idate]];
                         
-                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"购买鑽石" message:DTLocalizedString(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？", nil) style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"快速购买" delegate:nil];
+                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
                         lg.destructiveButtonBackgroundColor = Color_nav;
                         lg.destructiveButtonTitleColor = [UIColor whiteColor];
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];

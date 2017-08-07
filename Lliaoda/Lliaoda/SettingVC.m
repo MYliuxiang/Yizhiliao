@@ -38,14 +38,14 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"退出登陸" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"退出登陸", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         _maskView.hidden = YES;
 
         
     }];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
         _maskView.hidden = YES;
         
@@ -58,7 +58,7 @@
     [alertController addAction:cancelAction];
 //    [self presentViewController:alertController animated:YES completion:nil];
     
-    LGAlertView *alert = [[LGAlertView alloc] initWithTitle:nil message:nil style:LGAlertViewStyleActionSheet buttonTitles:@[@"退出登陸"] cancelButtonTitle:@"取消" destructiveButtonTitle:nil delegate:self];
+    LGAlertView *alert = [[LGAlertView alloc] initWithTitle:nil message:nil style:LGAlertViewStyleActionSheet buttonTitles:@[DTLocalizedString(@"退出登陸", nil)] cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:nil delegate:self];
     
     alert.actionHandler = ^(LGAlertView * _Nonnull alertView, NSUInteger index, NSString * _Nullable title){
         
