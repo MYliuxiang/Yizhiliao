@@ -70,7 +70,7 @@
         if (itunesVersion != nil) {
             
             if (![itunesVersion isEqualToString:[self getTheCurrentVersion]]) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"检查更新" message:@"有新版本是否更新？" delegate:self cancelButtonTitle:@"暂不升级" otherButtonTitles:@"升级", nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"检查更新", nil) message:DTLocalizedString(@"有新版本是否更新？", nil) delegate:self cancelButtonTitle:DTLocalizedString(@"暂不升级", nil) otherButtonTitles:DTLocalizedString(@"升级", nil), nil];
                 [alert show];
             }
             
@@ -473,7 +473,7 @@
 
 - (void)dl_failedTransaction:(SKPaymentTransaction *)transaction {
     if(transaction.error.code != SKErrorPaymentCancelled) {
-        [SVProgressHUD showErrorWithStatus:@"用户取消支付"];
+        [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"用户取消支付", nil)];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             
@@ -1133,7 +1133,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         }else{
         //登入失败
             
-            [SVProgressHUD showErrorWithStatus:@"登入失败"];
+            [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"登入失败", nil)];
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 
@@ -1499,21 +1499,21 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     if ([request isEqualToString:@"-2"]) {
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = @"收到我送禮提醒";
+                            count.content = DTLocalizedString(@"收到我送禮提醒", nil);
                             
                         }else{
                             
-                            count.content = count.content = @"收到我儲值提醒";
+                            count.content = count.content = DTLocalizedString(@"收到我儲值提醒", nil);
                         }
                         
                     }else if([request isEqualToString:@"-3"]){
                         
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = [NSString stringWithFormat:@"我给你送了：%@鑽，有空记得打给我哟～",dic[@"message"][@"content"]];;
+                            count.content = [NSString stringWithFormat:DTLocalizedString(@"我给你送了：%@鑽，有空记得打给我哟～", nil),dic[@"message"][@"content"]];;
                         }else{
                             
-                            count.content = [NSString stringWithFormat:@"我已通过你得页面儲值:%@钻",dic[@"message"][@"content"]];
+                            count.content = [NSString stringWithFormat:DTLocalizedString(@"我已通过你得页面儲值:%@钻", nil),dic[@"message"][@"content"]];
                             
                         }
                         
@@ -1537,21 +1537,21 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     if ([request isEqualToString:@"-2"]) {
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = @"收到我送禮提醒";
+                            count.content = DTLocalizedString(@"收到我送禮提醒", nil);
                             
                         }else{
                             
-                            count.content = count.content = @"收到我儲值提醒";
+                            count.content = count.content = DTLocalizedString(@"收到我儲值提醒", nil);
                         }
                         
                     }else if([request isEqualToString:@"-3"]){
                         
                         if ([event isEqualToString:@"gift"]) {
                             
-                            count.content = [NSString stringWithFormat:@"我给你送了：%@鑽，有空记得打给我哟～",dic[@"message"][@"content"]];;
+                            count.content = [NSString stringWithFormat:DTLocalizedString(@"我给你送了：%@鑽，有空记得打给我哟～", nil),dic[@"message"][@"content"]];;
                         }else{
                             
-                            count.content = [NSString stringWithFormat:@"我已通过你得页面儲值:%@钻",dic[@"message"][@"content"]];
+                            count.content = [NSString stringWithFormat:DTLocalizedString(@"我已通过你得页面儲值:%@钻", nil),dic[@"message"][@"content"]];
                             
                         }
                         
@@ -1579,12 +1579,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 if ([request isEqualToString:@"-2"]) {
                     if ([event isEqualToString:@"gift"]) {
                         
-                        messageModel.content = @"收到我送禮提醒";
+                        messageModel.content = DTLocalizedString(@"收到我送禮提醒", nil);
                         messageModel.type = MessageBodyType_Gift;
 
                     }else{
                         
-                        messageModel.content = @"收到我儲值提醒";
+                        messageModel.content = DTLocalizedString(@"收到我儲值提醒", nil);
                         messageModel.type = MessageBodyType_ChongZhi;
 
                     }
@@ -1593,11 +1593,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     
                     if ([event isEqualToString:@"gift"]) {
                         
-                        messageModel.content = [NSString stringWithFormat:@"我给你送了：%@鑽，有空记得打给我哟～",dic[@"message"][@"content"]];;
+                        messageModel.content = [NSString stringWithFormat:DTLocalizedString(@"我给你送了：%@鑽，有空记得打给我哟～", nil),dic[@"message"][@"content"]];;
                         messageModel.type = MessageBodyType_Text;
                     }else{
                         
-                        messageModel.content = [NSString stringWithFormat:@"我已通过你得页面儲值:%@钻",dic[@"message"][@"content"]];
+                        messageModel.content = [NSString stringWithFormat:DTLocalizedString(@"我已通过你得页面儲值:%@钻", nil),dic[@"message"][@"content"]];
                         messageModel.type = MessageBodyType_Text;
 
                     }

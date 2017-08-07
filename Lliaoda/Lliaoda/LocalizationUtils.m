@@ -23,7 +23,6 @@
         NSString * path = [[NSBundle mainBundle] pathForResource:@"Base" ofType:@"lproj"];
         NSBundle * languageBundle = [NSBundle bundleWithPath:path];
         s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
-    
     }
     
    
