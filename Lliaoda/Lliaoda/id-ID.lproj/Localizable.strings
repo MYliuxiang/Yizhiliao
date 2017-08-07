@@ -332,3 +332,15 @@
 "%ld月前活跃"        = "";
 "%ld年前活跃"        = "";
 
+"下拉可以刷新"   =   "tarik untuk segarkan";
+"最后更新"   =   "perbarui selesai";
+"松开立即刷新"   =   "lepas untuk segarkan";
+"正在刷新数据中"   =   "sedang perbarui";
+"上拉可以加载更多"   =   "tarik ke atas untuk lebih lanjut";
+"松开立即加载更多"   =   "lepas untuk lebih lanjut";
+"正在加载更多的数据"   =   "sedang memuat data";
+"已经全部加载完毕"   =   "pemuatan selesai";
+
+"最后更新："  =        "";
+"今天"       =        "";
+"无记录"      =       "";

@@ -550,6 +550,8 @@
 		843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */; };
 		843EC0261F29D9750051AFD3 /* OrderID.m in Sources */ = {isa = PBXBuildFile; fileRef = 843EC0251F29D9750051AFD3 /* OrderID.m */; };
 		84F970CC1F38541B00336234 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84F970CE1F38541B00336234 /* Localizable.strings */; };
+		84F970D51F38946100336234 /* LanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F970D31F38946100336234 /* LanguageVC.m */; };
+		84F970D61F38946100336234 /* LanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F970D41F38946100336234 /* LanguageVC.xib */; };
 		CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */; };
 /* End PBXBuildFile section */
 
@@ -1398,6 +1400,9 @@
 		843EC0251F29D9750051AFD3 /* OrderID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderID.m; sourceTree = "<group>"; };
 		84F970CD1F38541B00336234 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		84F970CF1F38541C00336234 /* id-ID */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id-ID"; path = "id-ID.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		84F970D21F38946100336234 /* LanguageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageVC.h; sourceTree = "<group>"; };
+		84F970D31F38946100336234 /* LanguageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageVC.m; sourceTree = "<group>"; };
+		84F970D41F38946100336234 /* LanguageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageVC.xib; sourceTree = "<group>"; };
 		B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lliaoda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C168064B372F162D1F5BB065 /* Pods-Lliaoda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lliaoda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda.release.xcconfig"; sourceTree = "<group>"; };
 		E528CC8DA412F4F2C12F8084 /* libPods-LliaodaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LliaodaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2614,6 +2619,9 @@
 				228CF7401EDEBD840045986D /* VideoPlayVC.xib */,
 				2263D3E61EF392BD0020E092 /* AboutVC.h */,
 				2263D3E71EF392BD0020E092 /* AboutVC.m */,
+				84F970D21F38946100336234 /* LanguageVC.h */,
+				84F970D31F38946100336234 /* LanguageVC.m */,
+				84F970D41F38946100336234 /* LanguageVC.xib */,
 				222B383D1ED96843009DB58F /* MSSBrowse */,
 				222B37DA1ED9642B009DB58F /* XLPhotoBrowser */,
 			);
@@ -3220,6 +3228,7 @@
 				222AA08B1EB071910038416D /* B_64@2x.gif in Resources */,
 				222AA0A81EB071910038416D /* B_90@2x.gif in Resources */,
 				222AA04C1EB071910038416D /* B_114@2x.gif in Resources */,
+				84F970D61F38946100336234 /* LanguageVC.xib in Resources */,
 				222AA05E1EB071910038416D /* B_23@2x.gif in Resources */,
 				222AA0001EB071910038416D /* IM_Chat_receiver_bg@2x.png in Resources */,
 				222AA0131EB071910038416D /* C_101@2x.png in Resources */,
@@ -3615,6 +3624,7 @@
 				222AA1DF1EB0775B0038416D /* YYTextUtilities.m in Sources */,
 				228B89DC1EA8671B002B8D3C /* SPHttpWithYYCache.m in Sources */,
 				224F24601EA73EB200C0FDC6 /* VideoRZTwoCell.m in Sources */,
+				84F970D51F38946100336234 /* LanguageVC.m in Sources */,
 				228C307F1EB1A12800C2B55F /* ServiceErrorType.m in Sources */,
 				22844F551ED2A1B800A9E32E /* IQKeyboardManager.m in Sources */,
 				222AA1671EB071C20038416D /* KeyboardEmojiAttachment.m in Sources */,
