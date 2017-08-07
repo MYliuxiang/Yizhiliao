@@ -14,5 +14,6 @@
 + (instancetype)shareMainTabBarController;
 @property (nonatomic,assign) BOOL iszhubo;
 @property (nonatomic,retain) Mymodel *model;
+- (void)zhuViewcontrollers;
 
 @end

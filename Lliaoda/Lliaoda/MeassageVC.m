@@ -65,6 +65,19 @@ static MeassageVC *this;
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+//    UIViewController *currentController = self;
+//    [currentController.view removeFromSuperview];
+//    [currentController removeFromParentViewController];
+//    [currentController willMoveToParentViewController:nil];
+//    
+//    [[MainTabBarController shareMainTabBarController] zhuViewcontrollers];
+//    [MainTabBarController shareMainTabBarController].selectedIndex = 0;
+
+    UIBezierPath *aPath = [[UIBezierPath alloc] init];
+    [aPath moveToPoint:CGPointMake(0, 0)];
+   
+    
     // Do any additional setup after loading the view.
     self.text = @"訊息";
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
