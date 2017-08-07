@@ -52,7 +52,7 @@ static NSString *const headerId = @"headerId";
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.text = @"帳戶";
-    self.label1.text = @"账户余额";
+    self.label1.text = DTLocalizedString(@"账户余额", nil);
     self.label.text = @"鑽石";
 
     self.view.backgroundColor = UIColorFromRGB(0xf0f0f0);
