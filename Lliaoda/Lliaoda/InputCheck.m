@@ -331,7 +331,7 @@
     }
     else{
         temp = temp/12;
-        result = [NSString stringWithFormat:@"%ld年前活跃",temp];
+        result = [NSString stringWithFormat:DTLocalizedString(@"%ld年前活跃", nil),temp];
     }
     
     return  result;

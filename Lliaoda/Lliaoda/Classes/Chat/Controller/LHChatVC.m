@@ -735,7 +735,7 @@ NSString *const kTableViewFrame = @"frame";
     } else if ([messageModel.request isEqualToString:@"-3"]) {
         messageModel.event = userInfo[@"msg"][@"event"];
         if ([messageModel.event isEqualToString:@"gift"]) {
-            messageModel.content = [NSString stringWithFormat:@"我给你送了：%@鑽，有空记得打给我哟～", userInfo[@"msg"][@"content"]];
+            messageModel.content = [NSString stringWithFormat:DTLocalizedString(@"我给你送了：%@鑽，有空记得打给我哟～", nil), userInfo[@"msg"][@"content"]];
         } else {
             messageModel.content = [NSString stringWithFormat:@"我已通過你的頁面儲值：%@", userInfo[@"msg"][@"content"]];
         }
