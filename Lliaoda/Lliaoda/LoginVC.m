@@ -23,12 +23,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    BOOL isFirstLaunch = [LXUserDefaults objectForKey:@"firstLaunch"];
+    if (isFirstLaunch) {
+        self.languageBGView.hidden = NO;
+    } else {
+        self.languageBGView.hidden = YES;
+    }
+    
     self.navbarHiden = YES;
     
     self.label.text = @"已閱讀並同意用戶使用協定";
     [self.loginBtn setTitle:@"Facebook登入" forState:UIControlStateNormal];
     [self.faceBtn setTitle:@"WeChat登入" forState:UIControlStateNormal];
     [self.noWeixinBtn setTitle:@"登入" forState:UIControlStateNormal];
+    
+    self.chineseButton.layer.cornerRadius = 22;
+    self.chineseButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.chineseButton.layer.borderWidth = 1;
+    
+    self.indonesiaButton.layer.cornerRadius = 22;
+    self.indonesiaButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.indonesiaButton.layer.borderWidth = 1;
 
     self.logoBtn.layer.masksToBounds = YES;
     self.logoBtn.layer.cornerRadius = 5;
@@ -320,5 +336,12 @@
              }
          }];
 
+}
+- (IBAction)chineseButtonAC:(id)sender {
+    self.languageBGView.hidden = YES;
+}
+
+- (IBAction)indonesiaButtonAC:(id)sender {
+    self.languageBGView.hidden = YES;
 }
 @end

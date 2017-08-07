@@ -25,5 +25,12 @@
 - (IBAction)noweiXinTap:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *faceBtn;
 - (IBAction)faceBookLogin:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *candyTalkLabel;
+@property (weak, nonatomic) IBOutlet UIView *languageBGView;
+@property (weak, nonatomic) IBOutlet UIButton *chineseButton;
+@property (weak, nonatomic) IBOutlet UIButton *indonesiaButton;
+- (IBAction)chineseButtonAC:(id)sender;
+- (IBAction)indonesiaButtonAC:(id)sender;
+
 
 @end
