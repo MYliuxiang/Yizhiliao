@@ -10,10 +10,15 @@
 #import "LoginVC.h"
 #import "BaseNavigationController.h"
 #import "AboutVC.h"
+#import "LanguageVC.h"
 
 @interface SettingVC : BaseViewController<LGAlertViewDelegate>
 @property (nonatomic,retain) UIView *maskView;
 - (IBAction)loginout:(id)sender;
 - (IBAction)aboutAC:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *checkoutButton;
+- (IBAction)checkoutButtonAC:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *loginoutButton;
+@property (weak, nonatomic) IBOutlet UIButton *aboutButton;
 
 @end
