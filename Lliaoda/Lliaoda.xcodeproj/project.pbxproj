@@ -546,6 +546,7 @@
 		843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31F71F2B3879003C4EB2 /* RepetitionCount.m */; };
 		843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */; };
 		843EC0261F29D9750051AFD3 /* OrderID.m in Sources */ = {isa = PBXBuildFile; fileRef = 843EC0251F29D9750051AFD3 /* OrderID.m */; };
+		84F970CC1F38541B00336234 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84F970CE1F38541B00336234 /* Localizable.strings */; };
 		CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */; };
 /* End PBXBuildFile section */
 
@@ -1384,6 +1385,8 @@
 		843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCount.m; sourceTree = "<group>"; };
 		843EC0241F29D9750051AFD3 /* OrderID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderID.h; sourceTree = "<group>"; };
 		843EC0251F29D9750051AFD3 /* OrderID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderID.m; sourceTree = "<group>"; };
+		84F970CD1F38541B00336234 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		84F970CF1F38541C00336234 /* id-ID */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id-ID"; path = "id-ID.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lliaoda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C168064B372F162D1F5BB065 /* Pods-Lliaoda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lliaoda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda.release.xcconfig"; sourceTree = "<group>"; };
 		E528CC8DA412F4F2C12F8084 /* libPods-LliaodaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LliaodaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2873,6 +2876,7 @@
 				22E8D7751EA49AE300C5FC6B /* Main.storyboard */,
 				22E8D77A1EA49AE300C5FC6B /* LaunchScreen.storyboard */,
 				22E8D77D1EA49AE300C5FC6B /* Info.plist */,
+				84F970CE1F38541B00336234 /* Localizable.strings */,
 				22B1090D1EA4A23800E35B74 /* Lliaoda.pch */,
 				2283AA021F0E158D00E9ABB5 /* Assets.xcassets */,
 				22E8D76C1EA49AE300C5FC6B /* Supporting Files */,
@@ -3076,6 +3080,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"id-ID",
 			);
 			mainGroup = 22E8D7601EA49AE300C5FC6B;
 			productRefGroup = 22E8D76A1EA49AE300C5FC6B /* Products */;
@@ -3317,6 +3322,7 @@
 				222AA0411EB071910038416D /* B_104@2x.gif in Resources */,
 				222A9FFE1EB071910038416D /* IM_Chart_imageDownloadFail@2x.png in Resources */,
 				222AA0051EB071910038416D /* chatBar_colorMore_camera@3x.png in Resources */,
+				84F970CC1F38541B00336234 /* Localizable.strings in Resources */,
 				222AA0111EB071910038416D /* IM_Chat_more@3x.png in Resources */,
 				222AA0331EB071910038416D /* emotion3.plist in Resources */,
 				222AA0081EB071910038416D /* chatBar_colorMore_photo@2x.png in Resources */,
@@ -3799,6 +3805,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		84F970CE1F38541B00336234 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84F970CD1F38541B00336234 /* zh-Hant */,
+				84F970CF1F38541C00336234 /* id-ID */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -3806,6 +3821,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -3857,6 +3873,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
