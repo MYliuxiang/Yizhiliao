@@ -406,6 +406,8 @@
 		225FA9931EFBBA0D0086287E /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA9921EFBBA0D0086287E /* AgoraRtcEngineKit.framework */; };
 		225FA9EE1EFBD6C90086287E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 225FA9ED1EFBD6C90086287E /* UserModel.m */; };
 		2263D3E81EF392BD0020E092 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263D3E71EF392BD0020E092 /* AboutVC.m */; };
+		226B6FF11F38591000AEC7D2 /* LocalizationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 226B6FF01F38591000AEC7D2 /* LocalizationUtils.m */; };
+		226B6FF41F38649E00AEC7D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 226B6FF61F38649E00AEC7D2 /* InfoPlist.strings */; };
 		226BA90F1ED7E324004D983A /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BA90D1ED7E324004D983A /* MyCell.m */; };
 		226BA9101ED7E324004D983A /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BA90E1ED7E324004D983A /* MyCell.xib */; };
 		226CB6221EE6653700FF7EC8 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 226CB6211EE6653700FF7EC8 /* libWeChatSDK.a */; };
@@ -1141,6 +1143,11 @@
 		225FA9ED1EFBD6C90086287E /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		2263D3E61EF392BD0020E092 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
 		2263D3E71EF392BD0020E092 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
+		226B6FEF1F38591000AEC7D2 /* LocalizationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationUtils.h; sourceTree = "<group>"; };
+		226B6FF01F38591000AEC7D2 /* LocalizationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationUtils.m; sourceTree = "<group>"; };
+		226B6FF51F38649E00AEC7D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		226B6FF71F3864A100AEC7D2 /* id-ID */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id-ID"; path = "id-ID.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		226B6FF81F3864A200AEC7D2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		226BA90C1ED7E324004D983A /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
 		226BA90D1ED7E324004D983A /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
 		226BA90E1ED7E324004D983A /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
@@ -2358,6 +2365,15 @@
 			name = "视频libs";
 			sourceTree = "<group>";
 		};
+		226B6FEE1F3858FF00AEC7D2 /* 多语言 */ = {
+			isa = PBXGroup;
+			children = (
+				226B6FEF1F38591000AEC7D2 /* LocalizationUtils.h */,
+				226B6FF01F38591000AEC7D2 /* LocalizationUtils.m */,
+			);
+			name = "多语言";
+			sourceTree = "<group>";
+		};
 		227553711ECED99900CE6507 /* OpenSDK1.7.7 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2705,6 +2721,7 @@
 		22B1091B1EA4A4FE00E35B74 /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
+				226B6FEE1F3858FF00AEC7D2 /* 多语言 */,
 				22844F2B1ED2A1B800A9E32E /* IQKeyBoardManager */,
 				2250E6241EA9E15200849842 /* InputCheck.h */,
 				2250E6251EA9E15200849842 /* InputCheck.m */,
@@ -2876,6 +2893,7 @@
 				22E8D7751EA49AE300C5FC6B /* Main.storyboard */,
 				22E8D77A1EA49AE300C5FC6B /* LaunchScreen.storyboard */,
 				22E8D77D1EA49AE300C5FC6B /* Info.plist */,
+				226B6FF61F38649E00AEC7D2 /* InfoPlist.strings */,
 				84F970CE1F38541B00336234 /* Localizable.strings */,
 				22B1090D1EA4A23800E35B74 /* Lliaoda.pch */,
 				2283AA021F0E158D00E9ABB5 /* Assets.xcassets */,
@@ -3081,6 +3099,7 @@
 				en,
 				Base,
 				"id-ID",
+				"zh-Hant",
 			);
 			mainGroup = 22E8D7601EA49AE300C5FC6B;
 			productRefGroup = 22E8D76A1EA49AE300C5FC6B /* Products */;
@@ -3289,6 +3308,7 @@
 				222AA0911EB071910038416D /* b_6@2x.gif in Resources */,
 				222AA0101EB071910038416D /* IM_Chat_more@2x.png in Resources */,
 				222AA0881EB071910038416D /* B_61@2x.gif in Resources */,
+				226B6FF41F38649E00AEC7D2 /* InfoPlist.strings in Resources */,
 				222AA0071EB071910038416D /* chatBar_colorMore_cameraSelected@3x.png in Resources */,
 				228941F81ED923000020C307 /* MyalbumVC.xib in Resources */,
 				22CDA97F1EA6076C006CD611 /* AccountCell.xib in Resources */,
@@ -3599,6 +3619,7 @@
 				22844F531ED2A1B800A9E32E /* IQUIViewController+Additions.m in Sources */,
 				222AA1D61EB0775B0038416D /* YYTextParser.m in Sources */,
 				22E8D7711EA49AE300C5FC6B /* AppDelegate.m in Sources */,
+				226B6FF11F38591000AEC7D2 /* LocalizationUtils.m in Sources */,
 				22CDA9781EA6045A006CD611 /* AccountVC.m in Sources */,
 				222AA14A1EB071C10038416D /* NSDate+Judge.m in Sources */,
 				222AA1C31EB0775B0038416D /* NSString+YYAdd.m in Sources */,
@@ -3789,6 +3810,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		226B6FF61F38649E00AEC7D2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				226B6FF51F38649E00AEC7D2 /* Base */,
+				226B6FF71F3864A100AEC7D2 /* id-ID */,
+				226B6FF81F3864A200AEC7D2 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		22E8D7751EA49AE300C5FC6B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
