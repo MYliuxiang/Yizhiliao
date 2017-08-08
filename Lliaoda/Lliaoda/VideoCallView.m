@@ -117,13 +117,13 @@
                 NSString *deposit = [NSString stringWithFormat:@"%d",self.selfModel.deposit];
                 NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
                 
-                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
-                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
+//                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
+//                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
 
                 [self newgiftView];
                 [self newredView];
-                self.giftsView.elabel.attributedText = alertControllerMessageStr;
-                self.redView.eLabel.attributedText = alertControllerMessageStr;
+                self.giftsView.elabel.text = str;
+                self.redView.eLabel.text = str;
                 
             } else{
                 [SVProgressHUD showErrorWithStatus:result[@"message"]];
@@ -1362,13 +1362,13 @@
                 //礼物的余额界面
                 NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
                 NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
-                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
-                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
+//                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
+//                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
                 
                 [self newgiftView];
                 [self newredView];
-                self.giftsView.elabel.attributedText = alertControllerMessageStr;
-                self.redView.eLabel.attributedText = alertControllerMessageStr;
+                self.giftsView.elabel.text = str;
+                self.redView.eLabel.text = str;
 
                 
                 if(peerSustain <= 2 && peerSustain != -1 && !self.islow){

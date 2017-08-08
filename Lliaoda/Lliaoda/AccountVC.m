@@ -589,8 +589,8 @@ static NSString *const headerId = @"headerId";
                 if([SKPaymentQueue canMakePayments]){
                     [self requestProductData:uid];
                 }else{
-                    NSLog(LXSring(@"不允许程序内付费"));
-                    [SVProgressHUD showErrorWithStatus:@"不允许程序内付费..."];
+                    
+                    [SVProgressHUD showErrorWithStatus:LXSring(@"不允许程序内付费...")];
                 }
                 
 //                [self Pay:uid withType:type];
@@ -777,14 +777,14 @@ controller   didAuthorizePayment:(PKPayment *)payment
         
         if (model.vipDays > 0) {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:@"首充贈送VIP %d 天 + %d 鑽", model.vipDays, model.bonus];
+                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"首充贈送VIP %d 天 + %d 鑽"), model.vipDays, model.bonus];
             } else {
-                cell.detailLabel.text = [NSString stringWithFormat:@"首充贈送VIP %d 天", model.vipDays];
+                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"首充贈送VIP %d 天"), model.vipDays];
             }
             
         } else {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:@"首充贈送 %d 鑽", model.bonus];
+                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"首充贈送 %d 鑽"), model.bonus];
             } else {
                 cell.detailLabel.text = @"";
             }
@@ -793,14 +793,14 @@ controller   didAuthorizePayment:(PKPayment *)payment
         cell.biaoqianImageView.hidden = YES;
         if (model.vipDays > 0) {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:@"贈送VIP %d 天 + %d 鑽", model.vipDays, model.bonus];
+                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"贈送VIP %d 天 + %d 鑽"), model.vipDays, model.bonus];
             } else {
-                cell.detailLabel.text = [NSString stringWithFormat:@"贈送VIP %d 天", model.vipDays];
+                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"贈送VIP %d 天"), model.vipDays];
             }
             
         } else {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:@"贈送 %d 鑽", model.bonus];
+                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"贈送 %d 鑽"), model.bonus];
             } else {
                 cell.detailLabel.text = @"";
             }
@@ -830,9 +830,9 @@ controller   didAuthorizePayment:(PKPayment *)payment
         if (myModel.vipEndTime == 0) {
             // 没有vip
             headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon02"];
-            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:@"儲值贈送VIP，私信暢聊無限制~"];
-            [attributedStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(2, 5)];
-            headerView.timeLabel.attributedText = attributedStr;
+//            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:LXSring(@"儲值贈送VIP，私信暢聊無限制~")];
+//            [attributedStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(2, 5)];
+            headerView.timeLabel.text = LXSring(@"儲值贈送VIP，私信暢聊無限制~");
             
         } else {
             // 有vip
@@ -841,7 +841,7 @@ controller   didAuthorizePayment:(PKPayment *)payment
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"YYYY-MM-dd"];
             NSString *string = [formatter stringFromDate:date];
-            headerView.timeLabel.text = [NSString stringWithFormat:@"VIP有效期至：%@", string];
+            headerView.timeLabel.text = [NSString stringWithFormat:LXSring(@"VIP有效期至：%@"), string];
             headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon01"];
         }
         
@@ -852,7 +852,7 @@ controller   didAuthorizePayment:(PKPayment *)payment
 
 
 - (void)sendMessageToPerson:(NSString *)uid diamonds:(NSString *)diamonds {
-    NSString *content = [NSString stringWithFormat:@"我已通過你的頁面儲值：%@鉆", diamonds];;
+    NSString *content = [NSString stringWithFormat:LXSring(@"我已通過你的頁面儲值：%@"), diamonds];;
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     __block Message *messageModel = [Message new];
     messageModel.isSender = YES;

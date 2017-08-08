@@ -14,7 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     
-    [self.photoBtn setTitle:LXSring(@"相册(23)") forState:UIControlStateNormal];
+    [self.photoBtn setTitle:LXSring(@"相薄(23)") forState:UIControlStateNormal];
     [self.videoBtn setTitle:LXSring(@"影片(3)") forState:UIControlStateNormal];
     self.videoBtn.selected = NO;
     self.photoBtn.selected = YES;
@@ -41,8 +41,8 @@
     _model = model;
     self.type = PhotoType;
     self.dataList = _model.photos;
-    [self.photoBtn setTitle:[NSString stringWithFormat:LXSring(@"相薄(%d)"),_model.photoCount] forState:UIControlStateNormal];
-    [self.videoBtn setTitle:[NSString stringWithFormat:LXSring(@"影片(%d)"),_model.videoCount] forState:UIControlStateNormal];
+    [self.photoBtn setTitle:[NSString stringWithFormat:@"%@(%d)", LXSring(@"相薄"),_model.photoCount] forState:UIControlStateNormal];
+    [self.videoBtn setTitle:[NSString stringWithFormat:@"%@(%d)", LXSring(@"影片"),_model.videoCount] forState:UIControlStateNormal];
     [_collectionView reloadData];
     
     

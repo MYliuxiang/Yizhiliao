@@ -195,10 +195,10 @@ static NSString *identifire = @"GiftID";
                 
                 NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
                 NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
-                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
-                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
+//                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
+//                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
                 
-                self.elabel.attributedText = alertControllerMessageStr;
+                self.elabel.text = str;
                 
                 
                 NSString *uid = [NSString stringWithFormat:@"%@",result[@"data"][@"uid"]];

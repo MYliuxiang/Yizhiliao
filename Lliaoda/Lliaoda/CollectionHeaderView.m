@@ -14,7 +14,7 @@
 
     [super awakeFromNib];
 
-    self.label1.text = @"賬戶餘額(鑽石)";
+    self.label1.text = LXSring(@"賬戶餘額(鑽石)");
 
 }
 
