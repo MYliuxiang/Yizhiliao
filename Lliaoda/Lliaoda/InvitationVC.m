@@ -29,6 +29,13 @@
     [self.btn1 setTitle:LXSring(@"复制链接") forState:UIControlStateNormal];
     [self.cancelBtn setTitle:LXSring(@"取消") forState:UIControlStateNormal];
 
+    if ([WXApi isWXAppInstalled]) {
+        _weixinButton.hidden = NO;
+        _friendButton.hidden = NO;
+    } else {
+        _weixinButton.hidden = YES;
+        _friendButton.hidden = YES;
+    }
     
     [self loadData];
 
