@@ -37,7 +37,7 @@
         self.model = [Mymodel mj_objectWithKeyValues:dic[@"data"]];
         
         self.nickLabel.text = self.model.nickname;
-        
+        NSLog(@"%@", DTLocalizedString(@"聊號：%@", nil));
         self.idLabel.text = [NSString stringWithFormat:DTLocalizedString(@"聊號：%@", nil),self.model.uid];
         [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
         
