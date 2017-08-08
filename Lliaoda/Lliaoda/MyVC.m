@@ -25,7 +25,7 @@
     self.nameArray = [NSMutableArray array];
     self.headerImage.layer.cornerRadius = 75 / 2.0;
     self.headerImage.layer.masksToBounds = YES;
-    [self.editBtn setTitle:DTLocalizedString(@"編輯", nil) forState:UIControlStateNormal];
+    [self.editBtn setTitle:DTLocalizedString(@"编辑", nil) forState:UIControlStateNormal];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click)];
     [self.headerImage addGestureRecognizer:tap];
 
@@ -37,7 +37,8 @@
         self.model = [Mymodel mj_objectWithKeyValues:dic[@"data"]];
         
         self.nickLabel.text = self.model.nickname;
-        self.idLabel.text = [NSString stringWithFormat:@"聊号：%@",self.model.uid];
+        
+        self.idLabel.text = [NSString stringWithFormat:DTLocalizedString(@"聊號：%@", nil),self.model.uid];
         [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
         
         NSArray *array;

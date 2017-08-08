@@ -35,9 +35,15 @@
 - (IBAction)chineseButtonAC:(id)sender {
     self.chineseButton.selected = YES;
     self.indonesiaButton.selected = NO;
+    [LXUserDefaults setObject:@"zh-hant" forKey:@"userLanguage"];
+    [LXUserDefaults synchronize];
+
 }
 - (IBAction)indonesiaButtonAC:(id)sender {
     self.chineseButton.selected = NO;
     self.indonesiaButton.selected = YES;
+    [LXUserDefaults setObject:@"id" forKey:@"userLanguage"];
+    [LXUserDefaults synchronize];
+
 }
 @end
