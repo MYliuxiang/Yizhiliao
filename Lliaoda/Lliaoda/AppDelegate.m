@@ -100,24 +100,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
-    NSArray *languages = [LXUserDefaults objectForKey:@"AppleLanguages"];
-    NSString *language = [languages firstObject];
-    if ([language hasPrefix:@"zh-hant"]) {
-        [LXUserDefaults setObject:@"zh-hant" forKey:@"appLanguage"];
-        [LXUserDefaults synchronize];
-
-    }else if ([language hasPrefix:@"id"]){
-        [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
-        [LXUserDefaults synchronize];
-    }else{
-        [LXUserDefaults setObject:@"zh-hant" forKey:@"appLanguage"];
-        [LXUserDefaults synchronize];
-
-    }
-    
-   
-    
     
     if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
     
