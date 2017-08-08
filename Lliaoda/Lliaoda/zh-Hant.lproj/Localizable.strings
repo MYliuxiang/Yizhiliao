@@ -366,3 +366,11 @@
 "MJRefreshHeaderLastTimeText" = "最後更新：";
 "MJRefreshHeaderDateTodayText" = "今天";
 "MJRefreshHeaderNoneLastDateText" = "無記錄";
+
+
+
+// 新增
+"20鑽/分钟"         = "";      // PersonVC
+"影片"              = "";          // PeriSonMediaCell
+"發利是"             = "";        // 紅包
+"正在發起通話…"       = "";  // FindVC
