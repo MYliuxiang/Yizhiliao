@@ -8,11 +8,12 @@
 
 #import "BaseViewController.h"
 
-@interface LanguageVC : BaseViewController
+@interface LanguageVC : BaseViewController<UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *chineseButton;
 - (IBAction)chineseButtonAC:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *indonesiaButton;
 - (IBAction)indonesiaButtonAC:(id)sender;
+@property (nonatomic,assign) int index;
 
 @end

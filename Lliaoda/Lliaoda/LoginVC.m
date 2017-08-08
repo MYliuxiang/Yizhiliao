@@ -24,18 +24,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    BOOL isFirstLaunch = [LXUserDefaults objectForKey:@"firstLaunch"];
+    BOOL isFirstLaunch = [LXUserDefaults boolForKey:@"firstLaunch"];
     if (isFirstLaunch) {
-        self.languageBGView.hidden = NO;
-    } else {
         self.languageBGView.hidden = YES;
+
+    } else {
+        
+        self.languageBGView.hidden = NO;
+
     }
+    [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
+    [LXUserDefaults synchronize];
     
     self.navbarHiden = YES;
     
     self.label.text = LXSring(@"已閱讀並同意用戶使用協定");
-    [self.loginBtn setTitle:@"Facebook登入" forState:UIControlStateNormal];
-    [self.faceBtn setTitle:@"WeChat登入" forState:UIControlStateNormal];
+    [self.loginBtn setTitle:LXSring(@"WeChat登入") forState:UIControlStateNormal];
+    [self.faceBtn setTitle:LXSring(@"Facebook登入") forState:UIControlStateNormal];
     [self.noWeixinBtn setTitle:LXSring(@"登入") forState:UIControlStateNormal];
     
     self.chineseButton.layer.cornerRadius = 22;
@@ -337,14 +342,25 @@
 
 }
 - (IBAction)chineseButtonAC:(id)sender {
-    self.languageBGView.hidden = YES;
+    [UIView animateWithDuration:.35 animations:^{
+        self.languageBGView.hidden = YES;
+
+    } completion:^(BOOL finished) {
+        
+    }];
     [LXUserDefaults setObject:@"zh-hant" forKey:@"userLanguage"];
     [LXUserDefaults synchronize];
     
 }
 
 - (IBAction)indonesiaButtonAC:(id)sender {
-    self.languageBGView.hidden = YES;
+    [UIView animateWithDuration:.35 animations:^{
+        self.languageBGView.hidden = YES;
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+
     [LXUserDefaults setObject:@"id" forKey:@"userLanguage"];
     [LXUserDefaults synchronize];
 }

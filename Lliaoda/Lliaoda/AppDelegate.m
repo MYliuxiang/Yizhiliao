@@ -507,9 +507,21 @@
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *phoneVersion = [[UIDevice currentDevice] systemVersion];
 
-    NSString *agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+    NSString *agent;
+    NSString *mutableUrl;
+    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+    if ([lang hasPrefix:@"zh-hant"]) {
+        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
+    }else if ([lang hasPrefix:@"id"]){
+      agent = [NSString stringWithFormat:@"%@,%@,ios,%@,302",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.live/api/%@",Url_appconfig]];
+    }else{
+      agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+      mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.live/api//%@",Url_appconfig]];
+    }
     
-    NSMutableString *mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
+   
     NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlEnCode]];
     [urlRequest setAllHTTPHeaderFields:@{@"user-language":@"zh-tw",@"user-agent":agent}];
@@ -1643,8 +1655,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
             return  [WXApi handleOpenURL:url delegate:self];
 
     }else{
+        
         return [[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options];
-
     }
        
 }
