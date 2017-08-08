@@ -120,7 +120,7 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
             
                 self.pmodel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
-                self.dataList = @[@[@"20鑽/分钟"],@[LXSring(@"相薄視訊")],@[LXSring(@"聊號"),LXSring(@"地區"),LXSring(@"星座"),LXSring(@"经常出没")],@[LXSring(@"簽名檔")]];
+                self.dataList = @[@[LXSring(@"20鑽/分钟")],@[LXSring(@"相薄視訊")],@[LXSring(@"聊號"),LXSring(@"地區"),LXSring(@"星座"),LXSring(@"经常出没")],@[LXSring(@"簽名檔")]];
                 self.text = self.pmodel.nickname;
                 Present *present = self.pmodel.presents[0];
                 if ([present.type isEqualToString:@"video"]) {
