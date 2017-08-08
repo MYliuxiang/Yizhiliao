@@ -25,6 +25,7 @@
     self.isBack = YES;
     
     self.yaoBtn.hidden =YES;
+    [self.yaoBtn setTitle:LXSring(@"立即邀請") forState:UIControlStateNormal];
     
     [self.btn1 setTitle:LXSring(@"复制链接") forState:UIControlStateNormal];
     [self.cancelBtn setTitle:LXSring(@"取消") forState:UIControlStateNormal];
@@ -468,7 +469,7 @@
                 
                 _code = [NSString stringWithFormat:@"%@",result[@"data"][@"code"]];
                 
-                NSString *str = [NSString stringWithFormat:@"记得提醒好友下载注册以后填写邀請碼: %@",_code];
+                NSString *str = [NSString stringWithFormat:LXSring(@"记得提醒好友下载注册以后填写邀請碼: %@"),_code];
                 NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:str];
                 [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(19, _code.length)];
                 self.shareLabel.attributedText = alertControllerStr;
