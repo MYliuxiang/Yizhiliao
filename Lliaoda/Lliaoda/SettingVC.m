@@ -71,7 +71,7 @@
                     [[AppDelegate shareAppDelegate].heartBeatTimer invalidate];
                     [AppDelegate shareAppDelegate].heartBeatTimer = nil;
                     
-                  AgoraAPI *inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
+                    AgoraAPI *inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
                     [inst logout];
 
                     LoginVC *loginVC = [[LoginVC alloc]init];

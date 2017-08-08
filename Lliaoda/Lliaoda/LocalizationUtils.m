@@ -15,8 +15,6 @@
     
     NSString *s = NSLocalizedString(translation_key, nil);
     NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
-//  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLanguage) name:@"changeLanguage" object:nil];
-
     if ([lang hasPrefix:@"zh-hant"]) {
         NSString * path = [[NSBundle mainBundle] pathForResource:@"zh-Hant" ofType:@"lproj"];
         NSBundle * languageBundle = [NSBundle bundleWithPath:path];
@@ -31,10 +29,40 @@
         s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
     }
    
-    if (s == nil) {
-        return @"";
+      return s;
+}
+
++ (NSString *)getMainUrl
+{
+    NSString *mainStr;
+    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+    if ([lang hasPrefix:@"zh-hant"]) {
+        mainStr = @"https://www.yizhiliao.tv/api/";
+    }else if ([lang hasPrefix:@"id"]){
+        mainStr = @"https://www.yizhiliao.live/api/";
+    }else{
+        mainStr = @"https://www.yizhiliao.tv/api/";
     }
-    return s;
+    
+    return mainStr;
+    
+}
++ (NSString *)getagoreappID
+{
+    
+    NSString *agoreappIDStr;
+    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+    if ([lang hasPrefix:@"zh-hant"]) {
+        agoreappIDStr = @"e063233af0694b93a6639bbd7e92b26a";
+    }else if ([lang hasPrefix:@"id"]){
+        agoreappIDStr = @"e3748ab08d4448249fc99dbaaafb53c5";
+    }else{
+        agoreappIDStr = @"e063233af0694b93a6639bbd7e92b26a";
+    }
+    
+    
+    
+    return agoreappIDStr;
 }
 
 
