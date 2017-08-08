@@ -538,7 +538,8 @@
 
 - (void)call
 {
-    self.tishiLabel.text = @"正在發起通話…";
+    
+    self.tishiLabel.text = LXSring(@"正在發起通話…");
     SelectedModel *model = self.displayModel;
     
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {

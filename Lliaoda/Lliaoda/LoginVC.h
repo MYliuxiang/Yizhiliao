@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIView *noweixinView;
 @property (weak, nonatomic) IBOutlet UITextField *userTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *loginImage;
 - (IBAction)noweiXinTap:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *faceBtn;
 - (IBAction)faceBookLogin:(id)sender;

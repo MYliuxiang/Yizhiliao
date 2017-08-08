@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.text = LXSring(@"更換語言");
+    self.text = LXSring(@"切換語言");
     
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     if ([lang hasPrefix:@"zh-hant"]) {

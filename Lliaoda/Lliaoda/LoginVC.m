@@ -26,11 +26,28 @@
     
     BOOL isFirstLaunch = [LXUserDefaults boolForKey:@"firstLaunch"];
     if (isFirstLaunch) {
+        
         self.languageBGView.hidden = YES;
+
 
     } else {
         
-        self.languageBGView.hidden = NO;
+        NSArray *languages = [NSLocale preferredLanguages];
+        NSString *currentLanguage = [languages objectAtIndex:0];
+        if([currentLanguage hasPrefix:@"zh-hant"] || [currentLanguage hasPrefix:@"zh-hans"] ){
+            self.languageBGView.hidden = YES;
+            [LXUserDefaults setObject:@"zh-hant" forKey:@"appLanguage"];
+            [LXUserDefaults synchronize];
+
+        }else if ([currentLanguage hasPrefix:@"id"]){
+            self.languageBGView.hidden = YES;
+            [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
+            [LXUserDefaults synchronize];
+
+        }else{
+            
+            self.languageBGView.hidden = NO;
+        }
 
     }
     [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
@@ -73,6 +90,25 @@
     self.noWeixinBtn.layer.borderWidth = 1;
     self.tongYiBtn.selected = NO;
     self.logoBtn.selected = YES;
+    self.logoBtn.userInteractionEnabled = NO;
+    
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+     if ([lang hasPrefix:@"id"]){
+        
+        self.loginBtn.hidden = YES;
+        
+    }else{
+        
+        if ([WXApi isWXAppInstalled]&&[WXApi isWXAppSupportApi]){
+            self.loginBtn.hidden = NO;
+            
+          }else{
+              
+            self.loginBtn.hidden = YES;
+        }
+
+    }
+
     
 //    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
 //        
@@ -134,9 +170,8 @@
         
         self.noweixinView.hidden = YES;
         self.faceBtn.hidden = NO;
-        
-        
     }
+    
     
     NSString *data = [[NSBundle mainBundle] pathForResource:@"2" ofType:nil];
     NSData *da = [NSData dataWithContentsOfFile:data];
