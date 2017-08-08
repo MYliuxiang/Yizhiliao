@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = LXSring(@"设置");
+    self.text = LXSring(@"設定");
     [self.checkoutButton setTitle:LXSring(@"切換語言") forState:UIControlStateNormal];
     [self.aboutButton setTitle:LXSring(@"關於我們") forState:UIControlStateNormal];
     [self.loginoutButton setTitle:LXSring(@"退出登陸") forState:UIControlStateNormal];

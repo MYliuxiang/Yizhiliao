@@ -122,7 +122,7 @@
                 
                 _code = [NSString stringWithFormat:@"%@",result[@"data"][@"code"]];
                 
-                NSString *str = [NSString stringWithFormat:@"记得提醒好友下载注册以后填写邀請碼: %@",_code];
+                NSString *str = [NSString stringWithFormat:LXSring(@"记得提醒好友下载注册以后填写邀請碼: %@"),_code];
                 NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:str];
                 [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(19, _code.length)];
                 self.shareLabel.attributedText = alertControllerStr;
@@ -166,8 +166,21 @@
     //設定代理对象
     _webView.delegate = self;
     [self.view addSubview:_webView];
+    
     NSString *urlstring;
-    urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share-result.html?auth=%d",self.model.auth];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-hant"]) {
+
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share-result.html?auth=%d",self.model.auth];
+    }else if ([lang hasPrefix:@"id"]){
+    
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share-result.html?auth=%d",self.model.auth];
+    }else{
+
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share-result.html?auth=%d",self.model.auth];
+    }
+
+    
     
     NSURL *url = [NSURL URLWithString:urlstring];
     NSURLRequest *resquest = [NSURLRequest requestWithURL:url];
@@ -358,8 +371,22 @@
         self.shareView.y = kScreenHeight;
     } completion:^(BOOL finished) {
         
+        NSString *urlstring;
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"zh-hant"]) {
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+            
+        }else if ([lang hasPrefix:@"id"]){
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+        }else{
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+        }
+        
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-         NSString *urlStr = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+        NSString *urlStr = urlstring;
         pasteboard.string = urlStr;
         
     }];
@@ -397,7 +424,22 @@
                            //.....
         });
 
-        NSString *urlStr = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+        NSString *urlstring;
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"zh-hant"]) {
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+            
+        }else if ([lang hasPrefix:@"id"]){
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+        }else{
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+        }
+
+        
+        NSString *urlStr = urlstring;
         WXMediaMessage *message = [WXMediaMessage message];
         message.title = @"\"Candy Talk\"，邀您一起嗨聊";
         message.description = @"最美主播統統入住，立刻下載，贏得獎勵";
@@ -463,7 +505,21 @@
 - (IBAction)facebooShare:(id)sender {
     
     
-    NSString *urlStr = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+    NSString *urlstring;
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-hant"]) {
+        
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+        
+    }else if ([lang hasPrefix:@"id"]){
+        
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+    }else{
+        
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+    }
+
+    NSString *urlStr = urlstring;
 //     @"最美主播統統入駐，立刻下載，贏得獎勵";
     
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
@@ -535,7 +591,21 @@
         
     } completion:^(BOOL finished) {
         
-         NSString *urlStr = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+        NSString *urlstring;
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"zh-hant"]) {
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+            
+        }else if ([lang hasPrefix:@"id"]){
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+        }else{
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+        }
+
+         NSString *urlStr = urlstring;
         WXMediaMessage *message = [WXMediaMessage message];
         message.title = @"\"Candy Talk\"，邀您一起嗨聊";;
         message.description = @"最美主播統統入駐，立刻下載，贏得獎勵";

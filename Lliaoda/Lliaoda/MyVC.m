@@ -43,9 +43,9 @@
         
         NSArray *array;
         if (self.model.activated == 0) {
-            array = @[LXSring(@"邀请有奖"),LXSring(@"接受邀请")];
+            array = @[LXSring(@"邀請有獎"),LXSring(@"接受邀请")];
         }else{
-            array = @[LXSring(@"邀请有奖")];
+            array = @[LXSring(@"邀請有獎")];
             
         }
         
@@ -53,12 +53,13 @@
             
             if (self.model.auth == 2) {
                 
-                self.nameArray = [NSMutableArray arrayWithObjects:@[LXSring(@"视频认证"),LXSring(@"收费设置"),LXSring(@"在线时段")],@[LXSring(@"视频秀"),LXSring(@"相册")], @[LXSring(@"设置")],nil];
-                
+               
+                 self.nameArray = [NSMutableArray arrayWithObjects:array,@[LXSring(@"視頻認證"),LXSring(@"收費設定"),LXSring(@"在線時段")],@[LXSring(@"小視頻"),LXSring(@"相薄")], @[LXSring(@"設定")],nil];
                 
             }else{
                 
-                self.nameArray = [NSMutableArray arrayWithObjects:@[LXSring(@"视频认证")],@[LXSring(@"视频秀"),LXSring(@"相册")],@[LXSring(@"设置")], nil];
+                self.nameArray = [NSMutableArray arrayWithObjects:@[LXSring(@"視頻認證")],@[LXSring(@"小視頻"),LXSring(@"相薄")],@[LXSring(@"設定")], nil];
+                
                 
             }
             
@@ -67,12 +68,12 @@
             
             if (self.model.auth == 2) {
                 
-                self.nameArray = [NSMutableArray arrayWithObjects:array,@[LXSring(@"视频认证"),LXSring(@"收费设置"),LXSring(@"在线时段")],@[LXSring(@"视频秀"),LXSring(@"相册")], @[LXSring(@"设置")],nil];
+                self.nameArray = [NSMutableArray arrayWithObjects:array,@[LXSring(@"視頻認證"),LXSring(@"收费设置"),LXSring(@"在線時段")],@[LXSring(@"小視頻"),LXSring(@"相薄")], @[LXSring(@"設定")],nil];
                 
                 
             }else{
                 
-                self.nameArray = [NSMutableArray arrayWithObjects:array,@[LXSring(@"视频认证")],@[LXSring(@"视频秀"),LXSring(@"相册")],@[LXSring(@"设置")], nil];
+                self.nameArray = [NSMutableArray arrayWithObjects:array,@[LXSring(@"視頻認證")],@[LXSring(@"小視頻"),LXSring(@"相薄")],@[LXSring(@"設定")], nil];
                 
             }
             
