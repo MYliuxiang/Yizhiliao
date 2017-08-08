@@ -39,7 +39,7 @@
         self.nickLabel.text = self.model.nickname;
         
         self.idLabel.text = [NSString stringWithFormat:LXSring(@"聊號：%@"),self.model.uid];
-        [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+          [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
         
         NSArray *array;
         if (self.model.activated == 0) {

@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.text = LXSring(@"se");
+    self.text = LXSring(@"");
     self.navbarHiden = NO;
     [self _initViews];
     self.isBack = YES;
