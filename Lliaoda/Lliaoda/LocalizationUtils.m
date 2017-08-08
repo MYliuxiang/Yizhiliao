@@ -31,6 +31,9 @@
         s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
     }
    
+    if (s == nil) {
+        return @"";
+    }
     return s;
 }
 
