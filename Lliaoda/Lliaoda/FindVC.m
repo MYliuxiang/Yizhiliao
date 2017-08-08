@@ -87,6 +87,7 @@
     self.pointsModels = [NSMutableArray array];
     self.finBtn.layer.cornerRadius = 22;
     self.finBtn.layer.masksToBounds = YES;
+    [self.finBtn setTitle:LXSring(@"發現有緣人") forState:UIControlStateNormal];
     //获取摄像设备
     device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
 
@@ -258,50 +259,54 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 self.first = NO;
 
-                NSMutableArray *marray = [NSMutableArray array];
-                NSArray *array = result[@"data"][@"broadcasters"];
-                for (NSDictionary *subDic in array) {
-                    SelectedModel *model = [SelectedModel mj_objectWithKeyValues:subDic];
-                    [marray addObject:model];
-                    if (model.selected) {
-                        self.displayModel = model;
-                    }
-                }
-
-                self.pointsModels = marray;
-                
-                NSArray *charges = result[@"data"][@"charges"];
-                NSMutableArray *mc = [NSMutableArray array];
-                for (NSDictionary *subDic in charges) {
-                    Charge *model = [Charge mj_objectWithKeyValues:subDic];
-                    [mc addObject:model];
-                }
-                
-                self.charges = mc;
-                for (int i = 0; i < self.pointsModels.count; i++) {
-                    SelectedModel *model = self.pointsModels[i];
-                    if (model.selected) {
-                        
-                        if (self.pointsModels.count> 8) {
-                            
-                            [self.pointsModels exchangeObjectAtIndex:i withObjectAtIndex:7];
-                        }else{
-                            
-                            [self.pointsModels exchangeObjectAtIndex:i withObjectAtIndex:self.pointsModels.count - 1];
+                NSArray *arr = result[@"data"];
+                if (arr.count) {
+                    NSMutableArray *marray = [NSMutableArray array];
+                    NSArray *array = result[@"data"][@"broadcasters"];
+                    for (NSDictionary *subDic in array) {
+                        SelectedModel *model = [SelectedModel mj_objectWithKeyValues:subDic];
+                        [marray addObject:model];
+                        if (model.selected) {
+                            self.displayModel = model;
                         }
-                        
-                        
-                        
                     }
+                    
+                    self.pointsModels = marray;
+                    
+                    NSArray *charges = result[@"data"][@"charges"];
+                    NSMutableArray *mc = [NSMutableArray array];
+                    for (NSDictionary *subDic in charges) {
+                        Charge *model = [Charge mj_objectWithKeyValues:subDic];
+                        [mc addObject:model];
+                    }
+                    
+                    self.charges = mc;
+                    for (int i = 0; i < self.pointsModels.count; i++) {
+                        SelectedModel *model = self.pointsModels[i];
+                        if (model.selected) {
+                            
+                            if (self.pointsModels.count> 8) {
+                                
+                                [self.pointsModels exchangeObjectAtIndex:i withObjectAtIndex:7];
+                            }else{
+                                
+                                [self.pointsModels exchangeObjectAtIndex:i withObjectAtIndex:self.pointsModels.count - 1];
+                            }
+                            
+                            
+                            
+                        }
+                    }
+                    
+                    
+                    for (JXRadarPointView *item in self.pointsViewArray) {
+                        [item removeFromSuperview];
+                    }
+                    [self.pointsViewArray removeAllObjects];
+                    
+                    _timer =  [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(showPoint:) userInfo:nil repeats:YES];
                 }
-          
                 
-                for (JXRadarPointView *item in self.pointsViewArray) {
-                    [item removeFromSuperview];
-                }
-                [self.pointsViewArray removeAllObjects];
-                
-                 _timer =  [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(showPoint:) userInfo:nil repeats:YES];
                 
                 
             }else{    //请求失败
@@ -484,7 +489,7 @@
     
     self.rechargeBtn.hidden = YES;
     self.displayModel = model;
-    self.tishiLabel.text = @"已為您匹配到一位有緣人\n3秒後將發起視訊通話";
+    self.tishiLabel.text = LXSring(@"已為您匹配到一位有緣人\n3秒後將發起視訊通話");
     self.nickLabel.text = model.nickname;
    
     self.placelabel.text = [[CityTool sharedCityTool] getCityWithCountrieId:model.country WithprovinceId:model.province WithcityId:model.city];
@@ -539,7 +544,7 @@
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
        
         
-        [SVProgressHUD showWithStatus:@"当前网络不可用，请检查您的网络設定"];
+        [SVProgressHUD showWithStatus:LXSring(@"当前网络不可用，请检查您的网络設定")];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
@@ -639,7 +644,7 @@
                     
                     if ([[result objectForKey:@"result"] integerValue] == 8) {
                         
-                    self.tishiLabel.text = @"啊噢...你的餘額不足\n儲值后立刻发起通话!";
+                    self.tishiLabel.text = LXSring(@"啊噢...你的餘額不足\n儲值后立刻发起通话!");
                     self.rechargeBtn.hidden = NO;
                         
                     }

@@ -140,7 +140,7 @@
         
         NSString *nickName = self.model.nickname;
         
-        NSString *str = [NSString stringWithFormat:@"你正在舉報%@",nickName];
+        NSString *str = [NSString stringWithFormat:LXSring(@"你正在舉報%@"),nickName];
         NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:str];
         [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_Text_lightGray range:NSMakeRange(0, 5)];
         [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(5, str.length - 5)];
