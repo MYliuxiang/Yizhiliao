@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"視訊上传");
-    self.label1.text = @"請確認當前大頭照與認證錄影都是您本人，否則無法通過認證！系統將在1-2個工作日完整審核，請耐心等待！";
+    self.label1.text = LXSring(@"請確認當前大頭照與認證錄影都是您本人，否則無法通過認證！系統將在1-2個工作日完整審核，請耐心等待！");
     [self.doneBtn setTitle:LXSring(@"确认上传") forState:UIControlStateNormal];
     self.doneBtn.layer.cornerRadius = 22;
     self.doneBtn.layer.masksToBounds = YES;

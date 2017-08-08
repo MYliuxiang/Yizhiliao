@@ -28,11 +28,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"視頻認證");
-    self.label1.text = @"距離完成認證僅差一步，請如實填寫手機號，以便我們及時聯繫你，賺取更多的收益！";
+    self.label1.text = LXSring(@"距離完成認證僅差一步，請如實填寫手機號，以便我們及時聯繫你，賺取更多的收益！");
     self.label2.text = LXSring(@"手機號碼");
     self.label3.text = LXSring(@"公会名称");
     [self.completeBtn setTitle:LXSring(@"完成") forState:UIControlStateNormal];
-    self.ghuiLabel.placeholder = @"如沒有公會號，填寫000";
+    self.ghuiLabel.placeholder = LXSring(@"如沒有公會號，填寫000");
     self.textField.placeholder = LXSring(@"請輸入您真實的行動電話號碼");
 
     self.completeBtn.layer.cornerRadius = 22;
@@ -74,7 +74,7 @@
     
     if (_textField.text.length != 10) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"您输入的手機號碼不正确！" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
         
@@ -127,7 +127,8 @@
     
     if ([compatiblePresets containsObject:_mp4Quality])
     {
-        [SVProgressHUD showWithStatus:@"正在转码,请稍后..."];
+        
+        [SVProgressHUD showWithStatus:LXSring(@"正在转码,请稍后...")];
         AVAssetExportSession *exportSession = [[AVAssetExportSession alloc]initWithAsset:avAsset
                                                                               presetName:_mp4Quality];
         NSDateFormatter* formater = [[NSDateFormatter alloc] init];
@@ -204,8 +205,6 @@
     CGFloat duration = [[NSDate date] timeIntervalSinceDate:_startDate];
     NSString *convertTime = [NSString stringWithFormat:@"%.2f s", duration];
     NSString *mp4Size = [NSString stringWithFormat:@"%ld kb", (long)[self getFileSize:_mp4Path]];
-    NSLog(@"視訊时间长短%@",convertTime);
-    NSLog(@"視訊大小%@",mp4Size);
     NSData *sssdata = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://localhost/private%@",_mp4Path]]];
     
     NSDictionary *params;

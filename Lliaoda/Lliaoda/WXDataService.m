@@ -89,7 +89,7 @@
     NSString *phoneVersion = [[UIDevice currentDevice] systemVersion];
     NSString *agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
     
-    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     if ([lang hasPrefix:@"zh-hant"]) {
         agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
@@ -214,7 +214,7 @@
     NSString *phoneVersion = [[UIDevice currentDevice] systemVersion];
     NSString *agent;
     
-    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     if ([lang hasPrefix:@"zh-hant"]) {
         agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];

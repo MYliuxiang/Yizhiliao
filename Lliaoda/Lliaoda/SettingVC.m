@@ -18,6 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"设置");
+    [self.checkoutButton setTitle:LXSring(@"切換語言") forState:UIControlStateNormal];
+    [self.aboutButton setTitle:LXSring(@"關於我們") forState:UIControlStateNormal];
+    [self.loginoutButton setTitle:LXSring(@"退出登陸") forState:UIControlStateNormal];
+
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     _maskView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.3];

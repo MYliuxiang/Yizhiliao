@@ -215,13 +215,13 @@
 }
 
 - (IBAction)tixianAC:(id)sender {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:LXSring(@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017") delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alertView show];
 }
 
 #pragma mark - ProfitCellDelegate
 - (void)btnClick:(ProfitCell *)cell {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:LXSring(@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017") delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alertView show];
 }
 @end

@@ -582,6 +582,7 @@
                     <navigationItem key="navigationItem" id="8OX-l3-bBv"/>
                     <connections>
                         <outlet property="noDataView" destination="g1j-BL-67B" id="jkB-Zz-d1Y"/>
+                        <outlet property="nomessageLabel" destination="n54-zf-3GS" id="LY5-lI-iBf"/>
                         <outlet property="nowifiView" destination="pz6-rt-uG4" id="2dh-kG-3Vr"/>
                         <outlet property="tableView" destination="NVw-aj-Yfm" id="SPm-k7-39V"/>
                     </connections>

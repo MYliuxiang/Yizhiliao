@@ -256,13 +256,15 @@
 "退出登陸"        = "Logout";
 "去提现"        = "Cashout";
 "1.本人半身錄影，10秒－15秒之間，需正面，五官清晰，包含自我介紹語音；\n2.個人主頁的照片必須與錄影為同一人，保證為本人\n3.模仿範例錄影可提高認證通過率！\n4.認證錄影不對外公開，我們將對你的認證錄影嚴格保密"        = "1.Short video setengah badan yang berisi perkenalan diri selama 10-15 detik;\n2. Pengajuan verifikasi video harus sesuai dengan profile;\n3.Verifikasi dengan mengikuti contoh video akan mempercepat proses verifikasi;\n4.Video verifikasi yang Anda unggah terjamin kerahasiaannya.";
+"範例錄影" = "Contoh video";
 "封面"        = "Avatar";
 "可提現總收入(聊幣)"        = "Total Pendapatan (Candy)";
 "提現"        = "Cashout";
 "賬戶餘額(鑽石)"        = "Diamond yang Anda miliki";
 "VIP有效期至：2017-03-20"        = "VIP berlaku sampai：2017-03-20";
-"否" = "否";
-"是" = "是";
+"否" = "Tidak";
+"是" = "Ya";
+"设置" = "设置";
 
 /*
  * videoCall

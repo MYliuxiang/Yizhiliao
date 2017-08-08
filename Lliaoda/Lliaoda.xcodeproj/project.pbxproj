@@ -464,9 +464,7 @@
 		228941F81ED923000020C307 /* MyalbumVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228941F61ED923000020C307 /* MyalbumVC.xib */; };
 		228941FC1ED926030020C307 /* MyalbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 228941FA1ED926030020C307 /* MyalbumCell.m */; };
 		228941FD1ED926030020C307 /* MyalbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228941FB1ED926030020C307 /* MyalbumCell.xib */; };
-		228942011ED934A70020C307 /* albumVideo.png in Resources */ = {isa = PBXBuildFile; fileRef = 228942001ED934A70020C307 /* albumVideo.png */; };
 		228942041ED938380020C307 /* AlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 228942031ED938380020C307 /* AlbumModel.m */; };
-		228942061ED93B0C0020C307 /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = 228942051ED93B0C0020C307 /* album.png */; };
 		228B89C11EA85744002B8D3C /* VideoRZTwoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89BF1EA85744002B8D3C /* VideoRZTwoVC.m */; };
 		228B89C21EA85744002B8D3C /* VideoRZTwoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B89C01EA85744002B8D3C /* VideoRZTwoVC.xib */; };
 		228B89C61EA85F3D002B8D3C /* VideoRZResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89C41EA85F3D002B8D3C /* VideoRZResultVC.m */; };
@@ -526,6 +524,8 @@
 		22D7A2EF1EA5AFA800A631B5 /* PersonalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2ED1EA5AFA800A631B5 /* PersonalVC.m */; };
 		22D7A2F01EA5AFA800A631B5 /* PersonalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A2EE1EA5AFA800A631B5 /* PersonalVC.xib */; };
 		22DC05651F39A91C00E2E015 /* PchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DC05641F39A91C00E2E015 /* PchTool.m */; };
+		22DC05681F39BE8200E2E015 /* albumVideo.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DC05661F39BE8200E2E015 /* albumVideo.png */; };
+		22DC05691F39BE8200E2E015 /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DC05671F39BE8200E2E015 /* album.png */; };
 		22E8D76E1EA49AE300C5FC6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E8D76D1EA49AE300C5FC6B /* main.m */; };
 		22E8D7711EA49AE300C5FC6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E8D7701EA49AE300C5FC6B /* AppDelegate.m */; };
 		22E8D7771EA49AE300C5FC6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E8D7751EA49AE300C5FC6B /* Main.storyboard */; };
@@ -1251,10 +1251,8 @@
 		228941F91ED926030020C307 /* MyalbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyalbumCell.h; sourceTree = "<group>"; };
 		228941FA1ED926030020C307 /* MyalbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyalbumCell.m; sourceTree = "<group>"; };
 		228941FB1ED926030020C307 /* MyalbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyalbumCell.xib; sourceTree = "<group>"; };
-		228942001ED934A70020C307 /* albumVideo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = albumVideo.png; sourceTree = "<group>"; };
 		228942021ED938380020C307 /* AlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumModel.h; sourceTree = "<group>"; };
 		228942031ED938380020C307 /* AlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumModel.m; sourceTree = "<group>"; };
-		228942051ED93B0C0020C307 /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album.png; sourceTree = "<group>"; };
 		228B89BE1EA85744002B8D3C /* VideoRZTwoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRZTwoVC.h; sourceTree = "<group>"; };
 		228B89BF1EA85744002B8D3C /* VideoRZTwoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideoRZTwoVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		228B89C01EA85744002B8D3C /* VideoRZTwoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoRZTwoVC.xib; sourceTree = "<group>"; };
@@ -1355,6 +1353,8 @@
 		22D7A2EE1EA5AFA800A631B5 /* PersonalVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalVC.xib; sourceTree = "<group>"; };
 		22DC05631F39A91C00E2E015 /* PchTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PchTool.h; sourceTree = "<group>"; };
 		22DC05641F39A91C00E2E015 /* PchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PchTool.m; sourceTree = "<group>"; };
+		22DC05661F39BE8200E2E015 /* albumVideo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = albumVideo.png; sourceTree = "<group>"; };
+		22DC05671F39BE8200E2E015 /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album.png; sourceTree = "<group>"; };
 		22E8D7691EA49AE300C5FC6B /* Lliaoda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lliaoda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E8D76D1EA49AE300C5FC6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22E8D76F1EA49AE300C5FC6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2831,11 +2831,11 @@
 				224F24621EA73ED300C0FDC6 /* VideoRZThreeCell.h */,
 				224F24631EA73ED300C0FDC6 /* VideoRZThreeCell.m */,
 				224F24641EA73ED300C0FDC6 /* VideoRZThreeCell.xib */,
+				22DC05661F39BE8200E2E015 /* albumVideo.png */,
+				22DC05671F39BE8200E2E015 /* album.png */,
 				226BA90C1ED7E324004D983A /* MyCell.h */,
 				226BA90D1ED7E324004D983A /* MyCell.m */,
 				226BA90E1ED7E324004D983A /* MyCell.xib */,
-				228942051ED93B0C0020C307 /* album.png */,
-				228942001ED934A70020C307 /* albumVideo.png */,
 				228941F91ED926030020C307 /* MyalbumCell.h */,
 				228941FA1ED926030020C307 /* MyalbumCell.m */,
 				228941FB1ED926030020C307 /* MyalbumCell.xib */,
@@ -3140,7 +3140,6 @@
 				222AA0731EB071910038416D /* B_42@2x.gif in Resources */,
 				222AA0561EB071910038416D /* B_16@2x.gif in Resources */,
 				222AA1641EB071C20038416D /* Keyboard_first_emoticon@3x.png in Resources */,
-				228942061ED93B0C0020C307 /* album.png in Resources */,
 				222AA0811EB071910038416D /* B_55@2x.gif in Resources */,
 				222AA0921EB071910038416D /* B_70@2x.gif in Resources */,
 				222AA0221EB071910038416D /* C_83@2x.png in Resources */,
@@ -3182,6 +3181,7 @@
 				222AA05C1EB071910038416D /* B_21@2x.gif in Resources */,
 				222AA0471EB071910038416D /* B_10@2x.gif in Resources */,
 				222AA0231EB071910038416D /* C_84@2x.png in Resources */,
+				22DC05691F39BE8200E2E015 /* album.png in Resources */,
 				225827781ECC09CC0049A6C1 /* end.wav in Resources */,
 				222AA0861EB071910038416D /* b_5@2x.gif in Resources */,
 				222AA0AF1EB071910038416D /* B_97@2x.gif in Resources */,
@@ -3190,6 +3190,7 @@
 				222AA06E1EB071910038416D /* B_38@2x.gif in Resources */,
 				222A9FFF1EB071910038416D /* IM_Chart_imageDownloadFail@3x.png in Resources */,
 				2283AA031F0E158D00E9ABB5 /* Assets.xcassets in Resources */,
+				22DC05681F39BE8200E2E015 /* albumVideo.png in Resources */,
 				222AA0011EB071910038416D /* IM_Chat_receiver_bg@3x.png in Resources */,
 				222AA0271EB071910038416D /* C_88@2x.png in Resources */,
 				222AA0451EB071910038416D /* B_108@2x.gif in Resources */,
@@ -3213,7 +3214,6 @@
 				222AA04E1EB071910038416D /* B_116@2x.gif in Resources */,
 				222AA0AB1EB071910038416D /* B_93@2x.gif in Resources */,
 				222AA0401EB071910038416D /* B_103@2x.gif in Resources */,
-				228942011ED934A70020C307 /* albumVideo.png in Resources */,
 				224F24501EA732C800C0FDC6 /* VideoRZVC.xib in Resources */,
 				222AA04B1EB071910038416D /* B_113@2x.gif in Resources */,
 				222AA07E1EB071910038416D /* B_52@2x.gif in Resources */,

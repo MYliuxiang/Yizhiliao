@@ -101,6 +101,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
+    NSArray *languages = [LXUserDefaults objectForKey:@"AppleLanguages"];
+    NSString *language = [languages firstObject];
+    if ([language hasPrefix:@"zh-hant"]) {
+        [LXUserDefaults setObject:@"zh-hant" forKey:@"appLanguage"];
+        [LXUserDefaults synchronize];
+
+    }else if ([language hasPrefix:@"id"]){
+        [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
+        [LXUserDefaults synchronize];
+    }else{
+        [LXUserDefaults setObject:@"zh-hant" forKey:@"appLanguage"];
+        [LXUserDefaults synchronize];
+
+    }
+    
+   
+    
+    
     if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
     
         [self appconfig];
@@ -509,7 +527,7 @@
 
     NSString *agent;
     NSString *mutableUrl;
-    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     if ([lang hasPrefix:@"zh-hant"]) {
         agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
@@ -518,7 +536,7 @@
         mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.live/api/%@",Url_appconfig]];
     }else{
       agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-      mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.live/api//%@",Url_appconfig]];
+      mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
     }
     
    
