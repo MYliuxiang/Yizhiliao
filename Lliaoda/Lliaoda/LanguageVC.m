@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.text = DTLocalizedString(DTLocalizedString(@"更換語言", nil), nil);
+    self.text = LXSring(@"更換語言");
     
     
 }
@@ -35,6 +35,11 @@
 - (IBAction)chineseButtonAC:(id)sender {
     self.chineseButton.selected = YES;
     self.indonesiaButton.selected = NO;
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"語言變更提示") message:LXSring(@"更換語言後，將退回登錄頁面重新登陸即可") delegate:self cancelButtonTitle:LXSring(@"更換語言後，將退回登錄頁面重新登陸即可") otherButtonTitles:LXSring(@"更換語言後，將退回登錄頁面重新登陸即可"), nil];
+    [alert show];
+    
+    
     [LXUserDefaults setObject:@"zh-hant" forKey:@"userLanguage"];
     [LXUserDefaults synchronize];
 

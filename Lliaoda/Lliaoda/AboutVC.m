@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.text = DTLocalizedString(DTLocalizedString(@"關於我們", nil), nil);
+    self.text = LXSring(@"");
     self.navbarHiden = NO;
     [self _initViews];
     self.isBack = YES;

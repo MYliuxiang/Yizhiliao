@@ -22,7 +22,7 @@ static NSString *identifire = @"GiftID";
         
         self.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 305);
         
-        [self.chonBtn setTitle:DTLocalizedString(@"充值", nil) forState:UIControlStateNormal];
+        [self.chonBtn setTitle:LXSring(@"充值") forState:UIControlStateNormal];
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 5;
         self.chonBtn.layer.masksToBounds = YES;
@@ -243,7 +243,7 @@ static NSString *identifire = @"GiftID";
                 if ([[result objectForKey:@"result"] integerValue] == 8) {
                     
                    
-                    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:DTLocalizedString(@"啊噢～餘額不太夠，儲值後才能送禮物喲！", nil) style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"［暫時不用］", nil) destructiveButtonTitle:DTLocalizedString(@"［快速儲值］", nil) delegate:nil];
+                    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"啊噢～餘額不太夠，儲值後才能送禮物喲！") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"［暫時不用］") destructiveButtonTitle:LXSring(@"［快速儲值］") delegate:nil];
                     lg.destructiveButtonBackgroundColor = Color_nav;
                     lg.destructiveButtonTitleColor = [UIColor whiteColor];
                     lg.cancelButtonFont = [UIFont systemFontOfSize:16];

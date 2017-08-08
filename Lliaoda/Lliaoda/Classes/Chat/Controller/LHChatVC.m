@@ -166,7 +166,7 @@ NSString *const kTableViewFrame = @"frame";
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"舉報成功！如有需要，可直接联系管理员QQ:2085728544" delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"舉報成功！如有需要，可直接联系管理员QQ:2085728544" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
                 [alert show];
                 
                 
@@ -205,9 +205,9 @@ NSString *const kTableViewFrame = @"frame";
                 _pmodel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
                 
-                UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"舉報", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:LXSring(@"舉報") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
-                    UIAlertController *alertController1 = [UIAlertController alertControllerWithTitle:nil message:DTLocalizedString(@"请选择舉報类型", nil) preferredStyle:UIAlertControllerStyleActionSheet];
+                    UIAlertController *alertController1 = [UIAlertController alertControllerWithTitle:nil message:LXSring(@"请选择舉報类型") preferredStyle:UIAlertControllerStyleActionSheet];
                     
                     NSString *nickName = _pmodel.nickname;
                     
@@ -218,31 +218,31 @@ NSString *const kTableViewFrame = @"frame";
                     [alertControllerStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, str.length)];
                     [alertController1 setValue:alertControllerStr forKey:@"_attributedTitle"];
                     
-                    UIAlertAction *aletAction1 = [UIAlertAction actionWithTitle:DTLocalizedString(@"广告欺骗", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    UIAlertAction *aletAction1 = [UIAlertAction actionWithTitle:LXSring(@"广告欺骗") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                         
                         [self jubaoWithtype:0];
                         
                     }];
                     
-                    UIAlertAction *aletAction2 = [UIAlertAction actionWithTitle:DTLocalizedString(@"淫秽色情", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    UIAlertAction *aletAction2 = [UIAlertAction actionWithTitle:LXSring(@"淫秽色情") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                         
                         [self jubaoWithtype:1];
                         
                     }];
                     
-                    UIAlertAction *aletAction3 = [UIAlertAction actionWithTitle:DTLocalizedString(@"政治反动", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    UIAlertAction *aletAction3 = [UIAlertAction actionWithTitle:LXSring(@"政治反动") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                         
                         [self jubaoWithtype:2];
                         
                     }];
                     
-                    UIAlertAction *aletAction4 = [UIAlertAction actionWithTitle:DTLocalizedString(@"其他", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    UIAlertAction *aletAction4 = [UIAlertAction actionWithTitle:LXSring(@"其他") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                         
                         [self jubaoWithtype:3];
                         
                     }];
                     
-                    UIAlertAction *cancelAction1 = [UIAlertAction actionWithTitle:DTLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
+                    UIAlertAction *cancelAction1 = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
                     
                     [cancelAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
                     [aletAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
@@ -259,18 +259,18 @@ NSString *const kTableViewFrame = @"frame";
                     
                 }];
                 
-                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
                 [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
                 [defaultAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
                 
                 
-                UIAlertAction *lahei = [UIAlertAction actionWithTitle:DTLocalizedString(@"拉黑", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertAction *lahei = [UIAlertAction actionWithTitle:LXSring(@"拉黑") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
                     BlackName *name = [[BlackName alloc] init];
                     name.uid = self.sendUid;
                     [name save];
                     
-                    [SVProgressHUD showSuccessWithStatus:DTLocalizedString(@"拉黑成功", nil)];
+                    [SVProgressHUD showSuccessWithStatus:LXSring(@"拉黑成功")];
                     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                         
@@ -466,7 +466,7 @@ NSString *const kTableViewFrame = @"frame";
             
         }else{
             if ([[result objectForKey:@"result"] integerValue] == 31) {
-                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"好的", nil) destructiveButtonTitle:nil delegate:nil];
+                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"提示") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"好的") destructiveButtonTitle:nil delegate:nil];
                 lg.destructiveButtonBackgroundColor = Color_nav;
                 lg.destructiveButtonTitleColor = [UIColor whiteColor];
                 lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -475,7 +475,7 @@ NSString *const kTableViewFrame = @"frame";
                 [lg showAnimated:YES completionHandler:nil];
                 
             }else if ([[result objectForKey:@"result"] integerValue] == 30) {
-                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"好的", nil) destructiveButtonTitle:nil delegate:nil];
+                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"提示") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"好的") destructiveButtonTitle:nil delegate:nil];
                 lg.destructiveButtonBackgroundColor = Color_nav;
                 lg.destructiveButtonTitleColor = [UIColor whiteColor];
                 lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -505,10 +505,10 @@ NSString *const kTableViewFrame = @"frame";
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.sendUid]] longLongValue];
     if (idate - oldDate < 60 * 1000) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"發送太頻繁，會嚇走金主的~" delegate:nil cancelButtonTitle:DTLocalizedString(@"好的", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"發送太頻繁，會嚇走金主的~" delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
         [alert show];
     }else{
-        [self sendMessageToUserType:MessageBodyType_Gift name:DTLocalizedString(@"送禮", nil) types:@"gift"];
+        [self sendMessageToUserType:MessageBodyType_Gift name:LXSring(@"送禮") types:@"gift"];
         [re.mdic setObject:@(idate) forKey:self.sendUid];
     }
 
@@ -520,10 +520,10 @@ NSString *const kTableViewFrame = @"frame";
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.sendUid]] longLongValue];
     if (idate - oldDate < 60 * 1000) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"發送太頻繁，會嚇走金主的~" delegate:nil cancelButtonTitle:DTLocalizedString(@"好的", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"發送太頻繁，會嚇走金主的~" delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
         [alert show];
     }else{
-        [self sendMessageToUserType:MessageBodyType_ChongZhi name:DTLocalizedString(@"儲值", nil) types:@"recharge"];
+        [self sendMessageToUserType:MessageBodyType_ChongZhi name:LXSring(@"儲值") types:@"recharge"];
         [re.mdic setObject:@(idate) forKey:self.sendUid];
     }
 }
@@ -626,7 +626,7 @@ NSString *const kTableViewFrame = @"frame";
                     
                     if ([[result objectForKey:@"result"] integerValue] == 8) {
                         
-                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:DTLocalizedString(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？", nil) style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
+                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
                        
                         lg.destructiveButtonBackgroundColor = Color_nav;
                         lg.destructiveButtonTitleColor = [UIColor whiteColor];
@@ -661,7 +661,7 @@ NSString *const kTableViewFrame = @"frame";
 {
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"当前网络不可用，请检查您的网络設定" delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"当前网络不可用，请检查您的网络設定" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         
         return;
@@ -669,14 +669,14 @@ NSString *const kTableViewFrame = @"frame";
        
     if (self.pmodel.state == 2) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"当前用户正在忙碌", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"当前用户正在忙碌") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
     AppDelegate *app = [AppDelegate shareAppDelegate];
     if(![app.inst isOnline]){
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"您正处于离线状态", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您正处于离线状态") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -736,7 +736,7 @@ NSString *const kTableViewFrame = @"frame";
     } else if ([messageModel.request isEqualToString:@"-3"]) {
         messageModel.event = userInfo[@"msg"][@"event"];
         if ([messageModel.event isEqualToString:@"gift"]) {
-            messageModel.content = [NSString stringWithFormat:DTLocalizedString(@"我给你送了：%@鑽，有空记得打给我哟～", nil), userInfo[@"msg"][@"content"]];
+            messageModel.content = [NSString stringWithFormat:LXSring(@"我给你送了：%@鑽，有空记得打给我哟～"), userInfo[@"msg"][@"content"]];
         } else {
             messageModel.content = [NSString stringWithFormat:@"我已通過你的頁面儲值：%@", userInfo[@"msg"][@"content"]];
         }
@@ -893,7 +893,7 @@ NSString *const kTableViewFrame = @"frame";
     button.frame = CGRectMake((kScreenWidth - 180) / 2.0, 9, 180, 30);
     button.layer.cornerRadius = 15;
     button.layer.masksToBounds = YES;
-    [button setTitle:DTLocalizedString(@"删除", nil) forState:UIControlStateNormal];
+    [button setTitle:LXSring(@"删除") forState:UIControlStateNormal];
     button.titleLabel.font =[UIFont systemFontOfSize:14];
     [button addTarget:self action:@selector(buttonAC) forControlEvents:UIControlEventTouchUpInside];
     [_deleteView addSubview:button];
@@ -1189,7 +1189,7 @@ NSString *const kTableViewFrame = @"frame";
             
             if ([[result objectForKey:@"result"] integerValue] == 29) {
 
-            LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
+            LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
             lg.destructiveButtonBackgroundColor = Color_nav;
             lg.destructiveButtonTitleColor = [UIColor whiteColor];
             lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -1323,7 +1323,7 @@ NSString *const kTableViewFrame = @"frame";
         self.tableView.editing = !self.tableView.editing;
         self.backButtton.hidden = YES;
         self.rightbutton.hidden = YES;
-        [self addlefttitleString:DTLocalizedString(@"取消", nil)];
+        [self addlefttitleString:LXSring(@"取消")];
         [UIView animateWithDuration:.35 animations:^{
             _deleteView.top = kScreenHeight - 49;
         } completion:^(BOOL finished) {
@@ -1429,9 +1429,9 @@ NSString *const kTableViewFrame = @"frame";
 - (void)resend:(Message *)model
 {
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"您是否需要重新发送此条信息", nil) preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:LXSring(@"提示") message:LXSring(@"您是否需要重新发送此条信息") preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"重发", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:LXSring(@"重发") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         for (int i = 0 ; i < self.dataSource.count; i++) {
             NSObject *obj = [self.dataSource objectAtIndex:i];
@@ -1538,7 +1538,7 @@ NSString *const kTableViewFrame = @"frame";
             
                 if ([[result objectForKey:@"result"] integerValue] == 29) {
                     
-                    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"取消", nil) destructiveButtonTitle:DTLocalizedString(@"快速购买", nil) delegate:nil];
+                    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
                     lg.destructiveButtonBackgroundColor = Color_nav;
                     lg.destructiveButtonTitleColor = [UIColor whiteColor];
                     lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -1571,7 +1571,7 @@ NSString *const kTableViewFrame = @"frame";
         
     }];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
     
     [alertController addAction:defaultAction];
     [alertController addAction:cancelAction];

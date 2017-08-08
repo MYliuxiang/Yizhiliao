@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = DTLocalizedString(@"視訊", nil);
+    self.text = LXSring(@"視訊");
     [self addrightImage:@"dengdeng"];
 
     self.dataList = [NSMutableArray array];
@@ -119,9 +119,9 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"舉報", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:LXSring(@"舉報") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        UIAlertController *alertController1 = [UIAlertController alertControllerWithTitle:nil message:DTLocalizedString(@"请选择舉報类型", nil) preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertController *alertController1 = [UIAlertController alertControllerWithTitle:nil message:LXSring(@"请选择舉報类型") preferredStyle:UIAlertControllerStyleActionSheet];
         
         NSString *nickName = self.model.nickname;
         
@@ -132,31 +132,31 @@
         [alertControllerStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, str.length)];
         [alertController1 setValue:alertControllerStr forKey:@"_attributedTitle"];
         
-        UIAlertAction *aletAction1 = [UIAlertAction actionWithTitle:DTLocalizedString(@"广告欺骗", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *aletAction1 = [UIAlertAction actionWithTitle:LXSring(@"广告欺骗") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self jubaoWithtype:0];
             
         }];
         
-        UIAlertAction *aletAction2 = [UIAlertAction actionWithTitle:DTLocalizedString(@"淫秽色情", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *aletAction2 = [UIAlertAction actionWithTitle:LXSring(@"淫秽色情") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self jubaoWithtype:1];
             
         }];
         
-        UIAlertAction *aletAction3 = [UIAlertAction actionWithTitle:DTLocalizedString(@"政治反动", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *aletAction3 = [UIAlertAction actionWithTitle:LXSring(@"政治反动") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self jubaoWithtype:2];
             
         }];
         
-        UIAlertAction *aletAction4 = [UIAlertAction actionWithTitle:DTLocalizedString(@"其他", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *aletAction4 = [UIAlertAction actionWithTitle:LXSring(@"其他") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self jubaoWithtype:3];
             
         }];
         
-        UIAlertAction *cancelAction1 = [UIAlertAction actionWithTitle:DTLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *cancelAction1 = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
         [cancelAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
         [aletAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
         [aletAction2 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
@@ -172,7 +172,7 @@
         
     }];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
     [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
     [defaultAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
     [alertController addAction:defaultAction];
@@ -193,7 +193,7 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 
-                [SVProgressHUD showSuccessWithStatus:DTLocalizedString(@"舉報成功", nil)];
+                [SVProgressHUD showSuccessWithStatus:LXSring(@"舉報成功")];
                 dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     

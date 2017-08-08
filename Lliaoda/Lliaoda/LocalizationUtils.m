@@ -18,12 +18,12 @@
 //  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLanguage) name:@"changeLanguage" object:nil];
 
     if ([lang hasPrefix:@"zh-hant"]) {
-        NSString * path = [[NSBundle mainBundle] pathForResource:@"Traditional" ofType:@"lproj"];
+        NSString * path = [[NSBundle mainBundle] pathForResource:@"zh-Hant" ofType:@"lproj"];
         NSBundle * languageBundle = [NSBundle bundleWithPath:path];
         s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
     }else if ([lang hasPrefix:@"id"]){
-        NSString * path = [[NSBundle mainBundle] pathForResource:@"Indonesia" ofType:@"lproj"];
-        NSBundle * languageBundle = [NSBundle bundleWithPath:path];
+        NSString * path = [[NSBundle mainBundle] pathForResource:@"id-ID" ofType:@"lproj"];
+        NSBundle *languageBundle = [NSBundle bundleWithPath:path];
         s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
     }else{
         NSString * path = [[NSBundle mainBundle] pathForResource:@"Base" ofType:@"lproj"];
