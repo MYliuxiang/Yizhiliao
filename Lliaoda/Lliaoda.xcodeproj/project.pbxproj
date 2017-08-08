@@ -408,7 +408,6 @@
 		2263D3E81EF392BD0020E092 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263D3E71EF392BD0020E092 /* AboutVC.m */; };
 		226B6FF11F38591000AEC7D2 /* LocalizationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 226B6FF01F38591000AEC7D2 /* LocalizationUtils.m */; };
 		226B6FF41F38649E00AEC7D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 226B6FF61F38649E00AEC7D2 /* InfoPlist.strings */; };
-		226B70411F389B0400AEC7D2 /* NSString+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = 226B70401F389B0300AEC7D2 /* NSString+Localization.m */; };
 		226BA90F1ED7E324004D983A /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BA90D1ED7E324004D983A /* MyCell.m */; };
 		226BA9101ED7E324004D983A /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BA90E1ED7E324004D983A /* MyCell.xib */; };
 		226CB6221EE6653700FF7EC8 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 226CB6211EE6653700FF7EC8 /* libWeChatSDK.a */; };
@@ -526,6 +525,7 @@
 		22CDA97F1EA6076C006CD611 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CDA97D1EA6076C006CD611 /* AccountCell.xib */; };
 		22D7A2EF1EA5AFA800A631B5 /* PersonalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2ED1EA5AFA800A631B5 /* PersonalVC.m */; };
 		22D7A2F01EA5AFA800A631B5 /* PersonalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A2EE1EA5AFA800A631B5 /* PersonalVC.xib */; };
+		22DC05651F39A91C00E2E015 /* PchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DC05641F39A91C00E2E015 /* PchTool.m */; };
 		22E8D76E1EA49AE300C5FC6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E8D76D1EA49AE300C5FC6B /* main.m */; };
 		22E8D7711EA49AE300C5FC6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E8D7701EA49AE300C5FC6B /* AppDelegate.m */; };
 		22E8D7771EA49AE300C5FC6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E8D7751EA49AE300C5FC6B /* Main.storyboard */; };
@@ -1152,8 +1152,6 @@
 		226B6FF71F3864A100AEC7D2 /* id-ID */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id-ID"; path = "id-ID.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		226B6FF81F3864A200AEC7D2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		226B703E1F38819D00AEC7D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		226B703F1F389B0300AEC7D2 /* NSString+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Localization.h"; sourceTree = "<group>"; };
-		226B70401F389B0300AEC7D2 /* NSString+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Localization.m"; sourceTree = "<group>"; };
 		226BA90C1ED7E324004D983A /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
 		226BA90D1ED7E324004D983A /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
 		226BA90E1ED7E324004D983A /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
@@ -1355,6 +1353,8 @@
 		22D7A2EC1EA5AFA800A631B5 /* PersonalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalVC.h; sourceTree = "<group>"; };
 		22D7A2ED1EA5AFA800A631B5 /* PersonalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalVC.m; sourceTree = "<group>"; };
 		22D7A2EE1EA5AFA800A631B5 /* PersonalVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalVC.xib; sourceTree = "<group>"; };
+		22DC05631F39A91C00E2E015 /* PchTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PchTool.h; sourceTree = "<group>"; };
+		22DC05641F39A91C00E2E015 /* PchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PchTool.m; sourceTree = "<group>"; };
 		22E8D7691EA49AE300C5FC6B /* Lliaoda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lliaoda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E8D76D1EA49AE300C5FC6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22E8D76F1EA49AE300C5FC6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2889,8 +2889,6 @@
 				222740181EC56A95002FEF5B /* 启动视屏 */,
 				22E8D76F1EA49AE300C5FC6B /* AppDelegate.h */,
 				22E8D7701EA49AE300C5FC6B /* AppDelegate.m */,
-				226B703F1F389B0300AEC7D2 /* NSString+Localization.h */,
-				226B70401F389B0300AEC7D2 /* NSString+Localization.m */,
 				22ADAE291F0BC352005D08A4 /* IAPModel.h */,
 				22ADAE2A1F0BC352005D08A4 /* IAPModel.m */,
 				843EC0241F29D9750051AFD3 /* OrderID.h */,
@@ -2910,6 +2908,8 @@
 				226B6FF61F38649E00AEC7D2 /* InfoPlist.strings */,
 				84F970CE1F38541B00336234 /* Localizable.strings */,
 				22B1090D1EA4A23800E35B74 /* Lliaoda.pch */,
+				22DC05631F39A91C00E2E015 /* PchTool.h */,
+				22DC05641F39A91C00E2E015 /* PchTool.m */,
 				2283AA021F0E158D00E9ABB5 /* Assets.xcassets */,
 				22E8D76C1EA49AE300C5FC6B /* Supporting Files */,
 			);
@@ -3625,6 +3625,7 @@
 				228B89DC1EA8671B002B8D3C /* SPHttpWithYYCache.m in Sources */,
 				224F24601EA73EB200C0FDC6 /* VideoRZTwoCell.m in Sources */,
 				84F970D51F38946100336234 /* LanguageVC.m in Sources */,
+				22DC05651F39A91C00E2E015 /* PchTool.m in Sources */,
 				228C307F1EB1A12800C2B55F /* ServiceErrorType.m in Sources */,
 				22844F551ED2A1B800A9E32E /* IQKeyboardManager.m in Sources */,
 				222AA1671EB071C20038416D /* KeyboardEmojiAttachment.m in Sources */,
@@ -3709,7 +3710,6 @@
 				222B385D1ED96843009DB58F /* MSSBrowseBaseViewController.m in Sources */,
 				840BE3201F1F02C40004B6D9 /* ProfitCell.m in Sources */,
 				227971CC1EF8DC0900BC8E18 /* DateUnit.m in Sources */,
-				226B70411F389B0400AEC7D2 /* NSString+Localization.m in Sources */,
 				2258D2921EB834ED006D29DC /* Charge.m in Sources */,
 				2286DC661EF26AFE00FDF801 /* LHChatBaseBubbleView.m in Sources */,
 				22FAD5541EE11FB100BF8BDB /* Reachability.m in Sources */,

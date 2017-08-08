@@ -13,4 +13,8 @@
 //处理默认语言
 + (NSString *)DPLocalizedString:(NSString *)translation_key;
 
++ (NSString *)getMainUrl;
+
++ (NSString *)getagoreappID;
+
 @end

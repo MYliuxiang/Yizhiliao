@@ -78,7 +78,7 @@
 //        hud.bezelView.backgroundColor = [UIColor redColor];
     }
     
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+    NSString *urlStr;
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -88,6 +88,19 @@
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *phoneVersion = [[UIDevice currentDevice] systemVersion];
     NSString *agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+    
+    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+    if ([lang hasPrefix:@"zh-hant"]) {
+        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+    }else if ([lang hasPrefix:@"id"]){
+        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,302",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+    }else{
+        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+    }
+
     
     [manager.requestSerializer setValue:agent forHTTPHeaderField:@"user-agent"];
 
@@ -184,12 +197,10 @@
     
     if (ishud) {
         
-        
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow  animated:YES];
-        
     }
 
-     NSString *urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+     NSString *urlStr ;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.requestSerializer= [AFJSONRequestSerializer serializer];
@@ -201,7 +212,20 @@
     
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *phoneVersion = [[UIDevice currentDevice] systemVersion];
-    NSString *agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+    NSString *agent;
+    
+    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+    if ([lang hasPrefix:@"zh-hant"]) {
+        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+    }else if ([lang hasPrefix:@"id"]){
+        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,302",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+    }else{
+        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+    }
+
     
     [manager.requestSerializer setValue:agent forHTTPHeaderField:@"user-agent"];
 
@@ -240,6 +264,20 @@
                             LoginVC *loginVC = [[LoginVC alloc]init];
                             BaseNavigationController *baseNAV = [[BaseNavigationController alloc] initWithRootViewController:loginVC];
                             [AppDelegate shareAppDelegate].window.rootViewController =baseNAV;
+                            
+                            [[AppDelegate shareAppDelegate].heartBeatTimer invalidate];
+                            [AppDelegate shareAppDelegate].heartBeatTimer = nil;
+                            
+                            AgoraAPI *inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
+                            [inst logout];
+                            
+                            [LXUserDefaults setObject:nil forKey:LXAppkey];
+                            [LXUserDefaults setObject:nil forKey:UID];
+                            [LXUserDefaults setObject:nil forKey:Expire];
+                            [LXUserDefaults setObject:nil forKey:NickName];
+                            [LXUserDefaults setObject:nil forKey:Portrait];
+                            [LXUserDefaults synchronize];
+                            
                         });
                         
                     }
@@ -493,9 +531,7 @@
             break;
     }
     
-
     return manager;
-    
     
 }
 

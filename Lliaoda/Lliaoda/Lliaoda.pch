@@ -132,11 +132,7 @@ alpha:1.0]
 #import "OrderID.h"
 
 #define CityCache @"CityCache"
-
-
-
 #define ISMEiGUO @"meiguo"
-
 #define Url_cities                        @"cities"//登入
 #define Url_recommend                     @"recommend"//首页
 #define Url_account                       @"account"//获取主播信息
@@ -217,15 +213,15 @@ alpha:1.0]
 #define Notice_weiXinShare                     @"weiXinShare"    //微信分享。
 
 //--------------网络请求--------
+#import "PchTool.h"
 
-#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://apl.yizhiliao.tv/api/":@"https://www.yizhiliao.tv/api/"//主URL
+#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://apl.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
 
 //#define MAINURLStr @"http://demo.yizhiliao.tv/api/"
 #define MAINURL  MAINURLStr//主URL
 
-//https://www.yizhiliao.tv/api/
 //信令
-#define agoreappID @"e063233af0694b93a6639bbd7e92b26a" //正式
+#define agoreappID  [LocalizationUtils getagoreappID] //正式
 //#define agoreappID   @"c21bbe14f2ad406d94a92146ee60aab0" //demo
 #define certificate1 @"d5e0a27cec6f4b06b0f0003d826bbee9"
 #define enableMediaCertificate 1

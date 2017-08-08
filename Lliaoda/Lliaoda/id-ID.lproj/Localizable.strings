@@ -63,7 +63,7 @@
 "讚我就是喜歡我，喜歡我就來跟我視訊聊天吧！" = "Ugh, senangnya di add sama kamu, addnya udah, telfonnya kapan? Aku tunggu yah.";
 "只點讚，不說話的人走路容易跌倒喔～"        = "Hi cinta, pasti kamu mau kenal aku ya, makanya kamu add. Hayoo cepet call aku, gak pake lama ya…";
 "喜歡我吧？我也特別喜歡喜歡我的人呢！來視訊呀～"        = "Makasih loh kk ganteng, sudah add aku, cepet telfon aku ya, emang gak pengen liat aku langsung? Aku tunggu loh.";
-"%@關注了你，可以主動跟他聊聊，或直接點擊下方“＋”發起通話喲！"        = "%@ telah mengikuti Anda, Anda dapat mengirim pesan, atau tekan "+" di bawah untuk melakukan video call.";
+"%@關注了你，可以主動跟他聊聊，或直接點擊下方“＋”發起通話喲！"        = "%@ telah mengikuti Anda, Anda dapat mengirim pesan, atau tekan “＋” di bawah untuk melakukan video call.";
 "成为VIP"        = "Jadi member VIP";
 "获取VIP"        = "Dapatkan VIP";
 "不能与自己聊天。"        = "Tidak dapat chat dengan diri sendiri.";
@@ -261,6 +261,9 @@
 "提現"        = "Cashout";
 "賬戶餘額(鑽石)"        = "Diamond yang Anda miliki";
 "VIP有效期至：2017-03-20"        = "VIP berlaku sampai：2017-03-20";
+"否" = "否";
+"是" = "是";
+
 /*
  * videoCall
  */
@@ -323,7 +326,7 @@
 "處女座"        = "Virgo";
 "天秤座"        = "Libra";
 "天蝎座"        = "Scorpius";
-"射手座"        = "Sagittarius;
+"射手座"        = "Sagittarius";
 "正在活躍"        = "Online";
 "%ld分鐘前活躍"        = "Online %ld menit yang lalu";
 "%ld小時前活躍"        = "Online %ld jam yang lalu";
