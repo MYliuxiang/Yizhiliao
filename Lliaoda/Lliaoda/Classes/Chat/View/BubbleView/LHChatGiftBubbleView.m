@@ -199,7 +199,7 @@ static CGSize kGiftBoundingSize;
         UIMenuController *menu = [UIMenuController sharedMenuController];
         
         UIMenuItem *item2 = [[UIMenuItem alloc]initWithTitle:LXSring(@"删除") action:@selector(myDelete:)];
-        UIMenuItem *item3 = [[UIMenuItem alloc]initWithTitle:@"更多..." action:@selector(myMore:)];
+        UIMenuItem *item3 = [[UIMenuItem alloc]initWithTitle:LXSring(@"更多...") action:@selector(myMore:)];
         menu.menuItems = @[item2,item3];
         
         [menu setTargetRect:self.bounds inView:self];

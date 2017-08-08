@@ -50,6 +50,7 @@
         }
 
     }
+    
     [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
     [LXUserDefaults synchronize];
     
@@ -108,6 +109,7 @@
         }
 
     }
+    
 
     
 //    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {

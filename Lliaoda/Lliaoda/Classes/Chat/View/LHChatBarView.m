@@ -424,7 +424,7 @@ CGFloat const kChatBatItemWH = 26.0f;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         
         if (![LHTools cameraLimit]) {
-            UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:nil message:@"请在iPhone的\"設定-隐私-相机\"选项中,允许LHChatUI访问你的相机" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+            UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:nil message:LXSring(@"请在iPhone的\"設定-隐私-相机\"选项中,允许LHChatUI访问你的相机") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
             [alertView show];
             return;
         }
