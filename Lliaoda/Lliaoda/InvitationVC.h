@@ -53,5 +53,7 @@
 @property (strong, nonatomic) IBOutlet UIView *shareView;
 @property (nonnull,retain) UIView *maskView;
 @property (nonatomic,copy) NSString *code;
+@property (weak, nonatomic) IBOutlet UIButton *weixinButton;
+@property (weak, nonatomic) IBOutlet UIButton *friendButton;
 
 @end

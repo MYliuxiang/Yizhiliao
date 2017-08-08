@@ -29,6 +29,13 @@
     [self.btn1 setTitle:DTLocalizedString(@"复制链接", nil) forState:UIControlStateNormal];
     [self.cancelBtn setTitle:DTLocalizedString(@"取消", nil) forState:UIControlStateNormal];
 
+    if ([WXApi isWXAppInstalled]) {
+        _weixinButton.hidden = NO;
+        _friendButton.hidden = NO;
+    } else {
+        _weixinButton.hidden = YES;
+        _friendButton.hidden = YES;
+    }
     
     [self loadData];
 
