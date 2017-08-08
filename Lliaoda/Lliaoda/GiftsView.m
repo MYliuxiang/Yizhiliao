@@ -194,7 +194,7 @@ static NSString *identifire = @"GiftID";
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
-                NSString *str = [NSString stringWithFormat:@"余额:%@鑽",deposit];
+                NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
                 NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
                 [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
                 
@@ -205,7 +205,7 @@ static NSString *identifire = @"GiftID";
                 // 礼物模型
                 GiftModel *giftModel = [[GiftModel alloc] init];
                 giftModel.giftImage = model.icon;
-                giftModel.giftName = [NSString stringWithFormat:@"送出%@",model.name];
+                giftModel.giftName = [NSString stringWithFormat:LXSring(@"送出%@"),model.name];
                 giftModel.giftCount = 1;
                 giftModel.giftUid = model.uid;
                 giftModel.diamonds = model.diamonds;
@@ -345,7 +345,7 @@ static NSString *identifire = @"GiftID";
     
     
     
-    NSString *content = [NSString stringWithFormat:@"我送出：%@(%d鉆)", giftName, diamonds];
+    NSString *content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
     NSString *contents = [NSString stringWithFormat:@"%@(%d)", giftName, diamonds];
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     __block Message *messageModel = [Message new];
@@ -361,7 +361,7 @@ static NSString *identifire = @"GiftID";
     messageModel.content = content;
     
     [messageModel save];
-    [SVProgressHUD showSuccessWithStatus:@"禮物已發送，謝謝老闆打賞~"];
+    [SVProgressHUD showSuccessWithStatus:LXSring(@"禮物已發送，謝謝老闆打賞~")];
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         
@@ -385,7 +385,7 @@ static NSString *identifire = @"GiftID";
     if ([MessageCount findFirstByCriteria:criteria]) {
         
         MessageCount *count = [MessageCount findFirstByCriteria:criteria];
-        count.content = [NSString stringWithFormat:@"我送出：%@(%d鉆)", giftName, diamonds];
+        count.content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
         count.count = count.count;
         
         count.timeDate = idate;
@@ -396,7 +396,7 @@ static NSString *identifire = @"GiftID";
     }else{
         
         MessageCount *count = [[MessageCount alloc] init];
-        count.content = [NSString stringWithFormat:@"我送出：%@(%d鉆)", giftName, diamonds];
+        count.content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
         count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
         count.sendUid = dic[@"referee"];
         count.count = 0;

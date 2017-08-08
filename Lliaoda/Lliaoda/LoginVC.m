@@ -225,7 +225,7 @@
     
     if (self.userTextField.text.length == 0) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"请填写账号！" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"请填写账号！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }

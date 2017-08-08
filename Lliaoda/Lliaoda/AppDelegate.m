@@ -354,7 +354,7 @@
                                     if ([dic[@"status"] intValue] == 1) {
                                         if (dic[@"referee"] != nil) {
                                             
-                                            NSString *content = [NSString stringWithFormat:@"我已通過你的頁面儲值:%@鉆", dic[@"diamonds"]];
+                                            NSString *content = [NSString stringWithFormat:LXSring(@"我已通過你的頁面儲值：%@"), dic[@"diamonds"]];
                                             long long idate = [[NSDate date] timeIntervalSince1970]*1000;
                                             __block Message *messageModel = [Message new];
                                             messageModel.isSender = YES;
