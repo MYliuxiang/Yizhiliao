@@ -348,7 +348,7 @@
     } completion:^(BOOL finished) {
         
     }];
-    [LXUserDefaults setObject:@"zh-hant" forKey:@"userLanguage"];
+    [LXUserDefaults setObject:@"zh-hant" forKey:@"appLanguage"];
     [LXUserDefaults synchronize];
     
 }
@@ -361,7 +361,7 @@
         
     }];
 
-    [LXUserDefaults setObject:@"id" forKey:@"userLanguage"];
+    [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
     [LXUserDefaults synchronize];
 }
 @end

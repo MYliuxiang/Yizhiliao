@@ -26,7 +26,7 @@
     [super awakeFromNib];
     // Initialization code
     self.contentView.backgroundColor = Color_nav;
-    self.label1.text = @"可提現總收入(聊幣)";
+    self.label1.text = LXSring(@"可提現總收入(聊幣)");
     [self.tixianButton setTitle:LXSring(@"提現") forState:UIControlStateNormal];;
 
 }

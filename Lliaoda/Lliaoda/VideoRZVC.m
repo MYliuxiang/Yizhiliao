@@ -60,7 +60,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
 
-    cell.tLabel.text = @"通過自拍認證後可以提高收入上限，還有機會上精選，獲得更多關注哦～";
+    cell.tLabel.text = LXSring(@"通過自拍認證後可以提高收入上限，還有機會上精選，獲得更多關注哦～");
     return cell;
         
     }else if(indexPath.row == 1){

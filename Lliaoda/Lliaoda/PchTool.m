@@ -12,7 +12,7 @@
 + (NSString *)getMainUrl
 {
     NSString *mainStr;
-    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     if ([lang hasPrefix:@"zh-hant"]) {
         mainStr = @"https://www.yizhiliao.tv/api/";
     }else if ([lang hasPrefix:@"id"]){
@@ -28,7 +28,7 @@
 {
 
     NSString *agoreappIDStr;
-    NSString *lang = [LXUserDefaults valueForKey:@"userLanguage"];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     if ([lang hasPrefix:@"zh-hant"]) {
         agoreappIDStr = @"e063233af0694b93a6639bbd7e92b26a";
     }else if ([lang hasPrefix:@"id"]){

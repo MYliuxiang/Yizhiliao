@@ -39,7 +39,7 @@
     static NSBundle *bundle = nil;
 //    if (bundle == nil) {
         // （iOS获取的语言字符串比较不稳定）目前框架只处理en、zh-Hans、zh-Hant三种情况，其他按照系统默认处理
-    NSString *language = [[NSUserDefaults standardUserDefaults] valueForKey:@"userLanguage"];
+    NSString *language = [[NSUserDefaults standardUserDefaults] valueForKey:@"appLanguage"];
     if ([language hasPrefix:@"zh-hant"]) {
         NSString * path = [[NSBundle mainBundle] pathForResource:@"zh-Hant" ofType:@"lproj"];
         bundle = [NSBundle bundleWithPath:path];

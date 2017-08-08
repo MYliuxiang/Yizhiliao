@@ -144,7 +144,7 @@
     UIButton *enter = [[UIButton alloc]initWithFrame:CGRectMake(10, 0,50,40)];
     enter.titleLabel.font = [UIFont systemFontOfSize:14];
     [enter setTitleColor:Color_nav forState:UIControlStateNormal];
-    [enter setTitle:@"取消" forState:UIControlStateNormal];
+    [enter setTitle:LXSring(@"取消") forState:UIControlStateNormal];
     [toolView addSubview:enter];
     [enter addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -380,7 +380,7 @@
 
                 
                 self.nickLabel.text = self.model.nickname;
-                self.idLabel.text = [NSString stringWithFormat:@"聊號：%@",self.model.uid];
+                self.idLabel.text = [NSString stringWithFormat:LXSring(@"聊號：%@"),self.model.uid];
                 [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
                 
                 NSArray *array;
@@ -473,7 +473,8 @@
                 [lxcache setCacheData:result WithKey:cacheKey];
                 
                 self.nickLabel.text = self.model.nickname;
-                self.idLabel.text = [NSString stringWithFormat:@"聊號：%@",self.model.uid];
+                
+                self.idLabel.text = [NSString stringWithFormat:LXSring(@"聊號：%@"),self.model.uid];
                 [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
                                
                 NSArray *array;
@@ -565,8 +566,8 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.accoutLabel.text = [NSString stringWithFormat:@"賬戶：%d个鑽石",self.model.deposit];
-        cell.profitLabel.text =  cell.detailTextLabel.text = [NSString stringWithFormat:@"收入：%d个聊币",self.model.income];
+        cell.accoutLabel.text = [NSString stringWithFormat:LXSring(@"賬戶：%d个鑽石"),self.model.deposit];
+        cell.profitLabel.text =  cell.detailTextLabel.text = [NSString stringWithFormat:LXSring(@"收入：%d个聊币"),self.model.income];
         cell.contentView.backgroundColor = Color_Cell;
         [cell.accoutBtn addTarget:self action:@selector(accoutAC) forControlEvents:UIControlEventTouchUpInside];
         [cell.profitBtn addTarget:self action:@selector(profitAC) forControlEvents:UIControlEventTouchUpInside];
@@ -622,10 +623,10 @@
             
             if (indexPath.row == 0) {
                 
-                cell.detailTextLabel.text = @"请输入5位邀請碼,即可获得奖励";
+                cell.detailTextLabel.text = LXSring(@"请输入5位邀請碼,即可获得奖励");
             }else{
                 
-                cell.detailTextLabel.text = @"填入好友的分享的邀請碼，即可获奖励";
+                cell.detailTextLabel.text = LXSring(@"填入好友的分享的邀請碼，即可获奖励");
             }
             
         }else if (indexPath.section == 1){
@@ -634,25 +635,25 @@
                 
                 if(self.model.auth == 0){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:LXSring(@"未认证")];
+                    cell.detailTextLabel.text = LXSring(@"未认证");
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                     
                 }else if (self.model.auth == 1){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:LXSring(@"认证中")];
+                    cell.detailTextLabel.text = LXSring(@"认证中");
                     cell.accessoryType = UITableViewCellAccessoryNone;
                     
                     
                 }else if (self.model.auth == 2){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:LXSring(@"認證成功")];
+                    cell.detailTextLabel.text = LXSring(@"認證成功");
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                     
                 }else{
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:LXSring(@"認證失敗")];
+                    cell.detailTextLabel.text = LXSring(@"認證失敗");
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                 }
@@ -680,7 +681,7 @@
             
             if (indexPath.row == 0) {
                 
-                cell.detailTextLabel.text = @"上传小視頻，就有机会上精选";
+                cell.detailTextLabel.text = LXSring(@"上传小視頻，就有机会上精选");
                 
             }else{
                 
@@ -695,10 +696,10 @@
             
             if (indexPath.row == 0) {
                 
-                cell.detailTextLabel.text = @"邀請好友，即可獲得獎勵";
+                cell.detailTextLabel.text = LXSring(@"邀請好友，即可獲得獎勵");
             }else{
                 
-                cell.detailTextLabel.text = @"填入邀請碼，即可獲得獎勵";
+                cell.detailTextLabel.text = LXSring(@"填入邀請碼，即可獲得獎勵");
             }
             
         }else if (indexPath.section == 2){
@@ -707,25 +708,25 @@
                 
                 if(self.model.auth == 0){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:LXSring(@"未认证")];
+                    cell.detailTextLabel.text = LXSring(@"未认证");
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                     
                 }else if (self.model.auth == 1){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:LXSring(@"认证中")];
+                    cell.detailTextLabel.text = LXSring(@"认证中");
                     cell.accessoryType = UITableViewCellAccessoryNone;
                     
                     
                 }else if (self.model.auth == 2){
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:LXSring(@"認證成功")];
+                    cell.detailTextLabel.text = LXSring(@"認證成功");
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                     
                 }else{
                     
-                    cell.detailTextLabel.text = [NSString stringWithFormat:LXSring(@"認證失敗")];
+                    cell.detailTextLabel.text = LXSring(@"認證失敗");
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                 }
@@ -753,7 +754,7 @@
             
             if (indexPath.row == 0) {
                 
-                cell.detailTextLabel.text = @"上传小視頻，就有机会上精选";
+                cell.detailTextLabel.text = LXSring(@"上传小視頻，就有机会上精选");
                 
             }else{
                 

@@ -80,6 +80,7 @@ static MeassageVC *this;
     
     // Do any additional setup after loading the view.
     self.text = LXSring(@"訊息");
+    self.nomessageLabel.text = LXSring(@"暫時沒有消息，去交些新朋友吧！😊");
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         // 当网络状态改变时调用

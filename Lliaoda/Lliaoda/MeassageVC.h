@@ -18,6 +18,7 @@
 
 }
 @property (nonatomic,retain) UIActivityIndicatorView *actView;  //风火轮视图
+@property (weak, nonatomic) IBOutlet UILabel *nomessageLabel;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,retain) AgoraAPI *inst;
