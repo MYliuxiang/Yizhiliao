@@ -41,14 +41,14 @@
 //        switch (status) {
 //            case AFNetworkReachabilityStatusNotReachable:
 //            {
-//                NSLog(DTLocalizedString(@"无网络", nil));
+//                NSLog(LXSring(@"无网络"));
 //                self.isNotReachable = NO;
 //            }
 //                break;
 //            case AFNetworkReachabilityStatusReachableViaWWAN:
 //            {
-//                NSLog(DTLocalizedString(@"有网络", nil));
-//                //isuse = DTLocalizedString(@"有网络", nil);
+//                NSLog(LXSring(@"有网络"));
+//                //isuse = LXSring(@"有网络");
 //                 self.isNotReachable = YES;
 //            }
 //                break;
@@ -121,7 +121,7 @@
                 if (errorBlock != nil) {
                     
                     errorBlock(error);
-                    [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"网络失败", nil)];
+                    [SVProgressHUD showErrorWithStatus:LXSring(@"网络失败")];
                     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                         
@@ -151,7 +151,7 @@
                 if (errorBlock != nil) {
                     
                     errorBlock(error);
-                    [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"网络失败", nil)];
+                    [SVProgressHUD showErrorWithStatus:LXSring(@"网络失败")];
                     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                         
@@ -246,7 +246,7 @@
                     if([[result objectForKey:@"result"] integerValue] == 24 ){
                         
                         NSString *str = [NSString stringWithFormat:@"时长：%@,原因：%@",result[@"data"][@"durationInHours"],result[@"data"][@"reason"]];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"账号被封", nil) message:str delegate:nil cancelButtonTitle:nil otherButtonTitles:DTLocalizedString(@"确定", nil), nil];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"账号被封") message:str delegate:nil cancelButtonTitle:nil otherButtonTitles:LXSring(@"确定"), nil];
                         [alert show];
                     }
 
@@ -263,7 +263,7 @@
                     errorBlock(error);
                     if (isErrorHud) {
                         
-                        [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"網絡失敗", nil)];
+                        [SVProgressHUD showErrorWithStatus:LXSring(@"網絡失敗")];
                         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                             
@@ -307,7 +307,7 @@
                     if([[result objectForKey:@"result"] integerValue] == 24 ){
                         
                         NSString *str = [NSString stringWithFormat:@"时长：%@,原因：%@",result[@"data"][@"durationInHours"],result[@"data"][@"reason"]];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"账号被封", nil) message:str delegate:nil cancelButtonTitle:nil otherButtonTitles:DTLocalizedString(@"确定", nil), nil];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"账号被封") message:str delegate:nil cancelButtonTitle:nil otherButtonTitles:LXSring(@"确定"), nil];
                         [alert show];
                     }
                     
@@ -321,7 +321,7 @@
                     
                     if (isErrorHud) {
                         
-                        [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"網絡失敗", nil)];
+                        [SVProgressHUD showErrorWithStatus:LXSring(@"網絡失敗")];
                         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                             

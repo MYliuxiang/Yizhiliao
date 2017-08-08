@@ -14,7 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.label.text = DTLocalizedString(@"封面", nil);
+    self.label.text = LXSring(@"封面");
     
 }
 

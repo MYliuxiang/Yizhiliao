@@ -79,7 +79,7 @@ static int  const kDefaultCircleCount = 1;
     //1.获取当前上下文
     CGContextRef contextRef = UIGraphicsGetCurrentContext();
     //2.创建文字
-    NSString * str = DTLocalizedString(@"纸巾艺术", nil);
+    NSString * str = LXSring(@"纸巾艺术");
     
     //会知道上下文
     

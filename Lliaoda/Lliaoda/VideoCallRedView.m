@@ -20,14 +20,14 @@
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 5;
         
-        self.jineLab.text = DTLocalizedString(@"金額", nil);
-        self.zuanLabel.text = DTLocalizedString(@"鑽", nil);
+        self.jineLab.text = LXSring(@"金額");
+        self.zuanLabel.text = LXSring(@"鑽");
 
-        self.lab1.text = DTLocalizedString(@"單個紅包數額不可低於100鑽", nil);
-        self.label2.text = DTLocalizedString(@"個數", nil);
-        self.label3.text = DTLocalizedString(@"個", nil);
-        [self.sendBtn setTitle:DTLocalizedString(@"發送紅包", nil) forState:UIControlStateNormal];
-        [self.chongBtn setTitle:DTLocalizedString(@"快速儲值", nil) forState:UIControlStateNormal];
+        self.lab1.text = LXSring(@"單個紅包數額不可低於100鑽");
+        self.label2.text = LXSring(@"個數");
+        self.label3.text = LXSring(@"個");
+        [self.sendBtn setTitle:LXSring(@"發送紅包") forState:UIControlStateNormal];
+        [self.chongBtn setTitle:LXSring(@"快速儲值") forState:UIControlStateNormal];
 
         
         
@@ -89,7 +89,7 @@
 {
     
     if (textView.text.length == 0) {
-        self.textViewP.text = DTLocalizedString(@"恭喜發財，越來越美", nil);
+        self.textViewP.text = LXSring(@"恭喜發財，越來越美");
     }else{
         self.textViewP.text = @"";
     }
@@ -313,14 +313,14 @@
     
     if ([_onetextField.text integerValue] < 100) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"亲！红包金额不能低于100鑽石", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"亲！红包金额不能低于100鑽石") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
 
         [alert show];
         return;
     }
     if ([_twotextField.text integerValue] < 1) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"亲！红包个数不能小于1", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"亲！红包个数不能小于1") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
 
         [alert show];
         return;
@@ -329,7 +329,7 @@
     int diamonds = [_onetextField.text intValue];
     NSString *message;
     if (_textView.text.length == 0) {
-        message = DTLocalizedString(@"恭喜發財，越來越美", nil);
+        message = LXSring(@"恭喜發財，越來越美");
     }else{
         message = _textView.text;
     }
@@ -389,7 +389,7 @@
                 if ([[result objectForKey:@"result"] integerValue] == 8) {
                     
                     
-                    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:DTLocalizedString(@"购买鑽石", nil) message:DTLocalizedString(@"老闆，鑽石不夠啦～儲值後立刻打賞！", nil) style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:DTLocalizedString(@"［暫不用］", nil) destructiveButtonTitle:DTLocalizedString(@"［去儲值］", nil) delegate:nil];
+                    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"老闆，鑽石不夠啦～儲值後立刻打賞！") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"［暫不用］") destructiveButtonTitle:LXSring(@"［去儲值］") delegate:nil];
                     lg.destructiveButtonBackgroundColor = Color_nav;
                     lg.destructiveButtonTitleColor = [UIColor whiteColor];
                     lg.cancelButtonFont = [UIFont systemFontOfSize:16];

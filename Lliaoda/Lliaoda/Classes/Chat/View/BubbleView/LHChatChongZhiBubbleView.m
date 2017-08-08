@@ -64,7 +64,7 @@ static CGSize CZiftBoundingSize;
         
         tempRect = [object.content  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
         
-        tempRect1 = [DTLocalizedString(@"對方點擊提醒可去到充值頁", nil)  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
+        tempRect1 = [LXSring(@"對方點擊提醒可去到充值頁")  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
         
     }
     
@@ -72,9 +72,9 @@ static CGSize CZiftBoundingSize;
         //        _remindLabel.text = ;
         //        _detailLabel.text = ;
         
-        tempRect = [DTLocalizedString(@"收到我的儲值提醒", nil)  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
+        tempRect = [LXSring(@"收到我的儲值提醒")  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
         
-        tempRect1 = [DTLocalizedString(@"點擊前往充值頁面", nil)  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
+        tempRect1 = [LXSring(@"點擊前往充值頁面")  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
     }
     
     CZiftBoundingSize = CGSizeMake(MAX(tempRect.size.width, tempRect1.size.width) + 40+BUBBLE_VIEW_PADDING, tempRect.size.height + tempRect1.size.height);
@@ -111,7 +111,7 @@ static CGSize CZiftBoundingSize;
         
         tempRect = [self.messageModel.content  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
         
-        tempRect1 = [DTLocalizedString(@"對方點擊提醒可去到充值頁", nil)  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
+        tempRect1 = [LXSring(@"對方點擊提醒可去到充值頁")  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
         
         _remindLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, BUBBLE_VIEW_PADDING, tempRect.size.width, tempRect.size.height);
         _detailLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom, tempRect1.size.width, tempRect1.size.height);
@@ -121,9 +121,9 @@ static CGSize CZiftBoundingSize;
     
     if ([self.messageModel.sendUid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
         
-        tempRect = [DTLocalizedString(@"收到我的儲值提醒", nil)  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
+        tempRect = [LXSring(@"收到我的儲值提醒")  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}context:nil];
         
-        tempRect1 = [DTLocalizedString(@"點擊前往充值頁面", nil)  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
+        tempRect1 = [LXSring(@"點擊前往充值頁面")  boundingRectWithSize:CGSizeMake(CZLABEL_MAX_WIDTH-40,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}context:nil];
         _remindLabel.frame = CGRectMake(19 + 40 + 10, BUBBLE_VIEW_PADDING, tempRect.size.width, tempRect.size.height);
         _detailLabel.frame = CGRectMake(_remindLabel.left, _remindLabel.bottom, tempRect1.size.width, tempRect1.size.height);
         _imageView.frame = CGRectMake(19 , (CZiftBoundingSize.height - 40) / 2.0 + BUBBLE_VIEW_PADDING, 40, 40);
@@ -153,15 +153,15 @@ static CGSize CZiftBoundingSize;
         _remindLabel.textColor = [UIColor whiteColor];
         _detailLabel.textColor = [UIColor whiteColor];
         
-        CGFloat height2 = [self heightForText:DTLocalizedString(@"對方點擊提醒可去到充值頁", nil) fontSize:12];
+        CGFloat height2 = [self heightForText:LXSring(@"對方點擊提醒可去到充值頁") fontSize:12];
         _detailLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom, _remindLabel.width, height2);
-        _detailLabel.text = DTLocalizedString(@"對方點擊提醒可去到充值頁", nil);
+        _detailLabel.text = LXSring(@"對方點擊提醒可去到充值頁");
         _detailButton.enabled = NO;
         
     }
     if ([messageModel.sendUid integerValue] == [[LXUserDefaults objectForKey:UID] integerValue]) {
         _detailButton.enabled = YES;
-        _remindLabel.text = DTLocalizedString(@"收到我的儲值提醒", nil);
+        _remindLabel.text = LXSring(@"收到我的儲值提醒");
         _imageView.image = [UIImage imageNamed:@"chongzhi"];
         _remindLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, BUBBLE_VIEW_PADDING, 130, 15);
         _imageView.frame = CGRectMake(_remindLabel.right, _remindLabel.top, 40, 40);
@@ -170,7 +170,7 @@ static CGSize CZiftBoundingSize;
         _remindLabel.textColor = UIColorFromRGB(0x1d1d1d);
         _detailLabel.textColor = UIColorFromRGB(0xfa3575);
         _detailLabel.frame = CGRectMake(BUBBLE_RIGHT_LEFT_CAP_WIDTH, _remindLabel.bottom + 12, _remindLabel.width, 13);
-        _detailLabel.text = DTLocalizedString(@"點擊前往充值頁面", nil);
+        _detailLabel.text = LXSring(@"點擊前往充值頁面");
         _detailButton.enabled = YES;
     }
 }
@@ -187,7 +187,7 @@ static CGSize CZiftBoundingSize;
         //
         UIMenuController *menu = [UIMenuController sharedMenuController];
         
-        UIMenuItem *item2 = [[UIMenuItem alloc]initWithTitle:DTLocalizedString(@"删除", nil) action:@selector(myDelete:)];
+        UIMenuItem *item2 = [[UIMenuItem alloc]initWithTitle:LXSring(@"删除") action:@selector(myDelete:)];
         UIMenuItem *item3 = [[UIMenuItem alloc]initWithTitle:@"更多..." action:@selector(myMore:)];
         menu.menuItems = @[item2,item3];
         

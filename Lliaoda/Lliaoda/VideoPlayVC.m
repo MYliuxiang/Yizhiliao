@@ -91,7 +91,7 @@
     
     UIButton *Done = [UIButton buttonWithType:UIButtonTypeCustom];
     [Done addTarget:self action:@selector(doneAc) forControlEvents:UIControlEventTouchUpInside];
-    [Done setTitle:DTLocalizedString(@"確定", nil) forState:UIControlStateNormal];
+    [Done setTitle:LXSring(@"確定") forState:UIControlStateNormal];
     Done.frame = CGRectMake(kScreenWidth - 54, 20, 44, 44);
     [imageView addSubview:Done];
     [self.view addSubview:imageView];

@@ -17,8 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = DTLocalizedString(@"簽名檔", nil);
-    [self addrighttitleString:DTLocalizedString(@"保存", nil)];
+    self.text = LXSring(@"簽名檔");
+    [self addrighttitleString:LXSring(@"保存")];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.textView.text = self.model.intro;
 }

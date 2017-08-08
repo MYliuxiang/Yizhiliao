@@ -27,13 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = DTLocalizedString(@"視頻認證", nil);
+    self.text = LXSring(@"視頻認證");
     self.label1.text = @"距離完成認證僅差一步，請如實填寫手機號，以便我們及時聯繫你，賺取更多的收益！";
-    self.label2.text = DTLocalizedString(@"手機號碼", nil);
-    self.label3.text = DTLocalizedString(@"公会名称", nil);
-    [self.completeBtn setTitle:DTLocalizedString(@"完成", nil) forState:UIControlStateNormal];
+    self.label2.text = LXSring(@"手機號碼");
+    self.label3.text = LXSring(@"公会名称");
+    [self.completeBtn setTitle:LXSring(@"完成") forState:UIControlStateNormal];
     self.ghuiLabel.placeholder = @"如沒有公會號，填寫000";
-    self.textField.placeholder = DTLocalizedString(@"請輸入您真實的行動電話號碼", nil);
+    self.textField.placeholder = LXSring(@"請輸入您真實的行動電話號碼");
 
     self.completeBtn.layer.cornerRadius = 22;
     self.completeBtn.layer.masksToBounds = YES;
@@ -74,14 +74,14 @@
     
     if (_textField.text.length != 10) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"您输入的手機號碼不正确！" delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"您输入的手機號碼不正确！" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
         
     }
     if (_ghuiLabel.text.length == 0) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"请填写公会号", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"请填写公会号") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -210,7 +210,7 @@
     
     NSDictionary *params;
     params = @{@"private":@"0"};
-    [SVProgressHUD showWithStatus:DTLocalizedString(@"正在上传", nil)];
+    [SVProgressHUD showWithStatus:LXSring(@"正在上传")];
     
     [WXDataService requestAFWithURL:Url_storagekey params:params httpMethod:@"POST" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
         if(result){
@@ -276,7 +276,7 @@
                     
                 }else{
                     
-                    [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"上传失败", nil)];
+                    [SVProgressHUD showErrorWithStatus:LXSring(@"上传失败")];
                     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.35 * NSEC_PER_SEC));
                     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                         
@@ -359,7 +359,7 @@
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
-                [SVProgressHUD showWithStatus:DTLocalizedString(@"上传成功", nil)];
+                [SVProgressHUD showWithStatus:LXSring(@"上传成功")];
                 dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.35 * NSEC_PER_SEC));
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     [SVProgressHUD dismiss];
