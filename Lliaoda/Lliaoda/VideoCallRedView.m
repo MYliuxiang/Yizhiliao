@@ -22,6 +22,7 @@
         
         self.jineLab.text = LXSring(@"金額");
         self.zuanLabel.text = LXSring(@"鑽");
+        self.topLabel.text = LXSring(@"發紅包");
 
         self.lab1.text = LXSring(@"單個紅包數額不可低於100鑽");
         self.label2.text = LXSring(@"個數");

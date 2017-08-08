@@ -458,8 +458,6 @@
 		2286DC6D1EF26AFE00FDF801 /* LHChatTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2286DC5E1EF26AFE00FDF801 /* LHChatTimeCell.m */; };
 		2286DC6E1EF26AFE00FDF801 /* LHChatViewBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2286DC601EF26AFE00FDF801 /* LHChatViewBaseCell.m */; };
 		2286DC6F1EF26AFE00FDF801 /* LHChatViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2286DC621EF26AFE00FDF801 /* LHChatViewCell.m */; };
-		2286DC751EF26DE600FDF801 /* noPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2286DC741EF26DE600FDF801 /* noPhoto.jpg */; };
-		2286DC771EF26DF300FDF801 /* noVideo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2286DC761EF26DF300FDF801 /* noVideo.jpg */; };
 		228941F71ED923000020C307 /* MyalbumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 228941F51ED923000020C307 /* MyalbumVC.m */; };
 		228941F81ED923000020C307 /* MyalbumVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228941F61ED923000020C307 /* MyalbumVC.xib */; };
 		228941FC1ED926030020C307 /* MyalbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 228941FA1ED926030020C307 /* MyalbumCell.m */; };
@@ -526,6 +524,9 @@
 		22DC05651F39A91C00E2E015 /* PchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DC05641F39A91C00E2E015 /* PchTool.m */; };
 		22DC05681F39BE8200E2E015 /* albumVideo.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DC05661F39BE8200E2E015 /* albumVideo.png */; };
 		22DC05691F39BE8200E2E015 /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DC05671F39BE8200E2E015 /* album.png */; };
+		22DC056B1F39F66900E2E015 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22DC056A1F39F66900E2E015 /* login.jpg */; };
+		22DC056E1F39FAA600E2E015 /* noVideo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22DC056C1F39FAA600E2E015 /* noVideo.jpg */; };
+		22DC056F1F39FAA600E2E015 /* noPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22DC056D1F39FAA600E2E015 /* noPhoto.jpg */; };
 		22E8D76E1EA49AE300C5FC6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E8D76D1EA49AE300C5FC6B /* main.m */; };
 		22E8D7711EA49AE300C5FC6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E8D7701EA49AE300C5FC6B /* AppDelegate.m */; };
 		22E8D7771EA49AE300C5FC6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E8D7751EA49AE300C5FC6B /* Main.storyboard */; };
@@ -1243,8 +1244,6 @@
 		2286DC601EF26AFE00FDF801 /* LHChatViewBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHChatViewBaseCell.m; sourceTree = "<group>"; };
 		2286DC611EF26AFE00FDF801 /* LHChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHChatViewCell.h; sourceTree = "<group>"; };
 		2286DC621EF26AFE00FDF801 /* LHChatViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHChatViewCell.m; sourceTree = "<group>"; };
-		2286DC741EF26DE600FDF801 /* noPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noPhoto.jpg; sourceTree = "<group>"; };
-		2286DC761EF26DF300FDF801 /* noVideo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noVideo.jpg; sourceTree = "<group>"; };
 		228941F41ED923000020C307 /* MyalbumVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyalbumVC.h; sourceTree = "<group>"; };
 		228941F51ED923000020C307 /* MyalbumVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyalbumVC.m; sourceTree = "<group>"; };
 		228941F61ED923000020C307 /* MyalbumVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyalbumVC.xib; sourceTree = "<group>"; };
@@ -1355,6 +1354,9 @@
 		22DC05641F39A91C00E2E015 /* PchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PchTool.m; sourceTree = "<group>"; };
 		22DC05661F39BE8200E2E015 /* albumVideo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = albumVideo.png; sourceTree = "<group>"; };
 		22DC05671F39BE8200E2E015 /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album.png; sourceTree = "<group>"; };
+		22DC056A1F39F66900E2E015 /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login.jpg; sourceTree = "<group>"; };
+		22DC056C1F39FAA600E2E015 /* noVideo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noVideo.jpg; sourceTree = "<group>"; };
+		22DC056D1F39FAA600E2E015 /* noPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noPhoto.jpg; sourceTree = "<group>"; };
 		22E8D7691EA49AE300C5FC6B /* Lliaoda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lliaoda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E8D76D1EA49AE300C5FC6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		22E8D76F1EA49AE300C5FC6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2197,6 +2199,7 @@
 			children = (
 				2290942D1EF2756200715841 /* LoginVC.h */,
 				2290942E1EF2756200715841 /* LoginVC.m */,
+				22DC056A1F39F66900E2E015 /* login.jpg */,
 				2290942F1EF2756200715841 /* LoginVC.xib */,
 				229094301EF2756200715841 /* AgreementVC.h */,
 				229094311EF2756200715841 /* AgreementVC.m */,
@@ -2803,8 +2806,8 @@
 				22721FA51EE7D5F7003A19D3 /* PeriSonMediaCell.h */,
 				22721FA61EE7D5F7003A19D3 /* PeriSonMediaCell.m */,
 				22721FA71EE7D5F7003A19D3 /* PeriSonMediaCell.xib */,
-				2286DC761EF26DF300FDF801 /* noVideo.jpg */,
-				2286DC741EF26DE600FDF801 /* noPhoto.jpg */,
+				22DC056C1F39FAA600E2E015 /* noVideo.jpg */,
+				22DC056D1F39FAA600E2E015 /* noPhoto.jpg */,
 				22721FAA1EE7E3E7003A19D3 /* MediaCell.h */,
 				22721FAB1EE7E3E7003A19D3 /* MediaCell.m */,
 				22721FAC1EE7E3E7003A19D3 /* MediaCell.xib */,
@@ -3266,8 +3269,8 @@
 				228B89C21EA85744002B8D3C /* VideoRZTwoVC.xib in Resources */,
 				229094381EF2774100715841 /* start_30.wav in Resources */,
 				222AA0461EB071910038416D /* B_109@2x.gif in Resources */,
+				22DC056B1F39F66900E2E015 /* login.jpg in Resources */,
 				222AA02F1EB071910038416D /* C_96@2x.png in Resources */,
-				2286DC751EF26DE600FDF801 /* noPhoto.jpg in Resources */,
 				2250E62E1EA9EE4D00849842 /* PersonCell.xib in Resources */,
 				222AA0A11EB071910038416D /* B_84@2x.gif in Resources */,
 				222AA08C1EB071910038416D /* B_65@2x.gif in Resources */,
@@ -3278,7 +3281,6 @@
 				222AA07D1EB071910038416D /* B_51@2x.gif in Resources */,
 				222AA0931EB071910038416D /* B_71@2x.gif in Resources */,
 				222AA01C1EB071910038416D /* C_110@2x.png in Resources */,
-				2286DC771EF26DF300FDF801 /* noVideo.jpg in Resources */,
 				222AA09A1EB071910038416D /* B_78@2x.gif in Resources */,
 				222AA09C1EB071910038416D /* b_7@2x.gif in Resources */,
 				222AA08D1EB071910038416D /* B_66@2x.gif in Resources */,
@@ -3307,6 +3309,7 @@
 				228941FD1ED926030020C307 /* MyalbumCell.xib in Resources */,
 				222AA0341EB071910038416D /* B_01@2x.gif in Resources */,
 				222AA0B21EB071910038416D /* b_9@2x.gif in Resources */,
+				22DC056E1F39FAA600E2E015 /* noVideo.jpg in Resources */,
 				222AA03C1EB071910038416D /* B_09@2x.gif in Resources */,
 				222AA06A1EB071910038416D /* B_34@2x.gif in Resources */,
 				222AA0191EB071910038416D /* C_107@2x.png in Resources */,
@@ -3373,6 +3376,7 @@
 				222AA0351EB071910038416D /* B_02@2x.gif in Resources */,
 				222AA09B1EB071910038416D /* B_79@2x.gif in Resources */,
 				222740141EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v in Resources */,
+				22DC056F1F39FAA600E2E015 /* noPhoto.jpg in Resources */,
 				228CF73A1EDE7D070045986D /* MyVideoCell.xib in Resources */,
 				2250E6301EAA013F00849842 /* Assets.xcassets in Resources */,
 				222396EF1EB1ED33001D4814 /* VideoCallView.xib in Resources */,
