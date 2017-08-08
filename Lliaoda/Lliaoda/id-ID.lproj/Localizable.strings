@@ -367,7 +367,8 @@
 
 
 // 新增
-"20鑽/分钟"         = "";      // PersonVC
-"影片"              = "";          // PeriSonMediaCell
+"20鑽/分钟"         = "20 diamond/menit";      // PersonVC
+"影片"              = "Video";          // PeriSonMediaCell
 "發利是"             = "";        // 紅包
-"正在發起通話…"       = "";  // FindVC
+"正在發起通話…"       = "Sedang menghubungkan…";  // FindVC
+"去充值"            = "Top up";
