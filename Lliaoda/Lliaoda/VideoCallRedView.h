@@ -40,4 +40,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet UILabel *label3;
 
+@property (weak, nonatomic) IBOutlet UILabel *topLabel;
+
 @end

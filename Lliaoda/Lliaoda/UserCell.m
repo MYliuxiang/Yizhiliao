@@ -49,7 +49,7 @@
     
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"当前网络不可用，请检查您的网络设置" delegate:nil cancelButtonTitle:LXSring(@"确定") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"当前网络不可用，请检查您的网络设置") delegate:nil cancelButtonTitle:LXSring(@"确定") otherButtonTitles:nil, nil];
         [alert show];
         
         return;

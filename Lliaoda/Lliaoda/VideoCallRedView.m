@@ -342,7 +342,7 @@
                 
                 //余额显示
                 NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
-                NSString *str = [NSString stringWithFormat:@"余额:%@鑽",deposit];
+                NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
                 NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
                 [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
                 self.eLabel.attributedText = alertControllerMessageStr;

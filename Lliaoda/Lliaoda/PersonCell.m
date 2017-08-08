@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.label = LXSring(@"簽名檔");
+    self.label.text = LXSring(@"簽名檔");
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

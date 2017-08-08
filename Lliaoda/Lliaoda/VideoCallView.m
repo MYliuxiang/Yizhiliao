@@ -26,7 +26,7 @@
         [self.acceptBtn setTitle:LXSring(@"接受") forState:UIControlStateNormal];
         self.yeLab.text = LXSring(@"账户余额");
         [self.gotoMoneyBtn setTitle:LXSring(@"去充值") forState:UIControlStateNormal];
-
+        self.likeLab.text = LXSring(@"互相喜欢后可私信聊天");
 
         
         
@@ -115,7 +115,7 @@
                 
                 self.selfModel = [Mymodel mj_objectWithKeyValues:result[@"data"]];
                 NSString *deposit = [NSString stringWithFormat:@"%d",self.selfModel.deposit];
-                NSString *str = [NSString stringWithFormat:@"余额:%@鑽",deposit];
+                NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
                 
                 NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
                 [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
@@ -333,7 +333,7 @@
 - (void)onInviteEndByPeer
 {
     [self stop];
-    self.headeLab.text = [NSString stringWithFormat:LXSring(@"对方取消呼叫")];
+    self.headeLab.text = [NSString stringWithFormat:@"%@", LXSring(@"对方取消呼叫")];
     [self.endPlayer play];
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
@@ -563,7 +563,7 @@
                         NSString *msgStr = [InputCheck convertToJSONData:dic];
                          [_inst messageInstantSend:self.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%ld",[LXUserDefaults objectForKey:UID],idate]];
                         
-                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
+                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
 
                         lg.destructiveButtonBackgroundColor = Color_nav;
                         lg.destructiveButtonTitleColor = [UIColor whiteColor];
@@ -1132,7 +1132,7 @@
     
     if(self.iscalling){
         
-        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"確定退出") message:@"確定退出視訊通話吗？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"確定") delegate:nil];
+        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"確定退出") message:LXSring(@"確定退出視訊通話吗？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"確定") delegate:nil];
         lg.destructiveButtonBackgroundColor = [UIColor whiteColor];
         lg.destructiveButtonTitleColor = Color_nav;
         lg.destructiveButtonFont = [UIFont systemFontOfSize:16];
@@ -1179,7 +1179,7 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 [_inst channelInviteRefuse:self.channel account:self.uid uid:0 extra:nil];
-                self.headeLab.text = [NSString stringWithFormat:LXSring(@"您已拒绝")];
+                self.headeLab.text = [NSString stringWithFormat:@"%@", LXSring(@"您已拒绝")];
                 dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     [self dismiss];
@@ -1304,7 +1304,7 @@
                         NSString *msgStr = [InputCheck convertToJSONData:dic];
                         [_inst messageInstantSend:self.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%ld",[LXUserDefaults objectForKey:UID],idate]];
                         
-                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？" style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
+                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
                         lg.destructiveButtonBackgroundColor = Color_nav;
                         lg.destructiveButtonTitleColor = [UIColor whiteColor];
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -1361,7 +1361,7 @@
                 
                 //礼物的余额界面
                 NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
-                NSString *str = [NSString stringWithFormat:@"余额:%@鑽",deposit];
+                NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
                 NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
                 [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
                 

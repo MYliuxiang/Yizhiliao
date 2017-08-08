@@ -215,7 +215,7 @@
         
         NSString *nickName = self.pmodel.nickname;
         
-        NSString *str = [NSString stringWithFormat:@"你正在舉報%@",nickName];
+        NSString *str = [NSString stringWithFormat:LXSring(@"你正在舉報%@"),nickName];
         NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:str];
         [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_Text_lightGray range:NSMakeRange(0, 5)];
         [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(5, str.length - 5)];
@@ -478,7 +478,7 @@
 {
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"亲，当前用户是您自己，不能設定讚与不讚！" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"亲，当前用户是您自己，不能設定讚与不讚！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -555,7 +555,7 @@
                     
            long long idate = [[NSDate date] timeIntervalSince1970]* 1000;
 
-            NSArray *contents = @[@"帥氣的人都喜歡跟我視訊聊天！感覺你特別帥喔！",@"終於等到你！你再不出現，我都要發脾氣了～",@"讚我就是喜歡我，喜歡我就來跟我視訊聊天吧！",@"只點讚，不說話的人走路容易跌倒喔～",@"喜歡我吧？我也特別喜歡喜歡我的人呢！來視訊呀～"];
+            NSArray *contents = @[LXSring(@"帥氣的人都喜歡跟我視訊聊天！感覺你特別帥喔！"),LXSring(@"終於等到你！你再不出現，我都要發脾氣了～"),LXSring(@"讚我就是喜歡我，喜歡我就來跟我視訊聊天吧！"),LXSring(@"只點讚，不說話的人走路容易跌倒喔～"),LXSring(@"喜歡我吧？我也特別喜歡喜歡我的人呢！來視訊呀～")];
             NSString *contentStr =  contents[rand() % 5];
             NSDictionary *dic = @{@"message":@{@"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
                                                   @"content":contentStr,
@@ -593,7 +593,7 @@
                         
                         NSString *nickName = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:NickName]];
                         //给主播发送的
-                        NSString *content = [NSString stringWithFormat:@"%@關注了你，可以主動跟他聊聊，或直接點擊下方“＋”發起通話喲！",nickName];
+                        NSString *content = [NSString stringWithFormat:LXSring(@"%@關注了你，可以主動跟他聊聊，或直接點擊下方“＋”發起通話喲！"),nickName];
                         NSDictionary *msg = @{@"message":@{
                                                       @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
                                                       @"content":content,
@@ -610,7 +610,7 @@
                                 [_inst messageInstantSend:self.model.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
                             }if ([[result objectForKey:@"result"] integerValue] == 29) {
                                 
-                                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:@"成为VIP" message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:@"获取VIP" delegate:nil];
+                                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"成为VIP") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"获取VIP") delegate:nil];
                                 lg.destructiveButtonBackgroundColor = Color_nav;
                                 lg.destructiveButtonTitleColor = [UIColor whiteColor];
                                 lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -707,7 +707,7 @@
     
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"不能与自己聊天。" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"不能与自己聊天。") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -766,7 +766,7 @@
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
-                NSString *str = [NSString stringWithFormat:@"余额:%@鑽",deposit];
+                NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
                 NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
                 [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
                 [self newgiftView];
@@ -804,14 +804,14 @@
     
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"不能给自己打电话。" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"不能给自己打电话。") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
 
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"当前网络不可用，请检查您的网络設定" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"当前网络不可用，请检查您的网络設定") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         
         return;
