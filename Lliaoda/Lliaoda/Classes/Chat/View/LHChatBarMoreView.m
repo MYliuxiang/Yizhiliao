@@ -45,9 +45,9 @@ const NSInteger INSETS = 8;
     CGFloat width = self.frame.size.width;
     NSArray *nameArr;
     if (_isZhubo) { // 是主播
-        nameArr = @[DTLocalizedString(@"視頻通訊", nil), DTLocalizedString(@"提示用戶送禮", nil), DTLocalizedString(@"提示用戶儲值", nil)];
+        nameArr = @[LXSring(@"視頻通訊"), LXSring(@"提示用戶送禮"), LXSring(@"提示用戶儲值")];
     } else { // 是用户
-        nameArr = @[DTLocalizedString(@"視頻通訊", nil), DTLocalizedString(@"送禮物", nil), DTLocalizedString(@"儲值", nil)];
+        nameArr = @[LXSring(@"視頻通訊"), LXSring(@"送禮物"), LXSring(@"儲值")];
     }
     
     NSArray *imageNameArr = @[@"shipin_01", @"liwu_01", @"chongzhi_01"];
@@ -122,7 +122,7 @@ const NSInteger INSETS = 8;
 //    
 //    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(insets, CGRectGetMaxY(_photoButton.frame) + 10, CHAT_BUTTON_SIZE, 12)];
 //    label.font = [UIFont systemFontOfSize:12];
-//    label.text = DTLocalizedString(@"視訊通話", nil);
+//    label.text = LXSring(@"視訊通話");
 //    label.textColor = Color_nav;
 //    label.textAlignment = NSTextAlignmentCenter;
 //    [self addSubview:label];
@@ -137,7 +137,7 @@ const NSInteger INSETS = 8;
 //    
 //    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(insets*2+ CHAT_BUTTON_SIZE, CGRectGetMaxY(_takePicButton.frame) + 10, CHAT_BUTTON_SIZE, 12)];
 //    label2.font = [UIFont systemFontOfSize:12];
-//    label2.text = DTLocalizedString(@"拍照", nil);
+//    label2.text = LXSring(@"拍照");
 //    label2.textAlignment = NSTextAlignmentCenter;
 //    [self addSubview:label2];
 }

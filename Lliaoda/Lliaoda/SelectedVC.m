@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.text = DTLocalizedString(@"精選", nil);
+    self.text = LXSring(@"精選");
     
     _flowlayout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
     _flowlayout.minimumLineSpacing= 5;

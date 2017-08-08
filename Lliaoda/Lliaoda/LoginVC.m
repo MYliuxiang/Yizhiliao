@@ -33,10 +33,10 @@
     
     self.navbarHiden = YES;
     
-    self.label.text = DTLocalizedString(@"已閱讀並同意用戶使用協定", nil);
+    self.label.text = LXSring(@"已閱讀並同意用戶使用協定");
     [self.loginBtn setTitle:@"Facebook登入" forState:UIControlStateNormal];
     [self.faceBtn setTitle:@"WeChat登入" forState:UIControlStateNormal];
-    [self.noWeixinBtn setTitle:DTLocalizedString(@"登入", nil) forState:UIControlStateNormal];
+    [self.noWeixinBtn setTitle:LXSring(@"登入") forState:UIControlStateNormal];
     
     self.chineseButton.layer.cornerRadius = 22;
     self.chineseButton.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -170,8 +170,8 @@
 
 #pragma mark - 設定弹出提示语
 - (void)setupAlertController {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:DTLocalizedString(@"温馨提示", nil) message:DTLocalizedString(@"请先安装微信客户端", nil) preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:DTLocalizedString(@"確定", nil) style:UIAlertActionStyleDefault handler:nil];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:LXSring(@"温馨提示") message:LXSring(@"请先安装微信客户端") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:LXSring(@"確定") style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:actionConfirm];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -183,7 +183,7 @@
     
     if (!self.tongYiBtn.selected) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"请同意用户使用协议", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"请同意用户使用协议") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -220,14 +220,14 @@
     
     if (self.userTextField.text.length == 0) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:@"请填写账号！" delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"请填写账号！" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
     
     if (self.passTextField.text.length == 0) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"请填写密码", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"请填写密码") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -235,7 +235,7 @@
     
     if (!self.tongYiBtn.selected) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"请同意用户使用协议", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"请同意用户使用协议") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -300,7 +300,7 @@
     
     if (!self.tongYiBtn.selected) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:DTLocalizedString(@"提示", nil) message:DTLocalizedString(@"请同意用户使用协议", nil) delegate:nil cancelButtonTitle:DTLocalizedString(@"確定", nil) otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"请同意用户使用协议") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }

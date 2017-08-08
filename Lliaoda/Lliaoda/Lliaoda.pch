@@ -233,7 +233,7 @@ alpha:1.0]
 
 // 多语言相关
 #import "LocalizationUtils.h"
-#define DTLocalizedString(key, comment) [LocalizationUtils DPLocalizedString:(key)]
+#define LXSring(key) [LocalizationUtils DPLocalizedString:(key)]
 #define Language @"language"   //对应的语言
 
 /*

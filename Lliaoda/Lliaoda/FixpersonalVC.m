@@ -19,9 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = DTLocalizedString(@"個人資料", nil);
-    self.dataList = @[@[DTLocalizedString(@"大頭貼", nil),DTLocalizedString(@"暱稱", nil),DTLocalizedString(@"聊號", nil),],@[DTLocalizedString(@"性别", nil),DTLocalizedString(@"生日", nil),DTLocalizedString(@"地區", nil)],@[DTLocalizedString(@"簽名檔", nil)]];
-    self.sexDatalist = @[DTLocalizedString(@"女", nil),DTLocalizedString(@"男", nil)];
+    self.text = LXSring(@"個人資料");
+    self.dataList = @[@[LXSring(@"大頭貼"),LXSring(@"暱稱"),LXSring(@"聊號"),],@[LXSring(@"性别"),LXSring(@"生日"),LXSring(@"地區")],@[LXSring(@"簽名檔")]];
+    self.sexDatalist = @[LXSring(@"女"),LXSring(@"男")];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundView = nil;
     [self crpickerBG];
@@ -60,7 +60,7 @@
     UIButton *cancel = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth-60, 0,50,50)];
     cancel.titleLabel.font = [UIFont systemFontOfSize:14];
     [cancel setTitleColor:Color_nav forState:UIControlStateNormal];
-    [cancel setTitle:DTLocalizedString(@"保存", nil) forState:UIControlStateNormal];
+    [cancel setTitle:LXSring(@"保存") forState:UIControlStateNormal];
     [toolView addSubview:cancel];
     [cancel addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -606,11 +606,11 @@
         if (indexPath.row == 0) {
             
             if (self.model.gender == 0) {
-                cell.detailTextLabel.text = DTLocalizedString(@"女", nil);
+                cell.detailTextLabel.text = LXSring(@"女");
 
             }else{
             
-                cell.detailTextLabel.text = DTLocalizedString(@"男", nil);
+                cell.detailTextLabel.text = LXSring(@"男");
 
             }
             
@@ -665,20 +665,20 @@
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
         
-        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"拍照", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:LXSring(@"拍照") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self CreameAction:1];
 
             
         }];
         
-        UIAlertAction *defaultAction1 = [UIAlertAction actionWithTitle:DTLocalizedString(@"从手机相薄选择", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *defaultAction1 = [UIAlertAction actionWithTitle:LXSring(@"从手机相薄选择") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self CreameAction:2];
             
         }];
         
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
         [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
         [defaultAction setValue:Color_nav forKey:@"_titleTextColor"];
         [defaultAction1 setValue:Color_nav forKey:@"_titleTextColor"];
@@ -830,7 +830,7 @@
         NSData *imageData = UIImageJPEGRepresentation(image, .3);
         NSDictionary *params;
         params = @{@"private":@0};
-        [SVProgressHUD showWithStatus:DTLocalizedString(@"正在上传", nil)];
+        [SVProgressHUD showWithStatus:LXSring(@"正在上传")];
         [WXDataService requestAFWithURL:Url_storagekey params:params httpMethod:@"POST" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
             if(result){
                 if ([[result objectForKey:@"result"] integerValue] == 0) {
@@ -872,7 +872,7 @@
                         
                     }else{
                         
-                        [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"上传失败", nil)];
+                        [SVProgressHUD showErrorWithStatus:LXSring(@"上传失败")];
                         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.35 * NSEC_PER_SEC));
                         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                             

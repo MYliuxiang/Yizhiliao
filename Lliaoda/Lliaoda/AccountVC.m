@@ -51,9 +51,9 @@ static NSString *const headerId = @"headerId";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.text = DTLocalizedString(@"帳戶", nil);
-    self.label1.text = DTLocalizedString(@"账户余额", nil);
-    self.label.text = DTLocalizedString(@"鑽石", nil);
+    self.text = LXSring(@"帳戶");
+    self.label1.text = LXSring(@"账户余额");
+    self.label.text = LXSring(@"鑽石");
 
 
     self.view.backgroundColor = UIColorFromRGB(0xf0f0f0);
@@ -144,7 +144,7 @@ static NSString *const headerId = @"headerId";
 //    if([SKPaymentQueue canMakePayments]){
 //        [self requestProductData:model.uid];
 //    }else{
-//        NSLog(DTLocalizedString(@"不允许程序内付费", nil));
+//        NSLog(LXSring(@"不允许程序内付费"));
 //        [SVProgressHUD showErrorWithStatus:@"不允许程序内付费..."];
 //    }
 }
@@ -160,7 +160,7 @@ static NSString *const headerId = @"headerId";
     SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:nsset];
     request.delegate = self;
     [request start];
-    [SVProgressHUD showWithStatus:DTLocalizedString(@"正在加載", nil)];
+    [SVProgressHUD showWithStatus:LXSring(@"正在加載")];
     
 }
 
@@ -191,7 +191,7 @@ static NSString *const headerId = @"headerId";
 
 //请求失败
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error{
-    [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"支付失敗", nil)];
+    [SVProgressHUD showErrorWithStatus:LXSring(@"支付失敗")];
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         
@@ -264,7 +264,7 @@ static NSString *const headerId = @"headerId";
 //        
 //        switch (tran.transactionState) {
 //            case SKPaymentTransactionStatePurchased:{
-//                NSLog(DTLocalizedString(@"交易完成", nil));
+//                NSLog(LXSring(@"交易完成"));
 //                [self verifyPurchaseWithPaymentTransaction];
 //                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
 //                
@@ -272,19 +272,19 @@ static NSString *const headerId = @"headerId";
 //                
 //                break;
 //            case SKPaymentTransactionStatePurchasing:
-//                NSLog(DTLocalizedString(@"商品添加进列表", nil));
+//                NSLog(LXSring(@"商品添加进列表"));
 //                
 //                break;
 //            case SKPaymentTransactionStateRestored:{
-//                NSLog(DTLocalizedString(@"已经购买过商品", nil));
+//                NSLog(LXSring(@"已经购买过商品"));
 //                
 //                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
 //            }
 //                break;
 //            case SKPaymentTransactionStateFailed:{
-//                NSLog(DTLocalizedString(@"交易失败", nil));
+//                NSLog(LXSring(@"交易失败"));
 //                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
-//                [SVProgressHUD showErrorWithStatus:DTLocalizedString(@"购买失败", nil)];
+//                [SVProgressHUD showErrorWithStatus:LXSring(@"购买失败")];
 //            }
 //                break;
 //            default:
@@ -295,7 +295,7 @@ static NSString *const headerId = @"headerId";
 //
 ////交易结束
 //- (void)completeTransaction:(SKPaymentTransaction *)transaction{
-//    NSLog(DTLocalizedString(@"交易结束", nil));
+//    NSLog(LXSring(@"交易结束"));
 //    
 //    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 //}
@@ -317,7 +317,7 @@ static NSString *const headerId = @"headerId";
         case 0:
             //payResoult = @"支付结果：成功！";
             [self _loadData1];
-            [SVProgressHUD showWithStatus:DTLocalizedString(@"支付成功", nil)];
+            [SVProgressHUD showWithStatus:LXSring(@"支付成功")];
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 
                 [SVProgressHUD dismiss];
@@ -326,7 +326,7 @@ static NSString *const headerId = @"headerId";
             break;
         case -1:
             //                payResoult = @"支付结果：失败！";
-            [SVProgressHUD showWithStatus:DTLocalizedString(@"支付失败", nil)];
+            [SVProgressHUD showWithStatus:LXSring(@"支付失败")];
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 
                 [SVProgressHUD dismiss];
@@ -366,7 +366,7 @@ static NSString *const headerId = @"headerId";
             case 0:
                 //payResoult = @"支付结果：成功！";
                 [self _loadData1];
-                [SVProgressHUD showWithStatus:DTLocalizedString(@"支付成功", nil)];
+                [SVProgressHUD showWithStatus:LXSring(@"支付成功")];
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     
                     [SVProgressHUD dismiss];
@@ -375,7 +375,7 @@ static NSString *const headerId = @"headerId";
                 break;
             case -1:
                 //                payResoult = @"支付结果：失败！";
-                [SVProgressHUD showWithStatus:DTLocalizedString(@"支付失败", nil)];
+                [SVProgressHUD showWithStatus:LXSring(@"支付失败")];
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     
                     [SVProgressHUD dismiss];
@@ -540,21 +540,21 @@ static NSString *const headerId = @"headerId";
 //        
 //        
 //    }];
-//    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"微信支付", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:LXSring(@"微信支付") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        
 //        
 //        [self orderCreate:model.uid withType:WeixinPay];
 //        
 //    }];
 //    
-//    UIAlertAction *aliAction1 = [UIAlertAction actionWithTitle:DTLocalizedString(@"支付宝支付", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    UIAlertAction *aliAction1 = [UIAlertAction actionWithTitle:LXSring(@"支付宝支付") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        
 //        
 //        [self orderCreate:model.uid withType:AliPay];
 //        
 //    }];
 //    
-//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:DTLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
+//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
 //    [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
 //    [defaultAction setValue:[MyColor colorWithHexString:@"#4FB854"] forKey:@"_titleTextColor"];
 //    [aliAction1 setValue:[MyColor colorWithHexString:@"#4FB854"] forKey:@"_titleTextColor"];
@@ -589,7 +589,7 @@ static NSString *const headerId = @"headerId";
                 if([SKPaymentQueue canMakePayments]){
                     [self requestProductData:uid];
                 }else{
-                    NSLog(DTLocalizedString(@"不允许程序内付费", nil));
+                    NSLog(LXSring(@"不允许程序内付费"));
                     [SVProgressHUD showErrorWithStatus:@"不允许程序内付费..."];
                 }
                 
@@ -688,10 +688,10 @@ controller   didAuthorizePayment:(PKPayment *)payment
     BOOL asyncSuccessful = FALSE;
     if(asyncSuccessful) {
         completion(PKPaymentAuthorizationStatusSuccess);
-        NSLog(DTLocalizedString(@"支付成功", nil));
+        NSLog(LXSring(@"支付成功"));
     } else {
         completion(PKPaymentAuthorizationStatusFailure);
-        NSLog(DTLocalizedString(@"支付失败", nil));
+        NSLog(LXSring(@"支付失败"));
     }
 }
 

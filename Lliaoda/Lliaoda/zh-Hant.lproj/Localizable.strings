@@ -261,6 +261,8 @@
 "提現"        = "提現";
 "賬戶餘額(鑽石)"        = "賬戶餘額(鑽石)";
 "VIP有效期至：2017-03-20"        = "VIP有效期至：2017-03-20";
+"語言變更提示" = "語言變更提示";
+"更換語言後，將退回登錄頁面重新登陸即可" = "更換語言後，將退回登錄頁面重新登陸即可";
 /*
  * videoCall
  */
@@ -341,3 +343,20 @@
 "最后更新："  =        "";
 "今天"       =        "";
 "无记录"      =       "";
+
+"MJRefreshHeaderIdleText" = "下拉可以刷新";
+"MJRefreshHeaderPullingText" = "鬆開立即刷新";
+"MJRefreshHeaderRefreshingText" = "正在刷新數據中...";
+
+"MJRefreshAutoFooterIdleText" = "點擊或上拉加載更多";
+"MJRefreshAutoFooterRefreshingText" = "正在加載更多的數據...";
+"MJRefreshAutoFooterNoMoreDataText" = "已經全部加載完畢";
+
+"MJRefreshBackFooterIdleText" = "上拉可以加載更多";
+"MJRefreshBackFooterPullingText" = "鬆開立即加載更多";
+"MJRefreshBackFooterRefreshingText" = "正在加載更多的數據...";
+"MJRefreshBackFooterNoMoreDataText" = "已經全部加載完畢";
+
+"MJRefreshHeaderLastTimeText" = "最後更新：";
+"MJRefreshHeaderDateTodayText" = "今天";
+"MJRefreshHeaderNoneLastDateText" = "無記錄";

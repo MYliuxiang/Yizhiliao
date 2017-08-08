@@ -107,7 +107,7 @@ typedef NS_ENUM(NSInteger, RequestType) {
     //进行网络检查
     if ([[NetWorkManager sharedManager] checkNowNetWorkStatus] == NotReachable ) {
     
-        NSLog(DTLocalizedString(@"没有网络", nil));
+        NSLog(LXSring(@"没有网络"));
         nettype(NONetWork);
         return;
     }

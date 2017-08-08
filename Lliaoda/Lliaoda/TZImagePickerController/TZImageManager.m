@@ -142,7 +142,7 @@ static CGFloat TZScreenScale;
             if (![collection isKindOfClass:[PHAssetCollection class]]) continue;
             PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:collection options:option];
             if (fetchResult.count < 1) continue;
-            if ([collection.localizedTitle containsString:@"Deleted"] || [collection.localizedTitle isEqualToString:DTLocalizedString(@"最近删除", nil)]) continue;
+            if ([collection.localizedTitle containsString:@"Deleted"] || [collection.localizedTitle isEqualToString:LXSring(@"最近删除")]) continue;
             if ([self isCameraRollAlbum:collection.localizedTitle]) {
                 [albumArr insertObject:[self modelWithResult:fetchResult name:collection.localizedTitle] atIndex:0];
             } else {
@@ -171,7 +171,7 @@ static CGFloat TZScreenScale;
 #pragma clang diagnostic pop
             if ([self isCameraRollAlbum:name]) {
                 [albumArr insertObject:[self modelWithResult:group name:name] atIndex:0];
-            } else if ([name isEqualToString:@"My Photo Stream"] || [name isEqualToString:DTLocalizedString(@"我的照片流", nil)]) {
+            } else if ([name isEqualToString:@"My Photo Stream"] || [name isEqualToString:LXSring(@"我的照片流")]) {
                 if (albumArr.count) {
                     [albumArr insertObject:[self modelWithResult:group name:name] atIndex:1];
                 } else {
@@ -753,9 +753,9 @@ static CGFloat TZScreenScale;
     CGFloat version = versionStr.floatValue;
     // 目前已知8.0.0 - 8.0.2系统，拍照后的图片会保存在最近添加中
     if (version >= 800 && version <= 802) {
-        return [albumName isEqualToString:DTLocalizedString(@"最近添加", nil)] || [albumName isEqualToString:@"Recently Added"];
+        return [albumName isEqualToString:LXSring(@"最近添加")] || [albumName isEqualToString:@"Recently Added"];
     } else {
-        return [albumName isEqualToString:@"Camera Roll"] || [albumName isEqualToString:DTLocalizedString(@"相机胶卷", nil)] || [albumName isEqualToString:DTLocalizedString(@"所有照片", nil)] || [albumName isEqualToString:@"All Photos"];
+        return [albumName isEqualToString:@"Camera Roll"] || [albumName isEqualToString:LXSring(@"相机胶卷")] || [albumName isEqualToString:LXSring(@"所有照片")] || [albumName isEqualToString:@"All Photos"];
     }
 }
 

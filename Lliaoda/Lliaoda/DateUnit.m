@@ -89,18 +89,18 @@
 
         long long dateSecondCount = [[NSDate date] timeIntervalSinceDate:date];
         if (dateSecondCount < 60) {
-            return DTLocalizedString(DTLocalizedString(@"刚刚", nil), nil);
+            return LXSring(@"刚刚");
         }
         if (dateSecondCount < (60 * 60)) {
-            return [NSString stringWithFormat:DTLocalizedString(@"%d分钟前", nil),(int)(dateSecondCount / 60)];
+            return [NSString stringWithFormat:LXSring(@"%d分钟前"),(int)(dateSecondCount / 60)];
         }
-        return [NSString stringWithFormat:DTLocalizedString(@"%d小时前", nil),(int)(dateSecondCount / (60 * 60))];
+        return [NSString stringWithFormat:LXSring(@"%d小时前"),(int)(dateSecondCount / (60 * 60))];
     }
     
     //判断是否是昨天
     NSString *formatterString = @" HH:mm";
     if ([calender isDateInYesterday:date]) {
-        formatterString = [DTLocalizedString(DTLocalizedString(@"昨天", nil), nil) stringByAppendingString:formatterString];
+        formatterString = [LXSring(@"昨天") stringByAppendingString:formatterString];
     } else {
         //判断是否是一年内
         formatterString = [@"MM-dd" stringByAppendingString:formatterString];

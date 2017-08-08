@@ -78,12 +78,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.text = DTLocalizedString(@"發現", nil);
+    self.text = LXSring(@"發現");
     
-    [self.rechargeBtn setTitle:DTLocalizedString(@"快速儲值", nil) forState:UIControlStateNormal];
-    self.label1.text = DTLocalizedString(@"正在為您尋找有緣人", nil);
-    self.label2.text = DTLocalizedString(@"點擊任意大頭照可以進入Ta的主頁喔！",nil);
-
+    [self.rechargeBtn setTitle:LXSring(@"快速儲值") forState:UIControlStateNormal];
+    self.label1.text = LXSring(@"正在為您尋找有緣人");
+    self.label2.text = LXSring(@"點擊任意大頭照可以進入Ta的主頁喔！");
+    
     self.pointsModels = [NSMutableArray array];
     self.finBtn.layer.cornerRadius = 22;
     self.finBtn.layer.masksToBounds = YES;
@@ -560,7 +560,7 @@
     if (model.state == 2) {
         
         
-        [SVProgressHUD showWithStatus:DTLocalizedString(@"当前用户正在忙碌", nil)];
+        [SVProgressHUD showWithStatus:LXSring(@"当前用户正在忙碌")];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
@@ -579,7 +579,7 @@
     AppDelegate *app = [AppDelegate shareAppDelegate];
     if(![app.inst isOnline]){
         
-        [SVProgressHUD showWithStatus:DTLocalizedString(@"您正处于离线状态", nil)];
+        [SVProgressHUD showWithStatus:LXSring(@"您正处于离线状态")];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
