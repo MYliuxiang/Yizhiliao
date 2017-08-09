@@ -363,7 +363,7 @@
 "MJRefreshBackFooterRefreshingText" = "sedang memuat data...";
 "MJRefreshBackFooterNoMoreDataText" = "pemuatan selesai";
 
-"MJRefreshHeaderLastTimeText" = "perbarui selesai：";
+"MJRefreshHeaderLastTimeText" = "perbarui selesai";
 "MJRefreshHeaderDateTodayText" = "hari ini";
 "MJRefreshHeaderNoneLastDateText" = "";
 
