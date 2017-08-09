@@ -1036,7 +1036,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 -(void)onResp:(BaseResp*)resp{
     //    NSLog(@"onResp:code=%d",resp.errCode);
     //微信登陆
-
     if ([resp isKindOfClass:[SendAuthResp class]]) {
         SendAuthResp *respond = (SendAuthResp*)resp;
         if (respond.errCode == 0) {
@@ -1106,7 +1105,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                                 
                                 self.window.rootViewController = tab;
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
-                                
                             }
                         }
                         
@@ -1117,14 +1115,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                         MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
                         tab.iszhubo = NO;
-                        
                         self.window.rootViewController = tab;
                         self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                     }];
 
                 }else{
                     //登入失败
-                    
                     NSLog(@"%@",result[@"message"]);
                     [SVProgressHUD showErrorWithStatus:result[@"message"]];
                     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
@@ -1138,7 +1134,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 
             } errorBlock:^(NSError *error) {
                 
-                       
             }];
             
         
@@ -1157,10 +1152,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     if([resp isKindOfClass:[PayResp class]]){
         //支付返回结果，实际支付结果需要去微信服务器端查询
-        
         NSDictionary *dic = @{@"errCode":@(resp.errCode)};
         [[NSNotificationCenter defaultCenter] postNotificationName:Notice_weiXinPay object:nil userInfo:dic];
-        
     }
     
     if ([resp isKindOfClass:[SendMessageToWXResp class]])
@@ -1168,7 +1161,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         
         NSDictionary *dic = @{@"errCode":@(resp.errCode)};
         [[NSNotificationCenter defaultCenter] postNotificationName:Notice_weiXinShare object:nil userInfo:dic];
-        
     }
     
 }
@@ -1207,9 +1199,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
             //更新UI操作
             
             if (self.timer != nil) {
-                
+
                 self.timer = nil;
-                
             }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onLoginSuccess object:nil];
