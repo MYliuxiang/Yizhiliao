@@ -70,33 +70,33 @@ const NSInteger INSETS = 8;
             if (i == 0) {
                 [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
                 button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, CGRectGetMaxY(button.frame) + 10, CHAT_BUTTON_SIZE - CHAT_BUTTON_SIZE / 2, 12);
+                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
                 
             } else if (i == 1) {
                 [button addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
                 button.frame = CGRectMake((width - CHAT_BUTTON_SIZE) / 2, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 12);
+                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
                 
             } else {
                 [button addTarget:self action:@selector(chongzhiAction) forControlEvents:UIControlEventTouchUpInside];
                 button.frame = CGRectMake(width - 30 - CHAT_BUTTON_SIZE, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 12);
+                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
             }
         } else { // 是用户
             if (i == 0) {
                 [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
                 button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, CGRectGetMaxY(button.frame) + 10, CHAT_BUTTON_SIZE * 2, 12);
+                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
                 
             } else if (i == 1) {
                 [button addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
                 button.frame = CGRectMake((width - CHAT_BUTTON_SIZE) / 2, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 12);
+                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
                 
             } else {
                 [button addTarget:self action:@selector(chongzhiAction) forControlEvents:UIControlEventTouchUpInside];
                 button.frame = CGRectMake(width - 30 - CHAT_BUTTON_SIZE, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 12);
+                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
             }
         }
     }

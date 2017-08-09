@@ -41,7 +41,7 @@
     UIButton *enter = [[UIButton alloc]initWithFrame:CGRectMake(10, 0,50,50)];
     enter.titleLabel.font = [UIFont systemFontOfSize:14];
     [enter setTitleColor:Color_nav forState:UIControlStateNormal];
-    [enter setTitle:LXSring(@"取消") forState:UIControlStateNormal];
+    [enter setTitle:LXSring(@"取消") forState:UIControlStateNormal];
     [toolView addSubview:enter];
     [enter addTarget:self action:@selector(enterAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -175,6 +175,10 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
     [self.view addGestureRecognizer:tap];
     
+    _label1.text = LXSring(@"视频通话收费");
+    _label2.text = LXSring(@"· 設定收費後，別人與你通話會消耗鑽石，你會獲得相對應的聊幣，聊幣可以提現");
+    _label3.text = LXSring(@"· 別人視訊呼叫你，從第一分鐘起，你按照收費標準獲得聊幣");
+    [self.doneBtn setTitle:LXSring(@"確定") forState:UIControlStateNormal];
 }
 
 - (void)tap
