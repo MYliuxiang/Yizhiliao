@@ -46,26 +46,18 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="填写个数" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y41-Dt-cD8">
-                            <rect key="frame" x="53" y="10" width="250.5" height="20"/>
+                            <rect key="frame" x="53" y="10" width="272" height="20"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="個" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l18-1c-LG5">
-                            <rect key="frame" x="308.5" y="10" width="17" height="20"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Y41-Dt-cD8" firstAttribute="leading" secondItem="Wph-t6-MxL" secondAttribute="trailing" constant="10" id="AqI-Qo-zSl"/>
                         <constraint firstItem="Wph-t6-MxL" firstAttribute="centerY" secondItem="vXP-47-uyp" secondAttribute="centerY" id="B5d-L1-eAN"/>
-                        <constraint firstAttribute="trailing" secondItem="l18-1c-LG5" secondAttribute="trailing" constant="10" id="WWA-YQ-Y9E"/>
+                        <constraint firstAttribute="trailing" secondItem="Y41-Dt-cD8" secondAttribute="trailing" constant="10" id="Gg0-Hi-NDm"/>
                         <constraint firstAttribute="height" constant="40" id="XGe-Yu-u0T"/>
-                        <constraint firstItem="l18-1c-LG5" firstAttribute="leading" secondItem="Y41-Dt-cD8" secondAttribute="trailing" constant="5" id="a1k-Xd-tNp"/>
-                        <constraint firstItem="l18-1c-LG5" firstAttribute="centerY" secondItem="vXP-47-uyp" secondAttribute="centerY" id="fkP-pg-gQv"/>
                         <constraint firstItem="Y41-Dt-cD8" firstAttribute="centerY" secondItem="vXP-47-uyp" secondAttribute="centerY" id="jBB-z9-iQh"/>
                         <constraint firstItem="Wph-t6-MxL" firstAttribute="leading" secondItem="vXP-47-uyp" secondAttribute="leading" constant="10" id="wTb-8u-mle"/>
                     </constraints>
@@ -223,7 +215,6 @@
                 <outlet property="jineLab" destination="CLD-V5-lJX" id="4XO-0K-2rp"/>
                 <outlet property="lab1" destination="nOP-tf-nh8" id="wrd-Dd-xYi"/>
                 <outlet property="label2" destination="Wph-t6-MxL" id="88I-os-UIf"/>
-                <outlet property="label3" destination="l18-1c-LG5" id="vNU-6m-AO7"/>
                 <outlet property="onetextField" destination="WyW-h6-6ve" id="dB9-xp-I9e"/>
                 <outlet property="sendBtn" destination="EXc-jO-GHt" id="dEC-D6-GrV"/>
                 <outlet property="sendView" destination="vXP-47-uyp" id="1ue-cE-WKv"/>

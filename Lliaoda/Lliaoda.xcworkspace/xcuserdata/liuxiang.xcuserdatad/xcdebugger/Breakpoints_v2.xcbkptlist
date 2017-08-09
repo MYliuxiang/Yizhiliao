@@ -246,6 +246,38 @@
             endingLineNumber = "609"
             landmarkName = "-buttonAC:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__23-[PersonalVC buttonAC:]_block_invoke_2.525"
+                  moduleName = "Lliaoda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
+                  timestampString = "523961143.204284"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "609"
+                  endingLineNumber = "609"
+                  offsetFromSymbolStart = "6456">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__23-[PersonalVC buttonAC:]_block_invoke_3"
+                  moduleName = "Lliaoda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
+                  timestampString = "523961143.205988"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "610"
+                  endingLineNumber = "610"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -27,6 +27,7 @@
         self.lab1.text = LXSring(@"單個紅包數額不可低於100鑽");
         self.label2.text = LXSring(@"個數");
         self.label3.text = LXSring(@"個");
+        self.textViewP.text = LXSring(@"恭喜發財，越來越美");
         [self.sendBtn setTitle:LXSring(@"發送紅包") forState:UIControlStateNormal];
         [self.chongBtn setTitle:LXSring(@"快速儲值") forState:UIControlStateNormal];
 
