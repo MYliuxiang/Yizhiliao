@@ -35,7 +35,7 @@
                     <rect key="frame" x="0.0" y="133" width="375" height="50"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請輸入您真實的行動電話號碼" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GY0-4F-1zw">
-                            <rect key="frame" x="82.5" y="15.5" width="277.5" height="19"/>
+                            <rect key="frame" x="105" y="15.5" width="255" height="19"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -44,7 +44,10 @@
                             </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手機號碼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOb-Yu-hGI">
-                            <rect key="frame" x="15" y="17" width="57.5" height="17"/>
+                            <rect key="frame" x="15" y="17" width="80" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="yzm-bX-xFn"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -64,7 +67,7 @@
                     <rect key="frame" x="0.0" y="198" width="375" height="50"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="如沒有公會號，填寫000" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lYj-1c-Bj5">
-                            <rect key="frame" x="82.5" y="15.5" width="277.5" height="19"/>
+                            <rect key="frame" x="104.5" y="15.5" width="255.5" height="19"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -73,7 +76,10 @@
                             </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公会名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxZ-3h-Qwa">
-                            <rect key="frame" x="15" y="17" width="58" height="17"/>
+                            <rect key="frame" x="15" y="17" width="80" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="FRy-En-Ui9"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
