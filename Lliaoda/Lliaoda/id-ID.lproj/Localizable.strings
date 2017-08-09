@@ -384,3 +384,5 @@
 "用户已经退出支付！"    =  "Pembayaran telah dibatalkan.";
 "ProductID为无效ID"    =   "Item invalid";
 "立即邀請" = "Segera Invite";
+"记得提醒好友下载注册以后填写邀請碼: %@" = "Jangan lupa ingatkan teman Anda untuk memasukkan kode invite :%@";
+

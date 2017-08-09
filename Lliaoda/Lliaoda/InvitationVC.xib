@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,6 +15,10 @@
                 <outlet property="btn1" destination="wOD-19-5y5" id="9xT-42-gOf"/>
                 <outlet property="cancelBtn" destination="dpK-Nf-Pq9" id="95V-qc-hyY"/>
                 <outlet property="friendButton" destination="Wl9-XO-mQL" id="6cs-qv-6TD"/>
+                <outlet property="idCancel" destination="ILG-eI-Zag" id="526-uo-WKZ"/>
+                <outlet property="idShareView" destination="uLh-qJ-rF7" id="ew8-sK-sAZ"/>
+                <outlet property="idcopyBtn" destination="DaA-I5-GWG" id="H4v-Xn-ueD"/>
+                <outlet property="idshareLabel" destination="Quc-Gp-U2J" id="j9w-Nm-lIF"/>
                 <outlet property="shareLabel" destination="opz-rk-APd" id="pv6-y4-4SZ"/>
                 <outlet property="shareView" destination="jUe-qs-erc" id="1xh-JU-Rur"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -176,7 +181,90 @@
                 <constraint firstItem="wL7-Mr-4fX" firstAttribute="leading" secondItem="jUe-qs-erc" secondAttribute="leading" constant="14" id="q7y-xp-Niq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="30.5" y="473"/>
+            <point key="canvasLocation" x="12" y="619"/>
+        </view>
+        <view contentMode="scaleToFill" id="uLh-qJ-rF7">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="记得提醒好友下载注册以后填写邀请码: 78902159" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Quc-Gp-U2J">
+                    <rect key="frame" x="15" y="0.0" width="345" height="46"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlz-6Q-juV">
+                    <rect key="frame" x="54" y="56" width="80" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="2Yv-db-rpc"/>
+                        <constraint firstAttribute="width" constant="80" id="Nch-i3-anl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="-40" minY="0.0" maxX="0.0" maxY="-40"/>
+                    <inset key="imageEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="23"/>
+                    <state key="normal" title="Facebook" image="Image-2">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="idFBShareAC:" destination="-1" eventType="touchUpInside" id="hIe-oY-0gT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILG-eI-Zag">
+                    <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="qVW-bF-KYg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Batal">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="idCancelAC:" destination="-1" eventType="touchUpInside" id="lf0-U5-sdQ"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V3o-k1-WOk">
+                    <rect key="frame" x="0.0" y="136" width="375" height="0.0"/>
+                    <color key="backgroundColor" red="0.77057291670000005" green="0.77057291670000005" blue="0.77057291670000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="eDh-a2-98U"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaA-I5-GWG">
+                    <rect key="frame" x="242" y="56" width="80" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="AuH-nc-DAD"/>
+                        <constraint firstAttribute="height" constant="70" id="hb3-vW-MWV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="-43" minY="0.0" maxX="0.0" maxY="-40"/>
+                    <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="23"/>
+                    <state key="normal" title="Salin Tautan" image="fuzhilianjie">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="idCopyAC:" destination="-1" eventType="touchUpInside" id="GD9-qk-0pE"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Quc-Gp-U2J" firstAttribute="leading" secondItem="uLh-qJ-rF7" secondAttribute="leading" constant="15" id="4vq-5z-r9D"/>
+                <constraint firstAttribute="trailing" secondItem="V3o-k1-WOk" secondAttribute="trailing" id="693-Ne-ue6"/>
+                <constraint firstItem="V3o-k1-WOk" firstAttribute="top" secondItem="DaA-I5-GWG" secondAttribute="bottom" constant="10" id="EB6-bN-UHb"/>
+                <constraint firstItem="ILG-eI-Zag" firstAttribute="top" secondItem="V3o-k1-WOk" secondAttribute="bottom" id="IZA-gK-S2Z"/>
+                <constraint firstItem="DaA-I5-GWG" firstAttribute="top" secondItem="Quc-Gp-U2J" secondAttribute="bottom" constant="10" id="LD0-rO-lSe"/>
+                <constraint firstItem="V3o-k1-WOk" firstAttribute="leading" secondItem="uLh-qJ-rF7" secondAttribute="leading" id="Mb1-b9-5Il"/>
+                <constraint firstAttribute="bottom" secondItem="ILG-eI-Zag" secondAttribute="bottom" id="O2K-Y3-vvU"/>
+                <constraint firstAttribute="trailing" secondItem="ILG-eI-Zag" secondAttribute="trailing" id="UvB-Nz-car"/>
+                <constraint firstItem="Qlz-6Q-juV" firstAttribute="centerX" secondItem="uLh-qJ-rF7" secondAttribute="centerX" multiplier="0.5" id="Ybl-4O-M2R"/>
+                <constraint firstAttribute="trailing" secondItem="Quc-Gp-U2J" secondAttribute="trailing" constant="15" id="aSY-d5-TQb"/>
+                <constraint firstItem="DaA-I5-GWG" firstAttribute="centerX" secondItem="uLh-qJ-rF7" secondAttribute="centerX" multiplier="1.5" id="aTj-o9-uYG"/>
+                <constraint firstItem="ILG-eI-Zag" firstAttribute="leading" secondItem="uLh-qJ-rF7" secondAttribute="leading" id="lWQ-wE-Umf"/>
+                <constraint firstItem="V3o-k1-WOk" firstAttribute="top" secondItem="Qlz-6Q-juV" secondAttribute="bottom" constant="10" id="tbV-zQ-jlj"/>
+                <constraint firstItem="Quc-Gp-U2J" firstAttribute="top" secondItem="uLh-qJ-rF7" secondAttribute="top" id="xhm-uG-IhN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-565" y="490"/>
         </view>
     </objects>
     <resources>

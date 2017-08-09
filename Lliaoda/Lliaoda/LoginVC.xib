@@ -174,7 +174,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="login.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="XYF-Fu-HOb">
-                            <rect key="frame" x="0.0" y="411" width="375" height="256"/>
+                            <rect key="frame" x="0.0" y="287" width="375" height="380"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXl-1t-2KQ">
                             <rect key="frame" x="62.5" y="279.5" width="250" height="108"/>

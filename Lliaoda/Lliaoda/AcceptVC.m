@@ -31,10 +31,10 @@
     self.invitationBtn.layer.borderWidth = 1;
     self.invitationBtn.layer.borderColor = Color_nav.CGColor;
     self.label1.text = LXSring(@"邀請碼");
-    self.label2.text = @"填入好友分享的邀請碼，即可獲得獎勵";
-    self.textField.placeholder = @"請輸入5位邀請碼，即可獲得獎勵";
+    self.label2.text = LXSring(@"填入好友分享的邀請碼，即可獲得獎勵");
+    self.textField.placeholder = LXSring(@"請輸入5位邀請碼，即可獲得獎勵");
     [self.tijiaoBtn setTitle:LXSring(@"提交") forState:UIControlStateNormal];
-    [self.tijiaoBtn setTitle:LXSring(@"我要去邀請") forState:UIControlStateNormal];
+    [self.invitationBtn setTitle:LXSring(@"我要去邀請") forState:UIControlStateNormal];
 
 
 }

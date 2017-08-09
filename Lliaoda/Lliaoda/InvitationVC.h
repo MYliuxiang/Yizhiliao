@@ -47,6 +47,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *yaoBtn;
 - (IBAction)yaoAC:(id)sender;
 - (IBAction)facebooShare:(id)sender;
+@property (strong, nonatomic) IBOutlet UIView *idShareView;
+@property (weak, nonatomic) IBOutlet UILabel *idshareLabel;
+@property (weak, nonatomic) IBOutlet UIButton *idCancel;
+- (IBAction)idCancelAC:(id)sender;
+- (IBAction)idFBShareAC:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *idcopyBtn;
+- (IBAction)idCopyAC:(id)sender;
 
 - (IBAction)pengAC:(id)sender;
 - (IBAction)cancleAC:(id)sender;
@@ -55,5 +62,7 @@
 @property (nonatomic,copy) NSString *code;
 @property (weak, nonatomic) IBOutlet UIButton *weixinButton;
 @property (weak, nonatomic) IBOutlet UIButton *friendButton;
+@property (nonatomic,retain) UIView *myShareView;
+@property (nonatomic,assign) float height;
 
 @end
