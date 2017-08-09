@@ -505,6 +505,7 @@
 		22B109391EA4B56500E35B74 /* SelectedHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B109371EA4B56500E35B74 /* SelectedHeader.m */; };
 		22B1093A1EA4B56500E35B74 /* SelectedHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B109381EA4B56500E35B74 /* SelectedHeader.xib */; };
 		22B63C8A1EFA719900F10039 /* videoprp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B63C891EFA719900F10039 /* videoprp.framework */; };
+		22B691E41F3ABD4D00CDF0F2 /* id1495262516.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 22B691E31F3ABD4D00CDF0F2 /* id1495262516.mp4 */; };
 		22C166361EAEF973002D9084 /* FundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C166351EAEF973002D9084 /* FundModel.m */; };
 		22C7A0171ED0220E00ED78A4 /* 1495262516.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 22C7A0161ED0220E00ED78A4 /* 1495262516.mp4 */; };
 		22CDA9621EA5DDC6006CD611 /* MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CDA9611EA5DDC6006CD611 /* MyColor.m */; };
@@ -1325,6 +1326,7 @@
 		22B109371EA4B56500E35B74 /* SelectedHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedHeader.m; sourceTree = "<group>"; };
 		22B109381EA4B56500E35B74 /* SelectedHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedHeader.xib; sourceTree = "<group>"; };
 		22B63C891EFA719900F10039 /* videoprp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = videoprp.framework; path = OpenSDK1.7.7/videoprp.framework; sourceTree = "<group>"; };
+		22B691E31F3ABD4D00CDF0F2 /* id1495262516.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = id1495262516.mp4; sourceTree = "<group>"; };
 		22C166341EAEF973002D9084 /* FundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundModel.h; sourceTree = "<group>"; };
 		22C166351EAEF973002D9084 /* FundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundModel.m; sourceTree = "<group>"; };
 		22C7A0161ED0220E00ED78A4 /* 1495262516.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1495262516.mp4; sourceTree = "<group>"; };
@@ -2830,6 +2832,7 @@
 				224F245D1EA73EB200C0FDC6 /* VideoRZTwoCell.h */,
 				224F245E1EA73EB200C0FDC6 /* VideoRZTwoCell.m */,
 				22C7A0161ED0220E00ED78A4 /* 1495262516.mp4 */,
+				22B691E31F3ABD4D00CDF0F2 /* id1495262516.mp4 */,
 				224F245F1EA73EB200C0FDC6 /* VideoRZTwoCell.xib */,
 				224F24621EA73ED300C0FDC6 /* VideoRZThreeCell.h */,
 				224F24631EA73ED300C0FDC6 /* VideoRZThreeCell.m */,
@@ -3352,6 +3355,7 @@
 				22A454F01F064C1E0020225E /* share-result.html in Resources */,
 				22453BAA1F1C73FF0000C006 /* ProfitVC.xib in Resources */,
 				222AA0211EB071910038416D /* C_82@2x.png in Resources */,
+				22B691E41F3ABD4D00CDF0F2 /* id1495262516.mp4 in Resources */,
 				222AA0511EB071910038416D /* B_11@2x.gif in Resources */,
 				222B38241ED9642B009DB58F /* FSActionSheet_cancel@2x.png in Resources */,
 				222AA0541EB071910038416D /* B_14@2x.gif in Resources */,

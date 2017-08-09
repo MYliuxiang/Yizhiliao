@@ -943,7 +943,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 [LXUserDefaults setObject:result[@"data"][@"portrait"] forKey:Portrait];
                 [LXUserDefaults synchronize];
                 
-                NSString *alias = [NSString stringWithFormat:@"%@",result[@"data"][@"uid"]];
+                NSString *alias = [NSString stringWithFormat:@"%@",result[@"data"][@"jpushAlias"]];
                 [JPUSHService setAlias:alias callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
                 
                 [self loginAgoraSignaling];
@@ -1056,7 +1056,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     [LXUserDefaults setObject:result[@"data"][@"portrait"] forKey:Portrait];
                     [LXUserDefaults synchronize];
                 
-                    NSString *alias = [NSString stringWithFormat:@"%@",result[@"data"][@"uid"]];
+                    NSString *alias = [NSString stringWithFormat:@"%@",result[@"data"][@"jpushAlias"]];
                     [JPUSHService setAlias:alias callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
                     
                     [self loginAgoraSignaling];
