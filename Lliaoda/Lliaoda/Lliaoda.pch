@@ -226,7 +226,6 @@ alpha:1.0]
 #define certificate1 @"d5e0a27cec6f4b06b0f0003d826bbee9"
 #define enableMediaCertificate 1
 
-
 // 多语言相关
 #import "LocalizationUtils.h"
 #define LXSring(key) [LocalizationUtils DPLocalizedString:(key)]
