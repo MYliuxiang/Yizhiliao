@@ -42,7 +42,7 @@
     
     NSString *urlstring;
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-hant"]) {
+    if ([lang hasPrefix:@"zh-Hant"]) {
         urlstring = @"https://static.yizhiliao.tv/pages/zh-tw/agreement.html";
      }else if ([lang hasPrefix:@"id"]){
       urlstring = @"https://sugar-public.oss-ap-southeast-1.aliyuncs.com/pages/id-id/agreement.html";

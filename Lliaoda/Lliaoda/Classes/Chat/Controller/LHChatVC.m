@@ -390,7 +390,7 @@ NSString *const kTableViewFrame = @"frame";
 - (void)sendMessageToUserType:(MessageBodyType)type name:(NSString *)name types:(NSString *)types {
     NSString *message = @"";
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-hant"]) {
+    if ([lang hasPrefix:@"zh-Hant"]) {
         message = [NSString stringWithFormat:LXSring(@"已對%@發送了%@提示~"), _pmodel.nickname, name];
     }else if ([lang hasPrefix:@"id"]){
         message = [NSString stringWithFormat:LXSring(@"已對%@發送了%@提示~"), name, _pmodel.nickname];

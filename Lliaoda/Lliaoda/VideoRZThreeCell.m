@@ -24,7 +24,7 @@
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-hant"]) {
+    if ([lang hasPrefix:@"zh-Hant"]) {
        
         filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
     }else if ([lang hasPrefix:@"id"]){
