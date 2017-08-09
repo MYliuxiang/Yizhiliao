@@ -388,7 +388,15 @@ NSString *const kTableViewFrame = @"frame";
 
 #pragma mark -----LHChatBarViewDelegate------
 - (void)sendMessageToUserType:(MessageBodyType)type name:(NSString *)name types:(NSString *)types {
-    NSString *message = [NSString stringWithFormat:@"已對%@發送了%@提示~", _pmodel.nickname, name];
+    NSString *message = @"";
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-hant"]) {
+        message = [NSString stringWithFormat:LXSring(@"已對%@發送了%@提示~"), _pmodel.nickname, name];
+    }else if ([lang hasPrefix:@"id"]){
+        message = [NSString stringWithFormat:LXSring(@"已對%@發送了%@提示~"), name, _pmodel.nickname];
+    }else{
+        message = [NSString stringWithFormat:LXSring(@"已對%@發送了%@提示~"), _pmodel.nickname, name];
+    }
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     __block Message *messageModel = [Message new];
     messageModel.isSender = YES;
@@ -505,7 +513,7 @@ NSString *const kTableViewFrame = @"frame";
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.sendUid]] longLongValue];
     if (idate - oldDate < 60 * 1000) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"發送太頻繁，會嚇走金主的~" delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"發送太頻繁，會嚇走金主的~") delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
         [alert show];
     }else{
         [self sendMessageToUserType:MessageBodyType_Gift name:LXSring(@"送禮") types:@"gift"];
@@ -520,7 +528,7 @@ NSString *const kTableViewFrame = @"frame";
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.sendUid]] longLongValue];
     if (idate - oldDate < 60 * 1000) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"發送太頻繁，會嚇走金主的~" delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"發送太頻繁，會嚇走金主的~") delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
         [alert show];
     }else{
         [self sendMessageToUserType:MessageBodyType_ChongZhi name:LXSring(@"儲值") types:@"recharge"];
@@ -561,8 +569,8 @@ NSString *const kTableViewFrame = @"frame";
     __weak LHChatVC *this = self;
     self.giftsView.giftBlock = ^(NSString *giftName, int diamonds, NSString *giftUid) {
         
-        NSString *content = [NSString stringWithFormat:@"我送出：%@(%d鉆)", giftName, diamonds];
-        NSString *contents = [NSString stringWithFormat:@"%@(%d鉆)", giftName, diamonds];
+        NSString *content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
+        NSString *contents = [NSString stringWithFormat:LXSring(@"%@(%d鉆)"), giftName, diamonds];
         long long idate = [[NSDate date] timeIntervalSince1970]*1000;
         __block Message *messageModel = [Message new];
         messageModel.isSender = YES;
@@ -585,7 +593,7 @@ NSString *const kTableViewFrame = @"frame";
         NSIndexPath *index = [this insertNewMessageOrTime:messageModel];
         [this.messages addObject:messageModel];
         [this.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        [SVProgressHUD showSuccessWithStatus:@"禮物已發送，謝謝老闆打賞~"];
+        [SVProgressHUD showSuccessWithStatus:LXSring(@"禮物已發送，謝謝老闆打賞~")];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             
@@ -662,7 +670,7 @@ NSString *const kTableViewFrame = @"frame";
 {
     if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"当前网络不可用，请检查您的网络設定" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"当前网络不可用，请检查您的网络設定") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         
         return;
@@ -739,7 +747,7 @@ NSString *const kTableViewFrame = @"frame";
         if ([messageModel.event isEqualToString:@"gift"]) {
             messageModel.content = [NSString stringWithFormat:LXSring(@"我给你送了：%@鑽，有空记得打给我哟～"), userInfo[@"msg"][@"content"]];
         } else {
-            messageModel.content = [NSString stringWithFormat:@"我已通過你的頁面儲值：%@", userInfo[@"msg"][@"content"]];
+            messageModel.content = [NSString stringWithFormat:LXSring(@"我已通過你的頁面儲值：%@"), userInfo[@"msg"][@"content"]];
         }
     } else {
         messageModel.content = userInfo[@"msg"][@"content"];
@@ -1751,7 +1759,7 @@ NSString *const kTableViewFrame = @"frame";
             LHChatViewCell *cell = (LHChatViewCell *)obj;
             if (cell.messageModel.type == MessageBodyType_Image) {
                 LHChatImageBubbleView *imageBubbleView = (LHChatImageBubbleView *)cell.bubbleView;
-                if ([[NSString stringWithFormat:@"%d",cell.messageModel.date] isEqualToString:_imageKeys[index]]) {
+                if ([[NSString stringWithFormat:@"%lld",cell.messageModel.date] isEqualToString:_imageKeys[index]]) {
                     imageView = imageBubbleView.imageView;
                     currentImageBubbleView = imageBubbleView;
                     *stop = YES;
