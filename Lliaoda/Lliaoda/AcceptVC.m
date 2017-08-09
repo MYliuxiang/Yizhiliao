@@ -49,7 +49,7 @@
 
     if (self.textField.text.length == 0) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"请填写验证码！" delegate:nil cancelButtonTitle:nil otherButtonTitles:LXSring(@"確定"), nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"请填写验证码！") delegate:nil cancelButtonTitle:nil otherButtonTitles:LXSring(@"確定"), nil];
         [alert show];
         return;
     }
