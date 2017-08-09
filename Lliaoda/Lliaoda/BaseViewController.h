@@ -21,7 +21,8 @@
 @property(nonatomic,retain)UILabel *titleLable;
 @property(nonatomic,retain)UIButton *rightbutton;
 @property(nonatomic,retain)UIButton *leftbutton;
-
+@property (nonatomic, retain) UIButton *rightChargeButton; // 印尼人工充值按钮
+@property (nonatomic, assign) BOOL isRight; // 隐藏右侧人工充值按钮
 
 - (void)back;
 

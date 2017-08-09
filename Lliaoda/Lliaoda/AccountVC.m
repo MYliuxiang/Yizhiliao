@@ -105,6 +105,18 @@ static NSString *const headerId = @"headerId";
     
     [self createPay];
     
+    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+        self.isRight = NO;
+        
+    }else{
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"id"]){
+            self.isRight = YES;
+        }else{
+            self.isRight = NO;
+        }
+    }
+    
     
 }
 
