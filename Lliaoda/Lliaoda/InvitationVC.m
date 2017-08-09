@@ -29,14 +29,24 @@
     
     [self.btn1 setTitle:LXSring(@"复制链接") forState:UIControlStateNormal];
     [self.cancelBtn setTitle:LXSring(@"取消") forState:UIControlStateNormal];
+    [self.idCancel setTitle:LXSring(@"取消") forState:UIControlStateNormal];
 
-    if ([WXApi isWXAppInstalled]) {
-        _weixinButton.hidden = NO;
-        _friendButton.hidden = NO;
-    } else {
-        _weixinButton.hidden = YES;
-        _friendButton.hidden = YES;
+    
+    
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"id"]){
+        
+        self.myShareView = self.idShareView;
+        self.height = 180;
+        
+    }else{
+        
+        self.myShareView = self.shareView;
+        self.height = 260;
+        
     }
+    
+    
     
     [self loadData];
 
@@ -100,7 +110,7 @@
     [UIView animateWithDuration:.35 animations:^{
         
         self.maskView.hidden = YES;
-        self.shareView.y = kScreenHeight;
+        self.myShareView.y = kScreenHeight;
     } completion:^(BOOL finished) {
         
         
@@ -125,14 +135,14 @@
                 
                 NSString *str = [NSString stringWithFormat:LXSring(@"记得提醒好友下载注册以后填写邀請碼: %@"),_code];
                 NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:str];
-                [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(19, _code.length)];
+                [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(str.length - _code.length , _code.length)];
                 self.shareLabel.attributedText = alertControllerStr;
-            
+                self.idshareLabel.attributedText = alertControllerStr;
                 
                 [UIView animateWithDuration:.35 animations:^{
                     
                     self.maskView.hidden = NO;
-                    self.shareView.y = kScreenHeight - 260;
+                    self.myShareView.y = kScreenHeight - self.height;
                 } completion:^(BOOL finished) {
                   
                     
@@ -236,16 +246,13 @@
     [self.view addSubview:self.maskView];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
     [self.maskView addGestureRecognizer:tap];
-    
     self.shareView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 260);
+    self.idShareView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 180);
     [self.view addSubview:self.shareView];
-    
+    [self.view addSubview:self.idShareView];
     [self addrightImage:@"fenxiang"];
-
     self.yaoBtn.hidden = NO;
     
-   
-
 }
 
 - (void)loadData{
@@ -369,7 +376,7 @@
     [UIView animateWithDuration:.35 animations:^{
         
         self.maskView.hidden = YES;
-        self.shareView.y = kScreenHeight;
+        self.myShareView.y = kScreenHeight;
     } completion:^(BOOL finished) {
         
         NSString *urlstring;
@@ -416,7 +423,7 @@
     [UIView animateWithDuration:.35 animations:^{
         
         self.maskView.hidden = YES;
-        self.shareView.y = kScreenHeight;
+        self.myShareView.y = kScreenHeight;
     } completion:^(BOOL finished) {
         
         
@@ -471,14 +478,14 @@
                 
                 NSString *str = [NSString stringWithFormat:LXSring(@"记得提醒好友下载注册以后填写邀請碼: %@"),_code];
                 NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:str];
-                [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(19, _code.length)];
+                [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(str.length - _code.length, _code.length)];
                 self.shareLabel.attributedText = alertControllerStr;
-                
+                self.idshareLabel.attributedText = alertControllerStr;
                 
                 [UIView animateWithDuration:.35 animations:^{
                     
                     self.maskView.hidden = NO;
-                    self.shareView.y = kScreenHeight - 260;
+                    self.myShareView.y = kScreenHeight - self.height;
                 } completion:^(BOOL finished) {
                     
                     
@@ -499,7 +506,6 @@
         NSLog(@"%@",error);
         
     }];
-    
     
 }
 
@@ -534,7 +540,6 @@
 {
      dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
    
-    
         [SVProgressHUD showWithStatus:LXSring(@"分享成功")];
 
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
@@ -567,6 +572,74 @@
 
 }
 
+- (IBAction)idCancelAC:(id)sender {
+    
+    [UIView animateWithDuration:.35 animations:^{
+        
+        self.maskView.hidden = YES;
+        self.myShareView.y = kScreenHeight;
+    } completion:^(BOOL finished) {
+        
+        
+    }];
+}
+
+- (IBAction)idFBShareAC:(id)sender {
+    
+    NSString *urlstring;
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-hant"]) {
+        
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+        
+    }else if ([lang hasPrefix:@"id"]){
+        
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+    }else{
+        
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+    }
+    
+    NSString *urlStr = urlstring;
+    //     @"最美主播統統入駐，立刻下載，贏得獎勵";
+    
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentURL = [NSURL URLWithString:urlStr];
+    [FBSDKShareDialog showFromViewController:self
+                                 withContent:content
+                                    delegate:self];
+}
+
+- (IBAction)idCopyAC:(id)sender {
+    
+    [UIView animateWithDuration:.35 animations:^{
+        
+        self.maskView.hidden = YES;
+        self.myShareView.y = kScreenHeight;
+    } completion:^(BOOL finished) {
+        
+        NSString *urlstring;
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"zh-hant"]) {
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+            
+        }else if ([lang hasPrefix:@"id"]){
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+        }else{
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
+        }
+        
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        NSString *urlStr = urlstring;
+        pasteboard.string = urlStr;
+        
+    }];
+
+}
+
 - (IBAction)pengAC:(id)sender {
     
     if ([WXApi isWXAppInstalled]&&[WXApi isWXAppSupportApi]){
@@ -588,7 +661,7 @@
     [UIView animateWithDuration:.35 animations:^{
         
         self.maskView.hidden = YES;
-        self.shareView.y = kScreenHeight;
+        self.myShareView.y = kScreenHeight;
         
     } completion:^(BOOL finished) {
         
@@ -630,7 +703,7 @@
     [UIView animateWithDuration:.35 animations:^{
         
         self.maskView.hidden = YES;
-        self.shareView.y = kScreenHeight;
+        self.myShareView.y = kScreenHeight;
     } completion:^(BOOL finished) {
         
         
