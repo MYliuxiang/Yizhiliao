@@ -756,19 +756,22 @@ controller   didAuthorizePayment:(PKPayment *)payment
     cell.countLabel.text = model.name;
     cell.detailLabel.adjustsFontSizeToFitWidth = YES;
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    NSString *money = @"";
     if ([lang hasPrefix:@"id"]){
         cell.biaoqianImageView.image = [UIImage imageNamed:@"biaoqian2"];
+        money = @"Rp.";
     }else{
         cell.biaoqianImageView.image = [UIImage imageNamed:@"biaoqian1"];
+        money = @"NT $";
     }
     if (fmodf(model.price / 100.00, 1)==0) {//如果有一位小数点
-        [cell.moneyButton setTitle:[NSString stringWithFormat:@"NT $%.0f",model.price / 100.00] forState:UIControlStateNormal];
+        [cell.moneyButton setTitle:[NSString stringWithFormat:@"%@%.0f",money,model.price / 100.00] forState:UIControlStateNormal];
     } else if (fmodf(model.price / 100.00, 1)==0) {//如果有两位小数点
         
-        [cell.moneyButton setTitle:[NSString stringWithFormat:@"NT $%.1f",model.price / 100.00] forState:UIControlStateNormal];
+        [cell.moneyButton setTitle:[NSString stringWithFormat:@"%@%.1f",money,model.price / 100.00] forState:UIControlStateNormal];
     } else {
         
-        [cell.moneyButton setTitle:[NSString stringWithFormat:@"NT $%.2f",model.price / 100.00] forState:UIControlStateNormal];
+        [cell.moneyButton setTitle:[NSString stringWithFormat:@"%@%.2f",money,model.price / 100.00] forState:UIControlStateNormal];
     }
     
    
