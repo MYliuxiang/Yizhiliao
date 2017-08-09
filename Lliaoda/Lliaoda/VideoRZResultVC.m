@@ -27,7 +27,7 @@
         self.stateLabel.text = LXSring(@"認證成功");
         self.stateLabel.textColor = [MyColor colorWithHexString:@"#46C6A9"];
         self.resultImageVIew.image = [UIImage imageNamed:@"chenggong"];
-        self.stateTextLabel.text = @"恭喜你已通過認證！請遵守中華民國法律與平台規定，健康社交，安全使用APP。";
+        self.stateTextLabel.text = LXSring(@"恭喜你已通過認證！請遵守中華民國法律與平台規定，健康社交，安全使用APP。");
         self.sucuressView.hidden = YES;
         self.failBtn.hidden = YES;
 
@@ -37,7 +37,7 @@
         self.stateLabel.text = LXSring(@"認證失敗");
         self.stateLabel.textColor = Color_nav;
         self.resultImageVIew.image = [UIImage imageNamed:@"shibai"];
-          self.stateTextLabel.text = @"以上認證失敗不符合要求，请确认当前大頭貼与自拍认证視訊都是您本人，完善个人主页照片和资料，并重新认证！";
+          self.stateTextLabel.text = LXSring(@"以上認證失敗不符合要求，请确认当前大頭貼与自拍认证視訊都是您本人，完善个人主页照片和资料，并重新认证！");
         self.sucuressView.hidden = YES;
         self.failBtn.hidden = NO;
         
