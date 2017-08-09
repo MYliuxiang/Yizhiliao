@@ -34,9 +34,9 @@
         
         NSArray *languages = [NSLocale preferredLanguages];
         NSString *currentLanguage = [languages objectAtIndex:0];
-        if([currentLanguage hasPrefix:@"zh-hant"] || [currentLanguage hasPrefix:@"zh-hans"] ){
+        if([currentLanguage hasPrefix:@"zh-Hant"] || [currentLanguage hasPrefix:@"zh-Hans"]){
             self.languageBGView.hidden = YES;
-            [LXUserDefaults setObject:@"zh-hant" forKey:@"appLanguage"];
+            [LXUserDefaults setObject:@"zh-Hant" forKey:@"appLanguage"];
             [LXUserDefaults synchronize];
 
         }else if ([currentLanguage hasPrefix:@"id"]){
@@ -51,8 +51,7 @@
 
     }
     
-    [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
-    [LXUserDefaults synchronize];
+ 
     
     self.navbarHiden = YES;
     
@@ -385,7 +384,10 @@
     } completion:^(BOOL finished) {
         
     }];
-    [LXUserDefaults setObject:@"zh-hant" forKey:@"appLanguage"];
+    [LXUserDefaults setObject:@"zh-Hant" forKey:@"appLanguage"];
+    [LXUserDefaults synchronize];
+    
+    [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
     [LXUserDefaults synchronize];
     
 }
@@ -399,6 +401,9 @@
     }];
 
     [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
+    [LXUserDefaults synchronize];
+    
+    [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
     [LXUserDefaults synchronize];
 }
 @end

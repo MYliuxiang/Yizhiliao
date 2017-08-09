@@ -180,7 +180,7 @@
     
     NSString *urlstring;
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-hant"]) {
+    if ([lang hasPrefix:@"zh-Hant"]) {
 
         urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share-result.html?auth=%d",self.model.auth];
     }else if ([lang hasPrefix:@"id"]){
@@ -381,7 +381,7 @@
         
         NSString *urlstring;
         NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-        if ([lang hasPrefix:@"zh-hant"]) {
+        if ([lang hasPrefix:@"zh-Hant"]) {
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
             
@@ -434,7 +434,7 @@
 
         NSString *urlstring;
         NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-        if ([lang hasPrefix:@"zh-hant"]) {
+        if ([lang hasPrefix:@"zh-Hant"]) {
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
             
@@ -514,7 +514,7 @@
     
     NSString *urlstring;
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-hant"]) {
+    if ([lang hasPrefix:@"zh-Hant"]) {
         
         urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
         
@@ -588,7 +588,7 @@
     
     NSString *urlstring;
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-hant"]) {
+    if ([lang hasPrefix:@"zh-Hant"]) {
         
         urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
         
@@ -620,7 +620,7 @@
         
         NSString *urlstring;
         NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-        if ([lang hasPrefix:@"zh-hant"]) {
+        if ([lang hasPrefix:@"zh-Hant"]) {
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
             
@@ -667,7 +667,7 @@
         
         NSString *urlstring;
         NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-        if ([lang hasPrefix:@"zh-hant"]) {
+        if ([lang hasPrefix:@"zh-Hant"]) {
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
             

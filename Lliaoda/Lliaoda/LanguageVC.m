@@ -21,7 +21,7 @@
     self.text = LXSring(@"切換語言");
     
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-hant"]) {
+    if ([lang hasPrefix:@"zh-Hant"]) {
        
         self.chineseButton.selected = YES;
         self.indonesiaButton.selected = NO;
@@ -83,7 +83,7 @@
     }
     if (alertView.tag == 100) {
         
-        [LXUserDefaults setObject:@"zh-hant" forKey:@"appLanguage"];
+        [LXUserDefaults setObject:@"zh-Hant" forKey:@"appLanguage"];
         [LXUserDefaults synchronize];
 
     }else{

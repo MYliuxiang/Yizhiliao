@@ -90,7 +90,7 @@
     NSString *agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
     
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-hant"]) {
+    if ([lang hasPrefix:@"zh-Hant"]) {
         agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
     }else if ([lang hasPrefix:@"id"]){
@@ -215,7 +215,7 @@
     NSString *agent;
     
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-hant"]) {
+    if ([lang hasPrefix:@"zh-Hant"]) {
         agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",[infoDictionary objectForKey:@"CFBundleDisplayName"],[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
     }else if ([lang hasPrefix:@"id"]){

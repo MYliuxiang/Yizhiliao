@@ -38,7 +38,7 @@
         
     NSString *urlstring;
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-hant"]) {
+    if ([lang hasPrefix:@"zh-Hant"]) {
         urlstring = [NSString stringWithFormat:@"https://static.yizhiliao.tv/pages/zh-tw/aboutus.html?v=%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
     }else if ([lang hasPrefix:@"id"]){
 
