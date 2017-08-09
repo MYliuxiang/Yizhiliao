@@ -755,6 +755,12 @@ controller   didAuthorizePayment:(PKPayment *)payment
     AccountModel *model = self.dataList[indexPath.row];
     cell.countLabel.text = model.name;
     cell.detailLabel.adjustsFontSizeToFitWidth = YES;
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"id"]){
+        cell.biaoqianImageView.image = [UIImage imageNamed:@"biaoqian2"];
+    }else{
+        cell.biaoqianImageView.image = [UIImage imageNamed:@"biaoqian1"];
+    }
     if (fmodf(model.price / 100.00, 1)==0) {//如果有一位小数点
         [cell.moneyButton setTitle:[NSString stringWithFormat:@"NT $%.0f",model.price / 100.00] forState:UIControlStateNormal];
     } else if (fmodf(model.price / 100.00, 1)==0) {//如果有两位小数点
