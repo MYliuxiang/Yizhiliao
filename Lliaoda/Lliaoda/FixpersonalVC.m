@@ -69,7 +69,7 @@
     UIButton *enter = [[UIButton alloc]initWithFrame:CGRectMake(10, 0,50,50)];
     enter.titleLabel.font = [UIFont systemFontOfSize:14];
     [enter setTitleColor:Color_nav forState:UIControlStateNormal];
-    [enter setTitle:LXSring(@"取消") forState:UIControlStateNormal];
+    [enter setTitle:LXSring(@"取消") forState:UIControlStateNormal];
     [toolView addSubview:enter];
     [enter addTarget:self action:@selector(enterAction:) forControlEvents:UIControlEventTouchUpInside];
     

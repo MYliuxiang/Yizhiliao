@@ -166,7 +166,7 @@ NSString *const kTableViewFrame = @"frame";
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:@"舉報成功！如有需要，可直接联系管理员QQ:2085728544" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"舉報成功！如有需要，可直接联系管理员QQ:2085728544") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
                 [alert show];
                 
                 
@@ -211,10 +211,10 @@ NSString *const kTableViewFrame = @"frame";
                     
                     NSString *nickName = _pmodel.nickname;
                     
-                    NSString *str = [NSString stringWithFormat:@"你正在舉報%@",nickName];
+                    NSString *str = [NSString stringWithFormat:LXSring(@"你正在舉報%@"),nickName];
                     NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:str];
-                    [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_Text_lightGray range:NSMakeRange(0, 5)];
-                    [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(5, str.length - 5)];
+                    [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_Text_lightGray range:NSMakeRange(0, str.length - nickName.length)];
+                    [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(str.length - nickName.length, nickName.length)];
                     [alertControllerStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, str.length)];
                     [alertController1 setValue:alertControllerStr forKey:@"_attributedTitle"];
                     
@@ -539,6 +539,7 @@ NSString *const kTableViewFrame = @"frame";
 - (void)giftGive {
     self.blackView.hidden = NO;
     [self newgiftView];
+    [self loadYUe];
     self.giftsView.pmodel = self.pmodel;
     self.giftsView.isVideoBool = NO;
     [UIView animateWithDuration:.35 animations:^{
@@ -920,7 +921,7 @@ NSString *const kTableViewFrame = @"frame";
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
-                NSString *str = [NSString stringWithFormat:@"余额:%@鑽",deposit];
+                NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
 //                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
 //                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
 //                [self newgiftView];
@@ -1301,8 +1302,10 @@ NSString *const kTableViewFrame = @"frame";
         // 點擊彈出禮物框
         self.blackView.hidden = NO;
         [self newgiftView];
+        
         self.giftsView.pmodel = self.pmodel;
         self.giftsView.isVideoBool = NO;
+        
         [UIView animateWithDuration:.35 animations:^{
             _blackView.hidden = NO;
             self.giftsView.top = kScreenHeight - 300;
