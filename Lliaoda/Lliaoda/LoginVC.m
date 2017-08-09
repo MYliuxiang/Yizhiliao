@@ -37,11 +37,13 @@
         if([currentLanguage hasPrefix:@"zh-Hant"] || [currentLanguage hasPrefix:@"zh-Hans"]){
             self.languageBGView.hidden = YES;
             [LXUserDefaults setObject:@"zh-Hant" forKey:@"appLanguage"];
+            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
             [LXUserDefaults synchronize];
 
         }else if ([currentLanguage hasPrefix:@"id"]){
             self.languageBGView.hidden = YES;
             [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
+            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
             [LXUserDefaults synchronize];
 
         }else{
@@ -50,8 +52,6 @@
         }
 
     }
-    
- 
     
     self.navbarHiden = YES;
     
