@@ -701,11 +701,30 @@ NSString *const kTableViewFrame = @"frame";
                 [video show];
                 
             }else{    //请求失败
-                [SVProgressHUD showErrorWithStatus:result[@"message"]];
-                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                    [SVProgressHUD dismiss];
-                });
+                
+                if ([[result objectForKey:@"result"] integerValue] == 8) {
+                    
+                    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
+                    
+                    lg.destructiveButtonBackgroundColor = Color_nav;
+                    lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                    lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+                    lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+                    lg.cancelButtonTitleColor = Color_nav;
+                    lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
+                        AccountVC *vc = [[AccountVC alloc] init];
+                        [self.navigationController pushViewController:vc animated:YES];
+                        
+                    };
+                    [lg showAnimated:YES completionHandler:nil];
+                }else{
+                
+                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                        [SVProgressHUD dismiss];
+                    });
+                }
                 
             }
         }
