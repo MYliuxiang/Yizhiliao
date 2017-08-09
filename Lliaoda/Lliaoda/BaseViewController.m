@@ -44,6 +44,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //关闭系统右滑返回
+    
 //    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationController.navigationBarHidden = YES;
@@ -96,8 +97,25 @@
     [self.nav addSubview:_titleLable];
     
 
+    _rightChargeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _rightChargeButton.frame = CGRectMake(kScreenWidth - 100 - 15, 20 + (self.nav.height - 20 - 50 / 2.0) / 2.0 , 100, 50 / 2.0);
+    [_rightChargeButton setBackgroundColor:[UIColor clearColor]];
+    [_rightChargeButton setTitleColor:UIColorFromRGB(0xFFC001) forState:UIControlStateNormal];
+    [_rightChargeButton setTitle:@"Top up manual" forState:UIControlStateNormal];
+    _rightChargeButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    [_rightChargeButton addTarget:self action:@selector(rightChargeButtonAC) forControlEvents:UIControlEventTouchUpInside];
+    [self.nav addSubview:_rightChargeButton];
+    self.isRight = NO;
+    
+//    [self addrighttitleString:@"Top up manual"];
 }
 
+- (void)rightAction
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line:  CS.SugarTalk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"", nil];
+    [alert show];
+
+}
 
 
 - (void)setText:(NSString *)text
@@ -131,6 +149,11 @@
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)rightChargeButtonAC {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line:  CS.SugarTalk" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (void)addrightImage:(NSString *)imageString
@@ -188,20 +211,34 @@
 }
 
 
-- (void)rightAction
-{
-    
-}
+//- (void)rightAction
+//{
+//    
+//}
 
 - (void)leftAction
 {
     
 }
 
+- (void)setIsRight:(BOOL)isRight {
+    if (isRight) {
+        self.rightChargeButton.hidden = NO;
+    } else {
+        self.rightChargeButton.hidden = YES;
+    }
+}
 
 
-
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 1) {
+        // 複製賬號
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        NSString *urlStr = @"";
+        pasteboard.string = urlStr;
+    }
+}
 
 
 @end
