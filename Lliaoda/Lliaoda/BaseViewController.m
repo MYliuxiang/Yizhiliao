@@ -152,7 +152,7 @@
 }
 
 - (void)rightChargeButtonAC {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line:  CS.CandyTalk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Salin ID", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line: CandyTalk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Salin ID", nil];
     [alert show];
 }
 
@@ -234,7 +234,7 @@
     if (buttonIndex == 1) {
         // 複製賬號
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-        NSString *urlStr = @"CS.CandyTalk";
+        NSString *urlStr = @"CandyTalk";
         pasteboard.string = urlStr;
     }
 }
