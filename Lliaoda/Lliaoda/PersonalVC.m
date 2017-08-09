@@ -535,6 +535,7 @@
             if(result){
                 if ([[result objectForKey:@"result"] integerValue] == 0) {
                     
+                    
                     sender.selected = YES;
                     
                     CAKeyframeAnimation * animation;
@@ -608,8 +609,8 @@
                         [WXDataService requestAFWithURL:Url_chatmessagesend params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
                             if ([[result objectForKey:@"result"] integerValue] == 0) {
                                 [_inst messageInstantSend:self.model.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
-                            }if ([[result objectForKey:@"result"] integerValue] == 29) {
-                                
+                            
+                            }else if ([[result objectForKey:@"result"] integerValue] == 29) {
                                 LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"成为VIP") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"获取VIP") delegate:nil];
                                 lg.destructiveButtonBackgroundColor = Color_nav;
                                 lg.destructiveButtonTitleColor = [UIColor whiteColor];
