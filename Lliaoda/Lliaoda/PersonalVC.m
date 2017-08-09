@@ -217,8 +217,8 @@
         
         NSString *str = [NSString stringWithFormat:LXSring(@"你正在舉報%@"),nickName];
         NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:str];
-        [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_Text_lightGray range:NSMakeRange(0, 5)];
-        [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(5, str.length - 5)];
+        [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_Text_lightGray range:NSMakeRange(0, str.length - nickName.length)];
+        [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(str.length - nickName.length, nickName.length)];
         [alertControllerStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, str.length)];
         [alertController1 setValue:alertControllerStr forKey:@"_attributedTitle"];
         
@@ -727,6 +727,7 @@
 
 - (IBAction)giftBtnClick:(id)sender {
     [self newgiftView];
+    [self _loadData1];
     self.giftsView.pmodel = self.pmodel;
     self.giftsView.isVideoBool = NO;
     [UIView animateWithDuration:.35 animations:^{
@@ -771,7 +772,7 @@
 //                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
 //                [self newgiftView];
                 self.giftsView.elabel.text = str;
-                
+                NSLog(@"%@", self.giftsView.elabel.text);
             } else{
                 
                 [SVProgressHUD showErrorWithStatus:result[@"message"]];

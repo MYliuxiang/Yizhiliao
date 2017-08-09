@@ -18,5 +18,6 @@
 @property (nonatomic,assign) BOOL isFirst;
 @property (nonatomic,retain) MyVideoModel *model;
 @property (nonatomic,retain) Video *video;
+@property (weak, nonatomic) IBOutlet UILabel *fengMLabel;
 
 @end

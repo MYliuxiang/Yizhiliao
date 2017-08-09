@@ -170,7 +170,7 @@ static NSString *const headerId = @"headerId";
     NSLog(@"--------------收到产品反馈訊息---------------------");
     NSArray *product = response.products;
     if([product count] == 0){
-        [SVProgressHUD showErrorWithStatus:@"ProductID为无效ID"];
+        [SVProgressHUD showErrorWithStatus:LXSring(@"ProductID为无效ID")];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             

@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _fengMLabel.text = LXSring(@"封面");
 }
 
 - (void)setIsFirst:(BOOL)isFirst
