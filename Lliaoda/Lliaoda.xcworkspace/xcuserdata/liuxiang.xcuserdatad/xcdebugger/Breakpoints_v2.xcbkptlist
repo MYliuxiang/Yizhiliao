@@ -255,7 +255,7 @@
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
-                  timestampString = "523974479.968738"
+                  timestampString = "523975487.298633"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "609"
@@ -270,7 +270,7 @@
                   moduleName = "Lliaoda"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
-                  timestampString = "523974479.975552"
+                  timestampString = "523975487.300517"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "610"
@@ -286,29 +286,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/LanguageVC.m"
-            timestampString = "523974557.187184"
+            filePath = "Lliaoda/AppDelegate.m"
+            timestampString = "523975073.204239"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-alertView:clickedButtonAtIndex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lliaoda/LoginVC.m"
-            timestampString = "523974620.737634"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "1029"
+            endingLineNumber = "1029"
+            landmarkName = "-facebookLogin:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
