@@ -22,6 +22,12 @@
 //    self.dataList = @[LXSring(@"通话收益"),LXSring(@"礼物及红包收益"),LXSring(@"总收益"),LXSring(@"可提现总收益")];
 //    self.dataList = @[LXSring(@"通话收益"),LXSring(@"礼物及红包收益"),LXSring(@"总收益"),LXSring(@"邀请"),LXSring(@"可提现总收益")];
     self.dataList = @[LXSring(@"通話收益"),LXSring(@"禮物及紅包收益"),LXSring(@"储值提成收益"),LXSring(@"邀請")];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"id"]){
+        self.dataList = @[LXSring(@"通話收益"),LXSring(@"禮物及紅包收益"),LXSring(@"邀請")];
+    }else{
+        self.dataList = @[LXSring(@"通話收益"),LXSring(@"禮物及紅包收益"),LXSring(@"储值提成收益"),LXSring(@"邀請")];
+    }
     self.tixianBtn.layer.cornerRadius = 22.5;
     self.tixianBtn.layer.masksToBounds = YES;
     self.tixianBtn.backgroundColor = UIColorFromRGB(0xFB3476);
@@ -79,7 +85,13 @@
 {
 //    return self.dataList.count;
     if (section == 1) {
-        return 4;
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"id"]){
+            return 3;
+        }else{
+            return 4;
+        }
+        
     } else {
         return 1;
     }
@@ -114,7 +126,6 @@
 
         }else{
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
-
         }
         cell.textLabel.textColor = Color_Text_black;
         cell.detailTextLabel.textColor = Color_nav;
