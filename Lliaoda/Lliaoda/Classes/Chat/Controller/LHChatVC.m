@@ -110,13 +110,29 @@ NSString *const kTableViewFrame = @"frame";
 
 - (void)_loadData1
 {
+    
+//    LxCache *cahce = [LxCache sharedLxCache];
+//    NSString *cacheKey = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+//    NSDictionary *dic = [cahce getCacheDataWithKey:cacheKey];
+//    if (dic != nil) {
+//        
+//        self.myModel = [Mymodel mj_objectWithKeyValues:dic[@"data"]];
+//        if (self.myModel.auth == 2) {
+//            isZhubo = YES;
+//        }else{
+//            isZhubo = NO;
+//        }
+//        [self setupInit];
+//        
+//    }
+
     NSDictionary *params;
     [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 self.myModel = [Mymodel mj_objectWithKeyValues:result[@"data"]];
                 
-                    if (self.myModel.auth == 2) {
+                if (self.myModel.auth == 2) {
                         isZhubo = YES;
                     }else{
                         isZhubo = NO;

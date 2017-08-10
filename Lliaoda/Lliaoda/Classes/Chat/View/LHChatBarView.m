@@ -482,7 +482,6 @@ CGFloat const kChatBatItemWH = 26.0f;
 #warning 对視訊-------
 - (void)moreViewPhotoAction:(LHChatBarMoreView *)moreVie {
     
-    NSLog(LXSring(@"視訊"));
     if (self.delegate && [self.delegate respondsToSelector:@selector(videoCall)]) {
         
         [self.delegate videoCall];
