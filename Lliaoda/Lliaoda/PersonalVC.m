@@ -727,6 +727,16 @@
 }
 
 - (IBAction)giftBtnClick:(id)sender {
+    
+    if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"不能给自己送礼物。") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+
+    
+    
     [self newgiftView];
     [self _loadData1];
     self.giftsView.pmodel = self.pmodel;

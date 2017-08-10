@@ -1320,9 +1320,25 @@ NSString *const kTableViewFrame = @"frame";
         
         return;
     }
+    if([eventName isEqualToString:kRouterEventChatHeadImageTapEventName]){
+        //点击头像
+        //点击cell
+         SelectedModel *smodel = [[SelectedModel alloc] init];
+        if(model.isSender){
+            //自己
+            smodel.uid = model.sendUid;
+            
+        }else{
+            //别人
+            smodel.uid = model.uid;
+        }
+        PersonalVC *vc = [[PersonalVC alloc] init];
+        vc.model = smodel;
+        [self.navigationController pushViewController:vc animated:YES];
+
+    }
     
     if ([eventName isEqualToString:kRouterEventTapEventName]){
-        //点击cell
     }
     
     if ([eventName isEqualToString:kRouterEventImageBubbleTapEventName]) {
