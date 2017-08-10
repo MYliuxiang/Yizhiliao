@@ -22,6 +22,7 @@ target 'Lliaoda' do
   pod 'UMengAnalytics'
   pod 'UAProgressView'
   pod 'JPush'
+  pod 'SDCycleScrollView','~> 1.66'
   target 'LliaodaTests' do
     inherit! :search_paths
 #    Pods for testing
