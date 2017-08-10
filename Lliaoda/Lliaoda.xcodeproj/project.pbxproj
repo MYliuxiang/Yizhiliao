@@ -406,6 +406,7 @@
 		225FA9931EFBBA0D0086287E /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA9921EFBBA0D0086287E /* AgoraRtcEngineKit.framework */; };
 		225FA9EE1EFBD6C90086287E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 225FA9ED1EFBD6C90086287E /* UserModel.m */; };
 		2263D3E81EF392BD0020E092 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263D3E71EF392BD0020E092 /* AboutVC.m */; };
+		2265F8CA1F3C0D98001A6308 /* UIButton+HQCustomIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2265F8C91F3C0D98001A6308 /* UIButton+HQCustomIcon.m */; };
 		226B6FF11F38591000AEC7D2 /* LocalizationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 226B6FF01F38591000AEC7D2 /* LocalizationUtils.m */; };
 		226B6FF41F38649E00AEC7D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 226B6FF61F38649E00AEC7D2 /* InfoPlist.strings */; };
 		226BA90F1ED7E324004D983A /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BA90D1ED7E324004D983A /* MyCell.m */; };
@@ -1148,6 +1149,8 @@
 		225FA9ED1EFBD6C90086287E /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		2263D3E61EF392BD0020E092 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
 		2263D3E71EF392BD0020E092 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
+		2265F8C81F3C0D98001A6308 /* UIButton+HQCustomIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+HQCustomIcon.h"; sourceTree = "<group>"; };
+		2265F8C91F3C0D98001A6308 /* UIButton+HQCustomIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HQCustomIcon.m"; sourceTree = "<group>"; };
 		226B6FEF1F38591000AEC7D2 /* LocalizationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationUtils.h; sourceTree = "<group>"; };
 		226B6FF01F38591000AEC7D2 /* LocalizationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationUtils.m; sourceTree = "<group>"; };
 		226B6FF51F38649E00AEC7D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -2738,6 +2741,8 @@
 		22B1091B1EA4A4FE00E35B74 /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
+				2265F8C81F3C0D98001A6308 /* UIButton+HQCustomIcon.h */,
+				2265F8C91F3C0D98001A6308 /* UIButton+HQCustomIcon.m */,
 				226B6FEE1F3858FF00AEC7D2 /* 多语言 */,
 				22844F2B1ED2A1B800A9E32E /* IQKeyBoardManager */,
 				2250E6241EA9E15200849842 /* InputCheck.h */,
@@ -3752,6 +3757,7 @@
 				224A4D9B1EBC56BD000D17B5 /* MessageCount.m in Sources */,
 				222CD2351F1F10EE0069BDB3 /* CallTime.m in Sources */,
 				228CF7461EDEC8610045986D /* FindVC.m in Sources */,
+				2265F8CA1F3C0D98001A6308 /* UIButton+HQCustomIcon.m in Sources */,
 				2244B4691F00B96800685217 /* AnimOperationManager.m in Sources */,
 				8420E7251F2779E600ADA26E /* LHChatChongZhiBubbleView.m in Sources */,
 				22844F591ED2A1B800A9E32E /* IQTitleBarButtonItem.m in Sources */,
