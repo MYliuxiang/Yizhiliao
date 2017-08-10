@@ -158,6 +158,49 @@
 
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [session stopRunning];
+    [_radarView stopAnimation];
+    for (JXRadarPointView *item in self.pointsViewArray) {
+        [item removeFromSuperview];
+    }
+    [self.pointsViewArray removeAllObjects];
+    if(_callTimer){
+        [_callTimer invalidate];
+        _callTimer = nil;
+    }
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+    if (_threeTimer) {
+        [_threeTimer invalidate];
+        _threeTimer = nil;
+    }
+    
+    if (!self.first) {
+        NSDictionary *params;
+        params = @{@"action":@(1)};
+        [WXDataService requestAFWithURL:Url_behavior params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+            if(result){
+                if ([[result objectForKey:@"result"] integerValue] == 0) {
+                    
+                    
+                }else{    //请求失败
+                    
+                }
+            }
+            
+        } errorBlock:^(NSError *error) {
+            
+        }];
+        
+    }
+
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -245,7 +288,6 @@
         [_radarView startAnimation];
         [self getMatchUser];
     }];
-    
    
 }
 
@@ -638,6 +680,20 @@
                 [video show];
                 
             }else{    //请求失败
+                
+                if(_callTimer){
+                    [_callTimer invalidate];
+                    _callTimer = nil;
+                }
+                if (_timer) {
+                    [_timer invalidate];
+                    _timer = nil;
+                }
+                if (_threeTimer) {
+                    [_threeTimer invalidate];
+                    _threeTimer = nil;
+                }
+
                 [SVProgressHUD showErrorWithStatus:result[@"message"]];
                 dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
@@ -657,7 +713,19 @@
         
     } errorBlock:^(NSError *error) {
         
-        
+        if(_callTimer){
+            [_callTimer invalidate];
+            _callTimer = nil;
+        }
+        if (_timer) {
+            [_timer invalidate];
+            _timer = nil;
+        }
+        if (_threeTimer) {
+            [_threeTimer invalidate];
+            _threeTimer = nil;
+        }
+
     }];
 }
 
@@ -689,7 +757,9 @@
         _threeTimer = nil;
     }
        [UIView animateWithDuration:.35 animations:^{
+           
            self.findBgView.hidden = YES;
+           
        } completion:^(BOOL finished) {
            
            [self getMatchUser];

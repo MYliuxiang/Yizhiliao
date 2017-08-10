@@ -63,22 +63,68 @@
 {
     
     if (textField == self.textField) {
-        if (textField.text.length > 10) {
-            textField.text = [textField.text substringToIndex:10];
+        
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"zh-Hant"]) {
+            
+            if (textField.text.length > 10) {
+                textField.text = [textField.text substringToIndex:10];
+            }
+            
+        }else if ([lang hasPrefix:@"id"]){
+            
+            if (textField.text.length > 12) {
+                textField.text = [textField.text substringToIndex:10];
+            }
+            
+        }else{
+            
+            if (textField.text.length > 10) {
+                textField.text = [textField.text substringToIndex:10];
+            }
         }
+
+      
     }
     
 }
 
 - (IBAction)completeAC:(id)sender {
     
-    if (_textField.text.length != 10) {
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-Hant"]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
-        [alert show];
-        return;
+        if (_textField.text.length != 10) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+            
+        }
         
+    }else if ([lang hasPrefix:@"id"]){
+        
+        if (_textField.text.length != 12) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+            
+        }
+        
+    }else{
+        
+        if (_textField.text.length != 10) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+            
+        }
     }
+
+    
+  
     if (_ghuiLabel.text.length == 0) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"请填写公会号") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
@@ -86,8 +132,6 @@
         return;
     }
     
- 
-
     [self revoverToMp4Whith:[self.infoDic objectForKey:UIImagePickerControllerMediaURL]];
 
     

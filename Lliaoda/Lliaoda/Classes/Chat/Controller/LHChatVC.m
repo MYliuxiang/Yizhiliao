@@ -99,11 +99,7 @@ NSString *const kTableViewFrame = @"frame";
     [self addrightImage:@"dengdeng"];
     
     [self _loadData1];
-
-
     [self loadData];
-    
-
     [self loadMessageWithDate:0];
     
     [self scrollToBottomAnimated:NO refresh:YES];
@@ -352,7 +348,6 @@ NSString *const kTableViewFrame = @"frame";
                 LxCache *lxcache = [LxCache sharedLxCache];
                 [lxcache setCacheData:result WithKey:[NSString stringWithFormat:@"%@-%@",Url_account,[LXUserDefaults objectForKey:UID]]];
                
-                
             }else{    //请求失败
                 
                 
