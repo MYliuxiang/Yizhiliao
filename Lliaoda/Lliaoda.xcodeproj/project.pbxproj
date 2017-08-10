@@ -303,10 +303,6 @@
 		222B38231ED9642B009DB58F /* FSActionSheetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B37E81ED9642B009DB58F /* FSActionSheetItem.m */; };
 		222B38241ED9642B009DB58F /* FSActionSheet_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 222B37EA1ED9642B009DB58F /* FSActionSheet_cancel@2x.png */; };
 		222B38251ED9642B009DB58F /* FSActionSheet_cancel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 222B37EB1ED9642B009DB58F /* FSActionSheet_cancel@3x.png */; };
-		222B38261ED9642B009DB58F /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B37EE1ED9642B009DB58F /* TAAbstractDotView.m */; };
-		222B38271ED9642B009DB58F /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B37F01ED9642B009DB58F /* TAAnimatedDotView.m */; };
-		222B38281ED9642B009DB58F /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B37F21ED9642B009DB58F /* TADotView.m */; };
-		222B38291ED9642B009DB58F /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B37F41ED9642B009DB58F /* TAPageControl.m */; };
 		222B383A1ED9642B009DB58F /* XLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B38181ED9642B009DB58F /* XLPhotoBrowser.m */; };
 		222B383B1ED9642B009DB58F /* XLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B381B1ED9642B009DB58F /* XLProgressView.m */; };
 		222B383C1ED9642B009DB58F /* XLZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222B381D1ED9642B009DB58F /* XLZoomingScrollView.m */; };
@@ -952,14 +948,6 @@
 		222B37E81ED9642B009DB58F /* FSActionSheetItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSActionSheetItem.m; sourceTree = "<group>"; };
 		222B37EA1ED9642B009DB58F /* FSActionSheet_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FSActionSheet_cancel@2x.png"; sourceTree = "<group>"; };
 		222B37EB1ED9642B009DB58F /* FSActionSheet_cancel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FSActionSheet_cancel@3x.png"; sourceTree = "<group>"; };
-		222B37ED1ED9642B009DB58F /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
-		222B37EE1ED9642B009DB58F /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
-		222B37EF1ED9642B009DB58F /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
-		222B37F01ED9642B009DB58F /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
-		222B37F11ED9642B009DB58F /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
-		222B37F21ED9642B009DB58F /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
-		222B37F31ED9642B009DB58F /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
-		222B37F41ED9642B009DB58F /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
 		222B38171ED9642B009DB58F /* XLPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPhotoBrowser.h; sourceTree = "<group>"; };
 		222B38181ED9642B009DB58F /* XLPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPhotoBrowser.m; sourceTree = "<group>"; };
 		222B38191ED9642B009DB58F /* XLPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPhotoBrowserConfig.h; sourceTree = "<group>"; };
@@ -2153,14 +2141,6 @@
 		222B37EC1ED9642B009DB58F /* PageControl */ = {
 			isa = PBXGroup;
 			children = (
-				222B37ED1ED9642B009DB58F /* TAAbstractDotView.h */,
-				222B37EE1ED9642B009DB58F /* TAAbstractDotView.m */,
-				222B37EF1ED9642B009DB58F /* TAAnimatedDotView.h */,
-				222B37F01ED9642B009DB58F /* TAAnimatedDotView.m */,
-				222B37F11ED9642B009DB58F /* TADotView.h */,
-				222B37F21ED9642B009DB58F /* TADotView.m */,
-				222B37F31ED9642B009DB58F /* TAPageControl.h */,
-				222B37F41ED9642B009DB58F /* TAPageControl.m */,
 			);
 			path = PageControl;
 			sourceTree = "<group>";
@@ -3476,9 +3456,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3506,13 +3490,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LliaodaUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC340778F8AA7309EDCBFE91 /* [CP] Check Pods Manifest.lock */ = {
@@ -3521,13 +3508,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lliaoda-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DF6756A5FAED6177DADB8A9E /* [CP] Copy Pods Resources */ = {
@@ -3551,13 +3541,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LliaodaTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3580,7 +3573,6 @@
 				222AA1C41EB0775B0038416D /* UIView+YYAdd.m in Sources */,
 				224428111EA8AE4500BF3E4D /* WXDataService.m in Sources */,
 				222AA1D31EB0775B0038416D /* YYTextSelectionView.m in Sources */,
-				222B38261ED9642B009DB58F /* TAAbstractDotView.m in Sources */,
 				2286DC6B1EF26AFE00FDF801 /* LHChatBarMoreView.m in Sources */,
 				222AA14C1EB071C10038416D /* UIColor+RGB.m in Sources */,
 				222AA16A1EB071C20038416D /* KeyboardButton.m in Sources */,
@@ -3594,7 +3586,6 @@
 				222AA1601EB071C20038416D /* LHConst.m in Sources */,
 				22844F541ED2A1B800A9E32E /* IQUIWindow+Hierarchy.m in Sources */,
 				222AA1D71EB0775B0038416D /* YYTextRubyAnnotation.m in Sources */,
-				222B38291ED9642B009DB58F /* TAPageControl.m in Sources */,
 				228942041ED938380020C307 /* AlbumModel.m in Sources */,
 				2250E62D1EA9EE4D00849842 /* PersonCell.m in Sources */,
 				843EC0261F29D9750051AFD3 /* OrderID.m in Sources */,
@@ -3686,7 +3677,6 @@
 				22721FAD1EE7E3E7003A19D3 /* MediaCell.m in Sources */,
 				22453BAE1F1C74290000C006 /* UserCell.m in Sources */,
 				2286DC6F1EF26AFE00FDF801 /* LHChatViewCell.m in Sources */,
-				222B38271ED9642B009DB58F /* TAAnimatedDotView.m in Sources */,
 				2286DC671EF26AFE00FDF801 /* LHChatImageBubbleView.m in Sources */,
 				222B385B1ED96843009DB58F /* MSSBrowseActionSheet.m in Sources */,
 				224F24651EA73ED300C0FDC6 /* VideoRZThreeCell.m in Sources */,
@@ -3717,7 +3707,6 @@
 				222AA1CB1EB0775B0038416D /* YYTextContainerView.m in Sources */,
 				222B38641ED96843009DB58F /* MSSBrowseZoomScrollView.m in Sources */,
 				843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */,
-				222B38281ED9642B009DB58F /* TADotView.m in Sources */,
 				8420E7221F2773F000ADA26E /* LHChatGiftBubbleView.m in Sources */,
 				222AA1751EB071C20038416D /* LHPhotoPreviewCell.m in Sources */,
 				222B385D1ED96843009DB58F /* MSSBrowseBaseViewController.m in Sources */,
