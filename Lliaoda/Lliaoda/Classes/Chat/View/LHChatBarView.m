@@ -176,7 +176,8 @@ CGFloat const kChatBatItemWH = 26.0f;
         // 修改frame
         self.y = SCREEN_H - self.height - _keyboardHeight;
         _tableView.height = self.y - kNavBarHeight;
-//        [_conversationChatVC scrollToBottomAnimated:NO refresh:NO];
+    
+        [(LHChatVC *)[self viewController] scrollToBottomAnimated:NO refresh:NO];
     } completion:nil];
     
     // 添加动画
@@ -268,7 +269,7 @@ CGFloat const kChatBatItemWH = 26.0f;
                 emojiView.y = SCREEN_H - kChatEmojiHeight;
                 // 4.把訊息现在在顶部
                 //                [self scrollToBottom:NO];
-//                [_conversationChatVC scrollToBottomAnimated:NO refresh:NO];
+ [(LHChatVC *)[self viewController] scrollToBottomAnimated:NO refresh:NO];
             }];
         } else {
             self.emojiKeyboard = YES;
@@ -296,7 +297,6 @@ CGFloat const kChatBatItemWH = 26.0f;
         [self.superview addSubview:moreView];
         // 2.更改inputToolBar 底部约束
         
-        
         // 添加动画
         [UIView animateWithDuration:0.25 animations:^{
             self.y = SCREEN_H - kChatMoreHeight - self.height;
@@ -316,17 +316,22 @@ CGFloat const kChatBatItemWH = 26.0f;
             self.moreKeyboard = YES;
             [self.superview addSubview:moreView];
             // 2.更改inputToolBar 底部约束
-            
-            
+          
             // 添加动画
-            [UIView animateWithDuration:0.25 animations:^{
+            [UIView animateWithDuration:.25 animations:^{
+                _tableView.height = SCREEN_H - kChatMoreHeight - self.height - kNavBarHeight;
+              
                 self.y = SCREEN_H - kChatMoreHeight - self.height;
-                _tableView.height = self.y - kNavBarHeight;
-                
+                CGPoint offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height);
+            
+                [self.tableView setContentOffset:offset animated:YES];
                 moreView.y = SCREEN_H - kChatMoreHeight;
+
                 // 4.把訊息现在在顶部
-//                [_conversationChatVC scrollToBottomAnimated:NO refresh:NO];
+                [(LHChatVC *)[self viewController] scrollToBottomAnimated:NO refresh:NO];
             }];
+            
+           
             
         } else {
             self.moreKeyboard = YES;

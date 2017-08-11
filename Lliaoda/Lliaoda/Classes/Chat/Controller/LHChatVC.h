@@ -28,4 +28,5 @@
 @property (nonatomic,retain) NSMutableArray *deltedArray;
 
 @property (nonatomic,retain) GiftsView *giftsView;
+- (void)scrollToBottomAnimated:(BOOL)animated refresh:(BOOL)refresh;
 @end
