@@ -39,13 +39,25 @@
     
 //    [self haveVideoLoadData];
     [self _loadData];
-    self.footerView.width = kScreenWidth;
-    self.footerView.height = 64;
-    self.footerView.frame = CGRectMake(0, kScreenHeight - 64, kScreenWidth, 64);
-    [self.view addSubview:self.footerView];
+   
     
-    [self addrightImage:@"dengdeng"];
-    
+    if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
+       
+        [self addrightImage:@"bianji"];
+        self.layoutConstraint.constant = 0;
+
+       
+    }else{
+        
+        [self addrightImage:@"dengdeng"];
+        self.footerView.width = kScreenWidth;
+        self.footerView.height = 64;
+        self.footerView.frame = CGRectMake(0, kScreenHeight - 64, kScreenWidth, 64);
+        [self.view addSubview:self.footerView];
+        self.layoutConstraint.constant = 64;
+
+    }
+
     CABasicAnimation*scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     //transform.scale:  x轴，y轴同时按比例缩放：
     scaleAnimation.fromValue = [NSNumber numberWithFloat:1.0]; //从 from
@@ -206,6 +218,13 @@
 - (void)rightAction
 {
     
+    if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
+        
+        [MainTabBarController shareMainTabBarController].selectedIndex = [MainTabBarController shareMainTabBarController].tabBar.items.count - 1;
+        
+        return;
+        
+    }
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     

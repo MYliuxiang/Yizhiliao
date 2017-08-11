@@ -29,6 +29,7 @@
 - (IBAction)giftBtnClick:(id)sender;
 - (IBAction)topupBtnClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *blackView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *layoutConstraint;
 
 - (IBAction)videoCall:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
