@@ -217,8 +217,8 @@ alpha:1.0]
 
 //#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://apl.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
 
-//#define MAINURLStr @"http://demo.yizhiliao.tv/api/"
-#define MAINURLStr [LocalizationUtils getMainUrl]
+#define MAINURLStr @"http://demo.yizhiliao.tv/api/"
+//#define MAINURLStr [LocalizationUtils getMainUrl]
 
 #define MAINURL  MAINURLStr//主URL
 

@@ -34,10 +34,17 @@
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [_collectionView registerNib:[UINib nibWithNibName:@"SelectedCell" bundle:nil] forCellWithReuseIdentifier:@"SelectedCellID"];
     [_collectionView registerNib:[UINib nibWithNibName:@"SelectedHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID"];
+//    [_collectionView registerNib:[UINib nibWithNibName:@"SelectedBannersHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1"];
+    [_collectionView registerClass:[SelectedBannersHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1"];
+    
     _collectionView.backgroundColor = [UIColor clearColor];
     
     self.dataList = [NSMutableArray array];
     self.tDataList = [NSMutableArray array];
+    self.bannersArray = [NSMutableArray array];
+    self.bannersTitlesArray = [NSMutableArray array];
+    self.bannersImagesArray = [NSMutableArray array];
+    self.bannersLinksArray = [NSMutableArray array];
        
     _collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downLoad)];
      _collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(upLoad)];
@@ -101,6 +108,9 @@
 {
     _isdownLoad = YES;
     _begin = 0;
+    [self.bannersImagesArray removeAllObjects];
+    [self.bannersTitlesArray removeAllObjects];
+    [self.bannersLinksArray removeAllObjects];
     [self _loadData];
     
 }
@@ -145,6 +155,7 @@
                 
                 NSMutableArray *marray = [NSMutableArray array];
                 NSArray *array = dic[@"data"][@"broadcasters"];
+                NSArray *array1 = dic[@"data"][@"banners"];
                 for (NSDictionary *subDic in array) {
                     SelectedModel *model = [SelectedModel mj_objectWithKeyValues:subDic];
                     NSArray *blacks = [BlackName findAll];
@@ -162,6 +173,17 @@
                         
                     }
                     
+                }
+                for (NSDictionary *subDic in array1) {
+                    SelectedBannersModel *model = [SelectedBannersModel mj_objectWithKeyValues:subDic];
+                    [self.bannersArray addObject:model];
+                    if (model.title == nil) {
+                        [self.bannersTitlesArray addObject:@""];
+                    } else {
+                        [self.bannersTitlesArray addObject:model.title];
+                    }
+                    [self.bannersImagesArray addObject:model.cover];
+                    [self.bannersLinksArray addObject:model.link];
                 }
                 
                 if (_isdownLoad) {
@@ -437,12 +459,17 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (self.dataList.count == 0) {
+    if (self.bannersArray.count == 0) {
+        if (self.dataList.count == 0) {
+            
+            return 0;
+        }
         
-        return 0;
+        return self.dataList.count - 1;
+    } else {
+        return self.dataList.count;
     }
     
-    return self.dataList.count - 1;
     
 }
 
@@ -451,8 +478,12 @@
 {
     //如果有闲置的就拿到使用,如果没有,系统自动的去创建
     SelectedCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SelectedCellID" forIndexPath:indexPath];
+    if (self.bannersArray.count == 0) {
+        cell.model = self.dataList[indexPath.row + 1];
+    } else {
+        cell.model = self.dataList[indexPath.row];
+    }
     
-    cell.model = self.dataList[indexPath.row + 1];
     [cell setNeedsLayout];
     return cell;
     
@@ -466,14 +497,24 @@
 
     if (kind == UICollectionElementKindSectionHeader){
 
-       SelectedHeader *_heardView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID" forIndexPath:indexPath];
-        if (self.dataList.count != 0) {
-            _heardView.model = self.dataList[0];
-
+        if (self.bannersArray.count == 0) {
+            SelectedHeader *_heardView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID" forIndexPath:indexPath];
+            if (self.dataList.count != 0) {
+                _heardView.model = self.dataList[0];
+                
+            }
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+            [_heardView addGestureRecognizer:tap];
+            reusableview = _heardView;
+        } else {
+        
+            SelectedBannersHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1" forIndexPath:indexPath];
+            headerView.linksArray = self.bannersLinksArray;
+            headerView.titlesArray = self.bannersTitlesArray;
+            headerView.imagesArray = self.bannersImagesArray;
+            reusableview = headerView;
         }
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
-        [_heardView addGestureRecognizer:tap];
-        reusableview = _heardView;
+       
 
        }
     
@@ -493,13 +534,20 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    if (self.dataList.count == 0) {
+    
+    if (self.bannersArray.count == 0) {
+        if (self.dataList.count == 0) {
+            
+            return CGSizeMake(0, 0);
+        }
+        CGSize size= CGSizeMake(kScreenWidth, kScreenWidth);
+        return size;
+    } else {
         
-        return CGSizeMake(0, 0);
+        CGSize size= CGSizeMake(kScreenWidth, kScreenWidth / 2);
+        return size;
     }
     
-    CGSize size= CGSizeMake(kScreenWidth, kScreenWidth);
-    return size;
 
 }
 
