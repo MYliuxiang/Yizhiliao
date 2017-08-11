@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="SelectedBannersHeader">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9F-o8-zQP" customClass="SDCycleScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
+                    <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.75294117650000003" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="N9F-o8-zQP" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="Zod-Nk-Uoj"/>
+                <constraint firstAttribute="trailing" secondItem="N9F-o8-zQP" secondAttribute="trailing" id="j0F-Fs-0E8"/>
+                <constraint firstAttribute="bottom" secondItem="N9F-o8-zQP" secondAttribute="bottom" id="oAw-wf-XCv"/>
+                <constraint firstItem="N9F-o8-zQP" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="oUY-od-kip"/>
+            </constraints>
+            <connections>
+                <outlet property="cycleScrollView" destination="N9F-o8-zQP" id="jeK-Ok-DQB"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="-14"/>
+        </collectionReusableView>
+    </objects>
+</document>
