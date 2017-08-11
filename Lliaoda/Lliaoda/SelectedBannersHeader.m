@@ -54,15 +54,18 @@
     }
     [self addSubview:scrollView];
     
-    pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.bottom - 20, self.width, 20)];
-    pageControl.currentPage = 0;
-    pageControl.numberOfPages = pageCount;
-    pageControl.pageIndicatorTintColor = [UIColor blackColor];
-    pageControl.currentPageIndicatorTintColor = [UIColor redColor];
-    [self addSubview:pageControl];
-    timeCount = 0;
+    if (self.imagesArray.count > 1) {
+        pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.bottom - 20, self.width, 20)];
+        pageControl.currentPage = 0;
+        pageControl.numberOfPages = pageCount;
+        pageControl.pageIndicatorTintColor = [UIColor blackColor];
+        pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+        [self addSubview:pageControl];
+        timeCount = 0;
+        
+        timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollImage) userInfo:nil repeats:YES];
+    }
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollImage) userInfo:nil repeats:YES];
 }
 
 #pragma mark - UIScrollViewDelegate
