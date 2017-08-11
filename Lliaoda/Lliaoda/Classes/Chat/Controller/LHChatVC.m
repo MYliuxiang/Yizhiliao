@@ -99,6 +99,7 @@ NSString *const kTableViewFrame = @"frame";
     [self addrightImage:@"dengdeng"];
     
     [self _loadData1];
+    [self setupInit];
     [self loadData];
     [self loadMessageWithDate:0];
     
@@ -137,19 +138,19 @@ NSString *const kTableViewFrame = @"frame";
                     }else{
                         isZhubo = NO;
                     }
-                [self setupInit];
+                [self.view addSubview:self.chatBarView];
 
                 
             } else{
                 
-                [self setupInit];
+                [self.view addSubview:self.chatBarView];
 
             }
         }
         
     } errorBlock:^(NSError *error) {
         NSLog(@"%@",error);
-        [self setupInit];
+        [self.view addSubview:self.chatBarView];
 
     }];
 }
@@ -921,7 +922,6 @@ NSString *const kTableViewFrame = @"frame";
 - (void)setupInit {
     
     [self.view addSubview:self.tableView];
-    [self.view addSubview:self.chatBarView];
     [self.view addSubview:self.blackView];
     self.leftbutton.hidden = YES;
     
