@@ -553,11 +553,18 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   
-    PersonalVC *vc = [[PersonalVC alloc] init];
-    vc.model = self.dataList[indexPath.row + 1];
-
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.bannersArray.count == 0) {
+        PersonalVC *vc = [[PersonalVC alloc] init];
+        vc.model = self.dataList[indexPath.row + 1];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        PersonalVC *vc = [[PersonalVC alloc] init];
+        vc.model = self.dataList[indexPath.row];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
     
 }
 
