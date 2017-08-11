@@ -220,7 +220,7 @@
     
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
-        [self.navigationController popViewControllerAnimated:NO];
+        [self.navigationController popToRootViewControllerAnimated:NO];
         [MainTabBarController shareMainTabBarController].selectedIndex = [MainTabBarController shareMainTabBarController].tabBar.items.count - 1;
         
         return;
