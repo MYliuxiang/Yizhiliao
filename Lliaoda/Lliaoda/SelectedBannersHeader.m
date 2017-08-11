@@ -24,7 +24,7 @@
     
     [scrollView removeFromSuperview];
     [pageControl removeFromSuperview];
-    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.width, SCREEN_W / 2)];
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.width, SCREEN_W / 2 - 1)];
     scrollView.pagingEnabled = YES;
     scrollView.contentSize = CGSizeMake(self.width * _imagesArray.count, SCREEN_W / 2);
     scrollView.showsHorizontalScrollIndicator = NO;

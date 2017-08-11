@@ -23,9 +23,9 @@
     self.text = LXSring(@"精選");
     
     _flowlayout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
-    _flowlayout.minimumLineSpacing= 5;
-    _flowlayout.minimumInteritemSpacing= 5;
-    _flowlayout.itemSize = CGSizeMake((kScreenWidth - 5) / 2.0,(kScreenWidth - 5) / 2.0 );
+    _flowlayout.minimumLineSpacing= 1;
+    _flowlayout.minimumInteritemSpacing= 1;
+    _flowlayout.itemSize = CGSizeMake((kScreenWidth - 1) / 2.0,(kScreenWidth - 1) / 2.0 );
 
     [_flowlayout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
     
