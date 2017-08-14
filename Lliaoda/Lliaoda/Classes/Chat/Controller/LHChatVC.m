@@ -208,7 +208,12 @@ NSString *const kTableViewFrame = @"frame";
 {
     
     NSDictionary *params;
-    params = @{@"uid":self.sendUid};
+    if (self.isFromHeader) {
+        params = @{@"uid":self.personID};
+    } else {
+        params = @{@"uid":self.sendUid};
+    }
+    
     [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
@@ -334,7 +339,18 @@ NSString *const kTableViewFrame = @"frame";
 
     
     NSDictionary *params;
-    params = @{@"uid":self.sendUid};
+    
+    if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+        if (self.isFromHeader) {
+            params = @{@"uid":self.personID};
+        } else {
+            params = @{@"uid":self.sendUid};
+        }
+        
+    } else {
+        params = @{@"uid":self.sendUid};
+        
+    }
     [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
@@ -419,7 +435,12 @@ NSString *const kTableViewFrame = @"frame";
     messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],self.sendUid];
     messageModel.type = type;
     messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-    messageModel.sendUid = self.sendUid;
+    if (self.isFromHeader) {
+        messageModel.sendUid = self.personID;
+    } else {
+        messageModel.sendUid = self.sendUid;
+    }
+    
     messageModel.content = message;
 //    switch (type) {
 //        case MessageBodyType_Text: {
@@ -432,11 +453,19 @@ NSString *const kTableViewFrame = @"frame";
     
     NSDictionary *params;
     if (type == MessageBodyType_Gift) {
-        params = @{@"uid":self.sendUid, @"message":message, @"type":@1};
+        if (self.isFromHeader) {
+            params = @{@"uid":self.personID, @"message":message, @"type":@1};
+        } else {
+            params = @{@"uid":self.sendUid, @"message":message, @"type":@1};
+        }
+        
 
     }else if(type == MessageBodyType_ChongZhi){
-        params = @{@"uid":self.sendUid, @"message":message, @"type":@2};
-
+        if (self.isFromHeader) {
+            params = @{@"uid":self.personID, @"message":message, @"type":@2};
+        } else {
+            params = @{@"uid":self.sendUid, @"message":message, @"type":@2};
+        }
     }
     [WXDataService requestAFWithURL:Url_chatmessagesend params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO  finishBlock:^(id result) {
         if ([[result objectForKey:@"result"] integerValue] == 0) {
@@ -529,7 +558,12 @@ NSString *const kTableViewFrame = @"frame";
         [alert show];
     }else{
         [self sendMessageToUserType:MessageBodyType_Gift name:LXSring(@"送禮") types:@"gift"];
-        [re.mdic setObject:@(idate) forKey:self.sendUid];
+        if (self.isFromHeader) {
+            [re.mdic setObject:@(idate) forKey:self.personID];
+        } else {
+            [re.mdic setObject:@(idate) forKey:self.sendUid];
+        }
+        
     }
 
 }
@@ -544,7 +578,12 @@ NSString *const kTableViewFrame = @"frame";
         [alert show];
     }else{
         [self sendMessageToUserType:MessageBodyType_ChongZhi name:LXSring(@"儲值") types:@"recharge"];
-        [re.mdic setObject:@(idate) forKey:self.sendUid];
+        if (self.isFromHeader) {
+            [re.mdic setObject:@(idate) forKey:self.personID];
+        } else {
+            [re.mdic setObject:@(idate) forKey:self.sendUid];
+        }
+        
     }
 }
 
@@ -703,7 +742,12 @@ NSString *const kTableViewFrame = @"frame";
     }
     
     NSDictionary *params;
-    params = @{@"uid":self.sendUid};
+    if (self.isFromHeader) {
+        params = @{@"uid":self.personID};
+    } else {
+        params = @{@"uid":self.sendUid};
+    }
+    
     [WXDataService requestAFWithURL:Url_chatvideocall params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
