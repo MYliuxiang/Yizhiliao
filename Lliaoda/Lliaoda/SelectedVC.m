@@ -268,6 +268,10 @@
 {
     _isdownLoad = YES;
     _begin = 0;
+    [self.bannersArray removeAllObjects];
+    [self.bannersTitlesArray removeAllObjects];
+    [self.bannersImagesArray removeAllObjects];
+    [self.bannersLinksArray removeAllObjects];
     [self tloadData];
     
 }
@@ -300,6 +304,7 @@
                 
                 NSMutableArray *marray = [NSMutableArray array];
                 NSArray *array = dic[@"data"][@"users"];
+                NSArray *array1 = dic[@"data"][@"banners"];
                 for (NSDictionary *subDic in array) {
                     UserModel *model = [UserModel mj_objectWithKeyValues:subDic];
                     NSArray *blacks = [BlackName findAll];
@@ -319,6 +324,17 @@
                     
                 }
 
+                for (NSDictionary *subDic in array1) {
+                    SelectedBannersModel *model = [SelectedBannersModel mj_objectWithKeyValues:subDic];
+                    [self.bannersArray addObject:model];
+                    if (model.title == nil) {
+                        [self.bannersTitlesArray addObject:@""];
+                    } else {
+                        [self.bannersTitlesArray addObject:model.title];
+                    }
+                    [self.bannersImagesArray addObject:model.cover];
+                    [self.bannersLinksArray addObject:model.link];
+                }
                 
                 if (_isdownLoad) {
                     self.tDataList = marray;
@@ -409,11 +425,42 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.bannersArray.count > 0) {
+        return self.tDataList.count + 1;
+    }
     return self.tDataList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.bannersArray.count > 0) {
+        if (indexPath.row == 0) {
+            static NSString *iden = @"cellIDS";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:iden];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:iden];
+                SelectedBannersHeader *headerView = [[SelectedBannersHeader alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_W / 2)];
+                headerView.linksArray = self.bannersLinksArray;
+                headerView.titlesArray = self.bannersTitlesArray;
+                headerView.imagesArray = self.bannersImagesArray;
+                [cell addSubview:headerView];
+            }
+            return cell;
+            
+        } else {
+            static NSString *identifire = @"cellID1";
+            UserCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+            if (cell == nil) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"UserCell" owner:nil options:nil] lastObject];
+                
+            }
+            
+            cell.model = self.tDataList[indexPath.row - 1];
+            return cell;
+        }
+        
+        
+    }
     
     static NSString *identifire = @"cellID1";
     UserCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
@@ -429,8 +476,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0;
-    
+//    if (self.bannersArray.count == 0) {
+        return 0;
+//    }
+//    return SCREEN_W / 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -446,9 +495,24 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.bannersArray.count > 0) {
+        if (indexPath.row == 0) {
+            return SCREEN_W / 2;
+        }
+    }
     return 90;
 
 }
+
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    SelectedBannersHeader *headerView = [[SelectedBannersHeader alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_W / 2)];
+//    headerView.linksArray = self.bannersLinksArray;
+//    headerView.titlesArray = self.bannersTitlesArray;
+//    headerView.imagesArray = self.bannersImagesArray;
+//    
+//    return headerView;
+//}
+
 
 #pragma mark - UICollectionView Delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
