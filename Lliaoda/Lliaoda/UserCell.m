@@ -18,8 +18,19 @@
     self.videoBtn.layer.masksToBounds = YES;
     self.videoBtn.layer.cornerRadius = 5;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    self.heagImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerImageAC)];
+    [self.heagImage addGestureRecognizer:tap];
 }
+
+- (void)headerImageAC {
+    PersonalVC *vc = [[PersonalVC alloc] init];
+    vc.personUID = self.model.uid;
+    vc.isFromHeader = YES;
+    [[self viewController].navigationController pushViewController:vc animated:YES];
+}
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -42,6 +53,7 @@
     
     LHChatVC *chatVC = [[LHChatVC alloc] init];
     chatVC.sendUid = self.model.uid;
+    chatVC.isFromHeader = NO;
     [[self viewController].navigationController pushViewController:chatVC animated:YES];
 }
 

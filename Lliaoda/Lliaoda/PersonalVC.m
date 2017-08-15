@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet UILabel *label3;
 @property (weak, nonatomic) IBOutlet UILabel *label4;
+@property (nonatomic, strong) NSMutableArray *messages;
 
 @end
 
@@ -23,10 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.label1.text = LXSring(@"送禮物");
-    self.label2.text = LXSring(@"聊天");
-    self.label3.text = LXSring(@"視頻通訊");
-    self.label4.text = LXSring(@"去充值");
+    _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
 
     self.videoBtn.layer.cornerRadius = 22;
     self.videoBtn.layer.masksToBounds = YES;
@@ -55,6 +53,21 @@
         self.footerView.frame = CGRectMake(0, kScreenHeight - 64, kScreenWidth, 64);
         [self.view addSubview:self.footerView];
         self.layoutConstraint.constant = 64;
+        
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            self.label1.text = LXSring(@"提示用戶送禮");
+            self.label2.text = LXSring(@"聊天");
+            self.label3.text = LXSring(@"視頻通訊");
+            self.label4.text = LXSring(@"提示用戶儲值");
+            
+        } else {
+            
+            
+            self.label1.text = LXSring(@"送禮物");
+            self.label2.text = LXSring(@"聊天");
+            self.label3.text = LXSring(@"視頻通訊");
+            self.label4.text = LXSring(@"去充值");
+        }
 
     }
 
@@ -125,8 +138,19 @@
 
 - (void)_loadData
 {
+    
     NSDictionary *params;
-    params = @{@"uid":self.model.uid};
+    NSString *str = [LXUserDefaults objectForKey:itemNumber];
+    if ([str isEqualToString:@"1"]) {
+        if (self.isFromHeader) {
+            params = @{@"uid":self.personUID};
+        } else {
+            params = @{@"uid":self.model.uid};
+        }
+        
+    } else {
+        params = @{@"uid":self.model.uid};
+    }
     [WXDataService requestAFWithURL:Url_accountshow params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
@@ -220,7 +244,7 @@
     
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
-        [self.navigationController popViewControllerAnimated:NO];
+        [self.navigationController popToRootViewControllerAnimated:NO];
         [MainTabBarController shareMainTabBarController].selectedIndex = [MainTabBarController shareMainTabBarController].tabBar.items.count - 1;
         
         return;
@@ -408,7 +432,7 @@
             
                 button.selected = YES;
             }
-            cell.imageView.image = [UIImage imageNamed:@"zuanshi_fen"];
+            
             
             Charge *charge;
             for (Charge *mo in self.pmodel.charges) {
@@ -420,6 +444,12 @@
             label.text = [InputCheck handleActiveWith:self.pmodel.lastActiveAt];
             [label sizeToFit];
 
+            if (charge.name == nil) {
+                cell.imageView.image = nil;
+            } else {
+                cell.imageView.image = [UIImage imageNamed:@"zuanshi_fen"];
+                
+            }
             cell.textLabel.text = charge.name;
             cell.textLabel.textColor = Color_nav;
             cell.textLabel.font = [UIFont systemFontOfSize:14];
@@ -437,8 +467,11 @@
             cell.detailTextLabel.textColor = Color_Text_gray;
             cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
             if (indexPath.row == 0) {
-                
-                cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",self.model.uid];
+                if (self.isFromHeader) {
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",self.personUID];
+                } else {
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",self.model.uid];
+                }
             }else if(indexPath.row == 1){
                 cell.detailTextLabel.text = [[CityTool sharedCityTool] getAdressWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
             }else if(indexPath.row == 2){
@@ -507,7 +540,11 @@
         
         //設定不讚
         NSDictionary *params;
-        params = @{@"uid":self.model.uid,@"state":@0};
+        if (self.isFromHeader) {
+            params = @{@"uid":self.personUID,@"state":@0};
+        } else {
+            params = @{@"uid":self.model.uid,@"state":@0};
+        }
         [WXDataService requestAFWithURL:Url_like params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
             if(result){
                 if ([[result objectForKey:@"result"] integerValue] == 0) {
@@ -550,7 +587,12 @@
     
         //設定讚
         NSDictionary *params;
-        params = @{@"uid":self.model.uid,@"state":@1};
+        if (self.isFromHeader) {
+            params = @{@"uid":self.personUID,@"state":@1};
+        } else {
+            params = @{@"uid":self.model.uid,@"state":@1};
+        }
+        
         [WXDataService requestAFWithURL:Url_like params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
             if(result){
                 if ([[result objectForKey:@"result"] integerValue] == 0) {
@@ -585,7 +627,14 @@
                     
                     //显示自己的
                     //更新UI操作
-                    NSDictionary *mdic = @{@"account":self.model.uid,@"msg":dic[@"message"],};
+                    
+                    NSDictionary *mdic;
+                    if (self.isFromHeader) {
+                        mdic = @{@"account":self.personUID,@"msg":dic[@"message"]};
+                    } else {
+                        mdic = @{@"account":self.model.uid,@"msg":dic[@"message"]};
+                    }
+                    
                     
                     NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",self.model.uid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
                     if (![MessageCount findFirstByCriteria:criteria]){
@@ -593,7 +642,12 @@
                         MessageCount *count = [[MessageCount alloc] init];
                         count.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
                         count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-                        count.sendUid = self.model.uid;
+                        if (self.isFromHeader) {
+                            count.sendUid = self.personUID;
+                        } else {
+                            count.sendUid = self.model.uid;
+                        }
+                        
                         count.count = 0;
                         count.timeDate = idate;
                         [count save];
@@ -605,10 +659,17 @@
                         messageModel.date = [[NSString stringWithFormat:@"%@",dic[@"message"][@"time"]] longLongValue];
                         messageModel.type = MessageBodyType_Text;
                         messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
-                        messageModel.uid = self.model.uid;
+                        if (self.isFromHeader) {
+                            messageModel.uid = self.personUID;
+                            messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],self.personUID];
+                        } else {
+                            messageModel.uid = self.model.uid;
+                            messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],self.model.uid];
+                        }
+                        
                         messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
                         messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-                        messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],self.model.uid];
+                        
                         [messageModel save];
                          [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                         
@@ -625,7 +686,12 @@
                         AgoraAPI *_inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
                         
                         NSDictionary *params;
-                        params = @{@"uid":self.model.uid,@"message":content};
+                        if (self.isFromHeader) {
+                            params = @{@"uid":self.personUID,@"message":content};
+                        } else {
+                            params = @{@"uid":self.model.uid,@"message":content};
+                        }
+                        
                         [WXDataService requestAFWithURL:Url_chatmessagesend params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
                             if ([[result objectForKey:@"result"] integerValue] == 0) {
                                 [_inst messageInstantSend:self.model.uid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
@@ -659,6 +725,8 @@
                         }];
                         LHChatVC *chatVC = [[LHChatVC alloc] init];
                         chatVC.sendUid = self.model.uid;
+                        chatVC.personID = self.personUID;
+                        chatVC.isFromHeader = self.isFromHeader;
                         [self.navigationController pushViewController:chatVC animated:YES];
 
                     
@@ -735,6 +803,8 @@
     
     LHChatVC *chatVC = [[LHChatVC alloc] init];
     chatVC.sendUid = self.model.uid;
+    chatVC.personID = self.personUID;
+    chatVC.isFromHeader = self.isFromHeader;
     [self.navigationController pushViewController:chatVC animated:YES];
 
 }
@@ -755,28 +825,184 @@
         return;
     }
 
-    
-    
-    [self newgiftView];
-    [self _loadData1];
-    self.giftsView.pmodel = self.pmodel;
-    self.giftsView.isVideoBool = NO;
-    [UIView animateWithDuration:.35 animations:^{
-        _blackView.hidden = NO;
-        self.giftsView.top = kScreenHeight - 300;
+    if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+        RepetitionCount *re = [RepetitionCount sharedRepetition];
+        long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+        long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.personUID]] longLongValue];
+        if (idate - oldDate < 60 * 1000) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"發送太頻繁，會嚇走金主的~") delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
+            [alert show];
+        }else{
+            [self sendMessageToUserType:MessageBodyType_Gift name:LXSring(@"送禮") types:@"gift"];
+            [re.mdic setObject:@(idate) forKey:self.personUID];
+        }
         
-    } completion:^(BOOL finished) {
+    } else {
+        
+        [self newgiftView];
+        [self _loadData1];
+        self.giftsView.pmodel = self.pmodel;
+        self.giftsView.isVideoBool = NO;
+        [UIView animateWithDuration:.35 animations:^{
+            _blackView.hidden = NO;
+            self.giftsView.top = kScreenHeight - 300;
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+        
+    }
+}
+- (void)sendMessageToUserType:(MessageBodyType)type name:(NSString *)name types:(NSString *)types {
+    NSString *message = @"";
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-Hant"]) {
+        message = [NSString stringWithFormat:LXSring(@"已對%@發送了%@提示~"), _pmodel.nickname, name];
+    }else if ([lang hasPrefix:@"id"]){
+        message = [NSString stringWithFormat:LXSring(@"已對%@發送了%@提示~"), name, _pmodel.nickname];
+    }else{
+        message = [NSString stringWithFormat:LXSring(@"已對%@發送了%@提示~"), _pmodel.nickname, name];
+    }
+    long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+    __block Message *messageModel = [Message new];
+    messageModel.isSender = YES;
+    messageModel.isRead = NO;
+    messageModel.status = MessageDeliveryState_Delivering;
+    messageModel.date = idate;
+    messageModel.messageID = [NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate];
+    messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],self.personUID];
+    messageModel.type = type;
+    messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    messageModel.sendUid = self.personUID;
+    messageModel.content = message;
+    //    switch (type) {
+    //        case MessageBodyType_Text: {
+    //            messageModel.content = message;
+    //            break;
+    //        }
+    //        default:
+    //            break;
+    //    }
+    
+    NSDictionary *params;
+    if (type == MessageBodyType_Gift) {
+        params = @{@"uid":self.personUID, @"message":message, @"type":@1};
+        
+    }else if(type == MessageBodyType_ChongZhi){
+        params = @{@"uid":self.personUID, @"message":message, @"type":@2};
+        
+    }
+    [WXDataService requestAFWithURL:Url_chatmessagesend params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO  finishBlock:^(id result) {
+        if ([[result objectForKey:@"result"] integerValue] == 0) {
+            [messageModel save];
+            NSString *time = [LHTools processingTimeWithDate:[NSString stringWithFormat:@"%lld",messageModel.date]];
+            if (![time isEqualToString:self.lastTime]) {
+//                [self insertNewMessageOrTime:time];
+                self.lastTime = time;
+            }
+//            NSIndexPath *index = [self insertNewMessageOrTime:messageModel];
+            [self.messages addObject:messageModel];
+//            [self.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            
+            NSDictionary *dic = @{
+                                  @"message": @{
+                                          @"messageID": messageModel.messageID,
+                                          @"event": types,
+                                          @"content": @"",
+                                          @"request": @"-2",
+                                          @"time": [NSString stringWithFormat:@"%lld",idate]
+                                          }
+                                  };
+            
+            NSString *msgStr = [InputCheck convertToJSONData:dic];
+            [_inst messageInstantSend:self.personUID uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
+            NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",self.personUID,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
+            if (![MessageCount findFirstByCriteria:criteria]){
+                
+                MessageCount *count = [[MessageCount alloc] init];
+                count.content = message;
+                count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                count.sendUid = self.personUID;
+                count.count = 0;
+                count.timeDate = idate;
+                [count save];
+                
+            }else{
+                
+                _count.content = message;
+                _count.timeDate = messageModel.date;
+                _count.count = 0;
+                [_count saveOrUpdate];
+                
+            }
+            
+            
+            
+        }else{
+            if ([[result objectForKey:@"result"] integerValue] == 31) {
+                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"提示") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"好的") destructiveButtonTitle:nil delegate:nil];
+                lg.destructiveButtonBackgroundColor = Color_nav;
+                lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+                lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+                lg.cancelButtonTitleColor = Color_nav;
+                [lg showAnimated:YES completionHandler:nil];
+                
+            }else if ([[result objectForKey:@"result"] integerValue] == 30) {
+                LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"提示") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"好的") destructiveButtonTitle:nil delegate:nil];
+                lg.destructiveButtonBackgroundColor = Color_nav;
+                lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+                lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+                lg.cancelButtonTitleColor = Color_nav;
+                [lg showAnimated:YES completionHandler:nil];
+                
+            }else{
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                });
+            }
+            
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
         
     }];
 }
 
+//- (NSIndexPath *)insertNewMessageOrTime:(id)NewMessage {
+//    NSIndexPath *index = [NSIndexPath indexPathForRow:self.dataSource.count inSection:0];
+//    [self.dataSource addObject:NewMessage];
+//    [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+//    return index;
+//}
 
 - (IBAction)topupBtnClick:(id)sender {
+    if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+        RechargeCount *re = [RechargeCount sharedRecharge];
+        long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+        long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.personUID]] longLongValue];
+        if (idate - oldDate < 60 * 1000) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"發送太頻繁，會嚇走金主的~") delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
+            [alert show];
+        }else{
+            [self sendMessageToUserType:MessageBodyType_ChongZhi name:LXSring(@"儲值") types:@"recharge"];
+            [re.mdic setObject:@(idate) forKey:self.personUID];
+        }
+        
+    } else {
+        
+        AccountVC *vc = [[AccountVC alloc] init];
+        vc.isCall = NO;
+        vc.orderReferee = self.model.uid;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
-    AccountVC *vc = [[AccountVC alloc] init];
-    vc.isCall = NO;
-    vc.orderReferee = self.model.uid;
-    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (void)hideRenandGift {
@@ -900,14 +1126,25 @@
 - (void)videoCallAC
 {
     NSDictionary *params;
-    params = @{@"uid":self.model.uid};
+    if (self.isFromHeader) {
+        params = @{@"uid":self.personUID};
+    } else {
+        params = @{@"uid":self.model.uid};
+    }
+    
     [WXDataService requestAFWithURL:Url_chatvideocall params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 NSString *channel = [NSString stringWithFormat:@"%@",result[@"data"][@"channel"]];
-                VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:self.model.uid withIsSend:YES];
-                [video show];
+                if (self.isFromHeader) {
+                    VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:self.personUID withIsSend:YES];
+                    [video show];
+                } else {
+                    VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:self.model.uid withIsSend:YES];
+                    [video show];
+                }
+               
                 
                 
             }else{    //请求失败
@@ -973,6 +1210,13 @@
         
         
     }
+}
+
+- (NSMutableArray *)messages {
+    if (!_messages) {
+        _messages = @[].mutableCopy;
+    }
+    return _messages;
 }
 @end
 

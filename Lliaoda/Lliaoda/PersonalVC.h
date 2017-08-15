@@ -47,4 +47,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (nonatomic,retain) GiftsView *giftsView;
+@property (nonatomic, copy) NSString *personUID;
+@property (nonatomic,retain) MessageCount *count;
+@property (nonatomic,retain) AgoraAPI *inst;
+@property (nonatomic, strong) NSString *lastTime;
+@property (nonatomic, assign) BOOL isFromHeader;
 @end
