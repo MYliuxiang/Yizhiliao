@@ -68,7 +68,7 @@
             
             if (self.model.auth == 2) {
                 
-                self.nameArray = [NSMutableArray arrayWithObjects:array,@[LXSring(@"視頻認證"),LXSring(@"收费设置"),LXSring(@"在線時段")],@[LXSring(@"小視頻"),LXSring(@"相薄")], @[LXSring(@"設定")],nil];
+                self.nameArray = [NSMutableArray arrayWithObjects:array,@[LXSring(@"視頻認證"),LXSring(@"收費設定"),LXSring(@"在線時段")],@[LXSring(@"小視頻"),LXSring(@"相薄")], @[LXSring(@"設定")],nil];
                 
                 
             }else{
