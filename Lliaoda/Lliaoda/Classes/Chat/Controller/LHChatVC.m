@@ -174,7 +174,11 @@ NSString *const kTableViewFrame = @"frame";
 - (void)jubaoWithtype:(int)type
 {
     NSDictionary *params;
-    params = @{@"uid":self.sendUid,@"kind":[NSString stringWithFormat:@"%d",type]};
+    if (self.isFromHeader) {
+        params = @{@"uid":self.personID,@"kind":[NSString stringWithFormat:@"%d",type]};
+    } else {
+        params = @{@"uid":self.sendUid,@"kind":[NSString stringWithFormat:@"%d",type]};
+    }
     [WXDataService requestAFWithURL:Url_report params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
