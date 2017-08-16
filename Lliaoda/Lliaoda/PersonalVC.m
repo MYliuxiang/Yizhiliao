@@ -757,7 +757,11 @@
     
     
     NSDictionary *params;
-    params = @{@"uid":self.model.uid,@"kind":[NSString stringWithFormat:@"%d",type]};
+    if (self.isFromHeader) {
+        params = @{@"uid":self.personUID,@"kind":[NSString stringWithFormat:@"%d",type]};
+    } else {
+        params = @{@"uid":self.model.uid,@"kind":[NSString stringWithFormat:@"%d",type]};
+    }
     
     [WXDataService requestAFWithURL:Url_report params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
