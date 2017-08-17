@@ -25,6 +25,7 @@
        
         self.chineseButton.selected = YES;
         self.indonesiaButton.selected = NO;
+        self.arabicButton.selected = NO;
         self.index = 0;
 
         
@@ -32,10 +33,18 @@
         
         self.chineseButton.selected = NO;
         self.indonesiaButton.selected = YES;
+        self.arabicButton.selected = NO;
         self.index = 1;
 
-    }else{
+    }else if ([lang hasPrefix:@"ar"]){
         
+        self.chineseButton.selected = NO;
+        self.indonesiaButton.selected = NO;
+        self.arabicButton.selected = YES;
+        self.index = 2;
+        
+    }else{
+        self.arabicButton.selected = NO;
         self.chineseButton.selected = YES;
         self.indonesiaButton.selected = NO;
         self.index = 0;
@@ -53,7 +62,7 @@
     self.index = 0;
     self.chineseButton.selected = YES;
     self.indonesiaButton.selected = NO;
-    
+    self.arabicButton.selected = NO;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"語言變更提示") message:LXSring(@"更換語言後，將退回登錄頁面重新登陸即可") delegate:self cancelButtonTitle:LXSring(@"是") otherButtonTitles:LXSring(@"否"), nil];
     alert.tag = 100;
     [alert show];
@@ -67,6 +76,7 @@
     }
     self.index = 1;
     self.chineseButton.selected = NO;
+    self.arabicButton.selected = NO;
     self.indonesiaButton.selected = YES;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"語言變更提示") message:LXSring(@"更換語言後，將退回登錄頁面重新登陸即可") delegate:self cancelButtonTitle:LXSring(@"否") otherButtonTitles:LXSring(@"是"), nil];
     alert.tag = 101;
@@ -86,9 +96,12 @@
         [LXUserDefaults setObject:@"zh-Hant" forKey:@"appLanguage"];
         [LXUserDefaults synchronize];
 
-    }else{
+    }else if(alertView.tag == 101) {
     
         [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
+        [LXUserDefaults synchronize];
+    } else {
+        [LXUserDefaults setObject:@"ar" forKey:@"appLanguage"];
         [LXUserDefaults synchronize];
     }
     
@@ -110,6 +123,18 @@
 
 }
 
+- (IBAction)arabicButtonAC:(id)sender {
+    if (self.index == 2) {
+        return;
+    }
+    self.index = 2;
+    self.chineseButton.selected = NO;
+    self.indonesiaButton.selected = NO;
+    self.arabicButton.selected =  YES;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"語言變更提示") message:LXSring(@"更換語言後，將退回登錄頁面重新登陸即可") delegate:self cancelButtonTitle:LXSring(@"否") otherButtonTitles:LXSring(@"是"), nil];
+    alert.tag = 102;
+    [alert show];
+}
 @end
 
 

@@ -173,11 +173,11 @@
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r41-tE-sLL">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="login.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="XYF-Fu-HOb">
-                            <rect key="frame" x="0.0" y="287" width="375" height="380"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="XYF-Fu-HOb">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXl-1t-2KQ">
-                            <rect key="frame" x="62.5" y="279.5" width="250" height="108"/>
+                            <rect key="frame" x="62.5" y="247.5" width="250" height="172"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIa-uO-8HM">
                                     <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
@@ -194,9 +194,6 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7q-Ws-KM0">
                                     <rect key="frame" x="0.0" y="64" width="250" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="Nhp-t7-3Yj"/>
-                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <state key="normal" title="Bahasa Indonesia">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,15 +202,28 @@
                                         <action selector="indonesiaButtonAC:" destination="-1" eventType="touchUpInside" id="Mqe-0g-JoL"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd1-db-SM4">
+                                    <rect key="frame" x="0.0" y="128" width="250" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="阿拉伯语">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="top" secondItem="DIa-uO-8HM" secondAttribute="bottom" constant="20" id="2DR-C6-TT8"/>
+                                <constraint firstItem="Wd1-db-SM4" firstAttribute="centerX" secondItem="DIa-uO-8HM" secondAttribute="centerX" id="78f-Pa-6BG"/>
                                 <constraint firstAttribute="trailing" secondItem="DIa-uO-8HM" secondAttribute="trailing" id="8wj-4g-ZfH"/>
+                                <constraint firstItem="Wd1-db-SM4" firstAttribute="width" secondItem="DIa-uO-8HM" secondAttribute="width" id="CPm-vY-san"/>
+                                <constraint firstItem="Wd1-db-SM4" firstAttribute="height" secondItem="DIa-uO-8HM" secondAttribute="height" id="DzO-Sa-GUD"/>
                                 <constraint firstItem="DIa-uO-8HM" firstAttribute="top" secondItem="iXl-1t-2KQ" secondAttribute="top" id="Lh1-gk-cHm"/>
-                                <constraint firstAttribute="bottom" secondItem="c7q-Ws-KM0" secondAttribute="bottom" id="P7M-32-qff"/>
-                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="leading" secondItem="iXl-1t-2KQ" secondAttribute="leading" id="TIR-ze-JDb"/>
-                                <constraint firstAttribute="trailing" secondItem="c7q-Ws-KM0" secondAttribute="trailing" id="cR8-Zz-7PH"/>
-                                <constraint firstAttribute="height" constant="108" id="tH5-20-9S8"/>
+                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="width" secondItem="DIa-uO-8HM" secondAttribute="width" id="ONr-CF-GJa"/>
+                                <constraint firstItem="Wd1-db-SM4" firstAttribute="top" secondItem="c7q-Ws-KM0" secondAttribute="bottom" constant="20" id="Zgd-t0-BvX"/>
+                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="height" secondItem="DIa-uO-8HM" secondAttribute="height" id="h78-yC-gGv"/>
+                                <constraint firstAttribute="bottom" secondItem="Wd1-db-SM4" secondAttribute="bottom" id="m7X-3G-WXJ"/>
+                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="centerX" secondItem="DIa-uO-8HM" secondAttribute="centerX" id="mWz-LF-sck"/>
+                                <constraint firstAttribute="height" constant="172" id="tH5-20-9S8"/>
                                 <constraint firstItem="DIa-uO-8HM" firstAttribute="leading" secondItem="iXl-1t-2KQ" secondAttribute="leading" id="wNk-JC-c5Q"/>
                                 <constraint firstAttribute="width" constant="250" id="x4L-9m-DME"/>
                             </constraints>

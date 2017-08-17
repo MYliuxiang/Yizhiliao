@@ -5,6 +5,6 @@
   Created by 刘翔 on 2017/8/7.
   Copyright © 2017年 刘翔. All rights reserved.
 */
-NSCameraUsageDescription = "Izinkan Sugar Talk untuk menggunakan microphone";
-NSMicrophoneUsageDescription = "Izinkan Sugar Talk untuk merekam video";
-NSPhotoLibraryUsageDescription = "Izinkan Sugar Talk untuk membuka galeri";
+NSCameraUsageDescription = "Izinkan Candy Talk untuk menggunakan microphone";
+NSMicrophoneUsageDescription = "Izinkan Candy Talk untuk merekam video";
+NSPhotoLibraryUsageDescription = "Izinkan Candy Talk untuk membuka galeri";

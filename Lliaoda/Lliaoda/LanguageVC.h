@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *indonesiaButton;
 - (IBAction)indonesiaButtonAC:(id)sender;
 @property (nonatomic,assign) int index;
+    @property (weak, nonatomic) IBOutlet UIButton *arabicButton;
+- (IBAction)arabicButtonAC:(id)sender;
 
 @end

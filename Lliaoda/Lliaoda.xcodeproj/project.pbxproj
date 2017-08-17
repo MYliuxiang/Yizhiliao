@@ -1401,6 +1401,8 @@
 		843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCount.m; sourceTree = "<group>"; };
 		843EC0241F29D9750051AFD3 /* OrderID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderID.h; sourceTree = "<group>"; };
 		843EC0251F29D9750051AFD3 /* OrderID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderID.m; sourceTree = "<group>"; };
+		848A0AB11F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		848A0AB21F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84F970CD1F38541B00336234 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		84F970CF1F38541C00336234 /* id-ID */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id-ID"; path = "id-ID.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		84F970D21F38946100336234 /* LanguageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageVC.h; sourceTree = "<group>"; };
@@ -3118,6 +3120,7 @@
 				Base,
 				"id-ID",
 				"zh-Hant",
+				ar,
 			);
 			mainGroup = 22E8D7601EA49AE300C5FC6B;
 			productRefGroup = 22E8D76A1EA49AE300C5FC6B /* Products */;
@@ -3852,6 +3855,7 @@
 				226B6FF51F38649E00AEC7D2 /* Base */,
 				226B6FF71F3864A100AEC7D2 /* id-ID */,
 				226B6FF81F3864A200AEC7D2 /* zh-Hant */,
+				848A0AB11F453F0600057C5B /* ar */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -3878,6 +3882,7 @@
 				84F970CD1F38541B00336234 /* zh-Hant */,
 				84F970CF1F38541C00336234 /* id-ID */,
 				226B703E1F38819D00AEC7D2 /* Base */,
+				848A0AB21F453F0600057C5B /* ar */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
