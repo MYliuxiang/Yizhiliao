@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  Lliaoda
+
+*/
+NSCameraUsageDescription = "是否允许Candy Talk使用麦克风";
+NSMicrophoneUsageDescription = "是否允许Candy Talk录制視訊";
+NSPhotoLibraryUsageDescription = "是否允许Candy Talk使用相薄";

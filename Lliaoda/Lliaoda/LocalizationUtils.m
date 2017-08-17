@@ -23,6 +23,10 @@
         NSString * path = [[NSBundle mainBundle] pathForResource:@"id-ID" ofType:@"lproj"];
         NSBundle *languageBundle = [NSBundle bundleWithPath:path];
         s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
+    }else if ([lang hasPrefix:@"ar"]){
+        NSString * path = [[NSBundle mainBundle] pathForResource:@"ar" ofType:@"lproj"];
+        NSBundle *languageBundle = [NSBundle bundleWithPath:path];
+        s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
     }else{
         NSString * path = [[NSBundle mainBundle] pathForResource:@"Base" ofType:@"lproj"];
         NSBundle * languageBundle = [NSBundle bundleWithPath:path];
@@ -40,6 +44,8 @@
         mainStr = @"https://www.yizhiliao.tv/api/";
     }else if ([lang hasPrefix:@"id"]){
         mainStr = @"https://www.yizhiliao.live/api/";
+    }else if ([lang hasPrefix:@"ar"]){
+        mainStr = @"https://www.yizhiliao.net/api/";
     }else{
         mainStr = @"https://www.yizhiliao.tv/api/";
     }
@@ -56,6 +62,8 @@
         agoreappIDStr = @"e063233af0694b93a6639bbd7e92b26a";
     }else if ([lang hasPrefix:@"id"]){
         agoreappIDStr = @"e3748ab08d4448249fc99dbaaafb53c5";
+    }else if ([lang hasPrefix:@"ar"]){
+        agoreappIDStr = @"a0599c58c21e4c08b5502267a09b58cf";
     }else{
         agoreappIDStr = @"e063233af0694b93a6639bbd7e92b26a";
     }

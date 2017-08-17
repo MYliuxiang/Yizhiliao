@@ -46,6 +46,9 @@
     }else if ([language hasPrefix:@"id"]){
         NSString * path = [[NSBundle mainBundle] pathForResource:@"id-ID" ofType:@"lproj"];
         bundle = [NSBundle bundleWithPath:path];
+    }else if ([language hasPrefix:@"ar"]){
+        NSString * path = [[NSBundle mainBundle] pathForResource:@"ar" ofType:@"lproj"];
+        bundle = [NSBundle bundleWithPath:path];
     }else{
         NSString * path = [[NSBundle mainBundle] pathForResource:@"Base" ofType:@"lproj"];
         bundle = [NSBundle bundleWithPath:path];
