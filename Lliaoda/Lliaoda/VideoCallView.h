@@ -136,6 +136,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *yeLab;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gitfButtonCenter;
 
 
 

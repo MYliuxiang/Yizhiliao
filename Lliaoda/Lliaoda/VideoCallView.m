@@ -28,7 +28,14 @@
         [self.gotoMoneyBtn setTitle:LXSring(@"去充值") forState:UIControlStateNormal];
         self.likeLab.text = LXSring(@"互相喜欢后可私信聊天");
 
-        
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"ar"]) {
+            self.gitfButtonCenter.constant = 0;
+            self.redBtn.hidden = YES;
+        } else {
+            self.gitfButtonCenter.constant = 40;
+            self.redBtn.hidden = NO;
+        }
         
          _instMedia = [AgoraRtcEngineKit sharedEngineWithAppId:agoreappID delegate:self];
         _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
