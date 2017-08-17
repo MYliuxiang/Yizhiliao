@@ -30,6 +30,8 @@
     }else if ([lang hasPrefix:@"id"]){
         
         filePath = [[NSBundle mainBundle] pathForResource:@"id1495262516.mp4" ofType:nil];
+    }else if ([lang hasPrefix:@"ar"]) {
+        filePath = [[NSBundle mainBundle] pathForResource:@"ar1502964098" ofType:@"mp4"];
     }else{
        filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
     }
@@ -116,7 +118,17 @@
     FMVideoPlayController *playVC = [[FMVideoPlayController alloc] init];
     NSString *filePath = nil;
     //第一次安装
-    filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-Hant"]) {
+        filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
+    }else if ([lang hasPrefix:@"id"]){
+        filePath = [[NSBundle mainBundle] pathForResource:@"id1495262516.mp4" ofType:nil];
+    }else if ([lang hasPrefix:@"ar"]) {
+        filePath = [[NSBundle mainBundle] pathForResource:@"ar1502964098.mp4" ofType:@""];
+    }else{
+        filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
+    }
+//    filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
     playVC.videoUrl = [NSURL fileURLWithPath:filePath];
     [[self viewController].navigationController pushViewController:playVC animated:YES];
 }
