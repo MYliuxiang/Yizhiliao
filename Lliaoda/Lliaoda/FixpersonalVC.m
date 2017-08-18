@@ -101,9 +101,16 @@
     CountrieModel *model = self.countries[rowProvince];
     [self refrshOfProvincsWithCountriesKey:model.uid];
     NSInteger rowCity = 0;
-    ProvinceModel *pmodel = self.provinces[rowCity];
-    [self refrshOfCityWithCountriesKey:model.uid WithProvincsKey:pmodel.uid];
-    [self setIndexWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
+    if (self.provinces.count == 0) {
+//        ProvinceModel *pmodel = self.provinces[rowCity];
+//        [self refrshOfCityWithCountriesKey:model.uid WithProvincsKey:pmodel.uid];
+        [self setIndexWithCountrieId:self.model.country WithprovinceId:0 WithcityId:0];
+    } else {
+        ProvinceModel *pmodel = self.provinces[rowCity];
+        [self refrshOfCityWithCountriesKey:model.uid WithProvincsKey:pmodel.uid];
+        [self setIndexWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
+    }
+    
     [_pickerBG addSubview:self.picker];
     [self.view addSubview:_pickerBG];
     
@@ -288,6 +295,10 @@
     }else if (component == 1) {
         
         if ([self.provinces count] <= 0) {
+            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+            if ([lang hasPrefix:@"ar"]) {
+                return self.provinces.count;
+            }
             return 1;
         } else {
             return self.provinces.count;
@@ -296,6 +307,10 @@
     } else {
         
         if ([self.citys count] <= 0) {
+            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+            if ([lang hasPrefix:@"ar"]) {
+                return self.citys.count;
+            }
             return 1;
         } else {
             return self.citys.count;
@@ -378,11 +393,13 @@
         CountrieModel *model = self.countries[rowProvince];
         [self refrshOfProvincsWithCountriesKey:model.uid];
         NSInteger rowCity = [pickerView selectedRowInComponent:1];
+        if (self.provinces.count != 0) {
+            ProvinceModel *pmodel = self.provinces[rowCity];
+            [self refrshOfCityWithCountriesKey:model.uid WithProvincsKey:pmodel.uid];
+            [pickerView reloadComponent:1];
+            [pickerView reloadComponent:2];
+        }
         
-        ProvinceModel *pmodel = self.provinces[rowCity];
-        [self refrshOfCityWithCountriesKey:model.uid WithProvincsKey:pmodel.uid];
-        [pickerView reloadComponent:1];
-        [pickerView reloadComponent:2];
        
         
     }
@@ -446,42 +463,83 @@
             NSInteger rowCountry = [self.picker selectedRowInComponent:0];
             CountrieModel *model = self.countries[rowCountry];
             NSInteger rowProvince = [self.picker selectedRowInComponent:1];
-            ProvinceModel *pmodel = self.provinces[rowProvince];
-            NSInteger rowCity = [self.picker selectedRowInComponent:2];
-            CityModel *cmodel = self.citys[rowCity];
             
-      
-            if (self.model.country == rowCountry && self.model.province == rowProvince && self.model.city == rowCity) {
-                return ;
-            }
-            NSDictionary *params;
-            params = @{@"country":[NSString stringWithFormat:@"%d",model.uid],@"province":[NSString stringWithFormat:@"%d",pmodel.uid],@"city":[NSString stringWithFormat:@"%d",cmodel.uid]};
-            [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
-                if(result){
-                    if ([[result objectForKey:@"result"] integerValue] == 0) {
-                        
-                        self.model.country = model.uid;
-                        self.model.province = pmodel.uid;
-                        self.model.city = cmodel.uid;
-                        [_tableView reloadData];
-                        
-                    } else{    //请求失败
-                        [SVProgressHUD showErrorWithStatus:result[@"message"]];
-                        dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-                        dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                            
-                            [SVProgressHUD dismiss];
-                        });
-                        
-                    }
+            if (self.provinces.count != 0) {
+                ProvinceModel *pmodel = self.provinces[rowProvince];
+                NSInteger rowCity = [self.picker selectedRowInComponent:2];
+                CityModel *cmodel = self.citys[rowCity];
+                
+                
+                if (self.model.country == rowCountry && self.model.province == rowProvince && self.model.city == rowCity) {
+                    return ;
                 }
+                NSDictionary *params;
+                params = @{@"country":[NSString stringWithFormat:@"%d",model.uid],@"province":[NSString stringWithFormat:@"%d",pmodel.uid],@"city":[NSString stringWithFormat:@"%d",cmodel.uid]};
+                [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+                    if(result){
+                        if ([[result objectForKey:@"result"] integerValue] == 0) {
+                            
+                            self.model.country = model.uid;
+                            self.model.province = pmodel.uid;
+                            self.model.city = cmodel.uid;
+                            [_tableView reloadData];
+                            
+                        } else{    //请求失败
+                            [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                                
+                                [SVProgressHUD dismiss];
+                            });
+                            
+                        }
+                    }
+                    
+                } errorBlock:^(NSError *error) {
+                    NSLog(@"%@",error);
+                    
+                }];
                 
-            } errorBlock:^(NSError *error) {
-                NSLog(@"%@",error);
+                [_tableView reloadData];
+            } else {
+
+                NSInteger rowCity = [self.picker selectedRowInComponent:2];
+                CityModel *cmodel = self.citys[rowCity];
                 
-            }];
+                
+                if (self.model.country == rowCountry && self.model.province == rowProvince && self.model.city == rowCity) {
+                    return ;
+                }
+                NSDictionary *params;
+                params = @{@"country":[NSString stringWithFormat:@"%d",model.uid],@"province":@"",@"city":@""};
+                [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+                    if(result){
+                        if ([[result objectForKey:@"result"] integerValue] == 0) {
+                            
+                            self.model.country = model.uid;
+//                            self.model.province = pmodel.uid;
+//                            self.model.city = cmodel.uid;
+                            [_tableView reloadData];
+                            
+                        } else{    //请求失败
+                            [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                                
+                                [SVProgressHUD dismiss];
+                            });
+                            
+                        }
+                    }
+                    
+                } errorBlock:^(NSError *error) {
+                    NSLog(@"%@",error);
+                    
+                }];
+                
+                [_tableView reloadData];
+            }
             
-            [_tableView reloadData];
         
         
         }else{
@@ -522,6 +580,7 @@
     }];
     
 }
+
 
 #pragma mark ----------取消-------------
 - (void)enterAction:(UIButton *)sender
@@ -620,8 +679,8 @@
                                          withDateFormat:@"yyyy-MM-dd"];
             
         }else{
-            
-            cell.detailTextLabel.text = [[CityTool sharedCityTool] getAdressWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
+            NSString *str = [[CityTool sharedCityTool] getAdressWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
+            cell.detailTextLabel.text = str;
             
         }
         
