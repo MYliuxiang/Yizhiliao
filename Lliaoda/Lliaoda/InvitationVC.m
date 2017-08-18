@@ -186,6 +186,9 @@
     }else if ([lang hasPrefix:@"id"]){
     
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share-result.html?auth=%d",self.model.auth];
+    }else if ([lang hasPrefix:@"ar"]){
+        
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.net/pages/ar-sa/share-result.html?auth=%d",self.model.auth];
     }else{
 
         urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share-result.html?auth=%d",self.model.auth];
@@ -388,6 +391,9 @@
         }else if ([lang hasPrefix:@"id"]){
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+        }else if ([lang hasPrefix:@"ar"]){
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.net/pages/ar-sa/share.html?code=%@",_code];
         }else{
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
@@ -441,6 +447,9 @@
         }else if ([lang hasPrefix:@"id"]){
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+        }else if ([lang hasPrefix:@"ar"]){
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.net/pages/ar-sa/share.html?code=%@",_code];
         }else{
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
@@ -521,6 +530,9 @@
     }else if ([lang hasPrefix:@"id"]){
         
         urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+    }else if ([lang hasPrefix:@"ar"]){
+        
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.net/pages/ar-sa/share.html?code=%@",_code];
     }else{
         
         urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
@@ -595,6 +607,9 @@
     }else if ([lang hasPrefix:@"id"]){
         
         urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+    }else if ([lang hasPrefix:@"ar"]){
+        
+        urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.net/pages/ar-sa/share.html?code=%@",_code];
     }else{
         
         urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
@@ -627,6 +642,9 @@
         }else if ([lang hasPrefix:@"id"]){
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+        }else if ([lang hasPrefix:@"ar"]){
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.net/pages/ar-sa/share.html?code=%@",_code];
         }else{
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
@@ -674,6 +692,9 @@
         }else if ([lang hasPrefix:@"id"]){
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share.html?code=%@",_code];
+        }else if ([lang hasPrefix:@"ar"]){
+            
+            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.net/pages/ar-sa/share.html?code=%@",_code];
         }else{
             
             urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share.html?code=%@",_code];
