@@ -30,8 +30,11 @@
 @property (weak, nonatomic) IBOutlet UIView *languageBGView;
 @property (weak, nonatomic) IBOutlet UIButton *chineseButton;
 @property (weak, nonatomic) IBOutlet UIButton *indonesiaButton;
+@property (weak, nonatomic) IBOutlet UIButton *arabicButton;
+
 - (IBAction)chineseButtonAC:(id)sender;
 - (IBAction)indonesiaButtonAC:(id)sender;
+- (IBAction)arabicButtonAC:(id)sender;
 
 
 @end
