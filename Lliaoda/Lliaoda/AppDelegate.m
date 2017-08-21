@@ -623,19 +623,20 @@
 
 /** 主页*/
 - (void)homePageViewControllerShow {
-    TJPTabBarController *rootVC = [TJPTabBarController tabBarControllerWitnAddChildVCBlock:^(TJPTabBarController *tabBarVC) {
-        
-        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
-       
-        [tabBarVC addChildVC:managementVC normalImageName:@"faxian_n" selectedImageName:@"jingxuan_h" isRequiredNavController:YES];
-        FindVC *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
-        [tabBarVC addChildVC:homeVC normalImageName:@"faxian_n" selectedImageName:@"faxian_h" isRequiredNavController:YES];
-        MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
-        [tabBarVC addChildVC:myVC normalImageName:@"me_n" selectedImageName:@"me_h" isRequiredNavController:YES];
-        
-     
-    }];
+    TJPTabBarController *rootVC = [[TJPTabBarController alloc] init];
+//    TJPTabBarController *rootVC = [TJPTabBarController tabBarControllerWitnAddChildVCBlock:^(TJPTabBarController *tabBarVC) {
+//        
+//        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
+//       
+//        [tabBarVC addChildVC:managementVC normalImageName:@"faxian_n" selectedImageName:@"jingxuan_h" isRequiredNavController:YES];
+//        FindVC *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
+//        [tabBarVC addChildVC:homeVC normalImageName:@"faxian_n" selectedImageName:@"faxian_h" isRequiredNavController:YES];
+//        MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
+//        [tabBarVC addChildVC:myVC normalImageName:@"me_n" selectedImageName:@"me_h" isRequiredNavController:YES];
+//        
+//     
+//    }];
     
     self.window.rootViewController = rootVC;
 }
