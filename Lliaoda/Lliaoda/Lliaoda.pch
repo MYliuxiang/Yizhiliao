@@ -54,6 +54,8 @@ alpha:1.0]
 #define Color_bg     [MyColor colorWithHexString:@"#F7FCFF"];
 #define Color_nav    UIColorFromRGB(0xFB3476)  
 #define Color_green  UIColorFromRGB(0x7ED321)
+#define Color_Tab    [MyColor colorWithHexString:@"#00DDCC"];
+
 
 #define Color_Text_black      UIColorFromRGB(0x333333)
 #define Color_Text_gray       UIColorFromRGB(0x999999)
@@ -128,6 +130,8 @@ alpha:1.0]
 #import "MeassageVC.h"
 #import "SelectedVC.h"
 #import "MyVC.h"
+#import "TJPTabBarController.h"
+
 
 #import "OrderID.h"
 

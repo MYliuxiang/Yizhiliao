@@ -483,7 +483,7 @@
                                 </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Kb-Oa-2nd">
-                                <rect key="frame" x="0.0" y="63" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="63" width="375" height="604"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oq0-3Q-WaB">
                                     <size key="itemSize" width="50" height="50"/>
@@ -513,7 +513,7 @@
                             <constraint firstItem="Jk5-RO-9oP" firstAttribute="top" secondItem="z6a-Wt-A0P" secondAttribute="top" constant="63" id="7OT-Za-27S"/>
                             <constraint firstItem="5Kb-Oa-2nd" firstAttribute="leading" secondItem="z6a-Wt-A0P" secondAttribute="leading" id="MN8-qI-hND"/>
                             <constraint firstItem="5Kb-Oa-2nd" firstAttribute="top" secondItem="z6a-Wt-A0P" secondAttribute="top" constant="63" id="PcX-WL-ZFI"/>
-                            <constraint firstAttribute="bottom" secondItem="5Kb-Oa-2nd" secondAttribute="bottom" constant="50" id="QbG-hb-bHf"/>
+                            <constraint firstAttribute="bottom" secondItem="5Kb-Oa-2nd" secondAttribute="bottom" id="QbG-hb-bHf"/>
                             <constraint firstAttribute="trailing" secondItem="Jk5-RO-9oP" secondAttribute="trailing" id="S6s-yb-Kkb"/>
                             <constraint firstAttribute="trailing" secondItem="5Kb-Oa-2nd" secondAttribute="trailing" id="XXE-vE-obT"/>
                             <constraint firstItem="37f-Gz-Gdz" firstAttribute="top" secondItem="Jk5-RO-9oP" secondAttribute="bottom" id="nJl-eF-MI8"/>
@@ -615,11 +615,11 @@
         <image name="bianji" width="17" height="17"/>
         <image name="delete2" width="50" height="50"/>
         <image name="faxian" width="22" height="22"/>
-        <image name="jingxuan_h" width="20" height="22"/>
-        <image name="jingxuan_n" width="20" height="22"/>
+        <image name="jingxuan_h" width="25" height="27"/>
+        <image name="jingxuan_n" width="25" height="27"/>
         <image name="map_hui" width="7" height="10"/>
-        <image name="me_h" width="20" height="23"/>
-        <image name="me_n" width="20" height="23"/>
+        <image name="me_h" width="24" height="26"/>
+        <image name="me_n" width="24" height="26"/>
         <image name="shezhi" width="18" height="18"/>
         <image name="xiaoxi_h" width="26" height="22"/>
         <image name="xiaoxi_n" width="26" height="22"/>
