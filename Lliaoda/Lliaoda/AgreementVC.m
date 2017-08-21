@@ -44,8 +44,10 @@
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     if ([lang hasPrefix:@"zh-Hant"]) {
         urlstring = @"https://static.yizhiliao.tv/pages/zh-tw/agreement.html";
-     }else if ([lang hasPrefix:@"id"]){
+    }else if ([lang hasPrefix:@"id"]){
       urlstring = @"https://sugar-public.oss-ap-southeast-1.aliyuncs.com/pages/id-id/agreement.html";
+    }else if ([lang hasPrefix:@"ar"]){
+        urlstring = @"https://arab-candy-public.oss-me-east-1.aliyuncs.com/pages/ar-sa/aboutus.html";
     }else{
        urlstring = @"https://static.yizhiliao.tv/pages/zh-tw/agreement.html";
     }

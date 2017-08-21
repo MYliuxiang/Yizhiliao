@@ -98,15 +98,17 @@
         self.loginBtn.hidden = YES;
         
     }else{
-        
-        if ([WXApi isWXAppInstalled]&&[WXApi isWXAppSupportApi]){
-            self.loginBtn.hidden = NO;
-            
-          }else{
-              
+        if ([lang hasPrefix:@"ar"]) {
             self.loginBtn.hidden = YES;
+        } else {
+            if ([WXApi isWXAppInstalled]&&[WXApi isWXAppSupportApi]){
+                self.loginBtn.hidden = NO;
+                
+            }else{
+                
+                self.loginBtn.hidden = YES;
+            }
         }
-
     }
     
 

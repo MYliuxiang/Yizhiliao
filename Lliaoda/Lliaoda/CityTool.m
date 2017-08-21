@@ -89,8 +89,10 @@ static CityTool *_instance;
     for (CountrieModel *model in self.countrys) {
         
         if (model.uid == countrieId) {
-            
-            
+            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+            if ([lang hasPrefix:@"ar"]) {
+                [adress appendString:model.name];
+            }
             for (ProvinceModel *pmodel in model.provinces) {
                 if (pmodel.uid == provinceId) {
                     [adress appendString:pmodel.name];

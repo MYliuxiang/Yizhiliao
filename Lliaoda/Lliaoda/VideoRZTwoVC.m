@@ -79,9 +79,9 @@
             
         }else{
             
-            if (textField.text.length > 10) {
-                textField.text = [textField.text substringToIndex:10];
-            }
+//            if (textField.text.length > 10) {
+//                textField.text = [textField.text substringToIndex:10];
+//            }
         }
 
       
@@ -114,13 +114,13 @@
         
     }else{
         
-        if (_textField.text.length != 10) {
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
-            [alert show];
-            return;
-            
-        }
+//        if (_textField.text.length != 10) {
+//            
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+//            [alert show];
+//            return;
+//            
+//        }
     }
 
     

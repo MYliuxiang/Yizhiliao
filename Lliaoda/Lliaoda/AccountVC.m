@@ -757,7 +757,10 @@ controller   didAuthorizePayment:(PKPayment *)payment
     cell.detailLabel.adjustsFontSizeToFitWidth = YES;
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     NSString *money = @"";
-    if ([lang hasPrefix:@"id"]){
+    if ([lang hasPrefix:@"ar"]){
+        cell.biaoqianImageView.image = [UIImage imageNamed:@"biaoqian3"];
+        money = @"$";
+    }else if ([lang hasPrefix:@"id"]){
         cell.biaoqianImageView.image = [UIImage imageNamed:@"biaoqian2"];
         money = @"Rp.";
     }else{
