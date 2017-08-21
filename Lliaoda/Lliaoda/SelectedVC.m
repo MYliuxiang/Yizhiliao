@@ -23,15 +23,15 @@
     self.text = LXSring(@"精選");
     
     _flowlayout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
-    _flowlayout.minimumLineSpacing= 1;
-    _flowlayout.minimumInteritemSpacing= 1;
-    _flowlayout.itemSize = CGSizeMake((kScreenWidth - 1) / 2.0,(kScreenWidth - 1) / 2.0 );
-
+    _flowlayout.minimumLineSpacing= 15;
+    _flowlayout.minimumInteritemSpacing= 15;
+    _flowlayout.itemSize = CGSizeMake((kScreenWidth - 45) / 2.0,(kScreenWidth - 45) / 2.0 + 45);
     [_flowlayout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
     
     //設定代理
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 15, 5, 15);
     [_collectionView registerNib:[UINib nibWithNibName:@"SelectedCell" bundle:nil] forCellWithReuseIdentifier:@"SelectedCellID"];
     [_collectionView registerNib:[UINib nibWithNibName:@"SelectedHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID"];
 //    [_collectionView registerNib:[UINib nibWithNibName:@"SelectedBannersHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1"];

@@ -91,7 +91,7 @@
     
     _titleLable = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 50, 100)];
     _titleLable.backgroundColor = [UIColor clearColor];
-    _titleLable.textColor= [UIColor whiteColor];
+    _titleLable.textColor= [UIColor blackColor];
     [_titleLable setFont:[UIFont systemFontOfSize:17]];
     _titleLable.textAlignment = NSTextAlignmentCenter;
     [self.nav addSubview:_titleLable];

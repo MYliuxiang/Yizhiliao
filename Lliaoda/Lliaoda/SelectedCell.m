@@ -14,6 +14,8 @@
     [super awakeFromNib];
     // Initialization code
   
+    self.layer.cornerRadius = 5;
+    self.layer.masksToBounds = YES;
     //不在线
     //忙碌
     

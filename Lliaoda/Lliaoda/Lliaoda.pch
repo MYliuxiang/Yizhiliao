@@ -52,7 +52,7 @@ alpha:1.0]
 
 //颜色
 #define Color_bg     [MyColor colorWithHexString:@"#F7FCFF"];
-#define Color_nav    UIColorFromRGB(0xFB3476)  
+#define Color_nav    UIColorFromRGB(0xFFFFFF)  
 #define Color_green  UIColorFromRGB(0x7ED321)
 #define Color_Tab    [MyColor colorWithHexString:@"#00DDCC"];
 
