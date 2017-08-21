@@ -621,6 +621,26 @@
     
 }
 
+/** 主页*/
+- (void)homePageViewControllerShow {
+    TJPTabBarController *rootVC = [TJPTabBarController tabBarControllerWitnAddChildVCBlock:^(TJPTabBarController *tabBarVC) {
+        
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
+       
+        [tabBarVC addChildVC:managementVC normalImageName:@"faxian_n" selectedImageName:@"jingxuan_h" isRequiredNavController:YES];
+        FindVC *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
+        [tabBarVC addChildVC:homeVC normalImageName:@"faxian_n" selectedImageName:@"faxian_h" isRequiredNavController:YES];
+        MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
+        [tabBarVC addChildVC:myVC normalImageName:@"me_n" selectedImageName:@"me_h" isRequiredNavController:YES];
+        
+     
+    }];
+    
+    self.window.rootViewController = rootVC;
+}
+
+
 - (void)isLogin
 {
     
@@ -663,22 +683,25 @@
                         //是主播
                         [LXUserDefaults setObject:@"1" forKey:itemNumber];
                         [LXUserDefaults synchronize];
-                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                        MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                        tab.iszhubo = YES;
-                        
-                        self.window.rootViewController = tab;
+//                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                        MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                        tab.iszhubo = YES;
+//                        
+//                        self.window.rootViewController = tab;
+                        [self homePageViewControllerShow];
                         self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                         
                     }else{
                         
                         [LXUserDefaults setObject:@"2" forKey:itemNumber];
                         [LXUserDefaults synchronize];
-                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                        MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                        tab.iszhubo = NO;
+//                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                        MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                        tab.iszhubo = NO;
                         
-                        self.window.rootViewController = tab;
+//                        self.window.rootViewController = tab;
+                        [self homePageViewControllerShow];
+
                         self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                         
                     }
@@ -686,11 +709,14 @@
                 } else{
                     [LXUserDefaults setObject:@"2" forKey:itemNumber];
                     [LXUserDefaults synchronize];
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                    tab.iszhubo = NO;
+//                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                    tab.iszhubo = NO;
+//                    
+//                    self.window.rootViewController = tab;
                     
-                    self.window.rootViewController = tab;
+                    [self homePageViewControllerShow];
+
                     self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                     
                 }
@@ -700,11 +726,13 @@
             NSLog(@"%@",error);
             [LXUserDefaults setObject:@"2" forKey:itemNumber];
             [LXUserDefaults synchronize];
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-            tab.iszhubo = NO;
-            
-            self.window.rootViewController = tab;
+//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//            MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//            tab.iszhubo = NO;
+//            
+//            self.window.rootViewController = tab;
+            [self homePageViewControllerShow];
+
             self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
         }];
         [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
@@ -961,22 +989,26 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                                 //是主播
                                 [LXUserDefaults setObject:@"1" forKey:itemNumber];
                                 [LXUserDefaults synchronize];
-                                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                                tab.iszhubo = YES;
-                                
-                                self.window.rootViewController = tab;
+//                                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                                tab.iszhubo = YES;
+//                                
+//                                self.window.rootViewController = tab;
+                                [self homePageViewControllerShow];
+
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                                 
                             }else{
                                 
                                 [LXUserDefaults setObject:@"2" forKey:itemNumber];
                                 [LXUserDefaults synchronize];
-                                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                                tab.iszhubo = NO;
-                                
-                                self.window.rootViewController = tab;
+//                                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                                tab.iszhubo = NO;
+//                                
+//                                self.window.rootViewController = tab;
+                                [self homePageViewControllerShow];
+
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                                 
                             }
@@ -984,11 +1016,13 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                         } else{
                             [LXUserDefaults setObject:@"2" forKey:itemNumber];
                             [LXUserDefaults synchronize];
-                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                            MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                            tab.iszhubo = NO;
-                            
-                            self.window.rootViewController = tab;
+//                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                            MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                            tab.iszhubo = NO;
+//                            
+//                            self.window.rootViewController = tab;
+                            [self homePageViewControllerShow];
+
                             self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                             
                         }
@@ -998,11 +1032,13 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     NSLog(@"%@",error);
                     [LXUserDefaults setObject:@"2" forKey:itemNumber];
                     [LXUserDefaults synchronize];
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                    tab.iszhubo = NO;
-                    
-                    self.window.rootViewController = tab;
+//                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                    tab.iszhubo = NO;
+//                    
+//                    self.window.rootViewController = tab;
+                    [self homePageViewControllerShow];
+
                     self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                 }];
 
@@ -1075,22 +1111,26 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                                     //是主播
                                     [LXUserDefaults setObject:@"1" forKey:itemNumber];
                                     [LXUserDefaults synchronize];
-                                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                                    tab.iszhubo = YES;
-                                    
-                                    self.window.rootViewController = tab;
+//                                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                                    tab.iszhubo = YES;
+//                                    
+//                                    self.window.rootViewController = tab;
+                                    [self homePageViewControllerShow];
+
                                     self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                                     
                                 }else{
                                     
                                     [LXUserDefaults setObject:@"2" forKey:itemNumber];
                                     [LXUserDefaults synchronize];
-                                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                                    tab.iszhubo = NO;
-                                    
-                                    self.window.rootViewController = tab;
+//                                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                                    MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                                    tab.iszhubo = NO;
+//                                    
+//                                    self.window.rootViewController = tab;
+                                    [self homePageViewControllerShow];
+
                                     self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                                     
                                 }
@@ -1098,11 +1138,13 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                             } else{
                                 [LXUserDefaults setObject:@"2" forKey:itemNumber];
                                 [LXUserDefaults synchronize];
-                                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                                tab.iszhubo = NO;
-                                
-                                self.window.rootViewController = tab;
+//                                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                                tab.iszhubo = NO;
+//                                
+//                                self.window.rootViewController = tab;
+                                [self homePageViewControllerShow];
+
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                             }
                         }
@@ -1111,10 +1153,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                         NSLog(@"%@",error);
                         [LXUserDefaults setObject:@"2" forKey:itemNumber];
                         [LXUserDefaults synchronize];
-                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                        MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-                        tab.iszhubo = NO;
-                        self.window.rootViewController = tab;
+//                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                        MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+//                        tab.iszhubo = NO;
+//                        self.window.rootViewController = tab;
+                        [self homePageViewControllerShow];
+
                         self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                     }];
 

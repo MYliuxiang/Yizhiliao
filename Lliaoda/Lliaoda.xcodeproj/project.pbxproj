@@ -419,6 +419,9 @@
 		22721FB81EE8018F003A19D3 /* PVideoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22721FB61EE8018F003A19D3 /* PVideoVC.xib */; };
 		22721FC61EE80C68003A19D3 /* PPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22721FC41EE80C68003A19D3 /* PPhotoVC.m */; };
 		22721FC71EE80C68003A19D3 /* PPhotoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22721FC51EE80C68003A19D3 /* PPhotoVC.xib */; };
+		227303031F4AC75D0069F53B /* TJPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227303021F4AC75D0069F53B /* TJPTabBarController.m */; };
+		227303061F4AC7630069F53B /* TJPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 227303051F4AC7630069F53B /* TJPTabBar.m */; };
+		227303091F4ADC390069F53B /* LxBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 227303081F4ADC390069F53B /* LxBarItem.m */; };
 		227553781ECED99900CE6507 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 227553731ECED99900CE6507 /* README.txt */; };
 		227971CC1EF8DC0900BC8E18 /* DateUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227971C91EF8DC0900BC8E18 /* DateUnit.m */; };
 		227971CD1EF8DC0900BC8E18 /* FileUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227971CB1EF8DC0900BC8E18 /* FileUnit.m */; };
@@ -1170,6 +1173,12 @@
 		22721FC31EE80C68003A19D3 /* PPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPhotoVC.h; sourceTree = "<group>"; };
 		22721FC41EE80C68003A19D3 /* PPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPhotoVC.m; sourceTree = "<group>"; };
 		22721FC51EE80C68003A19D3 /* PPhotoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPhotoVC.xib; sourceTree = "<group>"; };
+		227303011F4AC75D0069F53B /* TJPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPTabBarController.h; sourceTree = "<group>"; };
+		227303021F4AC75D0069F53B /* TJPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPTabBarController.m; sourceTree = "<group>"; };
+		227303041F4AC7630069F53B /* TJPTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPTabBar.h; sourceTree = "<group>"; };
+		227303051F4AC7630069F53B /* TJPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPTabBar.m; sourceTree = "<group>"; };
+		227303071F4ADC390069F53B /* LxBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxBarItem.h; sourceTree = "<group>"; };
+		227303081F4ADC390069F53B /* LxBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxBarItem.m; sourceTree = "<group>"; };
 		227553731ECED99900CE6507 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		227553741ECED99900CE6507 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		227553751ECED99900CE6507 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -2676,6 +2685,12 @@
 		22B1090E1EA4A49B00E35B74 /* 基类 */ = {
 			isa = PBXGroup;
 			children = (
+				227303041F4AC7630069F53B /* TJPTabBar.h */,
+				227303051F4AC7630069F53B /* TJPTabBar.m */,
+				227303071F4ADC390069F53B /* LxBarItem.h */,
+				227303081F4ADC390069F53B /* LxBarItem.m */,
+				227303011F4AC75D0069F53B /* TJPTabBarController.h */,
+				227303021F4AC75D0069F53B /* TJPTabBarController.m */,
 				22B109121EA4A4E200E35B74 /* MainTabBarController.h */,
 				22B109131EA4A4E200E35B74 /* MainTabBarController.m */,
 				22B109141EA4A4E200E35B74 /* BaseViewController.h */,
@@ -3640,6 +3655,7 @@
 				2286DC6C1EF26AFE00FDF801 /* LHChatBarView.m in Sources */,
 				841AD6CD1F3C6CB400A3CE0D /* SelectedBannersHeader.m in Sources */,
 				2244B4661F00B96800685217 /* ShakeLabel.m in Sources */,
+				227303061F4AC7630069F53B /* TJPTabBar.m in Sources */,
 				223DE5AF1F20AB5100745E94 /* OpenGLView20.m in Sources */,
 				222B381E1ED9642B009DB58F /* UIImage+XLExtension.m in Sources */,
 				222AA1D81EB0775B0038416D /* YYTextRunDelegate.m in Sources */,
@@ -3770,6 +3786,7 @@
 				222CD2351F1F10EE0069BDB3 /* CallTime.m in Sources */,
 				228CF7461EDEC8610045986D /* FindVC.m in Sources */,
 				2265F8CA1F3C0D98001A6308 /* UIButton+HQCustomIcon.m in Sources */,
+				227303091F4ADC390069F53B /* LxBarItem.m in Sources */,
 				2244B4691F00B96800685217 /* AnimOperationManager.m in Sources */,
 				8420E7251F2779E600ADA26E /* LHChatChongZhiBubbleView.m in Sources */,
 				22844F591ED2A1B800A9E32E /* IQTitleBarButtonItem.m in Sources */,
@@ -3785,6 +3802,7 @@
 				222B381F1ED9642B009DB58F /* UIView+XLExtension.m in Sources */,
 				222AA1D51EB0775B0038416D /* YYTextAttribute.m in Sources */,
 				222AA1C21EB0775B0038416D /* NSBundle+YYAdd.m in Sources */,
+				227303031F4AC75D0069F53B /* TJPTabBarController.m in Sources */,
 				223DE5AC1F20AB3700745E94 /* YuvToJpg.m in Sources */,
 				222AA14D1EB071C10038416D /* UIImage+Common.m in Sources */,
 				22721FA81EE7D5F7003A19D3 /* PeriSonMediaCell.m in Sources */,
