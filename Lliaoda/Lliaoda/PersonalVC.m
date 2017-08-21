@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *label3;
 @property (weak, nonatomic) IBOutlet UILabel *label4;
 @property (nonatomic, strong) NSMutableArray *messages;
-
+@property (nonatomic, strong) NSMutableArray *headerImageArrs;
 @end
 
 @implementation PersonalVC
@@ -24,6 +24,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+////    self.navigationBar.translucent = NO;
+//    self.navigationController.navigationBar.translucent = NO;
+    _headerImageArrs = [NSMutableArray array];
     _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
 
     self.videoBtn.layer.cornerRadius = 22;
@@ -169,10 +172,10 @@
 
                     [self.headerImage sd_setImageWithURL:[NSURL URLWithString:present.url]];
                 }
-                
+                [_headerImageArrs addObject:self.model.portrait];
 //                [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
-                self.headerView.width = kScreenWidth;
-                self.headerView.height = kScreenWidth;
+//                self.headerView.width = kScreenWidth;
+//                self.headerView.height = kScreenWidth;
                 
                 if(_model.state == 0){
                     
@@ -217,8 +220,8 @@
                 }
 
                 
-                self.tableView.tableHeaderView = self.headerView;
-                                
+//                self.tableView.tableHeaderView = self.headerView;
+                
                 [_tableView reloadData];
                 
                 
@@ -338,160 +341,174 @@
 #pragma  mark --------UITableView Delegete----------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+//    return 4;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *array = self.dataList[section];
-    return array.count;
+//    NSArray *array = self.dataList[section];
+//    return array.count;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    if(indexPath.section == 3){
-    
-        static NSString *identifire = @"cellID3";
-        PersonCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"PersonCell" owner:nil options:nil] lastObject];
-            
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.tText.text = self.pmodel.intro;
-        return  cell;
-    
-    }else if(indexPath.section == 1){
-    
-        static NSString *identifire = @"cellID1";
-        PeriSonMediaCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"PeriSonMediaCell" owner:nil options:nil] lastObject];
-            
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.model = self.pmodel;
-        cell.smodel = self.model;
-        return  cell;
-        
-    }else{
-    
-        static NSString *identifire = @"cellID";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 60, 0, 60, 60)];
-            [button setImage:[UIImage imageNamed:@"xihuan_n"] forState:UIControlStateNormal];
-            [button setImage:[UIImage imageNamed:@"xihuan_h"] forState:UIControlStateSelected];
-            [button setTitleColor:Color_nav forState:UIControlStateNormal];
-            button.titleLabel.font = [UIFont systemFontOfSize:14];
-            button.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
-            button.tag = 100;
-            [button addTarget:self action:@selector(buttonAC:) forControlEvents:UIControlEventTouchUpInside];
-            if (self.pmodel.like == 0) {
-                
-                button.selected = NO;
-                
-            }else{
-                
-                button.selected = YES;
-            
-            }
-            [cell.contentView addSubview:button];
-            
-            
-            UILabel *label = [[UILabel alloc] init];
-            label.textColor = Color_nav;
-            label.font = [UIFont systemFontOfSize:14];
-            label.tag = 102;
-            label.textAlignment = NSTextAlignmentRight;
-            [cell.contentView addSubview:label];
-
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(button.left - 1, 15, .5, 30)];
-            imageView.tag = 101;
-            imageView.backgroundColor = Color_Text_gray;
-            [cell.contentView addSubview:imageView];
-            
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        UIImageView *imageV = (UIImageView *)[cell.contentView viewWithTag:101];
-        UIButton *button = (UIButton *)[cell.contentView viewWithTag:100];
-        UILabel *label = (UILabel *)[cell.contentView viewWithTag:102];
-
-        
-        if (indexPath.section == 0) {
-            
-            label.hidden = NO;
-            imageV.hidden = NO;
-            button.hidden = NO;
-            if (self.pmodel.like == 0) {
-                button.selected = NO;
-            }else{
-            
-                button.selected = YES;
-            }
-            
-            
-            Charge *charge;
-            for (Charge *mo in self.pmodel.charges) {
-                if (mo.uid == self.pmodel.charge) {
-                    charge = mo;
-                }
-            }
-            
-            label.text = [InputCheck handleActiveWith:self.pmodel.lastActiveAt];
-            [label sizeToFit];
-
-            if (charge.name == nil) {
-                cell.imageView.image = nil;
-            } else {
-                cell.imageView.image = [UIImage imageNamed:@"zuanshi_fen"];
-                
-            }
-            cell.textLabel.text = charge.name;
-            cell.textLabel.textColor = Color_nav;
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-            label.frame = CGRectMake(0, 0, kScreenWidth - 70, 64);
-
-
-        }else{
-            
-            label.hidden = YES;
-            imageV.hidden = YES;
-            button.hidden = YES;
-            cell.textLabel.text = self.dataList[indexPath.section][indexPath.row];
-            cell.textLabel.textColor = Color_Text_black;
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-            cell.detailTextLabel.textColor = Color_Text_gray;
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-            if (indexPath.row == 0) {
-                if (self.isFromHeader) {
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",self.personUID];
-                } else {
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",self.model.uid];
-                }
-            }else if(indexPath.row == 1){
-                cell.detailTextLabel.text = [[CityTool sharedCityTool] getAdressWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
-            }else if(indexPath.row == 2){
-            
-                cell.detailTextLabel.text = [InputCheck getXingzuo:[NSDate dateWithTimeIntervalSince1970:[_pmodel.birthday longLongValue] / 1000]];
-            }else if(indexPath.row == 3){
-             
-                NSArray *array = [InputCheck getpreferOptions];
-                cell.detailTextLabel.text = [NSString stringWithFormat:@"%@-%@",array[self.pmodel.preferOnlineOption],array[self.pmodel.preferOfflineOption]];
-                
-            }
-            
-        }
-        cell.detailTextLabel.textColor = Color_Text_gray;
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-        
-        
+    if (indexPath.row == 0) {
+        PersonHeaderCell *cell = [PersonHeaderCell tableView:tableView indexPath:indexPath];
+        cell.imagesArray = self.headerImageArrs;
         return cell;
-
+    } else if (indexPath.row == 1) {
+        return [PersonSelectCell tableView:tableView
+                                 indexPath:indexPath
+                                  delegate:nil];
+    } else {
+        return [PersonBottomCell tableView:tableView
+                                 indexPath:indexPath];
     }
+    
+//    if(indexPath.section == 3){
+//    
+//        static NSString *identifire = @"cellID3";
+//        PersonCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+//        if (cell == nil) {
+//            cell = [[[NSBundle mainBundle] loadNibNamed:@"PersonCell" owner:nil options:nil] lastObject];
+//            
+//        }
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.tText.text = self.pmodel.intro;
+//        return  cell;
+//    
+//    }else if(indexPath.section == 1){
+//    
+//        static NSString *identifire = @"cellID1";
+//        PeriSonMediaCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+//        if (cell == nil) {
+//            cell = [[[NSBundle mainBundle] loadNibNamed:@"PeriSonMediaCell" owner:nil options:nil] lastObject];
+//            
+//        }
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.model = self.pmodel;
+//        cell.smodel = self.model;
+//        return  cell;
+//        
+//    }else{
+//    
+//        static NSString *identifire = @"cellID";
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+//        if (cell == nil) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
+//            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 60, 0, 60, 60)];
+//            [button setImage:[UIImage imageNamed:@"xihuan_n"] forState:UIControlStateNormal];
+//            [button setImage:[UIImage imageNamed:@"xihuan_h"] forState:UIControlStateSelected];
+//            [button setTitleColor:Color_nav forState:UIControlStateNormal];
+//            button.titleLabel.font = [UIFont systemFontOfSize:14];
+//            button.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+//            button.tag = 100;
+//            [button addTarget:self action:@selector(buttonAC:) forControlEvents:UIControlEventTouchUpInside];
+//            if (self.pmodel.like == 0) {
+//                
+//                button.selected = NO;
+//                
+//            }else{
+//                
+//                button.selected = YES;
+//            
+//            }
+//            [cell.contentView addSubview:button];
+//            
+//            
+//            UILabel *label = [[UILabel alloc] init];
+//            label.textColor = Color_nav;
+//            label.font = [UIFont systemFontOfSize:14];
+//            label.tag = 102;
+//            label.textAlignment = NSTextAlignmentRight;
+//            [cell.contentView addSubview:label];
+//
+//            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(button.left - 1, 15, .5, 30)];
+//            imageView.tag = 101;
+//            imageView.backgroundColor = Color_Text_gray;
+//            [cell.contentView addSubview:imageView];
+//            
+//        }
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        
+//        UIImageView *imageV = (UIImageView *)[cell.contentView viewWithTag:101];
+//        UIButton *button = (UIButton *)[cell.contentView viewWithTag:100];
+//        UILabel *label = (UILabel *)[cell.contentView viewWithTag:102];
+//
+//        
+//        if (indexPath.section == 0) {
+//            
+//            label.hidden = NO;
+//            imageV.hidden = NO;
+//            button.hidden = NO;
+//            if (self.pmodel.like == 0) {
+//                button.selected = NO;
+//            }else{
+//            
+//                button.selected = YES;
+//            }
+//            
+//            
+//            Charge *charge;
+//            for (Charge *mo in self.pmodel.charges) {
+//                if (mo.uid == self.pmodel.charge) {
+//                    charge = mo;
+//                }
+//            }
+//            
+//            label.text = [InputCheck handleActiveWith:self.pmodel.lastActiveAt];
+//            [label sizeToFit];
+//
+//            if (charge.name == nil) {
+//                cell.imageView.image = nil;
+//            } else {
+//                cell.imageView.image = [UIImage imageNamed:@"zuanshi_fen"];
+//                
+//            }
+//            cell.textLabel.text = charge.name;
+//            cell.textLabel.textColor = Color_nav;
+//            cell.textLabel.font = [UIFont systemFontOfSize:14];
+//            label.frame = CGRectMake(0, 0, kScreenWidth - 70, 64);
+//
+//
+//        }else{
+//            
+//            label.hidden = YES;
+//            imageV.hidden = YES;
+//            button.hidden = YES;
+//            cell.textLabel.text = self.dataList[indexPath.section][indexPath.row];
+//            cell.textLabel.textColor = Color_Text_black;
+//            cell.textLabel.font = [UIFont systemFontOfSize:14];
+//            cell.detailTextLabel.textColor = Color_Text_gray;
+//            cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+//            if (indexPath.row == 0) {
+//                if (self.isFromHeader) {
+//                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",self.personUID];
+//                } else {
+//                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",self.model.uid];
+//                }
+//            }else if(indexPath.row == 1){
+//                cell.detailTextLabel.text = [[CityTool sharedCityTool] getAdressWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
+//            }else if(indexPath.row == 2){
+//            
+//                cell.detailTextLabel.text = [InputCheck getXingzuo:[NSDate dateWithTimeIntervalSince1970:[_pmodel.birthday longLongValue] / 1000]];
+//            }else if(indexPath.row == 3){
+//             
+//                NSArray *array = [InputCheck getpreferOptions];
+//                cell.detailTextLabel.text = [NSString stringWithFormat:@"%@-%@",array[self.pmodel.preferOnlineOption],array[self.pmodel.preferOfflineOption]];
+//                
+//            }
+//            
+//        }
+//        cell.detailTextLabel.textColor = Color_Text_gray;
+//        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+//        
+//        
+//        return cell;
+//
+//    }
     
 }
 
@@ -503,21 +520,29 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 10;
+    return 0;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 3) {
-        return [PersonCell whc_CellHeightForIndexPath:indexPath tableView:tableView];
-    }
-    if (indexPath.section == 1) {
-        
-        return (kScreenWidth - 45) / 4.0 + 44 + 10;
+//    if (indexPath.section == 3) {
+//        return [PersonCell whc_CellHeightForIndexPath:indexPath tableView:tableView];
+//    }
+//    if (indexPath.section == 1) {
+//        
+//        return (kScreenWidth - 45) / 4.0 + 44 + 10;
+//    }
+//    
+//    return 64;
+    if (indexPath.row == 0) {
+        return SCREEN_W + 25;
+    } else if (indexPath.row == 1) {
+        return 74;
+    } else {
+        return 280;
     }
     
-    return 64;
 
 }
 

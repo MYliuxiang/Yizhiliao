@@ -14,7 +14,9 @@
 #import "LHChatVC.h"
 #import "PeriSonMediaCell.h"
 #import "InvitationVC.h"
-
+#import "PersonHeaderCell.h"
+#import "PersonSelectCell.h"
+#import "PersonBottomCell.h"
 @interface PersonalVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UIView *footerView;
