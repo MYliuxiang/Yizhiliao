@@ -1,14 +1,14 @@
 //
-//  SelectedBannersHeader.h
+//  PersonHeaderScroolView.h
 //  Lliaoda
 //
-//  Created by 小牛 on 2017/8/10.
+//  Created by 小牛 on 2017/8/21.
 //  Copyright © 2017年 刘翔. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SelectedBannersHeader : UICollectionReusableView<UIScrollViewDelegate>
+@interface PersonHeaderScroolView : UIView<UIScrollViewDelegate>
 {
     UIScrollView *scrollView;
     UIPageControl *pageControl;

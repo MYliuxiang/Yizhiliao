@@ -552,6 +552,14 @@
 		843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */; };
 		843EC0261F29D9750051AFD3 /* OrderID.m in Sources */ = {isa = PBXBuildFile; fileRef = 843EC0251F29D9750051AFD3 /* OrderID.m */; };
 		848A0AB41F45A44000057C5B /* ar1502964098.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 848A0AB31F45A44000057C5B /* ar1502964098.mp4 */; };
+		84B8CDA91F4AC92700A13D27 /* PersonHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */; };
+		84B8CDAA1F4AC92700A13D27 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */; };
+		84B8CDAD1F4AD3F800A13D27 /* PersonHeaderScroolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDAC1F4AD3F800A13D27 /* PersonHeaderScroolView.m */; };
+		84B8CDB11F4AD74E00A13D27 /* PersonSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDAF1F4AD74E00A13D27 /* PersonSelectCell.m */; };
+		84B8CDB21F4AD74E00A13D27 /* PersonSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDB01F4AD74E00A13D27 /* PersonSelectCell.xib */; };
+		84B8CDB51F4AD92300A13D27 /* UIButton+backgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDB41F4AD92300A13D27 /* UIButton+backgroundColor.m */; };
+		84B8CDB91F4ADBE100A13D27 /* PersonBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDB71F4ADBE100A13D27 /* PersonBottomCell.m */; };
+		84B8CDBA1F4ADBE100A13D27 /* PersonBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDB81F4ADBE100A13D27 /* PersonBottomCell.xib */; };
 		84F970CC1F38541B00336234 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84F970CE1F38541B00336234 /* Localizable.strings */; };
 		84F970D51F38946100336234 /* LanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F970D31F38946100336234 /* LanguageVC.m */; };
 		84F970D61F38946100336234 /* LanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F970D41F38946100336234 /* LanguageVC.xib */; };
@@ -1405,6 +1413,19 @@
 		848A0AB11F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		848A0AB21F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		848A0AB31F45A44000057C5B /* ar1502964098.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ar1502964098.mp4; sourceTree = "<group>"; };
+		84B8CDA61F4AC92700A13D27 /* PersonHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHeaderCell.h; sourceTree = "<group>"; };
+		84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeaderCell.m; sourceTree = "<group>"; };
+		84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonHeaderCell.xib; sourceTree = "<group>"; };
+		84B8CDAB1F4AD3F800A13D27 /* PersonHeaderScroolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHeaderScroolView.h; sourceTree = "<group>"; };
+		84B8CDAC1F4AD3F800A13D27 /* PersonHeaderScroolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeaderScroolView.m; sourceTree = "<group>"; };
+		84B8CDAE1F4AD74E00A13D27 /* PersonSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonSelectCell.h; sourceTree = "<group>"; };
+		84B8CDAF1F4AD74E00A13D27 /* PersonSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonSelectCell.m; sourceTree = "<group>"; };
+		84B8CDB01F4AD74E00A13D27 /* PersonSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonSelectCell.xib; sourceTree = "<group>"; };
+		84B8CDB31F4AD92300A13D27 /* UIButton+backgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+backgroundColor.h"; sourceTree = "<group>"; };
+		84B8CDB41F4AD92300A13D27 /* UIButton+backgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+backgroundColor.m"; sourceTree = "<group>"; };
+		84B8CDB61F4ADBE100A13D27 /* PersonBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonBottomCell.h; sourceTree = "<group>"; };
+		84B8CDB71F4ADBE100A13D27 /* PersonBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonBottomCell.m; sourceTree = "<group>"; };
+		84B8CDB81F4ADBE100A13D27 /* PersonBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonBottomCell.xib; sourceTree = "<group>"; };
 		84F970CD1F38541B00336234 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		84F970CF1F38541C00336234 /* id-ID */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id-ID"; path = "id-ID.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		84F970D21F38946100336234 /* LanguageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageVC.h; sourceTree = "<group>"; };
@@ -2735,6 +2756,8 @@
 		22B1091B1EA4A4FE00E35B74 /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
+				84B8CDB31F4AD92300A13D27 /* UIButton+backgroundColor.h */,
+				84B8CDB41F4AD92300A13D27 /* UIButton+backgroundColor.m */,
 				2265F8C81F3C0D98001A6308 /* UIButton+HQCustomIcon.h */,
 				2265F8C91F3C0D98001A6308 /* UIButton+HQCustomIcon.m */,
 				226B6FEE1F3858FF00AEC7D2 /* 多语言 */,
@@ -2818,6 +2841,17 @@
 				22453BAB1F1C74290000C006 /* UserCell.h */,
 				22453BAC1F1C74290000C006 /* UserCell.m */,
 				22453BAD1F1C74290000C006 /* UserCell.xib */,
+				84B8CDA61F4AC92700A13D27 /* PersonHeaderCell.h */,
+				84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */,
+				84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */,
+				84B8CDAB1F4AD3F800A13D27 /* PersonHeaderScroolView.h */,
+				84B8CDAC1F4AD3F800A13D27 /* PersonHeaderScroolView.m */,
+				84B8CDAE1F4AD74E00A13D27 /* PersonSelectCell.h */,
+				84B8CDAF1F4AD74E00A13D27 /* PersonSelectCell.m */,
+				84B8CDB01F4AD74E00A13D27 /* PersonSelectCell.xib */,
+				84B8CDB61F4ADBE100A13D27 /* PersonBottomCell.h */,
+				84B8CDB71F4ADBE100A13D27 /* PersonBottomCell.m */,
+				84B8CDB81F4ADBE100A13D27 /* PersonBottomCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3230,12 +3264,14 @@
 				222AA07A1EB071910038416D /* B_49@2x.gif in Resources */,
 				222AA0041EB071910038416D /* chatBar_colorMore_camera@2x.png in Resources */,
 				222AA0841EB071910038416D /* B_58@2x.gif in Resources */,
+				84B8CDBA1F4ADBE100A13D27 /* PersonBottomCell.xib in Resources */,
 				222AA0681EB071910038416D /* B_32@2x.gif in Resources */,
 				222AA01D1EB071910038416D /* C_111@2x.png in Resources */,
 				222AA0141EB071910038416D /* C_102@2x.png in Resources */,
 				224F24611EA73EB200C0FDC6 /* VideoRZTwoCell.xib in Resources */,
 				223BDF151EA70E51006DCD65 /* SetPriceVC.xib in Resources */,
 				222AA08B1EB071910038416D /* B_64@2x.gif in Resources */,
+				84B8CDAA1F4AC92700A13D27 /* PersonHeaderCell.xib in Resources */,
 				222AA0A81EB071910038416D /* B_90@2x.gif in Resources */,
 				222AA04C1EB071910038416D /* B_114@2x.gif in Resources */,
 				84F970D61F38946100336234 /* LanguageVC.xib in Resources */,
@@ -3295,6 +3331,7 @@
 				222AA08D1EB071910038416D /* B_66@2x.gif in Resources */,
 				222AA04F1EB071910038416D /* B_117@2x.gif in Resources */,
 				222AA0501EB071910038416D /* B_118@2x.gif in Resources */,
+				84B8CDB21F4AD74E00A13D27 /* PersonSelectCell.xib in Resources */,
 				222AA0381EB071910038416D /* B_05@2x.gif in Resources */,
 				22721FAE1EE7E3E7003A19D3 /* MediaCell.xib in Resources */,
 				222FA8751EFD198100E91AE5 /* GiftCell.xib in Resources */,
@@ -3636,6 +3673,7 @@
 				22844F5B1ED2A1B800A9E32E /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				2286DC6A1EF26AFE00FDF801 /* LHChatVideoBubbleView.m in Sources */,
 				222AA1681EB071C20038416D /* KeyboardEmojiModel.m in Sources */,
+				84B8CDB91F4ADBE100A13D27 /* PersonBottomCell.m in Sources */,
 				222AA1DB1EB0775B0038416D /* UIPasteboard+YYText.m in Sources */,
 				2286DC6C1EF26AFE00FDF801 /* LHChatBarView.m in Sources */,
 				841AD6CD1F3C6CB400A3CE0D /* SelectedBannersHeader.m in Sources */,
@@ -3650,6 +3688,7 @@
 				222AA1DF1EB0775B0038416D /* YYTextUtilities.m in Sources */,
 				228B89DC1EA8671B002B8D3C /* SPHttpWithYYCache.m in Sources */,
 				224F24601EA73EB200C0FDC6 /* VideoRZTwoCell.m in Sources */,
+				84B8CDAD1F4AD3F800A13D27 /* PersonHeaderScroolView.m in Sources */,
 				84F970D51F38946100336234 /* LanguageVC.m in Sources */,
 				22DC05651F39A91C00E2E015 /* PchTool.m in Sources */,
 				228C307F1EB1A12800C2B55F /* ServiceErrorType.m in Sources */,
@@ -3670,6 +3709,7 @@
 				222AA0CF1EB071A50038416D /* TZAssetCell.m in Sources */,
 				222FA86E1EFD150400E91AE5 /* GiftsView.m in Sources */,
 				22844F521ED2A1B800A9E32E /* IQUIView+Hierarchy.m in Sources */,
+				84B8CDA91F4AC92700A13D27 /* PersonHeaderCell.m in Sources */,
 				222AA1C61EB0775B0038416D /* YYAnimatedImageView.m in Sources */,
 				22844F4F1ED2A1B800A9E32E /* IQNSArray+Sort.m in Sources */,
 				228B89C61EA85F3D002B8D3C /* VideoRZResultVC.m in Sources */,
@@ -3695,6 +3735,7 @@
 				224F24561EA7339200C0FDC6 /* UITableViewCell+WHC_AutoHeightForCell.m in Sources */,
 				228CF7341EDE7C2C0045986D /* MyVideoVC.m in Sources */,
 				222AA1741EB071C20038416D /* LHIMDBManager.m in Sources */,
+				84B8CDB11F4AD74E00A13D27 /* PersonSelectCell.m in Sources */,
 				222B383A1ED9642B009DB58F /* XLPhotoBrowser.m in Sources */,
 				22844F571ED2A1B800A9E32E /* IQTextView.m in Sources */,
 				22721FAD1EE7E3E7003A19D3 /* MediaCell.m in Sources */,
@@ -3729,6 +3770,7 @@
 				222AA1611EB071C20038416D /* KeyboardVC.m in Sources */,
 				222AA1CB1EB0775B0038416D /* YYTextContainerView.m in Sources */,
 				222B38641ED96843009DB58F /* MSSBrowseZoomScrollView.m in Sources */,
+				84B8CDB51F4AD92300A13D27 /* UIButton+backgroundColor.m in Sources */,
 				843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */,
 				8420E7221F2773F000ADA26E /* LHChatGiftBubbleView.m in Sources */,
 				222AA1751EB071C20038416D /* LHPhotoPreviewCell.m in Sources */,
