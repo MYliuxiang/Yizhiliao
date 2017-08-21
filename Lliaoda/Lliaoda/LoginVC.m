@@ -64,6 +64,10 @@
     self.chineseButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.chineseButton.layer.borderWidth = 1;
     
+    self.arabicButton.layer.cornerRadius = 22;
+    self.arabicButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.arabicButton.layer.borderWidth = 1;
+    
     self.indonesiaButton.layer.cornerRadius = 22;
     self.indonesiaButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.indonesiaButton.layer.borderWidth = 1;
@@ -403,6 +407,21 @@
     }];
 
     [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
+    [LXUserDefaults synchronize];
+    
+    [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
+    [LXUserDefaults synchronize];
+}
+
+- (IBAction)arabicButtonAC:(id)sender {
+    [UIView animateWithDuration:.35 animations:^{
+        self.languageBGView.hidden = YES;
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+    [LXUserDefaults setObject:@"ar" forKey:@"appLanguage"];
     [LXUserDefaults synchronize];
     
     [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
