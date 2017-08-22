@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bSx-aB-e82">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="5yS-vI-yoS" id="7uH-v7-YF8"/>
@@ -84,7 +84,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jqX-r4-0nk" firstAttribute="top" secondItem="bSx-aB-e82" secondAttribute="bottom" id="1dc-Qj-W59"/>
+                            <constraint firstItem="jqX-r4-0nk" firstAttribute="top" secondItem="bSx-aB-e82" secondAttribute="bottom" constant="49" id="1dc-Qj-W59"/>
                             <constraint firstAttribute="trailing" secondItem="bSx-aB-e82" secondAttribute="trailing" id="OfF-mY-Bjo"/>
                             <constraint firstItem="bSx-aB-e82" firstAttribute="top" secondItem="34v-vK-J9k" secondAttribute="top" id="kSp-Jt-nU2"/>
                             <constraint firstItem="bSx-aB-e82" firstAttribute="leading" secondItem="34v-vK-J9k" secondAttribute="leading" id="zck-bf-2Kh"/>
@@ -483,7 +483,7 @@
                                 </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Kb-Oa-2nd">
-                                <rect key="frame" x="0.0" y="63" width="375" height="604"/>
+                                <rect key="frame" x="0.0" y="63" width="375" height="555"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oq0-3Q-WaB">
                                     <size key="itemSize" width="50" height="50"/>
@@ -513,7 +513,7 @@
                             <constraint firstItem="Jk5-RO-9oP" firstAttribute="top" secondItem="z6a-Wt-A0P" secondAttribute="top" constant="63" id="7OT-Za-27S"/>
                             <constraint firstItem="5Kb-Oa-2nd" firstAttribute="leading" secondItem="z6a-Wt-A0P" secondAttribute="leading" id="MN8-qI-hND"/>
                             <constraint firstItem="5Kb-Oa-2nd" firstAttribute="top" secondItem="z6a-Wt-A0P" secondAttribute="top" constant="63" id="PcX-WL-ZFI"/>
-                            <constraint firstAttribute="bottom" secondItem="5Kb-Oa-2nd" secondAttribute="bottom" id="QbG-hb-bHf"/>
+                            <constraint firstAttribute="bottom" secondItem="5Kb-Oa-2nd" secondAttribute="bottom" constant="49" id="QbG-hb-bHf"/>
                             <constraint firstAttribute="trailing" secondItem="Jk5-RO-9oP" secondAttribute="trailing" id="S6s-yb-Kkb"/>
                             <constraint firstAttribute="trailing" secondItem="5Kb-Oa-2nd" secondAttribute="trailing" id="XXE-vE-obT"/>
                             <constraint firstItem="37f-Gz-Gdz" firstAttribute="top" secondItem="Jk5-RO-9oP" secondAttribute="bottom" id="nJl-eF-MI8"/>

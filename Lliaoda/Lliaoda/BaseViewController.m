@@ -71,7 +71,7 @@
     _backButtton = [UIButton buttonWithType:UIButtonTypeCustom];
     _backButtton.frame = CGRectMake(0, 20, 44, 44);
     [_backButtton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [_backButtton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [_backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
 //    [_backButtton setTitle:LXSring(@"返回") forState:UIControlStateNormal];
 //    [_backButtton setTitleColor:Color_blue forState:UIControlStateNormal];
     _backButtton.titleLabel.font =[UIFont systemFontOfSize:16];
