@@ -214,68 +214,6 @@
             endingLineNumber = "758"
             landmarkName = "-jubaoWithtype:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__28-[PersonalVC hideRenandGift]_block_invoke"
-                  moduleName = "Lliaoda"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
-                  timestampString = "525063964.672934"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "758"
-                  endingLineNumber = "758"
-                  offsetFromSymbolStart = "228">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.700"
-                  moduleName = "Lliaoda"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
-                  timestampString = "525063964.674591"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "758"
-                  endingLineNumber = "758"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.701"
-                  moduleName = "Lliaoda"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
-                  timestampString = "525063964.676224"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "758"
-                  endingLineNumber = "758"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__28-[PersonalVC hideRenandGift]_block_invoke.703"
-                  moduleName = "Lliaoda"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuxiang/Desktop/TW/Lliaoda/Lliaoda/PersonalVC.m"
-                  timestampString = "525063964.67794"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "760"
-                  endingLineNumber = "760"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
