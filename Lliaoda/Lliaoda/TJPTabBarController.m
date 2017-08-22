@@ -24,16 +24,16 @@
 
 @implementation TJPTabBarController
 
-//+ (instancetype)shareInstance
-//{
-//    static TJPTabBarController *tabBarC;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        tabBarC = [[TJPTabBarController alloc] init];
-//    });
-//    return tabBarC;
-//}
-//
++ (instancetype)shareInstance
+{
+    static TJPTabBarController *tabBarC;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        tabBarC = [[TJPTabBarController alloc] init];
+    });
+    return tabBarC;
+}
+
 //+ (instancetype)tabBarControllerWitnAddChildVCBlock:(void (^)(TJPTabBarController *))addVCBlock
 //{
 //    TJPTabBarController *tabBarVC = [[TJPTabBarController alloc] init];

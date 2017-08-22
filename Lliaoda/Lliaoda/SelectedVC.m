@@ -21,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.text = LXSring(@"精選");
+    self.bannersArray = [NSMutableArray array];
     _flowlayout.sectionInset=UIEdgeInsetsMake(15, 15, 15, 15);
     _flowlayout.minimumLineSpacing= 15;
     _flowlayout.minimumInteritemSpacing= 15;
@@ -34,7 +35,7 @@
     [_collectionView registerNib:[UINib nibWithNibName:@"SelectedCell" bundle:nil] forCellWithReuseIdentifier:@"SelectedCellID"];
     [_collectionView registerNib:[UINib nibWithNibName:@"SelectedHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID"];
 //    [_collectionView registerNib:[UINib nibWithNibName:@"SelectedBannersHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1"];
-    [_collectionView registerClass:[SelectedBannersHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1"];
+    [_collectionView registerClass:[BannerView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1"];
     
     _collectionView.backgroundColor = [UIColor clearColor];
     
@@ -67,20 +68,20 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 self.model = [Mymodel mj_objectWithKeyValues:result[@"data"]];
-                if (self.model.auth == 2) {
-                    [LXUserDefaults setObject:@"1" forKey:itemNumber];
-                    [LXUserDefaults synchronize];
-                    self.tableView.hidden = NO;
-                    self.collectionView.hidden = YES;
-                    [_tableView.mj_header beginRefreshing];
-                    
-                }else{
+//                if (self.model.auth == 2) {
+//                    [LXUserDefaults setObject:@"1" forKey:itemNumber];
+//                    [LXUserDefaults synchronize];
+//                    self.tableView.hidden = NO;
+//                    self.collectionView.hidden = YES;
+//                    [_tableView.mj_header beginRefreshing];
+//                    
+//                }else{
                     [LXUserDefaults setObject:@"2" forKey:itemNumber];
                     [LXUserDefaults synchronize];
                     self.tableView.hidden = YES;
                     self.collectionView.hidden = NO;
                     [_collectionView.mj_header beginRefreshing];
-                }
+//                }
                 
             } else{
                 [SVProgressHUD showErrorWithStatus:result[@"message"]];
@@ -128,11 +129,11 @@
     
     if(_isdownLoad){
     
-        params = @{@"begin":[NSString stringWithFormat:@"%d",_begin],@"count":@"11"};
+        params = @{@"begin":[NSString stringWithFormat:@"%d",_begin],@"count":@"20"};
         
     }else{
         
-        params = @{@"begin":[NSString stringWithFormat:@"%d",_begin],@"count":@"10"};
+        params = @{@"begin":[NSString stringWithFormat:@"%d",_begin],@"count":@"20"};
     
     }
     
@@ -142,11 +143,11 @@
             NSLog(@"%@",result[@"message"]);
             if (_isdownLoad) {
                 
-                _begin += 11;
+                _begin += 20;
                 
             }else{
                 
-                _begin += 10;
+                _begin += 20;
                 
             }
             NSDictionary *dic = result;
@@ -571,17 +572,13 @@
             reusableview = _heardView;
         } else {
         
-            SelectedBannersHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1" forIndexPath:indexPath];
-            headerView.linksArray = self.bannersLinksArray;
-            headerView.titlesArray = self.bannersTitlesArray;
-            headerView.imagesArray = self.bannersImagesArray;
+            BannerView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1" forIndexPath:indexPath];
+            headerView.list = self.bannersArray;
             reusableview = headerView;
         }
-       
 
-       }
+    }
     
-
     return reusableview;
 
 }
