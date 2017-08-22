@@ -12,5 +12,6 @@
 
 + (NSString *)getMainUrl;
 + (NSString *)getagoreappID;
++ (NSString *)getDemoUrl;
 
 @end

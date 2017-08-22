@@ -47,6 +47,24 @@
     return mainStr;
     
 }
+
++ (NSString *)getDemoUrl
+{
+
+    NSString *mainStr;
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-Hant"]) {
+        mainStr = @"https://apl.yizhiliao.tv/api/";
+    }else if ([lang hasPrefix:@"id"]){
+        mainStr = @"https://aplid.yizhiliao.tv/api/";
+    }else{
+        mainStr = @"https://apl.yizhiliao.tv/api/";
+    }
+    
+    return mainStr;
+
+}
+
 + (NSString *)getagoreappID
 {
     
