@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vYV-5a-hLZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vYV-5a-hLZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -542,19 +542,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NVw-aj-Yfm">
-                                <rect key="frame" x="0.0" y="145" width="375" height="555"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NVw-aj-Yfm">
+                                <rect key="frame" x="15" y="79" width="345" height="524"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="DVC-o1-1Ai" id="BvO-Ja-ej0"/>
                                     <outlet property="delegate" destination="DVC-o1-1Ai" id="OVQ-w7-7Jm"/>
                                 </connections>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1j-BL-67B">
-                                <rect key="frame" x="0.0" y="63" width="375" height="555"/>
+                                <rect key="frame" x="15" y="79" width="345" height="524"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暫時沒有消息，去交些新朋友吧！😊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n54-zf-3GS">
-                                        <rect key="frame" x="53.5" y="100" width="268" height="20"/>
+                                        <rect key="frame" x="38.5" y="100" width="268" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -569,13 +569,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NVw-aj-Yfm" firstAttribute="top" secondItem="e45-pg-LGN" secondAttribute="top" constant="63" id="2ie-xL-Mql"/>
+                            <constraint firstItem="NVw-aj-Yfm" firstAttribute="top" secondItem="e45-pg-LGN" secondAttribute="top" constant="79" id="2ie-xL-Mql"/>
                             <constraint firstItem="g1j-BL-67B" firstAttribute="bottom" secondItem="NVw-aj-Yfm" secondAttribute="bottom" id="KCq-r7-jZ6"/>
-                            <constraint firstAttribute="trailing" secondItem="NVw-aj-Yfm" secondAttribute="trailing" id="L1H-xF-nMM"/>
+                            <constraint firstAttribute="trailing" secondItem="NVw-aj-Yfm" secondAttribute="trailing" constant="15" id="L1H-xF-nMM"/>
                             <constraint firstItem="g1j-BL-67B" firstAttribute="leading" secondItem="NVw-aj-Yfm" secondAttribute="leading" id="MkG-ta-bT1"/>
-                            <constraint firstItem="NVw-aj-Yfm" firstAttribute="leading" secondItem="e45-pg-LGN" secondAttribute="leading" id="U8v-PK-75D"/>
+                            <constraint firstItem="NVw-aj-Yfm" firstAttribute="leading" secondItem="e45-pg-LGN" secondAttribute="leading" constant="15" id="U8v-PK-75D"/>
                             <constraint firstItem="g1j-BL-67B" firstAttribute="top" secondItem="NVw-aj-Yfm" secondAttribute="top" id="d34-Vv-0Lf"/>
-                            <constraint firstAttribute="bottom" secondItem="NVw-aj-Yfm" secondAttribute="bottom" constant="49" id="ecZ-hT-sFi"/>
+                            <constraint firstAttribute="bottom" secondItem="NVw-aj-Yfm" secondAttribute="bottom" constant="64" id="ecZ-hT-sFi"/>
                             <constraint firstItem="g1j-BL-67B" firstAttribute="trailing" secondItem="NVw-aj-Yfm" secondAttribute="trailing" id="ttY-xd-GEn"/>
                         </constraints>
                     </view>
