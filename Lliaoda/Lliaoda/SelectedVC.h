@@ -14,6 +14,7 @@
 #import "UserModel.h"
 #import <SDCycleScrollView.h>
 #import "SelectedBannersHeader.h"
+#import "BannerView.h"
 
 @interface SelectedVC : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate>
 {
