@@ -27,7 +27,7 @@
     _flowlayout.minimumInteritemSpacing= 15;
     _flowlayout.itemSize = CGSizeMake((kScreenWidth - 45) / 2.0,(kScreenWidth - 45) / 2.0 + 45);
     [_flowlayout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
-    
+    self.isShowMessageButton = YES;
     //設定代理
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor whiteColor];
