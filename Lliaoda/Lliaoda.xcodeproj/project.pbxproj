@@ -422,6 +422,7 @@
 		227303031F4AC75D0069F53B /* TJPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227303021F4AC75D0069F53B /* TJPTabBarController.m */; };
 		227303061F4AC7630069F53B /* TJPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 227303051F4AC7630069F53B /* TJPTabBar.m */; };
 		227303091F4ADC390069F53B /* LxBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 227303081F4ADC390069F53B /* LxBarItem.m */; };
+		2273030C1F4AF2A40069F53B /* LxCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273030B1F4AF2A40069F53B /* LxCollectionHeaderView.m */; };
 		227553781ECED99900CE6507 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 227553731ECED99900CE6507 /* README.txt */; };
 		227971CC1EF8DC0900BC8E18 /* DateUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227971C91EF8DC0900BC8E18 /* DateUnit.m */; };
 		227971CD1EF8DC0900BC8E18 /* FileUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227971CB1EF8DC0900BC8E18 /* FileUnit.m */; };
@@ -1187,6 +1188,8 @@
 		227303051F4AC7630069F53B /* TJPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPTabBar.m; sourceTree = "<group>"; };
 		227303071F4ADC390069F53B /* LxBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxBarItem.h; sourceTree = "<group>"; };
 		227303081F4ADC390069F53B /* LxBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxBarItem.m; sourceTree = "<group>"; };
+		2273030A1F4AF2A40069F53B /* LxCollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxCollectionHeaderView.h; sourceTree = "<group>"; };
+		2273030B1F4AF2A40069F53B /* LxCollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxCollectionHeaderView.m; sourceTree = "<group>"; };
 		227553731ECED99900CE6507 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		227553741ECED99900CE6507 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		227553751ECED99900CE6507 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -2839,6 +2842,8 @@
 				22B109361EA4B56500E35B74 /* SelectedHeader.h */,
 				22B109371EA4B56500E35B74 /* SelectedHeader.m */,
 				22B109381EA4B56500E35B74 /* SelectedHeader.xib */,
+				2273030A1F4AF2A40069F53B /* LxCollectionHeaderView.h */,
+				2273030B1F4AF2A40069F53B /* LxCollectionHeaderView.m */,
 				841AD6CA1F3C6CB400A3CE0D /* SelectedBannersHeader.h */,
 				841AD6CB1F3C6CB400A3CE0D /* SelectedBannersHeader.m */,
 				841AD6CC1F3C6CB400A3CE0D /* SelectedBannersHeader.xib */,
@@ -3696,6 +3701,7 @@
 				227303061F4AC7630069F53B /* TJPTabBar.m in Sources */,
 				223DE5AF1F20AB5100745E94 /* OpenGLView20.m in Sources */,
 				222B381E1ED9642B009DB58F /* UIImage+XLExtension.m in Sources */,
+				2273030C1F4AF2A40069F53B /* LxCollectionHeaderView.m in Sources */,
 				222AA1D81EB0775B0038416D /* YYTextRunDelegate.m in Sources */,
 				223DE5AA1F20AB3700745E94 /* LivePusher.m in Sources */,
 				2244B4671F00B96800685217 /* PresentView.m in Sources */,
