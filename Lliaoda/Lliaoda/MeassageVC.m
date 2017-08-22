@@ -77,7 +77,9 @@ static MeassageVC *this;
     UIBezierPath *aPath = [[UIBezierPath alloc] init];
     [aPath moveToPoint:CGPointMake(0, 0)];
    
-    
+    self.tableView.layer.cornerRadius = 5;
+//    self.tableView.layer.borderWidth = .5;
+//    self.tableView.layer.borderColor = UIColorFromRGB(0xD8D8D8).CGColor;
     // Do any additional setup after loading the view.
     self.text = LXSring(@"訊息");
     self.nomessageLabel.text = LXSring(@"暫時沒有消息，去交些新朋友吧！😊");
@@ -291,6 +293,11 @@ static MeassageVC *this;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.count = self.dataList[indexPath.row];
+    if (indexPath.row + 1 == self.dataList.count) {
+        cell.lineView.hidden = YES;
+    } else {
+        cell.lineView.hidden = NO;
+    }
     return cell;
     
     

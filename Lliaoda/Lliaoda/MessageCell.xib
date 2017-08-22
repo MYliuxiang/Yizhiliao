@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -52,15 +52,25 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVz-TH-GrK">
+                        <rect key="frame" x="90" y="89" width="215" height="0.5"/>
+                        <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="t44-sU-8lv"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SYY-n1-MCj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="1Yw-Ge-Onm"/>
+                    <constraint firstItem="SYY-n1-MCj" firstAttribute="trailing" secondItem="PVz-TH-GrK" secondAttribute="trailing" id="5Wa-RO-02U"/>
                     <constraint firstItem="bvo-jC-xpg" firstAttribute="leading" secondItem="6mX-w0-HCg" secondAttribute="trailing" constant="15" id="BXt-uI-ren"/>
                     <constraint firstItem="6mX-w0-HCg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="GFC-gd-GZV"/>
                     <constraint firstAttribute="trailing" secondItem="SYY-n1-MCj" secondAttribute="trailing" constant="15" id="TNJ-0l-PPv"/>
                     <constraint firstItem="bvo-jC-xpg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="aNI-EQ-4vb"/>
                     <constraint firstItem="lyi-GR-E6K" firstAttribute="leading" secondItem="6mX-w0-HCg" secondAttribute="trailing" constant="15" id="hnv-Nj-feu"/>
+                    <constraint firstAttribute="bottom" secondItem="PVz-TH-GrK" secondAttribute="bottom" id="ihE-0U-UaI"/>
                     <constraint firstAttribute="trailing" secondItem="lyi-GR-E6K" secondAttribute="trailing" constant="15" id="n2i-1b-n9I"/>
+                    <constraint firstItem="PVz-TH-GrK" firstAttribute="leading" secondItem="bvo-jC-xpg" secondAttribute="leading" id="pSi-ht-Vvn"/>
                     <constraint firstItem="6mX-w0-HCg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="t9r-yk-wx4"/>
                     <constraint firstAttribute="bottom" secondItem="lyi-GR-E6K" secondAttribute="bottom" constant="25" id="xWj-2A-Cc1"/>
                 </constraints>
@@ -69,6 +79,7 @@
                 <outlet property="contentLab" destination="lyi-GR-E6K" id="vA5-nw-NGO"/>
                 <outlet property="countLabel" destination="9dW-eW-Ml4" id="xQi-Qa-pCH"/>
                 <outlet property="headerImageView" destination="6mX-w0-HCg" id="eGv-Do-WyC"/>
+                <outlet property="lineView" destination="PVz-TH-GrK" id="EM4-v0-l7N"/>
                 <outlet property="nickNameLab" destination="bvo-jC-xpg" id="8UO-Es-T7S"/>
                 <outlet property="timeLabel" destination="SYY-n1-MCj" id="91V-uC-758"/>
             </connections>

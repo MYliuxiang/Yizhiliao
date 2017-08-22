@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (nonatomic,retain) MessageCount *count;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
 
 @end

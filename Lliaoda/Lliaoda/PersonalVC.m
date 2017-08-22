@@ -52,10 +52,10 @@
         
         [self addrightImage:@"dengdeng"];
         self.footerView.width = kScreenWidth;
-        self.footerView.height = 64;
-        self.footerView.frame = CGRectMake(0, kScreenHeight - 64, kScreenWidth, 64);
+        self.footerView.height = 49;
+        self.footerView.frame = CGRectMake(0, kScreenHeight - 49, kScreenWidth, 49);
         [self.view addSubview:self.footerView];
-        self.layoutConstraint.constant = 64;
+        self.layoutConstraint.constant = 49;
         
         if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
             self.label1.text = LXSring(@"提示用戶送禮");
@@ -99,10 +99,10 @@
                 if (_videoEnble) {
                     
                     self.footerView.width = kScreenWidth;
-                    self.footerView.height = 64;
-                    self.footerView.frame = CGRectMake(0, kScreenHeight - 64, kScreenWidth, 64);
+                    self.footerView.height = 49;
+                    self.footerView.frame = CGRectMake(0, kScreenHeight - 49, kScreenWidth, 49);
                     [self.view addSubview:self.footerView];
-                    self.constraint.constant = 64;
+                    self.constraint.constant = 49;
                     [self.videoBtn setImage:[UIImage imageNamed:@"shipin_bai"] forState:UIControlStateNormal];
 
                     [self.videoBtn setTitle:LXSring(@"視訊通话") forState:UIControlStateNormal];
@@ -110,10 +110,10 @@
                 }else{
                     
                     self.footerView.width = kScreenWidth;
-                    self.footerView.height = 64;
-                    self.footerView.frame = CGRectMake(0, kScreenHeight - 64, kScreenWidth, 64);
+                    self.footerView.height = 49;
+                    self.footerView.frame = CGRectMake(0, kScreenHeight - 49, kScreenWidth, 49);
                     [self.view addSubview:self.footerView];
-                    self.constraint.constant = 64;
+                    self.constraint.constant = 49;
                     [self.videoBtn setImage:[UIImage imageNamed:@"liaotian"] forState:UIControlStateNormal];
                      [self.videoBtn setTitle:LXSring(@"聊天") forState:UIControlStateNormal];
                     self.constraint.constant = 64;

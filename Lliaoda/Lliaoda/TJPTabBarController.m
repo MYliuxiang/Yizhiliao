@@ -96,64 +96,46 @@
 //        
 //    }];
     
-    tabBarView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_H - 70, SCREEN_W, 70)];
-    tabBarView.backgroundColor = [UIColor clearColor];
+    tabBarView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_H - 49, SCREEN_W, 49)];
+    tabBarView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:tabBarView];
     
-    tabBarView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 21, SCREEN_W / 2, 49)];
-    tabBarView1.backgroundColor = [UIColor whiteColor];
-    [tabBarView addSubview:tabBarView1];
-    
-    tabBarView3 = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_W / 2, 21, SCREEN_W / 2, 49)];
-    tabBarView3.backgroundColor = [UIColor whiteColor];
-    [tabBarView addSubview:tabBarView3];
-    
-    tabBarView2 = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_W - 70) / 2, 0, 70, 70)];
-    tabBarView2.backgroundColor = [UIColor clearColor];
-    [tabBarView addSubview:tabBarView2];
+//    tabBarView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W / 2, 49)];
+//    tabBarView1.backgroundColor = [UIColor clearColor];
+//    [tabBarView addSubview:tabBarView1];
+//    
+//    tabBarView3 = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_W / 3 * 2, 0, SCREEN_W / 3, 49)];
+//    tabBarView3.backgroundColor = [UIColor clearColor];
+//    [tabBarView addSubview:tabBarView3];
+//    
+//    tabBarView2 = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_W / 3, 0, 49, 49)];
+//    tabBarView2.backgroundColor = [UIColor clearColor];
+//    [tabBarView addSubview:tabBarView2];
     
     button1 = [UIButton buttonWithType:UIButtonTypeCustom];
     button1.tag = 1;
-    button1.frame = CGRectMake(0, 0, SCREEN_W / 2, 49);
+    button1.frame = CGRectMake(0, 0, SCREEN_W / 3, 49);
     [button1 setImage:[UIImage imageNamed:@"jingxuan_n"] forState:UIControlStateNormal];
     [button1 setImage:[UIImage imageNamed:@"jingxuan_h"] forState:UIControlStateSelected];
-//    [button1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [button1 setTitleColor:UIColorFromRGB(0xfdbe1a) forState:UIControlStateSelected];
-//    [button1 setTitle:@"精选" forState:UIControlStateNormal];
-//    button1.titleLabel.font = [UIFont systemFontOfSize:13];
-//    button1.imageEdgeInsets = UIEdgeInsetsMake(-17, 10, 0, 0);
-//    button1.titleEdgeInsets = UIEdgeInsetsMake(0, 0, -25, 40);
     [button1 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    //button1.selected = YES;
-    [tabBarView1 addSubview:button1];
+    [tabBarView addSubview:button1];
     
     button2 = [UIButton buttonWithType:UIButtonTypeCustom];
     button2.tag = 2;
     button2.backgroundColor = [UIColor clearColor];
-    button2.frame = CGRectMake(0, 0, 70, 70);
+    button2.frame = CGRectMake(tabBarView.width / 2 - 35, -21, 70, 70);
     [button2 setBackgroundImage:[UIImage imageNamed:@"faxian_n"] forState:UIControlStateNormal];
     [button2 setBackgroundImage:[UIImage imageNamed:@"faxian_h"] forState:UIControlStateSelected];
-//    [button2 setTitle:@"攻略" forState:UIControlStateNormal];
-//    button2.titleEdgeInsets = UIEdgeInsetsMake(0, 0, -40, 0);
-//    button2.titleLabel.font = [UIFont systemFontOfSize:13];
-//    [button2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [button2 setTitleColor:UIColorFromRGB(0xA36402) forState:UIControlStateSelected];
     [button2 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [tabBarView2 addSubview:button2];
+    [tabBarView addSubview:button2];
     
     button3 = [UIButton buttonWithType:UIButtonTypeCustom];
     button3.tag = 3;
-    button3.frame = CGRectMake(0, 0, SCREEN_W / 2, 49);
+    button3.frame = CGRectMake(SCREEN_W / 3 * 2, 0, SCREEN_W / 3, 49);
     [button3 setImage:[UIImage imageNamed:@"me_n"] forState:UIControlStateNormal];
     [button3 setImage:[UIImage imageNamed:@"me_h"] forState:UIControlStateSelected];
-//    [button3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [button3 setTitleColor:UIColorFromRGB(0xfdbe1a) forState:UIControlStateSelected];
-//    [button3 setTitle:@"账户" forState:UIControlStateNormal];
-//    button3.imageEdgeInsets = UIEdgeInsetsMake(-17, 40, 0, 0);
-//    button3.titleEdgeInsets = UIEdgeInsetsMake(0, 0, -25, 10);
-//    button3.titleLabel.font = [UIFont systemFontOfSize:13];
     [button3 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [tabBarView3 addSubview:button3];
+    [tabBarView addSubview:button3];
     
     if (self.selectedIndex == 1){
         button1.selected = NO;
