@@ -22,8 +22,11 @@
 @property(nonatomic,retain)UIButton *rightbutton;
 @property(nonatomic,retain)UIButton *leftbutton;
 @property (nonatomic, retain) UIButton *rightChargeButton; // 印尼人工充值按钮
+@property (nonatomic, retain) UIButton *messageButton; // 消息按钮
+@property (nonatomic, retain) UIView *messageBtnBgView; // 消息按钮背景
+@property(nonatomic,retain)UILabel *messageCountLabel;  // 消息数
 @property (nonatomic, assign) BOOL isRight; // 隐藏右侧人工充值按钮
-
+@property (nonatomic, assign) BOOL isShowMessageButton; // 隐藏消息按钮
 - (void)back;
 
 - (void)addrightImage:(NSString *)imageString;
