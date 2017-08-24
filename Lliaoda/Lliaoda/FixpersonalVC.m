@@ -20,10 +20,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"個人資料");
-    self.dataList = @[@[LXSring(@"大頭貼"),LXSring(@"暱稱"),LXSring(@"聊號"),],@[LXSring(@"性别"),LXSring(@"生日"),LXSring(@"地區")],@[LXSring(@"簽名檔")]];
+//    self.dataList = @[@[LXSring(@"大頭貼"),LXSring(@"暱稱"),LXSring(@"聊號"),],@[LXSring(@"性别"),LXSring(@"生日"),LXSring(@"地區")],@[LXSring(@"簽名檔")]];
+    self.dataList = @[@"暱稱",@"性别",@"聊號",@"生日",@"地區",@"行業",@"簽名檔"];
+    self.imagesArr = @[@"nicheng", @"xingbie", @"ID", @"shengri", @"laizi", @"hangye", @"gexingqianming"];
     self.sexDatalist = @[LXSring(@"女"),LXSring(@"男")];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundView = nil;
+    self.tableView.layer.cornerRadius = 5;
     [self crpickerBG];
 
 }
@@ -50,16 +53,20 @@
     
     _pickerBG = [[UIView alloc] initWithFrame:CGRectMake(0,kScreenHeight, kScreenWidth, 216 + 50)];
     _pickerBG.backgroundColor = [UIColor whiteColor];
-    
+    _pickerBG.layer.shadowColor = [UIColor blackColor].CGColor;
+    _pickerBG.layer.shadowRadius = 5.f;
+    _pickerBG.layer.shadowOpacity = .3f;
+    _pickerBG.layer.shadowOffset = CGSizeMake(0, 0);
     UIView *toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
-    toolView.backgroundColor = [UIColor whiteColor];
+//    toolView.backgroundColor = [UIColor whiteColor];
+    toolView.backgroundColor = UIColorFromRGB(0xf7fcff);
     [_pickerBG addSubview:toolView];
     
     
     //確定按钮
     UIButton *cancel = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth-60, 0,50,50)];
     cancel.titleLabel.font = [UIFont systemFontOfSize:14];
-    [cancel setTitleColor:Color_nav forState:UIControlStateNormal];
+    [cancel setTitleColor:UIColorFromRGB(0x00ddcc) forState:UIControlStateNormal];
     [cancel setTitle:LXSring(@"保存") forState:UIControlStateNormal];
     [toolView addSubview:cancel];
     [cancel addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -68,7 +75,7 @@
     //取消按钮
     UIButton *enter = [[UIButton alloc]initWithFrame:CGRectMake(10, 0,50,50)];
     enter.titleLabel.font = [UIFont systemFontOfSize:14];
-    [enter setTitleColor:Color_nav forState:UIControlStateNormal];
+    [enter setTitleColor:UIColorFromRGB(0x666666) forState:UIControlStateNormal];
     [enter setTitle:LXSring(@"取消") forState:UIControlStateNormal];
     [toolView addSubview:enter];
     [enter addTarget:self action:@selector(enterAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -599,189 +606,199 @@
 #pragma  mark --------UITableView Delegete----------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.dataList.count;
+//    return self.dataList.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *array = self.dataList[section];
-    return array.count;
+//    NSArray *array = self.dataList[section];
+//    return array.count;
+    return self.dataList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    static NSString *identifire = @"cellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+    PersonalDataCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonalDataCell"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
-        
-      UIImageView *headerImage = [[UIImageView alloc] init];
-        headerImage.backgroundColor = [UIColor clearColor];
-        headerImage.frame = CGRectMake(kScreenWidth - 20 - 40 - 10 - 5, 10, 40, 40);
-        headerImage.layer.masksToBounds = YES;
-        headerImage.layer.cornerRadius = 20;
-        headerImage.tag = 100;
-        [cell.contentView addSubview:headerImage];
-
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"PersonalDataCell" owner:self options:nil] lastObject];
     }
-    UIImageView *image = (UIImageView *)[cell.contentView viewWithTag:100];
-    
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        [image sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
-        image.hidden = NO;
-    }else{
-    
-        image.hidden = YES;
+    cell.leftImageView.image = [UIImage imageNamed:self.imagesArr[indexPath.row]];
+    cell.leftLabel.text = self.dataList[indexPath.row];
+    if (indexPath.row == 1 || indexPath.row == 2) {
+        cell.rightImageView.hidden = YES;
+        cell.rightLabelConstraint.constant = 15;
+    } else {
+        cell.rightImageView.hidden = NO;
+        cell.rightLabelConstraint.constant = 29;
     }
-    if (indexPath.section == 0 && indexPath.row == 2) {
-        
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        
-    }else{
-        
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+    if (indexPath.row == self.dataList.count - 1) {
+        cell.lineView.hidden = YES;
+    } else {
+        cell.lineView.hidden = NO;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            
-            cell.detailTextLabel.text = @"";
-
-        }else if(indexPath.row == 1){
+    if (indexPath.row == 0) {
+        cell.rightLabel.text = self.model.nickname;
         
-            cell.detailTextLabel.text = self.model.nickname;
-
+    } else if (indexPath.row == 1) {
+        if (self.model.gender == 0) {
+            cell.rightLabel.text = LXSring(@"女");
         }else{
-            
-            cell.detailTextLabel.text = self.model.uid;
-        
+            cell.rightLabel.text = LXSring(@"男");
         }
+    } else if (indexPath.row == 2) {
+        cell.rightLabel.text = self.model.uid;
         
-    }else if(indexPath.section == 1){
-    
-        if (indexPath.row == 0) {
-            
-            if (self.model.gender == 0) {
-                cell.detailTextLabel.text = LXSring(@"女");
-
-            }else{
-            
-                cell.detailTextLabel.text = LXSring(@"男");
-
-            }
-            
-        }else if(indexPath.row == 1){
-            
-            cell.detailTextLabel.text = [InputCheck timeWithTimeIntervalString:[NSString stringWithFormat:@"%ld",self.model.birthday]
-                                         withDateFormat:@"yyyy-MM-dd"];
-            
-        }else{
-            NSString *str = [[CityTool sharedCityTool] getAdressWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
-            cell.detailTextLabel.text = str;
-            
-        }
+    } else if (indexPath.row == 3) {
         
-    }else{
-    
-        cell.detailTextLabel.text = self.model.intro;
+        cell.rightLabel.text = [InputCheck timeWithTimeIntervalString:[NSString stringWithFormat:@"%ld",self.model.birthday]
+                                                       withDateFormat:@"yyyy-MM-dd"];
+    } else if (indexPath.row == 4) {
+        NSString *str = [[CityTool sharedCityTool] getAdressWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
+        cell.rightLabel.text = str;
         
+    } else if (indexPath.row == 5) {
+        cell.rightLabel.text = @"哈哈哈";
+    } else if (indexPath.row == 6) {
+        cell.rightLabel.text = self.model.intro;
     }
-    cell.textLabel.text = self.dataList[indexPath.section][indexPath.row];
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-    cell.textLabel.textColor = Color_Text_black;
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-    cell.detailTextLabel.textColor = Color_Text_gray;
-    cell.detailTextLabel.top = cell.detailTextLabel.top + 1;
     return cell;
+//    static NSString *identifire = @"cellID";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
+//        
+//      UIImageView *headerImage = [[UIImageView alloc] init];
+//        headerImage.backgroundColor = [UIColor clearColor];
+//        headerImage.frame = CGRectMake(kScreenWidth - 20 - 40 - 10 - 5, 10, 40, 40);
+//        headerImage.layer.masksToBounds = YES;
+//        headerImage.layer.cornerRadius = 20;
+//        headerImage.tag = 100;
+//        [cell.contentView addSubview:headerImage];
+//
+//    }
+//    UIImageView *image = (UIImageView *)[cell.contentView viewWithTag:100];
+//    
+//    if (indexPath.section == 0 && indexPath.row == 0) {
+//        [image sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+//        image.hidden = NO;
+//    }else{
+//    
+//        image.hidden = YES;
+//    }
+//    if (indexPath.section == 0 && indexPath.row == 2) {
+//        
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//        
+//    }else{
+//        
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    
+//    }
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    
+//    if (indexPath.section == 0) {
+//        if (indexPath.row == 0) {
+//            
+//            cell.detailTextLabel.text = @"";
+//
+//        }else if(indexPath.row == 1){
+//        
+//            cell.detailTextLabel.text = self.model.nickname;
+//
+//        }else{
+//            
+//            cell.detailTextLabel.text = self.model.uid;
+//        
+//        }
+//        
+//    }else if(indexPath.section == 1){
+//    
+//        if (indexPath.row == 0) {
+//            
+//            if (self.model.gender == 0) {
+//                cell.detailTextLabel.text = LXSring(@"女");
+//
+//            }else{
+//            
+//                cell.detailTextLabel.text = LXSring(@"男");
+//
+//            }
+//            
+//        }else if(indexPath.row == 1){
+//            
+//            cell.detailTextLabel.text = [InputCheck timeWithTimeIntervalString:[NSString stringWithFormat:@"%ld",self.model.birthday]
+//                                         withDateFormat:@"yyyy-MM-dd"];
+//            
+//        }else{
+//            NSString *str = [[CityTool sharedCityTool] getAdressWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
+//            cell.detailTextLabel.text = str;
+//            
+//        }
+//        
+//    }else{
+//    
+//        cell.detailTextLabel.text = self.model.intro;
+//        
+//    }
+//    cell.textLabel.text = self.dataList[indexPath.section][indexPath.row];
+//    cell.textLabel.font = [UIFont systemFontOfSize:14];
+//    cell.textLabel.textColor = Color_Text_black;
+//    cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+//    cell.detailTextLabel.textColor = Color_Text_gray;
+//    cell.detailTextLabel.top = cell.detailTextLabel.top + 1;
+//    return cell;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return .1;
+//    return .1;
+    return 40;
     
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableView.width, 40)];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, (40 - 15) / 2, 2, 15)];
+    leftView.backgroundColor = UIColorFromRGB(0x00ddcc);
+    [view addSubview:leftView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(33 / 2, 0, 100, 40)];
+    label.textColor = UIColorFromRGB(0x00ddcc);
+    label.font = [UIFont systemFontOfSize:14];
+    label.text = LXSring(@"我的信息");
+    [view addSubview:label];
+    return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 10;
+//    return 10;
+    return 0;
     
 }
 
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+//    return 60;
+    return 50;
 
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        
-        
-        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:LXSring(@"拍照") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            [self CreameAction:1];
-
-            
-        }];
-        
-        UIAlertAction *defaultAction1 = [UIAlertAction actionWithTitle:LXSring(@"从手机相薄选择") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            [self CreameAction:2];
-            
-        }];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
-        [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-        [defaultAction setValue:Color_nav forKey:@"_titleTextColor"];
-        [defaultAction1 setValue:Color_nav forKey:@"_titleTextColor"];
-
-        
-        [alertController addAction:defaultAction];
-
-        [alertController addAction:defaultAction1];
-        [alertController addAction:cancelAction];
-        [self presentViewController:alertController animated:YES completion:nil];
-        
-    }
-    
-    if (indexPath.section == 0 && indexPath.row == 1) {
-        //修改暱稱
+    if (indexPath.row == 0) {
+        // 修改暱稱
         FixNickNameVC *vc = [[FixNickNameVC alloc] init];
         vc.model = self.model;
         [self.navigationController pushViewController:vc animated:YES];
-        
-    }
-    
-    if (indexPath.section == 2) {
-        //修改簽名檔
-        FixintroduceVC *VC = [[FixintroduceVC alloc] init];
-        VC.model = self.model;
-        [self.navigationController pushViewController:VC animated:YES];
-    }
-    
-    if (indexPath.section == 1 && indexPath.row == 1) {
-        
-        self.type = PickerDate;
-        self.datePicker.hidden = NO;
-        self.picker.hidden = YES;
-        self.sexPicker.hidden = YES;
-        [UIView animateWithDuration:0.33 animations:^{
-            self.pickerBG.frame = CGRectMake(0, kScreenHeight - 266, kScreenWidth, 266);
-        } completion:^(BOOL finished) {
-            
-        }];
-    }
-    
-    //修改性别
-    if (indexPath.section == 1 && indexPath.row == 0) {
-        
+    } else if (indexPath.row == 1) {
+        // 修改性別
         self.type = PickerSex;
         self.datePicker.hidden = YES;
         self.picker.hidden = YES;
@@ -792,10 +809,19 @@
         } completion:^(BOOL finished) {
             
         }];
-    }
-    
-    if (indexPath.section == 1 && indexPath.row == 2) {
-        
+    }  else if (indexPath.row == 3) {
+        // 修改生日
+        self.type = PickerDate;
+        self.datePicker.hidden = NO;
+        self.picker.hidden = YES;
+        self.sexPicker.hidden = YES;
+        [UIView animateWithDuration:0.33 animations:^{
+            self.pickerBG.frame = CGRectMake(0, kScreenHeight - 266, kScreenWidth, 266);
+        } completion:^(BOOL finished) {
+            
+        }];
+    } else if (indexPath.row == 4) {
+        // 修改地區
         self.type = PickerPlace;
         self.sexPicker.hidden = YES;
         self.datePicker.hidden = YES;
@@ -805,7 +831,104 @@
         } completion:^(BOOL finished) {
             
         }];
+    } else if (indexPath.row == 5) {
+        // 修改行業
+        FixIndustryVC *vc = [[FixIndustryVC alloc] init];
+        vc.model = self.model;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.row == 6) {
+        //修改簽名檔
+        FixintroduceVC *VC = [[FixintroduceVC alloc] init];
+        VC.model = self.model;
+        [self.navigationController pushViewController:VC animated:YES];
     }
+//    if (indexPath.section == 0 && indexPath.row == 0) {
+//        
+//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//        
+//        
+//        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:LXSring(@"拍照") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            
+//            [self CreameAction:1];
+//
+//            
+//        }];
+//        
+//        UIAlertAction *defaultAction1 = [UIAlertAction actionWithTitle:LXSring(@"从手机相薄选择") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            
+//            [self CreameAction:2];
+//            
+//        }];
+//        
+//        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
+//        [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
+//        [defaultAction setValue:Color_nav forKey:@"_titleTextColor"];
+//        [defaultAction1 setValue:Color_nav forKey:@"_titleTextColor"];
+//
+//        
+//        [alertController addAction:defaultAction];
+//
+//        [alertController addAction:defaultAction1];
+//        [alertController addAction:cancelAction];
+//        [self presentViewController:alertController animated:YES completion:nil];
+//        
+//    }
+//    
+//    if (indexPath.section == 0 && indexPath.row == 1) {
+//        //修改暱稱
+//        FixNickNameVC *vc = [[FixNickNameVC alloc] init];
+//        vc.model = self.model;
+//        [self.navigationController pushViewController:vc animated:YES];
+//        
+//    }
+//    
+//    if (indexPath.section == 2) {
+//        //修改簽名檔
+//        FixintroduceVC *VC = [[FixintroduceVC alloc] init];
+//        VC.model = self.model;
+//        [self.navigationController pushViewController:VC animated:YES];
+//    }
+//    
+//    if (indexPath.section == 1 && indexPath.row == 1) {
+//        
+//        self.type = PickerDate;
+//        self.datePicker.hidden = NO;
+//        self.picker.hidden = YES;
+//        self.sexPicker.hidden = YES;
+//        [UIView animateWithDuration:0.33 animations:^{
+//            self.pickerBG.frame = CGRectMake(0, kScreenHeight - 266, kScreenWidth, 266);
+//        } completion:^(BOOL finished) {
+//            
+//        }];
+//    }
+//    
+//    //修改性别
+//    if (indexPath.section == 1 && indexPath.row == 0) {
+//        
+//        self.type = PickerSex;
+//        self.datePicker.hidden = YES;
+//        self.picker.hidden = YES;
+//        self.sexPicker.hidden = NO;
+//        [self.sexPicker selectRow:self.model.gender inComponent:0 animated:NO];
+//        [UIView animateWithDuration:0.33 animations:^{
+//            self.pickerBG.frame = CGRectMake(0, kScreenHeight - 266, kScreenWidth, 266);
+//        } completion:^(BOOL finished) {
+//            
+//        }];
+//    }
+//    
+//    if (indexPath.section == 1 && indexPath.row == 2) {
+//        
+//        self.type = PickerPlace;
+//        self.sexPicker.hidden = YES;
+//        self.datePicker.hidden = YES;
+//        self.picker.hidden = NO;
+//        [UIView animateWithDuration:0.33 animations:^{
+//            self.pickerBG.frame = CGRectMake(0, kScreenHeight - 266, kScreenWidth, 266);
+//        } completion:^(BOOL finished) {
+//            
+//        }];
+//    }
     
 }
 

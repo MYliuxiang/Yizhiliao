@@ -390,11 +390,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/LxPersonVC.m"
-            timestampString = "525254160.243185"
+            timestampString = "525255741.455924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "553"
-            endingLineNumber = "553"
+            startingLineNumber = "547"
+            endingLineNumber = "547"
             landmarkName = "-rightAction"
             landmarkType = "7">
          </BreakpointContent>
@@ -406,11 +406,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/LxPersonVC.m"
-            timestampString = "525254160.243185"
+            timestampString = "525255741.455924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "649"
-            endingLineNumber = "649"
+            startingLineNumber = "643"
+            endingLineNumber = "643"
             landmarkName = "-jubaoWithtype:"
             landmarkType = "7">
          </BreakpointContent>
@@ -427,7 +427,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
-            landmarkName = "-rightAction"
+            landmarkName = "-_initnav"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -443,7 +443,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "153"
             endingLineNumber = "153"
-            landmarkName = "-back"
+            landmarkName = "-onMessageInstantReceive:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -459,7 +459,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
             endingLineNumber = "158"
-            landmarkName = "-rightChargeButtonAC"
+            landmarkName = "-widthString:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -475,7 +475,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "183"
             endingLineNumber = "183"
-            landmarkName = "-addrighttitleString:"
+            landmarkName = "-setWidth:height:font:content:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -491,7 +491,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "204"
             endingLineNumber = "204"
-            landmarkName = "-addlefttitleString:"
+            landmarkName = "-setNavbarHiden:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -507,7 +507,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
             endingLineNumber = "222"
-            landmarkName = "-leftAction"
+            landmarkName = "-rightChargeButtonAC"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -523,7 +523,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "236"
             endingLineNumber = "236"
-            landmarkName = "-alertView:clickedButtonAtIndex:"
+            landmarkName = "-addrightImage:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

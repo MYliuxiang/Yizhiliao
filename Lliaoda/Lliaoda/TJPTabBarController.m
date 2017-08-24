@@ -161,8 +161,10 @@
     SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
 
     MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
+//    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
+    FindVC *findVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
     MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
-    NSArray *vcs = @[managementVC, vipbusinessVC, myVC];
+    NSArray *vcs = @[managementVC, findVC, myVC];
     //创建一个存储导航控制器的数组
     NSMutableArray *navCtrls = [[NSMutableArray alloc] init];
     for (int i = 0; i < vcs.count; i++) {
@@ -179,20 +181,34 @@
     self.viewControllers = navCtrls;
 }
 - (void)buttonClick:(UIButton *)button {
-    self.selectedIndex = button.tag - 1;
-    if (button.tag == 1) {
-        button1.selected = YES;
-        button2.selected = NO;
-        button3.selected = NO;
-    } else if (button.tag == 2) {
+    
+    if (button.tag == 2) {
         button1.selected = NO;
         button2.selected = YES;
         button3.selected = NO;
+        if (self.selectedIndex == button.tag - 1) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"findVC" object:nil userInfo:nil];
+        } else {
+            self.selectedIndex = button.tag - 1;
+        }
+        
     } else {
-        button1.selected = NO;
-        button2.selected = NO;
-        button3.selected = YES;
+        self.selectedIndex = button.tag - 1;
+        if (button.tag == 1) {
+            button1.selected = YES;
+            button2.selected = NO;
+            button3.selected = NO;
+        } else if (button.tag == 2) {
+            button1.selected = NO;
+            button2.selected = YES;
+            button3.selected = NO;
+        } else {
+            button1.selected = NO;
+            button2.selected = NO;
+            button3.selected = YES;
+        }
     }
+    
 }
 #pragma mark - UINavigationController Delegate
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated

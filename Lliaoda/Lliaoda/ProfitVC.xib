@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,19 +22,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tYV-CD-XuW">
-                    <rect key="frame" x="0.0" y="63" width="375" height="604"/>
-                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tYV-CD-XuW">
+                    <rect key="frame" x="15" y="63" width="345" height="604"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="shO-j1-WNa"/>
                         <outlet property="delegate" destination="-1" id="t1u-u3-p50"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.86666666670000003" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="tYV-CD-XuW" secondAttribute="trailing" id="0uL-Z6-ZQj"/>
-                <constraint firstItem="tYV-CD-XuW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="H2R-gl-TyO"/>
+                <constraint firstAttribute="trailing" secondItem="tYV-CD-XuW" secondAttribute="trailing" constant="15" id="0uL-Z6-ZQj"/>
+                <constraint firstItem="tYV-CD-XuW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="H2R-gl-TyO"/>
                 <constraint firstAttribute="bottom" secondItem="tYV-CD-XuW" secondAttribute="bottom" id="bBD-WG-IQ1"/>
                 <constraint firstItem="tYV-CD-XuW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="63" id="po8-ap-Zr1"/>
             </constraints>

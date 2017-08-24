@@ -79,11 +79,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.text = LXSring(@"發現");
-    
+    self.isShowMessageButton = YES;
     [self.rechargeBtn setTitle:LXSring(@"快速儲值") forState:UIControlStateNormal];
     self.label1.text = LXSring(@"正在為您尋找有緣人");
     self.label2.text = LXSring(@"點擊任意大頭照可以進入Ta的主頁喔！");
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(findAC:) name:@"findVC" object:nil];
     self.pointsModels = [NSMutableArray array];
     self.finBtn.layer.cornerRadius = 22;
     self.finBtn.layer.masksToBounds = YES;
