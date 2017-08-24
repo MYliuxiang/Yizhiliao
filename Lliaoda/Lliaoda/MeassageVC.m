@@ -189,14 +189,15 @@ static MeassageVC *this;
 //正在登陆
 - (void)onLogin
 {
-    self.text = @"正在连接...";
+    self.text = LXSring(@"正在连接...");
     [self.actView startAnimating];
 
 }
 //登入失败
 - (void)onLoginFailed
 {
-    self.text = @"訊息(未连接)";
+    
+    self.text = LXSring(@"訊息(未连接)");
     [self.actView stopAnimating];
 
 }
