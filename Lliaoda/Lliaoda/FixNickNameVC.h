@@ -12,4 +12,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic,copy) NSString *value;
 @property (nonatomic,retain) Mymodel *model;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+- (IBAction)saveButtonAC:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
 @end

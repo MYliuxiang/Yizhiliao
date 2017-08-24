@@ -10,7 +10,8 @@
 #import "FixNickNameVC.h"
 #import "FixintroduceVC.h"
 #import "Mymodel.h"
-
+#import "PersonalDataCell.h"
+#import "FixIndustryVC.h"
 typedef NS_ENUM(NSInteger, PickerType) {
     PickerSex,
     PickerDate,
@@ -37,6 +38,8 @@ typedef NS_ENUM(NSInteger, PickerType) {
 @property (nonatomic,retain)NSArray *sexDatalist;
 @property (nonatomic, retain)CityTool *tool;
 
+
+@property (nonatomic, retain) NSArray *imagesArr;
 
 
 @end

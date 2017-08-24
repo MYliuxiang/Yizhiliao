@@ -19,7 +19,15 @@
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"修改暱稱");
     self.textField.text = self.model.nickname;
-    [self addrighttitleString:LXSring(@"保存")];
+    [self.saveButton setTitle:LXSring(@"保存") forState:UIControlStateNormal];
+//    [self addrighttitleString:LXSring(@"保存")];
+    self.saveButton.layer.cornerRadius = 5;
+    self.bgView.layer.cornerRadius = 5;
+    
+    self.bgView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bgView.layer.shadowRadius = 5.f;
+    self.bgView.layer.shadowOpacity = .3f;
+    self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
 }
 
 - (void)rightAction
@@ -70,4 +78,7 @@
 
 
 
+- (IBAction)saveButtonAC:(id)sender {
+    [self rightAction];
+}
 @end

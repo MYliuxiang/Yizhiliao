@@ -548,6 +548,12 @@
 		840BE31C1F1F01A70004B6D9 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE3181F1F01A70004B6D9 /* CollectionHeaderView.xib */; };
 		840BE3201F1F02C40004B6D9 /* ProfitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE31E1F1F02C40004B6D9 /* ProfitCell.m */; };
 		840BE3211F1F02C40004B6D9 /* ProfitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */; };
+		8413A2AE1F4C2ACF00CB3CBC /* PersonalDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8413A2AC1F4C2ACF00CB3CBC /* PersonalDataCell.m */; };
+		8413A2AF1F4C2ACF00CB3CBC /* PersonalDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8413A2AD1F4C2ACF00CB3CBC /* PersonalDataCell.xib */; };
+		8413A2B31F4C412C00CB3CBC /* FixIndustryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8413A2B11F4C412C00CB3CBC /* FixIndustryVC.m */; };
+		8413A2B41F4C412C00CB3CBC /* FixIndustryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8413A2B21F4C412C00CB3CBC /* FixIndustryVC.xib */; };
+		8413A2B81F4C496E00CB3CBC /* ProfitCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8413A2B61F4C496E00CB3CBC /* ProfitCell1.m */; };
+		8413A2B91F4C496E00CB3CBC /* ProfitCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8413A2B71F4C496E00CB3CBC /* ProfitCell1.xib */; };
 		841AD6C61F3C580800A3CE0D /* SelectedBannersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841AD6C51F3C580800A3CE0D /* SelectedBannersModel.m */; };
 		841AD6CD1F3C6CB400A3CE0D /* SelectedBannersHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 841AD6CB1F3C6CB400A3CE0D /* SelectedBannersHeader.m */; };
 		841AD6CE1F3C6CB400A3CE0D /* SelectedBannersHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841AD6CC1F3C6CB400A3CE0D /* SelectedBannersHeader.xib */; };
@@ -556,6 +562,12 @@
 		843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31F71F2B3879003C4EB2 /* RepetitionCount.m */; };
 		843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */; };
 		843EC0261F29D9750051AFD3 /* OrderID.m in Sources */ = {isa = PBXBuildFile; fileRef = 843EC0251F29D9750051AFD3 /* OrderID.m */; };
+		8483AAEA1F4E7BEB008BA674 /* ProfitCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483AAE81F4E7BEB008BA674 /* ProfitCell2.m */; };
+		8483AAEB1F4E7BEB008BA674 /* ProfitCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483AAE91F4E7BEB008BA674 /* ProfitCell2.xib */; };
+		8483AAEF1F4E8138008BA674 /* ProfitCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483AAED1F4E8138008BA674 /* ProfitCell3.m */; };
+		8483AAF01F4E8138008BA674 /* ProfitCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483AAEE1F4E8138008BA674 /* ProfitCell3.xib */; };
+		8483AAF41F4EAE9E008BA674 /* AccountHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483AAF21F4EAE9E008BA674 /* AccountHeaderView.m */; };
+		8483AAF51F4EAE9E008BA674 /* AccountHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483AAF31F4EAE9E008BA674 /* AccountHeaderView.xib */; };
 		848A0AB41F45A44000057C5B /* ar1502964098.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 848A0AB31F45A44000057C5B /* ar1502964098.mp4 */; };
 		84B8CDA91F4AC92700A13D27 /* PersonHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */; };
 		84B8CDAA1F4AC92700A13D27 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */; };
@@ -1409,6 +1421,15 @@
 		840BE31D1F1F02C40004B6D9 /* ProfitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitCell.h; sourceTree = "<group>"; };
 		840BE31E1F1F02C40004B6D9 /* ProfitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitCell.m; sourceTree = "<group>"; };
 		840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitCell.xib; sourceTree = "<group>"; };
+		8413A2AB1F4C2ACF00CB3CBC /* PersonalDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataCell.h; sourceTree = "<group>"; };
+		8413A2AC1F4C2ACF00CB3CBC /* PersonalDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataCell.m; sourceTree = "<group>"; };
+		8413A2AD1F4C2ACF00CB3CBC /* PersonalDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalDataCell.xib; sourceTree = "<group>"; };
+		8413A2B01F4C412C00CB3CBC /* FixIndustryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixIndustryVC.h; sourceTree = "<group>"; };
+		8413A2B11F4C412C00CB3CBC /* FixIndustryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixIndustryVC.m; sourceTree = "<group>"; };
+		8413A2B21F4C412C00CB3CBC /* FixIndustryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FixIndustryVC.xib; sourceTree = "<group>"; };
+		8413A2B51F4C496E00CB3CBC /* ProfitCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitCell1.h; sourceTree = "<group>"; };
+		8413A2B61F4C496E00CB3CBC /* ProfitCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitCell1.m; sourceTree = "<group>"; };
+		8413A2B71F4C496E00CB3CBC /* ProfitCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitCell1.xib; sourceTree = "<group>"; };
 		841AD6C41F3C580800A3CE0D /* SelectedBannersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedBannersModel.h; sourceTree = "<group>"; };
 		841AD6C51F3C580800A3CE0D /* SelectedBannersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedBannersModel.m; sourceTree = "<group>"; };
 		841AD6CA1F3C6CB400A3CE0D /* SelectedBannersHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedBannersHeader.h; sourceTree = "<group>"; };
@@ -1424,6 +1445,15 @@
 		843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCount.m; sourceTree = "<group>"; };
 		843EC0241F29D9750051AFD3 /* OrderID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderID.h; sourceTree = "<group>"; };
 		843EC0251F29D9750051AFD3 /* OrderID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderID.m; sourceTree = "<group>"; };
+		8483AAE71F4E7BEB008BA674 /* ProfitCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitCell2.h; sourceTree = "<group>"; };
+		8483AAE81F4E7BEB008BA674 /* ProfitCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitCell2.m; sourceTree = "<group>"; };
+		8483AAE91F4E7BEB008BA674 /* ProfitCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitCell2.xib; sourceTree = "<group>"; };
+		8483AAEC1F4E8138008BA674 /* ProfitCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitCell3.h; sourceTree = "<group>"; };
+		8483AAED1F4E8138008BA674 /* ProfitCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitCell3.m; sourceTree = "<group>"; };
+		8483AAEE1F4E8138008BA674 /* ProfitCell3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitCell3.xib; sourceTree = "<group>"; };
+		8483AAF11F4EAE9E008BA674 /* AccountHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountHeaderView.h; sourceTree = "<group>"; };
+		8483AAF21F4EAE9E008BA674 /* AccountHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountHeaderView.m; sourceTree = "<group>"; };
+		8483AAF31F4EAE9E008BA674 /* AccountHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountHeaderView.xib; sourceTree = "<group>"; };
 		848A0AB11F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		848A0AB21F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		848A0AB31F45A44000057C5B /* ar1502964098.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ar1502964098.mp4; sourceTree = "<group>"; };
@@ -2645,6 +2675,9 @@
 				22CDA9701EA5F68A006CD611 /* FixintroduceVC.h */,
 				22CDA9711EA5F68A006CD611 /* FixintroduceVC.m */,
 				22CDA9721EA5F68A006CD611 /* FixintroduceVC.xib */,
+				8413A2B01F4C412C00CB3CBC /* FixIndustryVC.h */,
+				8413A2B11F4C412C00CB3CBC /* FixIndustryVC.m */,
+				8413A2B21F4C412C00CB3CBC /* FixIndustryVC.xib */,
 				228941F41ED923000020C307 /* MyalbumVC.h */,
 				228941F51ED923000020C307 /* MyalbumVC.m */,
 				228941F61ED923000020C307 /* MyalbumVC.xib */,
@@ -2917,6 +2950,21 @@
 				840BE3161F1F01A70004B6D9 /* CollectionHeaderView.h */,
 				840BE3171F1F01A70004B6D9 /* CollectionHeaderView.m */,
 				840BE3181F1F01A70004B6D9 /* CollectionHeaderView.xib */,
+				8483AAF11F4EAE9E008BA674 /* AccountHeaderView.h */,
+				8483AAF21F4EAE9E008BA674 /* AccountHeaderView.m */,
+				8483AAF31F4EAE9E008BA674 /* AccountHeaderView.xib */,
+				8413A2AB1F4C2ACF00CB3CBC /* PersonalDataCell.h */,
+				8413A2AC1F4C2ACF00CB3CBC /* PersonalDataCell.m */,
+				8413A2AD1F4C2ACF00CB3CBC /* PersonalDataCell.xib */,
+				8413A2B51F4C496E00CB3CBC /* ProfitCell1.h */,
+				8413A2B61F4C496E00CB3CBC /* ProfitCell1.m */,
+				8413A2B71F4C496E00CB3CBC /* ProfitCell1.xib */,
+				8483AAE71F4E7BEB008BA674 /* ProfitCell2.h */,
+				8483AAE81F4E7BEB008BA674 /* ProfitCell2.m */,
+				8483AAE91F4E7BEB008BA674 /* ProfitCell2.xib */,
+				8483AAEC1F4E8138008BA674 /* ProfitCell3.h */,
+				8483AAED1F4E8138008BA674 /* ProfitCell3.m */,
+				8483AAEE1F4E8138008BA674 /* ProfitCell3.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3257,6 +3305,7 @@
 				222AA06E1EB071910038416D /* B_38@2x.gif in Resources */,
 				2290A8461F4BE826005DA0AE /* BannerView.xib in Resources */,
 				222A9FFF1EB071910038416D /* IM_Chart_imageDownloadFail@3x.png in Resources */,
+				8413A2AF1F4C2ACF00CB3CBC /* PersonalDataCell.xib in Resources */,
 				2283AA031F0E158D00E9ABB5 /* Assets.xcassets in Resources */,
 				22DC05681F39BE8200E2E015 /* albumVideo.png in Resources */,
 				222AA0011EB071910038416D /* IM_Chat_receiver_bg@3x.png in Resources */,
@@ -3268,6 +3317,7 @@
 				222AA1651EB071C20038416D /* Keyboard_gradient_mask@2x.png in Resources */,
 				222AA0AD1EB071910038416D /* B_95@2x.gif in Resources */,
 				22B1093A1EA4B56500E35B74 /* SelectedHeader.xib in Resources */,
+				8483AAF01F4E8138008BA674 /* ProfitCell3.xib in Resources */,
 				222AA0201EB071910038416D /* C_77@2x.png in Resources */,
 				226E52BD1EE144940081A482 /* 屏幕快照 2017-06-02 下午2.59.40.png in Resources */,
 				222AA0291EB071910038416D /* C_90@2x.png in Resources */,
@@ -3306,6 +3356,7 @@
 				222AA0B01EB071910038416D /* B_98@2x.gif in Resources */,
 				840BE3211F1F02C40004B6D9 /* ProfitCell.xib in Resources */,
 				222AA0801EB071910038416D /* B_54@2x.gif in Resources */,
+				8413A2B41F4C412C00CB3CBC /* FixIndustryVC.xib in Resources */,
 				222AA0711EB071910038416D /* B_40@2x.gif in Resources */,
 				222AA0A41EB071910038416D /* B_87@2x.gif in Resources */,
 				225827791ECC09CC0049A6C1 /* start.wav in Resources */,
@@ -3395,6 +3446,8 @@
 				222AA00F1EB071910038416D /* IM_Chat_keyboard@3x.png in Resources */,
 				222AA0911EB071910038416D /* b_6@2x.gif in Resources */,
 				222AA0101EB071910038416D /* IM_Chat_more@2x.png in Resources */,
+				8483AAF51F4EAE9E008BA674 /* AccountHeaderView.xib in Resources */,
+				8483AAEB1F4E7BEB008BA674 /* ProfitCell2.xib in Resources */,
 				222AA0881EB071910038416D /* B_61@2x.gif in Resources */,
 				226B6FF41F38649E00AEC7D2 /* InfoPlist.strings in Resources */,
 				222AA0071EB071910038416D /* chatBar_colorMore_cameraSelected@3x.png in Resources */,
@@ -3422,6 +3475,7 @@
 				22A454F01F064C1E0020225E /* share-result.html in Resources */,
 				22453BAA1F1C73FF0000C006 /* ProfitVC.xib in Resources */,
 				222AA0211EB071910038416D /* C_82@2x.png in Resources */,
+				8413A2B91F4C496E00CB3CBC /* ProfitCell1.xib in Resources */,
 				22B691E41F3ABD4D00CDF0F2 /* id1495262516.mp4 in Resources */,
 				222AA0511EB071910038416D /* B_11@2x.gif in Resources */,
 				222B38241ED9642B009DB58F /* FSActionSheet_cancel@2x.png in Resources */,
@@ -3717,6 +3771,7 @@
 				84F970D51F38946100336234 /* LanguageVC.m in Sources */,
 				22DC05651F39A91C00E2E015 /* PchTool.m in Sources */,
 				228C307F1EB1A12800C2B55F /* ServiceErrorType.m in Sources */,
+				8483AAF41F4EAE9E008BA674 /* AccountHeaderView.m in Sources */,
 				22844F551ED2A1B800A9E32E /* IQKeyboardManager.m in Sources */,
 				222AA1671EB071C20038416D /* KeyboardEmojiAttachment.m in Sources */,
 				22844F501ED2A1B800A9E32E /* IQUIScrollView+Additions.m in Sources */,
@@ -3759,6 +3814,7 @@
 				222AA1E21EB0775B0038416D /* YYTextView.m in Sources */,
 				224F24561EA7339200C0FDC6 /* UITableViewCell+WHC_AutoHeightForCell.m in Sources */,
 				228CF7341EDE7C2C0045986D /* MyVideoVC.m in Sources */,
+				8483AAEF1F4E8138008BA674 /* ProfitCell3.m in Sources */,
 				222AA1741EB071C20038416D /* LHIMDBManager.m in Sources */,
 				84B8CDB11F4AD74E00A13D27 /* PersonSelectCell.m in Sources */,
 				222B383A1ED9642B009DB58F /* XLPhotoBrowser.m in Sources */,
@@ -3782,6 +3838,7 @@
 				228B89D71EA866FB002B8D3C /* YYDiskCache.m in Sources */,
 				222AA14B1EB071C10038416D /* UIActionSheet+Blocks.m in Sources */,
 				223DE5A61F20AB3700745E94 /* AGAudioBuffer.m in Sources */,
+				8483AAEA1F4E7BEB008BA674 /* ProfitCell2.m in Sources */,
 				222B385E1ED96843009DB58F /* MSSBrowseCollectionViewCell.m in Sources */,
 				222396CF1EB1CDCC001D4814 /* MessageCell.m in Sources */,
 				22C166361EAEF973002D9084 /* FundModel.m in Sources */,
@@ -3814,6 +3871,7 @@
 				22844F511ED2A1B800A9E32E /* IQUITextFieldView+Additions.m in Sources */,
 				228CF74D1EDED3B40045986D /* WKFRadarView.m in Sources */,
 				222AA1DE1EB0775B0038416D /* YYTextTransaction.m in Sources */,
+				8413A2AE1F4C2ACF00CB3CBC /* PersonalDataCell.m in Sources */,
 				22CDA9651EA5DDD3006CD611 /* LXBaseModel.m in Sources */,
 				222AA1761EB071C20038416D /* XSBrowserAnimateDelegate.m in Sources */,
 				2204AA971EAD995F0034C0F3 /* Mymodel.m in Sources */,
@@ -3845,6 +3903,7 @@
 				223BDF0F1EA70547006DCD65 /* SettingVC.m in Sources */,
 				224F24571EA7339200C0FDC6 /* UIView+WHC_AutoLayout.m in Sources */,
 				2286DC641EF26AFE00FDF801 /* LHContentModel.m in Sources */,
+				8413A2B31F4C412C00CB3CBC /* FixIndustryVC.m in Sources */,
 				228B89D91EA866FB002B8D3C /* YYMemoryCache.m in Sources */,
 				227971CD1EF8DC0900BC8E18 /* FileUnit.m in Sources */,
 				843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */,
@@ -3868,6 +3927,7 @@
 				22CDA9621EA5DDC6006CD611 /* MyColor.m in Sources */,
 				2250E6261EA9E15200849842 /* InputCheck.m in Sources */,
 				222B383B1ED9642B009DB58F /* XLProgressView.m in Sources */,
+				8413A2B81F4C496E00CB3CBC /* ProfitCell1.m in Sources */,
 				2286DC6D1EF26AFE00FDF801 /* LHChatTimeCell.m in Sources */,
 				228CF73D1EDEBB2F0045986D /* MyVideoModel.m in Sources */,
 				223740C51EA9AB1500EFB6D8 /* LxCache.m in Sources */,
