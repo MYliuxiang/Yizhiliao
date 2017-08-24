@@ -8,7 +8,7 @@
 
 #import "ProfitVC.h"
 
-@interface ProfitVC ()<ProfitCellDelegate>
+@interface ProfitVC ()<ProfitCellDelegate, ProfitCell1Delegate>
 
 @end
 
@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.text = LXSring(@"收益");
+    self.view.backgroundColor = UIColorFromRGB(0x00ddcc);
 //    self.dataList = @[LXSring(@"通话收益"),LXSring(@"礼物及红包收益"),LXSring(@"总收益"),LXSring(@"可提现总收益")];
 //    self.dataList = @[LXSring(@"通话收益"),LXSring(@"礼物及红包收益"),LXSring(@"总收益"),LXSring(@"邀请"),LXSring(@"可提现总收益")];
     self.dataList = @[LXSring(@"通話收益"),LXSring(@"禮物及紅包收益"),LXSring(@"储值提成收益"),LXSring(@"邀請")];
@@ -77,78 +78,120 @@
 #pragma  mark --------UITableView Delegete----------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    return 1;
-    return 3;
+    return 1;
+//    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //    return self.dataList.count;
-    if (section == 1) {
-        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-        if ([lang hasPrefix:@"id"]){
-            return 3;
-        }else{
-            return 4;
-        }
-        
-    } else {
-        return 1;
-    }
+//    if (section == 1) {
+//        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//        if ([lang hasPrefix:@"id"]){
+//            return 3;
+//        }else{
+//            return 4;
+//        }
+//        
+//    } else {
+//        return 1;
+//    }
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        ProfitCell *cell = [ProfitCell tableView:tableView
-                                       indexPath:indexPath
-                                        delegate:self];
-        cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
-        cell.tixianButton.layer.cornerRadius = 20;
-        cell.tixianButton.layer.borderWidth = 1;
-        cell.tixianButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    if (indexPath.row == 0) {
+        ProfitCell1 *cell = [ProfitCell1 tableView:tableView
+                                         indexPath:indexPath
+                                          delegate:self];
+        cell.yueLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
+        cell.yueLabel.adjustsFontSizeToFitWidth = YES;
         return cell;
-    } else if (indexPath.section == 1) {
-        static NSString *identifire = @"cellID";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+    } else if (indexPath.row == 4) {
+        ProfitCell3 *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfitCell3"];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
-            
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfitCell3" owner:self options:nil] lastObject];
         }
-        
-        cell.textLabel.text = self.dataList[indexPath.row];
-        if (indexPath.row == 0) {
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.video];
-        }else if (indexPath.row == 1){
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.gift];
-        }else if(indexPath.row == 2){
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.order];
-
-        }else{
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
-        }
-        cell.textLabel.textColor = Color_Text_black;
-        cell.detailTextLabel.textColor = Color_nav;
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-        cell.detailTextLabel.top = cell.detailTextLabel.top + 1;
-        
+        cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
         return cell;
-
     } else {
-        static NSString *identifire = @"cellID";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+        ProfitCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfitCell2"];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfitCell2" owner:self options:nil] lastObject];
         }
-        cell.textLabel.text = LXSring(@"累計提現");
-        cell.textLabel.textColor = Color_Text_black;
-        cell.detailTextLabel.textColor = Color_nav;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+        cell.bgView.layer.cornerRadius = 5;
+        if (indexPath.row == 1) {
+            cell.leftLabel.text = LXSring(@"通话收益");
+            cell.leftImageView.image = [UIImage imageNamed:@"tonghuashouyi"];
+            cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.video];
+        } else if (indexPath.row == 2) {
+            cell.leftLabel.text = LXSring(@"礼物收益");
+            cell.leftImageView.image = [UIImage imageNamed:@"liwushouyi"];
+            cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.gift];
+        } else if (indexPath.row == 3) {
+            cell.leftLabel.text = LXSring(@"邀请收益");
+            cell.leftImageView.image = [UIImage imageNamed:@"yaoqingshouyi"];
+            cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
+        }
         return cell;
     }
+    
+    
+    
+//    if (indexPath.section == 0) {
+//        ProfitCell *cell = [ProfitCell tableView:tableView
+//                                       indexPath:indexPath
+//                                        delegate:self];
+//        cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
+//        cell.tixianButton.layer.cornerRadius = 20;
+//        cell.tixianButton.layer.borderWidth = 1;
+//        cell.tixianButton.layer.borderColor = [UIColor whiteColor].CGColor;
+//        return cell;
+//    } else if (indexPath.section == 1) {
+//        static NSString *identifire = @"cellID";
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+//        if (cell == nil) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
+//            
+//        }
+//        
+//        cell.textLabel.text = self.dataList[indexPath.row];
+//        if (indexPath.row == 0) {
+//            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.video];
+//        }else if (indexPath.row == 1){
+//            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.gift];
+//        }else if(indexPath.row == 2){
+//            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.order];
+//
+//        }else{
+//            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
+//        }
+//        cell.textLabel.textColor = Color_Text_black;
+//        cell.detailTextLabel.textColor = Color_nav;
+//        cell.textLabel.font = [UIFont systemFontOfSize:14];
+//        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+//        cell.detailTextLabel.top = cell.detailTextLabel.top + 1;
+//        
+//        return cell;
+//
+//    } else {
+//        static NSString *identifire = @"cellID";
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+//        if (cell == nil) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifire];
+//        }
+//        cell.textLabel.text = LXSring(@"累計提現");
+//        cell.textLabel.textColor = Color_Text_black;
+//        cell.detailTextLabel.textColor = Color_nav;
+//        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
+//        cell.textLabel.font = [UIFont systemFontOfSize:14];
+//        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+//        return cell;
+//    }
+    
+    
 //    static NSString *identifire = @"cellID";
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
 //    if (cell == nil) {
@@ -204,19 +247,25 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section == 2) {
-        return 0;
-    }
-    return 10;
-    
+//    if (section == 2) {
+//        return 0;
+//    }
+//    return 10;
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        return 200;
+    if (indexPath.row == 0) {
+        return 195;
+    } else if (indexPath.row == 4) {
+        return 100;
     }
-    return 60;
+    return 90;
+//    if (indexPath.section == 0) {
+//        return 200;
+//    }
+//    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -232,6 +281,12 @@
 
 #pragma mark - ProfitCellDelegate
 - (void)btnClick:(ProfitCell *)cell {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:LXSring(@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017") delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
+}
+
+#pragma mark - ProfitCell1Delegate
+- (void)cashButtonAC {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:LXSring(@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017") delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alertView show];
 }

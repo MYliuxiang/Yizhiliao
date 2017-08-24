@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FixIndustryVC">
+            <connections>
+                <outlet property="bgView" destination="NPf-cl-buH" id="UM4-aV-ayk"/>
+                <outlet property="saveButton" destination="Dsk-Ht-agF" id="Y0D-22-6c3"/>
+                <outlet property="textField" destination="10b-oa-v5g" id="Tg9-j8-pcz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPf-cl-buH">
+                    <rect key="frame" x="15" y="79" width="345" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsk-Ht-agF">
+                            <rect key="frame" x="257" y="8" width="80" height="44"/>
+                            <color key="backgroundColor" red="0.0" green="0.86666666670000003" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="5Gd-SZ-xkz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                            <state key="normal" title="保存">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="saveButtonAC:" destination="-1" eventType="touchUpInside" id="BiY-nz-Mxh"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="填寫行業，找到更多志同道合的朋友" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10b-oa-v5g">
+                            <rect key="frame" x="15" y="0.0" width="227" height="60"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Qt7-IK-nl0"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="10b-oa-v5g" firstAttribute="leading" secondItem="NPf-cl-buH" secondAttribute="leading" constant="15" id="6Fz-Va-kqL"/>
+                        <constraint firstAttribute="height" constant="60" id="BaY-Kw-sZr"/>
+                        <constraint firstItem="Dsk-Ht-agF" firstAttribute="top" secondItem="NPf-cl-buH" secondAttribute="top" constant="8" id="D95-hY-7pI"/>
+                        <constraint firstItem="Dsk-Ht-agF" firstAttribute="leading" secondItem="10b-oa-v5g" secondAttribute="trailing" constant="15" id="M1D-Dv-dDC"/>
+                        <constraint firstAttribute="bottom" secondItem="Dsk-Ht-agF" secondAttribute="bottom" constant="8" id="Rg4-oX-tkw"/>
+                        <constraint firstAttribute="bottom" secondItem="10b-oa-v5g" secondAttribute="bottom" id="lB7-Tp-OVD"/>
+                        <constraint firstAttribute="trailing" secondItem="Dsk-Ht-agF" secondAttribute="trailing" constant="8" id="mdt-Au-Gbo"/>
+                        <constraint firstItem="10b-oa-v5g" firstAttribute="top" secondItem="NPf-cl-buH" secondAttribute="top" id="nd2-zi-i8O"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="NPf-cl-buH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="79" id="Tst-ZR-yUp"/>
+                <constraint firstItem="NPf-cl-buH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="b8I-9g-ZQa"/>
+                <constraint firstAttribute="trailing" secondItem="NPf-cl-buH" secondAttribute="trailing" constant="15" id="hLZ-3Y-NUY"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

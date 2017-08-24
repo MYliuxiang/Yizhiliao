@@ -249,7 +249,7 @@
     [view addGestureRecognizer:tap];
     _rightbutton = [UIButton buttonWithType:UIButtonTypeCustom];
     _rightbutton.frame = CGRectMake(kScreenWidth - 70, 20 + (self.nav.height - 20 - 50 / 2.0) / 2.0 , 70 , 50 / 2.0);
-    [_rightbutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_rightbutton setTitleColor:UIColorFromRGB(0x00ddcc) forState:UIControlStateNormal];
     [_rightbutton setTitle:titleString forState:UIControlStateNormal];
     _rightbutton.titleLabel.font =[UIFont systemFontOfSize:16];
      _rightbutton.titleLabel.textAlignment = NSTextAlignmentRight;
