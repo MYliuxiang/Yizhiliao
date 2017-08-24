@@ -21,6 +21,7 @@
 		222396E91EB1D991001D4814 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222396E81EB1D991001D4814 /* AVFoundation.framework */; };
 		222396ED1EB1DE4F001D4814 /* VideoCallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222396EC1EB1DE4F001D4814 /* VideoCallView.m */; };
 		222396EF1EB1ED33001D4814 /* VideoCallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222396EE1EB1ED33001D4814 /* VideoCallView.xib */; };
+		222456991F4C5E25005575C2 /* FSBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222456981F4C5E25005575C2 /* FSBaseTableView.m */; };
 		222740141EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 222740131EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v */; };
 		222740171EC56A92002FEF5B /* ZYLauchMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 222740161EC56A92002FEF5B /* ZYLauchMovieViewController.m */; };
 		222747051ECC49B8009E98EC /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222747041ECC49B8009E98EC /* JavaScriptCore.framework */; };
@@ -491,7 +492,27 @@
 		229094381EF2774100715841 /* start_30.wav in Resources */ = {isa = PBXBuildFile; fileRef = 229094371EF2774100715841 /* start_30.wav */; };
 		2290A8451F4BE826005DA0AE /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2290A8431F4BE826005DA0AE /* BannerView.m */; };
 		2290A8461F4BE826005DA0AE /* BannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2290A8441F4BE826005DA0AE /* BannerView.xib */; };
+		2291CBC61F4D2F02001AB139 /* LxPersonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291CBC41F4D2F02001AB139 /* LxPersonVC.m */; };
+		2291CBC71F4D2F02001AB139 /* LxPersonVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2291CBC51F4D2F02001AB139 /* LxPersonVC.xib */; };
+		2291CBCC1F4D30E8001AB139 /* LxPersonHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291CBCA1F4D30E8001AB139 /* LxPersonHeader.m */; };
+		2291CBCD1F4D30E8001AB139 /* LxPersonHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2291CBCB1F4D30E8001AB139 /* LxPersonHeader.xib */; };
+		2291CBDB1F4D6FE7001AB139 /* LxMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291CBD91F4D6FE6001AB139 /* LxMessageCell.m */; };
+		2291CBDC1F4D6FE7001AB139 /* LxMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2291CBDA1F4D6FE6001AB139 /* LxMessageCell.xib */; };
+		2291CBE51F4D77B7001AB139 /* CVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291CBE31F4D77B7001AB139 /* CVideoCell.m */; };
+		2291CBE61F4D77B7001AB139 /* CVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2291CBE41F4D77B7001AB139 /* CVideoCell.xib */; };
+		2291CBEA1F4D7F78001AB139 /* LxVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291CBE81F4D7F78001AB139 /* LxVideoTableViewCell.m */; };
+		2291CBEB1F4D7F78001AB139 /* LxVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2291CBE91F4D7F78001AB139 /* LxVideoTableViewCell.xib */; };
+		2291CBEF1F4DBCEA001AB139 /* BaseCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291CBED1F4DBCEA001AB139 /* BaseCellVC.m */; };
+		2291CBF01F4DBCEA001AB139 /* BaseCellVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2291CBEE1F4DBCEA001AB139 /* BaseCellVC.xib */; };
+		2291CBF41F4DBD08001AB139 /* InfomationMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291CBF21F4DBD08001AB139 /* InfomationMessageVC.m */; };
+		2291CBF51F4DBD08001AB139 /* InfomationMessageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2291CBF31F4DBD08001AB139 /* InfomationMessageVC.xib */; };
+		2291CBF91F4DBD17001AB139 /* InfomationVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291CBF71F4DBD17001AB139 /* InfomationVideoVC.m */; };
+		2291CBFA1F4DBD17001AB139 /* InfomationVideoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2291CBF81F4DBD17001AB139 /* InfomationVideoVC.xib */; };
+		2291CBFE1F4DBD30001AB139 /* PersonSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291CBFC1F4DBD30001AB139 /* PersonSelectCell.m */; };
+		2291CBFF1F4DBD30001AB139 /* PersonSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2291CBFD1F4DBD30001AB139 /* PersonSelectCell.xib */; };
 		22A454F01F064C1E0020225E /* share-result.html in Resources */ = {isa = PBXBuildFile; fileRef = 22A454EF1F064C1E0020225E /* share-result.html */; };
+		22AC02A21F4EC07600369C6D /* NewMyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AC02A01F4EC07600369C6D /* NewMyVC.m */; };
+		22AC02A31F4EC07600369C6D /* NewMyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AC02A11F4EC07600369C6D /* NewMyVC.xib */; };
 		22ADAE151F0B8908005D08A4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ADAE141F0B8908005D08A4 /* StoreKit.framework */; };
 		22ADAE2B1F0BC352005D08A4 /* IAPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ADAE2A1F0BC352005D08A4 /* IAPModel.m */; };
 		22B109181EA4A4E200E35B74 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B109131EA4A4E200E35B74 /* MainTabBarController.m */; };
@@ -560,8 +581,6 @@
 		84B8CDA91F4AC92700A13D27 /* PersonHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */; };
 		84B8CDAA1F4AC92700A13D27 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */; };
 		84B8CDAD1F4AD3F800A13D27 /* PersonHeaderScroolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDAC1F4AD3F800A13D27 /* PersonHeaderScroolView.m */; };
-		84B8CDB11F4AD74E00A13D27 /* PersonSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDAF1F4AD74E00A13D27 /* PersonSelectCell.m */; };
-		84B8CDB21F4AD74E00A13D27 /* PersonSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDB01F4AD74E00A13D27 /* PersonSelectCell.xib */; };
 		84B8CDB51F4AD92300A13D27 /* UIButton+backgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDB41F4AD92300A13D27 /* UIButton+backgroundColor.m */; };
 		84B8CDB91F4ADBE100A13D27 /* PersonBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDB71F4ADBE100A13D27 /* PersonBottomCell.m */; };
 		84B8CDBA1F4ADBE100A13D27 /* PersonBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDB81F4ADBE100A13D27 /* PersonBottomCell.xib */; };
@@ -607,6 +626,8 @@
 		222396EB1EB1DE4F001D4814 /* VideoCallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCallView.h; sourceTree = "<group>"; };
 		222396EC1EB1DE4F001D4814 /* VideoCallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCallView.m; sourceTree = "<group>"; };
 		222396EE1EB1ED33001D4814 /* VideoCallView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCallView.xib; sourceTree = "<group>"; };
+		222456971F4C5E25005575C2 /* FSBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaseTableView.h; sourceTree = "<group>"; };
+		222456981F4C5E25005575C2 /* FSBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseTableView.m; sourceTree = "<group>"; };
 		222740131EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "v1.0版本启动动画定版.mp4.m4v"; sourceTree = "<group>"; };
 		222740151EC56A92002FEF5B /* ZYLauchMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYLauchMovieViewController.h; sourceTree = "<group>"; };
 		222740161EC56A92002FEF5B /* ZYLauchMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYLauchMovieViewController.m; sourceTree = "<group>"; };
@@ -1314,7 +1335,37 @@
 		2290A8421F4BE826005DA0AE /* BannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerView.h; sourceTree = "<group>"; };
 		2290A8431F4BE826005DA0AE /* BannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerView.m; sourceTree = "<group>"; };
 		2290A8441F4BE826005DA0AE /* BannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerView.xib; sourceTree = "<group>"; };
+		2291CBC31F4D2F02001AB139 /* LxPersonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxPersonVC.h; sourceTree = "<group>"; };
+		2291CBC41F4D2F02001AB139 /* LxPersonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxPersonVC.m; sourceTree = "<group>"; };
+		2291CBC51F4D2F02001AB139 /* LxPersonVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LxPersonVC.xib; sourceTree = "<group>"; };
+		2291CBC91F4D30E8001AB139 /* LxPersonHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxPersonHeader.h; sourceTree = "<group>"; };
+		2291CBCA1F4D30E8001AB139 /* LxPersonHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxPersonHeader.m; sourceTree = "<group>"; };
+		2291CBCB1F4D30E8001AB139 /* LxPersonHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LxPersonHeader.xib; sourceTree = "<group>"; };
+		2291CBD81F4D6FE6001AB139 /* LxMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxMessageCell.h; sourceTree = "<group>"; };
+		2291CBD91F4D6FE6001AB139 /* LxMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxMessageCell.m; sourceTree = "<group>"; };
+		2291CBDA1F4D6FE6001AB139 /* LxMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LxMessageCell.xib; sourceTree = "<group>"; };
+		2291CBE21F4D77B7001AB139 /* CVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVideoCell.h; sourceTree = "<group>"; };
+		2291CBE31F4D77B7001AB139 /* CVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVideoCell.m; sourceTree = "<group>"; };
+		2291CBE41F4D77B7001AB139 /* CVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CVideoCell.xib; sourceTree = "<group>"; };
+		2291CBE71F4D7F78001AB139 /* LxVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxVideoTableViewCell.h; sourceTree = "<group>"; };
+		2291CBE81F4D7F78001AB139 /* LxVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxVideoTableViewCell.m; sourceTree = "<group>"; };
+		2291CBE91F4D7F78001AB139 /* LxVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LxVideoTableViewCell.xib; sourceTree = "<group>"; };
+		2291CBEC1F4DBCEA001AB139 /* BaseCellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellVC.h; sourceTree = "<group>"; };
+		2291CBED1F4DBCEA001AB139 /* BaseCellVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCellVC.m; sourceTree = "<group>"; };
+		2291CBEE1F4DBCEA001AB139 /* BaseCellVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseCellVC.xib; sourceTree = "<group>"; };
+		2291CBF11F4DBD08001AB139 /* InfomationMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfomationMessageVC.h; sourceTree = "<group>"; };
+		2291CBF21F4DBD08001AB139 /* InfomationMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfomationMessageVC.m; sourceTree = "<group>"; };
+		2291CBF31F4DBD08001AB139 /* InfomationMessageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfomationMessageVC.xib; sourceTree = "<group>"; };
+		2291CBF61F4DBD17001AB139 /* InfomationVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfomationVideoVC.h; sourceTree = "<group>"; };
+		2291CBF71F4DBD17001AB139 /* InfomationVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfomationVideoVC.m; sourceTree = "<group>"; };
+		2291CBF81F4DBD17001AB139 /* InfomationVideoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfomationVideoVC.xib; sourceTree = "<group>"; };
+		2291CBFB1F4DBD30001AB139 /* PersonSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonSelectCell.h; sourceTree = "<group>"; };
+		2291CBFC1F4DBD30001AB139 /* PersonSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonSelectCell.m; sourceTree = "<group>"; };
+		2291CBFD1F4DBD30001AB139 /* PersonSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonSelectCell.xib; sourceTree = "<group>"; };
 		22A454EF1F064C1E0020225E /* share-result.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "share-result.html"; sourceTree = "<group>"; };
+		22AC029F1F4EC07600369C6D /* NewMyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMyVC.h; sourceTree = "<group>"; };
+		22AC02A01F4EC07600369C6D /* NewMyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMyVC.m; sourceTree = "<group>"; };
+		22AC02A11F4EC07600369C6D /* NewMyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMyVC.xib; sourceTree = "<group>"; };
 		22ADAE141F0B8908005D08A4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		22ADAE181F0B8EE9005D08A4 /* Lliaoda.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Lliaoda.entitlements; sourceTree = "<group>"; };
 		22ADAE291F0BC352005D08A4 /* IAPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPModel.h; sourceTree = "<group>"; };
@@ -1432,9 +1483,6 @@
 		84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonHeaderCell.xib; sourceTree = "<group>"; };
 		84B8CDAB1F4AD3F800A13D27 /* PersonHeaderScroolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHeaderScroolView.h; sourceTree = "<group>"; };
 		84B8CDAC1F4AD3F800A13D27 /* PersonHeaderScroolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeaderScroolView.m; sourceTree = "<group>"; };
-		84B8CDAE1F4AD74E00A13D27 /* PersonSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonSelectCell.h; sourceTree = "<group>"; };
-		84B8CDAF1F4AD74E00A13D27 /* PersonSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonSelectCell.m; sourceTree = "<group>"; };
-		84B8CDB01F4AD74E00A13D27 /* PersonSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonSelectCell.xib; sourceTree = "<group>"; };
 		84B8CDB31F4AD92300A13D27 /* UIButton+backgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+backgroundColor.h"; sourceTree = "<group>"; };
 		84B8CDB41F4AD92300A13D27 /* UIButton+backgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+backgroundColor.m"; sourceTree = "<group>"; };
 		84B8CDB61F4ADBE100A13D27 /* PersonBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonBottomCell.h; sourceTree = "<group>"; };
@@ -2603,6 +2651,9 @@
 			children = (
 				224F246B1EA74B7400C0FDC6 /* FMVideoPlayController.h */,
 				224F246C1EA74B7400C0FDC6 /* FMVideoPlayController.m */,
+				22AC029F1F4EC07600369C6D /* NewMyVC.h */,
+				22AC02A01F4EC07600369C6D /* NewMyVC.m */,
+				22AC02A11F4EC07600369C6D /* NewMyVC.xib */,
 				22B1092D1EA4A5D500E35B74 /* MyVC.h */,
 				22B1092E1EA4A5D500E35B74 /* MyVC.m */,
 				22A454EF1F064C1E0020225E /* share-result.html */,
@@ -2756,12 +2807,26 @@
 		22B109111EA4A4B900E35B74 /* 精选 */ = {
 			isa = PBXGroup;
 			children = (
+				222456971F4C5E25005575C2 /* FSBaseTableView.h */,
+				222456981F4C5E25005575C2 /* FSBaseTableView.m */,
 				224428081EA895DD00BF3E4D /* Models */,
 				22B109271EA4A59100E35B74 /* SelectedVC.h */,
 				22B109281EA4A59100E35B74 /* SelectedVC.m */,
+				2291CBC31F4D2F02001AB139 /* LxPersonVC.h */,
+				2291CBC41F4D2F02001AB139 /* LxPersonVC.m */,
+				2291CBC51F4D2F02001AB139 /* LxPersonVC.xib */,
 				22D7A2EC1EA5AFA800A631B5 /* PersonalVC.h */,
 				22D7A2ED1EA5AFA800A631B5 /* PersonalVC.m */,
 				22D7A2EE1EA5AFA800A631B5 /* PersonalVC.xib */,
+				2291CBF11F4DBD08001AB139 /* InfomationMessageVC.h */,
+				2291CBF21F4DBD08001AB139 /* InfomationMessageVC.m */,
+				2291CBF31F4DBD08001AB139 /* InfomationMessageVC.xib */,
+				2291CBF61F4DBD17001AB139 /* InfomationVideoVC.h */,
+				2291CBF71F4DBD17001AB139 /* InfomationVideoVC.m */,
+				2291CBF81F4DBD17001AB139 /* InfomationVideoVC.xib */,
+				2291CBEC1F4DBCEA001AB139 /* BaseCellVC.h */,
+				2291CBED1F4DBCEA001AB139 /* BaseCellVC.m */,
+				2291CBEE1F4DBCEA001AB139 /* BaseCellVC.xib */,
 				22721FC31EE80C68003A19D3 /* PPhotoVC.h */,
 				22721FC41EE80C68003A19D3 /* PPhotoVC.m */,
 				22721FC51EE80C68003A19D3 /* PPhotoVC.xib */,
@@ -2864,17 +2929,29 @@
 				22453BAB1F1C74290000C006 /* UserCell.h */,
 				22453BAC1F1C74290000C006 /* UserCell.m */,
 				22453BAD1F1C74290000C006 /* UserCell.xib */,
+				2291CBFB1F4DBD30001AB139 /* PersonSelectCell.h */,
+				2291CBFC1F4DBD30001AB139 /* PersonSelectCell.m */,
+				2291CBFD1F4DBD30001AB139 /* PersonSelectCell.xib */,
 				84B8CDA61F4AC92700A13D27 /* PersonHeaderCell.h */,
 				84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */,
 				84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */,
 				84B8CDAB1F4AD3F800A13D27 /* PersonHeaderScroolView.h */,
 				84B8CDAC1F4AD3F800A13D27 /* PersonHeaderScroolView.m */,
-				84B8CDAE1F4AD74E00A13D27 /* PersonSelectCell.h */,
-				84B8CDAF1F4AD74E00A13D27 /* PersonSelectCell.m */,
-				84B8CDB01F4AD74E00A13D27 /* PersonSelectCell.xib */,
 				84B8CDB61F4ADBE100A13D27 /* PersonBottomCell.h */,
 				84B8CDB71F4ADBE100A13D27 /* PersonBottomCell.m */,
 				84B8CDB81F4ADBE100A13D27 /* PersonBottomCell.xib */,
+				2291CBC91F4D30E8001AB139 /* LxPersonHeader.h */,
+				2291CBCA1F4D30E8001AB139 /* LxPersonHeader.m */,
+				2291CBCB1F4D30E8001AB139 /* LxPersonHeader.xib */,
+				2291CBD81F4D6FE6001AB139 /* LxMessageCell.h */,
+				2291CBD91F4D6FE6001AB139 /* LxMessageCell.m */,
+				2291CBDA1F4D6FE6001AB139 /* LxMessageCell.xib */,
+				2291CBE71F4D7F78001AB139 /* LxVideoTableViewCell.h */,
+				2291CBE81F4D7F78001AB139 /* LxVideoTableViewCell.m */,
+				2291CBE91F4D7F78001AB139 /* LxVideoTableViewCell.xib */,
+				2291CBE21F4D77B7001AB139 /* CVideoCell.h */,
+				2291CBE31F4D77B7001AB139 /* CVideoCell.m */,
+				2291CBE41F4D77B7001AB139 /* CVideoCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3213,6 +3290,7 @@
 				222AA0571EB071910038416D /* B_17@2x.gif in Resources */,
 				222AA02D1EB071910038416D /* C_94@2x.png in Resources */,
 				222AA0721EB071910038416D /* B_41@2x.gif in Resources */,
+				2291CBDC1F4D6FE7001AB139 /* LxMessageCell.xib in Resources */,
 				222AA0B31EB071910038416D /* emotion.plist in Resources */,
 				222AA00E1EB071910038416D /* IM_Chat_keyboard@2x.png in Resources */,
 				222AA03A1EB071910038416D /* B_07@2x.gif in Resources */,
@@ -3238,6 +3316,7 @@
 				222AA0B61EB071910038416D /* receive_head.jpg in Resources */,
 				222AA02B1EB071910038416D /* C_92@2x.png in Resources */,
 				224F245C1EA7341F00C0FDC6 /* VideoRZCell.xib in Resources */,
+				2291CBFF1F4DBD30001AB139 /* PersonSelectCell.xib in Resources */,
 				222AA0301EB071910038416D /* C_97@2x.png in Resources */,
 				222AA0AC1EB071910038416D /* B_94@2x.gif in Resources */,
 				222AA0991EB071910038416D /* B_77@2x.gif in Resources */,
@@ -3264,6 +3343,8 @@
 				222AA0451EB071910038416D /* B_108@2x.gif in Resources */,
 				222396D01EB1CDCC001D4814 /* MessageCell.xib in Resources */,
 				222AA0AE1EB071910038416D /* B_96@2x.gif in Resources */,
+				2291CBE61F4D77B7001AB139 /* CVideoCell.xib in Resources */,
+				2291CBF01F4DBCEA001AB139 /* BaseCellVC.xib in Resources */,
 				222AA1C51EB0775B0038416D /* Animated image support.txt in Resources */,
 				222AA1651EB071C20038416D /* Keyboard_gradient_mask@2x.png in Resources */,
 				222AA0AD1EB071910038416D /* B_95@2x.gif in Resources */,
@@ -3286,6 +3367,7 @@
 				222AA04B1EB071910038416D /* B_113@2x.gif in Resources */,
 				222AA07E1EB071910038416D /* B_52@2x.gif in Resources */,
 				222AA07A1EB071910038416D /* B_49@2x.gif in Resources */,
+				2291CBCD1F4D30E8001AB139 /* LxPersonHeader.xib in Resources */,
 				222AA0041EB071910038416D /* chatBar_colorMore_camera@2x.png in Resources */,
 				222AA0841EB071910038416D /* B_58@2x.gif in Resources */,
 				84B8CDBA1F4ADBE100A13D27 /* PersonBottomCell.xib in Resources */,
@@ -3309,6 +3391,7 @@
 				222AA0711EB071910038416D /* B_40@2x.gif in Resources */,
 				222AA0A41EB071910038416D /* B_87@2x.gif in Resources */,
 				225827791ECC09CC0049A6C1 /* start.wav in Resources */,
+				2291CBF51F4DBD08001AB139 /* InfomationMessageVC.xib in Resources */,
 				222AA0531EB071910038416D /* B_13@2x.gif in Resources */,
 				222AA08E1EB071910038416D /* B_67@2x.gif in Resources */,
 				222B385A1ED96843009DB58F /* mss_browseLoading@3x.png in Resources */,
@@ -3327,6 +3410,7 @@
 				222AA01E1EB071910038416D /* C_112@2x.png in Resources */,
 				222AA0521EB071910038416D /* B_12@2x.gif in Resources */,
 				840BE31C1F1F01A70004B6D9 /* CollectionHeaderView.xib in Resources */,
+				2291CBEB1F4D7F78001AB139 /* LxVideoTableViewCell.xib in Resources */,
 				222AA0481EB071910038416D /* B_110@2x.gif in Resources */,
 				222AA0B41EB071910038416D /* emotion1.plist in Resources */,
 				22453BAF1F1C74290000C006 /* UserCell.xib in Resources */,
@@ -3341,6 +3425,7 @@
 				222AA02F1EB071910038416D /* C_96@2x.png in Resources */,
 				2250E62E1EA9EE4D00849842 /* PersonCell.xib in Resources */,
 				222AA0A11EB071910038416D /* B_84@2x.gif in Resources */,
+				2291CBFA1F4DBD17001AB139 /* InfomationVideoVC.xib in Resources */,
 				222AA08C1EB071910038416D /* B_65@2x.gif in Resources */,
 				841AD6CE1F3C6CB400A3CE0D /* SelectedBannersHeader.xib in Resources */,
 				222AA0671EB071910038416D /* B_31@2x.gif in Resources */,
@@ -3355,7 +3440,6 @@
 				222AA08D1EB071910038416D /* B_66@2x.gif in Resources */,
 				222AA04F1EB071910038416D /* B_117@2x.gif in Resources */,
 				222AA0501EB071910038416D /* B_118@2x.gif in Resources */,
-				84B8CDB21F4AD74E00A13D27 /* PersonSelectCell.xib in Resources */,
 				222AA0381EB071910038416D /* B_05@2x.gif in Resources */,
 				22721FAE1EE7E3E7003A19D3 /* MediaCell.xib in Resources */,
 				222FA8751EFD198100E91AE5 /* GiftCell.xib in Resources */,
@@ -3407,6 +3491,7 @@
 				222AA0581EB071910038416D /* B_18@2x.gif in Resources */,
 				222AA0A51EB071910038416D /* B_88@2x.gif in Resources */,
 				222AA0611EB071910038416D /* B_26@2x.gif in Resources */,
+				2291CBC71F4D2F02001AB139 /* LxPersonVC.xib in Resources */,
 				222AA0A61EB071910038416D /* B_89@2x.gif in Resources */,
 				222AA0031EB071910038416D /* IM_Chat_sender_bg@3x.png in Resources */,
 				22E8D7771EA49AE300C5FC6B /* Main.storyboard in Resources */,
@@ -3423,6 +3508,7 @@
 				22453BAA1F1C73FF0000C006 /* ProfitVC.xib in Resources */,
 				222AA0211EB071910038416D /* C_82@2x.png in Resources */,
 				22B691E41F3ABD4D00CDF0F2 /* id1495262516.mp4 in Resources */,
+				22AC02A31F4EC07600369C6D /* NewMyVC.xib in Resources */,
 				222AA0511EB071910038416D /* B_11@2x.gif in Resources */,
 				222B38241ED9642B009DB58F /* FSActionSheet_cancel@2x.png in Resources */,
 				222AA0541EB071910038416D /* B_14@2x.gif in Resources */,
@@ -3679,6 +3765,7 @@
 				2286DC681EF26AFE00FDF801 /* LHChatLocationBubbleView.m in Sources */,
 				222B38231ED9642B009DB58F /* FSActionSheetItem.m in Sources */,
 				225DC9D61ED818B3002ADA8F /* AcceptVC.m in Sources */,
+				2291CBDB1F4D6FE7001AB139 /* LxMessageCell.m in Sources */,
 				224F24711EA7521A00C0FDC6 /* VideoOneVC.m in Sources */,
 				222B38651ED96843009DB58F /* UIImage+MSSScale.m in Sources */,
 				2263D3E81EF392BD0020E092 /* AboutVC.m in Sources */,
@@ -3686,6 +3773,7 @@
 				228B89C11EA85744002B8D3C /* VideoRZTwoVC.m in Sources */,
 				222B38201ED9642B009DB58F /* FSActionSheet.m in Sources */,
 				2244B4641F00B96800685217 /* GiftModel.m in Sources */,
+				22AC02A21F4EC07600369C6D /* NewMyVC.m in Sources */,
 				222AA0D81EB071A50038416D /* UIView+Layout.m in Sources */,
 				222AA1E11EB0775B0038416D /* YYLabel.m in Sources */,
 				222B38211ED9642B009DB58F /* FSActionSheetCell.m in Sources */,
@@ -3707,10 +3795,12 @@
 				222B381E1ED9642B009DB58F /* UIImage+XLExtension.m in Sources */,
 				222AA1D81EB0775B0038416D /* YYTextRunDelegate.m in Sources */,
 				223DE5AA1F20AB3700745E94 /* LivePusher.m in Sources */,
+				222456991F4C5E25005575C2 /* FSBaseTableView.m in Sources */,
 				2244B4671F00B96800685217 /* PresentView.m in Sources */,
 				222B38631ED96843009DB58F /* MSSBrowseRemindView.m in Sources */,
 				2244B46D1F00E02400685217 /* MGiftModel.m in Sources */,
 				222AA1DF1EB0775B0038416D /* YYTextUtilities.m in Sources */,
+				2291CBFE1F4DBD30001AB139 /* PersonSelectCell.m in Sources */,
 				228B89DC1EA8671B002B8D3C /* SPHttpWithYYCache.m in Sources */,
 				224F24601EA73EB200C0FDC6 /* VideoRZTwoCell.m in Sources */,
 				84B8CDAD1F4AD3F800A13D27 /* PersonHeaderScroolView.m in Sources */,
@@ -3730,6 +3820,7 @@
 				22CDA9781EA6045A006CD611 /* AccountVC.m in Sources */,
 				222AA14A1EB071C10038416D /* NSDate+Judge.m in Sources */,
 				222AA1C31EB0775B0038416D /* NSString+YYAdd.m in Sources */,
+				2291CBE51F4D77B7001AB139 /* CVideoCell.m in Sources */,
 				223DE5A71F20AB3700745E94 /* AGVideoBuffer.m in Sources */,
 				222AA0CF1EB071A50038416D /* TZAssetCell.m in Sources */,
 				222FA86E1EFD150400E91AE5 /* GiftsView.m in Sources */,
@@ -3747,11 +3838,14 @@
 				229094351EF2756200715841 /* AgreementVC.m in Sources */,
 				22B109191EA4A4E200E35B74 /* BaseViewController.m in Sources */,
 				222AA14F1EB071C10038416D /* UIView+Addtions.m in Sources */,
+				2291CBEA1F4D7F78001AB139 /* LxVideoTableViewCell.m in Sources */,
 				22B109291EA4A59100E35B74 /* SelectedVC.m in Sources */,
 				222B38621ED96843009DB58F /* MSSBrowseNetworkViewController.m in Sources */,
 				225FA9EE1EFBD6C90086287E /* UserModel.m in Sources */,
+				2291CBCC1F4D30E8001AB139 /* LxPersonHeader.m in Sources */,
 				2244280E1EA8A98900BF3E4D /* SelectedModel.m in Sources */,
 				228B89D61EA866FB002B8D3C /* YYCache.m in Sources */,
+				2291CBEF1F4DBCEA001AB139 /* BaseCellVC.m in Sources */,
 				222AA1501EB071C10038416D /* UIView+frameAdjust.m in Sources */,
 				2244B4681F00B96800685217 /* AnimOperation.m in Sources */,
 				222B38611ED96843009DB58F /* MSSBrowseModel.m in Sources */,
@@ -3760,13 +3854,13 @@
 				224F24561EA7339200C0FDC6 /* UITableViewCell+WHC_AutoHeightForCell.m in Sources */,
 				228CF7341EDE7C2C0045986D /* MyVideoVC.m in Sources */,
 				222AA1741EB071C20038416D /* LHIMDBManager.m in Sources */,
-				84B8CDB11F4AD74E00A13D27 /* PersonSelectCell.m in Sources */,
 				222B383A1ED9642B009DB58F /* XLPhotoBrowser.m in Sources */,
 				22844F571ED2A1B800A9E32E /* IQTextView.m in Sources */,
 				22721FAD1EE7E3E7003A19D3 /* MediaCell.m in Sources */,
 				22453BAE1F1C74290000C006 /* UserCell.m in Sources */,
 				2286DC6F1EF26AFE00FDF801 /* LHChatViewCell.m in Sources */,
 				2286DC671EF26AFE00FDF801 /* LHChatImageBubbleView.m in Sources */,
+				2291CBF91F4DBD17001AB139 /* InfomationVideoVC.m in Sources */,
 				222B385B1ED96843009DB58F /* MSSBrowseActionSheet.m in Sources */,
 				224F24651EA73ED300C0FDC6 /* VideoRZThreeCell.m in Sources */,
 				224428071EA890C800BF3E4D /* JKDBModel.m in Sources */,
@@ -3812,6 +3906,7 @@
 				222AA1CD1EB0775B0038416D /* YYTextEffectWindow.m in Sources */,
 				222AA1771EB071C20038416D /* XSBrowserTransition.m in Sources */,
 				22844F511ED2A1B800A9E32E /* IQUITextFieldView+Additions.m in Sources */,
+				2291CBC61F4D2F02001AB139 /* LxPersonVC.m in Sources */,
 				228CF74D1EDED3B40045986D /* WKFRadarView.m in Sources */,
 				222AA1DE1EB0775B0038416D /* YYTextTransaction.m in Sources */,
 				22CDA9651EA5DDD3006CD611 /* LXBaseModel.m in Sources */,
@@ -3855,6 +3950,7 @@
 				222AA1D51EB0775B0038416D /* YYTextAttribute.m in Sources */,
 				222AA1C21EB0775B0038416D /* NSBundle+YYAdd.m in Sources */,
 				227303031F4AC75D0069F53B /* TJPTabBarController.m in Sources */,
+				2291CBF41F4DBD08001AB139 /* InfomationMessageVC.m in Sources */,
 				223DE5AC1F20AB3700745E94 /* YuvToJpg.m in Sources */,
 				222AA14D1EB071C10038416D /* UIImage+Common.m in Sources */,
 				22721FA81EE7D5F7003A19D3 /* PeriSonMediaCell.m in Sources */,

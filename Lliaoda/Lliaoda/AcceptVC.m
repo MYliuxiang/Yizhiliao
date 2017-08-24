@@ -40,6 +40,8 @@
 }
 
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -47,6 +49,7 @@
 
 - (IBAction)tijiaoAC:(id)sender{
 
+    
     if (self.textField.text.length == 0) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"请填写验证码！") delegate:nil cancelButtonTitle:nil otherButtonTitles:LXSring(@"確定"), nil];

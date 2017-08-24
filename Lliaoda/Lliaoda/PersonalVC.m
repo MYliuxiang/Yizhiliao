@@ -28,7 +28,9 @@
 //    self.navigationController.navigationBar.translucent = NO;
     _headerImageArrs = [NSMutableArray array];
     _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
-
+    self.nav.backgroundColor = [UIColor clearColor];
+    self.titleLable.textColor = [UIColor whiteColor];
+    self.canScroll = YES;
     self.videoBtn.layer.cornerRadius = 22;
     self.videoBtn.layer.masksToBounds = YES;
     
@@ -41,6 +43,7 @@
 //    [self haveVideoLoadData];
     [self _loadData];
    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeScrollStatus) name:@"leaveTop" object:nil];
     
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
        
@@ -85,6 +88,33 @@
     [self.hongBtn.layer addAnimation:scaleAnimation forKey:@"scaleAnimation"]; //key -- value.
     [self _loadData1];
 }
+
+#pragma mark notify
+- (void)changeScrollStatus//改变主视图的状态
+{
+    self.canScroll = YES;
+    self.contentCell.cellCanScroll = NO;
+}
+
+//#pragma mark UIScrollView
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat bottomCellOffset = SCREEN_W + 25 + 75;
+    NSLog(@"%f",scrollView.contentOffset.y);
+    if (scrollView.contentOffset.y >= bottomCellOffset) {
+        scrollView.contentOffset = CGPointMake(0, bottomCellOffset);
+        if (self.canScroll) {
+            self.canScroll = NO;
+            self.contentCell.cellCanScroll = YES;
+
+        }
+    }else{
+        if (!self.canScroll) {//子视图没到顶部
+            scrollView.contentOffset = CGPointMake(0, bottomCellOffset);
+        }
+    }
+}
+
 
 - (void)haveVideoLoadData
 {
@@ -349,7 +379,24 @@
 {
 //    NSArray *array = self.dataList[section];
 //    return array.count;
-    return 3;
+    return 2;
+}
+
+
+#pragma mark PersonSelectCellDelegate
+- (void)button1Click
+{
+   
+
+}
+
+- (void)button2Click
+{
+   }
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -359,9 +406,32 @@
         cell.imagesArray = self.headerImageArrs;
         return cell;
     } else if (indexPath.row == 1) {
-        return [PersonSelectCell tableView:tableView
-                                 indexPath:indexPath
-                                  delegate:nil];
+        
+        self.contentCell = [PersonSelectCell tableView:tableView
+                                                   indexPath:indexPath
+                                                    delegate:self];
+        InfomationVideoVC *videoVc = [[InfomationVideoVC alloc] init];
+        InfomationMessageVC *messageVC = [[InfomationMessageVC alloc] init];
+       NSMutableArray *contentVCs = [NSMutableArray array];
+        [contentVCs addObject:messageVC];
+        [contentVCs addObject:videoVc];
+        self.contentCell.viewControllers = contentVCs;
+        __weak PersonalVC *this = self;
+        self.contentCell.oneAction = ^(int type) {
+            if (type == 1) {
+                
+                this.type = CellMessage;
+                [this.tableView reloadData];
+            }else{
+            
+                this.type = CellVideoType;
+                [this.tableView reloadData];
+                
+
+            }
+        };
+        
+        return self.contentCell;
     } else {
         return [PersonBottomCell tableView:tableView
                                  indexPath:indexPath];
@@ -536,15 +606,26 @@
 //    
 //    return 64;
     if (indexPath.row == 0) {
+        
         return SCREEN_W + 25;
-    } else if (indexPath.row == 1) {
-        return 74;
-    } else {
-        return 280;
-    }
     
+    } else if (indexPath.row == 1) {
+        if (self.type == CellMessage) {
+//            return 74 + 280;
+            return kScreenHeight - 49;
 
+
+        }else{
+        
+            return kScreenHeight;
+        }
+    
+    }else{
+    
+        return 100;
+    }
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

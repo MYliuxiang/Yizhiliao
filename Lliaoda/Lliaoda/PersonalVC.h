@@ -17,7 +17,16 @@
 #import "PersonHeaderCell.h"
 #import "PersonSelectCell.h"
 #import "PersonBottomCell.h"
-@interface PersonalVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+#import "InfomationVideoVC.h"
+#import "InfomationMessageVC.h"
+#import "FSBaseTableView.h"
+typedef NS_ENUM(NSInteger, CellType) {
+    CellMessage,
+    CellVideoType
+};
+
+
+@interface PersonalVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,PersonSelectCellDelegate,UIGestureRecognizerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UIView *footerView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
@@ -32,9 +41,10 @@
 - (IBAction)topupBtnClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *blackView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *layoutConstraint;
+@property (weak, nonatomic) IBOutlet FSBaseTableView *tableView;
+
 
 - (IBAction)videoCall:(id)sender;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,retain) NSArray *dataList;
 @property (nonatomic,retain) SelectedModel *model;
 @property (nonatomic,retain) PersonModel *pmodel;
@@ -54,4 +64,9 @@
 @property (nonatomic,retain) AgoraAPI *inst;
 @property (nonatomic, strong) NSString *lastTime;
 @property (nonatomic, assign) BOOL isFromHeader;
+@property (nonatomic, strong) PersonSelectCell *contentCell;
+
+@property (nonatomic,assign) CellType type;
+@property (nonatomic, assign) BOOL canScroll;
+
 @end

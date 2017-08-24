@@ -78,12 +78,13 @@
     self.tabBar.hidden = YES;
     self.selectedIndex = 0;
     [self setupTabBar];
+    [self initViewController];
+
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self initViewController];
 }
 - (void)setupTabBar
 {
@@ -158,6 +159,7 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //    FindVC *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
     SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
+
     MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
     MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
     NSArray *vcs = @[managementVC, vipbusinessVC, myVC];
@@ -169,7 +171,6 @@
         
         //设置导航控制器的代理对象
         baseNav.delegate = self;
-        
         //导航控制器添加到数组中
         [navCtrls addObject:baseNav];
         
@@ -197,7 +198,7 @@
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     self.tabBar.hidden = YES;
-    self.hidesBottomBarWhenPushed = YES;
+//    self.hidesBottomBarWhenPushed = YES;
     //判断当前导航控制器将要导航到第几个控制器
     if (navigationController.viewControllers.count == 1) {
         [UIView beginAnimations:nil context:nil];
@@ -214,4 +215,5 @@
         [UIView commitAnimations];
     }
 }
+
 @end

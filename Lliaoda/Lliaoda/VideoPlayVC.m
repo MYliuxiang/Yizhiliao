@@ -135,7 +135,8 @@
     int value = [[aNotification.userInfo valueForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey] intValue];
     if (value == MPMovieFinishReasonPlaybackEnded) {   // 視訊播放结束
  
-         [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
+//        [self.navigationController popViewControllerAnimated:YES];
         
     }
     if (value == MPMovieFinishReasonUserExited) {
@@ -154,7 +155,7 @@
     [self.videoPlayer stop];
     self.videoPlayer = nil;
     [SVProgressHUD dismiss];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
@@ -162,7 +163,7 @@
 {
     [self.videoPlayer stop];
     self.videoPlayer = nil;
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)DoneAction
@@ -170,7 +171,7 @@
     [self.videoPlayer stop];
     self.videoPlayer = nil;
     [SVProgressHUD dismiss];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 - (void)viewWillDisappear:(BOOL)animated

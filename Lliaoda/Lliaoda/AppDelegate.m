@@ -623,7 +623,7 @@
 
 /** 主页*/
 - (void)homePageViewControllerShow {
-    TJPTabBarController *rootVC = [[TJPTabBarController alloc] init];
+    TJPTabBarController *rootVC = [TJPTabBarController shareInstance] ;
 //    TJPTabBarController *rootVC = [TJPTabBarController tabBarControllerWitnAddChildVCBlock:^(TJPTabBarController *tabBarVC) {
 //        
 //        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

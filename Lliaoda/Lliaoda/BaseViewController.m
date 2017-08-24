@@ -146,10 +146,13 @@
     }
 }
 
+
+
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 - (void)rightChargeButtonAC {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line: CandyTalk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Salin ID", nil];

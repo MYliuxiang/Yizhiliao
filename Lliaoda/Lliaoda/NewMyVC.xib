@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewMyVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Afr-QN-zTv">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Afr-QN-zTv" secondAttribute="bottom" constant="49" id="0Nt-aT-eMB"/>
+                <constraint firstItem="Afr-QN-zTv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KYH-yn-QXv"/>
+                <constraint firstAttribute="trailing" secondItem="Afr-QN-zTv" secondAttribute="trailing" id="V9I-o6-pv0"/>
+                <constraint firstItem="Afr-QN-zTv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VpE-PJ-zgU"/>
+            </constraints>
+            <point key="canvasLocation" x="260" y="-188"/>
+        </view>
+        <view contentMode="scaleToFill" id="jal-f6-M7U">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="332"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oWF-hJ-Tvg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="oWF-hJ-Tvg" secondAttribute="height" multiplier="750:450" id="4cq-wB-ICg"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNk-Mu-0IK">
+                    <rect key="frame" x="315" y="20" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="rb1-w8-RLy"/>
+                        <constraint firstAttribute="width" constant="60" id="z6B-T2-2a0"/>
+                    </constraints>
+                    <state key="normal" image="bianji"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSp-M7-PUA">
+                    <rect key="frame" x="67" y="38" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="oWF-hJ-Tvg" firstAttribute="leading" secondItem="jal-f6-M7U" secondAttribute="leading" id="K2i-o8-Pzq"/>
+                <constraint firstItem="ZNk-Mu-0IK" firstAttribute="top" secondItem="jal-f6-M7U" secondAttribute="top" constant="20" id="X2F-V6-F3g"/>
+                <constraint firstAttribute="trailing" secondItem="oWF-hJ-Tvg" secondAttribute="trailing" id="b0w-Rf-a7E"/>
+                <constraint firstItem="oWF-hJ-Tvg" firstAttribute="top" secondItem="jal-f6-M7U" secondAttribute="top" id="ee5-12-9YB"/>
+                <constraint firstAttribute="trailing" secondItem="ZNk-Mu-0IK" secondAttribute="trailing" id="yJt-dd-96H"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-189.5" y="362"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bianji" width="17" height="17"/>
+    </resources>
+</document>

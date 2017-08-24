@@ -36,9 +36,6 @@
     //設定导航栏的背景图片
     [self.navigationBar setBarTintColor:Color_nav];
 
-    
-
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,25 +60,6 @@
 
     }
 }
-
-#pragma mark - 重写父类方法拦截push方法
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-
-    //判断是否为第一层控制器
-    if (self.childViewControllers.count > 0) { //如果push进来的        //当push的时候 隐藏tabbar
-        viewController.hidesBottomBarWhenPushed = YES;
-    }
-    //先设置leftItem  再push进去 之后会调用viewdidLoad  用意在于vc可以覆盖上面设置的方法
-    [super pushViewController:viewController animated:animated];
-
-}
-
-
-
-
-
-
 
 
 @end

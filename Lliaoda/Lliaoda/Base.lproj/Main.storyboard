@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vYV-5a-hLZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vYV-5a-hLZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -53,9 +53,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="5yS-vI-yoS" kind="relationship" relationship="rootViewController" id="cUP-TG-h6D"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NzA-o8-cal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,9 +181,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="DVC-o1-1Ai" kind="relationship" relationship="rootViewController" id="oDv-gK-LK4"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b29-6C-9dH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -202,9 +196,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="yfR-Hs-Gzg" kind="relationship" relationship="rootViewController" id="9Zg-Ke-Mr5"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddB-mt-pJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -219,9 +210,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="pVv-p5-Vf0" kind="relationship" relationship="rootViewController" id="56W-nM-Tm3"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tw-5g-4nP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

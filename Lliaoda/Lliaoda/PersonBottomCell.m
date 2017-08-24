@@ -24,8 +24,8 @@
     [super awakeFromNib];
     // Initialization code
     _bgView.layer.cornerRadius = 5;
-    _bgView.layer.borderWidth = 1;
-    _bgView.layer.borderColor = [UIColor blackColor].CGColor;
+    _bgView.layer.borderWidth = .5;
+    _bgView.layer.borderColor = [UIColor grayColor].CGColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

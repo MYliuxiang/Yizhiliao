@@ -38,6 +38,13 @@
 
 - (IBAction)loginout:(id)sender {
     
+    //测试
+//    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+//    //播放視訊
+//    vc.videoUrl = [NSURL URLWithString:@"http://meme-demo-public.oss-cn-beijing.aliyuncs.com/users/7/upload/auth/1497499721001_7.mp4"];
+//    //    [self.vc.navigationController pushViewController:vc animated:YES];
+//    [self presentViewController:vc animated:YES completion:nil];
+//    return;
     
 //    _maskView.hidden = NO;
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];

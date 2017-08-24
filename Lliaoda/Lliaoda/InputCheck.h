@@ -15,6 +15,8 @@
 +(BOOL) isEmail:(NSString *)string;
 +(BOOL) inputNum:(NSString *)string;
 
++(NSString *)dateToOld:(NSDate *)bornDate;
+
 +(BOOL)isMobileNumber:(NSString *)mobileNum;
 
 
