@@ -210,12 +210,9 @@
     
     cell.nameLabel.text = self.nameArray[indexPath.section][indexPath.row];
     cell.headerImage.image = [UIImage imageNamed:self.messagePhotos[indexPath.section][indexPath.row]];
-    if (indexPath.section == 0) {
-    }else{
-    }
-    
     
     if (indexPath.section == 0) {
+        cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
         cell.samallImage.hidden = NO;
 
         if (indexPath.row == 0) {
@@ -227,8 +224,10 @@
         }
     }else{
         cell.samallImage.hidden = YES;
+        
 
     if([LXUserDefaults boolForKey:ISMEiGUO]){
+        cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
         if (indexPath.section == 1) {
             
             if (indexPath.row == 0) {
@@ -277,6 +276,7 @@
         }
         
         
+    
     }else{
         
         if (indexPath.section == 1) {
@@ -293,7 +293,7 @@
 
             
         }else if(indexPath.section == 2){
-             cell.contentLabel.textColor = [MyColor colorWithHexString:@"#333333"];
+             cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
             if (indexPath.row == 0) {
                 
                 if(self.model.auth == 0){
@@ -303,11 +303,9 @@
                     
                     cell.contentLabel.text = LXSring(@"认证中");
                     
-                    
                 }else if (self.model.auth == 2){
                     
                     cell.contentLabel.text = LXSring(@"認證成功");
-                    
                     
                 }else{
                     
@@ -335,15 +333,13 @@
 
 
         }else{
-         cell.contentLabel.textColor = [MyColor colorWithHexString:@"#333333"];
+         cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
             //设置
             cell.contentLabel.text = @"";
 
         }
-        
-    }
-
     
+    }    
     }
     
     return cell;
