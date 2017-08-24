@@ -191,6 +191,8 @@
 "設定"        = "Pengaturan";
 "賬戶：%d个鑽石"        = "Akun: %d diamond";
 "收入：%d个聊币"        = "Pendapatan: %d candy";
+"賬戶"        = "Akun";
+"收入"        = "Pendapatan";
 "请输入5位邀請碼,即可获得奖励"        = "Masukkan kode invite untuk dapatkan bonus";
 "填入好友的分享的邀請碼，即可获奖励"        = "Masukkan kode invite teman untuk dapatkan bonus";
 "未认证"        = "Belum diverifikasi";

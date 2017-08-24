@@ -7,6 +7,7 @@
 //
 
 #import "TJPTabBarController.h"
+#import "NewMyVC.h"
 
 #import "TJPTabBar.h"
 
@@ -163,7 +164,8 @@
     MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
 //    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
     FindVC *findVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
-    MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
+//    MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
+    NewMyVC *myVC = [[NewMyVC alloc] init];
     NSArray *vcs = @[managementVC, findVC, myVC];
     //创建一个存储导航控制器的数组
     NSMutableArray *navCtrls = [[NSMutableArray alloc] init];

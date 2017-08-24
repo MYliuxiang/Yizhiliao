@@ -513,6 +513,8 @@
 		22A454F01F064C1E0020225E /* share-result.html in Resources */ = {isa = PBXBuildFile; fileRef = 22A454EF1F064C1E0020225E /* share-result.html */; };
 		22AC02A21F4EC07600369C6D /* NewMyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AC02A01F4EC07600369C6D /* NewMyVC.m */; };
 		22AC02A31F4EC07600369C6D /* NewMyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AC02A11F4EC07600369C6D /* NewMyVC.xib */; };
+		22AC02A71F4ED0BA00369C6D /* NewMyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AC02A51F4ED0BA00369C6D /* NewMyCell.m */; };
+		22AC02A81F4ED0BA00369C6D /* NewMyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AC02A61F4ED0BA00369C6D /* NewMyCell.xib */; };
 		22ADAE151F0B8908005D08A4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ADAE141F0B8908005D08A4 /* StoreKit.framework */; };
 		22ADAE2B1F0BC352005D08A4 /* IAPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ADAE2A1F0BC352005D08A4 /* IAPModel.m */; };
 		22B109181EA4A4E200E35B74 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B109131EA4A4E200E35B74 /* MainTabBarController.m */; };
@@ -1378,6 +1380,9 @@
 		22AC029F1F4EC07600369C6D /* NewMyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMyVC.h; sourceTree = "<group>"; };
 		22AC02A01F4EC07600369C6D /* NewMyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMyVC.m; sourceTree = "<group>"; };
 		22AC02A11F4EC07600369C6D /* NewMyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMyVC.xib; sourceTree = "<group>"; };
+		22AC02A41F4ED0BA00369C6D /* NewMyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMyCell.h; sourceTree = "<group>"; };
+		22AC02A51F4ED0BA00369C6D /* NewMyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMyCell.m; sourceTree = "<group>"; };
+		22AC02A61F4ED0BA00369C6D /* NewMyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMyCell.xib; sourceTree = "<group>"; };
 		22ADAE141F0B8908005D08A4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		22ADAE181F0B8EE9005D08A4 /* Lliaoda.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Lliaoda.entitlements; sourceTree = "<group>"; };
 		22ADAE291F0BC352005D08A4 /* IAPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPModel.h; sourceTree = "<group>"; };
@@ -3042,6 +3047,9 @@
 				8483AAEC1F4E8138008BA674 /* ProfitCell3.h */,
 				8483AAED1F4E8138008BA674 /* ProfitCell3.m */,
 				8483AAEE1F4E8138008BA674 /* ProfitCell3.xib */,
+				22AC02A41F4ED0BA00369C6D /* NewMyCell.h */,
+				22AC02A51F4ED0BA00369C6D /* NewMyCell.m */,
+				22AC02A61F4ED0BA00369C6D /* NewMyCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3594,6 +3602,7 @@
 				222AA0361EB071910038416D /* B_03@2x.gif in Resources */,
 				22721FC71EE80C68003A19D3 /* PPhotoVC.xib in Resources */,
 				222AA07C1EB071910038416D /* B_50@2x.gif in Resources */,
+				22AC02A81F4ED0BA00369C6D /* NewMyCell.xib in Resources */,
 				22CDA96A1EA5E653006CD611 /* FixpersonalVC.xib in Resources */,
 				222AA00A1EB071910038416D /* chatBar_colorMore_photoSelected@2x.png in Resources */,
 				222AA01F1EB071910038416D /* C_113@2x.png in Resources */,
@@ -3811,6 +3820,7 @@
 				228942041ED938380020C307 /* AlbumModel.m in Sources */,
 				2250E62D1EA9EE4D00849842 /* PersonCell.m in Sources */,
 				843EC0261F29D9750051AFD3 /* OrderID.m in Sources */,
+				22AC02A71F4ED0BA00369C6D /* NewMyCell.m in Sources */,
 				222B38661ED96843009DB58F /* UIView+MSSLayout.m in Sources */,
 				224428001EA88D2800BF3E4D /* NetWorkManager.m in Sources */,
 				2286DC691EF26AFE00FDF801 /* LHChatTextBubbleView.m in Sources */,
