@@ -55,26 +55,31 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jianbianhuxian" translatesAutoresizingMaskIntoConstraints="NO" id="N6n-x0-DbI">
-                            <rect key="frame" x="0.0" y="180" width="388" height="38"/>
+                            <rect key="frame" x="0.0" y="181" width="388" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="QT6-aN-foE"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jA-nL-oKG">
-                            <rect key="frame" x="323" y="117" width="50" height="50"/>
+                            <rect key="frame" x="323" y="118" width="50" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="2ZS-Hd-QYs"/>
                                 <constraint firstAttribute="width" constant="50" id="WXY-cy-kqK"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                            <state key="normal" title="邀请送钻" image="zuanshi_55"/>
+                            <inset key="titleEdgeInsets" minX="-28" minY="25" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="10" minY="-13" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="邀请送钻" image="zuanshi_55">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.86666666670000003" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="HTH-tZ-x5X" firstAttribute="centerX" secondItem="bXX-FP-a8B" secondAttribute="centerX" id="0EF-Uh-xBP"/>
                         <constraint firstItem="N6n-x0-DbI" firstAttribute="leading" secondItem="bXX-FP-a8B" secondAttribute="leading" id="UNF-dQ-hKh"/>
-                        <constraint firstAttribute="bottom" secondItem="N6n-x0-DbI" secondAttribute="bottom" id="Woj-WM-R3C"/>
+                        <constraint firstAttribute="bottom" secondItem="N6n-x0-DbI" secondAttribute="bottom" constant="-1" id="Woj-WM-R3C"/>
                         <constraint firstItem="HTH-tZ-x5X" firstAttribute="top" secondItem="bXX-FP-a8B" secondAttribute="top" constant="22" id="b2c-lY-If0"/>
                         <constraint firstAttribute="trailing" secondItem="8jA-nL-oKG" secondAttribute="trailing" constant="15" id="hGp-xI-ebq"/>
                         <constraint firstAttribute="trailing" secondItem="N6n-x0-DbI" secondAttribute="trailing" id="sXj-Gy-7l6"/>
@@ -88,6 +93,10 @@
                 <constraint firstItem="bXX-FP-a8B" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="MDc-5N-Ewp"/>
                 <constraint firstAttribute="trailing" secondItem="bXX-FP-a8B" secondAttribute="trailing" id="Pus-10-ueD"/>
             </constraints>
+            <connections>
+                <outlet property="countLabel" destination="qf7-RO-lbb" id="YR1-ko-oBF"/>
+                <outlet property="inviteButton" destination="8jA-nL-oKG" id="uA8-WM-bt6"/>
+            </connections>
             <point key="canvasLocation" x="68" y="3"/>
         </collectionReusableView>
     </objects>

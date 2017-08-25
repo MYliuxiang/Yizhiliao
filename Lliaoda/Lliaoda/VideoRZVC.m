@@ -7,9 +7,11 @@
 //
 
 #import "VideoRZVC.h"
-
+#import "VideoRZVC1.h"
 @interface VideoRZVC ()<UITableViewDelegate,UITableViewDataSource>
-
+{
+    NSDictionary *infodic;
+}
 @end
 
 @implementation VideoRZVC
@@ -18,6 +20,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"視頻認證");
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    self.unApproveDetailLabel.text = LXSring(@"1.本人半身露营，10~15秒，正面，五官清晰，包含自我介绍；\n2.与登录后提交的个人主页照片为同一人，均为本人；\n3.模仿返利视频可提高认证通过率；\n注意：录影不会对外公开，我们将对你的视频严格保密！认证如果失败，登录后可重新提交~");
+    
+    self.unApproveView1.layer.cornerRadius = 5;
+    self.unApproveView1.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.unApproveView1.layer.shadowRadius = 5.f;
+    self.unApproveView1.layer.shadowOpacity = .3f;
+    self.unApproveView1.layer.shadowOffset = CGSizeMake(0, 0);
+    
+    self.unApproveView2.layer.cornerRadius = 5;
+    self.unApproveView2.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.unApproveView2.layer.shadowRadius = 5.f;
+    self.unApproveView2.layer.shadowOpacity = .3f;
+    self.unApproveView2.layer.shadowOffset = CGSizeMake(0, 0);
+    
+    self.unApproveUploadButton.layer.cornerRadius = 22;
+    self.unApproveUploadButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.unApproveUploadButton.layer.shadowRadius = 5.f;
+    self.unApproveUploadButton.layer.shadowOpacity = .3f;
+    self.unApproveUploadButton.layer.shadowOffset = CGSizeMake(0, 0);
+    
+    self.unApproveVideoImageView.layer.cornerRadius = 5;
+    self.unApproveVideoPlayButton.layer.cornerRadius = 5;
+    
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor clearColor];
     self.yanzBtn.layer.cornerRadius = 22;
@@ -29,9 +56,47 @@
     self.footerView.height = 30 + 44;
     self.tableView.tableFooterView = self.footerView;
     
-    
+    [self getLocalVideo];
 }
 
+#pragma mark - 获取范例视频
+- (void)getLocalVideo {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-Hant"]) {
+        
+        filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
+    }else if ([lang hasPrefix:@"id"]){
+        
+        filePath = [[NSBundle mainBundle] pathForResource:@"id1495262516.mp4" ofType:nil];
+    }else if ([lang hasPrefix:@"ar"]) {
+        filePath = [[NSBundle mainBundle] pathForResource:@"ar1502964098" ofType:@"mp4"];
+    }else{
+        filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
+    }
+    //第一次安装
+    self.unApproveVideoImageView.image = [self thumbnailImageForVideo:[NSURL fileURLWithPath:filePath] atTime:1];
+//    [self.playBtn setImage:[self thumbnailImageForVideo:[NSURL fileURLWithPath:filePath] atTime:1] forState:UIControlStateNormal];
+}
+#pragma mark - 取出視訊图片
+- (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time
+{
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetImageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetImageGenerator.appliesPreferredTrackTransform = YES;
+    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    CGImageRef thumbnailImageRef = NULL;
+    CFTimeInterval thumbnailImageTime = time;
+    NSError *thumbnailImageGenerationError = nil;
+    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60) actualTime:NULL error:&thumbnailImageGenerationError];
+    if (!thumbnailImageRef)
+        NSLog(@"thumbnailImageGenerationError %@", thumbnailImageGenerationError);
+    
+    UIImage *thumbnailImage = thumbnailImageRef ? [[UIImage alloc] initWithCGImage:thumbnailImageRef] : nil;
+    
+    return thumbnailImage;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -139,6 +204,41 @@
 
     [self.navigationController presentViewController:picker animated:YES completion:nil];
 }
+- (IBAction)unApproveUploadButtonAC:(id)sender {
+    FMImagePicker *picker = [[FMImagePicker alloc] init];
+    picker.videoSucess = ^(NSDictionary *info){
+        
+        VideoRZVC1 *vc = [[VideoRZVC1 alloc] init];
+//        VideoOneVC *VC = [[VideoOneVC alloc] init];
+        vc.info = info;
+        [self.navigationController pushViewController:vc animated:YES];
+//        self.approvingVideoImageView.image = [self thumbnailImageForVideo:     [info objectForKey:UIImagePickerControllerMediaURL]
+//                                                          atTime:1];
+    };
+    [self.navigationController presentViewController:picker animated:YES completion:nil];
+}
+
+- (IBAction)unApproveVideoPlayButtonAC:(id)sender {
+    FMVideoPlayController *playVC = [[FMVideoPlayController alloc] init];
+    NSString *filePath = nil;
+    //第一次安装
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-Hant"]) {
+        filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
+    }else if ([lang hasPrefix:@"id"]){
+        filePath = [[NSBundle mainBundle] pathForResource:@"id1495262516.mp4" ofType:nil];
+    }else if ([lang hasPrefix:@"ar"]) {
+        filePath = [[NSBundle mainBundle] pathForResource:@"ar1502964098.mp4" ofType:@""];
+    }else{
+        filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
+    }
+    //    filePath = [[NSBundle mainBundle] pathForResource:@"1495262516.mp4" ofType:nil];
+    playVC.videoUrl = [NSURL fileURLWithPath:filePath];
+    [self.navigationController pushViewController:playVC animated:YES];
+}
+
+
+
 @end
 
 

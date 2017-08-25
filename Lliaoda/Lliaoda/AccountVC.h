@@ -11,7 +11,8 @@
 #import "AccountModel.h"
 #import "Mymodel.h"
 #import "WXApi.h"
-
+#import "AccountHeaderView.h"
+#import "AccountChargeCell.h"
 typedef NS_ENUM(NSInteger, PayType) {
     WeixinPay,
     AliPay,
@@ -22,7 +23,8 @@ typedef NS_ENUM(NSInteger, PayType) {
 {
     Mymodel *myModel;
 }
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,retain) Mymodel *model;
+@property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *accountLab;
 

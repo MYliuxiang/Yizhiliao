@@ -591,6 +591,12 @@
 		8483AAF01F4E8138008BA674 /* ProfitCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483AAEE1F4E8138008BA674 /* ProfitCell3.xib */; };
 		8483AAF41F4EAE9E008BA674 /* AccountHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483AAF21F4EAE9E008BA674 /* AccountHeaderView.m */; };
 		8483AAF51F4EAE9E008BA674 /* AccountHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483AAF31F4EAE9E008BA674 /* AccountHeaderView.xib */; };
+		8483AAF91F4EC65B008BA674 /* AccountChargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483AAF71F4EC65B008BA674 /* AccountChargeCell.m */; };
+		8483AAFA1F4EC65B008BA674 /* AccountChargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483AAF81F4EC65B008BA674 /* AccountChargeCell.xib */; };
+		8483AAFE1F4EEF0A008BA674 /* VideoRZVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483AAFC1F4EEF0A008BA674 /* VideoRZVC1.m */; };
+		8483AAFF1F4EEF0A008BA674 /* VideoRZVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483AAFD1F4EEF0A008BA674 /* VideoRZVC1.xib */; };
+		8483AB031F4EEF87008BA674 /* VideoRZVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483AB011F4EEF87008BA674 /* VideoRZVC2.m */; };
+		8483AB041F4EEF87008BA674 /* VideoRZVC2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483AB021F4EEF87008BA674 /* VideoRZVC2.xib */; };
 		848A0AB41F45A44000057C5B /* ar1502964098.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 848A0AB31F45A44000057C5B /* ar1502964098.mp4 */; };
 		84B8CDA91F4AC92700A13D27 /* PersonHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */; };
 		84B8CDAA1F4AC92700A13D27 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */; };
@@ -1510,6 +1516,15 @@
 		8483AAF11F4EAE9E008BA674 /* AccountHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountHeaderView.h; sourceTree = "<group>"; };
 		8483AAF21F4EAE9E008BA674 /* AccountHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountHeaderView.m; sourceTree = "<group>"; };
 		8483AAF31F4EAE9E008BA674 /* AccountHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountHeaderView.xib; sourceTree = "<group>"; };
+		8483AAF61F4EC65B008BA674 /* AccountChargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountChargeCell.h; sourceTree = "<group>"; };
+		8483AAF71F4EC65B008BA674 /* AccountChargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountChargeCell.m; sourceTree = "<group>"; };
+		8483AAF81F4EC65B008BA674 /* AccountChargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountChargeCell.xib; sourceTree = "<group>"; };
+		8483AAFB1F4EEF0A008BA674 /* VideoRZVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRZVC1.h; sourceTree = "<group>"; };
+		8483AAFC1F4EEF0A008BA674 /* VideoRZVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRZVC1.m; sourceTree = "<group>"; };
+		8483AAFD1F4EEF0A008BA674 /* VideoRZVC1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoRZVC1.xib; sourceTree = "<group>"; };
+		8483AB001F4EEF87008BA674 /* VideoRZVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRZVC2.h; sourceTree = "<group>"; };
+		8483AB011F4EEF87008BA674 /* VideoRZVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRZVC2.m; sourceTree = "<group>"; };
+		8483AB021F4EEF87008BA674 /* VideoRZVC2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoRZVC2.xib; sourceTree = "<group>"; };
 		848A0AB11F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		848A0AB21F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		848A0AB31F45A44000057C5B /* ar1502964098.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ar1502964098.mp4; sourceTree = "<group>"; };
@@ -2704,6 +2719,12 @@
 				224F244C1EA732C800C0FDC6 /* VideoRZVC.h */,
 				224F244D1EA732C800C0FDC6 /* VideoRZVC.m */,
 				224F244E1EA732C800C0FDC6 /* VideoRZVC.xib */,
+				8483AAFB1F4EEF0A008BA674 /* VideoRZVC1.h */,
+				8483AAFC1F4EEF0A008BA674 /* VideoRZVC1.m */,
+				8483AAFD1F4EEF0A008BA674 /* VideoRZVC1.xib */,
+				8483AB001F4EEF87008BA674 /* VideoRZVC2.h */,
+				8483AB011F4EEF87008BA674 /* VideoRZVC2.m */,
+				8483AB021F4EEF87008BA674 /* VideoRZVC2.xib */,
 				224F246E1EA7521A00C0FDC6 /* VideoOneVC.h */,
 				224F246F1EA7521A00C0FDC6 /* VideoOneVC.m */,
 				224F24701EA7521A00C0FDC6 /* VideoOneVC.xib */,
@@ -3035,6 +3056,9 @@
 				8483AAF11F4EAE9E008BA674 /* AccountHeaderView.h */,
 				8483AAF21F4EAE9E008BA674 /* AccountHeaderView.m */,
 				8483AAF31F4EAE9E008BA674 /* AccountHeaderView.xib */,
+				8483AAF61F4EC65B008BA674 /* AccountChargeCell.h */,
+				8483AAF71F4EC65B008BA674 /* AccountChargeCell.m */,
+				8483AAF81F4EC65B008BA674 /* AccountChargeCell.xib */,
 				8413A2AB1F4C2ACF00CB3CBC /* PersonalDataCell.h */,
 				8413A2AC1F4C2ACF00CB3CBC /* PersonalDataCell.m */,
 				8413A2AD1F4C2ACF00CB3CBC /* PersonalDataCell.xib */,
@@ -3393,6 +3417,7 @@
 				2290A8461F4BE826005DA0AE /* BannerView.xib in Resources */,
 				222A9FFF1EB071910038416D /* IM_Chart_imageDownloadFail@3x.png in Resources */,
 				8413A2AF1F4C2ACF00CB3CBC /* PersonalDataCell.xib in Resources */,
+				8483AAFA1F4EC65B008BA674 /* AccountChargeCell.xib in Resources */,
 				2283AA031F0E158D00E9ABB5 /* Assets.xcassets in Resources */,
 				22DC05681F39BE8200E2E015 /* albumVideo.png in Resources */,
 				222AA0011EB071910038416D /* IM_Chat_receiver_bg@3x.png in Resources */,
@@ -3516,6 +3541,7 @@
 				224F24661EA73ED300C0FDC6 /* VideoRZThreeCell.xib in Resources */,
 				222AA0A31EB071910038416D /* B_86@2x.gif in Resources */,
 				222AA0701EB071910038416D /* b_3@2x.gif in Resources */,
+				8483AB041F4EEF87008BA674 /* VideoRZVC2.xib in Resources */,
 				222AA0661EB071910038416D /* B_30@2x.gif in Resources */,
 				228CF7421EDEBD840045986D /* VideoPlayVC.xib in Resources */,
 				228CF7351EDE7C2C0045986D /* MyVideoVC.xib in Resources */,
@@ -3575,6 +3601,7 @@
 				222B38241ED9642B009DB58F /* FSActionSheet_cancel@2x.png in Resources */,
 				222AA0541EB071910038416D /* B_14@2x.gif in Resources */,
 				222AA0391EB071910038416D /* B_06@2x.gif in Resources */,
+				8483AAFF1F4EEF0A008BA674 /* VideoRZVC1.xib in Resources */,
 				222AA06B1EB071910038416D /* B_35@2x.gif in Resources */,
 				222AA0411EB071910038416D /* B_104@2x.gif in Resources */,
 				222A9FFE1EB071910038416D /* IM_Chart_imageDownloadFail@2x.png in Resources */,
@@ -3803,6 +3830,7 @@
 				222AA1DA1EB0775B0038416D /* NSParagraphStyle+YYText.m in Sources */,
 				222AA1C41EB0775B0038416D /* UIView+YYAdd.m in Sources */,
 				224428111EA8AE4500BF3E4D /* WXDataService.m in Sources */,
+				8483AAFE1F4EEF0A008BA674 /* VideoRZVC1.m in Sources */,
 				222AA1D31EB0775B0038416D /* YYTextSelectionView.m in Sources */,
 				2286DC6B1EF26AFE00FDF801 /* LHChatBarMoreView.m in Sources */,
 				222AA14C1EB071C10038416D /* UIColor+RGB.m in Sources */,
@@ -3954,6 +3982,7 @@
 				222B38221ED9642B009DB58F /* FSActionSheetConfig.m in Sources */,
 				222AA1C81EB0775B0038416D /* YYImage.m in Sources */,
 				222AA1611EB071C20038416D /* KeyboardVC.m in Sources */,
+				8483AAF91F4EC65B008BA674 /* AccountChargeCell.m in Sources */,
 				222AA1CB1EB0775B0038416D /* YYTextContainerView.m in Sources */,
 				222B38641ED96843009DB58F /* MSSBrowseZoomScrollView.m in Sources */,
 				84B8CDB51F4AD92300A13D27 /* UIButton+backgroundColor.m in Sources */,
@@ -4018,6 +4047,7 @@
 				222B381F1ED9642B009DB58F /* UIView+XLExtension.m in Sources */,
 				222AA1D51EB0775B0038416D /* YYTextAttribute.m in Sources */,
 				222AA1C21EB0775B0038416D /* NSBundle+YYAdd.m in Sources */,
+				8483AB031F4EEF87008BA674 /* VideoRZVC2.m in Sources */,
 				227303031F4AC75D0069F53B /* TJPTabBarController.m in Sources */,
 				2291CBF41F4DBD08001AB139 /* InfomationMessageVC.m in Sources */,
 				223DE5AC1F20AB3700745E94 /* YuvToJpg.m in Sources */,

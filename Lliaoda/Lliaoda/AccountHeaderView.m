@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _inviteButton.layer.cornerRadius = 5;
+    _countLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 @end

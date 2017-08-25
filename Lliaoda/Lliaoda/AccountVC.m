@@ -69,20 +69,24 @@ static NSString *const headerId = @"headerId";
     _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
     // 注册cell、sectionHeader、sectionFooter
     _collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
-    _collectionViewLayout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
-    _collectionViewLayout.minimumLineSpacing = .5;
-    _collectionViewLayout.minimumInteritemSpacing = .5;
+    _collectionViewLayout.sectionInset=UIEdgeInsetsMake(0, 15, 15, 15);
+    _collectionViewLayout.minimumLineSpacing = 15;
+    _collectionViewLayout.minimumInteritemSpacing = 15;
     
-    _collectionViewLayout.itemSize = CGSizeMake((kScreenWidth - 1) / 2.0, 190);
+    _collectionViewLayout.itemSize = CGSizeMake((SCREEN_W - 45) / 2, 220);
     [_collectionViewLayout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
-    _collectionViewLayout.headerReferenceSize = CGSizeMake(SCREEN_W, 217);
+    _collectionViewLayout.headerReferenceSize = CGSizeMake(SCREEN_W, 208);
     
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H - 64) collectionViewLayout:_collectionViewLayout];
     _collectionView.dataSource = self;
     _collectionView.delegate=  self;
+    _collectionView.hidden = NO;
     _collectionView.backgroundColor = UIColorFromRGB(0xf0f0f0);
-    [_collectionView registerNib:[UINib nibWithNibName:@"AccountCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"AccountCollectionCell"];
-    [_collectionView registerNib:[UINib nibWithNibName:@"CollectionHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView"];
+    
+    [_collectionView registerNib:[UINib nibWithNibName:@"AccountChargeCell" bundle:nil] forCellWithReuseIdentifier:@"AccountChargeCell"];
+    [_collectionView registerNib:[UINib nibWithNibName:@"AccountHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AccountHeaderView"];
+//    [_collectionView registerNib:[UINib nibWithNibName:@"AccountCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"AccountCollectionCell"];
+//    [_collectionView registerNib:[UINib nibWithNibName:@"CollectionHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView"];
     _collectionView.tintColor = Color_nav;
     [self.view addSubview:_collectionView];
 //    _collectionViewLayout.minimumLineSpacing = .5;
@@ -90,6 +94,12 @@ static NSString *const headerId = @"headerId";
 //    CGFloat width = (SCREEN_W - 1) / 2;
 //    _collectionViewLayout.itemSize = CGSizeMake(width, 240);
 //    _collectionViewLayout.headerReferenceSize = CGSizeMake(SCREEN_W, 217);
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H - 64) style:UITableViewStylePlain];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    _tableView.hidden = YES;
+    [self.view addSubview:_tableView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weiXinPay:) name:Notice_weiXinPay object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appPaySugerss:) name:Notice_appPaySugerss object:nil];
@@ -714,29 +724,30 @@ controller   didAuthorizePayment:(PKPayment *)payment
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return .1;
-//    
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return .1;
-//    
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 60;
-//    
-//}
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//    
-//}
+#pragma mark - UITableViewDataSource
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return .1;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return .1;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+}
 
 
 #pragma mark - UICollectionViewDataSource
@@ -750,94 +761,72 @@ controller   didAuthorizePayment:(PKPayment *)payment
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    AccountCollectionCell *cell = [_collectionView dequeueReusableCellWithReuseIdentifier:@"AccountCollectionCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
+    
+    AccountChargeCell *cell = [_collectionView dequeueReusableCellWithReuseIdentifier:@"AccountChargeCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
     AccountModel *model = self.dataList[indexPath.row];
     cell.countLabel.text = model.name;
-    cell.detailLabel.adjustsFontSizeToFitWidth = YES;
+    cell.chargeButton.layer.borderWidth = 1;
+    cell.chargeButton.layer.borderColor = UIColorFromRGB(0x00ddcc).CGColor;
+    cell.chargeButton.layer.cornerRadius = 15;
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     NSString *money = @"";
     if ([lang hasPrefix:@"ar"]){
-        cell.biaoqianImageView.image = [UIImage imageNamed:@"biaoqian3"];
+        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian3"];
         money = @"$";
     }else if ([lang hasPrefix:@"id"]){
-        cell.biaoqianImageView.image = [UIImage imageNamed:@"biaoqian2"];
+        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian2"];
         money = @"Rp.";
     }else{
-        cell.biaoqianImageView.image = [UIImage imageNamed:@"biaoqian1"];
+        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian1"];
         money = @"NT $";
     }
     if (fmodf(model.price / 100.00, 1)==0) {//如果有一位小数点
-        [cell.moneyButton setTitle:[NSString stringWithFormat:@"%@%.0f",money,model.price / 100.00] forState:UIControlStateNormal];
+        [cell.chargeButton setTitle:[NSString stringWithFormat:@"%@%.0f",money,model.price / 100.00] forState:UIControlStateNormal];
     } else if (fmodf(model.price / 100.00, 1)==0) {//如果有两位小数点
-        
-        [cell.moneyButton setTitle:[NSString stringWithFormat:@"%@%.1f",money,model.price / 100.00] forState:UIControlStateNormal];
+
+        [cell.chargeButton setTitle:[NSString stringWithFormat:@"%@%.1f",money,model.price / 100.00] forState:UIControlStateNormal];
     } else {
-        
-        [cell.moneyButton setTitle:[NSString stringWithFormat:@"%@%.2f",money,model.price / 100.00] forState:UIControlStateNormal];
+
+        [cell.chargeButton setTitle:[NSString stringWithFormat:@"%@%.2f",money,model.price / 100.00] forState:UIControlStateNormal];
     }
-    
-   
-//    if (model.isVipForFirstTopUp == 1 && myModel.totalInpour > 0) {
-//        cell.detailLabel.text = @"";
-//    } else {
-//        if (model.vipDays > 0) {
-//            if (model.bonus > 0) {
-//                cell.detailLabel.text = [NSString stringWithFormat:@"贈送VIP %d 天 + %d 鑽", model.vipDays, model.bonus];
-//            } else {
-//                cell.detailLabel.text = [NSString stringWithFormat:@"贈送VIP %d 天", model.vipDays];
-//            }
-//            
-//        } else {
-//            if (model.bonus > 0) {
-//                cell.detailLabel.text = [NSString stringWithFormat:@"贈送 %d 鑽", model.bonus];
-//            } else {
-//                cell.detailLabel.text = @"";
-//            }
-//        }
-//    }
     if (myModel.totalInpour == 0 && model.isVipForFirstTopUp == 1) {
-        cell.biaoqianImageView.hidden = NO;
+        cell.leftTopImageView.hidden = NO;
         
         if (model.vipDays > 0) {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"首充贈送VIP %d 天 + %d 鑽"), model.vipDays, model.bonus];
+                cell.textLabel.text = [NSString stringWithFormat:LXSring(@"首充贈送VIP %d 天 + %d 鑽"), model.vipDays, model.bonus];
             } else {
-                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"首充贈送VIP %d 天"), model.vipDays];
+                cell.textLabel.text = [NSString stringWithFormat:LXSring(@"首充贈送VIP %d 天"), model.vipDays];
             }
             
         } else {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"首充贈送 %d 鑽"), model.bonus];
+                cell.textLabel.text = [NSString stringWithFormat:LXSring(@"首充贈送 %d 鑽"), model.bonus];
             } else {
-                cell.detailLabel.text = @"";
+                cell.textLabel.text = @"";
             }
         }
     } else {
-        cell.biaoqianImageView.hidden = YES;
+        cell.leftTopImageView.hidden = YES;
         if (model.vipDays > 0) {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"贈送VIP %d 天 + %d 鑽"), model.vipDays, model.bonus];
+                cell.textLabel.text = [NSString stringWithFormat:LXSring(@"贈送VIP %d 天 + %d 鑽"), model.vipDays, model.bonus];
             } else {
-                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"贈送VIP %d 天"), model.vipDays];
+                cell.textLabel.text = [NSString stringWithFormat:LXSring(@"贈送VIP %d 天"), model.vipDays];
             }
             
         } else {
             if (model.bonus > 0) {
-                cell.detailLabel.text = [NSString stringWithFormat:LXSring(@"贈送 %d 鑽"), model.bonus];
+                cell.textLabel.text = [NSString stringWithFormat:LXSring(@"贈送 %d 鑽"), model.bonus];
             } else {
-                cell.detailLabel.text = @"";
+                cell.textLabel.text = @"";
             }
         }
     }
-    cell.moneyButton.layer.cornerRadius = 35 / 2;
-    cell.moneyButton.layer.borderWidth = 1;
-    cell.moneyButton.layer.borderColor = Color_nav.CGColor;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.icon]];
-    cell.moneyButton.tag = indexPath.row;
-    [cell.moneyButton addTarget:self action:@selector(buttonAC:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
+    [cell.zuanImageView sd_setImageWithURL:[NSURL URLWithString:model.icon]];
+    cell.chargeButton.tag = indexPath.row;
+    [cell.chargeButton addTarget:self action:@selector(buttonAC:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
@@ -845,33 +834,67 @@ controller   didAuthorizePayment:(PKPayment *)payment
 {
     UICollectionReusableView *view = nil;
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        CollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView" forIndexPath:indexPath];
+        
+        AccountHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"AccountHeaderView" forIndexPath:indexPath];
         if (headerView == nil) {
-            headerView = [[CollectionHeaderView alloc] init];
+            headerView = [[AccountHeaderView alloc] init];
         }
         headerView.backgroundColor = [UIColor whiteColor];
         headerView.countLabel.text = depositCount;
+        [headerView.inviteButton addTarget:self action:@selector(inviteBtnAC) forControlEvents:UIControlEventTouchUpInside];
         if (myModel.vipEndTime == 0) {
             // 没有vip
-            headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon02"];
+//            headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon02"];
 //            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:LXSring(@"儲值贈送VIP，私信暢聊無限制~")];
 //            [attributedStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(2, 5)];
-            headerView.timeLabel.text = LXSring(@"儲值贈送VIP，私信暢聊無限制~");
-            
+//            headerView.timeLabel.text = LXSring(@"儲值贈送VIP，私信暢聊無限制~");
+
         } else {
             // 有vip
-            long timeSp = myModel.vipEndTime;
-            NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeSp / 1000];
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"YYYY-MM-dd"];
-            NSString *string = [formatter stringFromDate:date];
-            headerView.timeLabel.text = [NSString stringWithFormat:LXSring(@"VIP有效期至：%@"), string];
-            headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon01"];
+//            long timeSp = myModel.vipEndTime;
+//            NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeSp / 1000];
+//            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//            [formatter setDateFormat:@"YYYY-MM-dd"];
+//            NSString *string = [formatter stringFromDate:date];
+//            headerView.timeLabel.text = [NSString stringWithFormat:LXSring(@"VIP有效期至：%@"), string];
+//            headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon01"];
         }
         
         view = headerView;
+        
+//        CollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView" forIndexPath:indexPath];
+//        if (headerView == nil) {
+//            headerView = [[CollectionHeaderView alloc] init];
+//        }
+//        headerView.backgroundColor = [UIColor whiteColor];
+//        headerView.countLabel.text = depositCount;
+//        if (myModel.vipEndTime == 0) {
+//            // 没有vip
+//            headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon02"];
+////            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:LXSring(@"儲值贈送VIP，私信暢聊無限制~")];
+////            [attributedStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(2, 5)];
+//            headerView.timeLabel.text = LXSring(@"儲值贈送VIP，私信暢聊無限制~");
+//            
+//        } else {
+//            // 有vip
+//            long timeSp = myModel.vipEndTime;
+//            NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeSp / 1000];
+//            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//            [formatter setDateFormat:@"YYYY-MM-dd"];
+//            NSString *string = [formatter stringFromDate:date];
+//            headerView.timeLabel.text = [NSString stringWithFormat:LXSring(@"VIP有效期至：%@"), string];
+//            headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon01"];
+//        }
+//        
+//        view = headerView;
     }
     return view;
+}
+
+- (void)inviteBtnAC {
+    InvitationVC *vc = [[InvitationVC alloc] init];
+    vc.model = self.model;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
