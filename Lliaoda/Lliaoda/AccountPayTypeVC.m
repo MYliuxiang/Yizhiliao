@@ -86,6 +86,7 @@
 // 话费
 - (void)huafeiAC {
 //    http://demo.yizhiliao.tv/pages/id-id/unipin_dcb.html?order=<订单ID>&price=<支付的价格>
+    [self orderCreate:self.model.uid withType:HuaFeiPay];
     
 }
 // 苹果支付
