@@ -24,7 +24,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
+    _payTypeLabel.text = LXSring(@"支付方式");
+    _unipinLabel.text = LXSring(@"UniPin");
+    _huafeiLabel.text = LXSring(@"话费充值");
+    _appleLabel.text = LXSring(@"Apple In-App Purchase");
+    _kefuLabel.text = LXSring(@"客服帮忙(更多优惠哦)");
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

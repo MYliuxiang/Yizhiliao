@@ -20,7 +20,10 @@
     _chargeButton.layer.borderWidth = 1;
     _chargeButton.layer.borderColor = UIColorFromRGB(0x00DDCC).CGColor;
     
-    
+//    _bigBGView.layer.shadowColor = [UIColor blackColor].CGColor;
+//    _bigBGView.layer.shadowRadius = 5.f;
+//    _bigBGView.layer.shadowOpacity = .3f;
+//    _bigBGView.layer.shadowOffset = CGSizeMake(0, 0);
 }
 
 - (IBAction)chargeButtonAC:(id)sender {
