@@ -14,18 +14,25 @@
     [super awakeFromNib];
     // Initialization code
     _fengMLabel.text = LXSring(@"封面");
+    self.layer.cornerRadius = 5;
+    self.layer.masksToBounds = YES;
 }
 
 - (void)setIsFirst:(BOOL)isFirst
 {
     _isFirst = isFirst;
     if (_isFirst) {
-        self.bgImageView.image = [UIImage imageNamed:@"albumVideo"];
+        self.bgImageView.image = [UIImage imageNamed:@"tianjia_lv"];
+        
+        self.bgImageView.contentMode = UIViewContentModeCenter;
+
         self.feiView.hidden = YES;
         self.videoIg.hidden = YES;
     }else{
     
         self.bgImageView.image = [UIImage imageNamed:@""];
+        self.bgImageView.contentMode = UIViewContentModeScaleToFill;
+
     }
     
     

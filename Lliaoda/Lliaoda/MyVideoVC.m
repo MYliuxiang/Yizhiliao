@@ -17,19 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = LXSring(@"我的小視頻");
+    self.nav.hidden = YES;
     self.dataList = [NSMutableArray array];
     
-    _layout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
-    _layout.minimumLineSpacing= 10;
-    _layout.minimumInteritemSpacing= 10;
-    _layout.itemSize = CGSizeMake((kScreenWidth - 41) / 3.0,(kScreenWidth - 40) / 3.0 );
+    _layout.sectionInset=UIEdgeInsetsMake(0, 15, 0, 15);
+    _layout.minimumLineSpacing= 15;
+    _layout.minimumInteritemSpacing= 15;
+    _layout.itemSize = CGSizeMake((kScreenWidth - 45) / 2.0 - 1,(kScreenWidth - 45) / 2.0 - 1 );
     [_layout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
     
     //設定代理
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    self.collectionView.contentInset = UIEdgeInsetsMake(10,10, 10, 10);
     [_collectionView registerNib:[UINib nibWithNibName:@"MyVideoCell" bundle:nil] forCellWithReuseIdentifier:@"MyVideoCellID"];
     _collectionView.backgroundColor = Color_bg;
     [self _loadData];
@@ -50,6 +49,9 @@
                     [self.dataList addObject:model];
                 }
                 
+                if(self.reloadData){
+                self.reloadData(self.dataList);
+                }
                 [self.collectionView reloadData];
                 
                 
@@ -139,7 +141,9 @@
                                     model1.selected = 0;
                                 }
                             }
-                            
+                            if(self.reloadData){
+                                self.reloadData(self.dataList);
+                            }
                             [self.collectionView reloadData];
                             
                             
@@ -183,7 +187,9 @@
                                     MyVideoModel *fmodel = self.dataList[0];
                                     fmodel.selected = 1;
                                 }
-                                
+                                if(self.reloadData){
+                                    self.reloadData(self.dataList);
+                                }
                                 [self.collectionView reloadData];
                                 
                             }];
@@ -210,7 +216,7 @@
             
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
             [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-            [defaultAction setValue:Color_nav forKey:@"_titleTextColor"];
+            [defaultAction setValue:Color_Tab forKey:@"_titleTextColor"];
             [defaultAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
             
             MyVideoModel *smodel = self.dataList[row - 1];
@@ -250,8 +256,8 @@
         
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
         [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-        [defaultAction setValue:Color_nav forKey:@"_titleTextColor"];
-        [defaultAction1 setValue:Color_nav forKey:@"_titleTextColor"];
+        [defaultAction setValue:Color_Tab forKey:@"_titleTextColor"];
+        [defaultAction1 setValue:Color_Tab forKey:@"_titleTextColor"];
         
         [alertController addAction:defaultAction];
         [alertController addAction:defaultAction1];
@@ -623,7 +629,13 @@
                     [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:1 inSection:0]]];
                     
                 } completion:^(BOOL finished) {
-                    
+
+                    if (self.reloadData) {
+                        
+                        self.reloadData(self.dataList);
+
+                    }
+
                     [self.collectionView reloadData];
                     
                 }];

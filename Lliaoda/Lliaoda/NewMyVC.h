@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 #import "NewMyCell.h"
+#import "MyVideoVC.h"
+#import "MyalbumVC.h"
 
 typedef NS_ENUM(NSInteger, MyType) {
     MyTypeVideo,
@@ -36,6 +38,14 @@ typedef NS_ENUM(NSInteger, MyType) {
 
 @property (nonatomic,retain) UIView *lineView;
 @property (nonatomic,assign) MyType cellType;
+
+@property (nonatomic,retain)NSArray *videoDataList;
+@property (nonatomic,retain) NSArray *photoDataList;
+
+@property (nonatomic,retain) MyVideoVC *videoVC;
+@property (nonatomic,retain) MyalbumVC *photoVC;
+
+- (IBAction)fixProtaitAC:(id)sender;
 
 
 @end

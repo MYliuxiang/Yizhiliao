@@ -18,21 +18,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = LXSring(@"我的相薄");
+    self.nav.hidden = YES;
     self.dataList = [NSMutableArray array];
-    
-    _layout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
-    _layout.minimumLineSpacing= 10;
-    _layout.minimumInteritemSpacing= 10;
-    _layout.itemSize = CGSizeMake((kScreenWidth - 41) / 3.0,(kScreenWidth - 40) / 3.0 );
+
+    _layout.sectionInset=UIEdgeInsetsMake(0, 15, 0, 15);
+    _layout.minimumLineSpacing= 15;
+    _layout.minimumInteritemSpacing= 15;
+    _layout.itemSize = CGSizeMake((kScreenWidth - 60) / 3.0 - 1,(kScreenWidth - 60) / 3.0 - 1 );
+//    _layout.itemSize = CGSizeMake((kScreenWidth - 45) / 2.0 - 1,(kScreenWidth - 45) / 2.0 - 1 );
+
     [_layout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
     
     //設定代理
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    self.collectionView.contentInset = UIEdgeInsetsMake(10,10, 10, 10);
+    
     [_collectionView registerNib:[UINib nibWithNibName:@"MyalbumCell" bundle:nil] forCellWithReuseIdentifier:@"MyalbumCellID"];
     _collectionView.backgroundColor = Color_bg;
+    NSLog(@"%f",self.view.width);
     
     [self _loadData];
 
@@ -51,7 +54,7 @@
                     AlbumModel *model = [AlbumModel mj_objectWithKeyValues:dic];
                     [self.dataList addObject:model];
                 }
-                
+                self.reloadData(self.dataList);
                 [self.collectionView reloadData];
                 
                 
@@ -139,7 +142,8 @@
                                     model1.selected = 0;
                                 }
                             }
-                            
+                            self.reloadData(self.dataList);
+
                             [self.collectionView reloadData];
                            
                             
@@ -183,6 +187,8 @@
                                     fmodel.selected = 1;
                                 }
                                 
+                                self.reloadData(self.dataList);
+
                                 [self.collectionView reloadData];
                                 
                             }];
@@ -209,7 +215,7 @@
             
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
             [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-            [defaultAction setValue:Color_nav forKey:@"_titleTextColor"];
+            [defaultAction setValue:Color_Tab forKey:@"_titleTextColor"];
             [defaultAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
             
             AlbumModel *smodel = self.dataList[row - 1];
@@ -256,8 +262,8 @@
         
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
         [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-        [defaultAction setValue:Color_nav forKey:@"_titleTextColor"];
-        [defaultAction1 setValue:Color_nav forKey:@"_titleTextColor"];
+        [defaultAction setValue:Color_Tab forKey:@"_titleTextColor"];
+        [defaultAction1 setValue:Color_Tab forKey:@"_titleTextColor"];
         
         [alertController addAction:defaultAction];
         [alertController addAction:defaultAction1];
@@ -478,6 +484,7 @@
                     
                 } completion:^(BOOL finished) {
                     
+                    self.reloadData(self.dataList);
                     [self.collectionView reloadData];
                     
                 }];

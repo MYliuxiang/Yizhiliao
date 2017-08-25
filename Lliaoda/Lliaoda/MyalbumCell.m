@@ -15,6 +15,8 @@
     // Initialization code
     
     self.label.text = LXSring(@"封面");
+    self.layer.cornerRadius = 5;
+    self.layer.masksToBounds = YES;
     
 }
 
@@ -48,8 +50,13 @@
 {
     _isFirst = isFirst;
     if (_isFirst) {
-        self.bgImageView.image = [UIImage imageNamed:@"album"];
+        self.bgImageView.image = [UIImage imageNamed:@"tianjia_lv"];
+        self.bgImageView.contentMode = UIViewContentModeCenter;
+
         self.feiView.hidden = YES;
+    }else{
+        self.bgImageView.contentMode = UIViewContentModeScaleToFill;
+
     }
     
 

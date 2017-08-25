@@ -65,8 +65,7 @@
         self.ishud = YES;
         
     }
-    
-      
+  
     [self _loadData1];
         
 
@@ -138,6 +137,7 @@
         
     [_tableView reloadData];
     
+
 }
 
 - (void)_loadData1
@@ -162,7 +162,58 @@
                 [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
 
                 [self setArrayForTable];
-                [_tableView reloadData];
+                
+                
+            } else{
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+    
+    
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.nickLabel.text = self.model.nickname;
+    [self _loadData];
+    [self.tableView reloadData];
+}
+
+- (void)_loadData
+{
+    NSDictionary *params;
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                
+                self.model = [Mymodel mj_objectWithKeyValues:result[@"data"]];
+                self.tableView.tableHeaderView = self.headerView;
+                
+                LxCache *lxcache = [LxCache sharedLxCache];
+                NSString *cacheKey = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                [lxcache setCacheData:result WithKey:cacheKey];
+                
+                
+                self.nickLabel.text = self.model.nickname;
+                self.idLabel.text = [NSString stringWithFormat:LXSring(@"聊號：%@"),self.model.uid];
+                [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+                [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+                
+                [self setArrayForTable];
+                
                 
                 
             } else{
@@ -189,18 +240,87 @@
 #pragma  mark --------UITableView Delegete----------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.nameArray.count;
+    if(self.cellType == MyTypeMessage){
+         return self.nameArray.count;
+    }else{
+    
+        return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *array = self.nameArray[section];
-    return array.count;
+    
+    if(self.cellType == MyTypeMessage){
+        NSArray *array = self.nameArray[section];
+        return array.count;
+    }else{
+        
+        return 1;
+    }
+   
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    if(self.cellType == MyTypePhoto){
+        
+        static NSString *identifie = @"cellPhotoID";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifie];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifie];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        if (self.photoVC == nil) {
+            
+            self.photoVC = [[MyalbumVC alloc] init];
+            __weak NewMyVC *this = self;
+            self.photoVC.reloadData = ^(NSArray *dataList) {
+                this.photoDataList = dataList;
+                [this.tableView reloadData];
+            };
+            [self addChildViewController:_photoVC];
+            NSLog(@"%f",self.photoVC.view.width);
+            
+        }
+        self.photoVC.view.width = kScreenWidth;
+        [cell addSubview:self.photoVC.view];
+       
+        return cell;
+        
+    }else if(self.cellType == MyTypeVideo){
+        
+        static NSString *identifie = @"cellVideoID";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifie];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifie];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        }
+        if (self.videoVC == nil) {
+            
+            self.videoVC = [[MyVideoVC alloc] init];
+            __weak NewMyVC *this = self;
+            self.videoVC.reloadData = ^(NSArray *dataList) {
+                this.videoDataList = dataList;
+                [this.tableView reloadData];
+            };
+            self.videoVC.view.width = kScreenWidth;
+            [self addChildViewController:_videoVC];
+
+        }
+        
+      
+
+        self.videoVC.view.width = kScreenWidth;
+        [cell.contentView addSubview:self.videoVC.view];
+        
+        
+
+        return cell;
+        
+    }else{
     NewMyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewMyCellID"];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyCell" owner:self options:nil] firstObject];
@@ -339,12 +459,12 @@
 
         }
     
-    }    
+       }
     }
     
     return cell;
+    }
     
-
     
 }
 
@@ -364,6 +484,21 @@
 
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.cellType == MyTypeMessage) {
+        
+        return 50;
+    }else if (self.cellType == MyTypeVideo){
+    
+        return (self.videoDataList.count + 2) / 2 * (((kScreenWidth - 45) / 2.0 - 1) + 15);
+
+    }else{
+    return (self.photoDataList.count + 3) / 3 *  ((kScreenWidth - 60) / 3.0 - 1 + 15);
+
+    }
+
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -379,15 +514,111 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    if (indexPath.section == 0) {
+        
+        if (indexPath.row == 0) {
+            //账户
+        }else{
+           //收入
+        }
+    }else{
+        
+        
+        if([LXUserDefaults boolForKey:ISMEiGUO]){
+            if (indexPath.section == 1) {
+                
+                if (indexPath.row == 0) {
+                    
+                    //视频认证
+                    if(self.model.auth == 0){
+                        
+                        
+                    }else if (self.model.auth == 1){
+                        
+                        
+                    }else if (self.model.auth == 2){
+                        
+                        
+                    }else{
+                        
+                        
+                    }
+                    
+                }else if(indexPath.row == 1){
+                    
+                   //收费设置
+                    
+                }else if(indexPath.row == 2){
+                    //在线时段
+                    
+                }
+                
+                
+            }else if(indexPath.section == 2){
+                //设置
+                
+            }
+            
+            
+            
+        }else{
+            
+            if (indexPath.section == 1) {
+                //邀请
+                if (indexPath.row == 0) {
+                    //邀请有奖
+
+                    
+                }else{
+                    //接受邀请
+                }
+                
+                
+            }else if(indexPath.section == 2){
+                //视频认证
+                if (indexPath.row == 0) {
+                    
+                    if(self.model.auth == 0){
+                        
+                    }else if (self.model.auth == 1){
+                        
+                        
+                    }else if (self.model.auth == 2){
+                        
+                        
+                    }else{
+                        
+                        
+                    }
+                    
+                }else if(indexPath.row == 1){
+                    //收费设置
+                    
+                    
+                }else if(indexPath.row == 2){
+                    
+                  //在线时段
+                    
+                }
+                
+                
+            }else{
+                //设置
+                
+            }
+            
+        }
+    }
+
     
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (self.cellType != 2) {
-//        
-//        return;
-//    }
+    if (self.cellType != 2) {
+        
+        return;
+    }
     if ([cell respondsToSelector:@selector(tintColor)]) {
         if (tableView == self.tableView) {
             // 圆角弧度半径
@@ -487,6 +718,7 @@
         self.lineView.centerX = sender.centerX;
     } completion:^(BOOL finished) {
         self.cellType = MyTypeVideo;
+        [self.tableView reloadData];
     }];
 }
 
@@ -496,6 +728,8 @@
         self.lineView.centerX = sender.centerX;
     } completion:^(BOOL finished) {
         self.cellType = MyTypePhoto;
+        [self.tableView reloadData];
+
     }];
 }
 
@@ -505,6 +739,12 @@
         self.lineView.centerX = sender.centerX;
     } completion:^(BOOL finished) {
         self.cellType = MyTypeMessage;
+        [self.tableView reloadData];
+
     }];
+}
+
+//修改头像
+- (IBAction)fixProtaitAC:(id)sender {
 }
 @end

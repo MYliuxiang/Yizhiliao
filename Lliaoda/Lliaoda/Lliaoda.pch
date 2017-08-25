@@ -51,10 +51,10 @@ alpha:1.0]
 #define ColorRGB(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 //颜色
-#define Color_bg     [MyColor colorWithHexString:@"#F7FCFF"];
+#define Color_bg     [MyColor colorWithHexString:@"#F7FCFF"]
 #define Color_nav    UIColorFromRGB(0xFFFFFF)  
 #define Color_green  UIColorFromRGB(0x7ED321)
-#define Color_Tab    [MyColor colorWithHexString:@"#00DDCC"];
+#define Color_Tab    [MyColor colorWithHexString:@"#00DDCC"]
 
 
 #define Color_Text_black      UIColorFromRGB(0x333333)

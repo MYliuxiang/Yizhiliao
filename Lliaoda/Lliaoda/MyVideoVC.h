@@ -23,6 +23,6 @@
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layout;
-
+@property (nonatomic,copy) void(^reloadData)(NSArray *dataList);
 @property (nonatomic,retain) NSMutableArray *dataList;
 @end

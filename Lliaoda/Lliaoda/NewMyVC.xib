@@ -28,7 +28,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Afr-QN-zTv">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Afr-QN-zTv">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -67,7 +67,7 @@
                         <action selector="editAc:" destination="-1" eventType="touchUpInside" id="tcl-3R-Pwd"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kSp-M7-PUA">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kSp-M7-PUA">
                     <rect key="frame" x="152" y="60" width="70" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="D1l-r7-JwH"/>
@@ -139,6 +139,7 @@
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="a6s-Gf-FLm" firstAttribute="centerX" secondItem="jal-f6-M7U" secondAttribute="centerX" id="3nU-Cp-Od4"/>
                 <constraint firstItem="kZQ-HM-MAz" firstAttribute="centerX" secondItem="a6s-Gf-FLm" secondAttribute="centerX" id="F5d-ol-xB8"/>
@@ -158,8 +159,16 @@
                 <constraint firstAttribute="trailing" secondItem="ZNk-Mu-0IK" secondAttribute="trailing" id="yJt-dd-96H"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="Ta5-FK-Duq" appends="YES" id="CjB-XF-vH5"/>
+            </connections>
             <point key="canvasLocation" x="-189.5" y="362"/>
         </view>
+        <tapGestureRecognizer id="Ta5-FK-Duq">
+            <connections>
+                <action selector="fixProtaitAC:" destination="-1" id="tmW-l7-D2X"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="bianji" width="17" height="17"/>
