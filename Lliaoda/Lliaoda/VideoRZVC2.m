@@ -20,6 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.text = LXSring(@"視頻認證");
+    self.nav.backgroundColor = [UIColor clearColor];
+    self.titleLable.textColor = [UIColor whiteColor];
+    [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
     
     self.bgView.layer.cornerRadius = 5;
     self.bgView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -184,9 +188,9 @@
 //压缩完成
 - (void) convertFinish
 {
-    CGFloat duration = [[NSDate date] timeIntervalSinceDate:_startDate];
-    NSString *convertTime = [NSString stringWithFormat:@"%.2f s", duration];
-    NSString *mp4Size = [NSString stringWithFormat:@"%ld kb", (long)[self getFileSize:_mp4Path]];
+//    CGFloat duration = [[NSDate date] timeIntervalSinceDate:_startDate];
+//    NSString *convertTime = [NSString stringWithFormat:@"%.2f s", duration];
+//    NSString *mp4Size = [NSString stringWithFormat:@"%ld kb", (long)[self getFileSize:_mp4Path]];
     NSData *sssdata = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://localhost/private%@",_mp4Path]]];
     
     NSDictionary *params;

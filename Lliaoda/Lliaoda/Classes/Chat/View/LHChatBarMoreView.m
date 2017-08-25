@@ -57,13 +57,15 @@ const NSInteger INSETS = 8;
 //        
 //    }
     
-    NSArray *imageNameArr = @[@"shipin_01", @"liwu_01", @"chongzhi_01"];
-    NSArray *selectImageNameArr = @[@"shipin_02",@"liwu_02", @"chongzhi_02"];
+    NSArray *imageNameArr = @[@"shipinliaotian", @"songlitixing", @"chongzhitixing"];
+    NSArray *imageNameArr1 = @[@"shipinliaotian", @"songliwu", @"chuzhi"];
+//    NSArray *imageNameArr = @[@"shipin_01", @"liwu_01", @"chongzhi_01"];
+//    NSArray *selectImageNameArr = @[@"shipin_02",@"liwu_02", @"chongzhi_02"];
     for (int i = 0; i < nameArr.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.tag = 100 + i;
-        [button setImage:[UIImage imageNamed:imageNameArr[i]] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:selectImageNameArr[i]] forState:UIControlStateHighlighted];
+        
+//        [button setImage:[UIImage imageNamed:selectImageNameArr[i]] forState:UIControlStateHighlighted];
         [self addSubview:button];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -75,6 +77,7 @@ const NSInteger INSETS = 8;
         
         
         if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            [button setImage:[UIImage imageNamed:imageNameArr[i]] forState:UIControlStateNormal];
             if (i == 0) {
                 [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
                 button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
@@ -91,6 +94,7 @@ const NSInteger INSETS = 8;
                 label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
             }
         } else { // 是用户
+            [button setImage:[UIImage imageNamed:imageNameArr1[i]] forState:UIControlStateNormal];
             if (i == 0) {
                 [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
                 button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
