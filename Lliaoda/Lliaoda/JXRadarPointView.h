@@ -23,4 +23,6 @@
 
 @property (nonatomic,retain) SelectedModel *model;
 
+@property (nonatomic,retain) UIColor *sendBordColor;
+
 @end

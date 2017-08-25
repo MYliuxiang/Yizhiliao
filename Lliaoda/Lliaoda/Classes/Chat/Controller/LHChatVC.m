@@ -1373,7 +1373,7 @@ NSString *const kTableViewFrame = @"frame";
         //点击cell
         SelectedModel *smodel = [[SelectedModel alloc] init];
         smodel.uid = model.uid;
-        PersonalVC *vc = [[PersonalVC alloc] init];
+        LxPersonVC *vc = [[LxPersonVC alloc] init];
         vc.model = smodel;
         [self.navigationController pushViewController:vc animated:YES];
 

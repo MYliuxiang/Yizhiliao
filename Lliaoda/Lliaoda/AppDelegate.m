@@ -820,7 +820,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
             NSString *senderId = userInfo[@"senderId"];
             SelectedModel *model = [[SelectedModel alloc] init];
             model.uid = senderId;
-            PersonalVC *vc = [[PersonalVC alloc] init];
+            LxPersonVC *vc = [[LxPersonVC alloc] init];
             vc.model = model;
             [[self topViewController].navigationController pushViewController:vc animated:YES];
             

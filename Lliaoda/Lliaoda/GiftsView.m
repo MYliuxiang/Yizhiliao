@@ -23,8 +23,6 @@ static NSString *identifire = @"GiftID";
         self.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 305);
         
         [self.chonBtn setTitle:LXSring(@"充值") forState:UIControlStateNormal];
-        self.layer.masksToBounds = YES;
-        self.layer.cornerRadius = 5;
         self.chonBtn.layer.masksToBounds = YES;
         self.chonBtn.layer.cornerRadius = 5;
         self.pageControl.currentPage = 0;
@@ -73,6 +71,8 @@ static NSString *identifire = @"GiftID";
                 }
                 self.pageControl.numberOfPages = self.dataList.count / 8 + 1;
                 [self.collectionView reloadData];
+                [self.collectionView selectItemAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:0]animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+
                 
             }else{    //请求失败
                 
@@ -98,19 +98,20 @@ static NSString *identifire = @"GiftID";
     self.collectionView.dataSource = self;
     self.gifLayout = [[GiftLayout alloc] init];
 
-    _gifLayout.minimumLineSpacing= (kScreenWidth - 240) / 5.0;
-    _gifLayout.minimumInteritemSpacing= 5;
-    _gifLayout.itemSize = CGSizeMake(60,100);
-    _gifLayout.sectionInset=UIEdgeInsetsMake(0, (kScreenWidth - 240) / 5.0, 0, (kScreenWidth - 240) / 5.0);
+    _gifLayout.minimumLineSpacing= -1;
+    _gifLayout.minimumInteritemSpacing= -1;
+    _gifLayout.itemSize = CGSizeMake((kScreenWidth + 3) / 4,123);
+//    _gifLayout.sectionInset=UIEdgeInsetsMake(0, (kScreenWidth - 240) / 5.0, 0, (kScreenWidth - 240) / 5.0);
 
     [_gifLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];//滚动方向
     //設定代理
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor clearColor];
-    self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
+//    self.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 20, 0);
     self.collectionView.collectionViewLayout = self.gifLayout;
     [_collectionView registerNib:[UINib nibWithNibName:@"GiftCell" bundle:nil] forCellWithReuseIdentifier:identifire];
     _collectionView.backgroundColor = [UIColor clearColor];
+    _collectionView.allowsMultipleSelection = NO;
 
 }
 
@@ -167,10 +168,23 @@ static NSString *identifire = @"GiftID";
         
         MGiftModel *model = self.dataList[indexPath.row];
         cell.model = model;
+        cell.layer.borderWidth = 1;
+        cell.layer.borderColor = [MyColor colorWithHexString:@"#666666"].CGColor;
     }else{
     
         cell.model = nil;
+        cell.layer.borderWidth = 0;
+        cell.layer.borderColor = [MyColor colorWithHexString:@"#666666"].CGColor;
     }
+    
+    
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (kScreenWidth - 3) / 4, 121)];
+    view.backgroundColor = [UIColor clearColor];
+    view.layer.borderWidth = 1;
+    view.layer.borderColor = Color_Tab.CGColor;
+    cell.selectedBackgroundView = view;
+    cell.selectedBackgroundView.frame = CGRectMake(1, 1, (kScreenWidth + 3) / 4 - 2, 121);
     
     [cell setNeedsLayout];
     return cell;
@@ -181,7 +195,7 @@ static NSString *identifire = @"GiftID";
 {
     
     
-    if (indexPath.row > _dataList.count) {
+    if (indexPath.row >= _dataList.count) {
      
         return;
     }

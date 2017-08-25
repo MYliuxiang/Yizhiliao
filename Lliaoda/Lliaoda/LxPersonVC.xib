@@ -105,9 +105,9 @@
                         <constraint firstItem="ZSM-74-nPG" firstAttribute="leading" secondItem="iL5-6A-8P7" secondAttribute="leading" id="vPO-O1-Z2I"/>
                     </constraints>
                 </view>
-                <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecL-dg-XRP">
+                <view hidden="YES" alpha="0.050000000000000003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecL-dg-XRP">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

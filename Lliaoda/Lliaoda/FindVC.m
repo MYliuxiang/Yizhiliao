@@ -80,14 +80,20 @@
     // Do any additional setup after loading the view.
     self.text = LXSring(@"發現");
     self.isShowMessageButton = YES;
+    self.colors = @[[MyColor colorWithHexString:@"#E84969"],[MyColor colorWithHexString:@"#F1B534"],[MyColor colorWithHexString:@"#6AE8BB"],[MyColor colorWithHexString:@"#40B2F2"],[MyColor colorWithHexString:@"#6AE7BD"],[MyColor colorWithHexString:@"#F6BF33"],[MyColor colorWithHexString:@"#A753EA"]];
     [self.rechargeBtn setTitle:LXSring(@"快速儲值") forState:UIControlStateNormal];
     self.label1.text = LXSring(@"正在為您尋找有緣人");
     self.label2.text = LXSring(@"點擊任意大頭照可以進入Ta的主頁喔！");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(findAC:) name:@"findVC" object:nil];
     self.pointsModels = [NSMutableArray array];
-    self.finBtn.layer.cornerRadius = 22;
-    self.finBtn.layer.masksToBounds = YES;
+//    self.finBtn.layer.cornerRadius = 22;
+//    self.finBtn.layer.masksToBounds = YES;
+    UIImage *image = [[UIImage imageNamed:@"tishitankuang"] stretchableImageWithLeftCapWidth:12  topCapHeight:5];
+    [self.finBtn setBackgroundImage:image forState:UIControlStateNormal];
     [self.finBtn setTitle:LXSring(@"發現有緣人") forState:UIControlStateNormal];
+    
+    self.stateView.layer.cornerRadius = 3;
+    self.stateView.layer.masksToBounds = YES;
     //获取摄像设备
     device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
 
@@ -133,10 +139,7 @@
     _findView.frame = CGRectMake(0, 63, kScreenWidth, kScreenHeight - 64 - 48);
     _findView.hidden = YES;
     [self.view addSubview:_findView];
-    
-    UIToolbar *toolbar1 = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, _findView.frame.size.width, _findView.frame.size.height)];
-    toolbar1.barStyle = UIBarStyleDefault;
-    [_findView insertSubview:toolbar1 atIndex:0];
+   
     
     _findBgView.frame = CGRectMake(0, 63, kScreenWidth, kScreenHeight - 64 - 48);
     _findBgView.hidden = YES;
@@ -346,6 +349,7 @@
                     }
                     [self.pointsViewArray removeAllObjects];
                     
+                    self.colorIndex = arc4random()%7;
                     _timer =  [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(showPoint:) userInfo:nil repeats:YES];
                 }
                 
@@ -423,10 +427,15 @@
         
     }
 
-    JXRadarPointView *pointView = [[JXRadarPointView alloc]initWithFrame:CGRectMake(0, 0, 96, 96)];
+    JXRadarPointView *pointView = [[JXRadarPointView alloc]initWithFrame:CGRectMake(0, 0, 70, 70)];
     pointView.tag = _time;
     pointView.userInteractionEnabled = YES;
     pointView.model = self.pointsModels[_time];
+    
+    int index = self.colorIndex % 7;
+    pointView.sendBordColor = self.colors[index];
+    self.colorIndex++;
+
     // 添加手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
     [pointView addGestureRecognizer:tap];
@@ -486,7 +495,7 @@
     CGPoint p = self.pointsView.center;
     float cdistance = sqrt(pow((pointView.center.x - p.x), 2) + pow((pointView.center.y - p.y), 2));
     
-    if (cdistance < 93) {
+    if (cdistance < 70) {
         return YES;
     }
     
@@ -497,7 +506,7 @@
 
         float distance = sqrt(pow((p1.x - p2.x), 2) + pow((p1.y - p2.y), 2));
 
-        if (distance < 96) {
+        if (distance < 70) {
             return YES;
         }
     }
@@ -518,7 +527,7 @@
     }
     
     SelectedModel *model = self.pointsModels[pointView.tag];
-    PersonalVC *vc = [[PersonalVC alloc] init];
+    LxPersonVC *vc = [[LxPersonVC alloc] init];
     vc.model = model;
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -535,6 +544,20 @@
     self.nickLabel.text = model.nickname;
    
     self.placelabel.text = [[CityTool sharedCityTool] getCityWithCountrieId:model.country WithprovinceId:model.province WithcityId:model.city];
+    
+    
+    if (model.gender == 0) {
+        
+        self.stateImage.image = [UIImage imageNamed:@"nansheng"];
+        
+        //男
+    }else{
+        
+        self.stateImage.image = [UIImage imageNamed:@"nvsheng"];
+        
+    }
+    
+    self.statelabel.text = [InputCheck dateToOld:[NSDate dateWithTimeIntervalSince1970:model.birthday/ 1000]];
     
     if (self.placelabel.text.length == 0) {
         
@@ -701,8 +724,34 @@
                     
                     if ([[result objectForKey:@"result"] integerValue] == 8) {
                         
+                        //提示充值
                     self.tishiLabel.text = LXSring(@"啊噢...你的餘額不足\n儲值后立刻发起通话!");
-                    self.rechargeBtn.hidden = NO;
+                    self.rechargeBtn.hidden = YES;
+                       
+                        
+                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
+                        
+                        lg.destructiveButtonBackgroundColor = Color_nav;
+                        lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                        lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+                        lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+                        lg.cancelButtonTitleColor = Color_Tab;
+                        lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
+                            AccountVC *vc = [[AccountVC alloc] init];
+                            vc.isCall = YES;
+                            
+                            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+                            
+                            vc.clickBlock = ^{
+                                
+                                [self call];
+                                
+                            };
+                            
+                            [self.navigationController pushViewController:vc animated:YES];
+                            
+                        };
+                        [lg showAnimated:YES completionHandler:nil];
                         
                     }
                     

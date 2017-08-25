@@ -33,25 +33,39 @@
 
 - (void)_initView
 {
-    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.width - 64) / 2.0, 0, 64, 64)];
-    _imageView.layer.cornerRadius = 32;
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.width - 60) / 2.0, 0, 60, 60)];
+    _imageView.layer.cornerRadius = 30;
     _imageView.layer.masksToBounds = YES;
     _imageView.layer.borderColor = [UIColor whiteColor].CGColor;
     _imageView.layer.borderWidth = 2;
+    _imageView.center = self.center;
     [self addSubview:_imageView];
     
     
-    _nickName = [[UILabel alloc] initWithFrame:CGRectMake(18, _imageView.bottom + 5, 64, 12)];
-    _nickName.font = [UIFont systemFontOfSize:12];
-    _nickName.textColor = [MyColor colorWithHexString:@"#333333"];
-    _nickName.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:_nickName];
     
-    _placeLabel = [[UILabel alloc] initWithFrame:CGRectMake(18, _nickName.bottom + 5, 64, 10)];
-    _placeLabel.font = [UIFont systemFontOfSize:10];
-    _placeLabel.textColor = [MyColor colorWithHexString:@"#999999"];
-    _placeLabel.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:_placeLabel];
+    
+//    _nickName = [[UILabel alloc] initWithFrame:CGRectMake(18, _imageView.bottom + 5, 64, 12)];
+//    _nickName.font = [UIFont systemFontOfSize:12];
+//    _nickName.textColor = [MyColor colorWithHexString:@"#333333"];
+//    _nickName.textAlignment = NSTextAlignmentCenter;
+//    [self addSubview:_nickName];
+//    
+//    _placeLabel = [[UILabel alloc] initWithFrame:CGRectMake(18, _nickName.bottom + 5, 64, 10)];
+//    _placeLabel.font = [UIFont systemFontOfSize:10];
+//    _placeLabel.textColor = [MyColor colorWithHexString:@"#999999"];
+//    _placeLabel.textAlignment = NSTextAlignmentCenter;
+//    [self addSubview:_placeLabel];
+
+
+}
+
+- (void)setSendBordColor:(UIColor *)sendBordColor
+{
+    _sendBordColor = sendBordColor;
+    self.layer.cornerRadius = 35;
+    self.layer.masksToBounds = YES;
+    self.layer.borderColor = self.sendBordColor.CGColor;
+    self.layer.borderWidth = 1;
 
 
 }

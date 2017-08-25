@@ -84,8 +84,8 @@
         CALayer *pulsingLayer = [[CALayer alloc]init];
         pulsingLayer.frame = CGRectMake(0, 0, rect.size.width, rect.size.height);
         pulsingLayer.backgroundColor = [UIColor clearColor].CGColor;
-        pulsingLayer.borderColor = Color_nav.CGColor;
-        pulsingLayer.borderWidth = 3.0;
+        pulsingLayer.borderColor = [UIColor whiteColor].CGColor;
+        pulsingLayer.borderWidth = 5.0;
         pulsingLayer.cornerRadius = rect.size.height / 2.0;
         
         CAMediaTimingFunction * defaultCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
@@ -119,7 +119,8 @@
     thumb.layer.masksToBounds = YES;
     thumb.layer.borderColor = Color_nav.CGColor;
     thumb.layer.borderWidth = 2.0;
-    [thumb sd_setImageWithURL:[NSURL URLWithString:self.url]];
+//    [thumb sd_setImageWithURL:[NSURL URLWithString:self.url]];
+    thumb.image = [UIImage imageNamed:@"pipei"];
     [self addSubview:thumb];
     
 //    CALayer * thumbnailLayer = [[CALayer alloc]init];

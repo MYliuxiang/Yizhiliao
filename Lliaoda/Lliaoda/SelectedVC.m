@@ -585,7 +585,7 @@
 
 - (void)tap
 {
-    PersonalVC *vc = [[PersonalVC alloc] init];
+    LxPersonVC *vc = [[LxPersonVC alloc] init];
     vc.model = self.dataList[0];
     [self.navigationController pushViewController:vc animated:YES];
 

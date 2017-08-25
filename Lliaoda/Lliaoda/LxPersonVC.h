@@ -12,6 +12,7 @@
 #import "LxMessageCell.h"
 #import "PersonCell.h"
 #import "LxVideoTableViewCell.h"
+#import "SDCycleScrollView.h"
 
 
 @interface LxPersonVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>

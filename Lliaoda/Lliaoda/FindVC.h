@@ -12,6 +12,7 @@
 #import "JXRadarPointView.h"
 #import "PersonalVC.h"
 #import "SelectedModel.h"
+#import "LxPersonVC.h"
 
 @interface FindVC : BaseViewController
 @property (weak, nonatomic) IBOutlet UIButton *finBtn;
@@ -29,6 +30,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImage;
 @property (nonatomic,assign) BOOL first;
 @property (nonatomic,retain) NSArray *charges;
+@property (nonatomic,retain) NSArray *colors;
+@property (nonatomic,assign) int colorIndex;
+@property (weak, nonatomic) IBOutlet UILabel *statelabel;
+@property (weak, nonatomic) IBOutlet UIView *stateView;
+@property (weak, nonatomic) IBOutlet UIImageView *stateImage;
+
 
 
 - (IBAction)closeAC:(id)sender;

@@ -416,7 +416,7 @@
                 self.likeLabel.text = [NSString stringWithFormat:@"%d",self.pmodel.likeCount];
                 if (self.pmodel.gender == 0) {
                 
-                    self.sexImage.image = [UIImage imageNamed:@"fenxiang_quan"];
+                    self.sexImage.image = [UIImage imageNamed:@"nansheng"];
 
                     //男
                 }else{
