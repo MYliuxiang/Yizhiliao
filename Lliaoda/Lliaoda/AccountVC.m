@@ -54,9 +54,13 @@ static NSString *const headerId = @"headerId";
     self.text = LXSring(@"帳戶");
     self.label1.text = LXSring(@"账户余额");
     self.label.text = LXSring(@"鑽石");
+    
+    
+    self.nav.backgroundColor = [UIColor clearColor];
+    self.titleLable.textColor = [UIColor whiteColor];
+    [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
 
-
-    self.view.backgroundColor = UIColorFromRGB(0xf0f0f0);
+//    self.view.backgroundColor = UIColorFromRGB(0xf0f0f0);
     self.dataList = [NSMutableArray array];
 //    self.accountLab.text = [NSString stringWithFormat:@"%d",self.deposit];
 //    self.headerView.width = kScreenWidth;
@@ -69,15 +73,15 @@ static NSString *const headerId = @"headerId";
     _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
     // 注册cell、sectionHeader、sectionFooter
     _collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
-    _collectionViewLayout.sectionInset=UIEdgeInsetsMake(0, 15, 15, 15);
-    _collectionViewLayout.minimumLineSpacing = 15;
-    _collectionViewLayout.minimumInteritemSpacing = 15;
+    _collectionViewLayout.sectionInset=UIEdgeInsetsMake(0, 10, 10, 10);
+    _collectionViewLayout.minimumLineSpacing = 10;
+    _collectionViewLayout.minimumInteritemSpacing = 10;
     
-    _collectionViewLayout.itemSize = CGSizeMake((SCREEN_W - 45) / 2, 220);
+    _collectionViewLayout.itemSize = CGSizeMake((SCREEN_W - 30) / 2, 250);
     [_collectionViewLayout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
-    _collectionViewLayout.headerReferenceSize = CGSizeMake(SCREEN_W, 208);
+    _collectionViewLayout.headerReferenceSize = CGSizeMake(SCREEN_W, 246);
     
-    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H - 64) collectionViewLayout:_collectionViewLayout];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H - 0) collectionViewLayout:_collectionViewLayout];
     _collectionView.dataSource = self;
     _collectionView.delegate=  self;
     _collectionView.hidden = NO;
@@ -88,18 +92,18 @@ static NSString *const headerId = @"headerId";
 //    [_collectionView registerNib:[UINib nibWithNibName:@"AccountCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"AccountCollectionCell"];
 //    [_collectionView registerNib:[UINib nibWithNibName:@"CollectionHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView"];
     _collectionView.tintColor = Color_nav;
-    [self.view addSubview:_collectionView];
+    [self.view insertSubview:_collectionView atIndex:0];
 //    _collectionViewLayout.minimumLineSpacing = .5;
 //    _collectionViewLayout.minimumInteritemSpacing = .5;
 //    CGFloat width = (SCREEN_W - 1) / 2;
 //    _collectionViewLayout.itemSize = CGSizeMake(width, 240);
 //    _collectionViewLayout.headerReferenceSize = CGSizeMake(SCREEN_W, 217);
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H - 64) style:UITableViewStylePlain];
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    _tableView.hidden = YES;
-    [self.view addSubview:_tableView];
+//    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H - 64) style:UITableViewStylePlain];
+//    _tableView.dataSource = self;
+//    _tableView.delegate = self;
+//    _tableView.hidden = YES;
+//    [self.view addSubview:_tableView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weiXinPay:) name:Notice_weiXinPay object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appPaySugerss:) name:Notice_appPaySugerss object:nil];
@@ -551,7 +555,15 @@ static NSString *const headerId = @"headerId";
 - (void)buttonAC:(UIButton *)sender
 {
     
-    [self btnClick:sender.tag];
+//    [self btnClick:sender.tag];
+//    _tableView.hidden = NO;
+    AccountModel *model = self.dataList[sender.tag];
+    AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+    vc.model = self.model;
+    vc.accountModel = model;
+    vc.depositCount = depositCount;
+    vc.orderReferee = self.orderReferee;
+    [self.navigationController pushViewController:vc animated:YES];
 
 //    AccountModel *model = self.dataList[sender.tag];
 //    
@@ -724,30 +736,7 @@ controller   didAuthorizePayment:(PKPayment *)payment
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - UITableViewDataSource
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return .1;
-    
-}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return .1;
-    
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 60;
-    
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    
-}
 
 
 #pragma mark - UICollectionViewDataSource
@@ -827,6 +816,10 @@ controller   didAuthorizePayment:(PKPayment *)payment
     [cell.zuanImageView sd_setImageWithURL:[NSURL URLWithString:model.icon]];
     cell.chargeButton.tag = indexPath.row;
     [cell.chargeButton addTarget:self action:@selector(buttonAC:) forControlEvents:UIControlEventTouchUpInside];
+//    cell.bigBGView.layer.shadowColor = [UIColor blackColor].CGColor;
+//    cell.bigBGView.layer.shadowRadius = 5.f;
+//    cell.bigBGView.layer.shadowOpacity = .3f;
+//    cell.bigBGView.layer.shadowOffset = CGSizeMake(0, 0);
     return cell;
 }
 
@@ -933,6 +926,8 @@ controller   didAuthorizePayment:(PKPayment *)payment
     NSString *msgStr = [InputCheck convertToJSONData:dic];
     [_inst messageInstantSend:self.orderReferee uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
 }
+
+
 
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    return CGSizeMake((SCREEN_W- 10)/2, 240);

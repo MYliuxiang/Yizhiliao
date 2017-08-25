@@ -21,6 +21,8 @@
     [self.cameraButton setTitle:LXSring(@"相机") forState:UIControlStateNormal];
     [self.albumButton setTitle:LXSring(@"相册") forState:UIControlStateNormal];
     
+    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:self.portrait]];
+    
     self.buttonBGView.layer.cornerRadius = 5;
     self.buttonBGView.layer.shadowColor = [UIColor blackColor].CGColor;
     self.buttonBGView.layer.shadowRadius = 5.f;

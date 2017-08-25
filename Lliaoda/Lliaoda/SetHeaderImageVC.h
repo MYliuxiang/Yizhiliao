@@ -15,5 +15,7 @@
 - (IBAction)albumButtonAC:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
 @property (weak, nonatomic) IBOutlet UIButton *albumButton;
+@property (nonatomic, copy) NSString *portrait;
+
 
 @end
