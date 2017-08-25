@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KaX-sW-inW">
-                        <rect key="frame" x="5" y="5" width="205" height="205"/>
+                        <rect key="frame" x="5" y="0.0" width="205" height="210"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wya-0g-cV9">
-                                <rect key="frame" x="0.0" y="5" width="205" height="200"/>
+                                <rect key="frame" x="0.0" y="5" width="205" height="205"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zuanshi_55" translatesAutoresizingMaskIntoConstraints="NO" id="0Bz-yC-tzC">
                                         <rect key="frame" x="89" y="15" width="27" height="23"/>
@@ -83,7 +83,7 @@
                 <constraint firstItem="KaX-sW-inW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="8Kr-Ml-qHy"/>
                 <constraint firstAttribute="trailing" secondItem="KaX-sW-inW" secondAttribute="trailing" constant="5" id="VQt-t2-A2m"/>
                 <constraint firstAttribute="bottom" secondItem="KaX-sW-inW" secondAttribute="bottom" constant="5" id="eeZ-WQ-9Xd"/>
-                <constraint firstItem="KaX-sW-inW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="tqd-FM-jiT"/>
+                <constraint firstItem="KaX-sW-inW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tqd-FM-jiT"/>
             </constraints>
             <size key="customSize" width="179" height="180"/>
             <connections>
