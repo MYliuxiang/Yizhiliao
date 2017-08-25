@@ -20,7 +20,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"視頻認證");
-    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    self.nav.backgroundColor = [UIColor clearColor];
+    self.titleLable.textColor = [UIColor whiteColor];
+    [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
+    
     self.unApproveDetailLabel.text = LXSring(@"1.本人半身露营，10~15秒，正面，五官清晰，包含自我介绍；\n2.与登录后提交的个人主页照片为同一人，均为本人；\n3.模仿返利视频可提高认证通过率；\n注意：录影不会对外公开，我们将对你的视频严格保密！认证如果失败，登录后可重新提交~");
     
     self.unApproveView1.layer.cornerRadius = 5;

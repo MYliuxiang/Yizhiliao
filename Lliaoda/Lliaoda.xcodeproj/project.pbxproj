@@ -585,6 +585,12 @@
 		843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31F71F2B3879003C4EB2 /* RepetitionCount.m */; };
 		843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */; };
 		843EC0261F29D9750051AFD3 /* OrderID.m in Sources */ = {isa = PBXBuildFile; fileRef = 843EC0251F29D9750051AFD3 /* OrderID.m */; };
+		8476D56B1F4FCB0C00855CDF /* SetHeaderImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476D5691F4FCB0C00855CDF /* SetHeaderImageVC.m */; };
+		8476D56C1F4FCB0C00855CDF /* SetHeaderImageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8476D56A1F4FCB0C00855CDF /* SetHeaderImageVC.xib */; };
+		8476D5701F500E0800855CDF /* AccountPayTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476D56E1F500E0800855CDF /* AccountPayTypeCell.m */; };
+		8476D5711F500E0800855CDF /* AccountPayTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8476D56F1F500E0800855CDF /* AccountPayTypeCell.xib */; };
+		8476D5751F5017F300855CDF /* AccountPayTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476D5731F5017F300855CDF /* AccountPayTypeVC.m */; };
+		8476D5761F5017F300855CDF /* AccountPayTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8476D5741F5017F300855CDF /* AccountPayTypeVC.xib */; };
 		8483AAEA1F4E7BEB008BA674 /* ProfitCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483AAE81F4E7BEB008BA674 /* ProfitCell2.m */; };
 		8483AAEB1F4E7BEB008BA674 /* ProfitCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483AAE91F4E7BEB008BA674 /* ProfitCell2.xib */; };
 		8483AAEF1F4E8138008BA674 /* ProfitCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483AAED1F4E8138008BA674 /* ProfitCell3.m */; };
@@ -1507,6 +1513,15 @@
 		843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCount.m; sourceTree = "<group>"; };
 		843EC0241F29D9750051AFD3 /* OrderID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderID.h; sourceTree = "<group>"; };
 		843EC0251F29D9750051AFD3 /* OrderID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderID.m; sourceTree = "<group>"; };
+		8476D5681F4FCB0C00855CDF /* SetHeaderImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetHeaderImageVC.h; sourceTree = "<group>"; };
+		8476D5691F4FCB0C00855CDF /* SetHeaderImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetHeaderImageVC.m; sourceTree = "<group>"; };
+		8476D56A1F4FCB0C00855CDF /* SetHeaderImageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetHeaderImageVC.xib; sourceTree = "<group>"; };
+		8476D56D1F500E0800855CDF /* AccountPayTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPayTypeCell.h; sourceTree = "<group>"; };
+		8476D56E1F500E0800855CDF /* AccountPayTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPayTypeCell.m; sourceTree = "<group>"; };
+		8476D56F1F500E0800855CDF /* AccountPayTypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPayTypeCell.xib; sourceTree = "<group>"; };
+		8476D5721F5017F300855CDF /* AccountPayTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPayTypeVC.h; sourceTree = "<group>"; };
+		8476D5731F5017F300855CDF /* AccountPayTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPayTypeVC.m; sourceTree = "<group>"; };
+		8476D5741F5017F300855CDF /* AccountPayTypeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPayTypeVC.xib; sourceTree = "<group>"; };
 		8483AAE71F4E7BEB008BA674 /* ProfitCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitCell2.h; sourceTree = "<group>"; };
 		8483AAE81F4E7BEB008BA674 /* ProfitCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitCell2.m; sourceTree = "<group>"; };
 		8483AAE91F4E7BEB008BA674 /* ProfitCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitCell2.xib; sourceTree = "<group>"; };
@@ -2769,6 +2784,12 @@
 				84F970D21F38946100336234 /* LanguageVC.h */,
 				84F970D31F38946100336234 /* LanguageVC.m */,
 				84F970D41F38946100336234 /* LanguageVC.xib */,
+				8476D5681F4FCB0C00855CDF /* SetHeaderImageVC.h */,
+				8476D5691F4FCB0C00855CDF /* SetHeaderImageVC.m */,
+				8476D56A1F4FCB0C00855CDF /* SetHeaderImageVC.xib */,
+				8476D5721F5017F300855CDF /* AccountPayTypeVC.h */,
+				8476D5731F5017F300855CDF /* AccountPayTypeVC.m */,
+				8476D5741F5017F300855CDF /* AccountPayTypeVC.xib */,
 				222B383D1ED96843009DB58F /* MSSBrowse */,
 				222B37DA1ED9642B009DB58F /* XLPhotoBrowser */,
 			);
@@ -3074,6 +3095,9 @@
 				22AC02A41F4ED0BA00369C6D /* NewMyCell.h */,
 				22AC02A51F4ED0BA00369C6D /* NewMyCell.m */,
 				22AC02A61F4ED0BA00369C6D /* NewMyCell.xib */,
+				8476D56D1F500E0800855CDF /* AccountPayTypeCell.h */,
+				8476D56E1F500E0800855CDF /* AccountPayTypeCell.m */,
+				8476D56F1F500E0800855CDF /* AccountPayTypeCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3397,6 +3421,7 @@
 				222AA02B1EB071910038416D /* C_92@2x.png in Resources */,
 				224F245C1EA7341F00C0FDC6 /* VideoRZCell.xib in Resources */,
 				2291CBFF1F4DBD30001AB139 /* PersonSelectCell.xib in Resources */,
+				8476D5761F5017F300855CDF /* AccountPayTypeVC.xib in Resources */,
 				222AA0301EB071910038416D /* C_97@2x.png in Resources */,
 				222AA0AC1EB071910038416D /* B_94@2x.gif in Resources */,
 				222AA0991EB071910038416D /* B_77@2x.gif in Resources */,
@@ -3502,6 +3527,7 @@
 				222AA01A1EB071910038416D /* C_108@2x.png in Resources */,
 				229094361EF2756200715841 /* AgreementVC.xib in Resources */,
 				222AA05B1EB071910038416D /* B_20@2x.gif in Resources */,
+				8476D5711F500E0800855CDF /* AccountPayTypeCell.xib in Resources */,
 				228B89C21EA85744002B8D3C /* VideoRZTwoVC.xib in Resources */,
 				229094381EF2774100715841 /* start_30.wav in Resources */,
 				222AA0461EB071910038416D /* B_109@2x.gif in Resources */,
@@ -3570,6 +3596,7 @@
 				226B6FF41F38649E00AEC7D2 /* InfoPlist.strings in Resources */,
 				222AA0071EB071910038416D /* chatBar_colorMore_cameraSelected@3x.png in Resources */,
 				228941F81ED923000020C307 /* MyalbumVC.xib in Resources */,
+				8476D56C1F4FCB0C00855CDF /* SetHeaderImageVC.xib in Resources */,
 				22CDA97F1EA6076C006CD611 /* AccountCell.xib in Resources */,
 				222AA0971EB071910038416D /* B_75@2x.gif in Resources */,
 				222FA86B1EFCF35500E91AE5 /* VideoCallRedView.xib in Resources */,
@@ -3877,6 +3904,7 @@
 				22844F5B1ED2A1B800A9E32E /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				2286DC6A1EF26AFE00FDF801 /* LHChatVideoBubbleView.m in Sources */,
 				222AA1681EB071C20038416D /* KeyboardEmojiModel.m in Sources */,
+				8476D5751F5017F300855CDF /* AccountPayTypeVC.m in Sources */,
 				84B8CDB91F4ADBE100A13D27 /* PersonBottomCell.m in Sources */,
 				222AA1DB1EB0775B0038416D /* UIPasteboard+YYText.m in Sources */,
 				2286DC6C1EF26AFE00FDF801 /* LHChatBarView.m in Sources */,
@@ -3918,6 +3946,7 @@
 				222AA0CF1EB071A50038416D /* TZAssetCell.m in Sources */,
 				222FA86E1EFD150400E91AE5 /* GiftsView.m in Sources */,
 				22844F521ED2A1B800A9E32E /* IQUIView+Hierarchy.m in Sources */,
+				8476D5701F500E0800855CDF /* AccountPayTypeCell.m in Sources */,
 				84B8CDA91F4AC92700A13D27 /* PersonHeaderCell.m in Sources */,
 				222AA1C61EB0775B0038416D /* YYAnimatedImageView.m in Sources */,
 				22844F4F1ED2A1B800A9E32E /* IQNSArray+Sort.m in Sources */,
@@ -4058,6 +4087,7 @@
 				2227E5781F02312300507F69 /* RecordGiftModel.m in Sources */,
 				222AA1C71EB0775B0038416D /* YYFrameImage.m in Sources */,
 				222AA1CA1EB0775B0038416D /* YYSpriteSheetImage.m in Sources */,
+				8476D56B1F4FCB0C00855CDF /* SetHeaderImageVC.m in Sources */,
 				22CDA9731EA5F68A006CD611 /* FixintroduceVC.m in Sources */,
 				222AA1D01EB0775B0038416D /* YYTextLayout.m in Sources */,
 				22CDA9621EA5DDC6006CD611 /* MyColor.m in Sources */,

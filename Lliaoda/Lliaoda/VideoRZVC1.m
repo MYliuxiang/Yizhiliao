@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.text = LXSring(@"視頻認證");
+    self.nav.backgroundColor = [UIColor clearColor];
+    self.titleLable.textColor = [UIColor whiteColor];
+    [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
+    
     self.approvingDetailLabel.text = LXSring(@"请确保视频为真人，否则将不通过！\n提交视频后，\n系统将在2天内给出审核结果，\n请内心等待~");
     self.approvingView.layer.cornerRadius = 5;
     self.approvingView.layer.shadowColor = [UIColor blackColor].CGColor;

@@ -13,13 +13,15 @@
 #import "WXApi.h"
 #import "AccountHeaderView.h"
 #import "AccountChargeCell.h"
+#import "AccountPayTypeVC.h"
 typedef NS_ENUM(NSInteger, PayType) {
     WeixinPay,
     AliPay,
-    AppPay
+    AppPay,
+    HuaFeiPay
 };
 
-@interface AccountVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,WXApiDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface AccountVC : BaseViewController<WXApiDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AccountPayTypeCellDelegate>
 {
     Mymodel *myModel;
 }

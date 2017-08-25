@@ -10,14 +10,15 @@
 #import "NewMyCell.h"
 #import "MyVideoVC.h"
 #import "MyalbumVC.h"
-
+#import "FixpersonalVC.h"
+#import "SetHeaderImageVC.h"
 typedef NS_ENUM(NSInteger, MyType) {
     MyTypeVideo,
     MyTypePhoto,
     MyTypeMessage
 };
 
-@interface NewMyVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface NewMyVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (nonatomic,retain) Mymodel *model;
@@ -47,5 +48,8 @@ typedef NS_ENUM(NSInteger, MyType) {
 
 - (IBAction)fixProtaitAC:(id)sender;
 
-
+@property (nonatomic, strong)UIPickerView *startPK;//地址选择器
+@property (nonatomic, strong)UIPickerView *endPK;//地址选择器
+@property (nonatomic, strong)UIView *pickerBG;//选择器底
+@property (nonatomic, retain) UIView *maskView;
 @end

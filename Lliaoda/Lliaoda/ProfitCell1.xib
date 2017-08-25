@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2Z-b3-PXb">
-                        <rect key="frame" x="156" y="22" width="100" height="100"/>
+                        <rect key="frame" x="156" y="86" width="100" height="100"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quanquanjianbian" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-Wn-A5l">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -55,7 +55,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Oi-fr-GYN">
-                        <rect key="frame" x="148.5" y="137" width="115" height="40"/>
+                        <rect key="frame" x="148.5" y="201" width="115" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="115" id="611-wq-6W5"/>
@@ -71,7 +71,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="y2Z-b3-PXb" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="SsI-DS-b7p"/>
-                    <constraint firstItem="y2Z-b3-PXb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="bNc-aH-pYu"/>
+                    <constraint firstItem="y2Z-b3-PXb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="86" id="bNc-aH-pYu"/>
                     <constraint firstItem="6Oi-fr-GYN" firstAttribute="top" secondItem="y2Z-b3-PXb" secondAttribute="bottom" constant="15" id="wpE-cl-zvg"/>
                     <constraint firstItem="6Oi-fr-GYN" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="x4p-ce-75q"/>
                 </constraints>

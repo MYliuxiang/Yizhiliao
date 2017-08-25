@@ -19,6 +19,8 @@
     _chargeButton.layer.cornerRadius = 15;
     _chargeButton.layer.borderWidth = 1;
     _chargeButton.layer.borderColor = UIColorFromRGB(0x00DDCC).CGColor;
+    
+    
 }
 
 - (IBAction)chargeButtonAC:(id)sender {

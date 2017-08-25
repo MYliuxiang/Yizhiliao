@@ -18,6 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.nav.backgroundColor = [UIColor clearColor];
+    self.titleLable.textColor = [UIColor whiteColor];
+    [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
     self.text = LXSring(@"收益");
     self.view.backgroundColor = UIColorFromRGB(0x00ddcc);
 //    self.dataList = @[LXSring(@"通话收益"),LXSring(@"礼物及红包收益"),LXSring(@"总收益"),LXSring(@"可提现总收益")];
@@ -257,7 +260,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return 195;
+        return 195 + 64;
     } else if (indexPath.row == 4) {
         return 100;
     }

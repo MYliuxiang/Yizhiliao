@@ -43,6 +43,9 @@
     self.headerImage.layer.cornerRadius = 35;
     self.headerImage.layer.masksToBounds = YES;
     
+    UITapGestureRecognizer *headImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headImageAC)];
+    [self.headerImage addGestureRecognizer:headImage];
+    
     
     LxCache *cahce = [LxCache sharedLxCache];
     NSString *cacheKey = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
@@ -71,6 +74,12 @@
 
 }
 
+- (void)headImageAC {
+    SetHeaderImageVC *vc = [[SetHeaderImageVC alloc] init];
+    vc.portrait = self.model.portrait;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)setArrayForTable
 {
         NSArray *array;
@@ -94,7 +103,7 @@
             
             if (self.model.auth == 2) {
                 
-                [self.nameArray addObject:@[@[LXSring(@"視頻認證"),LXSring(@"收費設定"),LXSring(@"在線時段")]]];
+                [self.nameArray addObject:@[LXSring(@"視頻認證"),LXSring(@"收費設定"),LXSring(@"在線時段")]];
                 [self.messagePhotos addObject:@[@"shimingrenzheng",@"shoufeishezhi",@"jingchangchumo"]];
                 
                 
@@ -118,7 +127,7 @@
             
             if (self.model.auth == 2) {
                 
-                [self.nameArray addObject:@[@[LXSring(@"視頻認證"),LXSring(@"收費設定"),LXSring(@"在線時段")]]];
+                [self.nameArray addObject:@[LXSring(@"視頻認證"),LXSring(@"收費設定"),LXSring(@"在線時段")]];
                 [self.messagePhotos addObject:@[@"shimingrenzheng",@"shoufeishezhi",@"jingchangchumo"]];
                 
                 
@@ -518,8 +527,14 @@
         
         if (indexPath.row == 0) {
             //账户
+            AccountVC *vc = [[AccountVC alloc] init];
+            vc.deposit = self.model.deposit;
+            [self.navigationController pushViewController:vc animated:YES];
+            
         }else{
            //收入
+            ProfitVC *vc = [[ProfitVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }else{
         
@@ -530,33 +545,38 @@
                 if (indexPath.row == 0) {
                     
                     //视频认证
-                    if(self.model.auth == 0){
+                    if (self.model.auth == 1 || self.model.auth == 2) {
                         
-                        
-                    }else if (self.model.auth == 1){
-                        
-                        
-                    }else if (self.model.auth == 2){
-                        
-                        
-                    }else{
-                        
-                        
+                    } else {
+                        VideoRZVC *vc = [[VideoRZVC alloc] init];
+                        [self.navigationController pushViewController:vc animated:YES];
                     }
                     
                 }else if(indexPath.row == 1){
-                    
                    //收费设置
+                    SetPriceVC *vc = [[SetPriceVC alloc] init];
+                    vc.model = self.model;
+                    [self.navigationController pushViewController:vc animated:YES];
                     
                 }else if(indexPath.row == 2){
                     //在线时段
+                    [self crpickerBG];
                     
+                    [UIView animateWithDuration:0.33 animations:^{
+                        self.pickerBG.frame = CGRectMake(0, kScreenHeight - 266, kScreenWidth, 266);
+                        self.maskView.hidden = NO;
+                        
+                    } completion:^(BOOL finished) {
+                        
+                        
+                    }];
                 }
                 
                 
             }else if(indexPath.section == 2){
                 //设置
-                
+                SettingVC *vc = [[SettingVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             
             
@@ -567,44 +587,54 @@
                 //邀请
                 if (indexPath.row == 0) {
                     //邀请有奖
-
+                    InvitationVC *vc = [[InvitationVC alloc] init];
+                    vc.model = self.model;
+                    [self.navigationController pushViewController:vc animated:YES];
                     
                 }else{
                     //接受邀请
+                    AcceptVC *vc = [[AcceptVC alloc] init];
+                    [self.navigationController pushViewController:vc animated:YES];
                 }
                 
                 
             }else if(indexPath.section == 2){
                 //视频认证
                 if (indexPath.row == 0) {
-                    
-                    if(self.model.auth == 0){
+                    //视频认证
+                    if (self.model.auth == 1 || self.model.auth == 2) {
                         
-                    }else if (self.model.auth == 1){
-                        
-                        
-                    }else if (self.model.auth == 2){
-                        
-                        
-                    }else{
-                        
-                        
+                    } else {
+                        VideoRZVC *vc = [[VideoRZVC alloc] init];
+                        [self.navigationController pushViewController:vc animated:YES];
                     }
                     
                 }else if(indexPath.row == 1){
                     //收费设置
-                    
+                    SetPriceVC *vc = [[SetPriceVC alloc] init];
+                    vc.model = self.model;
+                    [self.navigationController pushViewController:vc animated:YES];
                     
                 }else if(indexPath.row == 2){
                     
                   //在线时段
+                    [self crpickerBG];
                     
+                    [UIView animateWithDuration:0.33 animations:^{
+                        self.pickerBG.frame = CGRectMake(0, kScreenHeight - 266, kScreenWidth, 266);
+                        self.maskView.hidden = NO;
+                        
+                    } completion:^(BOOL finished) {
+                        
+                        
+                    }];
                 }
                 
                 
             }else{
                 //设置
-                
+                SettingVC *vc = [[SettingVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             
         }
@@ -612,6 +642,7 @@
 
     
 }
+
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -707,10 +738,154 @@
     }
 }
 
+- (void)crpickerBG {
+    
+    if (self.pickerBG == nil) {
+        
+        _pickerBG = [[UIView alloc] initWithFrame:CGRectMake(0,kScreenHeight, kScreenWidth, 216 + 60)];
+        _pickerBG.backgroundColor = [UIColor whiteColor];
+        
+        UIView *toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
+        toolView.backgroundColor = Color_bg;
+        [_pickerBG addSubview:toolView];
+        
+        
+        //確定按钮
+        UIButton *cancel = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 60, 0,50,40)];
+        cancel.titleLabel.font = [UIFont systemFontOfSize:14];
+        [cancel setTitleColor:Color_nav forState:UIControlStateNormal];
+        [cancel setTitle:LXSring(@"保存") forState:UIControlStateNormal];
+        [toolView addSubview:cancel];
+        [cancel addTarget:self action:@selector(enterAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        //取消按钮
+        UIButton *enter = [[UIButton alloc]initWithFrame:CGRectMake(10, 0,50,40)];
+        enter.titleLabel.font = [UIFont systemFontOfSize:14];
+        [enter setTitleColor:Color_nav forState:UIControlStateNormal];
+        [enter setTitle:LXSring(@"取消") forState:UIControlStateNormal];
+        [toolView addSubview:enter];
+        [enter addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 47.5, kScreenWidth / 2.0, 20)];
+        label1.text = LXSring(@"上線時間");
+        label1.textColor = Color_nav;
+        label1.textAlignment = NSTextAlignmentCenter;
+        label1.font = [UIFont systemFontOfSize:14];
+        [_pickerBG addSubview:label1];
+        
+        UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth / 2.0, 47.5, kScreenWidth / 2.0, 20)];
+        label2.text = LXSring(@"下線時間");
+        label2.textColor = Color_nav;
+        label2.textAlignment = NSTextAlignmentCenter;
+        label2.font = [UIFont systemFontOfSize:14];
+        [_pickerBG addSubview:label2];
+        
+        
+        
+        self.startPK = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 60, kScreenWidth / 2.0, 216)];
+        self.startPK.dataSource = self;
+        self.startPK.delegate = self;
+        [_pickerBG addSubview:self.startPK];
+        
+        self.endPK = [[UIPickerView alloc] initWithFrame:CGRectMake(kScreenWidth/2.0, 60, kScreenWidth/2.0, 216)];
+        self.endPK.dataSource = self;
+        self.endPK.delegate = self;
+        [_pickerBG addSubview:self.endPK];
+        [self.tabBarController.view addSubview:_pickerBG];
+        
+        [self.endPK.subviews objectAtIndex:1].layer.borderWidth = 0.5f;
+        
+        [self.endPK.subviews objectAtIndex:2].layer.borderWidth = 0.5f;
+        
+        [self.endPK.subviews objectAtIndex:1].layer.borderColor = Color_nav.CGColor;
+        
+        [self.endPK.subviews objectAtIndex:2].layer.borderColor = Color_nav.CGColor;
+        
+        [self.startPK.subviews objectAtIndex:1].layer.borderWidth = 0.5f;
+        
+        [self.startPK.subviews objectAtIndex:2].layer.borderWidth = 0.5f;
+        
+        [self.startPK.subviews objectAtIndex:1].layer.borderColor = Color_nav.CGColor;
+        
+        [self.startPK.subviews objectAtIndex:2].layer.borderColor = Color_nav.CGColor;
+        
+        [self.endPK selectRow:self.model.preferOfflineOption inComponent:0 animated:YES];
+        [self.startPK selectRow:self.model.preferOnlineOption inComponent:0 animated:YES];
+    }
+}
+#pragma mark ----------取消-------------
+- (void)cancelAction:(UIButton *)sender
+{
+    
+    [UIView animateWithDuration:0.33 animations:^{
+        self.pickerBG.frame = CGRectMake(0, self.view.height, self.view.width, 0);
+        self.maskView.hidden = YES;
+        
+    }completion:^(BOOL finished) {
+        
+    }];
+    
+}
+#pragma mark ----------確定-------------
+- (void)enterAction:(UIButton *)sender
+{
+    
+    [UIView animateWithDuration:0.33 animations:^{
+        self.maskView.hidden = YES;
+        
+        self.pickerBG.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 256);
+    } completion:^(BOOL finished) {
+        
+        
+        NSDictionary *params;
+        NSInteger startRow = [self.startPK selectedRowInComponent:0];
+        NSInteger endRow = [self.endPK selectedRowInComponent:0];
+        
+        
+        params = @{@"preferOfflineOption":@(endRow),@"preferOnlineOption":@(startRow)};
+        [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+            if(result){
+                if ([[result objectForKey:@"result"] integerValue] == 0) {
+                    
+                    self.model.preferOfflineOption = [result[@"data"][@"preferOfflineOption"] intValue];
+                    
+                    self.model.preferOnlineOption = [result[@"data"][@"preferOnlineOption"] intValue];
+                    
+                    [_tableView reloadData];
+                    
+                } else{    //请求失败
+                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                        
+                        [SVProgressHUD dismiss];
+                    });
+                    
+                }
+            }
+            
+        } errorBlock:^(NSError *error) {
+            NSLog(@"%@",error);
+            
+        }];
+        
+        [_tableView reloadData];
+        //
+        
+        
+    }];
+    
+    
+    
+}
+
 
 - (IBAction)editAc:(id)sender {
-    
-    
+    FixpersonalVC *vc = [[FixpersonalVC alloc] init];
+    vc.model = self.model;
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 - (IBAction)videoAC:(UIButton *)sender {
