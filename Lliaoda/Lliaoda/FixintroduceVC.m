@@ -18,9 +18,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"簽名檔");
+    _placeHoldLabel.text = LXSring(@"一个特别的介绍能引起特别关注");
     [self addrighttitleString:LXSring(@"保存")];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.textView.text = self.model.intro;
+    
+    self.bgView.layer.cornerRadius = 5;
+    self.bgView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bgView.layer.shadowRadius = 5.f;
+    self.bgView.layer.shadowOpacity = .3f;
+    self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
 }
 
 - (void)rightAction
@@ -61,6 +68,11 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
+    if (textView.text.length <= 0) {
+        _placeHoldLabel.hidden = NO;
+    } else {
+        _placeHoldLabel.hidden = YES;
+    }
     if (textView.text.length > 200) {
         textView.text = [textView.text substringToIndex:200];
     }

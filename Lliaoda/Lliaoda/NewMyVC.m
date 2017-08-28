@@ -773,14 +773,14 @@
         
         UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 47.5, kScreenWidth / 2.0, 20)];
         label1.text = LXSring(@"上線時間");
-        label1.textColor = Color_nav;
+        label1.textColor = UIColorFromRGB(0xfe707d);
         label1.textAlignment = NSTextAlignmentCenter;
         label1.font = [UIFont systemFontOfSize:14];
         [_pickerBG addSubview:label1];
         
         UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth / 2.0, 47.5, kScreenWidth / 2.0, 20)];
         label2.text = LXSring(@"下線時間");
-        label2.textColor = Color_nav;
+        label2.textColor = UIColorFromRGB(0xfe707d);
         label2.textAlignment = NSTextAlignmentCenter;
         label2.font = [UIFont systemFontOfSize:14];
         [_pickerBG addSubview:label2];
@@ -802,17 +802,17 @@
         
         [self.endPK.subviews objectAtIndex:2].layer.borderWidth = 0.5f;
         
-        [self.endPK.subviews objectAtIndex:1].layer.borderColor = Color_nav.CGColor;
+        [self.endPK.subviews objectAtIndex:1].layer.borderColor = UIColorFromRGB(0xe6e6e6).CGColor;
         
-        [self.endPK.subviews objectAtIndex:2].layer.borderColor = Color_nav.CGColor;
+        [self.endPK.subviews objectAtIndex:2].layer.borderColor = UIColorFromRGB(0xe6e6e6).CGColor;
         
         [self.startPK.subviews objectAtIndex:1].layer.borderWidth = 0.5f;
         
         [self.startPK.subviews objectAtIndex:2].layer.borderWidth = 0.5f;
         
-        [self.startPK.subviews objectAtIndex:1].layer.borderColor = Color_nav.CGColor;
+        [self.startPK.subviews objectAtIndex:1].layer.borderColor = UIColorFromRGB(0xe6e6e6).CGColor;
         
-        [self.startPK.subviews objectAtIndex:2].layer.borderColor = Color_nav.CGColor;
+        [self.startPK.subviews objectAtIndex:2].layer.borderColor = UIColorFromRGB(0xe6e6e6).CGColor;
         
         [self.endPK selectRow:self.model.preferOfflineOption inComponent:0 animated:YES];
         [self.startPK selectRow:self.model.preferOnlineOption inComponent:0 animated:YES];
@@ -904,7 +904,7 @@
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:titleString];
     NSRange range = [titleString rangeOfString:titleString];
-    [attributedString addAttribute:NSForegroundColorAttributeName value:Color_nav range:range];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x333333) range:range];
     
     return attributedString;
 }

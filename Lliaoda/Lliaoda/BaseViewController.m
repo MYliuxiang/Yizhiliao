@@ -97,15 +97,15 @@
     [self.nav addSubview:_titleLable];
     
 
-    _rightChargeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _rightChargeButton.frame = CGRectMake(kScreenWidth - 100 - 15, 20 + (self.nav.height - 20 - 50 / 2.0) / 2.0 , 100, 50 / 2.0);
-    [_rightChargeButton setBackgroundColor:[UIColor clearColor]];
-    [_rightChargeButton setTitleColor:UIColorFromRGB(0xFFC001) forState:UIControlStateNormal];
-    [_rightChargeButton setTitle:@"Top up manual" forState:UIControlStateNormal];
-    _rightChargeButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    [_rightChargeButton addTarget:self action:@selector(rightChargeButtonAC) forControlEvents:UIControlEventTouchUpInside];
-    [self.nav addSubview:_rightChargeButton];
-    self.isRight = NO;
+//    _rightChargeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _rightChargeButton.frame = CGRectMake(kScreenWidth - 100 - 15, 20 + (self.nav.height - 20 - 50 / 2.0) / 2.0 , 100, 50 / 2.0);
+//    [_rightChargeButton setBackgroundColor:[UIColor clearColor]];
+//    [_rightChargeButton setTitleColor:UIColorFromRGB(0xFFC001) forState:UIControlStateNormal];
+//    [_rightChargeButton setTitle:@"Top up manual" forState:UIControlStateNormal];
+//    _rightChargeButton.titleLabel.font = [UIFont systemFontOfSize:13];
+//    [_rightChargeButton addTarget:self action:@selector(rightChargeButtonAC) forControlEvents:UIControlEventTouchUpInside];
+//    [self.nav addSubview:_rightChargeButton];
+//    self.isRight = NO;
     
     _messageBtnBgView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth - 44 - 15, 20, 60, 44)];
     _messageBtnBgView.backgroundColor = [UIColor clearColor];
@@ -287,13 +287,13 @@
     
 }
 
-- (void)setIsRight:(BOOL)isRight {
-    if (isRight) {
-        self.rightChargeButton.hidden = NO;
-    } else {
-        self.rightChargeButton.hidden = YES;
-    }
-}
+//- (void)setIsRight:(BOOL)isRight {
+//    if (isRight) {
+//        self.rightChargeButton.hidden = NO;
+//    } else {
+//        self.rightChargeButton.hidden = YES;
+//    }
+//}
 
 - (void)setIsShowMessageButton:(BOOL)isShowMessageButton {
     if (isShowMessageButton) {
