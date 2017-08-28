@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (nonatomic,copy) NSString *value;
 @property (nonatomic,retain) Mymodel *model;
+@property (weak, nonatomic) IBOutlet UILabel *placeHoldLabel;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 
 @end

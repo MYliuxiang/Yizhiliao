@@ -21,6 +21,18 @@
     [self.checkoutButton setTitle:LXSring(@"切換語言") forState:UIControlStateNormal];
     [self.aboutButton setTitle:LXSring(@"關於我們") forState:UIControlStateNormal];
     [self.loginoutButton setTitle:LXSring(@"退出登陸") forState:UIControlStateNormal];
+    
+    self.aboutButton.layer.cornerRadius = 5;
+    self.aboutButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.aboutButton.layer.shadowRadius = 5.f;
+    self.aboutButton.layer.shadowOpacity = .3f;
+    self.aboutButton.layer.shadowOffset = CGSizeMake(0, 0);
+    
+    self.loginoutButton.layer.cornerRadius = 5;
+    self.loginoutButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.loginoutButton.layer.shadowRadius = 5.f;
+    self.loginoutButton.layer.shadowOpacity = .3f;
+    self.loginoutButton.layer.shadowOffset = CGSizeMake(0, 0);
 
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
@@ -116,7 +128,7 @@
     
     };
     
-    alert.buttonsTitleColor = Color_nav;
+    alert.buttonsTitleColor = UIColorFromRGB(0x00ddcc);
     alert.cancelButtonTitleColor = Color_Text_lightGray;
     alert.tintColor = [UIColor whiteColor];
     [alert showAnimated:YES completionHandler:^{

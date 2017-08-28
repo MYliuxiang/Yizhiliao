@@ -21,17 +21,20 @@
     
     _pickerBG = [[UIView alloc] initWithFrame:CGRectMake(0,kScreenHeight, kScreenWidth, 216 + 50)];
     _pickerBG.backgroundColor = [UIColor whiteColor];
-    
+    _pickerBG.layer.shadowColor = [UIColor blackColor].CGColor;
+    _pickerBG.layer.shadowRadius = 5.f;
+    _pickerBG.layer.shadowOpacity = .3f;
+    _pickerBG.layer.shadowOffset = CGSizeMake(0, 0);
     
     UIView *toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
-    toolView.backgroundColor = [UIColor whiteColor];
+    toolView.backgroundColor = UIColorFromRGB(0xf7fcff);
     [_pickerBG addSubview:toolView];
     
     
     //確定按钮
     UIButton *cancel = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth-60, 0,50,50)];
     cancel.titleLabel.font = [UIFont systemFontOfSize:14];
-    [cancel setTitleColor:Color_nav forState:UIControlStateNormal];
+    [cancel setTitleColor:UIColorFromRGB(0x00ddcc) forState:UIControlStateNormal];
     [cancel setTitle:LXSring(@"確定") forState:UIControlStateNormal];
     [toolView addSubview:cancel];
     [cancel addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -40,7 +43,7 @@
     //取消按钮
     UIButton *enter = [[UIButton alloc]initWithFrame:CGRectMake(10, 0,50,50)];
     enter.titleLabel.font = [UIFont systemFontOfSize:14];
-    [enter setTitleColor:Color_nav forState:UIControlStateNormal];
+    [enter setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
     [enter setTitle:LXSring(@"取消") forState:UIControlStateNormal];
     [toolView addSubview:enter];
     [enter addTarget:self action:@selector(enterAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -51,6 +54,21 @@
     self.picker.delegate = self;
     [_pickerBG addSubview:self.picker];
     [self.view addSubview:_pickerBG];
+    
+    
+    
+    
+}
+// 重写父类的方法
+- (void)rightAction {
+    if (self.cmodel == nil) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        
+        [self _loadData];
+        
+    }
 }
 
 #pragma mark ----------確定-------------
@@ -63,9 +81,10 @@
         self.priceBtn.selected = NO;
         NSInteger row1=[self.picker selectedRowInComponent:0];
         Charge *charge = self.model.charges[row1];
-        self.priceBtn.titleLabel.text = charge.name;
+//        self.priceBtn.titleLabel.text = charge.name;
+        self.setPriceLabel.text = charge.name;
         self.cmodel = charge;
-        [self.priceBtn setTitle:charge.name forState:UIControlStateNormal];
+//        [self.priceBtn setTitle:charge.name forState:UIControlStateNormal];
     }];
     
     
@@ -147,11 +166,12 @@
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"收費設定");
     
+    [self setCorner];
     
-    self.priceBtn.layer.borderColor = Color_nav.CGColor;
-    self.priceBtn.layer.borderWidth = 1;
-    self.priceBtn.layer.cornerRadius = 3;
-    self.priceBtn.layer.masksToBounds = YES;
+//    self.priceBtn.layer.borderColor = Color_nav.CGColor;
+//    self.priceBtn.layer.borderWidth = 1;
+//    self.priceBtn.layer.cornerRadius = 3;
+//    self.priceBtn.layer.masksToBounds = YES;
     self.doneBtn.layer.cornerRadius = 22.5;
     self.doneBtn.layer.masksToBounds = YES;
 //    if (self.model.charge != -1) {
@@ -169,7 +189,9 @@
         }
     }
     
-    [self.priceBtn setTitle:charge.name forState:UIControlStateNormal];
+//    [self.priceBtn setTitle:charge.name forState:UIControlStateNormal];
+    
+    self.setPriceLabel.text = charge.name;
    
     [self crpickerBG];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
@@ -179,7 +201,39 @@
     _label2.text = LXSring(@"· 設定收費後，別人與你通話會消耗鑽石，你會獲得相對應的聊幣，聊幣可以提現");
     _label3.text = LXSring(@"· 別人視訊呼叫你，從第一分鐘起，你按照收費標準獲得聊幣");
     [self.doneBtn setTitle:LXSring(@"確定") forState:UIControlStateNormal];
+//    [self addrightImage:@""];
+//    [self.rightbutton setTitle:LXSring(@"保存") forState:UIControlStateNormal];
+//    [self.rightbutton setTitleColor:UIColorFromRGB(0x00ddcc) forState:UIControlStateNormal];
+    
+    [self addrighttitleString:LXSring(@"保存")];
 }
+
+
+- (void)setCorner {
+    self.bgView1.layer.cornerRadius = 5;
+    self.bgView1.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bgView1.layer.shadowRadius = 5.f;
+    self.bgView1.layer.shadowOpacity = .3f;
+    self.bgView1.layer.shadowOffset = CGSizeMake(0, 0);
+    
+    self.bgView2.layer.cornerRadius = 5;
+    self.bgView2.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bgView2.layer.shadowRadius = 5.f;
+    self.bgView2.layer.shadowOpacity = .3f;
+    self.bgView2.layer.shadowOffset = CGSizeMake(0, 0);
+    
+    self.setPriceView.layer.cornerRadius = 5;
+    
+    self.bottomLabel1.layer.cornerRadius = 7.5;
+    self.bottomLabel2.layer.cornerRadius = 7.5;
+    
+    self.lefLabel.text = LXSring(@"视频通话收费");
+    self.bottomDetaillabel1.text = LXSring(@"設定收費後，別人與你通話會消耗鑽石，你會獲得相對應的聊幣，聊幣可以提現");
+    self.bottomDetaillabel2.text = LXSring(@"別人視訊呼叫你，從第一分鐘起，你按照收費標準獲得聊幣");
+    
+    
+}
+
 
 - (void)tap
 {
@@ -238,8 +292,8 @@
     sender.selected = !sender.selected;
     for (int i = 0; i < self.model.charges.count; i++) {
         Charge *charge = self.model.charges[i];
-        NSLog(@"%@",self.priceBtn.titleLabel.text);
-        if ([self.priceBtn.titleLabel.text isEqualToString:charge.name]) {
+        NSLog(@"%@",self.setPriceLabel.text);
+        if ([self.setPriceLabel.text isEqualToString:charge.name]) {
             [self.picker selectRow:i inComponent:0 animated:NO];
         }
     }
