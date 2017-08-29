@@ -78,20 +78,26 @@
     }
 
     Video *model = self.dataList[indexPath.row];
-    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
-    //播放視訊
-    vc.videoUrl = [NSURL URLWithString:model.url];
-//    [self.vc.navigationController pushViewController:vc animated:YES];
-    [self.vc presentViewController:vc animated:YES completion:nil];
+//    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+//    //播放視訊
+//    vc.videoUrl = [NSURL URLWithString:model.url];
+////    [self.vc.navigationController pushViewController:vc animated:YES];
+//    [self.vc presentViewController:vc animated:YES completion:nil];
    
+    OtherVideoPlayVC *playVC = [[OtherVideoPlayVC alloc] init];
+    playVC.videoUrl = [NSURL URLWithString:model.url];
+    playVC.model = self.model;
+    [self.vc.navigationController pushViewController:playVC animated:YES];
    
-
-    
-    
-    
-    
     
 }
+
+- (void)setModel:(PersonModel *)model
+{
+    _model = model;
+
+}
+
 
 
 

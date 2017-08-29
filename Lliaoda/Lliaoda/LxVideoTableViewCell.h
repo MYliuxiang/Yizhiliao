@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,retain) NSArray *dataList;
 @property (nonatomic,retain) UIViewController *vc;
+@property (nonatomic,retain) PersonModel *model;
 
 
 @end

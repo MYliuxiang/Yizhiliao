@@ -25,14 +25,8 @@
                             <constraint firstAttribute="width" secondItem="Ihl-lF-jVO" secondAttribute="height" id="u1W-DJ-YvU"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="貌美如花" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mph-xJ-qmG">
-                        <rect key="frame" x="33.5" y="113" width="41" height="12"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNk-aA-ZP6">
-                        <rect key="frame" x="27" y="93" width="55" height="14"/>
+                        <rect key="frame" x="27" y="126" width="55" height="14"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99H-yC-d0g">
                                 <rect key="frame" x="0.0" y="-1" width="36" height="15"/>
@@ -58,12 +52,18 @@
                             <constraint firstAttribute="trailing" secondItem="zFJ-KT-gQB" secondAttribute="trailing" id="vaS-0h-qrq"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="貌美如花" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mph-xJ-qmG">
+                        <rect key="frame" x="34" y="150" width="41" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="DNk-aA-ZP6" firstAttribute="top" secondItem="Ihl-lF-jVO" secondAttribute="bottom" constant="15" id="7pr-tT-KlO"/>
-                <constraint firstItem="mph-xJ-qmG" firstAttribute="top" secondItem="Ihl-lF-jVO" secondAttribute="bottom" constant="35" id="AjE-aa-JDG"/>
+                <constraint firstAttribute="bottom" secondItem="mph-xJ-qmG" secondAttribute="bottom" constant="10" id="2pb-Og-iWu"/>
                 <constraint firstItem="Ihl-lF-jVO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="KkP-Yb-5rn"/>
+                <constraint firstItem="mph-xJ-qmG" firstAttribute="top" secondItem="DNk-aA-ZP6" secondAttribute="bottom" constant="10" id="OXP-eT-lYC"/>
                 <constraint firstItem="DNk-aA-ZP6" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Zsj-um-Udh"/>
                 <constraint firstItem="mph-xJ-qmG" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="g9P-uC-0ED"/>
                 <constraint firstItem="Ihl-lF-jVO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="uEv-DI-ROa"/>

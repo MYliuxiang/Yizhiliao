@@ -531,6 +531,8 @@
 		22B1093A1EA4B56500E35B74 /* SelectedHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B109381EA4B56500E35B74 /* SelectedHeader.xib */; };
 		22B63C8A1EFA719900F10039 /* videoprp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B63C891EFA719900F10039 /* videoprp.framework */; };
 		22B691E41F3ABD4D00CDF0F2 /* id1495262516.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 22B691E31F3ABD4D00CDF0F2 /* id1495262516.mp4 */; };
+		22BBE5281F502B4B007631DC /* OtherVideoPlayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BBE5261F502B4B007631DC /* OtherVideoPlayVC.m */; };
+		22BBE5291F502B4B007631DC /* OtherVideoPlayVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22BBE5271F502B4B007631DC /* OtherVideoPlayVC.xib */; };
 		22C166361EAEF973002D9084 /* FundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C166351EAEF973002D9084 /* FundModel.m */; };
 		22C7A0171ED0220E00ED78A4 /* 1495262516.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 22C7A0161ED0220E00ED78A4 /* 1495262516.mp4 */; };
 		22CDA9621EA5DDC6006CD611 /* MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CDA9611EA5DDC6006CD611 /* MyColor.m */; };
@@ -1424,6 +1426,9 @@
 		22B109381EA4B56500E35B74 /* SelectedHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedHeader.xib; sourceTree = "<group>"; };
 		22B63C891EFA719900F10039 /* videoprp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = videoprp.framework; path = OpenSDK1.7.7/videoprp.framework; sourceTree = "<group>"; };
 		22B691E31F3ABD4D00CDF0F2 /* id1495262516.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = id1495262516.mp4; sourceTree = "<group>"; };
+		22BBE5251F502B4B007631DC /* OtherVideoPlayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherVideoPlayVC.h; sourceTree = "<group>"; };
+		22BBE5261F502B4B007631DC /* OtherVideoPlayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherVideoPlayVC.m; sourceTree = "<group>"; };
+		22BBE5271F502B4B007631DC /* OtherVideoPlayVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherVideoPlayVC.xib; sourceTree = "<group>"; };
 		22C166341EAEF973002D9084 /* FundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundModel.h; sourceTree = "<group>"; };
 		22C166351EAEF973002D9084 /* FundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundModel.m; sourceTree = "<group>"; };
 		22C7A0161ED0220E00ED78A4 /* 1495262516.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1495262516.mp4; sourceTree = "<group>"; };
@@ -2913,6 +2918,9 @@
 				22721FB41EE8018F003A19D3 /* PVideoVC.h */,
 				22721FB51EE8018F003A19D3 /* PVideoVC.m */,
 				22721FB61EE8018F003A19D3 /* PVideoVC.xib */,
+				22BBE5251F502B4B007631DC /* OtherVideoPlayVC.h */,
+				22BBE5261F502B4B007631DC /* OtherVideoPlayVC.m */,
+				22BBE5271F502B4B007631DC /* OtherVideoPlayVC.xib */,
 				22B109301EA4B2AB00E35B74 /* Views */,
 			);
 			name = "精选";
@@ -3405,6 +3413,7 @@
 				222AA0161EB071910038416D /* C_104@2x.png in Resources */,
 				222AA0B71EB071910038416D /* send_head.jpg in Resources */,
 				222AA03D1EB071910038416D /* B_100@2x.gif in Resources */,
+				22BBE5291F502B4B007631DC /* OtherVideoPlayVC.xib in Resources */,
 				222AA04D1EB071910038416D /* B_115@2x.gif in Resources */,
 				222AA0D21EB071A50038416D /* TZImagePickerController.bundle in Resources */,
 				222AA0771EB071910038416D /* B_46@2x.gif in Resources */,
@@ -4000,6 +4009,7 @@
 				222AA14B1EB071C10038416D /* UIActionSheet+Blocks.m in Sources */,
 				223DE5A61F20AB3700745E94 /* AGAudioBuffer.m in Sources */,
 				8483AAEA1F4E7BEB008BA674 /* ProfitCell2.m in Sources */,
+				22BBE5281F502B4B007631DC /* OtherVideoPlayVC.m in Sources */,
 				222B385E1ED96843009DB58F /* MSSBrowseCollectionViewCell.m in Sources */,
 				222396CF1EB1CDCC001D4814 /* MessageCell.m in Sources */,
 				22C166361EAEF973002D9084 /* FundModel.m in Sources */,

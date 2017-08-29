@@ -39,6 +39,7 @@
 
 @property(nonatomic, strong)SDCycleScrollView *cycleScrollView;
 
+
 @property (nonatomic,retain) GiftsView *giftsView;
 @property (weak, nonatomic) IBOutlet UIView *blackView;
 @property (weak, nonatomic) IBOutlet UIButton *chongzhiBtn;

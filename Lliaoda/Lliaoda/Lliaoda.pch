@@ -134,6 +134,7 @@ alpha:1.0]
 
 
 #import "OrderID.h"
+#import "OtherVideoPlayVC.h"
 
 #define CityCache @"CityCache"
 #define ISMEiGUO @"meiguo"

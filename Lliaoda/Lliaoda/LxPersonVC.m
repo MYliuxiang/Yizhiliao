@@ -793,6 +793,7 @@
         }
         cell.dataList = self.pmodel.videos;
         cell.vc = self;
+        cell.model = self.pmodel;
         
         return cell;
     }
@@ -1107,6 +1108,7 @@
     [self.view addSubview:self.giftsView];
     
 }
+
 - (void)sendMessageToUserType:(MessageBodyType)type name:(NSString *)name types:(NSString *)types {
     NSString *message = @"";
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
