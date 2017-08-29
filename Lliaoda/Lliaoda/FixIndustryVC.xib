@@ -45,7 +45,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="-1" id="Qt7-IK-nl0"/>
+                                <outlet property="delegate" destination="-1" id="Rrl-tI-0jd"/>
                             </connections>
                         </textField>
                     </subviews>
