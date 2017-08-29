@@ -21,6 +21,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"視頻認證");
+    self.topLabel.text = LXSring(@"距离完成认证，只差一步，请如实填写手机号码，以便我们及时联系你，赚取更多收益!");
+    self.phoneNumLabel.text = LXSring(@"手機號碼");
+    self.unionLabel.text = LXSring(@"公会名称");
+    self.phoneNumTextField.placeholder = LXSring(@"手機號碼");
+    self.unionTextField.placeholder = LXSring(@"如沒有公會號，填寫000");
+    [self.confirmButton setTitle:LXSring(@"確定") forState:UIControlStateNormal];
+    
     self.nav.backgroundColor = [UIColor clearColor];
     self.titleLable.textColor = [UIColor whiteColor];
     [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
@@ -405,19 +412,19 @@
 */
 
 - (IBAction)confirmButtonAC:(id)sender {
-    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-Hant"]) {
-        
-        if (self.phoneNumTextField.text.length != 10) {
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
-            [alert show];
-            return;
-            
-        }
-        
-    }else if ([lang hasPrefix:@"id"]){
-        
+//    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//    if ([lang hasPrefix:@"zh-Hant"]) {
+//        
+//        if (self.phoneNumTextField.text.length != 10) {
+//            
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+//            [alert show];
+//            return;
+//            
+//        }
+//        
+//    }else if ([lang hasPrefix:@"id"]){
+    
         if (self.phoneNumTextField.text.length != 12) {
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
@@ -425,8 +432,8 @@
             return;
             
         }
-        
-    }else{
+//
+//    }else{
         
         //        if (_textField.text.length != 10) {
         //
@@ -435,7 +442,7 @@
         //            return;
         //
         //        }
-    }
+//    }
     
     
     

@@ -27,6 +27,7 @@
     self.cashButton.layer.borderWidth = .5;
     self.cashButton.layer.borderColor = [UIColor whiteColor].CGColor;
     self.cashButton.layer.cornerRadius = 20;
+    [self.cashButton setTitle:LXSring(@"提現") forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

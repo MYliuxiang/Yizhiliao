@@ -443,12 +443,12 @@
                 for (Photo *photo in self.pmodel.photos) {
                     [self.photos addObject:photo.url];
                 }
-                if (marray.count == 0) {
+                if (marray.count == 0 && self.pmodel.portrait != nil) {
                     [self.photos addObject:self.pmodel.portrait];
                 }
                 self.cycleScrollView.imageURLStringsGroup = self.photos;
                 
-                self.messageArray = @[@"最近活跃",LXSring(@"地區"),@"行业",LXSring(@"簽名檔"),LXSring(@"经常出没")];
+                self.messageArray = @[@"最近活跃",LXSring(@"地區"),LXSring(@"行业"),LXSring(@"簽名檔"),LXSring(@"经常出没")];
                 self.messagePhotos = @[@"zuijinhuoyue",@"laizi",@"hangye",@"gexingqianming",@"jingchangchumo"];
                 
                 

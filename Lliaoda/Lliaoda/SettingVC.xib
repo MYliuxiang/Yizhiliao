@@ -22,8 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBk-JC-jDl">
-                    <rect key="frame" x="0.0" y="84" width="375" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBk-JC-jDl">
+                    <rect key="frame" x="15" y="84" width="345" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="3hY-eS-tQb"/>
@@ -36,7 +36,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFe-JR-3zZ">
-                    <rect key="frame" x="15" y="84" width="345" height="60"/>
+                    <rect key="frame" x="15" y="159" width="345" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="fAY-Du-iU3"/>
@@ -49,7 +49,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZO-hY-hVC">
-                    <rect key="frame" x="15" y="159" width="345" height="60"/>
+                    <rect key="frame" x="15" y="234" width="345" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="7Ma-oT-osm"/>
@@ -64,9 +64,9 @@
             </subviews>
             <color key="backgroundColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="SBk-JC-jDl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3bt-AU-akI"/>
-                <constraint firstAttribute="trailing" secondItem="SBk-JC-jDl" secondAttribute="trailing" id="BeS-9R-PJD"/>
-                <constraint firstItem="lFe-JR-3zZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="Ejl-LY-juU"/>
+                <constraint firstItem="SBk-JC-jDl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="3bt-AU-akI"/>
+                <constraint firstAttribute="trailing" secondItem="SBk-JC-jDl" secondAttribute="trailing" constant="15" id="BeS-9R-PJD"/>
+                <constraint firstItem="lFe-JR-3zZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="159" id="Ejl-LY-juU"/>
                 <constraint firstItem="SBk-JC-jDl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="WNC-MP-7fn"/>
                 <constraint firstAttribute="trailing" secondItem="OZO-hY-hVC" secondAttribute="trailing" constant="15" id="ZL4-kd-fiS"/>
                 <constraint firstItem="OZO-hY-hVC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="d6x-e3-a2R"/>

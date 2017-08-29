@@ -467,16 +467,19 @@
         
         
     }
-    
-    static NSString *identifire = @"cellID1";
-    UserCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"UserCell" owner:nil options:nil] lastObject];
-        
-    }
-    
-    cell.model = self.tDataList[indexPath.row];
-    return cell;
+    UserModel *model = self.tDataList[indexPath.row];
+    return [OnlineUserCell tableView:tableView
+                               model:model
+                           indexPath:indexPath];
+//    static NSString *identifire = @"cellID1";
+//    UserCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+//    if (cell == nil) {
+//        cell = [[[NSBundle mainBundle] loadNibNamed:@"UserCell" owner:nil options:nil] lastObject];
+//        
+//    }
+//    
+//    cell.model = self.tDataList[indexPath.row];
+//    return cell;
     
 }
 

@@ -51,6 +51,8 @@
 
 @property (nonatomic,retain) NSArray *videos; //展示内容，图片或者視訊列表
 
+@property (nonatomic, assign) BOOL blocked;  // 是否被拉黑
+
 
 @end
 
