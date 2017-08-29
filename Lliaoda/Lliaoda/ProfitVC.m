@@ -126,15 +126,15 @@
         }
         cell.bgView.layer.cornerRadius = 5;
         if (indexPath.row == 1) {
-            cell.leftLabel.text = LXSring(@"通话收益");
+            cell.leftLabel.text = LXSring(@"通話收益");
             cell.leftImageView.image = [UIImage imageNamed:@"tonghuashouyi"];
             cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.video];
         } else if (indexPath.row == 2) {
-            cell.leftLabel.text = LXSring(@"礼物收益");
+            cell.leftLabel.text = LXSring(@"禮物收益");
             cell.leftImageView.image = [UIImage imageNamed:@"liwushouyi"];
             cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.gift];
         } else if (indexPath.row == 3) {
-            cell.leftLabel.text = LXSring(@"邀请收益");
+            cell.leftLabel.text = LXSring(@"邀請收益");
             cell.leftImageView.image = [UIImage imageNamed:@"yaoqingshouyi"];
             cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
         }
