@@ -612,6 +612,9 @@
 		84B8CDB51F4AD92300A13D27 /* UIButton+backgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDB41F4AD92300A13D27 /* UIButton+backgroundColor.m */; };
 		84B8CDB91F4ADBE100A13D27 /* PersonBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDB71F4ADBE100A13D27 /* PersonBottomCell.m */; };
 		84B8CDBA1F4ADBE100A13D27 /* PersonBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDB81F4ADBE100A13D27 /* PersonBottomCell.xib */; };
+		84F0871B1F54039A00026235 /* OnlineUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F087191F54039A00026235 /* OnlineUserCell.m */; };
+		84F0871C1F54039A00026235 /* OnlineUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F0871A1F54039A00026235 /* OnlineUserCell.xib */; };
+		84F0871E1F541BBF00026235 /* headerImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84F0871D1F541BBF00026235 /* headerImage.jpg */; };
 		84F970CC1F38541B00336234 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84F970CE1F38541B00336234 /* Localizable.strings */; };
 		84F970D51F38946100336234 /* LanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F970D31F38946100336234 /* LanguageVC.m */; };
 		84F970D61F38946100336234 /* LanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F970D41F38946100336234 /* LanguageVC.xib */; };
@@ -1558,6 +1561,10 @@
 		84B8CDB61F4ADBE100A13D27 /* PersonBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonBottomCell.h; sourceTree = "<group>"; };
 		84B8CDB71F4ADBE100A13D27 /* PersonBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonBottomCell.m; sourceTree = "<group>"; };
 		84B8CDB81F4ADBE100A13D27 /* PersonBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonBottomCell.xib; sourceTree = "<group>"; };
+		84F087181F54039A00026235 /* OnlineUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineUserCell.h; sourceTree = "<group>"; };
+		84F087191F54039A00026235 /* OnlineUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineUserCell.m; sourceTree = "<group>"; };
+		84F0871A1F54039A00026235 /* OnlineUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlineUserCell.xib; sourceTree = "<group>"; };
+		84F0871D1F541BBF00026235 /* headerImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headerImage.jpg; sourceTree = "<group>"; };
 		84F970CD1F38541B00336234 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		84F970CF1F38541C00336234 /* id-ID */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id-ID"; path = "id-ID.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		84F970D21F38946100336234 /* LanguageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageVC.h; sourceTree = "<group>"; };
@@ -3040,6 +3047,10 @@
 				2291CBE21F4D77B7001AB139 /* CVideoCell.h */,
 				2291CBE31F4D77B7001AB139 /* CVideoCell.m */,
 				2291CBE41F4D77B7001AB139 /* CVideoCell.xib */,
+				84F087181F54039A00026235 /* OnlineUserCell.h */,
+				84F087191F54039A00026235 /* OnlineUserCell.m */,
+				84F0871A1F54039A00026235 /* OnlineUserCell.xib */,
+				84F0871D1F541BBF00026235 /* headerImage.jpg */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3451,6 +3462,7 @@
 				2290A8461F4BE826005DA0AE /* BannerView.xib in Resources */,
 				222A9FFF1EB071910038416D /* IM_Chart_imageDownloadFail@3x.png in Resources */,
 				8413A2AF1F4C2ACF00CB3CBC /* PersonalDataCell.xib in Resources */,
+				84F0871E1F541BBF00026235 /* headerImage.jpg in Resources */,
 				8483AAFA1F4EC65B008BA674 /* AccountChargeCell.xib in Resources */,
 				2283AA031F0E158D00E9ABB5 /* Assets.xcassets in Resources */,
 				22DC05681F39BE8200E2E015 /* albumVideo.png in Resources */,
@@ -3552,6 +3564,7 @@
 				222AA0171EB071910038416D /* C_105@2x.png in Resources */,
 				222AA0181EB071910038416D /* C_106@2x.png in Resources */,
 				222AA07D1EB071910038416D /* B_51@2x.gif in Resources */,
+				84F0871C1F54039A00026235 /* OnlineUserCell.xib in Resources */,
 				222AA0931EB071910038416D /* B_71@2x.gif in Resources */,
 				222AA01C1EB071910038416D /* C_110@2x.png in Resources */,
 				222AA09A1EB071910038416D /* B_78@2x.gif in Resources */,
@@ -3971,6 +3984,7 @@
 				222AA14F1EB071C10038416D /* UIView+Addtions.m in Sources */,
 				2291CBEA1F4D7F78001AB139 /* LxVideoTableViewCell.m in Sources */,
 				22B109291EA4A59100E35B74 /* SelectedVC.m in Sources */,
+				84F0871B1F54039A00026235 /* OnlineUserCell.m in Sources */,
 				222B38621ED96843009DB58F /* MSSBrowseNetworkViewController.m in Sources */,
 				225FA9EE1EFBD6C90086287E /* UserModel.m in Sources */,
 				2291CBCC1F4D30E8001AB139 /* LxPersonHeader.m in Sources */,

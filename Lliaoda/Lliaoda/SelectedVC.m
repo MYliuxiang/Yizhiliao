@@ -23,6 +23,7 @@
     self.text = LXSring(@"精選");
     self.bannersArray = [NSMutableArray array];
     _flowlayout.sectionInset=UIEdgeInsetsMake(15, 15, 15, 15);
+    self.view.backgroundColor = UIColorFromRGB(0xf7fcff);
     _flowlayout.minimumLineSpacing= 15;
     _flowlayout.minimumInteritemSpacing= 15;
     _flowlayout.itemSize = CGSizeMake((kScreenWidth - 45) / 2.0,(kScreenWidth - 45) / 2.0 + 45);
@@ -68,20 +69,20 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 self.model = [Mymodel mj_objectWithKeyValues:result[@"data"]];
-//                if (self.model.auth == 2) {
-//                    [LXUserDefaults setObject:@"1" forKey:itemNumber];
-//                    [LXUserDefaults synchronize];
-//                    self.tableView.hidden = NO;
-//                    self.collectionView.hidden = YES;
-//                    [_tableView.mj_header beginRefreshing];
-//                    
-//                }else{
+                if (self.model.auth == 2) {
+                    [LXUserDefaults setObject:@"1" forKey:itemNumber];
+                    [LXUserDefaults synchronize];
+                    self.tableView.hidden = NO;
+                    self.collectionView.hidden = YES;
+                    [_tableView.mj_header beginRefreshing];
+                    
+                }else{
                     [LXUserDefaults setObject:@"2" forKey:itemNumber];
                     [LXUserDefaults synchronize];
                     self.tableView.hidden = YES;
                     self.collectionView.hidden = NO;
                     [_collectionView.mj_header beginRefreshing];
-//                }
+                }
                 
             } else{
                 [SVProgressHUD showErrorWithStatus:result[@"message"]];
@@ -448,15 +449,20 @@
             return cell;
             
         } else {
-            static NSString *identifire = @"cellID1";
-            UserCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
-            if (cell == nil) {
-                cell = [[[NSBundle mainBundle] loadNibNamed:@"UserCell" owner:nil options:nil] lastObject];
-                
-            }
             
-            cell.model = self.tDataList[indexPath.row - 1];
-            return cell;
+            UserModel *model = self.tDataList[indexPath.row - 1];
+            return [OnlineUserCell tableView:tableView
+                                       model:model
+                                   indexPath:indexPath];
+//            static NSString *identifire = @"cellID1";
+//            UserCell *cell = [tableView dequeueReusableCellWithIdentifier:identifire];
+//            if (cell == nil) {
+//                cell = [[[NSBundle mainBundle] loadNibNamed:@"UserCell" owner:nil options:nil] lastObject];
+//                
+//            }
+//            
+//            cell.model = self.tDataList[indexPath.row - 1];
+//            return cell;
         }
         
         
@@ -500,7 +506,8 @@
             return SCREEN_W / 2;
         }
     }
-    return 90;
+//    return 90;
+    return 145;
 
 }
 

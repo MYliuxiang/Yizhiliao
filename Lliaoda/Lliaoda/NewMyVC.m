@@ -749,11 +749,15 @@
         toolView.backgroundColor = Color_bg;
         [_pickerBG addSubview:toolView];
         
+        _pickerBG.layer.shadowColor = [UIColor blackColor].CGColor;
+        _pickerBG.layer.shadowRadius = 5.f;
+        _pickerBG.layer.shadowOpacity = .3f;
+        _pickerBG.layer.shadowOffset = CGSizeMake(0, 0);
         
         //確定按钮
         UIButton *cancel = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 60, 0,50,40)];
         cancel.titleLabel.font = [UIFont systemFontOfSize:14];
-        [cancel setTitleColor:Color_nav forState:UIControlStateNormal];
+        [cancel setTitleColor:UIColorFromRGB(0x00ddcc) forState:UIControlStateNormal];
         [cancel setTitle:LXSring(@"保存") forState:UIControlStateNormal];
         [toolView addSubview:cancel];
         [cancel addTarget:self action:@selector(enterAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -762,21 +766,21 @@
         //取消按钮
         UIButton *enter = [[UIButton alloc]initWithFrame:CGRectMake(10, 0,50,40)];
         enter.titleLabel.font = [UIFont systemFontOfSize:14];
-        [enter setTitleColor:Color_nav forState:UIControlStateNormal];
+        [enter setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
         [enter setTitle:LXSring(@"取消") forState:UIControlStateNormal];
         [toolView addSubview:enter];
         [enter addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
         
         UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 47.5, kScreenWidth / 2.0, 20)];
         label1.text = LXSring(@"上線時間");
-        label1.textColor = Color_nav;
+        label1.textColor = UIColorFromRGB(0xfe707d);
         label1.textAlignment = NSTextAlignmentCenter;
         label1.font = [UIFont systemFontOfSize:14];
         [_pickerBG addSubview:label1];
         
         UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth / 2.0, 47.5, kScreenWidth / 2.0, 20)];
         label2.text = LXSring(@"下線時間");
-        label2.textColor = Color_nav;
+        label2.textColor = UIColorFromRGB(0xfe707d);
         label2.textAlignment = NSTextAlignmentCenter;
         label2.font = [UIFont systemFontOfSize:14];
         [_pickerBG addSubview:label2];
@@ -798,22 +802,113 @@
         
         [self.endPK.subviews objectAtIndex:2].layer.borderWidth = 0.5f;
         
-        [self.endPK.subviews objectAtIndex:1].layer.borderColor = Color_nav.CGColor;
+        [self.endPK.subviews objectAtIndex:1].layer.borderColor = UIColorFromRGB(0xe6e6e6).CGColor;
         
-        [self.endPK.subviews objectAtIndex:2].layer.borderColor = Color_nav.CGColor;
+        [self.endPK.subviews objectAtIndex:2].layer.borderColor = UIColorFromRGB(0xe6e6e6).CGColor;
         
         [self.startPK.subviews objectAtIndex:1].layer.borderWidth = 0.5f;
         
         [self.startPK.subviews objectAtIndex:2].layer.borderWidth = 0.5f;
         
-        [self.startPK.subviews objectAtIndex:1].layer.borderColor = Color_nav.CGColor;
+        [self.startPK.subviews objectAtIndex:1].layer.borderColor = UIColorFromRGB(0xe6e6e6).CGColor;
         
-        [self.startPK.subviews objectAtIndex:2].layer.borderColor = Color_nav.CGColor;
+        [self.startPK.subviews objectAtIndex:2].layer.borderColor = UIColorFromRGB(0xe6e6e6).CGColor;
         
         [self.endPK selectRow:self.model.preferOfflineOption inComponent:0 animated:YES];
         [self.startPK selectRow:self.model.preferOnlineOption inComponent:0 animated:YES];
     }
 }
+
+#pragma mark pickerViewDelegate
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    
+    return 1;
+    
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    
+    
+    return [InputCheck getpreferOptions].count;
+    
+}
+
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    
+    CGFloat width = [UIScreen mainScreen].bounds.size.width / 3;
+    UILabel *myView = nil;
+    
+    myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 30)];
+    myView.textAlignment = NSTextAlignmentCenter;
+    myView.text = [InputCheck getpreferOptions][row];
+    myView.font = [UIFont systemFontOfSize:[self fontWithString:myView.text]];         //用label来設定字体大小
+    myView.backgroundColor = [UIColor clearColor];
+    
+    NSInteger a = [pickerView selectedRowInComponent:0];
+    if (a==row) {
+        
+        myView.attributedText = [self pickerView:pickerView attributedTitleForRow:row forComponent:component];
+        
+    }
+    
+    return myView;
+    
+    
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    
+    [pickerView reloadAllComponents];
+    
+    
+}
+
+- (UIView *)viewForRow:(NSInteger)row forComponent:(NSInteger)component;
+{
+    
+    CGFloat width = [UIScreen mainScreen].bounds.size.width / 3;
+    UILabel *myView = nil;
+    
+    myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 30)];
+    myView.textAlignment = NSTextAlignmentCenter;
+    myView.text = [InputCheck getpreferOptions][row];
+    myView.font = [UIFont systemFontOfSize:[self fontWithString:myView.text]];         //用label来設定字体大小
+    myView.textColor = Color_nav;
+    return myView;
+    
+    
+}
+//字体大小
+- (CGFloat)fontWithString:(NSString *)string {
+    CGFloat width = [UIScreen mainScreen].bounds.size.width / 3;
+    CGFloat font = 0;
+    for (int i = 17; i > 0; i--) {
+        NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:i]};
+        CGSize rect = [string sizeWithAttributes:attributes];
+        if (rect.width <= width) {
+            font = (CGFloat)i;
+            break;
+        }
+    }
+    return font;
+}
+
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    
+    NSArray *array = [InputCheck getpreferOptions];
+    NSString *titleString = array[row];
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:titleString];
+    NSRange range = [titleString rangeOfString:titleString];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x333333) range:range];
+    
+    return attributedString;
+}
+
 #pragma mark ----------取消-------------
 - (void)cancelAction:(UIButton *)sender
 {

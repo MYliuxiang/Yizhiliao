@@ -21,6 +21,12 @@
 - (IBAction)huafeiBtnAC:(id)sender;
 - (IBAction)appleBtnAC:(id)sender;
 - (IBAction)kefuBtnAC:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *payTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *kefuLabel;
+@property (weak, nonatomic) IBOutlet UILabel *appleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *huafeiLabel;
+@property (weak, nonatomic) IBOutlet UILabel *unipinLabel;
+
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (nonatomic, assign) id<AccountPayTypeCellDelegate>delegate;
 + (AccountPayTypeCell *)tableView:(UITableView *)tableView

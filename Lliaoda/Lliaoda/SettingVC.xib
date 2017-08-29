@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBk-JC-jDl">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBk-JC-jDl">
                     <rect key="frame" x="0.0" y="84" width="375" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -36,11 +36,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFe-JR-3zZ">
-                    <rect key="frame" x="0.0" y="164" width="375" height="60"/>
+                    <rect key="frame" x="15" y="84" width="345" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="fAY-Du-iU3"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="lLv-Tl-Or6"/>
                     </constraints>
                     <state key="normal" title="關於我們">
                         <color key="titleColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,7 +49,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZO-hY-hVC">
-                    <rect key="frame" x="0.0" y="244" width="375" height="60"/>
+                    <rect key="frame" x="15" y="159" width="345" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="7Ma-oT-osm"/>
@@ -63,17 +62,17 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="SBk-JC-jDl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3bt-AU-akI"/>
                 <constraint firstAttribute="trailing" secondItem="SBk-JC-jDl" secondAttribute="trailing" id="BeS-9R-PJD"/>
-                <constraint firstItem="lFe-JR-3zZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="164" id="Ejl-LY-juU"/>
+                <constraint firstItem="lFe-JR-3zZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="Ejl-LY-juU"/>
                 <constraint firstItem="SBk-JC-jDl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="WNC-MP-7fn"/>
-                <constraint firstAttribute="trailing" secondItem="OZO-hY-hVC" secondAttribute="trailing" id="ZL4-kd-fiS"/>
-                <constraint firstItem="OZO-hY-hVC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="d6x-e3-a2R"/>
-                <constraint firstItem="OZO-hY-hVC" firstAttribute="top" secondItem="lFe-JR-3zZ" secondAttribute="bottom" constant="20" id="elV-P4-c2Z"/>
-                <constraint firstAttribute="trailing" secondItem="lFe-JR-3zZ" secondAttribute="trailing" id="fWt-ED-KeY"/>
-                <constraint firstItem="lFe-JR-3zZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wqb-07-tEx"/>
+                <constraint firstAttribute="trailing" secondItem="OZO-hY-hVC" secondAttribute="trailing" constant="15" id="ZL4-kd-fiS"/>
+                <constraint firstItem="OZO-hY-hVC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="d6x-e3-a2R"/>
+                <constraint firstItem="OZO-hY-hVC" firstAttribute="top" secondItem="lFe-JR-3zZ" secondAttribute="bottom" constant="15" id="elV-P4-c2Z"/>
+                <constraint firstAttribute="trailing" secondItem="lFe-JR-3zZ" secondAttribute="trailing" constant="15" id="fWt-ED-KeY"/>
+                <constraint firstItem="lFe-JR-3zZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="wqb-07-tEx"/>
             </constraints>
             <point key="canvasLocation" x="-84" y="100"/>
         </view>

@@ -271,7 +271,12 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="appleLabel" destination="iaF-tf-ehM" id="aAz-JP-IN6"/>
                 <outlet property="bgView" destination="3V9-cV-XJN" id="Nuc-jZ-lGd"/>
+                <outlet property="huafeiLabel" destination="d7E-uP-nFi" id="oNi-fL-P6m"/>
+                <outlet property="kefuLabel" destination="yJp-xM-Do2" id="CyQ-bg-Tzs"/>
+                <outlet property="payTypeLabel" destination="Bry-1J-Bdv" id="zvC-sQ-XLo"/>
+                <outlet property="unipinLabel" destination="ODk-HO-lBp" id="BjN-xo-zRz"/>
             </connections>
             <point key="canvasLocation" x="82.5" y="53.5"/>
         </tableViewCell>

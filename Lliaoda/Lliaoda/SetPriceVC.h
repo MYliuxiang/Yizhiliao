@@ -19,4 +19,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet UILabel *label3;
 
+
+@property (weak, nonatomic) IBOutlet UIView *bgView1;
+@property (weak, nonatomic) IBOutlet UIView *bgView2;
+@property (weak, nonatomic) IBOutlet UIView *setPriceView;
+@property (weak, nonatomic) IBOutlet UILabel *setPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lefLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *bottomDetaillabel1;
+@property (weak, nonatomic) IBOutlet UILabel *bottomDetaillabel2;
+
 @end

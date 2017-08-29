@@ -16,7 +16,7 @@
 #import "SelectedBannersHeader.h"
 #import "BannerView.h"
 #import "LxPersonVC.h"
-
+#import "OnlineUserCell.h"
 @interface SelectedVC : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate>
 {
     int _begin;

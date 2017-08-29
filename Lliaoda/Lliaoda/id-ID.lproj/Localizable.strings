@@ -258,6 +258,8 @@
 "免费"        = "Gratis";
 "· 設定收費後，別人與你通話會消耗鑽石，你會獲得相對應的聊幣，聊幣可以提現"        = "· Setelah standar biaya diatur, Anda akan mendapat candy dengan video chat";
 "· 別人視訊呼叫你，從第一分鐘起，你按照收費標準獲得聊幣"        = "· Anda akan mendapat candy dari pertama menit dengan video chat";
+"設定收費後，別人與你通話會消耗鑽石，你會獲得相對應的聊幣，聊幣可以提現"        = "Setelah standar biaya diatur, Anda akan mendapat candy dengan video chat";
+"別人視訊呼叫你，從第一分鐘起，你按照收費標準獲得聊幣"        = "Anda akan mendapat candy dari pertama menit dengan video chat";
 "關於我們"        = "Tentang Kami";
 "退出登陸"        = "Logout";
 "去提现"        = "Cashout";
@@ -395,3 +397,8 @@
 "已對%@發送了%@提示~"   = "Telah mengirim notif %@ kepada %@.";
 "人工充值"   = "Top up manual";
 "舉報成功"    =  "pelaporan berhasil";
+"支付方式"    =   "Cara Top up";
+"UniPin"    = "UniPin";
+"话费充值"     =  "Pulsa";
+"Apple In-App Purchase"    =  "Apple In-App Purchase";
+"客服帮忙(更多优惠哦)"    = "CS (Lebih banyak bonus)";
