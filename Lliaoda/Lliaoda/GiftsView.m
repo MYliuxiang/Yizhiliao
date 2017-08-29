@@ -259,10 +259,10 @@ static NSString *identifire = @"GiftID";
                    
                     LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"啊噢～餘額不太夠，儲值後才能送禮物喲！") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"［暫時不用］") destructiveButtonTitle:LXSring(@"［快速儲值］") delegate:nil];
                     lg.destructiveButtonBackgroundColor = Color_nav;
-                    lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                    lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                     lg.cancelButtonFont = [UIFont systemFontOfSize:16];
-                    lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                    lg.cancelButtonTitleColor = Color_nav;
+                    lg.cancelButtonBackgroundColor = Color_nav;
+                    lg.cancelButtonTitleColor = [UIColor blackColor];
                     lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                         self.superview.hidden = YES;
                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];

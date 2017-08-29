@@ -830,9 +830,14 @@
                             
                         }];
                         LHChatVC *chatVC = [[LHChatVC alloc] init];
-                        chatVC.sendUid = self.model.uid;
-                        chatVC.personID = self.personUID;
-                        chatVC.isFromHeader = self.isFromHeader;
+                        if (self.isFromHeader) {
+                            chatVC.sendUid = self.personUID;
+                        } else {
+                            chatVC.sendUid = self.model.uid;
+                        }
+//                        chatVC.sendUid = self.model.uid;
+//                        chatVC.personID = self.personUID;
+//                        chatVC.isFromHeader = self.isFromHeader;
                         [self.navigationController pushViewController:chatVC animated:YES];
 
                     
@@ -912,9 +917,14 @@
     }
     
     LHChatVC *chatVC = [[LHChatVC alloc] init];
-    chatVC.sendUid = self.model.uid;
-    chatVC.personID = self.personUID;
-    chatVC.isFromHeader = self.isFromHeader;
+    if (self.isFromHeader) {
+        chatVC.sendUid = self.personUID;
+    } else {
+        chatVC.sendUid = self.model.uid;
+    }
+//    chatVC.sendUid = self.model.uid;
+//    chatVC.personID = self.personUID;
+//    chatVC.isFromHeader = self.isFromHeader;
     [self.navigationController pushViewController:chatVC animated:YES];
 
 }

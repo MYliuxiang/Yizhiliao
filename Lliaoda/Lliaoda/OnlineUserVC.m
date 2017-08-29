@@ -27,6 +27,7 @@
     self.bannersLinksArray = [NSMutableArray array];
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downLoad1)];
     _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(upLoad1)];
+    [_tableView.mj_header beginRefreshing];
     self.isShowMessageButton = YES;
 }
 

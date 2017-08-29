@@ -427,18 +427,18 @@
 */
 
 - (IBAction)confirmButtonAC:(id)sender {
-//    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-//    if ([lang hasPrefix:@"zh-Hant"]) {
-//        
-//        if (self.phoneNumTextField.text.length != 10) {
-//            
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
-//            [alert show];
-//            return;
-//            
-//        }
-//        
-//    }else if ([lang hasPrefix:@"id"]){
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"zh-Hant"]) {
+        
+        if (self.phoneNumTextField.text.length != 10) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+            
+        }
+        
+    }else if ([lang hasPrefix:@"id"]){
     
         if (self.phoneNumTextField.text.length != 12) {
             
@@ -448,17 +448,17 @@
             
         }
 //
-//    }else{
+    }else{
         
-        //        if (_textField.text.length != 10) {
-        //
-        //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
-        //            [alert show];
-        //            return;
-        //
-        //        }
-//    }
-    
+//                if (_textField.text.length != 10) {
+//        
+//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+//                    [alert show];
+//                    return;
+//        
+//                }
+    }
+
     
     
     if (self.unionTextField.text.length == 0) {

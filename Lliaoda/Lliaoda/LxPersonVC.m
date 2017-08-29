@@ -281,9 +281,14 @@
                             
                         }];
                         LHChatVC *chatVC = [[LHChatVC alloc] init];
-                        chatVC.sendUid = self.model.uid;
-                        chatVC.personID = self.personUID;
-                        chatVC.isFromHeader = self.isFromHeader;
+                        if (self.isFromHeader) {
+                            chatVC.sendUid = self.personUID;
+                        } else {
+                            chatVC.sendUid = self.model.uid;
+                        }
+                        
+//                        chatVC.personID = self.personUID;
+//                        chatVC.isFromHeader = self.isFromHeader;
                         [self.navigationController pushViewController:chatVC animated:YES];
                         
                         
@@ -385,9 +390,14 @@
         } else {
             params = @{@"uid":self.model.uid};
         }
-        
+
     } else {
-        params = @{@"uid":self.model.uid};
+        if (self.isFromHeader) {
+            params = @{@"uid":self.personUID};
+        } else {
+            params = @{@"uid":self.model.uid};
+        }
+//        params = @{@"uid":self.model.uid};
     }
     [WXDataService requestAFWithURL:Url_accountshow params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
@@ -1052,9 +1062,14 @@
     }
     
     LHChatVC *chatVC = [[LHChatVC alloc] init];
-    chatVC.sendUid = self.model.uid;
-    chatVC.personID = self.personUID;
-    chatVC.isFromHeader = self.isFromHeader;
+    if (self.isFromHeader) {
+        chatVC.sendUid = self.personUID;
+    } else {
+        chatVC.sendUid = self.model.uid;
+    }
+//    chatVC.sendUid = self.model.uid;
+//    chatVC.personID = self.personUID;
+//    chatVC.isFromHeader = self.isFromHeader;
     [self.navigationController pushViewController:chatVC animated:YES];
 
 }
