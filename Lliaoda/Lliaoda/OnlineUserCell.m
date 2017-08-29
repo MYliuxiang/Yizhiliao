@@ -65,7 +65,7 @@
     
     LHChatVC *chatVC = [[LHChatVC alloc] init];
     chatVC.sendUid = self.model.uid;
-    chatVC.isFromHeader = NO;
+//    chatVC.isFromHeader = NO;
     [[self viewController].navigationController pushViewController:chatVC animated:YES];
 }
 
