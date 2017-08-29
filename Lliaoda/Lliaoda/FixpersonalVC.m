@@ -658,7 +658,7 @@
         cell.rightLabel.text = str;
         
     } else if (indexPath.row == 5) {
-        cell.rightLabel.text = @"哈哈哈";
+        cell.rightLabel.text = self.model.domain;
     } else if (indexPath.row == 6) {
         cell.rightLabel.text = self.model.intro;
     }
