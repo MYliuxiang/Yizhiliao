@@ -21,7 +21,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"視頻認證");
-    self.topLabel.text = LXSring(@"距离完成认证，只差一步，请如实填写手机号码，以便我们及时联系你，赚取更多收益!");
+    
+    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+    paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    paraStyle.alignment = NSTextAlignmentLeft;
+    paraStyle.lineSpacing = 10; //设置行间距
+    paraStyle.hyphenationFactor = 1.0;
+    paraStyle.firstLineHeadIndent = 0.0;
+    paraStyle.paragraphSpacingBefore = 0.0;
+    paraStyle.headIndent = 0;
+    paraStyle.tailIndent = 0;
+    //设置字间距 NSKernAttributeName:@1.5f
+    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@0.0f
+                          };
+    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:LXSring(@"距离完成认证，只差一步，请如实填写手机号码，以便我们及时联系你，赚取更多收益!") attributes:dic];
+    self.topLabel.attributedText = attributeStr;
+//    self.topLabel.text = LXSring(@"距离完成认证，只差一步，请如实填写手机号码，以便我们及时联系你，赚取更多收益!");
     self.phoneNumLabel.text = LXSring(@"手機號碼");
     self.unionLabel.text = LXSring(@"公会名称");
     self.phoneNumTextField.placeholder = LXSring(@"手機號碼");

@@ -606,6 +606,8 @@
 		8483AB031F4EEF87008BA674 /* VideoRZVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483AB011F4EEF87008BA674 /* VideoRZVC2.m */; };
 		8483AB041F4EEF87008BA674 /* VideoRZVC2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483AB021F4EEF87008BA674 /* VideoRZVC2.xib */; };
 		848A0AB41F45A44000057C5B /* ar1502964098.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 848A0AB31F45A44000057C5B /* ar1502964098.mp4 */; };
+		849901791F55601B00D4DD40 /* OnlineUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849901771F55601B00D4DD40 /* OnlineUserVC.m */; };
+		8499017A1F55601B00D4DD40 /* OnlineUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849901781F55601B00D4DD40 /* OnlineUserVC.xib */; };
 		84B8CDA91F4AC92700A13D27 /* PersonHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */; };
 		84B8CDAA1F4AC92700A13D27 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */; };
 		84B8CDAD1F4AD3F800A13D27 /* PersonHeaderScroolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDAC1F4AD3F800A13D27 /* PersonHeaderScroolView.m */; };
@@ -1551,6 +1553,9 @@
 		848A0AB11F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		848A0AB21F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		848A0AB31F45A44000057C5B /* ar1502964098.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ar1502964098.mp4; sourceTree = "<group>"; };
+		849901761F55601B00D4DD40 /* OnlineUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineUserVC.h; sourceTree = "<group>"; };
+		849901771F55601B00D4DD40 /* OnlineUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineUserVC.m; sourceTree = "<group>"; };
+		849901781F55601B00D4DD40 /* OnlineUserVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlineUserVC.xib; sourceTree = "<group>"; };
 		84B8CDA61F4AC92700A13D27 /* PersonHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHeaderCell.h; sourceTree = "<group>"; };
 		84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeaderCell.m; sourceTree = "<group>"; };
 		84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonHeaderCell.xib; sourceTree = "<group>"; };
@@ -3151,6 +3156,7 @@
 		22E8D76B1EA49AE300C5FC6B /* Lliaoda */ = {
 			isa = PBXGroup;
 			children = (
+				849901751F555FEF00D4DD40 /* 在线用户 */,
 				22ADAE181F0B8EE9005D08A4 /* Lliaoda.entitlements */,
 				222740181EC56A95002FEF5B /* 启动视屏 */,
 				22E8D76F1EA49AE300C5FC6B /* AppDelegate.h */,
@@ -3206,6 +3212,16 @@
 				22E8D7931EA49AE300C5FC6B /* Info.plist */,
 			);
 			path = LliaodaUITests;
+			sourceTree = "<group>";
+		};
+		849901751F555FEF00D4DD40 /* 在线用户 */ = {
+			isa = PBXGroup;
+			children = (
+				849901761F55601B00D4DD40 /* OnlineUserVC.h */,
+				849901771F55601B00D4DD40 /* OnlineUserVC.m */,
+				849901781F55601B00D4DD40 /* OnlineUserVC.xib */,
+			);
+			name = "在线用户";
 			sourceTree = "<group>";
 		};
 		DCB50922C1221103A1864F3F /* Pods */ = {
@@ -3605,6 +3621,7 @@
 				222AA0941EB071910038416D /* B_72@2x.gif in Resources */,
 				222AA0981EB071910038416D /* B_76@2x.gif in Resources */,
 				222AA0621EB071910038416D /* B_27@2x.gif in Resources */,
+				8499017A1F55601B00D4DD40 /* OnlineUserVC.xib in Resources */,
 				222AA1621EB071C20038416D /* emoticons.plist in Resources */,
 				222AA0871EB071910038416D /* B_60@2x.gif in Resources */,
 				222AA0AA1EB071910038416D /* B_92@2x.gif in Resources */,
@@ -4001,6 +4018,7 @@
 				8483AAEF1F4E8138008BA674 /* ProfitCell3.m in Sources */,
 				222AA1741EB071C20038416D /* LHIMDBManager.m in Sources */,
 				222B383A1ED9642B009DB58F /* XLPhotoBrowser.m in Sources */,
+				849901791F55601B00D4DD40 /* OnlineUserVC.m in Sources */,
 				22844F571ED2A1B800A9E32E /* IQTextView.m in Sources */,
 				22721FAD1EE7E3E7003A19D3 /* MediaCell.m in Sources */,
 				22453BAE1F1C74290000C006 /* UserCell.m in Sources */,

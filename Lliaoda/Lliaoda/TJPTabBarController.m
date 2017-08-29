@@ -8,7 +8,7 @@
 
 #import "TJPTabBarController.h"
 #import "NewMyVC.h"
-
+#import "OnlineUserVC.h"
 #import "TJPTabBar.h"
 
 @interface TJPTabBarController ()<UINavigationControllerDelegate>
@@ -158,15 +158,22 @@
 
 - (void)initViewController {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NSArray *vcs;
 //    FindVC *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
     SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
 
-    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
+//    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
 //    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
     FindVC *findVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
 //    MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
     NewMyVC *myVC = [[NewMyVC alloc] init];
-    NSArray *vcs = @[managementVC, findVC, myVC];
+    OnlineUserVC *onlineVC = [[OnlineUserVC alloc] init];
+    if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+        vcs = @[managementVC, onlineVC, myVC];
+    } else {
+        
+        vcs = @[managementVC, findVC, myVC];
+    }
     //创建一个存储导航控制器的数组
     NSMutableArray *navCtrls = [[NSMutableArray alloc] init];
     for (int i = 0; i < vcs.count; i++) {
