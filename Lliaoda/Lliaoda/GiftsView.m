@@ -404,7 +404,7 @@ static NSString *identifire = @"GiftID";
         
         count.timeDate = idate;
         count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-        count.sendUid = dic[@"referee"];
+        count.sendUid = self.pmodel.uid;
         [count update];
         
     }else{
@@ -412,7 +412,7 @@ static NSString *identifire = @"GiftID";
         MessageCount *count = [[MessageCount alloc] init];
         count.content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
         count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-        count.sendUid = dic[@"referee"];
+        count.sendUid = self.pmodel.uid;
         count.count = 0;
         count.timeDate = idate;
         [count save];

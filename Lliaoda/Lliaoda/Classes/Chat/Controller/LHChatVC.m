@@ -96,7 +96,8 @@ NSString *const kTableViewFrame = @"frame";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageVideoTime:) name:Notice_messageVideoTime object:nil];
 
-    [self addrightImage:@"dengdeng"];
+    [self addrightImage:@"gengduo"];
+    
     
     [self _loadData1];
     [self setupInit];
@@ -288,17 +289,48 @@ NSString *const kTableViewFrame = @"frame";
                 
                 UIAlertAction *lahei = [UIAlertAction actionWithTitle:LXSring(@"拉黑") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
-                    BlackName *name = [[BlackName alloc] init];
-                    name.uid = self.sendUid;
-                    [name save];
-                    
-                    [SVProgressHUD showSuccessWithStatus:LXSring(@"拉黑成功")];
-                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                 
+                    NSDictionary *params;
+                    if (self.isFromHeader) {
+                        params = @{@"uid":self.personID};
+                    } else {
+                        params = @{@"uid":self.sendUid};
+                    }
+                    [WXDataService requestAFWithURL:Url_block params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+                        if(result){
+                            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                                
+                                BlackName *name = [[BlackName alloc] init];
+                                name.uid = self.sendUid;
+                                [name save];
+                                
+                                [SVProgressHUD showSuccessWithStatus:LXSring(@"拉黑成功")];
+                                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                                    
+                                    [SVProgressHUD dismiss];
+                                    [self.navigationController popToRootViewControllerAnimated:YES];
+                                });
+                                [self.navigationController popToRootViewControllerAnimated:YES];
+                                
+                                
+                            } else{    //请求失败
+                                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                                    
+                                    [SVProgressHUD dismiss];
+                                });
+                                
+                            }
+                        }
                         
-                        [SVProgressHUD dismiss];
-                        [self.navigationController popToRootViewControllerAnimated:YES];
-                    });
+                    } errorBlock:^(NSError *error) {
+                        NSLog(@"%@",error);
+                        
+                        
+                    }];
+                    
                     
                 }];
                 

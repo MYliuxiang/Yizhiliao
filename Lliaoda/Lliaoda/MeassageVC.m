@@ -368,7 +368,7 @@ static MeassageVC *this;
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationAutomatic)];
     }];
     //删除按钮颜色
-    deleteAction.backgroundColor = Color_nav;
+    deleteAction.backgroundColor = Color_Tab;
     //将設定好的按钮方到数组中返回
     return @[deleteAction];
     // return @[deleteAction,topRowAction,collectRowAction];

@@ -390,11 +390,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/LxPersonVC.m"
-            timestampString = "525256768.826043"
+            timestampString = "525687557.102947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "645"
-            endingLineNumber = "645"
+            startingLineNumber = "676"
+            endingLineNumber = "676"
             landmarkName = "-jubaoWithtype:"
             landmarkType = "7">
          </BreakpointContent>
