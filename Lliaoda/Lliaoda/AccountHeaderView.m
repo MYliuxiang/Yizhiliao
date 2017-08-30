@@ -15,6 +15,7 @@
     // Initialization code
     _inviteButton.layer.cornerRadius = 5;
     _countLabel.adjustsFontSizeToFitWidth = YES;
+    [_inviteButton setTitle:LXSring(@"邀请送钻") forState:UIControlStateNormal];
 }
 
 @end

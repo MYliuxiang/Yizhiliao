@@ -35,7 +35,7 @@
     //设置字间距 NSKernAttributeName:@1.5f
     NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@0.0f
                           };
-    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:LXSring(@"请确保视频为真人，否则将不通过！\n提交视频后，\n系统将在2天内给出审核结果，\n请内心等待~") attributes:dic];
+    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:LXSring(@"请确保视频为真人，否则将不通过！\n提交视频后，\n系统将在2天内给出审核结果，\n请耐心等待~") attributes:dic];
     self.approvingDetailLabel.attributedText = attributeStr;
 //    self.approvingDetailLabel.text = LXSring(@"请确保视频为真人，否则将不通过！\n提交视频后，\n系统将在2天内给出审核结果，\n请内心等待~");
     [self.approvingUploadButton setTitle:LXSring(@"提交视频") forState:UIControlStateNormal];

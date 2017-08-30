@@ -39,10 +39,10 @@
                           };
     NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:LXSring(@"1.本人半身录影，10~15秒，正面，五官清晰，包含自我介绍；\n2.与登录后提交的个人主页照片为同一人，均为本人；\n3.模仿范例视频可提高认证通过率；\n注意：录影不会对外公开，我们将对你的视频严格保密！认证如果失败，登录后可重新提交~") attributes:dic];
     self.unApproveDetailLabel.attributedText = attributeStr;
-    
+    self.unApproveLeftLabel.text = LXSring(@"范例视频");
 //    self.unApproveDetailLabel.text = LXSring(@"1.本人半身录影，10~15秒，正面，五官清晰，包含自我介绍；\n2.与登录后提交的个人主页照片为同一人，均为本人；\n3.模仿范例视频可提高认证通过率；\n注意：录影不会对外公开，我们将对你的视频严格保密！认证如果失败，登录后可重新提交~");
     [self.unApproveUploadButton setTitle:LXSring(@"上传视频") forState:UIControlStateNormal];
-    
+    self.unApproveTitleLabel.text = LXSring(@"認證要求");
     self.unApproveView1.layer.cornerRadius = 5;
     self.unApproveView1.layer.shadowColor = [UIColor blackColor].CGColor;
     self.unApproveView1.layer.shadowRadius = 5.f;

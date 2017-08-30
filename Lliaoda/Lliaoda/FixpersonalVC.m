@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"個人資料");
 //    self.dataList = @[@[LXSring(@"大頭貼"),LXSring(@"暱稱"),LXSring(@"聊號"),],@[LXSring(@"性别"),LXSring(@"生日"),LXSring(@"地區")],@[LXSring(@"簽名檔")]];
-    self.dataList = @[LXSring(@"暱稱"), LXSring(@"性别"), LXSring(@"聊號"), LXSring(@"生日"), LXSring(@"地區"), LXSring(@"行業"), LXSring(@"簽名檔")];
+    self.dataList = @[LXSring(@"暱稱"), LXSring(@"性别"), LXSring(@"聊號"), LXSring(@"生日"), LXSring(@"地區"), LXSring(@"行业"), LXSring(@"簽名檔")];
     self.imagesArr = @[@"nicheng", @"xingbie", @"ID", @"shengri", @"laizi", @"hangye", @"gexingqianming"];
     self.sexDatalist = @[LXSring(@"女"),LXSring(@"男")];
     self.tableView.backgroundColor = [UIColor clearColor];
