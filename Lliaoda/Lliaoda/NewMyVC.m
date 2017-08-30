@@ -413,11 +413,11 @@
                     cell.contentLabel.textColor = [MyColor colorWithHexString:@"#999999"];
                     if (indexPath.row == 0) {
                         
-                        cell.contentLabel.text = LXSring(@"请输入5位邀請碼,即可获得奖励");
+                        cell.contentLabel.text = LXSring(@"邀請好友，即可獲得獎勵");
                         
                     }else{
                         
-                        cell.contentLabel.text = LXSring(@"填入好友的分享的邀請碼，即可获奖励");
+                        cell.contentLabel.text = LXSring(@"填入邀請碼，即可獲得獎勵");
                     }
                     
                     
