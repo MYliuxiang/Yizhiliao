@@ -29,6 +29,12 @@
     _huafeiLabel.text = LXSring(@"话费充值");
     _appleLabel.text = LXSring(@"Apple In-App Purchase");
     _kefuLabel.text = LXSring(@"客服帮忙(更多优惠哦)");
+    
+    self.bgView.layer.cornerRadius = 5;
+    self.bgView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bgView.layer.shadowRadius = 5.f;
+    self.bgView.layer.shadowOpacity = .3f;
+    self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -834,6 +834,11 @@ controller   didAuthorizePayment:(PKPayment *)payment
         }
         headerView.backgroundColor = [UIColor whiteColor];
         headerView.countLabel.text = depositCount;
+        if([LXUserDefaults boolForKey:ISMEiGUO]) {
+            headerView.inviteButton.hidden = YES;
+        } else {
+            headerView.inviteButton.hidden = NO;
+        }
         [headerView.inviteButton addTarget:self action:@selector(inviteBtnAC) forControlEvents:UIControlEventTouchUpInside];
         if (myModel.vipEndTime == 0) {
             // 没有vip

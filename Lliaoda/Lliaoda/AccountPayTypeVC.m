@@ -52,15 +52,11 @@
         
         
     } else {
-        AccountPayTypeCell *cell = [AccountPayTypeCell tableView:tableView
-                                                       indexPath:indexPath
-                                                        delegate:self];
-        cell.bgView.layer.cornerRadius = 5;
-        cell.bgView.layer.shadowColor = [UIColor blackColor].CGColor;
-        cell.bgView.layer.shadowRadius = 5.f;
-        cell.bgView.layer.shadowOpacity = .3f;
-        cell.bgView.layer.shadowOffset = CGSizeMake(0, 0);
-        return cell;
+        return [AccountPayTypeCell tableView:tableView
+                                   indexPath:indexPath
+                                    delegate:self];
+        
+//        return cell;
     }
     
 }
@@ -69,7 +65,7 @@
     if (indexPath.row == 0) {
         return 246;
     }
-    return 265;
+    return 265 - 50;
 }
 
 - (void)inviteBtnAC {
@@ -86,12 +82,12 @@
 // 话费
 - (void)huafeiAC {
 //    http://demo.yizhiliao.tv/pages/id-id/unipin_dcb.html?order=<订单ID>&price=<支付的价格>
-    [self orderCreate:self.model.uid withType:HuaFeiPay];
+    [self orderCreate:self.accountModel.uid withType:HuaFeiPay];
     
 }
 // 苹果支付
 - (void)appleAC {
-    [self orderCreate:self.model.uid withType:AppPay];
+    [self orderCreate:self.accountModel.uid withType:AppPay];
 }
 
 - (void)orderCreate:(NSString *)uid withType:(PayType)type
