@@ -22,6 +22,11 @@
     [self addrighttitleString:LXSring(@"保存")];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.textView.text = self.model.intro;
+    if (self.textView.text.length == 0) {
+        _placeHoldLabel.hidden = NO;
+    } else {
+        _placeHoldLabel.hidden = YES;
+    }
     
     self.bgView.layer.cornerRadius = 5;
     self.bgView.layer.shadowColor = [UIColor blackColor].CGColor;

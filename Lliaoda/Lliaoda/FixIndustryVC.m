@@ -20,6 +20,7 @@
     self.text = LXSring(@"修改行業");
     self.textField.delegate = self;
     self.textField.text = self.model.domain;
+    self.textField.placeholder = LXSring(@"填寫行業，找到更多志同道合的朋友");
     [self.saveButton setTitle:LXSring(@"保存") forState:UIControlStateNormal];
     [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 //    [self addrighttitleString:LXSring(@"保存")];

@@ -77,7 +77,7 @@ static NSString *const headerId = @"headerId";
     _collectionViewLayout.minimumLineSpacing = 10;
     _collectionViewLayout.minimumInteritemSpacing = 10;
     
-    _collectionViewLayout.itemSize = CGSizeMake((SCREEN_W - 30) / 2, 250);
+    _collectionViewLayout.itemSize = CGSizeMake((SCREEN_W - 30) / 2, 220);
     [_collectionViewLayout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
     _collectionViewLayout.headerReferenceSize = CGSizeMake(SCREEN_W, 246);
     
