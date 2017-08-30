@@ -820,8 +820,11 @@
 }
 
 - (IBAction)closeMatch:(id)sender {
-    
+    TJPTabBarController *tab = [TJPTabBarController shareInstance];
+    tab.button2.userInteractionEnabled = YES;
     [_radarView stopAnimation];
+    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+    [userDef setBool:NO forKey:@"IsFind"];
     for (JXRadarPointView *item in self.pointsViewArray) {
         [item removeFromSuperview];
     }

@@ -44,6 +44,7 @@
 //        mainStr = @"https://www.yizhiliao.tv/api/";
 //    }else if ([lang hasPrefix:@"id"]){
         mainStr = @"https://www.yizhiliao.live/api/";
+//        mainStr = @"http://demo.yizhiliao.live/api/";
 //    }else if ([lang hasPrefix:@"ar"]){
 //        mainStr = @"https://www.yizhiliao.net/api/";
 //    }else{
