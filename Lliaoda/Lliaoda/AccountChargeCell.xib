@@ -25,25 +25,29 @@
                                 <rect key="frame" x="0.0" y="5" width="205" height="205"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zuanshi_55" translatesAutoresizingMaskIntoConstraints="NO" id="0Bz-yC-tzC">
-                                        <rect key="frame" x="89" y="15" width="27" height="23"/>
+                                        <rect key="frame" x="75" y="15" width="55" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="gzV-S2-Cou"/>
+                                            <constraint firstAttribute="height" constant="50" id="xb5-P4-5aL"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4T-ed-Iq7">
-                                        <rect key="frame" x="86.5" y="50.5" width="32.5" height="21"/>
+                                        <rect key="frame" x="86.5" y="77.5" width="32.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赠送：20天VIP+200钻" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvV-8E-Kes">
-                                        <rect key="frame" x="10" y="78" width="185" height="14.5"/>
+                                        <rect key="frame" x="10" y="105" width="185" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yu0-ZW-CdQ">
-                                        <rect key="frame" x="62.5" y="107.5" width="80" height="30"/>
+                                        <rect key="frame" x="52.5" y="134.5" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="dYs-x3-hZF"/>
-                                            <constraint firstAttribute="width" constant="80" id="mfH-as-KvG"/>
+                                            <constraint firstAttribute="width" constant="100" id="mfH-as-KvG"/>
                                         </constraints>
                                         <state key="normal" title="¥200">
                                             <color key="titleColor" red="0.0" green="0.86666666670000003" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>

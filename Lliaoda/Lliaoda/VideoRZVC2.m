@@ -25,7 +25,7 @@
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
     paraStyle.alignment = NSTextAlignmentLeft;
-    paraStyle.lineSpacing = 10; //设置行间距
+    paraStyle.lineSpacing = 8; //设置行间距
     paraStyle.hyphenationFactor = 1.0;
     paraStyle.firstLineHeadIndent = 0.0;
     paraStyle.paragraphSpacingBefore = 0.0;
