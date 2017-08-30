@@ -173,7 +173,7 @@
     
     _actView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
-    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 63, kScreenWidth, kScreenHeight - 63 - 60)];
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 63, kScreenWidth, kScreenHeight - 63 - 74)];
     //設定代理对象
     _webView.delegate = self;
     [self.view addSubview:_webView];

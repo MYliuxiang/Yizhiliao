@@ -22,6 +22,12 @@
     [self.aboutButton setTitle:LXSring(@"關於我們") forState:UIControlStateNormal];
     [self.loginoutButton setTitle:LXSring(@"退出登陸") forState:UIControlStateNormal];
     
+    self.checkoutButton.layer.cornerRadius = 5;
+    self.checkoutButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.checkoutButton.layer.shadowRadius = 5.f;
+    self.checkoutButton.layer.shadowOpacity = .3f;
+    self.checkoutButton.layer.shadowOffset = CGSizeMake(0, 0);
+    
     self.aboutButton.layer.cornerRadius = 5;
     self.aboutButton.layer.shadowColor = [UIColor blackColor].CGColor;
     self.aboutButton.layer.shadowRadius = 5.f;
