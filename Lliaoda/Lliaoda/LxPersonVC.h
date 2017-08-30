@@ -68,6 +68,8 @@
 @property (weak, nonatomic) IBOutlet UIView *hederLunView;
 
 @property (weak, nonatomic) IBOutlet UIView *footerView;
+@property (weak, nonatomic) IBOutlet UIButton *chatButton;
+@property (weak, nonatomic) IBOutlet UIButton *videoCallButton;
 
 - (IBAction)videoAC:(id)sender;
 - (IBAction)chatAC:(id)sender;

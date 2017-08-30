@@ -722,10 +722,10 @@ controller   didAuthorizePayment:(PKPayment *)payment
     BOOL asyncSuccessful = FALSE;
     if(asyncSuccessful) {
         completion(PKPaymentAuthorizationStatusSuccess);
-        NSLog(LXSring(@"支付成功"));
+        NSLog(@"%@", LXSring(@"支付成功"));
     } else {
         completion(PKPaymentAuthorizationStatusFailure);
-        NSLog(LXSring(@"支付失败"));
+        NSLog(@"%@", LXSring(@"支付失败"));
     }
 }
 
