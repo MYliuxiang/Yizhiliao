@@ -30,6 +30,7 @@
                 <outlet property="seletedView" destination="0K5-HZ-JMt" id="Lhf-fK-dR1"/>
                 <outlet property="sexImage" destination="P9W-wC-kTF" id="nzr-1z-6ZS"/>
                 <outlet property="tableView" destination="VxX-Z1-20E" id="jK0-hr-FXM"/>
+                <outlet property="tableViewBottom" destination="q0d-X1-Rqi" id="rNs-N0-3Yk"/>
                 <outlet property="videoCallButton" destination="tc4-dm-VX0" id="FFn-jt-hYk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="view1" destination="Ew3-8n-1IP" id="x0n-Gz-vIZ"/>
@@ -115,12 +116,12 @@
                 <constraint firstAttribute="bottom" secondItem="iL5-6A-8P7" secondAttribute="bottom" id="16C-wW-x17"/>
                 <constraint firstItem="ecL-dg-XRP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bf2-Ua-cOy"/>
                 <constraint firstItem="VxX-Z1-20E" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ruj-gQ-01W"/>
-                <constraint firstItem="iL5-6A-8P7" firstAttribute="top" secondItem="VxX-Z1-20E" secondAttribute="bottom" id="V0u-DK-So6"/>
                 <constraint firstAttribute="trailing" secondItem="ecL-dg-XRP" secondAttribute="trailing" id="Zh9-vO-RMG"/>
                 <constraint firstItem="ecL-dg-XRP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gia-Kx-ZD7"/>
                 <constraint firstAttribute="trailing" secondItem="iL5-6A-8P7" secondAttribute="trailing" id="hdE-QY-qVu"/>
                 <constraint firstAttribute="trailing" secondItem="VxX-Z1-20E" secondAttribute="trailing" id="jp2-6W-hCd"/>
                 <constraint firstAttribute="bottom" secondItem="ecL-dg-XRP" secondAttribute="bottom" id="mIU-YF-Mmb"/>
+                <constraint firstAttribute="bottom" secondItem="VxX-Z1-20E" secondAttribute="bottom" constant="49" id="q0d-X1-Rqi"/>
                 <constraint firstItem="VxX-Z1-20E" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sm4-UI-Eal"/>
                 <constraint firstItem="iL5-6A-8P7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="thz-o0-pTs"/>
             </constraints>
