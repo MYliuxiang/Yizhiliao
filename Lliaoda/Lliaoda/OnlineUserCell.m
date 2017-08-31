@@ -47,6 +47,9 @@
     self.headerImageView.layer.shadowOffset = CGSizeMake(0, 2);
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerImageAC)];
     [self.headerImageView addGestureRecognizer:tap];
+    
+    [self.chatButton setTitle:LXSring(@"私信") forState:UIControlStateNormal];
+    [self.videoButton setTitle:LXSring(@"小視頻") forState:UIControlStateNormal];
 }
 
 - (void)headerImageAC {
