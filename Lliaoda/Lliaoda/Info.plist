@@ -5,7 +5,7 @@
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
 	<key>CFBundleDisplayName</key>
-	<string>Candy Talk</string>
+	<string>Talk To Me</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -69,7 +69,7 @@
 	<key>FacebookAppID</key>
 	<string>370628906702867</string>
 	<key>FacebookDisplayName</key>
-	<string>Candy Talk TW</string>
+	<string>talktome</string>
 	<key>LSApplicationCategoryType</key>
 	<string>weixin</string>
 	<key>LSApplicationQueriesSchemes</key>

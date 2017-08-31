@@ -540,13 +540,9 @@
 //            
 //            return 0;
 //        }
-//        
-//        return self.dataList.count;
-//    } else {
-//        return self.dataList.count - 1;
-//    }
-    return self.dataList.count;
+//
     
+    return self.dataList.count;
 }
 
 
@@ -554,11 +550,6 @@
 {
     //如果有闲置的就拿到使用,如果没有,系统自动的去创建
     SelectedCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SelectedCellID" forIndexPath:indexPath];
-//    if (self.bannersArray.count == 0) {
-//        cell.model = self.dataList[indexPath.row];
-//    } else {
-//        cell.model = self.dataList[indexPath.row - 1];
-//    }
     cell.model = self.dataList[indexPath.row];
     [cell setNeedsLayout];
     return cell;

@@ -90,7 +90,7 @@
 - (IBAction)saveButtonAC:(id)sender {
 //    [self rightAction];
     NSDictionary *params;
-    params = @{@"domain":_textField.text};
+    params = @{@"nickname":_textField.text};
     [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
