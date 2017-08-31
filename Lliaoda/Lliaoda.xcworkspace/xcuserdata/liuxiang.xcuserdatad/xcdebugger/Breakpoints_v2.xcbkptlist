@@ -191,11 +191,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/AppDelegate.m"
-            timestampString = "523975073.204239"
+            timestampString = "525875862.593187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1029"
-            endingLineNumber = "1029"
+            startingLineNumber = "1023"
+            endingLineNumber = "1023"
             landmarkName = "-facebookLogin:"
             landmarkType = "7">
          </BreakpointContent>

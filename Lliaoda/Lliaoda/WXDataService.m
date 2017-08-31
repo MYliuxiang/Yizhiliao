@@ -74,8 +74,6 @@
     if (ishud) {
         
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow  animated:YES];
-//        hud.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.7];
-//        hud.bezelView.backgroundColor = [UIColor redColor];
     }
     
     NSString *urlStr;
@@ -105,7 +103,7 @@
     }
 
     
-    [manager.requestSerializer setValue:agent forHTTPHeaderField:@"user-agent"];
+    [manager.requestSerializer setValue:agent forHTTPHeaderField:@"User-Agent"];
 
     
     RequestType1 type;
@@ -134,6 +132,7 @@
                 NSLog(@"Error: %@", [error localizedDescription]);
                 
                 [MBProgressHUD hideAllHUDsForView:[UIApplication sharedApplication].keyWindow animated:YES];
+                
                 if (errorBlock != nil) {
                     
                     errorBlock(error);
@@ -233,7 +232,7 @@
     }
 
     
-    [manager.requestSerializer setValue:agent forHTTPHeaderField:@"user-agent"];
+    [manager.requestSerializer setValue:agent forHTTPHeaderField:@"User-Agent"];
 
     RequestType1 type;
     if ([httpMethod isEqualToString:@"GET"])
@@ -464,8 +463,6 @@
 
 
 }
-
-
 
 + (AFHTTPSessionManager *)syncrequestAFWithURL:(NSString *)url
                                     params:(NSDictionary *)params

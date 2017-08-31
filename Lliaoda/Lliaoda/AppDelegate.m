@@ -122,12 +122,6 @@
     }
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
    
-//    [JPUSHService setupWithOption:launchOptions
-//                           appKey:@"a7062123f570c9064200aa6a"
-//                          channel:@"AppStore"
-//                 apsForProduction:1
-//            advertisingIdentifier:nil];
-
     [JPUSHService setupWithOption:launchOptions
                            appKey:@"99c719079d47d45dbfc2b69b"
                           channel:@"AppStore"
@@ -529,7 +523,7 @@
    
     NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlEnCode]];
-    [urlRequest setAllHTTPHeaderFields:@{@"user-language":@"zh-tw",@"user-agent":agent}];
+    [urlRequest setAllHTTPHeaderFields:@{@"user-language":@"zh-tw",@"User-Agent":agent}];
     [urlRequest setHTTPMethod:@"GET"];
 
     NSURLSession *urlSession = [NSURLSession sharedSession];
