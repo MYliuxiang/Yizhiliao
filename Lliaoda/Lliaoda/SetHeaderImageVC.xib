@@ -13,8 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SetHeaderImageVC">
             <connections>
                 <outlet property="albumButton" destination="xBi-4T-CAl" id="wbA-SG-35J"/>
+                <outlet property="albumLabel" destination="9jU-em-004" id="HrU-7f-8nx"/>
                 <outlet property="buttonBGView" destination="I5i-6U-lst" id="Ukf-Wa-U4i"/>
                 <outlet property="cameraButton" destination="xw2-dM-XbV" id="42L-cm-0kO"/>
+                <outlet property="cameraLabel" destination="Szo-7q-flE" id="myq-Kc-Ct8"/>
                 <outlet property="headerImageView" destination="a6P-bl-2KG" id="FBf-i4-JPz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,28 +35,40 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5i-6U-lst">
                     <rect key="frame" x="15" y="454" width="345" height="110"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="相机" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Szo-7q-flE">
+                            <rect key="frame" x="0.0" y="82" width="172.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xw2-dM-XbV">
                             <rect key="frame" x="0.0" y="0.0" width="172.5" height="110"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <inset key="titleEdgeInsets" minX="-81" minY="70" maxX="0.0" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="28" minY="-15" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="相机" image="xiangji_lv">
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-15" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="xiangji_lv">
                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="cameraButtonAC:" destination="-1" eventType="touchUpInside" id="Y2w-Yy-JXB"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="相册" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jU-em-004">
+                            <rect key="frame" x="172.5" y="82" width="172.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBi-4T-CAl">
                             <rect key="frame" x="172.5" y="0.0" width="172.5" height="110"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <inset key="titleEdgeInsets" minX="-81" minY="70" maxX="0.0" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="28" minY="-15" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="相册" image="xiangce_lv">
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-15" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="xiangce_lv">
                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -64,6 +78,7 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="Szo-7q-flE" firstAttribute="bottom" secondItem="xw2-dM-XbV" secondAttribute="bottom" constant="-11" id="9Y3-ju-bGz"/>
                         <constraint firstItem="xBi-4T-CAl" firstAttribute="width" secondItem="xw2-dM-XbV" secondAttribute="width" id="JgM-Gd-ccy"/>
                         <constraint firstItem="xw2-dM-XbV" firstAttribute="top" secondItem="I5i-6U-lst" secondAttribute="top" id="KQY-ou-pXX"/>
                         <constraint firstItem="xBi-4T-CAl" firstAttribute="centerY" secondItem="xw2-dM-XbV" secondAttribute="centerY" id="Lwz-pN-JbD"/>
@@ -72,7 +87,12 @@
                         <constraint firstItem="xBi-4T-CAl" firstAttribute="leading" secondItem="xw2-dM-XbV" secondAttribute="trailing" id="SxJ-un-BxI"/>
                         <constraint firstItem="xw2-dM-XbV" firstAttribute="leading" secondItem="I5i-6U-lst" secondAttribute="leading" id="Ucc-IB-7zi"/>
                         <constraint firstAttribute="height" constant="110" id="aI8-76-S3p"/>
+                        <constraint firstItem="Szo-7q-flE" firstAttribute="trailing" secondItem="xw2-dM-XbV" secondAttribute="trailing" id="bTc-Pb-i7o"/>
+                        <constraint firstItem="Szo-7q-flE" firstAttribute="leading" secondItem="xw2-dM-XbV" secondAttribute="leading" id="fLx-qB-ZmC"/>
+                        <constraint firstItem="xBi-4T-CAl" firstAttribute="trailing" secondItem="9jU-em-004" secondAttribute="trailing" id="fYu-YT-SvX"/>
+                        <constraint firstItem="xBi-4T-CAl" firstAttribute="leading" secondItem="9jU-em-004" secondAttribute="leading" id="nO0-n6-pga"/>
                         <constraint firstItem="xBi-4T-CAl" firstAttribute="height" secondItem="xw2-dM-XbV" secondAttribute="height" id="sdf-kD-I8t"/>
+                        <constraint firstItem="xBi-4T-CAl" firstAttribute="bottom" secondItem="9jU-em-004" secondAttribute="bottom" constant="11" id="zap-Rt-jRA"/>
                     </constraints>
                 </view>
             </subviews>
