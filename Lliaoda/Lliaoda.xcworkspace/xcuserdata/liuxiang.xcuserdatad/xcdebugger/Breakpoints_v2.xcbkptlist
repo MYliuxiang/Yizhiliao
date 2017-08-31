@@ -406,44 +406,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/BaseViewController.m"
-            timestampString = "525253632.967652"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "-onMessageInstantReceive:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lliaoda/BaseViewController.m"
-            timestampString = "525253634.704192"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "-widthString:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lliaoda/BaseViewController.m"
             timestampString = "525253714.209221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "183"
             endingLineNumber = "183"
-            landmarkName = "-setWidth:height:font:content:"
+            landmarkName = "-rightChargeButtonAC"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -459,7 +427,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
             endingLineNumber = "222"
-            landmarkName = "-rightChargeButtonAC"
+            landmarkName = "-addrighttitleString:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
