@@ -18,8 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"个人头像");
-    [self.cameraButton setTitle:LXSring(@"相机") forState:UIControlStateNormal];
-    [self.albumButton setTitle:LXSring(@"相册") forState:UIControlStateNormal];
+//    [self.cameraButton setTitle:LXSring(@"相机") forState:UIControlStateNormal];
+//    [self.albumButton setTitle:LXSring(@"相冊") forState:UIControlStateNormal];
+    _cameraLabel.text = LXSring(@"相机");
+    _albumLabel.text = LXSring(@"相冊");
     
     [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:self.portrait]];
     

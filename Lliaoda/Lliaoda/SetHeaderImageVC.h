@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
 @property (weak, nonatomic) IBOutlet UIButton *albumButton;
 @property (nonatomic, copy) NSString *portrait;
+@property (weak, nonatomic) IBOutlet UILabel *cameraLabel;
+@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 
 
 @end
