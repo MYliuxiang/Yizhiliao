@@ -65,7 +65,7 @@
     if (indexPath.row == 0) {
         return 246;
     }
-    return 265 - 50;
+    return 265;
 }
 
 - (void)inviteBtnAC {
@@ -90,7 +90,7 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 //    http://demo.yizhiliao.tv/pages/id-id/unipin_dcb.html?order=<订单ID>&price=<支付的价格>
-    [self orderCreate:self.accountModel.uid withType:HuaFeiPay];
+//    [self orderCreate:self.accountModel.uid withType:HuaFeiPay];
 }
 
 // 苹果支付
