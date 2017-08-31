@@ -61,7 +61,7 @@
 {
 
     //检查更新
-    [WXDataService requestAFWithURL:@"http://itunes.apple.com/lookup?id=1255091350" params:nil httpMethod:@"POST"  isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+    [WXDataService requestAFWithURL:@"http://itunes.apple.com/lookup?id=1275434834" params:nil httpMethod:@"POST"  isHUD:NO isErrorHud:YES finishBlock:^(id result) {
         
         NSArray *array = result[@"results"];
         NSDictionary *dict = array.lastObject;
