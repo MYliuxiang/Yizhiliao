@@ -3355,7 +3355,7 @@
 				TargetAttributes = {
 					22E8D7681EA49AE300C5FC6B = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 6XYUMP9S7J;
+						DevelopmentTeam = 633THM6R4D;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
@@ -4339,7 +4339,7 @@
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6XYUMP9S7J;
+				DEVELOPMENT_TEAM = 633THM6R4D;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4419,10 +4419,10 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = niuniu.yizhiliaotw.com;
+				PRODUCT_BUNDLE_IDENTIFIER = niuniu.TalkToMe.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ab11142c-d38a-490b-801b-3c0c6e545177";
-				PROVISIONING_PROFILE_SPECIFIER = deveTW;
+				PROVISIONING_PROFILE = "78af873c-1679-43b5-8270-78b02d7a6167";
+				PROVISIONING_PROFILE_SPECIFIER = dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -4436,7 +4436,7 @@
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6XYUMP9S7J;
+				DEVELOPMENT_TEAM = 633THM6R4D;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4516,10 +4516,10 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = niuniu.yizhiliaotw.com;
+				PRODUCT_BUNDLE_IDENTIFIER = niuniu.TalkToMe.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ab11142c-d38a-490b-801b-3c0c6e545177";
-				PROVISIONING_PROFILE_SPECIFIER = deveTW;
+				PROVISIONING_PROFILE = "78af873c-1679-43b5-8270-78b02d7a6167";
+				PROVISIONING_PROFILE_SPECIFIER = dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
