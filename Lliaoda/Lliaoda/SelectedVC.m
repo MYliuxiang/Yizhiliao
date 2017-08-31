@@ -533,18 +533,18 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (self.bannersArray.count == 0) {
-        if (self.dataList.count == 0) {
-            
-            return 0;
-        }
-        
-        return self.dataList.count - 1;
-    } else {
-        return self.dataList.count;
-    }
+//    if (self.bannersArray.count == 0) {
+//        if (self.dataList.count == 0) {
+//            
+//            return 0;
+//        }
+//        
+//        return self.dataList.count - 1;
+//    } else {
+//        return self.dataList.count;
+//    }
     
-    
+    return self.dataList.count;
 }
 
 
@@ -552,12 +552,12 @@
 {
     //如果有闲置的就拿到使用,如果没有,系统自动的去创建
     SelectedCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SelectedCellID" forIndexPath:indexPath];
-    if (self.bannersArray.count == 0) {
-        cell.model = self.dataList[indexPath.row + 1];
-    } else {
-        cell.model = self.dataList[indexPath.row];
-    }
-    
+//    if (self.bannersArray.count == 0) {
+//        cell.model = self.dataList[indexPath.row + 1];
+//    } else {
+//        cell.model = self.dataList[indexPath.row];
+//    }
+    cell.model = self.dataList[indexPath.row];
     [cell setNeedsLayout];
     return cell;
     
