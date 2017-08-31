@@ -90,8 +90,9 @@
 //    self.finBtn.layer.masksToBounds = YES;
     UIImage *image = [[UIImage imageNamed:@"tishitankuang"] stretchableImageWithLeftCapWidth:12  topCapHeight:5];
     [self.finBtn setBackgroundImage:image forState:UIControlStateNormal];
-    [self.finBtn setTitle:LXSring(@"發現有緣人") forState:UIControlStateNormal];
-    
+//    [self.finBtn setTitle:LXSring(@"發現有緣人") forState:UIControlStateNormal];
+    [self.finBtn setTitle:LXSring(@"点击圆形按钮，开始匹配~") forState:UIControlStateNormal];
+    self.finBtn.userInteractionEnabled = NO;
     self.stateView.layer.cornerRadius = 3;
     self.stateView.layer.masksToBounds = YES;
     //获取摄像设备
@@ -819,8 +820,11 @@
 }
 
 - (IBAction)closeMatch:(id)sender {
-    
+    TJPTabBarController *tab = [TJPTabBarController shareInstance];
+    tab.button2.userInteractionEnabled = YES;
     [_radarView stopAnimation];
+    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+    [userDef setBool:NO forKey:@"IsFind"];
     for (JXRadarPointView *item in self.pointsViewArray) {
         [item removeFromSuperview];
     }

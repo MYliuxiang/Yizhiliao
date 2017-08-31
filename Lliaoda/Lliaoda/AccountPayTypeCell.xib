@@ -12,17 +12,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="AccountPayTypeCell">
-            <rect key="frame" x="0.0" y="0.0" width="417" height="265"/>
+            <rect key="frame" x="0.0" y="0.0" width="417" height="215"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="417" height="264.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="417" height="214.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3V9-cV-XJN">
-                        <rect key="frame" x="15" y="15" width="387" height="235.5"/>
+                        <rect key="frame" x="15" y="15" width="387" height="185.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYX-jQ-lE7">
-                                <rect key="frame" x="0.0" y="185.5" width="387" height="50"/>
+                                <rect key="frame" x="0.0" y="135.5" width="387" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kefubangmang" translatesAutoresizingMaskIntoConstraints="NO" id="FUb-kQ-thi">
                                         <rect key="frame" x="15" y="15" width="50" height="20"/>
@@ -63,7 +63,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4Y-it-Za4">
-                                <rect key="frame" x="0.0" y="135.5" width="387" height="50"/>
+                                <rect key="frame" x="0.0" y="85.5" width="387" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apple In-App Purchase" translatesAutoresizingMaskIntoConstraints="NO" id="SuT-Bt-zVu">
                                         <rect key="frame" x="15" y="15" width="50" height="20"/>
@@ -113,7 +113,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jkX-Qg-bkJ">
-                                <rect key="frame" x="0.0" y="85.5" width="387" height="50"/>
+                                <rect key="frame" x="0.0" y="35.5" width="387" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="huafeichongzhi" translatesAutoresizingMaskIntoConstraints="NO" id="VSj-f3-bdd">
                                         <rect key="frame" x="15" y="15" width="50" height="20"/>
@@ -162,7 +162,7 @@
                                     <constraint firstItem="nXJ-rS-n59" firstAttribute="leading" secondItem="jkX-Qg-bkJ" secondAttribute="leading" id="uS1-R6-fko"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAJ-S6-ATU">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAJ-S6-ATU">
                                 <rect key="frame" x="0.0" y="35.5" width="387" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UniPin" translatesAutoresizingMaskIntoConstraints="NO" id="Dc9-XV-3Bm">
@@ -245,7 +245,6 @@
                             <constraint firstItem="xYX-jQ-lE7" firstAttribute="height" secondItem="OAJ-S6-ATU" secondAttribute="height" id="1fK-NQ-ji5"/>
                             <constraint firstItem="H4Y-it-Za4" firstAttribute="height" secondItem="OAJ-S6-ATU" secondAttribute="height" id="2OY-Ec-oLm"/>
                             <constraint firstAttribute="bottom" secondItem="xYX-jQ-lE7" secondAttribute="bottom" id="5pS-Cd-ruo"/>
-                            <constraint firstItem="jkX-Qg-bkJ" firstAttribute="top" secondItem="OAJ-S6-ATU" secondAttribute="bottom" id="B4d-Dp-lI3"/>
                             <constraint firstItem="H4Y-it-Za4" firstAttribute="centerX" secondItem="OAJ-S6-ATU" secondAttribute="centerX" id="F5r-uQ-t9k"/>
                             <constraint firstItem="xYX-jQ-lE7" firstAttribute="leading" secondItem="3V9-cV-XJN" secondAttribute="leading" id="Fqg-uc-j7s"/>
                             <constraint firstItem="OAJ-S6-ATU" firstAttribute="top" secondItem="0cS-zi-w65" secondAttribute="bottom" id="Hae-2B-9aH"/>
@@ -259,6 +258,7 @@
                             <constraint firstItem="xYX-jQ-lE7" firstAttribute="centerX" secondItem="OAJ-S6-ATU" secondAttribute="centerX" id="kV3-Oi-YgV"/>
                             <constraint firstItem="0cS-zi-w65" firstAttribute="leading" secondItem="3V9-cV-XJN" secondAttribute="leading" id="lEo-D6-4va"/>
                             <constraint firstItem="jkX-Qg-bkJ" firstAttribute="width" secondItem="OAJ-S6-ATU" secondAttribute="width" id="nOi-pb-Lof"/>
+                            <constraint firstItem="jkX-Qg-bkJ" firstAttribute="top" secondItem="0cS-zi-w65" secondAttribute="bottom" id="pPv-Jy-YkU"/>
                             <constraint firstItem="jkX-Qg-bkJ" firstAttribute="centerX" secondItem="OAJ-S6-ATU" secondAttribute="centerX" id="r7c-du-9uY"/>
                         </constraints>
                     </view>

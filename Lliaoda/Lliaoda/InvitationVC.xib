@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -32,16 +32,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbr-Pc-OdG">
-                    <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="593" width="375" height="74"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02g-pm-CpO">
-                            <rect key="frame" x="87" y="8" width="200" height="44"/>
-                            <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="15" y="15" width="345" height="44"/>
+                            <color key="backgroundColor" red="0.0" green="0.86666666670000003" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Pcc-IK-xhq"/>
-                                <constraint firstAttribute="width" constant="200" id="cEh-m0-rdX"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <state key="normal" title="立即邀請">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -52,9 +51,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="ZsB-Ce-WY4"/>
-                        <constraint firstItem="02g-pm-CpO" firstAttribute="centerX" secondItem="Zbr-Pc-OdG" secondAttribute="centerX" id="crP-aO-DdG"/>
-                        <constraint firstItem="02g-pm-CpO" firstAttribute="centerY" secondItem="Zbr-Pc-OdG" secondAttribute="centerY" id="gfE-o7-Tos"/>
+                        <constraint firstItem="02g-pm-CpO" firstAttribute="top" secondItem="Zbr-Pc-OdG" secondAttribute="top" constant="15" id="LNC-a9-B8r"/>
+                        <constraint firstAttribute="trailing" secondItem="02g-pm-CpO" secondAttribute="trailing" constant="15" id="M4M-IH-05h"/>
+                        <constraint firstItem="02g-pm-CpO" firstAttribute="leading" secondItem="Zbr-Pc-OdG" secondAttribute="leading" constant="15" id="a0Q-Wb-5Px"/>
+                        <constraint firstAttribute="bottom" secondItem="02g-pm-CpO" secondAttribute="bottom" constant="15" id="rDJ-OA-jHT"/>
                     </constraints>
                 </view>
             </subviews>

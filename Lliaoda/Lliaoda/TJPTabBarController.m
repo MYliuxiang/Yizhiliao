@@ -8,7 +8,7 @@
 
 #import "TJPTabBarController.h"
 #import "NewMyVC.h"
-
+#import "OnlineUserVC.h"
 #import "TJPTabBar.h"
 
 @interface TJPTabBarController ()<UINavigationControllerDelegate>
@@ -17,9 +17,7 @@
     UIView *tabBarView1;
     UIView *tabBarView2;
     UIView *tabBarView3;
-    UIButton *button1;
-    UIButton *button2;
-    UIButton *button3;
+    
 }
 @end
 
@@ -114,59 +112,66 @@
 //    tabBarView2.backgroundColor = [UIColor clearColor];
 //    [tabBarView addSubview:tabBarView2];
     
-    button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button1.tag = 1;
-    button1.frame = CGRectMake(0, 0, SCREEN_W / 3, 49);
-    [button1 setImage:[UIImage imageNamed:@"jingxuan_n"] forState:UIControlStateNormal];
-    [button1 setImage:[UIImage imageNamed:@"jingxuan_h"] forState:UIControlStateSelected];
-    [button1 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [tabBarView addSubview:button1];
+    _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    _button1.tag = 1;
+    _button1.frame = CGRectMake(0, 0, SCREEN_W / 3, 49);
+    [_button1 setImage:[UIImage imageNamed:@"jingxuan_n"] forState:UIControlStateNormal];
+    [_button1 setImage:[UIImage imageNamed:@"jingxuan_h"] forState:UIControlStateSelected];
+    [_button1 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [tabBarView addSubview:_button1];
     
-    button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button2.tag = 2;
-    button2.backgroundColor = [UIColor clearColor];
-    button2.frame = CGRectMake(tabBarView.width / 2 - 35, -21, 70, 70);
-    [button2 setBackgroundImage:[UIImage imageNamed:@"faxian_n"] forState:UIControlStateNormal];
-    [button2 setBackgroundImage:[UIImage imageNamed:@"faxian_h"] forState:UIControlStateSelected];
-    [button2 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [tabBarView addSubview:button2];
+    _button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    _button2.tag = 2;
+    _button2.backgroundColor = [UIColor clearColor];
+    _button2.frame = CGRectMake(tabBarView.width / 2 - 35, -21, 70, 70);
+    [_button2 setBackgroundImage:[UIImage imageNamed:@"faxian_n"] forState:UIControlStateNormal];
+    [_button2 setBackgroundImage:[UIImage imageNamed:@"faxian_h"] forState:UIControlStateSelected];
+    [_button2 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [tabBarView addSubview:_button2];
     
-    button3 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button3.tag = 3;
-    button3.frame = CGRectMake(SCREEN_W / 3 * 2, 0, SCREEN_W / 3, 49);
-    [button3 setImage:[UIImage imageNamed:@"me_n"] forState:UIControlStateNormal];
-    [button3 setImage:[UIImage imageNamed:@"me_h"] forState:UIControlStateSelected];
-    [button3 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [tabBarView addSubview:button3];
+    _button3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    _button3.tag = 3;
+    _button3.frame = CGRectMake(SCREEN_W / 3 * 2, 0, SCREEN_W / 3, 49);
+    [_button3 setImage:[UIImage imageNamed:@"me_n"] forState:UIControlStateNormal];
+    [_button3 setImage:[UIImage imageNamed:@"me_h"] forState:UIControlStateSelected];
+    [_button3 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [tabBarView addSubview:_button3];
     
     if (self.selectedIndex == 1){
-        button1.selected = NO;
-        button2.selected = YES;
-        button3.selected = NO;
+        _button1.selected = NO;
+        _button2.selected = YES;
+        _button3.selected = NO;
     }else if (self.selectedIndex == 2){
-        button1.selected = NO;
-        button2.selected = NO;
-        button3.selected = YES;
+        _button1.selected = NO;
+        _button2.selected = NO;
+        _button3.selected = YES;
         
     } else {
-        button1.selected = YES;
-        button2.selected = NO;
-        button3.selected = NO;
+        _button1.selected = YES;
+        _button2.selected = NO;
+        _button3.selected = NO;
     }
     
 }
 
 - (void)initViewController {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NSArray *vcs;
 //    FindVC *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
     SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
 
-    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
+//    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
 //    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
     FindVC *findVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
 //    MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
     NewMyVC *myVC = [[NewMyVC alloc] init];
-    NSArray *vcs = @[managementVC, findVC, myVC];
+    OnlineUserVC *onlineVC = [[OnlineUserVC alloc] init];
+    if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+        vcs = @[managementVC, onlineVC, myVC];
+    } else {
+        
+        vcs = @[managementVC, findVC, myVC];
+    }
     //创建一个存储导航控制器的数组
     NSMutableArray *navCtrls = [[NSMutableArray alloc] init];
     for (int i = 0; i < vcs.count; i++) {
@@ -185,29 +190,32 @@
 - (void)buttonClick:(UIButton *)button {
     
     if (button.tag == 2) {
-        button1.selected = NO;
-        button2.selected = YES;
-        button3.selected = NO;
+        _button1.selected = NO;
+        _button2.selected = YES;
+        _button3.selected = NO;
         if (self.selectedIndex == button.tag - 1) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"findVC" object:nil userInfo:nil];
+            _button2.userInteractionEnabled = NO;
         } else {
             self.selectedIndex = button.tag - 1;
+            
         }
         
     } else {
+        _button2.userInteractionEnabled = YES;
         self.selectedIndex = button.tag - 1;
         if (button.tag == 1) {
-            button1.selected = YES;
-            button2.selected = NO;
-            button3.selected = NO;
+            _button1.selected = YES;
+            _button2.selected = NO;
+            _button3.selected = NO;
         } else if (button.tag == 2) {
-            button1.selected = NO;
-            button2.selected = YES;
-            button3.selected = NO;
+            _button1.selected = NO;
+            _button2.selected = YES;
+            _button3.selected = NO;
         } else {
-            button1.selected = NO;
-            button2.selected = NO;
-            button3.selected = YES;
+            _button1.selected = NO;
+            _button2.selected = NO;
+            _button3.selected = YES;
         }
     }
     

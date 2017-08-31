@@ -32,5 +32,5 @@
 @property (nonatomic, assign) long vipEndTime; // vip到期时间
 @property (nonatomic, assign) int totalInpour; // 总儲值的鑽石数量
 @property (nonatomic,retain) NSArray *charges;
-
+@property (nonatomic, copy) NSString *domain;  // 行业
 @end

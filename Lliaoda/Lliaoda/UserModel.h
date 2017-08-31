@@ -16,4 +16,5 @@
 
 @property (nonatomic,copy)NSString *uid;
 
+@property (nonatomic, copy) NSString *balance;
 @end

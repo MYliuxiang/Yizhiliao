@@ -25,6 +25,7 @@
 - (void)setModel:(UserModel *)model {
     _model = model;
     self.nameLabel.text = model.nickname;
+    self.countLabel.text = [NSString stringWithFormat:LXSring(@"余额:%@鑽"), model.balance];
     [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.portrait] placeholderImage:[UIImage imageNamed:@"headerImage.jpg"]];
 }
 - (void)awakeFromNib {
@@ -65,7 +66,7 @@
     
     LHChatVC *chatVC = [[LHChatVC alloc] init];
     chatVC.sendUid = self.model.uid;
-    chatVC.isFromHeader = NO;
+//    chatVC.isFromHeader = NO;
     [[self viewController].navigationController pushViewController:chatVC animated:YES];
 }
 

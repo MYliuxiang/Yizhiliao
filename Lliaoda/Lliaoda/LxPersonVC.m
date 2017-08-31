@@ -83,9 +83,12 @@
     }
 
     
-    
+    [_chatButton setTitle:LXSring(@"私信") forState:UIControlStateNormal];
+    [_videoCallButton setTitle:LXSring(@"視頻通訊") forState:UIControlStateNormal];
     [_button1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_button2 setTitleColor:[MyColor colorWithHexString:@"#666666"] forState:UIControlStateNormal];
+    [_button1 setTitle:LXSring(@"個人資料") forState:UIControlStateNormal];
+    [_button2 setTitle:LXSring(@"小視頻") forState:UIControlStateNormal];
     self.sView = [[UIView alloc] initWithFrame:CGRectMake(2, 2, kScreenWidth / 2 - 15 - 2, 41)];
     self.sView.layer.cornerRadius = 41 / 2.0;
     self.sView.layer.masksToBounds = YES;
@@ -281,9 +284,14 @@
                             
                         }];
                         LHChatVC *chatVC = [[LHChatVC alloc] init];
-                        chatVC.sendUid = self.model.uid;
-                        chatVC.personID = self.personUID;
-                        chatVC.isFromHeader = self.isFromHeader;
+                        if (self.isFromHeader) {
+                            chatVC.sendUid = self.personUID;
+                        } else {
+                            chatVC.sendUid = self.model.uid;
+                        }
+                        
+//                        chatVC.personID = self.personUID;
+//                        chatVC.isFromHeader = self.isFromHeader;
                         [self.navigationController pushViewController:chatVC animated:YES];
                         
                         
@@ -385,9 +393,14 @@
         } else {
             params = @{@"uid":self.model.uid};
         }
-        
+
     } else {
-        params = @{@"uid":self.model.uid};
+        if (self.isFromHeader) {
+            params = @{@"uid":self.personUID};
+        } else {
+            params = @{@"uid":self.model.uid};
+        }
+//        params = @{@"uid":self.model.uid};
     }
     [WXDataService requestAFWithURL:Url_accountshow params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
@@ -448,7 +461,7 @@
                 }
                 self.cycleScrollView.imageURLStringsGroup = self.photos;
                 
-                self.messageArray = @[@"最近活跃",LXSring(@"地區"),LXSring(@"行业"),LXSring(@"簽名檔"),LXSring(@"经常出没")];
+                self.messageArray = @[LXSring(@"最近活躍"),LXSring(@"地區"),LXSring(@"行业"),LXSring(@"簽名檔"),LXSring(@"经常出没")];
                 self.messagePhotos = @[@"zuijinhuoyue",@"laizi",@"hangye",@"gexingqianming",@"jingchangchumo"];
                 
                 
@@ -1052,9 +1065,14 @@
     }
     
     LHChatVC *chatVC = [[LHChatVC alloc] init];
-    chatVC.sendUid = self.model.uid;
-    chatVC.personID = self.personUID;
-    chatVC.isFromHeader = self.isFromHeader;
+    if (self.isFromHeader) {
+        chatVC.sendUid = self.personUID;
+    } else {
+        chatVC.sendUid = self.model.uid;
+    }
+//    chatVC.sendUid = self.model.uid;
+//    chatVC.personID = self.personUID;
+//    chatVC.isFromHeader = self.isFromHeader;
     [self.navigationController pushViewController:chatVC animated:YES];
 
 }

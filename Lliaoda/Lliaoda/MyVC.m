@@ -624,7 +624,7 @@
             
             if (indexPath.row == 0) {
                 
-                cell.detailTextLabel.text = LXSring(@"请输入5位邀請碼,即可获得奖励");
+                cell.detailTextLabel.text = LXSring(@"邀請好友，即可獲得獎勵");
             }else{
                 
                 cell.detailTextLabel.text = LXSring(@"填入好友的分享的邀請碼，即可获奖励");

@@ -329,149 +329,149 @@
 
         return cell;
         
-    }else{
-    NewMyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewMyCellID"];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyCell" owner:self options:nil] firstObject];
-        cell.backgroundColor = [UIColor whiteColor];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    cell.nameLabel.text = self.nameArray[indexPath.section][indexPath.row];
-    cell.headerImage.image = [UIImage imageNamed:self.messagePhotos[indexPath.section][indexPath.row]];
-    
-    if (indexPath.section == 0) {
-        cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
-        cell.samallImage.hidden = NO;
-
-        if (indexPath.row == 0) {
-            cell.samallImage.image = [UIImage imageNamed:@"zuanshi_20"];
-            cell.contentLabel.text = [NSString stringWithFormat:@"%d",self.model.deposit];
-        }else{
-            cell.samallImage.image = [UIImage imageNamed:@"shouru_jvse"];
-             cell.contentLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
+    } else {
+        NewMyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewMyCellID"];
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyCell" owner:self options:nil] firstObject];
+            cell.backgroundColor = [UIColor whiteColor];
         }
-    }else{
-        cell.samallImage.hidden = YES;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-
-    if([LXUserDefaults boolForKey:ISMEiGUO]){
-        cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
-        if (indexPath.section == 1) {
+        cell.nameLabel.text = self.nameArray[indexPath.section][indexPath.row];
+        cell.headerImage.image = [UIImage imageNamed:self.messagePhotos[indexPath.section][indexPath.row]];
+        
+        if (indexPath.section == 0) {
+            cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
+            cell.samallImage.hidden = NO;
             
             if (indexPath.row == 0) {
-                
-                if(self.model.auth == 0){
-                    
-                    cell.contentLabel.text = LXSring(@"未认证");
-                    
-                }else if (self.model.auth == 1){
-                    
-                    cell.contentLabel.text = LXSring(@"认证中");
-                    
-                }else if (self.model.auth == 2){
-                    
-                    cell.contentLabel.text = LXSring(@"認證成功");
-                    
-                }else{
-                    
-                    cell.contentLabel.text = LXSring(@"認證失敗");
-                    
-                }
-                
-            }else if(indexPath.row == 1){
-                
-                Charge *charge;
-                for (Charge *mo in self.model.charges) {
-                    if (mo.uid == self.model.charge) {
-                        charge = mo;
-                    }
-                }
-                cell.contentLabel.text = charge.name;
-                
-                
-            }else if(indexPath.row == 2){
-                
-                NSArray *array = [InputCheck getpreferOptions];
-                cell.contentLabel.text = [NSString stringWithFormat:@"%@-%@",array[self.model.preferOnlineOption],array[self.model.preferOfflineOption]];
-                
+                cell.samallImage.image = [UIImage imageNamed:@"zuanshi_20"];
+                cell.contentLabel.text = [NSString stringWithFormat:@"%d",self.model.deposit];
+            }else{
+                cell.samallImage.image = [UIImage imageNamed:@"shouru_jvse"];
+                cell.contentLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
             }
-
+        }else{
+            cell.samallImage.hidden = YES;
             
-        }else if(indexPath.section == 2){
-           //设置
-            cell.contentLabel.text = @"";
-
-        }
-        
-        
-    
-    }else{
-        
-        if (indexPath.section == 1) {
-            //邀请
-            cell.contentLabel.textColor = [MyColor colorWithHexString:@"#999999"];
-            if (indexPath.row == 0) {
+            
+            if([LXUserDefaults boolForKey:ISMEiGUO]){
+                cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
+                if (indexPath.section == 1) {
+                    
+                    if (indexPath.row == 0) {
+                        
+                        if(self.model.auth == 0){
+                            
+                            cell.contentLabel.text = LXSring(@"未认证");
+                            
+                        }else if (self.model.auth == 1){
+                            
+                            cell.contentLabel.text = LXSring(@"认证中");
+                            
+                        }else if (self.model.auth == 2){
+                            
+                            cell.contentLabel.text = LXSring(@"認證成功");
+                            
+                        }else{
+                            
+                            cell.contentLabel.text = LXSring(@"認證失敗");
+                            
+                        }
+                        
+                    }else if(indexPath.row == 1){
+                        
+                        Charge *charge;
+                        for (Charge *mo in self.model.charges) {
+                            if (mo.uid == self.model.charge) {
+                                charge = mo;
+                            }
+                        }
+                        cell.contentLabel.text = charge.name;
+                        
+                        
+                    }else if(indexPath.row == 2){
+                        
+                        NSArray *array = [InputCheck getpreferOptions];
+                        cell.contentLabel.text = [NSString stringWithFormat:@"%@-%@",array[self.model.preferOnlineOption],array[self.model.preferOfflineOption]];
+                        
+                    }
+                    
+                    
+                }else if(indexPath.section == 2){
+                    //设置
+                    cell.contentLabel.text = @"";
+                    
+                }
                 
-                cell.contentLabel.text = LXSring(@"请输入5位邀請碼,即可获得奖励");
-
+                
+                
             }else{
                 
-                cell.contentLabel.text = LXSring(@"填入好友的分享的邀請碼，即可获奖励");
-            }
-
-            
-        }else if(indexPath.section == 2){
-             cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
-            if (indexPath.row == 0) {
-                
-                if(self.model.auth == 0){
-                    cell.contentLabel.text = LXSring(@"未认证");
+                if (indexPath.section == 1) {
+                    //邀请
+                    cell.contentLabel.textColor = [MyColor colorWithHexString:@"#999999"];
+                    if (indexPath.row == 0) {
+                        
+                        cell.contentLabel.text = LXSring(@"邀請好友，即可獲得獎勵");
+                        
+                    }else{
+                        
+                        cell.contentLabel.text = LXSring(@"填入邀請碼，即可獲得獎勵");
+                    }
                     
-                }else if (self.model.auth == 1){
                     
-                    cell.contentLabel.text = LXSring(@"认证中");
+                }else if(indexPath.section == 2){
+                    cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
+                    if (indexPath.row == 0) {
+                        
+                        if(self.model.auth == 0){
+                            cell.contentLabel.text = LXSring(@"未认证");
+                            
+                        }else if (self.model.auth == 1){
+                            
+                            cell.contentLabel.text = LXSring(@"认证中");
+                            
+                        }else if (self.model.auth == 2){
+                            
+                            cell.contentLabel.text = LXSring(@"認證成功");
+                            
+                        }else{
+                            
+                            cell.contentLabel.text = LXSring(@"認證失敗");
+                            
+                        }
+                        
+                    }else if(indexPath.row == 1){
+                        
+                        Charge *charge;
+                        for (Charge *mo in self.model.charges) {
+                            if (mo.uid == self.model.charge) {
+                                charge = mo;
+                            }
+                        }
+                        cell.contentLabel.text = charge.name;
+                        
+                        
+                    }else if(indexPath.row == 2){
+                        
+                        NSArray *array = [InputCheck getpreferOptions];
+                        cell.contentLabel.text = [NSString stringWithFormat:@"%@-%@",array[self.model.preferOnlineOption],array[self.model.preferOfflineOption]];
+                        
+                    }
                     
-                }else if (self.model.auth == 2){
-                    
-                    cell.contentLabel.text = LXSring(@"認證成功");
                     
                 }else{
-                    
-                    cell.contentLabel.text = LXSring(@"認證失敗");
+                    cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
+                    //设置
+                    cell.contentLabel.text = @"";
                     
                 }
-                
-            }else if(indexPath.row == 1){
-                
-                Charge *charge;
-                for (Charge *mo in self.model.charges) {
-                    if (mo.uid == self.model.charge) {
-                        charge = mo;
-                    }
-                }
-                cell.contentLabel.text = charge.name;
-                
-                
-            }else if(indexPath.row == 2){
-                
-                NSArray *array = [InputCheck getpreferOptions];
-                cell.contentLabel.text = [NSString stringWithFormat:@"%@-%@",array[self.model.preferOnlineOption],array[self.model.preferOfflineOption]];
                 
             }
-
-
-        }else{
-         cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
-            //设置
-            cell.contentLabel.text = @"";
-
         }
-    
-       }
-    }
-    
-    return cell;
+        
+        return cell;
     }
     
     

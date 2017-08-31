@@ -77,7 +77,7 @@ static NSString *const headerId = @"headerId";
     _collectionViewLayout.minimumLineSpacing = 10;
     _collectionViewLayout.minimumInteritemSpacing = 10;
     
-    _collectionViewLayout.itemSize = CGSizeMake((SCREEN_W - 30) / 2, 250);
+    _collectionViewLayout.itemSize = CGSizeMake((SCREEN_W - 30) / 2, 220);
     [_collectionViewLayout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
     _collectionViewLayout.headerReferenceSize = CGSizeMake(SCREEN_W, 246);
     
@@ -722,10 +722,10 @@ controller   didAuthorizePayment:(PKPayment *)payment
     BOOL asyncSuccessful = FALSE;
     if(asyncSuccessful) {
         completion(PKPaymentAuthorizationStatusSuccess);
-        NSLog(LXSring(@"支付成功"));
+        NSLog(@"%@", LXSring(@"支付成功"));
     } else {
         completion(PKPaymentAuthorizationStatusFailure);
-        NSLog(LXSring(@"支付失败"));
+        NSLog(@"%@", LXSring(@"支付失败"));
     }
 }
 
@@ -834,6 +834,11 @@ controller   didAuthorizePayment:(PKPayment *)payment
         }
         headerView.backgroundColor = [UIColor whiteColor];
         headerView.countLabel.text = depositCount;
+        if([LXUserDefaults boolForKey:ISMEiGUO]) {
+            headerView.inviteButton.hidden = YES;
+        } else {
+            headerView.inviteButton.hidden = NO;
+        }
         [headerView.inviteButton addTarget:self action:@selector(inviteBtnAC) forControlEvents:UIControlEventTouchUpInside];
         if (myModel.vipEndTime == 0) {
             // 没有vip
