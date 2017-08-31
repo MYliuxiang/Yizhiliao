@@ -77,17 +77,30 @@
 #pragma mark - AccountPayTypeCellDelegate
 // unipin
 - (void)unipinAC {
-    
+    AccountVC *vc = [[AccountVC alloc] init];
+    vc.deposit = self.deposit;
+    vc.payType = UnipinPay;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 // 话费
 - (void)huafeiAC {
+    AccountVC *vc = [[AccountVC alloc] init];
+    vc.deposit = self.model.deposit;
+    vc.payType = HuaFeiPay;
+    [self.navigationController pushViewController:vc animated:YES];
+    
 //    http://demo.yizhiliao.tv/pages/id-id/unipin_dcb.html?order=<订单ID>&price=<支付的价格>
     [self orderCreate:self.accountModel.uid withType:HuaFeiPay];
-    
 }
+
 // 苹果支付
 - (void)appleAC {
-    [self orderCreate:self.accountModel.uid withType:AppPay];
+    AccountVC *vc = [[AccountVC alloc] init];
+    vc.deposit = self.deposit;
+    vc.payType = AppPay;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+//    [self orderCreate:self.accountModel.uid withType:AppPay];
 }
 
 - (void)orderCreate:(NSString *)uid withType:(PayType)type
@@ -195,7 +208,7 @@
 }
 // 联系客服
 - (void)kefuAC {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line: CandyTalk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Salin ID", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line：ttmcs" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Salin ID", nil];
     [alert show];
 }
 

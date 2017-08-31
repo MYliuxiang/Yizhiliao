@@ -557,6 +557,7 @@ static NSString *const headerId = @"headerId";
     
 //    [self btnClick:sender.tag];
 //    _tableView.hidden = NO;
+    
     AccountModel *model = self.dataList[sender.tag];
     AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
     vc.model = self.model;

@@ -7,7 +7,7 @@
 //
 
 #import "NewMyVC.h"
-
+#import "AccountPayTypeVC.h"
 @interface NewMyVC ()
 
 @end
@@ -527,9 +527,12 @@
         
         if (indexPath.row == 0) {
             //账户
-            AccountVC *vc = [[AccountVC alloc] init];
+            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
             vc.deposit = self.model.deposit;
             [self.navigationController pushViewController:vc animated:YES];
+//            AccountVC *vc = [[AccountVC alloc] init];
+//            vc.deposit = self.model.deposit;
+//            [self.navigationController pushViewController:vc animated:YES];
             
         }else{
            //收入

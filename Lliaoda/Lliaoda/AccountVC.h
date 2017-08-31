@@ -18,7 +18,8 @@ typedef NS_ENUM(NSInteger, PayType) {
     WeixinPay,
     AliPay,
     AppPay,
-    HuaFeiPay
+    HuaFeiPay,
+    UnipinPay
 };
 
 @interface AccountVC : BaseViewController<WXApiDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AccountPayTypeCellDelegate>
@@ -40,4 +41,5 @@ typedef NS_ENUM(NSInteger, PayType) {
 @property (nonatomic, copy) NSString *orderReferee;
 @property (nonatomic, copy) AgoraAPI *inst;
 @property (nonatomic,copy) void(^rechargeBlock)(NSString *uid, NSString *diamonds);
+@property (nonatomic, assign) PayType payType;
 @end
