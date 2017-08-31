@@ -18,4 +18,5 @@
 @property (nonatomic,retain) Mymodel *model;
 @property (nonatomic, retain) AccountModel *accountModel;
 @property (nonatomic, copy) NSString *orderReferee;
+@property (nonatomic,assign) int deposit;
 @end
