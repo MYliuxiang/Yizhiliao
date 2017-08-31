@@ -555,8 +555,20 @@ static NSString *const headerId = @"headerId";
 - (void)buttonAC:(UIButton *)sender
 {
     
+    if (self.payType == AppPay) {
+        // 苹果支付
+        
+    } else if (self.payType == HuaFeiPay) {
+        // 话费支付
+        
+    } else if (self.payType == UnipinPay) {
+        // 印尼第三方支付
+    }
+    
 //    [self btnClick:sender.tag];
 //    _tableView.hidden = NO;
+    
+    
     
     AccountModel *model = self.dataList[sender.tag];
     AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
