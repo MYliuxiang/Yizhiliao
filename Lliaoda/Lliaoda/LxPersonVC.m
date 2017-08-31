@@ -76,14 +76,18 @@
     [self.blackView addGestureRecognizer:hidRandG];
 
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
-        
+        _tableViewBottom.constant = 0;
         [self addrightImage:@"bianji"];
-        
-        
+        self.giftBtn.hidden = YES;
+        self.chongzhiBtn.hidden = YES;
+        self.footerView.hidden = YES;
     }else{
         
         [self addrightImage:@"dengdeng"];
-        
+        self.giftBtn.hidden = NO;
+        self.chongzhiBtn.hidden = NO;
+        self.footerView.hidden = NO;
+        _tableViewBottom.constant = 49;
     }
 
     
@@ -416,7 +420,15 @@
                 
                 self.headerVIew.height = kScreenWidth + 45 + 40;
                 self.tableView.tableHeaderView = self.headerVIew;
-                self.footerView.hidden = NO;
+                
+                if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
+                    _tableViewBottom.constant = 0;
+                    self.footerView.hidden = YES;
+                }else{
+                    _tableViewBottom.constant = 49;
+                    self.footerView.hidden = NO;
+                }
+                
 
 
                 
@@ -808,8 +820,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_type == 0) {
+        if (indexPath.row == 3) {
+            return [LxMessageCell whc_CellHeightForIndexPath:indexPath tableView:tableView];
+        } else {
+            return 50;
+        }
         
-        return [LxMessageCell whc_CellHeightForIndexPath:indexPath tableView:tableView];
         
     }else{
     

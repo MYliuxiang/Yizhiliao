@@ -78,5 +78,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 - (IBAction)likeButtonAC:(id)sender;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottom;
 
 @end
