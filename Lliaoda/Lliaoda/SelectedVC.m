@@ -18,6 +18,7 @@
 @implementation SelectedVC
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.text = LXSring(@"精選");
@@ -56,9 +57,9 @@
     self.tableView.hidden = YES;
     self.collectionView.hidden = YES;
     [self isZhuBo];
+        
     
 }
-
 
 - (void)isZhuBo
 {

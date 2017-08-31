@@ -17,12 +17,14 @@
 #import "BannerView.h"
 #import "LxPersonVC.h"
 #import "OnlineUserCell.h"
+
 @interface SelectedVC : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate>
 {
     int _begin;
     BOOL _isdownLoad;
 
 }
+
 @property (nonatomic,retain) Mymodel *model;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowlayout;
@@ -36,5 +38,6 @@
 @property (nonatomic, strong) SDCycleScrollView *cycleScrollView;
 
 @property (nonatomic,retain) MJRefreshBackNormalFooter *footer;
+
 
 @end
