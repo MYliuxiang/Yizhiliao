@@ -24,9 +24,7 @@
                 <outlet property="headerVIew" destination="wdH-fL-Yje" id="vTz-8V-iim"/>
                 <outlet property="hederLunView" destination="D3N-7S-BGE" id="hg1-mt-ar3"/>
                 <outlet property="idlabel" destination="AAa-Qz-d40" id="OcN-fE-KIh"/>
-                <outlet property="likeImge" destination="uYJ-dj-MG4" id="7lx-WU-ZnL"/>
-                <outlet property="likeLabel" destination="NAK-R0-RzO" id="wNQ-1M-lP5"/>
-                <outlet property="likeView" destination="Jbw-4T-e21" id="khP-NX-JyE"/>
+                <outlet property="likeButton" destination="Gld-Ii-pI4" id="gs2-Uj-8YB"/>
                 <outlet property="nickNameLab" destination="9Ok-v7-OwL" id="8gB-iX-uk3"/>
                 <outlet property="numbelLabel" destination="meb-Wz-POg" id="mcm-ly-j9C"/>
                 <outlet property="seletedView" destination="0K5-HZ-JMt" id="Lhf-fK-dR1"/>
@@ -136,10 +134,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                     <subviews>
                         <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlz-lR-NbA">
-                            <rect key="frame" x="0.0" y="275" width="375" height="100"/>
+                            <rect key="frame" x="0.0" y="225" width="375" height="150"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="100" id="hL1-5W-reg"/>
+                                <constraint firstAttribute="height" constant="150" id="hL1-5W-reg"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ok-v7-OwL">
@@ -220,38 +218,21 @@
                                 <constraint firstAttribute="bottom" secondItem="6qB-ez-HkO" secondAttribute="bottom" id="mt4-o9-Bop"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbw-4T-e21">
-                            <rect key="frame" x="84" y="240" width="68" height="22"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xinxing_h" translatesAutoresizingMaskIntoConstraints="NO" id="uYJ-dj-MG4">
-                                    <rect key="frame" x="11" y="6" width="10" height="10"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="10" id="5Gp-gz-pqQ"/>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="D0d-a9-uU2"/>
-                                        <constraint firstAttribute="height" constant="10" id="J3n-8D-r8r"/>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="ebJ-Wc-Wg3"/>
-                                    </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAK-R0-RzO">
-                                    <rect key="frame" x="26" y="0.0" width="31" height="22"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gld-Ii-pI4">
+                            <rect key="frame" x="84" y="242.5" width="55" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="22" id="91A-V7-XmO"/>
-                                <constraint firstItem="NAK-R0-RzO" firstAttribute="leading" secondItem="uYJ-dj-MG4" secondAttribute="trailing" constant="5" id="IBz-Me-AD4"/>
-                                <constraint firstItem="NAK-R0-RzO" firstAttribute="centerY" secondItem="Jbw-4T-e21" secondAttribute="centerY" id="JAV-yi-pV7"/>
-                                <constraint firstAttribute="trailing" secondItem="NAK-R0-RzO" secondAttribute="trailing" constant="11" id="K3t-bd-iJN"/>
-                                <constraint firstItem="NAK-R0-RzO" firstAttribute="leading" secondItem="uYJ-dj-MG4" secondAttribute="trailing" constant="5" id="MCC-bK-BaJ"/>
-                                <constraint firstItem="NAK-R0-RzO" firstAttribute="top" secondItem="Jbw-4T-e21" secondAttribute="top" id="N70-bo-CPl"/>
-                                <constraint firstAttribute="bottom" secondItem="NAK-R0-RzO" secondAttribute="bottom" id="ZHT-rM-jCE"/>
-                                <constraint firstItem="uYJ-dj-MG4" firstAttribute="leading" secondItem="Jbw-4T-e21" secondAttribute="leading" constant="11" id="o88-4e-VQ0"/>
-                                <constraint firstItem="uYJ-dj-MG4" firstAttribute="centerY" secondItem="Jbw-4T-e21" secondAttribute="centerY" id="we7-UG-kK1"/>
+                                <constraint firstAttribute="width" constant="55" id="eB8-zg-Wua"/>
+                                <constraint firstAttribute="height" constant="22" id="hnf-bM-2JE"/>
                             </constraints>
-                        </view>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="100" image="xinxing_18"/>
+                            <state key="selected" image="xinxing_h"/>
+                            <connections>
+                                <action selector="likeButtonAC:" destination="-1" eventType="touchUpInside" id="Tmi-74-MsA"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -260,16 +241,16 @@
                         <constraint firstAttribute="bottom" secondItem="Ew3-8n-1IP" secondAttribute="bottom" constant="45" id="EG6-8H-Rjp"/>
                         <constraint firstItem="fOc-LW-sLS" firstAttribute="leading" secondItem="Ew3-8n-1IP" secondAttribute="trailing" constant="5" id="F7t-pf-HNO"/>
                         <constraint firstItem="AAa-Qz-d40" firstAttribute="top" secondItem="9Ok-v7-OwL" secondAttribute="bottom" constant="15" id="LZJ-3T-IZP"/>
-                        <constraint firstItem="Jbw-4T-e21" firstAttribute="leading" secondItem="9Ok-v7-OwL" secondAttribute="trailing" constant="10" id="LyS-mR-uXg"/>
                         <constraint firstAttribute="trailing" secondItem="Wlz-lR-NbA" secondAttribute="trailing" id="QwZ-hn-lfe"/>
                         <constraint firstItem="Ew3-8n-1IP" firstAttribute="top" secondItem="AAa-Qz-d40" secondAttribute="bottom" constant="15" id="RxK-PF-hjW"/>
-                        <constraint firstItem="Jbw-4T-e21" firstAttribute="baseline" secondItem="9Ok-v7-OwL" secondAttribute="baseline" id="TPJ-jj-i5D"/>
                         <constraint firstItem="p4V-z4-Wyb" firstAttribute="leading" secondItem="fOc-LW-sLS" secondAttribute="trailing" constant="5" id="TrQ-2n-saC"/>
                         <constraint firstItem="AAa-Qz-d40" firstAttribute="top" secondItem="9Ok-v7-OwL" secondAttribute="bottom" constant="15" id="dFw-vk-Gme"/>
                         <constraint firstItem="9Ok-v7-OwL" firstAttribute="leading" secondItem="AAa-Qz-d40" secondAttribute="leading" id="dGn-I2-Ssw"/>
                         <constraint firstAttribute="width" secondItem="D3N-7S-BGE" secondAttribute="height" multiplier="1:1" id="e6g-zL-hxF"/>
                         <constraint firstAttribute="bottom" secondItem="p4V-z4-Wyb" secondAttribute="bottom" constant="45" id="k3M-hy-fhW"/>
                         <constraint firstItem="Wlz-lR-NbA" firstAttribute="leading" secondItem="D3N-7S-BGE" secondAttribute="leading" id="mRJ-A8-Rb4"/>
+                        <constraint firstItem="Gld-Ii-pI4" firstAttribute="centerY" secondItem="9Ok-v7-OwL" secondAttribute="centerY" id="sy7-cY-o0O"/>
+                        <constraint firstItem="Gld-Ii-pI4" firstAttribute="leading" secondItem="9Ok-v7-OwL" secondAttribute="trailing" constant="10" id="vac-OI-T73"/>
                         <constraint firstAttribute="bottom" secondItem="Wlz-lR-NbA" secondAttribute="bottom" id="woT-JE-Zrh"/>
                         <constraint firstAttribute="bottom" secondItem="fOc-LW-sLS" secondAttribute="bottom" constant="45" id="wr2-Ei-geD"/>
                     </constraints>
@@ -362,6 +343,7 @@
         <image name="nvsheng" width="10" height="10"/>
         <image name="shipintonghua_h" width="22" height="20"/>
         <image name="sixin" width="22" height="22"/>
+        <image name="xinxing_18" width="9" height="8"/>
         <image name="xinxing_h" width="10" height="9"/>
     </resources>
 </document>

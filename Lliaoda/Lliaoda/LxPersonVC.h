@@ -76,5 +76,7 @@
 - (IBAction)giftAC:(id)sender;
 - (IBAction)chongzhiAC:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+- (IBAction)likeButtonAC:(id)sender;
 
 @end

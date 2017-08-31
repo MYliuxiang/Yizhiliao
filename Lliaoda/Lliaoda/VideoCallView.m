@@ -28,14 +28,14 @@
         [self.gotoMoneyBtn setTitle:LXSring(@"去充值") forState:UIControlStateNormal];
         self.likeLab.text = LXSring(@"互相喜欢后可私信聊天");
 
-        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-        if ([lang hasPrefix:@"ar"]) {
+//        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//        if ([lang hasPrefix:@"ar"]) {
             self.gitfButtonCenter.constant = 0;
-            self.redBtn.hidden = YES;
-        } else {
-            self.gitfButtonCenter.constant = 40;
-            self.redBtn.hidden = NO;
-        }
+//            self.redBtn.hidden = YES;
+//        } else {
+//            self.gitfButtonCenter.constant = 40;
+//            self.redBtn.hidden = NO;
+//        }
         
          _instMedia = [AgoraRtcEngineKit sharedEngineWithAppId:agoreappID delegate:self];
         _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
@@ -573,10 +573,10 @@
                         LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
 
                         lg.destructiveButtonBackgroundColor = Color_nav;
-                        lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                        lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                         lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                        lg.cancelButtonTitleColor = Color_nav;
+                        lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                         lg.cancelHandler = ^(LGAlertView * _Nonnull alertView) {
 
                         };
@@ -1003,7 +1003,7 @@
         // 显示
         item.badgeValue=[NSString stringWithFormat:@"%d",count];
         if(count == 0){
-            
+            [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
             item.badgeValue = nil;
         }
 
@@ -1141,12 +1141,12 @@
         
         LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"確定退出") message:LXSring(@"確定退出視訊通話吗？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"確定") delegate:nil];
         lg.destructiveButtonBackgroundColor = [UIColor whiteColor];
-        lg.destructiveButtonTitleColor = Color_nav;
+        lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
         lg.destructiveButtonFont = [UIFont systemFontOfSize:16];
 
         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
         lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-        lg.cancelButtonTitleColor = Color_nav;
+        lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
         lg.cancelHandler = ^(LGAlertView * _Nonnull alertView) {
             
         };
@@ -1313,10 +1313,10 @@
                         
                         LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
                         lg.destructiveButtonBackgroundColor = Color_nav;
-                        lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                        lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                         lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                        lg.cancelButtonTitleColor = Color_nav;
+                        lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                         lg.cancelHandler = ^(LGAlertView * _Nonnull alertView) {
 
                         };
@@ -1471,7 +1471,7 @@
  
     if(uid == [self.uid integerValue]){
         
-        self.redBtn.hidden = NO;
+//        self.redBtn.hidden = NO;
         self.giftBtn.hidden = NO;
         self.iscalling = YES;
 
@@ -1647,7 +1647,7 @@
         // 显示
         item.badgeValue=[NSString stringWithFormat:@"%d",count];
         if(count == 0){
-            
+            [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
             item.badgeValue = nil;
         }
 

@@ -52,7 +52,8 @@
     self.view.backgroundColor = Color_bg;
     [self _initnav];
    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageInstantReceive object:nil];
+    
+    
 }
 
 
@@ -139,49 +140,8 @@
     [alert show];
 
 }
-#pragma mark - LeftView红点判断
-- (void)onMessageInstantReceive:(NSNotification *)notification
-{
-    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
-    NSArray *array = [MessageCount findByCriteria:criteria];
-    int count = 0;
-    
-    for (MessageCount *mcount in array) {
-        count += mcount.count;
-        
-    }
-    [self widthString:[NSString stringWithFormat:@"%d", count]];
-    
-    
-}
 
-- (void)widthString:(NSString *)string {
-    int value = [string intValue];
-    if (value <= 0) {
-        _messageCountLabel.hidden = YES;
-    } else {
-        _messageCountLabel.hidden = NO;
-        if (value > 0 && value < 10) {
-            _messageCountLabel.frame = CGRectMake(_messageButton.right - 20, 0, 15, 15);
-        } else if (value >= 10 && value < 100) {
-            CGSize size = [self setWidth:300 height:15 font:10 content:string];
-            _messageCountLabel.frame = CGRectMake(_messageButton.right - 20, 0, size.width + 6, 15);
-        } else if (value >= 100) {
-            string = @"99+";
-            CGSize size = [self setWidth:300 height:15 font:10 content:string];
-            _messageCountLabel.frame = CGRectMake(_messageButton.right - 20, 0, size.width + 6, 15);
-        }
-        _messageCountLabel.text = string;
-    }
-}
-#pragma mark - 根据文本内容确定label的大小
-- (CGSize) setWidth:(CGFloat)width height:(CGFloat)height font:(CGFloat)font content:(NSString *)content{
-    UIFont *fonts = [UIFont systemFontOfSize:font];
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:fonts,NSFontAttributeName, nil];
-    CGSize size1 = [content boundingRectWithSize:CGSizeMake(width, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
-    return size1;
-}
+
 - (void)setText:(NSString *)text
 {
     _text = text;

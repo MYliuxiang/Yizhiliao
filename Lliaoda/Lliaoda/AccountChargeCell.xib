@@ -68,7 +68,7 @@
                                     <constraint firstItem="0Bz-yC-tzC" firstAttribute="top" secondItem="wya-0g-cV9" secondAttribute="top" constant="15" id="xYl-1y-6lA"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shouchongzhuanxiang" translatesAutoresizingMaskIntoConstraints="NO" id="itJ-ve-WGP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首充" translatesAutoresizingMaskIntoConstraints="NO" id="itJ-ve-WGP">
                                 <rect key="frame" x="-5" y="-5" width="59" height="59"/>
                             </imageView>
                         </subviews>
@@ -104,7 +104,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="shouchongzhuanxiang" width="59" height="59"/>
         <image name="zuanshi_55" width="27" height="23"/>
+        <image name="首充" width="59" height="59"/>
     </resources>
 </document>

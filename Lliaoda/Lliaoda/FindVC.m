@@ -78,6 +78,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageInstantReceive object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageNoData object:nil];
+    
     self.text = LXSring(@"發現");
     self.isShowMessageButton = YES;
     self.colors = @[[MyColor colorWithHexString:@"#E84969"],[MyColor colorWithHexString:@"#F1B534"],[MyColor colorWithHexString:@"#6AE8BB"],[MyColor colorWithHexString:@"#40B2F2"],[MyColor colorWithHexString:@"#6AE7BD"],[MyColor colorWithHexString:@"#F6BF33"],[MyColor colorWithHexString:@"#A753EA"]];
@@ -733,10 +736,10 @@
                         LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
                         
                         lg.destructiveButtonBackgroundColor = Color_nav;
-                        lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                        lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                         lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                        lg.cancelButtonTitleColor = Color_Tab;
+                        lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                             AccountVC *vc = [[AccountVC alloc] init];
                             vc.isCall = YES;
@@ -842,5 +845,55 @@
         _threeTimer = nil;
     }
     self.findView.hidden = YES;
+}
+
+#pragma mark - LeftView红点判断
+- (void)onMessageInstantReceive:(NSNotification *)notification
+{
+    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
+    NSArray *array = [MessageCount findByCriteria:criteria];
+    int count = 0;
+    
+    for (MessageCount *mcount in array) {
+        count += mcount.count;
+        
+    }
+    [self widthString:[NSString stringWithFormat:@"%d", count]];
+    
+    
+}
+
+- (void)widthString:(NSString *)string {
+    int value = [string intValue];
+    if (value <= 0) {
+        self.messageCountLabel.hidden = YES;
+    } else {
+        self.messageCountLabel.hidden = NO;
+        if (value > 0 && value < 10) {
+            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, 15, 15);
+        } else if (value >= 10 && value < 100) {
+            CGSize size = [self setWidth:300 height:15 font:10 content:string];
+            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
+        } else if (value >= 100) {
+            string = @"99+";
+            CGSize size = [self setWidth:300 height:15 font:10 content:string];
+            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
+        }
+        self.messageCountLabel.text = string;
+    }
+}
+
+- (void)onMessageNoData:(NSNotification *)notification {
+    self.messageCountLabel.text = @"0";
+    self.messageCountLabel.hidden = YES;
+}
+
+#pragma mark - 根据文本内容确定label的大小
+- (CGSize) setWidth:(CGFloat)width height:(CGFloat)height font:(CGFloat)font content:(NSString *)content{
+    UIFont *fonts = [UIFont systemFontOfSize:font];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:fonts,NSFontAttributeName, nil];
+    CGSize size1 = [content boundingRectWithSize:CGSizeMake(width, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+    return size1;
 }
 @end

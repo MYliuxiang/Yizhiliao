@@ -38,11 +38,15 @@
     self.view3.layer.cornerRadius = 15 / 2.0;
     self.view3.layer.masksToBounds = YES;
     
-    self.likeView.layer.cornerRadius = 22 / 2.0;
-    self.likeView.layer.masksToBounds = YES;
+//    self.likeView.layer.cornerRadius = 22 / 2.0;
+//    self.likeView.layer.masksToBounds = YES;
+//    self.likeView.layer.borderColor = [[UIColor whiteColor] CGColor];
+//    self.likeView.layer.borderWidth = 1;
+//    [self.likeView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(like)]];
     
-    
-    [self.likeView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(like)]];
+    self.likeButton.layer.cornerRadius = 11;
+    self.likeButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.likeButton.layer.borderWidth = 1;
 
     self.footerView.hidden = YES;
     
@@ -135,9 +139,10 @@
             if(result){
                 if ([[result objectForKey:@"result"] integerValue] == 0) {
                     self.isLike = NO;
-                    self.likeImge.image = [UIImage imageNamed:@"xinxing_22"];
-                    self.likeLabel.text = [NSString stringWithFormat:@"%d",[self.likeLabel.text intValue] -1];
-                    
+//                    self.likeImge.image = [UIImage imageNamed:@"xinxing_22"];
+//                    self.likeLabel.text = [NSString stringWithFormat:@"%d",[self.likeLabel.text intValue] -1];
+                    self.likeButton.selected = NO;
+                    [self.likeButton setTitle:[NSString stringWithFormat:@"%d",[self.likeButton.titleLabel.text intValue] -1] forState:UIControlStateNormal];
                                             //已经点赞
                     
                 }else{    //请求失败
@@ -173,8 +178,11 @@
                 if ([[result objectForKey:@"result"] integerValue] == 0) {
                     
                     self.isLike = YES;
-                    self.likeImge.image = [UIImage imageNamed:@"xinxing_h"];
-                    self.likeLabel.text = [NSString stringWithFormat:@"%d",[self.likeLabel.text intValue] +1];
+//                    self.likeImge.image = [UIImage imageNamed:@"xinxing_h"];
+//                    self.likeLabel.text = [NSString stringWithFormat:@"%d",[self.likeLabel.text intValue] +1];
+                    
+                    self.likeButton.selected = YES;
+                    [self.likeButton setTitle:[NSString stringWithFormat:@"%d",[self.likeButton.titleLabel.text intValue] +1] forState:UIControlStateNormal];
                     
                     long long idate = [[NSDate date] timeIntervalSince1970]* 1000;
                     
@@ -259,10 +267,10 @@
                             }else if ([[result objectForKey:@"result"] integerValue] == 29) {
                                 LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"成为VIP") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"获取VIP") delegate:nil];
                                 lg.destructiveButtonBackgroundColor = Color_nav;
-                                lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                                lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                                 lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                                 lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                                lg.cancelButtonTitleColor = Color_nav;
+                                lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                                 lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                                     AccountVC *vc = [[AccountVC alloc] init];
                                     [self.navigationController pushViewController:vc animated:YES];
@@ -418,15 +426,18 @@
                 self.idlabel.text = [NSString stringWithFormat:@"ID：%@",self.pmodel.uid];
                 
                 if (self.pmodel.like == 0) {
-                    self.likeImge.image = [UIImage imageNamed:@"xinxing_22"];
+                    self.likeButton.selected = NO;
+//                    self.likeImge.image = [UIImage imageNamed:@"xinxing_22"];
                     self.isLike = NO;
                     }else{
                     //已经点赞
-                        self.likeImge.image = [UIImage imageNamed:@"xinxing_h"];
+                        self.likeButton.selected = YES;
+//                        self.likeImge.image = [UIImage imageNamed:@"xinxing_h"];
                         self.isLike = YES;
                         
                         }
-                self.likeLabel.text = [NSString stringWithFormat:@"%d",self.pmodel.likeCount];
+                [self.likeButton setTitle:[NSString stringWithFormat:@"%d",self.pmodel.likeCount] forState:UIControlStateNormal];
+//                self.likeLabel.text = [NSString stringWithFormat:@"%d",self.pmodel.likeCount];
                 if (self.pmodel.gender == 0) {
                 
                     self.sexImage.image = [UIImage imageNamed:@"nansheng"];
@@ -560,125 +571,127 @@
 {
     
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
-        
+        NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+        [userDef setBool:YES forKey:@"ToEdit"];
         [self.navigationController popToRootViewControllerAnimated:NO];
-        [TJPTabBarController shareInstance].selectedIndex = [TJPTabBarController shareInstance].tabBar.items.count - 1;
+//        [TJPTabBarController shareInstance].selectedIndex = 2;
+//        return;
         
-        return;
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
-    }
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:LXSring(@"舉報") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        UIAlertController *alertController1 = [UIAlertController alertControllerWithTitle:nil message:LXSring(@"请选择舉報类型") preferredStyle:UIAlertControllerStyleActionSheet];
-        
-        NSString *nickName = self.pmodel.nickname;
-        
-        NSString *str = [NSString stringWithFormat:LXSring(@"你正在舉報%@"),nickName];
-        NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:str];
-        [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_Text_lightGray range:NSMakeRange(0, str.length - nickName.length)];
-        [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(str.length - nickName.length, nickName.length)];
-        [alertControllerStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, str.length)];
-        [alertController1 setValue:alertControllerStr forKey:@"_attributedTitle"];
-        
-        UIAlertAction *aletAction1 = [UIAlertAction actionWithTitle:LXSring(@"广告欺骗") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:LXSring(@"舉報") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            [self jubaoWithtype:0];
+            UIAlertController *alertController1 = [UIAlertController alertControllerWithTitle:nil message:LXSring(@"请选择舉報类型") preferredStyle:UIAlertControllerStyleActionSheet];
+            
+            NSString *nickName = self.pmodel.nickname;
+            
+            NSString *str = [NSString stringWithFormat:LXSring(@"你正在舉報%@"),nickName];
+            NSMutableAttributedString *alertControllerStr = [[NSMutableAttributedString alloc] initWithString:str];
+            [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_Text_lightGray range:NSMakeRange(0, str.length - nickName.length)];
+            [alertControllerStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(str.length - nickName.length, nickName.length)];
+            [alertControllerStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, str.length)];
+            [alertController1 setValue:alertControllerStr forKey:@"_attributedTitle"];
+            
+            UIAlertAction *aletAction1 = [UIAlertAction actionWithTitle:LXSring(@"广告欺骗") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [self jubaoWithtype:0];
+                
+            }];
+            
+            UIAlertAction *aletAction2 = [UIAlertAction actionWithTitle:LXSring(@"淫秽色情") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [self jubaoWithtype:1];
+                
+            }];
+            
+            UIAlertAction *aletAction3 = [UIAlertAction actionWithTitle:LXSring(@"政治反动") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [self jubaoWithtype:2];
+                
+            }];
+            
+            UIAlertAction *aletAction4 = [UIAlertAction actionWithTitle:LXSring(@"其他") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [self jubaoWithtype:3];
+                
+            }];
+            
+            UIAlertAction *cancelAction1 = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
+            
+            [cancelAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
+            [aletAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
+            [aletAction2 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
+            [aletAction3 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
+            [aletAction4 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
+            
+            [alertController1 addAction:aletAction1];
+            [alertController1 addAction:aletAction2];
+            [alertController1 addAction:aletAction3];
+            [alertController1 addAction:aletAction4];
+            [alertController1 addAction:cancelAction1];
+            [self presentViewController:alertController1 animated:YES completion:nil];
             
         }];
         
-        UIAlertAction *aletAction2 = [UIAlertAction actionWithTitle:LXSring(@"淫秽色情") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
+        [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
+        [defaultAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
+        
+        UIAlertAction *lahei = [UIAlertAction actionWithTitle:LXSring(@"拉黑") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            [self jubaoWithtype:1];
             
-        }];
-        
-        UIAlertAction *aletAction3 = [UIAlertAction actionWithTitle:LXSring(@"政治反动") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            [self jubaoWithtype:2];
-            
-        }];
-        
-        UIAlertAction *aletAction4 = [UIAlertAction actionWithTitle:LXSring(@"其他") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            [self jubaoWithtype:3];
-            
-        }];
-        
-        UIAlertAction *cancelAction1 = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
-        
-        [cancelAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-        [aletAction1 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-        [aletAction2 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-        [aletAction3 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-        [aletAction4 setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-        
-        [alertController1 addAction:aletAction1];
-        [alertController1 addAction:aletAction2];
-        [alertController1 addAction:aletAction3];
-        [alertController1 addAction:aletAction4];
-        [alertController1 addAction:cancelAction1];
-        [self presentViewController:alertController1 animated:YES completion:nil];
-        
-    }];
-    
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LXSring(@"取消") style:UIAlertActionStyleCancel handler:nil];
-    [cancelAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-    [defaultAction setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-    
-    UIAlertAction *lahei = [UIAlertAction actionWithTitle:LXSring(@"拉黑") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        
-        NSDictionary *params;
-        if (self.isFromHeader) {
-            params = @{@"uid":self.personUID};
-        } else {
-            params = @{@"uid":self.model.uid};
-        }
-        [WXDataService requestAFWithURL:Url_block params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
-            if(result){
-                if ([[result objectForKey:@"result"] integerValue] == 0) {
-                    
-                    BlackName *name = [[BlackName alloc] init];
-                    name.uid = self.model.uid;
-                    [name save];
-                    
-                    [SVProgressHUD showSuccessWithStatus:LXSring(@"拉黑成功")];
-                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                        
-                        [SVProgressHUD dismiss];
-                        [self.navigationController popToRootViewControllerAnimated:YES];
-                    });
-                    
-                    
-                } else{    //请求失败
-                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
-                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                        
-                        [SVProgressHUD dismiss];
-                    });
-                    
-                }
+            NSDictionary *params;
+            if (self.isFromHeader) {
+                params = @{@"uid":self.personUID};
+            } else {
+                params = @{@"uid":self.model.uid};
             }
+            [WXDataService requestAFWithURL:Url_block params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+                if(result){
+                    if ([[result objectForKey:@"result"] integerValue] == 0) {
+                        
+                        BlackName *name = [[BlackName alloc] init];
+                        name.uid = self.model.uid;
+                        [name save];
+                        
+                        [SVProgressHUD showSuccessWithStatus:LXSring(@"拉黑成功")];
+                        dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                        dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                            
+                            [SVProgressHUD dismiss];
+                            [self.navigationController popToRootViewControllerAnimated:YES];
+                        });
+                        
+                        
+                    } else{    //请求失败
+                        [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                        dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                        dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                            
+                            [SVProgressHUD dismiss];
+                        });
+                        
+                    }
+                }
+                
+            } errorBlock:^(NSError *error) {
+                NSLog(@"%@",error);
+                
+                
+            }];
             
-        } errorBlock:^(NSError *error) {
-            NSLog(@"%@",error);
             
             
         }];
-
-        
-        
-    }];
-    [lahei setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
-    [alertController addAction:lahei];
-    [alertController addAction:defaultAction];
-    [alertController addAction:cancelAction];
-    [self presentViewController:alertController animated:YES completion:nil];
+        [lahei setValue:Color_Text_lightGray forKey:@"_titleTextColor"];
+        [alertController addAction:lahei];
+        [alertController addAction:defaultAction];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+    
     
 
 }
@@ -1029,10 +1042,10 @@
                         LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
                         
                         lg.destructiveButtonBackgroundColor = Color_nav;
-                        lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                        lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                         lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                        lg.cancelButtonTitleColor = Color_nav;
+                        lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                             AccountVC *vc = [[AccountVC alloc] init];
                             [self.navigationController pushViewController:vc animated:YES];
@@ -1081,7 +1094,7 @@
     
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"不能给自己送礼物。") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"不能给自己送禮物。") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -1247,19 +1260,19 @@
             if ([[result objectForKey:@"result"] integerValue] == 31) {
                 LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"提示") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"好的") destructiveButtonTitle:nil delegate:nil];
                 lg.destructiveButtonBackgroundColor = Color_nav;
-                lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                 lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                 lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                lg.cancelButtonTitleColor = Color_nav;
+                lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                 [lg showAnimated:YES completionHandler:nil];
                 
             }else if ([[result objectForKey:@"result"] integerValue] == 30) {
                 LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"提示") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"好的") destructiveButtonTitle:nil delegate:nil];
                 lg.destructiveButtonBackgroundColor = Color_nav;
-                lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                 lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                 lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                lg.cancelButtonTitleColor = Color_nav;
+                lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                 [lg showAnimated:YES completionHandler:nil];
                 
             }else{
@@ -1310,4 +1323,7 @@
     return _messages;
 }
 
+- (IBAction)likeButtonAC:(id)sender {
+    [self like];
+}
 @end

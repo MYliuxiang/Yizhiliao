@@ -51,7 +51,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1454650304833688</string>
+				<string>fb370628906702867</string>
 			</array>
 		</dict>
 		<dict>
@@ -67,7 +67,7 @@
 	<key>CFBundleVersion</key>
 	<string>99</string>
 	<key>FacebookAppID</key>
-	<string>1454650304833688</string>
+	<string>370628906702867</string>
 	<key>FacebookDisplayName</key>
 	<string>Candy Talk TW</string>
 	<key>LSApplicationCategoryType</key>

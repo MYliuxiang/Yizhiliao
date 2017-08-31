@@ -393,10 +393,10 @@
                     
                     LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"老闆，鑽石不夠啦～儲值後立刻打賞！") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"［暫不用］") destructiveButtonTitle:LXSring(@"［去儲值］") delegate:nil];
                     lg.destructiveButtonBackgroundColor = Color_nav;
-                    lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                    lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                     lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                     lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                    lg.cancelButtonTitleColor = Color_nav;
+                    lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                     lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                         self.superview.hidden = YES;
                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];

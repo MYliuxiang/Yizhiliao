@@ -136,21 +136,41 @@
     [_button3 setImage:[UIImage imageNamed:@"me_h"] forState:UIControlStateSelected];
     [_button3 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [tabBarView addSubview:_button3];
-    
-    if (self.selectedIndex == 1){
-        _button1.selected = NO;
-        _button2.selected = YES;
-        _button3.selected = NO;
-    }else if (self.selectedIndex == 2){
-        _button1.selected = NO;
-        _button2.selected = NO;
-        _button3.selected = YES;
-        
+    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+    if ([userDef boolForKey:@"ToEdit"]) {
+        [userDef setBool:NO forKey:@"ToEdit"];
+        self.selectedIndex = 2;
+        if (self.selectedIndex == 1){
+            _button1.selected = NO;
+            _button2.selected = YES;
+            _button3.selected = NO;
+        }else if (self.selectedIndex == 2){
+            _button1.selected = NO;
+            _button2.selected = NO;
+            _button3.selected = YES;
+            
+        } else {
+            _button1.selected = YES;
+            _button2.selected = NO;
+            _button3.selected = NO;
+        }
     } else {
-        _button1.selected = YES;
-        _button2.selected = NO;
-        _button3.selected = NO;
+        if (self.selectedIndex == 1){
+            _button1.selected = NO;
+            _button2.selected = YES;
+            _button3.selected = NO;
+        }else if (self.selectedIndex == 2){
+            _button1.selected = NO;
+            _button2.selected = NO;
+            _button3.selected = YES;
+            
+        } else {
+            _button1.selected = YES;
+            _button2.selected = NO;
+            _button3.selected = NO;
+        }
     }
+    
     
 }
 

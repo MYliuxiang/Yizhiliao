@@ -761,13 +761,13 @@ controller   didAuthorizePayment:(PKPayment *)payment
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     NSString *money = @"";
     if ([lang hasPrefix:@"ar"]){
-        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian3"];
+//        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian3"];
         money = @"$";
     }else if ([lang hasPrefix:@"id"]){
-        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian2"];
+//        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian2"];
         money = @"Rp.";
     }else{
-        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian1"];
+//        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian1"];
         money = @"NT $";
     }
     if (fmodf(model.price / 100.00, 1)==0) {//如果有一位小数点

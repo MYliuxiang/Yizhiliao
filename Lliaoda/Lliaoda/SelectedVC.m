@@ -58,7 +58,8 @@
     self.collectionView.hidden = YES;
     [self isZhuBo];
         
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageInstantReceive object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageNoData object:nil];
 }
 
 - (void)isZhuBo
@@ -534,17 +535,17 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (self.bannersArray.count == 0) {
-        if (self.dataList.count == 0) {
-            
-            return 0;
-        }
-        
-        return self.dataList.count - 1;
-    } else {
-        return self.dataList.count;
-    }
-    
+//    if (self.bannersArray.count == 0) {
+//        if (self.dataList.count == 0) {
+//            
+//            return 0;
+//        }
+//        
+//        return self.dataList.count;
+//    } else {
+//        return self.dataList.count - 1;
+//    }
+    return self.dataList.count;
     
 }
 
@@ -553,12 +554,12 @@
 {
     //如果有闲置的就拿到使用,如果没有,系统自动的去创建
     SelectedCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SelectedCellID" forIndexPath:indexPath];
-    if (self.bannersArray.count == 0) {
-        cell.model = self.dataList[indexPath.row + 1];
-    } else {
-        cell.model = self.dataList[indexPath.row];
-    }
-    
+//    if (self.bannersArray.count == 0) {
+//        cell.model = self.dataList[indexPath.row];
+//    } else {
+//        cell.model = self.dataList[indexPath.row - 1];
+//    }
+    cell.model = self.dataList[indexPath.row];
     [cell setNeedsLayout];
     return cell;
     
@@ -641,6 +642,56 @@
 //    }
     
     
+}
+
+#pragma mark - LeftView红点判断
+- (void)onMessageInstantReceive:(NSNotification *)notification
+{
+    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
+    NSArray *array = [MessageCount findByCriteria:criteria];
+    int count = 0;
+    
+    for (MessageCount *mcount in array) {
+        count += mcount.count;
+        
+    }
+    [self widthString:[NSString stringWithFormat:@"%d", count]];
+    
+    
+}
+
+- (void)widthString:(NSString *)string {
+    int value = [string intValue];
+    if (value <= 0) {
+        self.messageCountLabel.hidden = YES;
+    } else {
+        self.messageCountLabel.hidden = NO;
+        if (value > 0 && value < 10) {
+            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, 15, 15);
+        } else if (value >= 10 && value < 100) {
+            CGSize size = [self setWidth:300 height:15 font:10 content:string];
+            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
+        } else if (value >= 100) {
+            string = @"99+";
+            CGSize size = [self setWidth:300 height:15 font:10 content:string];
+            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
+        }
+        self.messageCountLabel.text = string;
+    }
+}
+
+- (void)onMessageNoData:(NSNotification *)notification {
+    self.messageCountLabel.text = @"0";
+    self.messageCountLabel.hidden = YES;
+}
+
+#pragma mark - 根据文本内容确定label的大小
+- (CGSize) setWidth:(CGFloat)width height:(CGFloat)height font:(CGFloat)font content:(NSString *)content{
+    UIFont *fonts = [UIFont systemFontOfSize:font];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:fonts,NSFontAttributeName, nil];
+    CGSize size1 = [content boundingRectWithSize:CGSizeMake(width, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+    return size1;
 }
 
 - (void)didReceiveMemoryWarning {

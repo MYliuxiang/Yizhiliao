@@ -61,7 +61,7 @@ static MainTabBarController *mainTVC = nil;
     // 显示
     item.badgeValue=[NSString stringWithFormat:@"%d",count];
     if(count == 0){
-    
+        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
         item.badgeValue = nil;
     }
     
@@ -141,7 +141,7 @@ static MainTabBarController *mainTVC = nil;
     // 显示
     item.badgeValue=[NSString stringWithFormat:@"%d",count];
     if(count == 0){
-    
+        
         item.badgeValue = nil;
     }
 

@@ -175,10 +175,10 @@
     self.doneBtn.layer.cornerRadius = 22.5;
     self.doneBtn.layer.masksToBounds = YES;
 //    if (self.model.charge != -1) {
-//       
+//        self.setPriceLabel.text = [NSString stringWithFormat:@"%d鑽/分钟",self.model.charge];
 //        [self.priceBtn setTitle:[NSString stringWithFormat:@"%d鑽/分钟",self.model.charge] forState:UIControlStateNormal];
 //    }else{
-//        
+//        self.setPriceLabel.text = LXSring(@"未設定");
 //    [self.priceBtn setTitle:[NSString stringWithFormat:LXSring(@"未設定")] forState:UIControlStateNormal];
 //    }
     

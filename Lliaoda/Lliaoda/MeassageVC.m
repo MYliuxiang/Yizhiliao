@@ -56,7 +56,7 @@ static MeassageVC *this;
     // 显示
     item.badgeValue=[NSString stringWithFormat:@"%d",count];
     if(count == 0){
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
         item.badgeValue = nil;
     }
     [self.tableView reloadData];
@@ -127,7 +127,7 @@ static MeassageVC *this;
     // 显示
     item.badgeValue=[NSString stringWithFormat:@"%d",count];
     if(count == 0){
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
         item.badgeValue = nil;
     }
     [self.tableView reloadData];
@@ -360,7 +360,7 @@ static MeassageVC *this;
         // 显示
         item.badgeValue=[NSString stringWithFormat:@"%d",bage];
         if(bage == 0){
-            
+            [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
             item.badgeValue = nil;
         }
         
@@ -390,7 +390,7 @@ static MeassageVC *this;
         item.badgeValue = [NSString stringWithFormat:@"%d",newValue];
 
     }else{
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
         item.badgeValue = nil;
     }
     

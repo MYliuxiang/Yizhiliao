@@ -22,7 +22,7 @@
  */
 + (instancetype)shareInstance;
 
-
+- (void)initViewController;
 /**
  添加子控制器的block
 

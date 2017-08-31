@@ -553,19 +553,19 @@ NSString *const kTableViewFrame = @"frame";
             if ([[result objectForKey:@"result"] integerValue] == 31) {
                 LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"提示") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"好的") destructiveButtonTitle:nil delegate:nil];
                 lg.destructiveButtonBackgroundColor = Color_nav;
-                lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                 lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                 lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                lg.cancelButtonTitleColor = Color_nav;
+                lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                 [lg showAnimated:YES completionHandler:nil];
                 
             }else if ([[result objectForKey:@"result"] integerValue] == 30) {
                 LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"提示") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"好的") destructiveButtonTitle:nil delegate:nil];
                 lg.destructiveButtonBackgroundColor = Color_nav;
-                lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                 lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                 lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                lg.cancelButtonTitleColor = Color_nav;
+                lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                 [lg showAnimated:YES completionHandler:nil];
                 
             }else{
@@ -725,10 +725,10 @@ NSString *const kTableViewFrame = @"frame";
                         LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
                        
                         lg.destructiveButtonBackgroundColor = Color_nav;
-                        lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                        lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                         lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                        lg.cancelButtonTitleColor = Color_nav;
+                        lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                             AccountVC *vc = [[AccountVC alloc] init];
                             [self.navigationController pushViewController:vc animated:YES];
@@ -799,10 +799,10 @@ NSString *const kTableViewFrame = @"frame";
                     LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
                     
                     lg.destructiveButtonBackgroundColor = Color_nav;
-                    lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                    lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                     lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                     lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                    lg.cancelButtonTitleColor = Color_nav;
+                    lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                     lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                         AccountVC *vc = [[AccountVC alloc] init];
                         [self.navigationController pushViewController:vc animated:YES];
@@ -1310,10 +1310,10 @@ NSString *const kTableViewFrame = @"frame";
 
             LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
             lg.destructiveButtonBackgroundColor = Color_nav;
-            lg.destructiveButtonTitleColor = [UIColor whiteColor];
+            lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
             lg.cancelButtonFont = [UIFont systemFontOfSize:16];
             lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-            lg.cancelButtonTitleColor = Color_nav;
+            lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
             lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                 AccountVC *vc = [[AccountVC alloc] init];
 
@@ -1670,10 +1670,10 @@ NSString *const kTableViewFrame = @"frame";
                     
                     LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:result[@"message"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
                     lg.destructiveButtonBackgroundColor = Color_nav;
-                    lg.destructiveButtonTitleColor = [UIColor whiteColor];
+                    lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
                     lg.cancelButtonFont = [UIFont systemFontOfSize:16];
                     lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                    lg.cancelButtonTitleColor = Color_nav;
+                    lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                     lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                         AccountVC *vc = [[AccountVC alloc] init];
 

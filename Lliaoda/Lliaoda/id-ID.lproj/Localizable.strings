@@ -252,7 +252,7 @@
 "手機號碼"        = "No Telepon";
 "請輸入您真實的行動電話號碼"        = "Mohon masukkan nomor telepon yang benar";
 "公会名称"        = "Agency";
-"如沒有公會號，填寫000"        = "Jika tidak punya ID Agency, mohon masukkan 000";
+"如沒有公會號，填寫000"        = "Masukkan 000, jika tidak punya.";
 "完成"        = "Submit";
 "视频通话收费"        = "Biaya video call";
 "免费"        = "Gratis";
@@ -424,3 +424,4 @@
 "填寫行業，找到更多志同道合的朋友"   =  "Diisi pekerjaan Anda, supaya mendapatkan lebih banyak teman di bidang yang sama";
 "最近活躍"   =  "Barusan Aktif";
 "私信"   =  "Pesan";
+"不能给自己打电话。"   =  "Anda tidak dapat video call dengan diri sendiri";

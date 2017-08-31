@@ -122,8 +122,14 @@
     }
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
    
+//    [JPUSHService setupWithOption:launchOptions
+//                           appKey:@"a7062123f570c9064200aa6a"
+//                          channel:@"AppStore"
+//                 apsForProduction:1
+//            advertisingIdentifier:nil];
+
     [JPUSHService setupWithOption:launchOptions
-                           appKey:@"a7062123f570c9064200aa6a"
+                           appKey:@"99c719079d47d45dbfc2b69b"
                           channel:@"AppStore"
                  apsForProduction:1
             advertisingIdentifier:nil];
@@ -388,7 +394,7 @@
                                             // 显示
                                             item.badgeValue=[NSString stringWithFormat:@"%d",count];
                                             if(count == 0){
-                                                
+                                                [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
                                                 item.badgeValue = nil;
                                             }
                                             
@@ -623,7 +629,8 @@
 
 /** 主页*/
 - (void)homePageViewControllerShow {
-    TJPTabBarController *rootVC = [TJPTabBarController shareInstance] ;
+//    TJPTabBarController *rootVC = [TJPTabBarController shareInstance] ;
+    TJPTabBarController *rootVC = [[TJPTabBarController alloc] init];
 //    TJPTabBarController *rootVC = [TJPTabBarController tabBarControllerWitnAddChildVCBlock:^(TJPTabBarController *tabBarVC) {
 //        
 //        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -1063,7 +1070,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         
     } errorBlock:^(NSError *error) {
         
-        
+        NSLog(@"%@", error);
     }];
 
     
