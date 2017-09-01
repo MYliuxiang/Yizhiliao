@@ -529,7 +529,7 @@
             //账户
             
             if ([LXUserDefaults boolForKey:ISMEiGUO]){
-                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                AccountVC *vc = [[AccountVC alloc] init];
                 vc.deposit = self.model.deposit;
                 [self.navigationController pushViewController:vc animated:YES];
                 
