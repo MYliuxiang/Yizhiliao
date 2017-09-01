@@ -272,7 +272,7 @@ static NSString *identifire = @"GiftID";
                             vc.isCall = YES;
                             vc.clickBlock = ^(){
                                 
-                                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+                                [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                                 self.superview.hidden = NO;
                                 
                                 
@@ -283,7 +283,7 @@ static NSString *identifire = @"GiftID";
                             AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
                             vc.isCall = YES;
                             vc.clickBlock = ^(){
-                                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+                                [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                                 self.superview.hidden = NO;
                             };
                             [[self topViewController].navigationController pushViewController:vc animated:YES];

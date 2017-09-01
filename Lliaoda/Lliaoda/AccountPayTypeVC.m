@@ -267,4 +267,16 @@
     
 }
 
+- (void)back
+{
+    
+    if (self.isCall) {
+        
+        self.clickBlock();
+        
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 @end
