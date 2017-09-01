@@ -12,5 +12,5 @@
 
 + (NSString *)getMainUrl;
 + (NSString *)getagoreappID;
-
++ (NSString *)getPayMainUrl;
 @end

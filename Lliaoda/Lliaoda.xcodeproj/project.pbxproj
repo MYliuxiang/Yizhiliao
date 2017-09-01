@@ -608,6 +608,8 @@
 		848A0AB41F45A44000057C5B /* ar1502964098.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 848A0AB31F45A44000057C5B /* ar1502964098.mp4 */; };
 		849901791F55601B00D4DD40 /* OnlineUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849901771F55601B00D4DD40 /* OnlineUserVC.m */; };
 		8499017A1F55601B00D4DD40 /* OnlineUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849901781F55601B00D4DD40 /* OnlineUserVC.xib */; };
+		849C6D261F590B6800E2289D /* PayWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C6D241F590B6800E2289D /* PayWebViewVC.m */; };
+		849C6D271F590B6800E2289D /* PayWebViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849C6D251F590B6800E2289D /* PayWebViewVC.xib */; };
 		84B8CDA91F4AC92700A13D27 /* PersonHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */; };
 		84B8CDAA1F4AC92700A13D27 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */; };
 		84B8CDAD1F4AD3F800A13D27 /* PersonHeaderScroolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDAC1F4AD3F800A13D27 /* PersonHeaderScroolView.m */; };
@@ -1556,6 +1558,9 @@
 		849901761F55601B00D4DD40 /* OnlineUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineUserVC.h; sourceTree = "<group>"; };
 		849901771F55601B00D4DD40 /* OnlineUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineUserVC.m; sourceTree = "<group>"; };
 		849901781F55601B00D4DD40 /* OnlineUserVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlineUserVC.xib; sourceTree = "<group>"; };
+		849C6D231F590B6800E2289D /* PayWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayWebViewVC.h; sourceTree = "<group>"; };
+		849C6D241F590B6800E2289D /* PayWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayWebViewVC.m; sourceTree = "<group>"; };
+		849C6D251F590B6800E2289D /* PayWebViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayWebViewVC.xib; sourceTree = "<group>"; };
 		84B8CDA61F4AC92700A13D27 /* PersonHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHeaderCell.h; sourceTree = "<group>"; };
 		84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeaderCell.m; sourceTree = "<group>"; };
 		84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonHeaderCell.xib; sourceTree = "<group>"; };
@@ -2807,6 +2812,9 @@
 				8476D5721F5017F300855CDF /* AccountPayTypeVC.h */,
 				8476D5731F5017F300855CDF /* AccountPayTypeVC.m */,
 				8476D5741F5017F300855CDF /* AccountPayTypeVC.xib */,
+				849C6D231F590B6800E2289D /* PayWebViewVC.h */,
+				849C6D241F590B6800E2289D /* PayWebViewVC.m */,
+				849C6D251F590B6800E2289D /* PayWebViewVC.xib */,
 				222B383D1ED96843009DB58F /* MSSBrowse */,
 				222B37DA1ED9642B009DB58F /* XLPhotoBrowser */,
 			);
@@ -3590,6 +3598,7 @@
 				222AA0501EB071910038416D /* B_118@2x.gif in Resources */,
 				222AA0381EB071910038416D /* B_05@2x.gif in Resources */,
 				22721FAE1EE7E3E7003A19D3 /* MediaCell.xib in Resources */,
+				849C6D271F590B6800E2289D /* PayWebViewVC.xib in Resources */,
 				222FA8751EFD198100E91AE5 /* GiftCell.xib in Resources */,
 				222AA0821EB071910038416D /* B_56@2x.gif in Resources */,
 				222AA03F1EB071910038416D /* B_102@2x.gif in Resources */,
@@ -4148,6 +4157,7 @@
 				228CF7411EDEBD840045986D /* VideoPlayVC.m in Sources */,
 				2270AB6B1F03E263003D5E00 /* GiftLayout.m in Sources */,
 				220654501EDFF60E00DFE8EB /* JXRadarPointView.m in Sources */,
+				849C6D261F590B6800E2289D /* PayWebViewVC.m in Sources */,
 				226BA90F1ED7E324004D983A /* MyCell.m in Sources */,
 				228941FC1ED926030020C307 /* MyalbumCell.m in Sources */,
 				22B109181EA4A4E200E35B74 /* MainTabBarController.m in Sources */,

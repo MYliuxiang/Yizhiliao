@@ -777,7 +777,7 @@
                         messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
                         
                         [messageModel save];
-                         [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                         
                         NSString *nickName = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:NickName]];
                         //给主播发送的

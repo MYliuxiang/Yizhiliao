@@ -242,6 +242,8 @@ alpha:1.0]
 #define LXSring(key) [LocalizationUtils DPLocalizedString:(key)]
 #define Language @"language"   //对应的语言
 
+// 印尼支付
+#define payMainUrl [LocalizationUtils getPayMainUrl]
 /*
  Face boolk
  APP ID：443120286052900
