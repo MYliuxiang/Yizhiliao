@@ -79,7 +79,6 @@ NSString *const kTableViewFrame = @"frame";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [IQKeyboardManager sharedManager].enable = NO;
@@ -107,6 +106,7 @@ NSString *const kTableViewFrame = @"frame";
     [self scrollToBottomAnimated:NO refresh:YES];
     
     [self loadYUe];
+    self.tableView.backgroundColor = Color_bg;
     
 }
 
@@ -129,7 +129,7 @@ NSString *const kTableViewFrame = @"frame";
 //    }
 
     NSDictionary *params;
-    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:YES isErrorHud:NO finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 self.myModel = [Mymodel mj_objectWithKeyValues:result[@"data"]];
@@ -1794,6 +1794,8 @@ NSString *const kTableViewFrame = @"frame";
     LHChatViewCell *messageCell = (LHChatViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!messageCell) {
         messageCell = [[LHChatViewCell alloc] initWithMessageModel:messageModel reuseIdentifier:cellIdentifier];
+        messageCell.backgroundColor = Color_bg;
+        messageCell.contentView.backgroundColor = Color_bg;
     }
     
     messageCell.messageModel = messageModel;

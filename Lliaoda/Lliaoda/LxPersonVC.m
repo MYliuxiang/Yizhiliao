@@ -89,8 +89,6 @@
         self.footerView.hidden = NO;
         _tableViewBottom.constant = 49;
     }
-
-    
     [_chatButton setTitle:LXSring(@"私信") forState:UIControlStateNormal];
     [_videoCallButton setTitle:LXSring(@"視頻通訊") forState:UIControlStateNormal];
     [_button1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -427,17 +425,7 @@
                 
                 self.headerVIew.height = kScreenWidth + 45 + 40;
                 self.tableView.tableHeaderView = self.headerVIew;
-                
-                if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
-                    _tableViewBottom.constant = 0;
-                    self.footerView.hidden = YES;
-                }else{
-                    _tableViewBottom.constant = 49;
-                    self.footerView.hidden = NO;
-                }
-                
-
-
+           
                 
                 self.pmodel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
                 
@@ -524,54 +512,16 @@
                 Present *present = self.pmodel.presents[0];
                
                 
-             
-                
-//                if(_model.state == 0){
-//                    
-//                    self.stateView.layer.borderColor = Color_Text_gray.CGColor;
-//                    self.stateView.layer.cornerRadius = 10;
-//                    self.stateView.layer.masksToBounds = YES;
-//                    self.stateView.layer.borderWidth = .5;
-//                    self.stateLabel.text = LXSring(@"离线");
-//                    self.stateLabel1.backgroundColor = Color_Text_gray;
-//                    self.stateLabel1.layer.cornerRadius = 8;
-//                    self.stateLabel1.layer.masksToBounds = YES;
-//                    self.stateView.hidden = YES;
-//                    self.stateLabel.hidden = YES;
-//                    
-//                }else if (_model.state == 1){
-//                    
-//                    self.stateView.hidden = YES;
-//                    self.stateLabel.hidden = YES;
-//                    self.stateView.layer.borderColor = Color_green.CGColor;
-//                    self.stateView.layer.cornerRadius = 10;
-//                    self.stateView.layer.masksToBounds = YES;
-//                    self.stateView.layer.borderWidth = .5;
-//                    self.stateLabel.text = LXSring(@"我有空");
-//                    self.stateLabel1.backgroundColor = Color_green;
-//                    self.stateLabel1.layer.cornerRadius = 8;
-//                    self.stateLabel1.layer.masksToBounds = YES;
-//                    
-//                }else{
-//                    
-//                    
-//                    self.stateView.hidden = NO;
-//                    self.stateLabel.hidden = NO;
-//                    self.stateView.layer.borderColor = Color_nav.CGColor;
-//                    self.stateView.layer.cornerRadius = 10;
-//                    self.stateView.layer.masksToBounds = YES;
-//                    self.stateView.layer.borderWidth = .5;
-//                    self.stateLabel.text = LXSring(@"忙碌");
-//                    self.stateLabel1.backgroundColor = Color_nav;
-//                    self.stateLabel1.layer.cornerRadius = 8;
-//                    self.stateLabel1.layer.masksToBounds = YES;
-//                    
-//                }
-                
-                
-                //                self.tableView.tableHeaderView = self.headerView;
-                
                 [_tableView reloadData];
+                
+                if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
+                    _tableViewBottom.constant = 0;
+                    self.footerView.hidden = YES;
+                }else{
+                    _tableViewBottom.constant = 49;
+                    self.footerView.hidden = NO;
+                }
+
                 
                 
             }else{    //请求失败
