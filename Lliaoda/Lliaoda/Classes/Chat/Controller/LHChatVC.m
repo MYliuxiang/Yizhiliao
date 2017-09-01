@@ -1037,6 +1037,7 @@ NSString *const kTableViewFrame = @"frame";
     button.layer.cornerRadius = 15;
     button.layer.masksToBounds = YES;
     [button setTitle:LXSring(@"删除") forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.titleLabel.font =[UIFont systemFontOfSize:14];
     [button addTarget:self action:@selector(buttonAC) forControlEvents:UIControlEventTouchUpInside];
     [_deleteView addSubview:button];
@@ -1481,12 +1482,11 @@ NSString *const kTableViewFrame = @"frame";
 //        _longMessage = [userInfo objectForKey:kMessageKey];
         self.tableView.editing = !self.tableView.editing;
         self.backButtton.hidden = YES;
-        self.rightbutton.hidden = YES;
         [self addlefttitleString:LXSring(@"取消")];
         [UIView animateWithDuration:.35 animations:^{
             _deleteView.top = kScreenHeight - 49;
         } completion:^(BOOL finished) {
-            
+            [self.view bringSubviewToFront:_deleteView];
         }];
         
     }
