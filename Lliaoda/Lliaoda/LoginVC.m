@@ -114,60 +114,6 @@
             }
         }
     }
-    
-
-    
-//    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
-//        
-//        self.noweixinView.hidden = YES;
-//        self.faceBtn.hidden = YES;
-//        self.loginBtn.hidden = YES;
-//        
-//        NSDictionary *params;
-//        [WXDataService requestAFWithURL:Url_appconfig params:params httpMethod:@"GET" isHUD:YES isErrorHud:NO finishBlock:^(id result) {
-//            if(result){
-//                if ([[result objectForKey:@"result"] integerValue] == 0) {
-//                    
-//                    BOOL paymentEnabled = [result[@"data"][@"config"][@"paymentEnabled"] boolValue];
-//                    
-//                    BOOL oauthLoginEnabled = [result[@"data"][@"config"][@"oauthLoginEnabled"] boolValue];
-//                    
-//                    [LXUserDefaults setBool:!oauthLoginEnabled forKey:ISMEiGUO];
-//                    [LXUserDefaults setBool:paymentEnabled forKey:payEnable];
-//                    [LXUserDefaults synchronize];
-//                    
-//                    if ([LXUserDefaults boolForKey:ISMEiGUO]){
-//                        self.noweixinView.hidden = NO;
-//                        self.faceBtn.hidden = YES;
-//                        
-//                    }else{
-//                        
-//                        self.noweixinView.hidden = YES;
-//                        self.faceBtn.hidden = NO;
-//                        
-//                        
-//                    }
-//
-//                }
-//                
-//
-//            }
-//            
-//        } errorBlock:^(NSError *error) {
-//            
-//        }];
-//
-//        
-//      }else{
-//        
-//        
-//
-//                
-//                
-//    }
-//    [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
-//    [LXUserDefaults synchronize];
-//    
    
     if ([LXUserDefaults boolForKey:ISMEiGUO]){
         self.noweixinView.hidden = NO;
