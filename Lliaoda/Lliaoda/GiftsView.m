@@ -266,16 +266,29 @@ static NSString *identifire = @"GiftID";
                     lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                         self.superview.hidden = YES;
                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-                        AccountVC *vc = [[AccountVC alloc] init];
-                        vc.isCall = YES;
-                        vc.clickBlock = ^(){
+                        
+                        if ([LXUserDefaults boolForKey:ISMEiGUO]){
+                            AccountVC *vc = [[AccountVC alloc] init];
+                            vc.isCall = YES;
+                            vc.clickBlock = ^(){
+                                
+                                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+                                self.superview.hidden = NO;
+                                
+                                
+                            };
+                            [[self topViewController].navigationController pushViewController:vc animated:YES];
                             
-                            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-                            self.superview.hidden = NO;
-                            
-                            
-                        };
-                        [[self topViewController].navigationController pushViewController:vc animated:YES];
+                        }else{
+                            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                            vc.isCall = YES;
+                            vc.clickBlock = ^(){
+                                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+                                self.superview.hidden = NO;
+                            };
+                            [[self topViewController].navigationController pushViewController:vc animated:YES];
+                        }
+                        
                         
                     };
                     [lg showAnimated:YES completionHandler:nil];
@@ -333,19 +346,41 @@ static NSString *identifire = @"GiftID";
 
     }
     self.superview.hidden = YES;
-    AccountVC *vc = [[AccountVC alloc] init];
-    vc.isCall = YES;
-    vc.clickBlock = ^(){
-        if(self.isVideoBool){
-            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-
-        }
-    self.superview.hidden = NO;
+//    AccountVC *vc = [[AccountVC alloc] init];
+//    vc.isCall = YES;
+//    vc.clickBlock = ^(){
+//        if(self.isVideoBool){
+//            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+//
+//        }
+//    self.superview.hidden = NO;
+//        
+//    };
+//     [[self topViewController].navigationController pushViewController:vc animated:YES];
+    
+    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+        AccountVC *vc = [[AccountVC alloc] init];
+        vc.isCall = YES;
+        vc.clickBlock = ^(){
+            if(self.isVideoBool){
+                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+                
+            }
+            self.superview.hidden = NO;
+        };
+        [[self topViewController].navigationController pushViewController:vc animated:YES];
         
-    };
-     [[self topViewController].navigationController pushViewController:vc animated:YES];
-    
-    
+    }else{
+        AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+        vc.isCall = YES;
+        vc.clickBlock = ^(){
+            if(self.isVideoBool){
+                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+            }
+            self.superview.hidden = NO;
+        };
+        [[self topViewController].navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)sendGiftMessage:(NSString *)giftName diamonds:(int)diamonds giftUid:(NSString *)giftUid{

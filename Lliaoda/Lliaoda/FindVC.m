@@ -741,18 +741,27 @@
                         lg.cancelButtonBackgroundColor = [UIColor whiteColor];
                         lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
-                            AccountVC *vc = [[AccountVC alloc] init];
-                            vc.isCall = YES;
                             
-                            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
-                            
-                            vc.clickBlock = ^{
+                            if ([LXUserDefaults boolForKey:ISMEiGUO]){
+                                AccountVC *vc = [[AccountVC alloc] init];
+                                vc.isCall = YES;
+                                [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+                                vc.clickBlock = ^{
+                                    [self call];
+                                };
+                                [self.navigationController pushViewController:vc animated:YES];
                                 
-                                [self call];
-                                
-                            };
+                            }else{
+                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                vc.isCall = YES;
+                                [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+                                vc.clickBlock = ^{
+                                    [self call];
+                                };
+                                [self.navigationController pushViewController:vc animated:YES];
+                            }
                             
-                            [self.navigationController pushViewController:vc animated:YES];
+                            
                             
                         };
                         [lg showAnimated:YES completionHandler:nil];
@@ -785,22 +794,24 @@
 
 
 - (IBAction)rechargeAC:(id)sender {
-    
-    AccountVC *vc = [[AccountVC alloc] init];
-    vc.isCall = YES;
-
-    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
-    
-    vc.clickBlock = ^{
+    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+        AccountVC *vc = [[AccountVC alloc] init];
+        vc.isCall = YES;
+        [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+        vc.clickBlock = ^{
+            [self call];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
         
-        [self call];
-        
-    };
-    
-    [self.navigationController pushViewController:vc animated:YES];
-    
-    
-    
+    }else{
+        AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+        vc.isCall = YES;
+        [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+        vc.clickBlock = ^{
+            [self call];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 - (IBAction)closeAC:(id)sender {
     

@@ -810,8 +810,14 @@
                                 lg.cancelButtonBackgroundColor = [UIColor whiteColor];
                                 lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
                                 lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
-                                    AccountVC *vc = [[AccountVC alloc] init];
-                                    [self.navigationController pushViewController:vc animated:YES];
+                                    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+                                        AccountVC *vc = [[AccountVC alloc] init];
+                                        [self.navigationController pushViewController:vc animated:YES];
+                                        
+                                    }else{
+                                        AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                        [self.navigationController pushViewController:vc animated:YES];
+                                    }
                                     
                                 };
                                 [lg showAnimated:YES completionHandler:nil];
@@ -1116,10 +1122,18 @@
         
     } else {
         
-        AccountVC *vc = [[AccountVC alloc] init];
-        vc.isCall = NO;
-        vc.orderReferee = self.model.uid;
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([LXUserDefaults boolForKey:ISMEiGUO]){
+            AccountVC *vc = [[AccountVC alloc] init];
+            vc.isCall = NO;
+            vc.orderReferee = self.model.uid;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }else{
+            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+            vc.isCall = NO;
+            vc.orderReferee = self.model.uid;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
     
     
@@ -1283,8 +1297,14 @@
                         lg.cancelButtonBackgroundColor = [UIColor whiteColor];
                         lg.cancelButtonTitleColor = Color_nav;
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
-                            AccountVC *vc = [[AccountVC alloc] init];
-                            [self.navigationController pushViewController:vc animated:YES];
+                            if ([LXUserDefaults boolForKey:ISMEiGUO]){
+                                AccountVC *vc = [[AccountVC alloc] init];
+                                [self.navigationController pushViewController:vc animated:YES];
+                                
+                            }else{
+                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                [self.navigationController pushViewController:vc animated:YES];
+                            }
                             
                         };
                         [lg showAnimated:YES completionHandler:nil];
