@@ -36,5 +36,7 @@
 - (IBAction)indonesiaButtonAC:(id)sender;
 - (IBAction)arabicButtonAC:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *accountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
 
 @end
