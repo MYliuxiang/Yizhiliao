@@ -25,6 +25,17 @@
     self.titleLable.textColor = [UIColor whiteColor];
     [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appPaySugerss:) name:Notice_appPaySugerss object:nil];
+    if (self.isCall) {
+        
+        [self _loadData1];
+        
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self _loadData1];
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -80,6 +91,7 @@
     AccountVC *vc = [[AccountVC alloc] init];
     vc.deposit = self.deposit;
     vc.payType = UnipinPay;
+    vc.isCall = self.isCall;
     [self.navigationController pushViewController:vc animated:YES];
 }
 // 话费
@@ -87,6 +99,7 @@
     AccountVC *vc = [[AccountVC alloc] init];
     vc.deposit = self.model.deposit;
     vc.payType = HuaFeiPay;
+    vc.isCall = self.isCall;
     [self.navigationController pushViewController:vc animated:YES];
     
 //    http://demo.yizhiliao.tv/pages/id-id/unipin_dcb.html?order=<订单ID>&price=<支付的价格>
@@ -98,6 +111,7 @@
     AccountVC *vc = [[AccountVC alloc] init];
     vc.deposit = self.deposit;
     vc.payType = AppPay;
+    vc.isCall = self.isCall;
     [self.navigationController pushViewController:vc animated:YES];
     
 //    [self orderCreate:self.accountModel.uid withType:AppPay];
@@ -210,6 +224,47 @@
 - (void)kefuAC {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line：ttmcs" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Salin ID", nil];
     [alert show];
+}
+
+- (void)appPaySugerss:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    _depositCount = [NSString stringWithFormat:@"%@",userInfo[@"data"][@"deposit"]];
+    [_tableView reloadData];
+    
+}
+
+- (void)_loadData1
+{
+    NSDictionary *params;
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                
+                myModel = [Mymodel mj_objectWithKeyValues:result[@"data"]];
+                //                self.accountLab.text = [NSString stringWithFormat:@"%d",myModel.deposit];
+                _depositCount = [NSString stringWithFormat:@"%d",myModel.deposit];
+                [_tableView reloadData];
+                //                [_tableView reloadData];
+                
+            } else{
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+    
+    
+    
 }
 
 @end

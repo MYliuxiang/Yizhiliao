@@ -527,9 +527,19 @@
         
         if (indexPath.row == 0) {
             //账户
-            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-            vc.deposit = self.model.deposit;
-            [self.navigationController pushViewController:vc animated:YES];
+            
+            if ([LXUserDefaults boolForKey:ISMEiGUO]){
+                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                vc.deposit = self.model.deposit;
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }else{
+                
+                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                vc.deposit = self.model.deposit;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
 //            AccountVC *vc = [[AccountVC alloc] init];
 //            vc.deposit = self.model.deposit;
 //            [self.navigationController pushViewController:vc animated:YES];

@@ -13,10 +13,15 @@
 #import <AddressBook/AddressBook.h>
 #import <StoreKit/StoreKit.h>
 @interface AccountPayTypeVC : BaseViewController<UITableViewDelegate, UITableViewDataSource, AccountPayTypeCellDelegate>
+{
+    Mymodel *myModel;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) NSString *depositCount;
 @property (nonatomic,retain) Mymodel *model;
 @property (nonatomic, retain) AccountModel *accountModel;
 @property (nonatomic, copy) NSString *orderReferee;
 @property (nonatomic,assign) int deposit;
+@property (nonatomic,copy) void(^clickBlock)(void);
+@property (nonatomic,assign) BOOL isCall;
 @end
