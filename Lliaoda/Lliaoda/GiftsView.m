@@ -469,10 +469,6 @@ static NSString *identifire = @"GiftID";
         [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
         item.badgeValue = nil;
     }
-
-    
-    
-    
     
 }
 @end
