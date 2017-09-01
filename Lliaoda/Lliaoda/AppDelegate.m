@@ -514,7 +514,7 @@
         agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
     }else if ([lang hasPrefix:@"id"]){
-      agent = [NSString stringWithFormat:@"%@,%@,ios,%@,302",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+      agent = [NSString stringWithFormat:@"%@,%@,ios,%@,402",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.live/api/%@",Url_appconfig]];
     }else{
       agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];

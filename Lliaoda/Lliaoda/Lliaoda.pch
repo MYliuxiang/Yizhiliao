@@ -223,11 +223,11 @@ alpha:1.0]
 //--------------网络请求--------
 #import "PchTool.h"
 
-//#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://apl.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
+#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://aplid.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
 
 //#define MAINURLStr @"http://demo.yizhiliao.tv/api/"
 //#define MAINURLStr @"http://demo.yizhiliao.live/api/"
-#define MAINURLStr [LocalizationUtils getMainUrl]
+//#define MAINURLStr [LocalizationUtils getMainUrl]
 
 #define MAINURL  MAINURLStr//主URL
 
@@ -244,23 +244,6 @@ alpha:1.0]
 
 // 印尼支付
 #define payMainUrl [LocalizationUtils getPayMainUrl]
-/*
- Face boolk
- APP ID：443120286052900
- APP Secret：e8f35a8e087f81ed8b78c3ea5bbc1e54
- */
-
-/*
- uid: 2
- appkey: 96003ff4-3e0a-431c-adda-cecf77003c0b
- 1:5EA6E6443C9B41FF9C785A0A4ABC7F29:1495095443:de572e3c9011209a844424139c527acc
- */
-/*
- appleid lx921102@icloud.com
-         Lx2345678
- 15820466014   liuxiang
- */
-
 #endif /* Lliaoda_pch */
 
 
