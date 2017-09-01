@@ -581,9 +581,14 @@
 
                         };
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
-                            AccountVC *vc = [[AccountVC alloc] init];
-
-                            [[self topViewController].navigationController pushViewController:vc animated:YES];
+                            if ([LXUserDefaults boolForKey:ISMEiGUO]){
+                                AccountVC *vc = [[AccountVC alloc] init];
+                                [[self topViewController].navigationController pushViewController:vc animated:YES];
+                                
+                            }else{
+                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                [[self topViewController].navigationController pushViewController:vc animated:YES];
+                            }
 
                         };
                         [lg showAnimated:YES completionHandler:nil];
@@ -1321,8 +1326,14 @@
 
                         };
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
-                            AccountVC *vc = [[AccountVC alloc] init];
-                            [[self topViewController].navigationController pushViewController:vc animated:YES];
+                            if ([LXUserDefaults boolForKey:ISMEiGUO]){
+                                AccountVC *vc = [[AccountVC alloc] init];
+                                [[self topViewController].navigationController pushViewController:vc animated:YES];
+                                
+                            }else{
+                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                [[self topViewController].navigationController pushViewController:vc animated:YES];
+                            }
                             
                         };
                         [lg showAnimated:YES completionHandler:nil];
@@ -1803,18 +1814,29 @@
 
 
 - (IBAction)gotoMoneyAC:(id)sender {
-    
-    AccountVC *vc = [[AccountVC alloc] init];
-    self.hidden = YES;
-    vc.isCall = YES;
-    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
-    vc.clickBlock = ^{
+    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+        AccountVC *vc = [[AccountVC alloc] init];
+        self.hidden = YES;
+        vc.isCall = YES;
+        [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+        vc.clickBlock = ^{
+            [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+            self.hidden = NO;
+        };
+        [[self topViewController].navigationController pushViewController:vc animated:YES];
         
-        [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-        self.hidden = NO;
-    };
+    }else{
+        AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+        self.hidden = YES;
+        vc.isCall = YES;
+        [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+        vc.clickBlock = ^{
+            [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+            self.hidden = NO;
+        };
+        [[self topViewController].navigationController pushViewController:vc animated:YES];
+    }
     
-    [[self topViewController].navigationController pushViewController:vc animated:YES];
     
 }
 - (IBAction)giftAC:(id)sender {

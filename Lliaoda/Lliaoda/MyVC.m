@@ -776,9 +776,18 @@
 - (void)accoutAC
 {
 
-    AccountVC *vc = [[AccountVC alloc] init];
-    vc.deposit = self.model.deposit;
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+        AccountVC *vc = [[AccountVC alloc] init];
+        vc.deposit = self.model.deposit;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }else{
+        AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+        vc.deposit = self.model.deposit;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    
     
 }
 

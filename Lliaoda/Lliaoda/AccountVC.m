@@ -668,6 +668,13 @@ static NSString *const headerId = @"headerId";
                     vc.urlString = url;
                     [self.navigationController pushViewController:vc animated:YES];
 //                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+                } else {
+                    if([SKPaymentQueue canMakePayments]){
+                        [self requestProductData:uid];
+                    }else{
+                        
+                        [SVProgressHUD showErrorWithStatus:LXSring(@"不允许程序内付费...")];
+                    }
                 }
                 
                 
