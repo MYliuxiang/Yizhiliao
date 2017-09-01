@@ -479,6 +479,8 @@ static NSString *const headerId = @"headerId";
         params = [[NSDictionary alloc] initWithObjectsAndKeys:@1, @"pay", nil];
     } else if (self.payType == HuaFeiPay) {
         params = [[NSDictionary alloc] initWithObjectsAndKeys:@2, @"pay", nil];
+    } else {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:@0, @"pay", nil];
     }
     [WXDataService requestAFWithURL:Url_commodities params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES  finishBlock:^(id result) {
         if(result){
