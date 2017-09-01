@@ -353,7 +353,7 @@ static NSString *const headerId = @"headerId";
             break;
         case -1:
             //                payResoult = @"支付结果：失败！";
-            [SVProgressHUD showWithStatus:LXSring(@"支付失败")];
+            [SVProgressHUD showWithStatus:LXSring(@"支付失敗")];
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 
                 [SVProgressHUD dismiss];
@@ -402,7 +402,7 @@ static NSString *const headerId = @"headerId";
                 break;
             case -1:
                 //                payResoult = @"支付结果：失败！";
-                [SVProgressHUD showWithStatus:LXSring(@"支付失败")];
+                [SVProgressHUD showWithStatus:LXSring(@"支付失敗")];
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     
                     [SVProgressHUD dismiss];
@@ -778,7 +778,7 @@ controller   didAuthorizePayment:(PKPayment *)payment
         NSLog(@"%@", LXSring(@"支付成功"));
     } else {
         completion(PKPaymentAuthorizationStatusFailure);
-        NSLog(@"%@", LXSring(@"支付失败"));
+        NSLog(@"%@", LXSring(@"支付失敗"));
     }
 }
 
