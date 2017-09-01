@@ -326,6 +326,7 @@
                     }
                     NSString *str = [arrs componentsJoinedByString:@","];
                     NSDictionary *params = @{@"uid":str};
+                
                     [WXDataService requestAFWithURL:Url_orderQuery params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
                         if(result){
                             if ([[result objectForKey:@"result"] integerValue] == 0) {

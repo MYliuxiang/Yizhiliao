@@ -41,4 +41,11 @@
 
     return agoreappIDStr;
 }
+
++ (NSString *)getPayMainUrl
+{
+    NSString *mainUrl = @"http://demo.yizhiliao.live";
+    
+    return mainUrl;
+}
 @end

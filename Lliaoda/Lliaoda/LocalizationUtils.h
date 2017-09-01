@@ -17,4 +17,6 @@
 
 + (NSString *)getagoreappID;
 
++ (NSString *)getPayMainUrl;
+
 @end

@@ -474,6 +474,11 @@
                 }
                 
                 self.feiyongLbael.text = charge.name;
+                if (self.feiyongLbael.text.length == 0) {
+                    self.view3.hidden = YES;
+                } else {
+                    self.view3.hidden = NO;
+                }
                 
                 NSMutableArray *marray = [NSMutableArray array];
                 for (Photo *photo in self.pmodel.photos) {

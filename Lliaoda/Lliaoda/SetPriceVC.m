@@ -190,8 +190,12 @@
     }
     
 //    [self.priceBtn setTitle:charge.name forState:UIControlStateNormal];
+    if (charge.name.length <= 0) {
+        self.setPriceLabel.text = [NSString stringWithFormat:@"%@鑽/分钟", @"5"];
+    } else {
+        self.setPriceLabel.text = charge.name;
+    }
     
-    self.setPriceLabel.text = charge.name;
    
     [self crpickerBG];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];

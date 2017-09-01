@@ -60,6 +60,8 @@
         
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageInstantReceive object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageNoData object:nil];
+    
+    
 }
 
 - (void)isZhuBo
