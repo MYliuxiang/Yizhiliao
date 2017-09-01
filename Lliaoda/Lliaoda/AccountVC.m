@@ -32,7 +32,7 @@ enum{
 
 @interface AccountVC ()<PKPaymentAuthorizationViewControllerDelegate,SKPaymentTransactionObserver,SKProductsRequestDelegate>
 {
-    
+    AccountModel *accountModel;
     int buyType;
     NSString *diamondCount;
     NSString *depositCount;
@@ -158,8 +158,8 @@ static NSString *const headerId = @"headerId";
 
 - (void)btnClick:(int)index
 {
-    AccountModel *model = self.dataList[index];
-    [self orderCreate:model.uid withType:AppPay];
+    accountModel = self.dataList[index];
+    [self orderCreate:accountModel.uid withType:AppPay];
     
 //    NSString *name = model.name;
 //    if (name.length >= 3) {
@@ -472,6 +472,13 @@ static NSString *const headerId = @"headerId";
 - (void)_loadData
 {
     NSDictionary *params;
+    if (self.payType == AppPay) {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:@0, @"pay", nil];
+    } else if (self.payType == UnipinPay) {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:@1, @"pay", nil];
+    } else if (self.payType == HuaFeiPay) {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:@2, @"pay", nil];
+    }
     [WXDataService requestAFWithURL:Url_commodities params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES  finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
@@ -554,29 +561,32 @@ static NSString *const headerId = @"headerId";
 
 - (void)buttonAC:(UIButton *)sender
 {
-    
-    if (self.payType == AppPay) {
+    accountModel = self.dataList[sender.tag];
+//    if (self.payType == AppPay) {
         // 苹果支付
+        [self orderCreate:accountModel.uid withType:self.payType];
         
-    } else if (self.payType == HuaFeiPay) {
-        // 话费支付
-        
-    } else if (self.payType == UnipinPay) {
-        // 印尼第三方支付
-    }
+//    } else if (self.payType == HuaFeiPay) {
+//        // 话费支付
+//        [self orderCreate:accountModel.uid withType:HuaFeiPay];
+//        
+//    } else if (self.payType == UnipinPay) {
+//        // 印尼第三方支付
+//        [self orderCreate:accountModel.uid withType:HuaFeiPay];
+//    }
     
 //    [self btnClick:sender.tag];
 //    _tableView.hidden = NO;
     
     
     
-    AccountModel *model = self.dataList[sender.tag];
-    AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-    vc.model = self.model;
-    vc.accountModel = model;
-    vc.depositCount = depositCount;
-    vc.orderReferee = self.orderReferee;
-    [self.navigationController pushViewController:vc animated:YES];
+//    AccountModel *model = self.dataList[sender.tag];
+//    AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+//    vc.model = self.model;
+//    vc.accountModel = model;
+//    vc.depositCount = depositCount;
+//    vc.orderReferee = self.orderReferee;
+//    [self.navigationController pushViewController:vc animated:YES];
 
 //    AccountModel *model = self.dataList[sender.tag];
 //    
@@ -633,12 +643,26 @@ static NSString *const headerId = @"headerId";
                 order.orderID = uids;
                 [order save];
             
-                if([SKPaymentQueue canMakePayments]){
-                    [self requestProductData:uid];
-                }else{
+                if (self.payType == AppPay) {
+                    if([SKPaymentQueue canMakePayments]){
+                        [self requestProductData:uid];
+                    }else{
+                        
+                        [SVProgressHUD showErrorWithStatus:LXSring(@"不允许程序内付费...")];
+                    }
+                } else if (self.payType == HuaFeiPay) {
+                    // 话费
+                    NSString *price = [NSString stringWithFormat:@"%d", accountModel.price];
+                    NSString *url = [NSString stringWithFormat:@"http://demo.yizhiliao.tv/pages/id-id/unipin_dcb.html?unipay=%@&order=%@&price=%@", @0, uids, price];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
                     
-                    [SVProgressHUD showErrorWithStatus:LXSring(@"不允许程序内付费...")];
+                } else if (self.payType == UnipinPay) {
+                    // unipin
+                    NSString *price = [NSString stringWithFormat:@"%d", accountModel.price];
+                    NSString *url = [NSString stringWithFormat:@"http://demo.yizhiliao.tv/pages/id-id/unipin_dcb.html?unipay=%@&order=%@&price=%@", @1, uids, price];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
                 }
+                
                 
 //                [self Pay:uid withType:type];
                 
