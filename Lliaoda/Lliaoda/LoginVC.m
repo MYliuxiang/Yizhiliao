@@ -261,10 +261,9 @@
                 [MobClick profileSignInWithPUID:uid provider:@"WX"];
                 [MobClick event:@"Forward"];
                 
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+                TJPTabBarController *rootVC = [[TJPTabBarController alloc] init];
                 
-                delegate.window.rootViewController = tab;
+                delegate.window.rootViewController = rootVC;
                 
             }else{
                 
