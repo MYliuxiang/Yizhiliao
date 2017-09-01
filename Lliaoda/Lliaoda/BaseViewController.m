@@ -227,7 +227,7 @@
    
     _leftbutton = [UIButton buttonWithType:UIButtonTypeCustom];
     _leftbutton.frame = CGRectMake(15 , 20 + (self.nav.height - 20 - 50 / 2.0) / 2.0 , 100 , 50 / 2.0);
-    [_leftbutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_leftbutton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_leftbutton setTitle:titleString forState:UIControlStateNormal];
     _leftbutton.titleLabel.font =[UIFont systemFontOfSize:16];
     //     _rightbutton.titleLabel.textAlignment = NSTextAlignmentRight;
