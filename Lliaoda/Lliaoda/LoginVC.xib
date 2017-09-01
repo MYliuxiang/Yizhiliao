@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC">
             <connections>
+                <outlet property="accountLabel" destination="cbN-eK-yfb" id="Khu-hT-7Um"/>
                 <outlet property="arabicButton" destination="Wd1-db-SM4" id="sKf-8J-7QX"/>
                 <outlet property="candyTalkLabel" destination="i1R-If-70e" id="l1d-Dh-9EB"/>
                 <outlet property="chineseButton" destination="DIa-uO-8HM" id="z2F-Cx-Jzo"/>
@@ -24,6 +25,7 @@
                 <outlet property="noWeixinBtn" destination="fEN-im-qCT" id="th7-RF-ph1"/>
                 <outlet property="noweixinView" destination="nxg-RA-Hsy" id="5gH-6P-ylb"/>
                 <outlet property="passTextField" destination="002-Sp-ujZ" id="EN1-yh-Kpl"/>
+                <outlet property="passwordLabel" destination="UbK-e3-xik" id="hT7-VA-0mc"/>
                 <outlet property="tongYiBtn" destination="2Mf-FE-DDO" id="Lkv-bY-XFf"/>
                 <outlet property="userTextField" destination="IZC-Za-D0X" id="ngP-dz-c3o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

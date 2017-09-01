@@ -125,7 +125,8 @@
         self.faceBtn.hidden = NO;
     }
     
-    
+    self.accountLabel.text = LXSring(@"账号");
+    self.passwordLabel.text = LXSring(@"密码");
     NSString *data = [[NSBundle mainBundle] pathForResource:@"2" ofType:nil];
     NSData *da = [NSData dataWithContentsOfFile:data];
     
