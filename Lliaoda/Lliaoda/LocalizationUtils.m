@@ -76,7 +76,8 @@
 
 + (NSString *)getPayMainUrl
 {
-    NSString *mainUrl = @"http://demo.yizhiliao.live";
+//    NSString *mainUrl = @"http://demo.yizhiliao.live";
+    NSString *mainUrl = @"https://www.yizhiliao.live";
     
     return mainUrl;
 }
