@@ -89,7 +89,7 @@
             break;
         case -2:
             //payResoult = @用户已经退出支付！;
-            [SVProgressHUD showWithStatus:@"用户已经退出分享！"];
+            [SVProgressHUD showWithStatus:LXSring(@"用户已经退出分享！")];
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 
                 [SVProgressHUD dismiss];
