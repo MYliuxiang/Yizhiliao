@@ -108,6 +108,9 @@
     [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
     [LXUserDefaults synchronize];
     
+    
+    
+    
     //fb
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
@@ -482,7 +485,7 @@
         });
         
     } else {
-        [SVProgressHUD showErrorWithStatus:LXSring(@"支付失败")];
+        [SVProgressHUD showErrorWithStatus:LXSring(@"支付失敗")];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             
@@ -509,17 +512,17 @@
 
     NSString *agent;
     NSString *mutableUrl;
-    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-Hant"]) {
-        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
-    }else if ([lang hasPrefix:@"id"]){
+//    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//    if ([lang hasPrefix:@"zh-Hant"]) {
+//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+//        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
+//    }else if ([lang hasPrefix:@"id"]){
       agent = [NSString stringWithFormat:@"%@,%@,ios,%@,402",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.live/api/%@",Url_appconfig]];
-    }else{
-      agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-      mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
-    }
+//    }else{
+//      agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+//      mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
+//    }
     
    
     NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];

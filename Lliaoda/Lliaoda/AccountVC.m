@@ -353,7 +353,7 @@ static NSString *const headerId = @"headerId";
             break;
         case -1:
             //                payResoult = @"支付结果：失败！";
-            [SVProgressHUD showWithStatus:LXSring(@"支付失败")];
+            [SVProgressHUD showWithStatus:LXSring(@"支付失敗")];
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 
                 [SVProgressHUD dismiss];
@@ -402,7 +402,7 @@ static NSString *const headerId = @"headerId";
                 break;
             case -1:
                 //                payResoult = @"支付结果：失败！";
-                [SVProgressHUD showWithStatus:LXSring(@"支付失败")];
+                [SVProgressHUD showWithStatus:LXSring(@"支付失敗")];
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     
                     [SVProgressHUD dismiss];
@@ -479,6 +479,8 @@ static NSString *const headerId = @"headerId";
         params = [[NSDictionary alloc] initWithObjectsAndKeys:@1, @"pay", nil];
     } else if (self.payType == HuaFeiPay) {
         params = [[NSDictionary alloc] initWithObjectsAndKeys:@2, @"pay", nil];
+    } else {
+        params = [[NSDictionary alloc] initWithObjectsAndKeys:@0, @"pay", nil];
     }
     [WXDataService requestAFWithURL:Url_commodities params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES  finishBlock:^(id result) {
         if(result){
@@ -776,7 +778,7 @@ controller   didAuthorizePayment:(PKPayment *)payment
         NSLog(@"%@", LXSring(@"支付成功"));
     } else {
         completion(PKPaymentAuthorizationStatusFailure);
-        NSLog(@"%@", LXSring(@"支付失败"));
+        NSLog(@"%@", LXSring(@"支付失敗"));
     }
 }
 
