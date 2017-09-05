@@ -24,34 +24,41 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-//    BOOL isFirstLaunch = [LXUserDefaults boolForKey:@"firstLaunch"];
-//    if (isFirstLaunch) {
-//        
-//        self.languageBGView.hidden = YES;
-//
-//
-//    } else {
-//        
-//        NSArray *languages = [NSLocale preferredLanguages];
-//        NSString *currentLanguage = [languages objectAtIndex:0];
+    BOOL isFirstLaunch = [LXUserDefaults boolForKey:@"firstLaunch"];
+    if (isFirstLaunch) {
+        
+        self.languageBGView.hidden = YES;
+
+
+    } else {
+        
+        NSArray *languages = [NSLocale preferredLanguages];
+        NSString *currentLanguage = [languages objectAtIndex:0];
 //        if([currentLanguage hasPrefix:@"zh-Hant"] || [currentLanguage hasPrefix:@"zh-Hans"]){
 //            self.languageBGView.hidden = YES;
 //            [LXUserDefaults setObject:@"zh-Hant" forKey:@"appLanguage"];
 //            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
 //            [LXUserDefaults synchronize];
 //
-//        }else if ([currentLanguage hasPrefix:@"id"]){
+//        }else
+        if ([currentLanguage hasPrefix:@"id"]){
             self.languageBGView.hidden = YES;
             [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
             [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
             [LXUserDefaults synchronize];
 
-//        }else{
-//            
-//            self.languageBGView.hidden = NO;
-//        }
-//
-//    }
+        } else if ([currentLanguage hasPrefix:@"ar"]) {
+            self.languageBGView.hidden = YES;
+            [LXUserDefaults setObject:@"ar" forKey:@"appLanguage"];
+            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
+            [LXUserDefaults synchronize];
+            
+        } else {
+            
+            self.languageBGView.hidden = NO;
+        }
+
+    }
     
     self.navbarHiden = YES;
     
@@ -115,7 +122,7 @@
         }
     }
    
-    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+    if (![LXUserDefaults boolForKey:ISMEiGUO]){
         self.noweixinView.hidden = NO;
         self.faceBtn.hidden = YES;
         

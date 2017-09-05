@@ -752,13 +752,24 @@
                                 [self.navigationController pushViewController:vc animated:YES];
                                 
                             }else{
-                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                                vc.isCall = YES;
-                                [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
-                                vc.clickBlock = ^{
-                                    [self call];
-                                };
-                                [self.navigationController pushViewController:vc animated:YES];
+                                NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+                                if ([lang hasPrefix:@"id"]){
+                                    AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                    vc.isCall = YES;
+                                    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+                                    vc.clickBlock = ^{
+                                        [self call];
+                                    };
+                                    [self.navigationController pushViewController:vc animated:YES];
+                                } else if ([lang hasPrefix:@"ar"]){
+                                    AccountVC *vc = [[AccountVC alloc] init];
+                                    vc.isCall = YES;
+                                    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+                                    vc.clickBlock = ^{
+                                        [self call];
+                                    };
+                                    [self.navigationController pushViewController:vc animated:YES];
+                                }
                             }
                             
                             
@@ -804,13 +815,25 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }else{
-        AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-        vc.isCall = YES;
-        [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
-        vc.clickBlock = ^{
-            [self call];
-        };
-        [self.navigationController pushViewController:vc animated:YES];
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"id"]){
+            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+            vc.isCall = YES;
+            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+            vc.clickBlock = ^{
+                [self call];
+            };
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if ([lang hasPrefix:@"ar"]){
+            AccountVC *vc = [[AccountVC alloc] init];
+            vc.isCall = YES;
+            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+            vc.clickBlock = ^{
+                [self call];
+            };
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
     }
 }
 - (IBAction)closeAC:(id)sender {

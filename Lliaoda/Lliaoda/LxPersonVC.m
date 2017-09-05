@@ -279,8 +279,15 @@
                                         [self.navigationController pushViewController:vc animated:YES];
                                         
                                     }else{
-                                        AccountVC *vc = [[AccountVC alloc] init];
-                                        [self.navigationController pushViewController:vc animated:YES];
+                                        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+                                        if ([lang hasPrefix:@"id"]){
+                                            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                            [self.navigationController pushViewController:vc animated:YES];
+                                            
+                                        } else if ([lang hasPrefix:@"ar"]){
+                                            AccountVC *vc = [[AccountVC alloc] init];
+                                            [self.navigationController pushViewController:vc animated:YES];
+                                        }
                                     }
                                     
                                     
@@ -1030,8 +1037,15 @@
                                 [self.navigationController pushViewController:vc animated:YES];
                                 
                             }else{
-                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                                [self.navigationController pushViewController:vc animated:YES];
+                                NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+                                if ([lang hasPrefix:@"id"]){
+                                    AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                    [self.navigationController pushViewController:vc animated:YES];
+                                    
+                                } else if ([lang hasPrefix:@"ar"]){
+                                    AccountVC *vc = [[AccountVC alloc] init];
+                                    [self.navigationController pushViewController:vc animated:YES];
+                                }
                             }
                             
                         };
@@ -1298,10 +1312,20 @@
             [self.navigationController pushViewController:vc animated:YES];
             
         }else{
-            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-            vc.isCall = NO;
-            vc.orderReferee = self.model.uid;
-            [self.navigationController pushViewController:vc animated:YES];
+            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+            if ([lang hasPrefix:@"id"]){
+                
+                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                vc.isCall = NO;
+                vc.orderReferee = self.model.uid;
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            } else if ([lang hasPrefix:@"ar"]){
+                AccountVC *vc = [[AccountVC alloc] init];
+                vc.isCall = NO;
+                vc.orderReferee = self.model.uid;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }
         
     }
