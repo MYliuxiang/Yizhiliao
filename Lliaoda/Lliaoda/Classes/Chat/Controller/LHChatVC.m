@@ -633,10 +633,20 @@ NSString *const kTableViewFrame = @"frame";
         [self.navigationController pushViewController:vc animated:YES];
         
     }else{
-        AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-        vc.isCall = NO;
-        vc.orderReferee = self.sendUid;
-        [self.navigationController pushViewController:vc animated:YES];
+        
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"id"]){
+            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+            vc.isCall = NO;
+            vc.orderReferee = self.sendUid;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        } else if ([lang hasPrefix:@"ar"]){
+            AccountVC *vc = [[AccountVC alloc] init];
+            vc.isCall = NO;
+            vc.orderReferee = self.sendUid;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
     
     
@@ -743,11 +753,19 @@ NSString *const kTableViewFrame = @"frame";
                         lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                             if ([LXUserDefaults boolForKey:ISMEiGUO]){
                                 AccountVC *vc = [[AccountVC alloc] init];
+                                vc.orderReferee = self.sendUid;
                                 [self.navigationController pushViewController:vc animated:YES];
                                 
                             }else{
-                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                                [self.navigationController pushViewController:vc animated:YES];
+                                NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+                                if ([lang hasPrefix:@"id"]){
+                                    AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                    [self.navigationController pushViewController:vc animated:YES];
+                                    
+                                } else if ([lang hasPrefix:@"ar"]){
+                                    AccountVC *vc = [[AccountVC alloc] init];
+                                    [self.navigationController pushViewController:vc animated:YES];
+                                }
                             }
                             
                             
@@ -827,8 +845,16 @@ NSString *const kTableViewFrame = @"frame";
                             [self.navigationController pushViewController:vc animated:YES];
                             
                         }else{
-                            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                            [self.navigationController pushViewController:vc animated:YES];
+                            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+                            if ([lang hasPrefix:@"id"]){
+                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                [self.navigationController pushViewController:vc animated:YES];
+                                
+                            } else if ([lang hasPrefix:@"ar"]){
+                                AccountVC *vc = [[AccountVC alloc] init];
+                                [self.navigationController pushViewController:vc animated:YES];
+                            }
+                            
                         }
                         
                     };
@@ -1345,8 +1371,16 @@ NSString *const kTableViewFrame = @"frame";
                     [self.navigationController pushViewController:vc animated:YES];
                     
                 }else{
-                    AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                    [self.navigationController pushViewController:vc animated:YES];
+                    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+                    if ([lang hasPrefix:@"id"]){
+                        AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                        [self.navigationController pushViewController:vc animated:YES];
+                        
+                    } else if ([lang hasPrefix:@"ar"]){
+                        AccountVC *vc = [[AccountVC alloc] init];
+                        [self.navigationController pushViewController:vc animated:YES];
+                    }
+                    
                 }
                 
             };
@@ -1709,8 +1743,15 @@ NSString *const kTableViewFrame = @"frame";
                             [self.navigationController pushViewController:vc animated:YES];
                             
                         }else{
-                            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                            [self.navigationController pushViewController:vc animated:YES];
+                            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+                            if ([lang hasPrefix:@"id"]){
+                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                [self.navigationController pushViewController:vc animated:YES];
+                                
+                            } else if ([lang hasPrefix:@"ar"]){
+                                AccountVC *vc = [[AccountVC alloc] init];
+                                [self.navigationController pushViewController:vc animated:YES];
+                            }
                         }
                         
                     };

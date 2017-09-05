@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,7 +14,6 @@
                 <outlet property="accountLabel" destination="cbN-eK-yfb" id="Khu-hT-7Um"/>
                 <outlet property="arabicButton" destination="Wd1-db-SM4" id="sKf-8J-7QX"/>
                 <outlet property="candyTalkLabel" destination="i1R-If-70e" id="l1d-Dh-9EB"/>
-                <outlet property="chineseButton" destination="DIa-uO-8HM" id="z2F-Cx-Jzo"/>
                 <outlet property="faceBtn" destination="xsn-p2-H3M" id="Hnj-K0-mdb"/>
                 <outlet property="indonesiaButton" destination="c7q-Ws-KM0" id="rTK-cW-du5"/>
                 <outlet property="label" destination="mk7-q2-v3v" id="Gve-18-Eas"/>
@@ -36,78 +35,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r41-tE-sLL">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_loading" translatesAutoresizingMaskIntoConstraints="NO" id="XYF-Fu-HOb">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        </imageView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXl-1t-2KQ">
-                            <rect key="frame" x="63" y="248" width="250" height="172"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIa-uO-8HM">
-                                    <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="Sqq-kA-tEK"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <state key="normal" title="繁體中文">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="chineseButtonAC:" destination="-1" eventType="touchUpInside" id="QdY-KR-Und"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7q-Ws-KM0">
-                                    <rect key="frame" x="0.0" y="64" width="250" height="44"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <state key="normal" title="Bahasa Indonesia">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="indonesiaButtonAC:" destination="-1" eventType="touchUpInside" id="Mqe-0g-JoL"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd1-db-SM4">
-                                    <rect key="frame" x="0.0" y="128" width="250" height="44"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <state key="normal" title="اللغة العربية">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="arabicButtonAC:" destination="-1" eventType="touchUpInside" id="73j-ie-Yt5"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="top" secondItem="DIa-uO-8HM" secondAttribute="bottom" constant="20" id="2DR-C6-TT8"/>
-                                <constraint firstItem="Wd1-db-SM4" firstAttribute="centerX" secondItem="DIa-uO-8HM" secondAttribute="centerX" id="78f-Pa-6BG"/>
-                                <constraint firstAttribute="trailing" secondItem="DIa-uO-8HM" secondAttribute="trailing" id="8wj-4g-ZfH"/>
-                                <constraint firstItem="Wd1-db-SM4" firstAttribute="width" secondItem="DIa-uO-8HM" secondAttribute="width" id="CPm-vY-san"/>
-                                <constraint firstItem="Wd1-db-SM4" firstAttribute="height" secondItem="DIa-uO-8HM" secondAttribute="height" id="DzO-Sa-GUD"/>
-                                <constraint firstItem="DIa-uO-8HM" firstAttribute="top" secondItem="iXl-1t-2KQ" secondAttribute="top" id="Lh1-gk-cHm"/>
-                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="width" secondItem="DIa-uO-8HM" secondAttribute="width" id="ONr-CF-GJa"/>
-                                <constraint firstItem="Wd1-db-SM4" firstAttribute="top" secondItem="c7q-Ws-KM0" secondAttribute="bottom" constant="20" id="Zgd-t0-BvX"/>
-                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="height" secondItem="DIa-uO-8HM" secondAttribute="height" id="h78-yC-gGv"/>
-                                <constraint firstAttribute="bottom" secondItem="Wd1-db-SM4" secondAttribute="bottom" id="m7X-3G-WXJ"/>
-                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="centerX" secondItem="DIa-uO-8HM" secondAttribute="centerX" id="mWz-LF-sck"/>
-                                <constraint firstAttribute="height" constant="172" id="tH5-20-9S8"/>
-                                <constraint firstItem="DIa-uO-8HM" firstAttribute="leading" secondItem="iXl-1t-2KQ" secondAttribute="leading" id="wNk-JC-c5Q"/>
-                                <constraint firstAttribute="width" constant="250" id="x4L-9m-DME"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="XYF-Fu-HOb" firstAttribute="top" secondItem="r41-tE-sLL" secondAttribute="top" id="KGs-gY-2Et"/>
-                        <constraint firstItem="iXl-1t-2KQ" firstAttribute="centerX" secondItem="r41-tE-sLL" secondAttribute="centerX" id="R2T-eP-LT3"/>
-                        <constraint firstAttribute="trailing" secondItem="XYF-Fu-HOb" secondAttribute="trailing" id="TbZ-mS-ACP"/>
-                        <constraint firstItem="iXl-1t-2KQ" firstAttribute="centerY" secondItem="r41-tE-sLL" secondAttribute="centerY" id="iny-b9-YsU"/>
-                        <constraint firstAttribute="bottom" secondItem="XYF-Fu-HOb" secondAttribute="bottom" id="kKi-lw-GXM"/>
-                        <constraint firstItem="XYF-Fu-HOb" firstAttribute="leading" secondItem="r41-tE-sLL" secondAttribute="leading" id="s2S-eA-7E5"/>
-                    </constraints>
-                </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_loading" translatesAutoresizingMaskIntoConstraints="NO" id="i80-mO-LJU">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -202,14 +129,14 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="账号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbN-eK-yfb">
-                            <rect key="frame" x="0.0" y="48" width="62" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbN-eK-yfb">
+                            <rect key="frame" x="10" y="48" width="52" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="密码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbK-e3-xik">
-                            <rect key="frame" x="0.0" y="99" width="62" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbK-e3-xik">
+                            <rect key="frame" x="10" y="99" width="52" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -244,6 +171,61 @@
                         <constraint firstItem="cbN-eK-yfb" firstAttribute="leading" secondItem="nxg-RA-Hsy" secondAttribute="leading" constant="10" id="qJX-iS-kc6"/>
                         <constraint firstItem="fEN-im-qCT" firstAttribute="leading" secondItem="nxg-RA-Hsy" secondAttribute="leading" id="qj2-Tf-uCN"/>
                         <constraint firstItem="IZC-Za-D0X" firstAttribute="leading" secondItem="cbN-eK-yfb" secondAttribute="trailing" constant="5" id="yLr-uT-afy"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r41-tE-sLL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_loading" translatesAutoresizingMaskIntoConstraints="NO" id="XYF-Fu-HOb">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXl-1t-2KQ">
+                            <rect key="frame" x="63" y="280" width="250" height="108"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7q-Ws-KM0">
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="Bahasa Indonesia">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="indonesiaButtonAC:" destination="-1" eventType="touchUpInside" id="Mqe-0g-JoL"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd1-db-SM4">
+                                    <rect key="frame" x="0.0" y="64" width="250" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="اللغة العربية">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="arabicButtonAC:" destination="-1" eventType="touchUpInside" id="73j-ie-Yt5"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Wd1-db-SM4" firstAttribute="width" secondItem="c7q-Ws-KM0" secondAttribute="width" id="7vz-9w-mkd"/>
+                                <constraint firstAttribute="trailing" secondItem="c7q-Ws-KM0" secondAttribute="trailing" id="LEW-Mr-riT"/>
+                                <constraint firstItem="Wd1-db-SM4" firstAttribute="top" secondItem="c7q-Ws-KM0" secondAttribute="bottom" constant="20" id="Zgd-t0-BvX"/>
+                                <constraint firstItem="Wd1-db-SM4" firstAttribute="centerX" secondItem="c7q-Ws-KM0" secondAttribute="centerX" id="b91-i5-29T"/>
+                                <constraint firstAttribute="bottom" secondItem="Wd1-db-SM4" secondAttribute="bottom" id="m7X-3G-WXJ"/>
+                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="leading" secondItem="iXl-1t-2KQ" secondAttribute="leading" id="nol-jB-RXj"/>
+                                <constraint firstItem="Wd1-db-SM4" firstAttribute="height" secondItem="c7q-Ws-KM0" secondAttribute="height" id="sBb-yy-ZSd"/>
+                                <constraint firstAttribute="height" constant="108" id="tH5-20-9S8"/>
+                                <constraint firstItem="c7q-Ws-KM0" firstAttribute="top" secondItem="iXl-1t-2KQ" secondAttribute="top" id="tat-tH-1sj"/>
+                                <constraint firstAttribute="width" constant="250" id="x4L-9m-DME"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="XYF-Fu-HOb" firstAttribute="top" secondItem="r41-tE-sLL" secondAttribute="top" id="KGs-gY-2Et"/>
+                        <constraint firstItem="iXl-1t-2KQ" firstAttribute="centerX" secondItem="r41-tE-sLL" secondAttribute="centerX" id="R2T-eP-LT3"/>
+                        <constraint firstAttribute="trailing" secondItem="XYF-Fu-HOb" secondAttribute="trailing" id="TbZ-mS-ACP"/>
+                        <constraint firstItem="iXl-1t-2KQ" firstAttribute="centerY" secondItem="r41-tE-sLL" secondAttribute="centerY" id="iny-b9-YsU"/>
+                        <constraint firstAttribute="bottom" secondItem="XYF-Fu-HOb" secondAttribute="bottom" id="kKi-lw-GXM"/>
+                        <constraint firstItem="XYF-Fu-HOb" firstAttribute="leading" secondItem="r41-tE-sLL" secondAttribute="leading" id="s2S-eA-7E5"/>
                     </constraints>
                 </view>
             </subviews>
