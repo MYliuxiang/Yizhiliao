@@ -26,7 +26,7 @@
     
     BOOL isFirstLaunch = [LXUserDefaults boolForKey:@"firstLaunch"];
     if (isFirstLaunch) {
-        
+        [self initViews];
         self.languageBGView.hidden = YES;
 
 
@@ -60,12 +60,7 @@
 
     }
     
-    self.navbarHiden = YES;
     
-    self.label.text = LXSring(@"已閱讀並同意用戶使用協定");
-    [self.loginBtn setTitle:LXSring(@"WeChat登入") forState:UIControlStateNormal];
-    [self.faceBtn setTitle:LXSring(@"Facebook登入") forState:UIControlStateNormal];
-    [self.noWeixinBtn setTitle:LXSring(@"登入") forState:UIControlStateNormal];
     
     self.chineseButton.layer.cornerRadius = 22;
     self.chineseButton.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -132,8 +127,7 @@
         self.faceBtn.hidden = NO;
     }
     
-    self.accountLabel.text = LXSring(@"账号");
-    self.passwordLabel.text = LXSring(@"密码");
+    
     NSString *data = [[NSBundle mainBundle] pathForResource:@"2" ofType:nil];
     NSData *da = [NSData dataWithContentsOfFile:data];
     
@@ -144,9 +138,19 @@
     LxCache *lxcache = [LxCache sharedLxCache];
     [lxcache.cache setObject:da forKey:Url_recommend];
     [lxcache.cache setObject:da1 forKey:CityCache];
-
+    self.navbarHiden = YES;
     
 
+}
+
+- (void)initViews {
+    
+    self.label.text = LXSring(@"已閱讀並同意用戶使用協定");
+    [self.loginBtn setTitle:LXSring(@"WeChat登入") forState:UIControlStateNormal];
+    [self.faceBtn setTitle:LXSring(@"Facebook登入") forState:UIControlStateNormal];
+    [self.noWeixinBtn setTitle:LXSring(@"登入") forState:UIControlStateNormal];
+    self.accountLabel.text = LXSring(@"账号");
+    self.passwordLabel.text = LXSring(@"密码");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -364,6 +368,7 @@
     
     [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
     [LXUserDefaults synchronize];
+    [self initViews];
 }
 
 - (IBAction)arabicButtonAC:(id)sender {
@@ -379,5 +384,6 @@
     
     [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
     [LXUserDefaults synchronize];
+    [self initViews];
 }
 @end
