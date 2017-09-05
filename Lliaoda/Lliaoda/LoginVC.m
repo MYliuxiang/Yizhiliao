@@ -24,41 +24,43 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-//    BOOL isFirstLaunch = [LXUserDefaults boolForKey:@"firstLaunch"];
-//    if (isFirstLaunch) {
-//        
-//        self.languageBGView.hidden = YES;
-//
-//
-//    } else {
-//        
-//        NSArray *languages = [NSLocale preferredLanguages];
-//        NSString *currentLanguage = [languages objectAtIndex:0];
+    BOOL isFirstLaunch = [LXUserDefaults boolForKey:@"firstLaunch"];
+    if (isFirstLaunch) {
+        [self initViews];
+        self.languageBGView.hidden = YES;
+
+
+    } else {
+        
+        NSArray *languages = [NSLocale preferredLanguages];
+        NSString *currentLanguage = [languages objectAtIndex:0];
 //        if([currentLanguage hasPrefix:@"zh-Hant"] || [currentLanguage hasPrefix:@"zh-Hans"]){
 //            self.languageBGView.hidden = YES;
 //            [LXUserDefaults setObject:@"zh-Hant" forKey:@"appLanguage"];
 //            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
 //            [LXUserDefaults synchronize];
 //
-//        }else if ([currentLanguage hasPrefix:@"id"]){
+//        }else
+        if ([currentLanguage hasPrefix:@"id"]){
             self.languageBGView.hidden = YES;
             [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
             [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
             [LXUserDefaults synchronize];
 
-//        }else{
-//            
-//            self.languageBGView.hidden = NO;
-//        }
-//
-//    }
+        } else if ([currentLanguage hasPrefix:@"ar"]) {
+            self.languageBGView.hidden = YES;
+            [LXUserDefaults setObject:@"ar" forKey:@"appLanguage"];
+            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
+            [LXUserDefaults synchronize];
+            
+        } else {
+            
+            self.languageBGView.hidden = NO;
+        }
+
+    }
     
-    self.navbarHiden = YES;
     
-    self.label.text = LXSring(@"已閱讀並同意用戶使用協定");
-    [self.loginBtn setTitle:LXSring(@"WeChat登入") forState:UIControlStateNormal];
-    [self.faceBtn setTitle:LXSring(@"Facebook登入") forState:UIControlStateNormal];
-    [self.noWeixinBtn setTitle:LXSring(@"登入") forState:UIControlStateNormal];
     
     self.chineseButton.layer.cornerRadius = 22;
     self.chineseButton.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -115,7 +117,7 @@
         }
     }
    
-    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+    if (![LXUserDefaults boolForKey:ISMEiGUO]){
         self.noweixinView.hidden = NO;
         self.faceBtn.hidden = YES;
         
@@ -125,8 +127,7 @@
         self.faceBtn.hidden = NO;
     }
     
-    self.accountLabel.text = LXSring(@"账号");
-    self.passwordLabel.text = LXSring(@"密码");
+    
     NSString *data = [[NSBundle mainBundle] pathForResource:@"2" ofType:nil];
     NSData *da = [NSData dataWithContentsOfFile:data];
     
@@ -137,9 +138,19 @@
     LxCache *lxcache = [LxCache sharedLxCache];
     [lxcache.cache setObject:da forKey:Url_recommend];
     [lxcache.cache setObject:da1 forKey:CityCache];
-
+    self.navbarHiden = YES;
     
 
+}
+
+- (void)initViews {
+    
+    self.label.text = LXSring(@"已閱讀並同意用戶使用協定");
+    [self.loginBtn setTitle:LXSring(@"WeChat登入") forState:UIControlStateNormal];
+    [self.faceBtn setTitle:LXSring(@"Facebook登入") forState:UIControlStateNormal];
+    [self.noWeixinBtn setTitle:LXSring(@"登入") forState:UIControlStateNormal];
+    self.accountLabel.text = LXSring(@"账号");
+    self.passwordLabel.text = LXSring(@"密码");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -357,6 +368,7 @@
     
     [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
     [LXUserDefaults synchronize];
+    [self initViews];
 }
 
 - (IBAction)arabicButtonAC:(id)sender {
@@ -372,5 +384,6 @@
     
     [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
     [LXUserDefaults synchronize];
+    [self initViews];
 }
 @end

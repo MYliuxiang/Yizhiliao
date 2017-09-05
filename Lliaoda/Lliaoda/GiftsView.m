@@ -271,25 +271,34 @@ static NSString *identifire = @"GiftID";
                             AccountVC *vc = [[AccountVC alloc] init];
                             vc.isCall = YES;
                             vc.clickBlock = ^(){
-                                
                                 [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                                 self.superview.hidden = NO;
-                                
-                                
                             };
                             [[self topViewController].navigationController pushViewController:vc animated:YES];
                             
                         }else{
-                            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                            vc.isCall = YES;
-                            vc.clickBlock = ^(){
-                                [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-                                self.superview.hidden = NO;
-                            };
-                            [[self topViewController].navigationController pushViewController:vc animated:YES];
+                            
+                            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+                            if ([lang hasPrefix:@"id"]){
+                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                vc.isCall = YES;
+                                vc.clickBlock = ^(){
+                                    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+                                    self.superview.hidden = NO;
+                                };
+                                [[self topViewController].navigationController pushViewController:vc animated:YES];
+                            } else if ([lang hasPrefix:@"ar"]){
+                                AccountVC *vc = [[AccountVC alloc] init];
+                                vc.isCall = YES;
+                                vc.clickBlock = ^(){
+                                    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+                                    self.superview.hidden = NO;
+                                };
+                                [[self topViewController].navigationController pushViewController:vc animated:YES];
+                            }
+                            
+                            
                         }
-                        
-                        
                     };
                     [lg showAnimated:YES completionHandler:nil];
                     
@@ -371,15 +380,31 @@ static NSString *identifire = @"GiftID";
         [[self topViewController].navigationController pushViewController:vc animated:YES];
         
     }else{
-        AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-        vc.isCall = YES;
-        vc.clickBlock = ^(){
-            if(self.isVideoBool){
-                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-            }
-            self.superview.hidden = NO;
-        };
-        [[self topViewController].navigationController pushViewController:vc animated:YES];
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"id"]){
+            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+            vc.isCall = YES;
+            vc.clickBlock = ^(){
+                if(self.isVideoBool){
+                    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+                }
+                self.superview.hidden = NO;
+            };
+            [[self topViewController].navigationController pushViewController:vc animated:YES];
+            
+            
+        } else if ([lang hasPrefix:@"ar"]){
+            AccountVC *vc = [[AccountVC alloc] init];
+            vc.isCall = YES;
+            vc.clickBlock = ^(){
+                if(self.isVideoBool){
+                    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+                }
+                self.superview.hidden = NO;
+            };
+            [[self topViewController].navigationController pushViewController:vc animated:YES];
+        }
+        
     }
 }
 
