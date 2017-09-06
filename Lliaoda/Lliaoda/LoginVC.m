@@ -134,7 +134,7 @@
     NSString *data1 = [[NSBundle mainBundle] pathForResource:@"3" ofType:nil];
     NSData *da1 = [NSData dataWithContentsOfFile:data1];
 
-    
+    self.loginBtn.hidden = YES;
     LxCache *lxcache = [LxCache sharedLxCache];
     [lxcache.cache setObject:da forKey:Url_recommend];
     [lxcache.cache setObject:da1 forKey:CityCache];

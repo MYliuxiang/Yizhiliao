@@ -895,6 +895,9 @@ controller   didAuthorizePayment:(PKPayment *)payment
         [headerView.inviteButton addTarget:self action:@selector(inviteBtnAC) forControlEvents:UIControlEventTouchUpInside];
         if (myModel.vipEndTime == 0) {
             // 没有vip
+            headerView.vipButton.selected = NO;
+            [headerView.vipButton setTitle:LXSring(@"儲值贈送VIP，私信暢聊無限制~") forState:UIControlStateNormal];
+            [headerView.vipButton setImage:[UIImage imageNamed:@"VIP_n"] forState:UIControlStateNormal];
 //            headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon02"];
 //            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:LXSring(@"儲值贈送VIP，私信暢聊無限制~")];
 //            [attributedStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(2, 5)];
@@ -902,13 +905,14 @@ controller   didAuthorizePayment:(PKPayment *)payment
 
         } else {
             // 有vip
-//            long timeSp = myModel.vipEndTime;
-//            NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeSp / 1000];
-//            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//            [formatter setDateFormat:@"YYYY-MM-dd"];
-//            NSString *string = [formatter stringFromDate:date];
-//            headerView.timeLabel.text = [NSString stringWithFormat:LXSring(@"VIP有效期至：%@"), string];
-//            headerView.vipImageView.image = [UIImage imageNamed:@"VIP-icon01"];
+            headerView.vipButton.selected = YES;
+            long timeSp = myModel.vipEndTime;
+            NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeSp / 1000];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"YYYY-MM-dd"];
+            NSString *string = [formatter stringFromDate:date];
+            [headerView.vipButton setTitle:[NSString stringWithFormat:LXSring(@"VIP有效期至：%@"), string] forState:UIControlStateSelected];
+            [headerView.vipButton setImage:[UIImage imageNamed:@"VIP"] forState:UIControlStateSelected];
         }
         
         view = headerView;
