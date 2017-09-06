@@ -218,7 +218,7 @@
             _button2.userInteractionEnabled = NO;
         } else {
             self.selectedIndex = button.tag - 1;
-            
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeFind) name:@"closeFind" object:nil];
         }
         
     } else {
@@ -239,6 +239,9 @@
         }
     }
     
+}
+- (void)closeFind {
+    self.button2.userInteractionEnabled = YES;
 }
 #pragma mark - UINavigationController Delegate
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated

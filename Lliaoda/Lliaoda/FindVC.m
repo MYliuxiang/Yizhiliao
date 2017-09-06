@@ -574,7 +574,15 @@
             charge = mo;
         }
     }
-    self.priceLabel.text = charge.name;
+    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+        self.priceLabel.hidden = YES;
+        self.zuanshiImageView.hidden = YES;
+        
+    }else{
+        self.priceLabel.hidden = NO;
+        self.zuanshiImageView.hidden = NO;
+        self.priceLabel.text = charge.name;
+    }
    
     [self.view bringSubviewToFront:self.findBgView];
     [UIView animateWithDuration:1 animations:^{
@@ -859,6 +867,7 @@
 - (IBAction)closeMatch:(id)sender {
     TJPTabBarController *tab = [TJPTabBarController shareInstance];
     tab.button2.userInteractionEnabled = YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeFind" object:nil];
     [_radarView stopAnimation];
     NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
     [userDef setBool:NO forKey:@"IsFind"];

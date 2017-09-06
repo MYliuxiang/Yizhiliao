@@ -268,6 +268,7 @@
                         <outlet property="statelabel" destination="L1u-m9-lgg" id="nB4-2r-qeG"/>
                         <outlet property="thumbImage" destination="hS0-SX-IoH" id="Wlp-8B-rh1"/>
                         <outlet property="tishiLabel" destination="nTp-pM-3xz" id="zSq-gw-MLm"/>
+                        <outlet property="zuanshiImageView" destination="cOS-Yt-9VX" id="6JM-RS-Pab"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsS-a9-7cl" userLabel="First Responder" sceneMemberID="firstResponder"/>
