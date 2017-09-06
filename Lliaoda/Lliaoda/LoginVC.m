@@ -99,7 +99,7 @@
     self.logoBtn.userInteractionEnabled = NO;
     
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-     if ([lang hasPrefix:@"id"]){
+    if ([lang hasPrefix:@"id"]){
         
         self.loginBtn.hidden = YES;
         
@@ -369,6 +369,7 @@
     [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
     [LXUserDefaults synchronize];
     [self initViews];
+//    [self initAgora];
 }
 
 - (IBAction)arabicButtonAC:(id)sender {
@@ -385,5 +386,11 @@
     [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
     [LXUserDefaults synchronize];
     [self initViews];
+//    [self initAgora];
+}
+
+- (void)initAgora
+{
+    _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
 }
 @end
