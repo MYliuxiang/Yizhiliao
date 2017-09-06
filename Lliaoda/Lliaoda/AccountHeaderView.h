@@ -10,4 +10,6 @@
 @interface AccountHeaderView : UICollectionReusableView
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
+@property (weak, nonatomic) IBOutlet UIButton *vipButton;
+
 @end
