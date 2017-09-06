@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *statelabel;
 @property (weak, nonatomic) IBOutlet UIView *stateView;
 @property (weak, nonatomic) IBOutlet UIImageView *stateImage;
+@property (weak, nonatomic) IBOutlet UIImageView *zuanshiImageView;
 
 
 
