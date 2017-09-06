@@ -859,6 +859,7 @@
 - (IBAction)closeMatch:(id)sender {
     TJPTabBarController *tab = [TJPTabBarController shareInstance];
     tab.button2.userInteractionEnabled = YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeFind" object:nil];
     [_radarView stopAnimation];
     NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
     [userDef setBool:NO forKey:@"IsFind"];
