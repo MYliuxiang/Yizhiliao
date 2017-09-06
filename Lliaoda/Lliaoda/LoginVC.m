@@ -117,7 +117,7 @@
         }
     }
    
-    if (![LXUserDefaults boolForKey:ISMEiGUO]){
+    if ([LXUserDefaults boolForKey:ISMEiGUO]){
         self.noweixinView.hidden = NO;
         self.faceBtn.hidden = YES;
         
