@@ -34,7 +34,7 @@
         
     }else{
     
-        NSString *str = [NSString stringWithFormat:@"贈送%d鑽",_model.bonus];
+        NSString *str = [NSString stringWithFormat:LXSring(@"贈送%d鑽"),_model.bonus];
         [self.givebtn setTitle:str forState:UIControlStateNormal];
         UIImage *image = [UIImage imageNamed:@"720-赠送"];
         UIImage *imagestre = [image stretchableImageWithLeftCapWidth:36 topCapHeight:18];
