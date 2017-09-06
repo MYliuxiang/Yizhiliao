@@ -574,7 +574,15 @@
             charge = mo;
         }
     }
-    self.priceLabel.text = charge.name;
+    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+        self.priceLabel.hidden = YES;
+        self.zuanshiImageView.hidden = YES;
+        
+    }else{
+        self.priceLabel.hidden = NO;
+        self.zuanshiImageView.hidden = NO;
+        self.priceLabel.text = charge.name;
+    }
    
     [self.view bringSubviewToFront:self.findBgView];
     [UIView animateWithDuration:1 animations:^{
