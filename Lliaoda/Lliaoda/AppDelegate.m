@@ -139,7 +139,7 @@
 
     self.notices = [NSMutableArray array];
    
-    [self initAgora];
+//    [self initAgora];
     
     NSError *setCategoryErr = nil;
     NSError *activationErr  = nil;
@@ -512,17 +512,18 @@
 
     NSString *agent;
     NSString *mutableUrl;
-//    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
 //    if ([lang hasPrefix:@"zh-Hant"]) {
 //        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
 //        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
-//    }else if ([lang hasPrefix:@"id"]){
+//    }else
+    if ([lang hasPrefix:@"id"]){
       agent = [NSString stringWithFormat:@"%@,%@,ios,%@,402",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.live/api/%@",Url_appconfig]];
-//    }else{
-//      agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-//      mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
-//    }
+    } else {
+      agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+      mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
+    }
     
    
     NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
@@ -967,6 +968,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         if (result) {
             if ([result[@"result"] integerValue] == 0) {
                 //成功
+                [self initAgora];
                 NSString *str = [NSString stringWithFormat:@"%@",result[@"data"][@"appkey"]];
                 [LXUserDefaults setObject:str forKey:LXAppkey];
                 [LXUserDefaults setObject:result[@"data"][@"expire"] forKey:Expire];

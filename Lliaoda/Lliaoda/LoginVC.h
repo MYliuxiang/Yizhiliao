@@ -38,5 +38,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
+@property (nonatomic,retain) AgoraAPI *inst;
 
 @end
