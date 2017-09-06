@@ -15,7 +15,8 @@
 typedef NS_ENUM(NSInteger, MyType) {
     MyTypeVideo,
     MyTypePhoto,
-    MyTypeMessage
+    MyTypeMessage,
+    MyTypeError
 };
 
 @interface NewMyVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource>

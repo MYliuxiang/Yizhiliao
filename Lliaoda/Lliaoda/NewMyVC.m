@@ -27,7 +27,7 @@
     self.messagePhotos = [NSMutableArray array];
     self.contents = [NSMutableArray array];
     
-    self.cellType = MyTypeVideo;
+    self.cellType = MyTypeError;
     self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, (kScreenWidth - 30) / 69 * 15 - 4, 50, 4)];
     self.lineView.left = ((kScreenWidth - 30) / 3 - 50)/2;
     self.lineView.backgroundColor = Color_Tab;
@@ -59,6 +59,8 @@
         self.idLabel.text = [NSString stringWithFormat:LXSring(@"聊號：%@"),self.model.uid];
         [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
         [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+        self.cellType = MyTypeVideo;
+
         [self setArrayForTable];
         
         self.tableView.tableHeaderView = self.headerView;
@@ -169,6 +171,7 @@
                 self.idLabel.text = [NSString stringWithFormat:LXSring(@"聊號：%@"),self.model.uid];
                 [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];                
                 [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+                self.cellType = MyTypeVideo;
 
                 [self setArrayForTable];
                 
@@ -251,6 +254,9 @@
 {
     if(self.cellType == MyTypeMessage){
          return self.nameArray.count;
+    }else if(self.cellType == MyTypeError){
+        return 0;
+        
     }else{
     
         return 1;
@@ -263,9 +269,12 @@
     if(self.cellType == MyTypeMessage){
         NSArray *array = self.nameArray[section];
         return array.count;
+    }else if(self.cellType == MyTypeError){
+        return 0;
+
     }else{
-        
         return 1;
+
     }
    
 }
