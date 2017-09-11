@@ -67,9 +67,7 @@
     }else{
         agoreappIDStr = @"e063233af0694b93a6639bbd7e92b26a";
     }
-    
-    
-    
+        
     return agoreappIDStr;
 }
 
