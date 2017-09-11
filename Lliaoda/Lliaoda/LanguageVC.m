@@ -21,15 +21,16 @@
     self.text = LXSring(@"切換語言");
     
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-Hant"]) {
-       
-        self.chineseButton.selected = YES;
-        self.indonesiaButton.selected = NO;
-        self.arabicButton.selected = NO;
-        self.index = 0;
-
-        
-    }else if ([lang hasPrefix:@"id"]){
+//    if ([lang hasPrefix:@"zh-Hant"]) {
+//       
+//        self.chineseButton.selected = YES;
+//        self.indonesiaButton.selected = NO;
+//        self.arabicButton.selected = NO;
+//        self.index = 0;
+//
+//        
+//    }else
+    if ([lang hasPrefix:@"id"]){
         
         self.chineseButton.selected = NO;
         self.indonesiaButton.selected = YES;
@@ -43,15 +44,15 @@
         self.arabicButton.selected = YES;
         self.index = 2;
         
-    }else{
-        self.arabicButton.selected = NO;
-        self.chineseButton.selected = YES;
-        self.indonesiaButton.selected = NO;
-        self.index = 0;
-
     }
+//    else{
+//        self.arabicButton.selected = NO;
+//        self.chineseButton.selected = YES;
+//        self.indonesiaButton.selected = NO;
+//        self.index = 0;
+//
+//    }
 
-    
 }
 
 
