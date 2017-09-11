@@ -284,19 +284,19 @@
 
 #pragma mark - ProfitCellDelegate
 - (void)btnClick:(ProfitCell *)cell {
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:LXSring(@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017") delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-//    [alertView show];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:LXSring(@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017") delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line：ttmcs" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line：ttmcs" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    [alert show];
 }
 
 #pragma mark - ProfitCell1Delegate
 - (void)cashButtonAC {
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:LXSring(@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017") delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-//    [alertView show];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:LXSring(@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017") delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line：ttmcs" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line：ttmcs" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    [alert show];
 }
 @end
