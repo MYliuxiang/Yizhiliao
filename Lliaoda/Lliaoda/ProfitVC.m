@@ -117,7 +117,7 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfitCell3" owner:self options:nil] lastObject];
         }
-        cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.income];
+        cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.settled];
         return cell;
     } else {
         ProfitCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfitCell2"];
