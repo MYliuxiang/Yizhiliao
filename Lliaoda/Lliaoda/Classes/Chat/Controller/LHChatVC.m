@@ -1213,11 +1213,11 @@ NSString *const kTableViewFrame = @"frame";
     
         return;
     }
-    NSString *ndate = [NSString stringWithFormat:@"%ld", (long)([[NSDate date] timeIntervalSince1970])];
-    int idate = [ndate intValue];
+   
+     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     [messages enumerateObjectsUsingBlock:^(Message *messageModel, NSUInteger idx, BOOL * stop) {
         
-        if(idate - messageModel.date > 60 && messageModel.status == MessageDeliveryState_Delivering){
+        if(idate - messageModel.date > 60 * 1000 && messageModel.status == MessageDeliveryState_Delivering){
         
             messageModel.status = MessageDeliveryState_Failure;
             [messageModel update];
