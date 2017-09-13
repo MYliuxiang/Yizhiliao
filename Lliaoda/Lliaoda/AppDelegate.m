@@ -109,7 +109,7 @@
     [LXUserDefaults synchronize];
     
     
-    
+    //2222
     
     //fb
     [[FBSDKApplicationDelegate sharedInstance] application:application

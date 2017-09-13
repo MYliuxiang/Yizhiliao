@@ -1196,15 +1196,7 @@
     messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
     messageModel.sendUid = self.personUID;
     messageModel.content = message;
-    //    switch (type) {
-    //        case MessageBodyType_Text: {
-    //            messageModel.content = message;
-    //            break;
-    //        }
-    //        default:
-    //            break;
-    //    }
-    
+       
     NSDictionary *params;
     if (type == MessageBodyType_Gift) {
         params = @{@"uid":self.personUID, @"message":message, @"type":@1};
