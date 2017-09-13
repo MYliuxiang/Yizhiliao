@@ -57,28 +57,22 @@ typedef enum {
 @property (nonatomic) BOOL isRead;
 /** 是否是群聊 */
 @property (nonatomic) BOOL isChatGroup;
-
 @property (nonatomic,copy) NSString *uid; //发送者id
-
 @property (nonatomic,copy) NSString *sendUid; //接收者id
-
 @property (nonatomic, assign) MessageBodyType type;
 @property (nonatomic, assign) MessageDeliveryState status;
 @property (nonatomic, assign) long long date;
 @property (nonatomic, strong) NSString *messageID;
 @property (nonatomic, strong) NSString *id;
 @property (nonatomic, copy)   NSString *chancelID;
-
-
 /** text */
 @property (nonatomic, strong) NSString *content;
-
 /** image */
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, strong) NSURL *imageRemoteURL;
-
 // 礼物和儲值
 @property (nonatomic, copy) NSString *event;
 @property (nonatomic, copy) NSString *request;
+
 @end
