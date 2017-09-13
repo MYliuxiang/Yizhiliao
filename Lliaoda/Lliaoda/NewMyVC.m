@@ -1013,31 +1013,32 @@
 }
 
 - (IBAction)videoAC:(UIButton *)sender {
+    self.cellType = MyTypeVideo;
     [UIView animateWithDuration:.35 animations:^{
         self.lineView.centerX = sender.centerX;
     } completion:^(BOOL finished) {
-        self.cellType = MyTypeVideo;
+        
         [self.tableView reloadData];
     }];
 }
 
 - (IBAction)photoAC:(UIButton *)sender {
-    
+    self.cellType = MyTypePhoto;
     [UIView animateWithDuration:.35 animations:^{
         self.lineView.centerX = sender.centerX;
     } completion:^(BOOL finished) {
-        self.cellType = MyTypePhoto;
+        
         [self.tableView reloadData];
 
     }];
 }
 
 - (IBAction)messageAC:(UIButton *)sender {
-    
+    self.cellType = MyTypeMessage;
     [UIView animateWithDuration:.35 animations:^{
         self.lineView.centerX = sender.centerX;
     } completion:^(BOOL finished) {
-        self.cellType = MyTypeMessage;
+        
         [self.tableView reloadData];
 
     }];
