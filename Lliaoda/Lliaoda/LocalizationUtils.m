@@ -47,9 +47,25 @@
 //        mainStr = @"https://www.yizhiliao.tv/api/";
 //    }else
     if ([lang hasPrefix:@"id"]){
+        
+        if ([LXUserDefaults boolForKey:ISMEiGUO]) {
+            mainStr = @"https://aplid.yizhiliao.tv/api/";
+
+        }else{
         mainStr = @"https://www.yizhiliao.live/api/";
+        }
+
+        
     }else if ([lang hasPrefix:@"ar"]){
-        mainStr = @"https://www.yizhiliao.net/api/";
+        
+        if ([LXUserDefaults boolForKey:ISMEiGUO]) {
+            
+            mainStr = @"https://aplme.yizhiliao.tv/api/";
+            
+        }else{
+            mainStr = @"https://www.yizhiliao.net/api/";
+        }
+        
     }
 //    else{
 //        mainStr = @"https://www.yizhiliao.tv/api/";

@@ -226,7 +226,11 @@ alpha:1.0]
 #import "PchTool.h"
 
 //#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://aplid.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
-#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://aplme.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
+//#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://aplme.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
+
+#define MAINURLStr [LocalizationUtils getMainUrl]
+
+
 
 //#define MAINURLStr @"http://demo.yizhiliao.tv/api/"
 //#define MAINURLStr @"http://demo.yizhiliao.live/api/"
