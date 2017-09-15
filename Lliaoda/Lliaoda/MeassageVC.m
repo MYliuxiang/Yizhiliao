@@ -191,14 +191,14 @@ static MeassageVC *this;
 //正在登陆
 - (void)onLogin
 {
-    self.text = @"正在连接...";
+    self.text = LXSring(@"正在连接...");
     [self.actView startAnimating];
 
 }
 //登入失败
 - (void)onLoginFailed
 {
-    self.text = @"訊息(未连接)";
+    self.text = LXSring(@"訊息(未连接)");
     [self.actView stopAnimating];
 
 }
@@ -225,7 +225,7 @@ static MeassageVC *this;
 
     if ([[NetWorkManager sharedManager] checkNowNetWorkStatus] != NotReachable) {
         
-        self.text = @"正在连接...";
+        self.text = LXSring(@"正在连接...");
         [self.actView startAnimating];
     }
 
@@ -234,7 +234,7 @@ static MeassageVC *this;
 //退出登陸回调(onLogout)。
 - (void)onLogout
 {
-    self.text = @"訊息(未连接)";
+    self.text = LXSring(@"訊息(未连接)");
     [self.actView stopAnimating];
 
 }
@@ -256,17 +256,14 @@ static MeassageVC *this;
     self.inst = app.inst;
     self.instMedia = app.instMedia;
     
-//    if([self.inst isOnline]){
-//    
-//        self.text = LXSring(@"訊息");
-//        
-//    }else{
-//    
-//        self.text = @"訊息(未连接)";
-//    }
+    if([self.inst isOnline]){
     
-
-    
+        self.text = LXSring(@"訊息");
+        
+    }else{
+        
+        self.text = LXSring(@"訊息(未连接)");
+    }
     
 }
 
