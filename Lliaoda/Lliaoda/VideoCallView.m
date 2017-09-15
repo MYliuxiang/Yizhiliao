@@ -1555,12 +1555,14 @@
     
     CallTime *call = [CallTime findFirstByCriteria:criteria];
     if (call == nil) {
+        
         call = [[CallTime alloc] init];
         call.channelId = [self.channel intValue];
         call.endedAt = idate;
         call.duration = self.callTime * 1000;
         call.uid = [self.uid intValue];
         [call save];
+        
     }else{
         
         call.channelId = [self.channel intValue];
