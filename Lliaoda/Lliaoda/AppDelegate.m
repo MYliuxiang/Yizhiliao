@@ -107,9 +107,11 @@
     }
     [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
     [LXUserDefaults synchronize];
-    
-    
     //2222
+    
+    [AppsFlyerTracker sharedTracker].appsFlyerDevKey = @"KqnwDx2iekh99XSrK76fr6";
+    [AppsFlyerTracker sharedTracker].appleAppID = @"1275434834";
+    
     
     //fb
     [[FBSDKApplicationDelegate sharedInstance] application:application
@@ -754,6 +756,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     /// Required - 注册 DeviceToken
     [JPUSHService registerDeviceToken:deviceToken];
+    
+    [[AppsFlyerTracker sharedTracker] registerUninstall:deviceToken];
+    [AppsFlyerTracker sharedTracker].useUninstallSandbox = YES;
+
+
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -928,6 +935,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[AppsFlyerTracker sharedTracker] trackAppLaunch];
+
 }
 
 
@@ -984,7 +993,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 [self loginAgoraSignaling];
                 
                 NSString *uid = [NSString stringWithFormat:@"%@",result[@"data"][@"uid"]];
-                [MobClick profileSignInWithPUID:uid provider:@"WX"];
+                [MobClick profileSignInWithPUID:uid provider:@"FB"];
                 [MobClick event:@"Forward"];
                 
                 NSDictionary *params;
@@ -1027,7 +1036,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 //                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //                            MainTabBarController *tab = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
 //                            tab.iszhubo = NO;
-//                            
 //                            self.window.rootViewController = tab;
                             [self homePageViewControllerShow];
 

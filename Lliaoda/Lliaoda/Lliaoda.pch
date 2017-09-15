@@ -84,6 +84,8 @@ alpha:1.0]
 
 
 //常用的类
+#import <AppsFlyerFramework/AppsFlyerLib/AppsFlyerTracker.h>  //fb检测
+
 #import "UIViewExt.h"
 #import "UIView+ViewController.h"
 #import "MyColor.h"
