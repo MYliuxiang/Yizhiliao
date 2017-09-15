@@ -339,36 +339,45 @@
     CGFloat width = [UIScreen mainScreen].bounds.size.width / 3;
     UILabel *myView = nil;
     if (component == 0) {
-        myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 30)];
-        myView.textAlignment = NSTextAlignmentCenter;
-        CountrieModel *model = self.countries[row];
-        myView.text = model.name;
-        myView.font = [UIFont systemFontOfSize:[self fontWithString:myView.text]];         //用label来設定字体大小
-        myView.backgroundColor = [UIColor clearColor];
+        if (self.countries.count > 0) {
+            myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 30)];
+            myView.textAlignment = NSTextAlignmentCenter;
+            CountrieModel *model = self.countries[row];
+            myView.text = model.name;
+            myView.font = [UIFont systemFontOfSize:[self fontWithString:myView.text]];         //用label来設定字体大小
+            myView.backgroundColor = [UIColor clearColor];
+        }
+        
     }else if (component == 1){
-        myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 30)];
-        ProvinceModel *model = self.provinces[row];
-        myView.text = [self.provinces count] ? model.name : @"";
-        myView.textAlignment = NSTextAlignmentCenter;
-        myView.font = [UIFont systemFontOfSize:[self fontWithString:myView.text]];
-        myView.backgroundColor = [UIColor clearColor];
-        if ([self.citys count] <= 0) {
-            myView.userInteractionEnabled = NO;
-        } else {
-            myView.userInteractionEnabled = YES;
+        if (self.provinces.count > 0) {
+            myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 30)];
+            ProvinceModel *model = self.provinces[row];
+            myView.text = [self.provinces count] ? model.name : @"";
+            myView.textAlignment = NSTextAlignmentCenter;
+            myView.font = [UIFont systemFontOfSize:[self fontWithString:myView.text]];
+            myView.backgroundColor = [UIColor clearColor];
+            if ([self.citys count] <= 0) {
+                myView.userInteractionEnabled = NO;
+            } else {
+                myView.userInteractionEnabled = YES;
+            }
         }
+        
     } else {
-        myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 30)];
-        CityModel *model = self.citys[row];
-        myView.text = [self.citys count] ? model.name : @"";
-        myView.textAlignment = NSTextAlignmentCenter;
-        myView.font = [UIFont systemFontOfSize:[self fontWithString:myView.text]];
-        myView.backgroundColor = [UIColor clearColor];
-        if ([self.citys count] <= 0) {
-            myView.userInteractionEnabled = NO;
-        } else {
-            myView.userInteractionEnabled = YES;
+        if (self.citys.count > 0) {
+            myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 30)];
+            CityModel *model = self.citys[row];
+            myView.text = [self.citys count] ? model.name : @"";
+            myView.textAlignment = NSTextAlignmentCenter;
+            myView.font = [UIFont systemFontOfSize:[self fontWithString:myView.text]];
+            myView.backgroundColor = [UIColor clearColor];
+            if ([self.citys count] <= 0) {
+                myView.userInteractionEnabled = NO;
+            } else {
+                myView.userInteractionEnabled = YES;
+            }
         }
+        
     }
     
     return myView;
@@ -400,7 +409,7 @@
         CountrieModel *model = self.countries[rowProvince];
         [self refrshOfProvincsWithCountriesKey:model.uid];
         NSInteger rowCity = [pickerView selectedRowInComponent:1];
-        if (self.provinces.count != 0) {
+        if (self.provinces.count > 0) {
             ProvinceModel *pmodel = self.provinces[rowCity];
             [self refrshOfCityWithCountriesKey:model.uid WithProvincsKey:pmodel.uid];
             [pickerView reloadComponent:1];
@@ -411,14 +420,19 @@
         
     }
     if (component == 1) {
-        [pickerView selectRow:0 inComponent:2 animated:NO];
-        NSInteger rowProvince = [pickerView selectedRowInComponent:0];
-        CountrieModel *model = self.countries[rowProvince];
-        [self refrshOfProvincsWithCountriesKey:model.uid];
-        NSInteger rowCity = [pickerView selectedRowInComponent:1];
-        ProvinceModel *pmodel = self.provinces[rowCity];
-        [self refrshOfCityWithCountriesKey:model.uid WithProvincsKey:pmodel.uid];
-        [pickerView reloadComponent:2];
+        if (self.countries.count > 0) {
+            [pickerView selectRow:0 inComponent:2 animated:NO];
+            NSInteger rowProvince = [pickerView selectedRowInComponent:0];
+            CountrieModel *model = self.countries[rowProvince];
+            [self refrshOfProvincsWithCountriesKey:model.uid];
+            NSInteger rowCity = [pickerView selectedRowInComponent:1];
+            if (self.provinces.count > 0) {
+                ProvinceModel *pmodel = self.provinces[rowCity];
+                [self refrshOfCityWithCountriesKey:model.uid WithProvincsKey:pmodel.uid];
+                [pickerView reloadComponent:2];
+            }
+        }
+        
         
     }
     }
