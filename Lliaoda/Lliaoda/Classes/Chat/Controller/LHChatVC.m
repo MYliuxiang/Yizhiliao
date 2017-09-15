@@ -677,8 +677,14 @@ NSString *const kTableViewFrame = @"frame";
     __weak LHChatVC *this = self;
     self.giftsView.giftBlock = ^(NSString *giftName, int diamonds, NSString *giftUid) {
         
-        NSString *content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
-        NSString *contents = [NSString stringWithFormat:LXSring(@"%@(%d鉆)"), giftName, diamonds];
+        
+        NSString *content;
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"ar"]){
+            content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), diamonds, giftName];
+        }else{
+            content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
+        }
         long long idate = [[NSDate date] timeIntervalSince1970]*1000;
         __block Message *messageModel = [Message new];
         messageModel.isSender = YES;
@@ -712,7 +718,7 @@ NSString *const kTableViewFrame = @"frame";
                               @"message": @{
                                       @"messageID": [NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
                                       @"event": @"gift",
-                                      @"content": contents,
+                                      @"content": content,
                                       @"request": @"-3",
                                       @"time": [NSString stringWithFormat:@"%lld",idate]
                                       }

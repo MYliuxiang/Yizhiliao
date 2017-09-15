@@ -419,7 +419,14 @@ static NSString *identifire = @"GiftID";
     
     
     
-    NSString *content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
+    NSString *content = @"";
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"ar"]){
+        content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), diamonds, giftName];
+    }else{
+        content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
+
+    }
     NSString *contents = [NSString stringWithFormat:@"%@(%d)", giftName, diamonds];
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
     __block Message *messageModel = [Message new];
@@ -470,7 +477,14 @@ static NSString *identifire = @"GiftID";
     }else{
         
         MessageCount *count = [[MessageCount alloc] init];
-        count.content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
+        
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"ar"]){
+            count.content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), diamonds, giftName];
+        }else{
+            count.content = [NSString stringWithFormat:LXSring(@"我送出：%@(%d鉆)"), giftName, diamonds];
+            
+        }
         count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
         count.sendUid = self.pmodel.uid;
         count.count = 0;
