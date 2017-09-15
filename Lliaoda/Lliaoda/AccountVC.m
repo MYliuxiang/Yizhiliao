@@ -914,7 +914,12 @@ controller   didAuthorizePayment:(PKPayment *)payment
             [headerView.vipButton setTitle:[NSString stringWithFormat:LXSring(@"VIP有效期至：%@"), string] forState:UIControlStateSelected];
             [headerView.vipButton setImage:[UIImage imageNamed:@"VIP"] forState:UIControlStateSelected];
         }
-        
+        if ([LXUserDefaults boolForKey:ISMEiGUO]){
+            headerView.vipButton.hidden = YES;
+            
+        }else{
+            headerView.vipButton.hidden = NO;
+        }
         view = headerView;
         
 //        CollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView" forIndexPath:indexPath];
