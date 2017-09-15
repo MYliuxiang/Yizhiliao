@@ -141,7 +141,7 @@
 
     self.notices = [NSMutableArray array];
    
-    [self initAgora];
+//    [self initAgora];
     
     NSError *setCategoryErr = nil;
     NSError *activationErr  = nil;
@@ -1163,6 +1163,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)loginAgoraSignaling
 {
+    
+    if(agoreappID != nil){
+        
+        _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
+
+    }
     NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
     NSString *token = [LXUserDefaults objectForKey:AGORETOKEN];
     if (uid == nil || token == nil || [uid isEqualToString:@"(null)"] || [token isEqualToString:@"(null)"]) {
