@@ -73,6 +73,8 @@ alpha:1.0]
 
 #define itemNumber @"itemIndex"
 
+#define IsLogin @"islogin"
+
 //参考的屏幕宽度和高度 - 适配尺寸
 #define referenceBoundsHeight 568.0
 #define referenceBoundsWight 320.0
