@@ -22,7 +22,7 @@
 		<key>LGAlertView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>7</integer>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
@@ -153,6 +153,11 @@
 			<true/>
 		</dict>
 		<key>A9CEDF792F03E31C1B730F6DBE62D9B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C817274E85983A14F072A062A5DADA1A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
