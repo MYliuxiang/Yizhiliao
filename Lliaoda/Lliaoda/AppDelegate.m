@@ -478,7 +478,7 @@
 
 - (void)dl_failedTransaction:(SKPaymentTransaction *)transaction {
     if(transaction.error.code != SKErrorPaymentCancelled) {
-        [SVProgressHUD showErrorWithStatus:LXSring(@" dispa")];
+        [SVProgressHUD showErrorWithStatus:LXSring(@"支付失敗")];
         dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
         dispatch_after(delayTime, dispatch_get_main_queue(), ^{
             
