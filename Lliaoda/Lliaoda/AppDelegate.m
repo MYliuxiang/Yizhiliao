@@ -1157,7 +1157,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
     NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
     NSString *token = [LXUserDefaults objectForKey:AGORETOKEN];
-
     [_inst login:agoreappID account:uid token:token uid:0 deviceID:nil];
 
 }
