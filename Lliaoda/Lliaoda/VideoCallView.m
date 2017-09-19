@@ -1883,19 +1883,47 @@
     }];
 }
 
+
+
+- (UIBlurEffect *)effectView{
+    
+    if (self.effectView == nil) {
+        
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
+        effectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth / 750 * 450);
+        [self.bigImageView addSubview:effectView];
+
+    }
+    return self.effectView;
+}
+
+
 - (IBAction)redAC:(id)sender {
     
-    [self newredView];
-    self.redView.pmodel = self.model;
-    [UIView animateWithDuration:.35 animations:^{
-        
-        self.redView.top = kScreenHeight - 316;
-        
-    } completion:^(BOOL finished) {
-        
-    }];
+//    [self newredView];
+//    self.redView.pmodel = self.model;
+//    [UIView animateWithDuration:.35 animations:^{
+//        
+//        self.redView.top = kScreenHeight - 316;
+//        
+//    } completion:^(BOOL finished) {
+//        
+//    }];
     
+    UIButton *button = sender;
+    button.selected = !button.selected;
+    if (button.selected) {
+        //蔗渣
+        self.effectView.hidden = YES;
+    }else{
     
+        //开启
+        self.effectView.hidden = NO;
+
+    }
+        
 }
 
 - (void)newredView{

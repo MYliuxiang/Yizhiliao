@@ -127,7 +127,7 @@
 - (IBAction)giftAC:(id)sender;
 - (IBAction)redAC:(id)sender;
 
-
+@property (nonatomic,retain)  UIVisualEffectView *effectView;
 @property (weak, nonatomic) IBOutlet UIButton *refuse;
 
 @property (weak, nonatomic) IBOutlet UIButton *acceptBtn;
