@@ -36,8 +36,6 @@
 
 //#define DLog(s,...) NSLog(@"%s LINE:%d < %@ >",__FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__]);
 
-
-
 #define  kScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define  kScreenWidth [[UIScreen mainScreen] bounds].size.width
 
