@@ -937,11 +937,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
      }
 }
 
-
-- (void)facebookLogin:(NSString *)token
+- (void)loginACWithparams:(NSDictionary *)params
 {
-    NSDictionary *params;
-    params = @{@"type":@"facebook",@"accessToken":token};
+    
     [WXDataService loginAFWithURL:Url_accountLogin params:params httpMethod:@"POST" isHUD:YES finishBlock:^(id result) {
         if (result) {
             if ([result[@"result"] integerValue] == 0) {
@@ -954,6 +952,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 [LXUserDefaults setObject:result[@"data"][@"token"] forKey:AGORETOKEN];
                 [LXUserDefaults setObject:result[@"data"][@"nickname"] forKey:NickName];
                 [LXUserDefaults setObject:result[@"data"][@"portrait"] forKey:Portrait];
+                [LXUserDefaults setBool:YES forKey:IsLogin];
+                
                 [LXUserDefaults synchronize];
                 
                 NSString *alias = [NSString stringWithFormat:@"%@",result[@"data"][@"jpushAlias"]];
@@ -976,16 +976,16 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                                 [LXUserDefaults setObject:@"1" forKey:itemNumber];
                                 [LXUserDefaults synchronize];
                                 [self homePageViewControllerShow];
-
+                                
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                                 
                             }else{
                                 
                                 [LXUserDefaults setObject:@"2" forKey:itemNumber];
                                 [LXUserDefaults synchronize];
-
+                                
                                 [self homePageViewControllerShow];
-
+                                
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                                 
                             }
@@ -993,9 +993,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                         } else{
                             [LXUserDefaults setObject:@"2" forKey:itemNumber];
                             [LXUserDefaults synchronize];
-
+                            
                             [self homePageViewControllerShow];
-
+                            
                             self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                             
                         }
@@ -1006,13 +1006,13 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     [LXUserDefaults setObject:@"2" forKey:itemNumber];
                     [LXUserDefaults synchronize];
                     [self homePageViewControllerShow];
-
+                    
                     self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                 }];
-
+                
                 [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-
-
+                
+                
                 
             }else{
                 //登入失败
@@ -1033,6 +1033,16 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         NSLog(@"%@", error);
     }];
 
+
+
+}
+
+
+- (void)facebookLogin:(NSString *)token
+{
+    NSDictionary *params;
+    params = @{@"type":@"facebook",@"accessToken":token};
+    [self loginACWithparams:params];
     
 }
 
@@ -1045,89 +1055,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
             NSDictionary *params;
             params = @{@"type":@"wechat",@"app":@"tw",@"code":respond.code};
-            [WXDataService loginAFWithURL:Url_accountLogin params:params httpMethod:@"POST" isHUD:YES finishBlock:^(id result) {
-                if (result) {
-                if ([result[@"result"] integerValue] == 0) {
-                    //成功
-                    NSString *str = [NSString stringWithFormat:@"%@",result[@"data"][@"appkey"]];
-                    [LXUserDefaults setObject:str forKey:LXAppkey];
-                    [LXUserDefaults setObject:result[@"data"][@"expire"] forKey:Expire];
-                    [LXUserDefaults setObject:result[@"data"][@"uid"] forKey:UID];
-                    [LXUserDefaults setObject:result[@"data"][@"token"] forKey:AGORETOKEN];
-                    [LXUserDefaults setObject:result[@"data"][@"nickname"] forKey:NickName];
-                    [LXUserDefaults setObject:result[@"data"][@"portrait"] forKey:Portrait];
-                    [LXUserDefaults synchronize];
-                
-                    NSString *alias = [NSString stringWithFormat:@"%@",result[@"data"][@"jpushAlias"]];
-                    [JPUSHService setAlias:alias callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-                    
-                    [self loginAgoraSignaling];
-                    
-                    NSString *uid = [NSString stringWithFormat:@"%@",result[@"data"][@"uid"]];
-                    [MobClick profileSignInWithPUID:uid provider:@"WX"];
-                    [MobClick event:@"Forward"];
-
-                    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-
-                    NSDictionary *params;
-                    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:YES isErrorHud:NO finishBlock:^(id result) {
-                        if(result){
-                            if ([[result objectForKey:@"result"] integerValue] == 0) {
-                                
-                                self.model = [Mymodel mj_objectWithKeyValues:result[@"data"]];
-                                if (self.model.auth == 2) {
-                                    //是主播
-                                    [LXUserDefaults setObject:@"1" forKey:itemNumber];
-                                    [LXUserDefaults synchronize];
-                                    
-                                    [self homePageViewControllerShow];
-
-                                    self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
-                                    
-                                }else{
-                                    
-                                    [LXUserDefaults setObject:@"2" forKey:itemNumber];
-                                    [LXUserDefaults synchronize];
-                                    [self homePageViewControllerShow];
-
-                                    self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
-                                    
-                                }
-                                
-                            } else{
-                                [LXUserDefaults setObject:@"2" forKey:itemNumber];
-                                [LXUserDefaults synchronize];
-                                [self homePageViewControllerShow];
-
-                                self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
-                            }
-                        }
-                        
-                    } errorBlock:^(NSError *error) {
-                        NSLog(@"%@",error);
-                        [LXUserDefaults setObject:@"2" forKey:itemNumber];
-                        [LXUserDefaults synchronize];
-                        [self homePageViewControllerShow];
-
-                        self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
-                    }];
-
-                }else{
-                    //登入失败
-                    NSLog(@"%@",result[@"message"]);
-                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
-                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                        
-                        [SVProgressHUD dismiss];
-                    });
-                    
-                }
-            }
-                
-            } errorBlock:^(NSError *error) {
-                
-            }];
+            
+            [self loginACWithparams:params];
             
         
         }else{
@@ -1156,6 +1085,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         [[NSNotificationCenter defaultCenter] postNotificationName:Notice_weiXinShare object:nil userInfo:dic];
     }
     
+
 }
 
 - (void)function:(NSTimer *)timer
@@ -1629,7 +1559,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
     
     
         return  [WXApi handleOpenURL:url delegate:self];

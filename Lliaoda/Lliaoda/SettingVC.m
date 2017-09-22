@@ -111,6 +111,8 @@
                     [LXUserDefaults setObject:nil forKey:Expire];
                     [LXUserDefaults setObject:nil forKey:NickName];
                     [LXUserDefaults setObject:nil forKey:Portrait];
+                    [LXUserDefaults setBool:NO forKey:IsLogin];
+
                     [LXUserDefaults synchronize];
                     
                     

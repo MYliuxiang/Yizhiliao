@@ -98,11 +98,10 @@
     }else if ([lang hasPrefix:@"ar"]){
         agent = [NSString stringWithFormat:@"%@,%@,ios,%@,403",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+    }else{
+        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
     }
-//    else{
-//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-//        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
-//    }
 
     
     [manager.requestSerializer setValue:agent forHTTPHeaderField:@"User-Agent"];
@@ -285,6 +284,8 @@
                             [LXUserDefaults setObject:nil forKey:Expire];
                             [LXUserDefaults setObject:nil forKey:NickName];
                             [LXUserDefaults setObject:nil forKey:Portrait];
+                            [LXUserDefaults setBool:NO forKey:IsLogin];
+
                             [LXUserDefaults synchronize];
                             
                         });
