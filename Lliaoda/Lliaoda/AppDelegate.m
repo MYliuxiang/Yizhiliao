@@ -801,6 +801,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
             [[self topViewController].navigationController pushViewController:vc animated:YES];
             
         }
+        if (type == 4) {
+            // 假消息推送（进入聊天列表页）
+            UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            MeassageVC *vipbusinessVC = [story instantiateViewControllerWithIdentifier:@"MeassageVC"];
+            [[self topViewController].navigationController pushViewController:vipbusinessVC animated:YES];
+        }
 
     }
        completionHandler();  // 系统要求执行这个方法

@@ -230,17 +230,17 @@ alpha:1.0]
 //#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://aplid.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
 //#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://aplme.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
 
-#define MAINURLStr [LocalizationUtils getMainUrl]
+//#define MAINURLStr [LocalizationUtils getMainUrl]
 
 //#define MAINURLStr @"http://demo.yizhiliao.tv/api/"
-//#define MAINURLStr @"http://demo.yizhiliao.live/api/"
+#define MAINURLStr @"http://demo.yizhiliao.live/api/"
 //#define MAINURLStr [LocalizationUtils getMainUrl]
 
 #define MAINURL  MAINURLStr//主URL
 
 //信令
-#define agoreappID  [LocalizationUtils getagoreappID] //正式
-//#define agoreappID   @"c21bbe14f2ad406d94a92146ee60aab0" //demo
+//#define agoreappID  [LocalizationUtils getagoreappID] //正式
+#define agoreappID   @"c21bbe14f2ad406d94a92146ee60aab0" //demo
 #define certificate1 @"d5e0a27cec6f4b06b0f0003d826bbee9"
 #define enableMediaCertificate 1
 

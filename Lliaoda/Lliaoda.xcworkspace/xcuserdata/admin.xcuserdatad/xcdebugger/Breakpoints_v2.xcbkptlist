@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AccountVC.m"
-            timestampString = "527181491.461086"
+            filePath = "Lliaoda/AppDelegate.m"
+            timestampString = "527767992.509012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "776"
-            endingLineNumber = "776"
-            landmarkName = "-paymentAuthorizationViewController:didAuthorizePayment:completion:"
+            startingLineNumber = "779"
+            endingLineNumber = "779"
+            landmarkName = "-jpushNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AccountVC.m"
-            timestampString = "527181509.484144"
+            filePath = "Lliaoda/AppDelegate.m"
+            timestampString = "527767992.509268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "789"
-            endingLineNumber = "789"
-            landmarkName = "-paymentAuthorizationViewControllerDidFinish:"
+            startingLineNumber = "741"
+            endingLineNumber = "741"
+            landmarkName = "-jpushNotificationCenter:willPresentNotification:withCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
