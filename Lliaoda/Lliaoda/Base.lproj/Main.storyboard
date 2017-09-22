@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vYV-5a-hLZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vYV-5a-hLZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,7 +50,7 @@
                 <navigationController id="O9h-5L-P6f" customClass="BaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的" image="me_n" selectedImage="me_h" id="2xf-ha-mb9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rmv-55-Udh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
@@ -178,7 +178,7 @@
                 <navigationController id="4eq-dL-Fxh" customClass="BaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="訊息" image="xiaoxi_n" selectedImage="xiaoxi_h" id="HZY-za-dXd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DYA-Vc-lGT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
@@ -192,7 +192,7 @@
                 <navigationController id="fnG-AO-TeC" customClass="BaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="精選" image="jingxuan_n" selectedImage="jingxuan_h" id="ZBF-FA-vLD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wta-zh-nNk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </navigationBar>
@@ -207,7 +207,7 @@
                 <navigationController id="UFQ-jh-YFA" customClass="BaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="发现" image="faxian" selectedImage="faxian" id="CRn-KV-Q8n"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5as-XY-jvC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
@@ -318,14 +318,14 @@
                                     <rect key="frame" x="0.0" y="335" width="335" height="98"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zuanshi_fen" translatesAutoresizingMaskIntoConstraints="NO" id="cOS-Yt-9VX">
-                                            <rect key="frame" x="235" y="43" width="15" height="13"/>
+                                            <rect key="frame" x="235" y="57.5" width="15" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="15" id="epF-3l-aaJ"/>
                                                 <constraint firstAttribute="height" constant="13" id="ew8-m2-4yZ"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20鑽/分钟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9H-Wn-mQ2">
-                                            <rect key="frame" x="255" y="41" width="65" height="17"/>
+                                            <rect key="frame" x="255" y="55.5" width="65" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.16282719370000001" green="0.16298320890000001" blue="0.16285133360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -353,7 +353,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mey-WZ-JFk">
-                                                    <rect key="frame" x="53" y="-0.5" width="56" height="14"/>
+                                                    <rect key="frame" x="53" y="1.5" width="56" height="14"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nvsheng" translatesAutoresizingMaskIntoConstraints="NO" id="95Q-IU-bZb">
                                                             <rect key="frame" x="5" y="2" width="10" height="10"/>
@@ -387,10 +387,10 @@
                                                 <constraint firstItem="mey-WZ-JFk" firstAttribute="leading" secondItem="EAt-nM-tIM" secondAttribute="trailing" constant="10" id="CBt-jr-M21"/>
                                                 <constraint firstAttribute="bottom" secondItem="d68-ag-ANK" secondAttribute="bottom" id="GXQ-Q8-JVh"/>
                                                 <constraint firstAttribute="width" constant="150" id="H78-za-0hY"/>
-                                                <constraint firstItem="mey-WZ-JFk" firstAttribute="baseline" secondItem="EAt-nM-tIM" secondAttribute="baseline" id="MhD-br-oJc"/>
                                                 <constraint firstItem="d68-ag-ANK" firstAttribute="top" secondItem="EAt-nM-tIM" secondAttribute="bottom" constant="8" id="PgW-Vo-WHw"/>
                                                 <constraint firstItem="EAt-nM-tIM" firstAttribute="top" secondItem="3tS-iZ-Dto" secondAttribute="top" id="j5e-bB-qYB"/>
                                                 <constraint firstItem="j0r-zJ-zcj" firstAttribute="leading" secondItem="3tS-iZ-Dto" secondAttribute="leading" id="jGF-jK-JkH"/>
+                                                <constraint firstItem="mey-WZ-JFk" firstAttribute="centerY" secondItem="EAt-nM-tIM" secondAttribute="centerY" id="pEb-Pf-gyk"/>
                                                 <constraint firstItem="EAt-nM-tIM" firstAttribute="leading" secondItem="3tS-iZ-Dto" secondAttribute="leading" id="pt2-aq-FlC"/>
                                             </constraints>
                                         </view>
@@ -401,7 +401,7 @@
                                         <constraint firstItem="H9H-Wn-mQ2" firstAttribute="leading" secondItem="cOS-Yt-9VX" secondAttribute="trailing" constant="5" id="8J1-nF-WpC"/>
                                         <constraint firstAttribute="trailing" secondItem="H9H-Wn-mQ2" secondAttribute="trailing" constant="15" id="D11-et-cI6"/>
                                         <constraint firstItem="3tS-iZ-Dto" firstAttribute="centerY" secondItem="nZT-5f-PT7" secondAttribute="centerY" id="Ez9-Ks-7Y2"/>
-                                        <constraint firstItem="H9H-Wn-mQ2" firstAttribute="centerY" secondItem="nZT-5f-PT7" secondAttribute="centerY" id="fRW-W2-3Rr"/>
+                                        <constraint firstItem="H9H-Wn-mQ2" firstAttribute="centerY" secondItem="nZT-5f-PT7" secondAttribute="centerY" constant="15" id="fRW-W2-3Rr"/>
                                         <constraint firstItem="3tS-iZ-Dto" firstAttribute="leading" secondItem="nZT-5f-PT7" secondAttribute="leading" constant="15" id="uaE-HZ-fGE"/>
                                     </constraints>
                                 </view>
@@ -639,7 +639,7 @@
         <image name="delete2" width="50" height="50"/>
         <image name="faxian" width="22" height="22"/>
         <image name="jingxuan_h" width="25" height="27"/>
-        <image name="jingxuan_n" width="25" height="27"/>
+        <image name="jingxuan_n" width="20" height="22"/>
         <image name="map_hui" width="7" height="10"/>
         <image name="me_h" width="24" height="26"/>
         <image name="me_n" width="24" height="26"/>

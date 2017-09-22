@@ -98,36 +98,37 @@
     self.logoBtn.selected = YES;
     self.logoBtn.userInteractionEnabled = NO;
     
-    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"id"]){
-        
-        self.loginBtn.hidden = YES;
-        
-    }else{
-        if ([lang hasPrefix:@"ar"]) {
-            self.loginBtn.hidden = YES;
-        } else {
-            if ([WXApi isWXAppInstalled]&&[WXApi isWXAppSupportApi]){
-                self.loginBtn.hidden = NO;
-                
-            }else{
-                
-                self.loginBtn.hidden = YES;
-            }
-        }
-    }
-   
-    if ([LXUserDefaults boolForKey:ISMEiGUO]){
-        
-        self.noweixinView.hidden = NO;
-        self.faceBtn.hidden = YES;
-        
-    }else{
-        
-        self.noweixinView.hidden = YES;
-        self.faceBtn.hidden = NO;
-    }
-    
+//    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//    if ([lang hasPrefix:@"id"]){
+//
+//        self.loginBtn.hidden = YES;
+//
+//    }else{
+//        if ([lang hasPrefix:@"ar"]) {
+//            self.loginBtn.hidden = YES;
+//        } else {
+//            if ([WXApi isWXAppInstalled]&&[WXApi isWXAppSupportApi]){
+//                self.loginBtn.hidden = NO;
+//
+//            }else{
+//
+//                self.loginBtn.hidden = YES;
+//            }
+//        }
+//    }
+//
+//    if ([LXUserDefaults boolForKey:ISMEiGUO]){
+//
+//        self.noweixinView.hidden = NO;
+//        self.faceBtn.hidden = YES;
+//
+//    }else{
+//
+//        self.noweixinView.hidden = YES;
+//        self.faceBtn.hidden = NO;
+//    }
+    self.noweixinView.hidden = YES;
+    self.faceBtn.hidden = YES;
     
     NSString *data = [[NSBundle mainBundle] pathForResource:@"2" ofType:nil];
     NSData *da = [NSData dataWithContentsOfFile:data];
@@ -135,7 +136,7 @@
     NSString *data1 = [[NSBundle mainBundle] pathForResource:@"3" ofType:nil];
     NSData *da1 = [NSData dataWithContentsOfFile:data1];
 
-    self.loginBtn.hidden = YES;
+    self.loginBtn.hidden = NO;
     LxCache *lxcache = [LxCache sharedLxCache];
     [lxcache.cache setObject:da forKey:Url_recommend];
     [lxcache.cache setObject:da1 forKey:CityCache];
