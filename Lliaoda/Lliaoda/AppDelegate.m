@@ -1433,6 +1433,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                 
                 return ;
             }
+            
+            if ([messageID isEqualToString:@"-4"]) {
+                
+                return ;
+            }
 
             NSDictionary *dic = @{@"messageID":messageID,@"ecode":@(ecode)};
             NSString *criteria = [NSString stringWithFormat:@"WHERE messageID = '%@'",messageID];
@@ -1455,6 +1460,10 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
             //更新UI操作
             
             if ([messageID isEqualToString:@"-1"]) {
+                
+                return ;
+            }
+            if ([messageID isEqualToString:@"-4"]) {
                 
                 return ;
             }
@@ -1617,6 +1626,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                 } else if ([request isEqualToString:@"-4"]) {
                     messageModel.content = [NSString stringWithFormat:@"%@(系统提示)",dic[@"message"][@"content"]];
                     messageModel.type = MessageBodyType_Text;
+                    
+                    
                 } else{
                     
                     messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
@@ -1629,6 +1640,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                 messageModel.messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
                 messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
                 messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
+                if([request isEqualToString:@"-4"]){
+                    messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                    messageModel.sendUid =account;
+                }
+                
+                
                 [messageModel save];
                 [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                 

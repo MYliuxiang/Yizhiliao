@@ -1309,30 +1309,34 @@ NSString *const kTableViewFrame = @"frame";
         default:
             break;
     }
-    id obj;
-    if (self.dataSource.count > 0) {
-        obj = [self.dataSource objectAtIndex:self.dataSource.count - 1];
-    }
-    Message *messageModels = (Message *)obj;
+
+    Message *lastMe = self.messages.lastObject;
+    
+    
     NSDictionary *msg;
-    if (messageModels.isRobotMessage) {
+    if (lastMe.isRobotMessage) {
         // 回复机器消息
         msg = @{@"message":@{
                         @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
                         @"content":content,
-                        @"type":@(MessageBodyType_Video),
+                        @"type":@(MessageBodyType_Text),
                         @"request":@"-4",
                         @"time":[NSString stringWithFormat:@"%lld",idate],
                         }};
+        NSString *msgStr = [InputCheck convertToJSONData:msg];
+
+         [_inst messageInstantSend:self.sendUid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
         
-    } else {
-        msg = @{@"message":@{
+    }
+    
+    
+    msg = @{@"message":@{
                         @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
                         @"content":content,
-                        @"type":@(MessageBodyType_Video),
+                        @"type":@(type),
                         @"time":[NSString stringWithFormat:@"%lld",idate],
-                        }};
-    }
+            }};
+    
     
     NSString *msgStr = [InputCheck convertToJSONData:msg];
         
