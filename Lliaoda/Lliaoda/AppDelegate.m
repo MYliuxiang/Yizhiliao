@@ -196,9 +196,89 @@
 //    }
 //    [LXUserDefaults synchronize];
     [self updataFinalCallTime];
+    
+    [self messageRobotRequest];
     [self.window makeKeyWindow];
     return YES;
     
+}
+
+#pragma mark - 机器消息定时请求
+- (void)messageRobotRequest {
+    if ([LXUserDefaults boolForKey:IsLogin]) {
+        // 已经登录
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"2"]) {
+            // 是用户
+            [self messageRobot];
+            self.robotTimer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(messageRobot) userInfo:nil repeats:YES];
+        }
+        
+    } else {
+        // 未登录
+        
+    }
+}
+
+- (void)messageRobot {
+    NSInteger timeSp = [LXUserDefaults integerForKey:RobotLastTime];
+    if (timeSp <= 0) {
+        NSDate *date = [NSDate date];
+        timeSp = [date timeIntervalSince1970] - 24 * 3600;
+    }
+    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%ld", (long)timeSp], @"timestamp", nil];
+    [WXDataService requestAFWithURL:Url_chatmessagerobot params:params httpMethod:@"GET" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+        if(result){
+            int results = [[result objectForKey:@"result"] intValue];
+            if (results == 0) {
+                NSDate *date = [NSDate date];
+                NSInteger timeSp = [date timeIntervalSince1970];
+                [LXUserDefaults setInteger:timeSp forKey:RobotLastTime];
+                [LXUserDefaults synchronize];
+                NSArray *datas = [result objectForKey:@"data"];
+                for (NSDictionary *dic in datas) {
+                    NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",dic[@"senderId"],[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
+                    if ([MessageCount findFirstByCriteria:criteria]) {
+                        MessageCount *count = [MessageCount findFirstByCriteria:criteria];
+                        count.count = count.count + 1;
+                        count.content = [NSString stringWithFormat:@"%@",dic[@"text"]];
+                        count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                        count.sendUid = dic[@"senderId"];
+                        count.timeDate = [dic[@"createdAt"] longLongValue];
+                        [count update];
+                        
+                    } else {
+                        MessageCount *count = [[MessageCount alloc] init];
+                        count.content = [NSString stringWithFormat:@"%@",dic[@"text"]];
+                        count.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                        count.sendUid = dic[@"senderId"];
+                        count.count = 1;
+                        count.timeDate = [dic[@"createdAt"] longLongValue];
+                        [count save];
+                    }
+                    
+                    Message *messageModel = [Message new];
+                    messageModel.isSender = NO;
+                    messageModel.isRead = YES;
+                    messageModel.status = MessageDeliveryState_Delivered;
+                    messageModel.date = [dic[@"createdAt"] longLongValue];
+                    messageModel.content = dic[@"text"];
+                    messageModel.type = MessageBodyType_Text;
+                    messageModel.uid = dic[@"senderId"];
+                    messageModel.messageID = dic[@"uid"];
+                    messageModel.isRobotMessage = YES;
+                    messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+                    messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],dic[@"senderId"]];
+                    [messageModel save];
+                    NSDictionary *mdic = @{@"account":dic[@"senderId"],@"msg":dic[@"text"]};
+                    [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
+                }
+            }
+            NSLog(@"%@", result);
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 - (void)updataFinalCallTime
@@ -956,6 +1036,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 
                 [LXUserDefaults synchronize];
                 
+                [self messageRobotRequest];
+                
                 NSString *alias = [NSString stringWithFormat:@"%@",result[@"data"][@"jpushAlias"]];
                 [JPUSHService setAlias:alias callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
                 
@@ -983,7 +1065,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                                 
                                 [LXUserDefaults setObject:@"2" forKey:itemNumber];
                                 [LXUserDefaults synchronize];
-                                
+                                [self messageRobotRequest];
                                 [self homePageViewControllerShow];
                                 
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
@@ -1393,7 +1475,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         });
         
     };
-    
+#pragma mark - 收到讯息回调
     //已收到訊息回调(onMessageInstantReceive)
     _inst.onMessageInstantReceive = ^(NSString *account, uint32_t uid, NSString *msg) {
         
@@ -1450,7 +1532,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                         }
                         
                         
-                    }else{
+                    } else {
                         
                         count.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
                         
@@ -1488,7 +1570,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                         }
                         
                         
-                    }else{
+                    } else{
                         
                         count.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
                         
@@ -1535,7 +1617,10 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                     }
                     
                     
-                }else{
+                } else if ([request isEqualToString:@"-4"]) {
+                    messageModel.content = [NSString stringWithFormat:@"%@(系统提示)",dic[@"message"][@"content"]];
+                    messageModel.type = MessageBodyType_Text;
+                } else{
                     
                     messageModel.content = [NSString stringWithFormat:@"%@",dic[@"message"][@"content"]];
                     messageModel.type = MessageBodyType_Text;
