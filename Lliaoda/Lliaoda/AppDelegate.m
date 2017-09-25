@@ -210,7 +210,7 @@
         if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"2"]) {
             // 是用户
             [self messageRobot];
-            self.robotTimer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(messageRobot) userInfo:nil repeats:YES];
+            self.robotTimer = [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(messageRobot) userInfo:nil repeats:YES];
         }
         
     } else {
@@ -264,12 +264,14 @@
                     messageModel.content = dic[@"text"];
                     messageModel.type = MessageBodyType_Text;
                     messageModel.uid = dic[@"senderId"];
-                    messageModel.messageID = dic[@"uid"];
+                    messageModel.messageID = [NSString stringWithFormat:@"%@_%@",dic[@"senderId"],dic[@"createdAt"]];
                     messageModel.isRobotMessage = YES;
                     messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
                     messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],dic[@"senderId"]];
                     [messageModel save];
-                    NSDictionary *mdic = @{@"account":dic[@"senderId"],@"msg":dic[@"text"]};
+                    NSString *time = [NSString stringWithFormat:@"%lld",messageModel.date];
+                    NSDictionary *sdic = @{@"content":dic[@"text"],@"messageID":@"-4",@"time":time, @"type":@1};
+                    NSDictionary *mdic = @{@"account":dic[@"senderId"],@"msg":sdic};
                     [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                 }
             }

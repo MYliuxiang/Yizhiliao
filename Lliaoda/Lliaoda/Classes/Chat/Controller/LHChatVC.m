@@ -912,6 +912,9 @@ NSString *const kTableViewFrame = @"frame";
         } else {
             messageModel.content = [NSString stringWithFormat:LXSring(@"我已通過你的頁面儲值：%@"), userInfo[@"msg"][@"content"]];
         }
+    }else if ([messageModel.request isEqualToString:@"-4"]) {
+        messageModel.content = [NSString stringWithFormat:@"%@(系统提示)",userInfo[@"msg"][@"content"]];
+        
     } else {
         messageModel.content = userInfo[@"msg"][@"content"];
     }
@@ -1318,10 +1321,10 @@ NSString *const kTableViewFrame = @"frame";
         // 回复机器消息
         msg = @{@"message":@{
                         @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
-                        @"content":content,
+                        @"content":lastMe.content,
                         @"type":@(MessageBodyType_Text),
                         @"request":@"-4",
-                        @"time":[NSString stringWithFormat:@"%lld",idate],
+                        @"time":[NSString stringWithFormat:@"%lld",lastMe.date],
                         }};
         NSString *msgStr = [InputCheck convertToJSONData:msg];
 
