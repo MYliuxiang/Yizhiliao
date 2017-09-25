@@ -795,7 +795,8 @@
 }
 
 - (void)application:(UIApplication *)application
-didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
     
     /// Required - 注册 DeviceToken
     [JPUSHService registerDeviceToken:deviceToken];
@@ -1442,11 +1443,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
             }
             messageModel.status = MessageDeliveryState_Failure;
             [messageModel update];
-            
             [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageSendError object:nil userInfo:dic];
             //.....
         });
-        
         
     };
     //发送訊息成功回调
@@ -1470,8 +1469,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
             messageModel.status = MessageDeliveryState_Delivered;
             [messageModel update];
             [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageSendSuccess object:nil userInfo:dic];
-            
-            
         });
         
     };
@@ -1480,7 +1477,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     _inst.onMessageInstantReceive = ^(NSString *account, uint32_t uid, NSString *msg) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             NSDictionary *dic = [InputCheck dictionaryWithJsonString:msg];
             NSString *messageID = [NSString stringWithFormat:@"%@",dic[@"message"][@"messageID"]];
             NSString *event = [NSString stringWithFormat:@"%@",dic[@"message"][@"event"]] ;
@@ -1499,6 +1495,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 }
                 
             }else{
+                
                
                 NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",account,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
                 NSString *timestr = [NSString stringWithFormat:@"%@",dic[@"message"][@"time"]];
