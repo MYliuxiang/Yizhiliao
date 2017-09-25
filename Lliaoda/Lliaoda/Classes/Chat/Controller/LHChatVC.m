@@ -1309,9 +1309,10 @@ NSString *const kTableViewFrame = @"frame";
         default:
             break;
     }
-    
-    
-    id obj = [self.dataSource objectAtIndex:self.dataSource.count - 1];
+    id obj;
+    if (self.dataSource.count > 0) {
+        obj = [self.dataSource objectAtIndex:self.dataSource.count - 1];
+    }
     Message *messageModels = (Message *)obj;
     NSDictionary *msg;
     if (messageModels.isRobotMessage) {
