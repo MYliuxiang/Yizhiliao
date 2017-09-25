@@ -220,12 +220,20 @@
 }
 
 - (void)messageRobot {
-    NSInteger timeSp = [LXUserDefaults integerForKey:RobotLastTime];
-    if (timeSp <= 0) {
+    
+    NSString *str = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:RobotLastTime]];
+    if (str.length == 0) {
         NSDate *date = [NSDate date];
-        timeSp = [date timeIntervalSince1970] - 24 * 3600;
+       long long timeSp = [date timeIntervalSince1970] - 24 * 3600;
+        str = [NSString stringWithFormat:@"%lld",timeSp];
     }
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%ld", (long)timeSp], @"timestamp", nil];
+    
+//    1506257059
+//    1506257099
+//    1506257159
+//    1506303672000
+    
+    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:str, @"timestamp", nil];
     [WXDataService requestAFWithURL:Url_chatmessagerobot params:params httpMethod:@"GET" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
         if(result){
             int results = [[result objectForKey:@"result"] intValue];
@@ -235,7 +243,8 @@
 //                [LXUserDefaults synchronize];
                 NSArray *datas = [result objectForKey:@"data"];
                 
-                long long timeSp = 0;
+                NSString *str = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:RobotLastTime]];
+                long long OtimeSp = [str longLongValue];
                 
                 for (NSDictionary *dic in datas) {
                     NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",dic[@"senderId"],[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
@@ -258,7 +267,6 @@
                         [count save];
                     }
                     
-                    
                     Message *messageModel = [Message new];
                     messageModel.isSender = NO;
                     messageModel.isRead = YES;
@@ -275,20 +283,17 @@
                     
                     NSString *time = [NSString stringWithFormat:@"%lld",messageModel.date];
                     
-                    if (timeSp < messageModel.date) {
+                    if (OtimeSp < messageModel.date) {
                         
-                        timeSp = messageModel.date;
+                        OtimeSp = messageModel.date;
                     }
                     
-                    
-                    NSDictionary *sdic = @{@"content":dic[@"text"],@"messageID":@"-4",@"time":time, @"type":@1};
+                    NSDictionary *sdic = @{@"content":dic[@"text"],@"messageID":[NSString stringWithFormat:@"%@_%@",dic[@"senderId"],dic[@"createdAt"]],@"time":time, @"type":@1};
                     NSDictionary *mdic = @{@"account":dic[@"senderId"],@"msg":sdic};
                     [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                 }
                 
-                [LXUserDefaults setInteger:timeSp forKey:RobotLastTime];
-                [LXUserDefaults synchronize];
-                
+                [LXUserDefaults setObject:[NSString stringWithFormat:@"%lld",OtimeSp] forKey:RobotLastTime];                [LXUserDefaults synchronize];
                 
             }
             NSLog(@"%@", result);
