@@ -19,14 +19,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AppDelegate.m"
-            timestampString = "527767992.509012"
+            filePath = "Lliaoda/Classes/Chat/Controller/LHChatVC.m"
+            timestampString = "528023863.329019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "779"
-            endingLineNumber = "779"
-            landmarkName = "-jpushNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
-            landmarkType = "7">
+            startingLineNumber = "1284"
+            endingLineNumber = "1284"
+            landmarkName = "LHChatVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AppDelegate.m"
-            timestampString = "527767992.509268"
+            filePath = "Lliaoda/Classes/Chat/Controller/LHChatVC.m"
+            timestampString = "528023863.329078"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "741"
-            endingLineNumber = "741"
-            landmarkName = "-jpushNotificationCenter:willPresentNotification:withCompletionHandler:"
+            startingLineNumber = "1358"
+            endingLineNumber = "1358"
+            landmarkName = "-seavMessage:type:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
