@@ -281,7 +281,7 @@
                     }
                     
                     
-                    NSDictionary *sdic = @{@"content":dic[@"text"],@"messageID":@"-4",@"time":time, @"type":@1};
+                    NSDictionary *sdic = @{@"content":dic[@"text"],@"messageID":[NSString stringWithFormat:@"%@_%@",dic[@"senderId"],dic[@"createdAt"]],@"time":time, @"type":@1};
                     NSDictionary *mdic = @{@"account":dic[@"senderId"],@"msg":sdic};
                     [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                 }
