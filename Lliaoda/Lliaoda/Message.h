@@ -65,6 +65,7 @@ typedef enum {
 @property (nonatomic, strong) NSString *messageID;
 @property (nonatomic, strong) NSString *id;
 @property (nonatomic, copy)   NSString *chancelID;
+@property (nonatomic, assign) BOOL isRobotMessage; // 判断是否为机器人消息  YES为是
 /** text */
 @property (nonatomic, strong) NSString *content;
 /** image */

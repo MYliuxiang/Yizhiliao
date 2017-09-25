@@ -25,6 +25,7 @@
 @property (nonatomic,retain) NSTimer *timer;
 @property (nonatomic,retain) NSMutableArray *notices;
 @property (nonatomic,retain) NSTimer *heartBeatTimer;
+@property (nonatomic, retain) NSTimer *robotTimer; // 机器消息
 @property (nonatomic,retain) Mymodel *model;
 
 - (void)isLogin;

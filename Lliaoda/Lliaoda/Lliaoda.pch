@@ -186,6 +186,7 @@ alpha:1.0]
 #define Url_chatmessagesend               @"chat/message/send"//发送訊息内容到服务器
 #define Url_accountheartbeat              @"account/heartbeat"//app在激活状态时发送给服务器
 #define Url_chatvideoreport               @"chat/video/report"//设置当前用户与直播的喜欢状态
+#define Url_chatmessagerobot            @"chat/message/robot"//机器消息  查询假消息
 
 
 //-------------微信登入---------
@@ -230,8 +231,8 @@ alpha:1.0]
 
 //#define MAINURLStr [LocalizationUtils getMainUrl]
 
-//#define MAINURLStr @"http://demo.yizhiliao.tv/api/"
-#define MAINURLStr @"http://demo.yizhiliao.live/api/"
+#define MAINURLStr @"http://demo.yizhiliao.tv/api/"
+//#define MAINURLStr @"http://demo.yizhiliao.live/api/"
 //#define MAINURLStr [LocalizationUtils getMainUrl]
 
 #define MAINURL  MAINURLStr//主URL
@@ -251,5 +252,6 @@ alpha:1.0]
 #define payMainUrl [LocalizationUtils getPayMainUrl]
 #endif /* Lliaoda_pch */
 
-
+// 时间戳
+#define RobotLastTime @"lastTime"
 

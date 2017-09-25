@@ -537,17 +537,13 @@ NSString *const kTableViewFrame = @"frame";
                 count.count = 0;
                 count.timeDate = idate;
                 [count save];
-                
+
             }else{
-                
                 _count.content = message;
                 _count.timeDate = messageModel.date;
                 _count.count = 0;
                 [_count saveOrUpdate];
-                
             }
-
-            
             
         }else{
             if ([[result objectForKey:@"result"] integerValue] == 31) {
@@ -1313,13 +1309,30 @@ NSString *const kTableViewFrame = @"frame";
         default:
             break;
     }
-   
-    NSDictionary *msg = @{@"message":@{
-    @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
-    @"content":content,
-    @"type":@(MessageBodyType_Video),
-    @"time":[NSString stringWithFormat:@"%lld",idate],
-    }};
+    
+    
+    id obj = [self.dataSource objectAtIndex:self.dataSource.count - 1];
+    Message *messageModels = (Message *)obj;
+    NSDictionary *msg;
+    if (messageModels.isRobotMessage) {
+        // 回复机器消息
+        msg = @{@"message":@{
+                        @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
+                        @"content":content,
+                        @"type":@(MessageBodyType_Video),
+                        @"request":@"-4",
+                        @"time":[NSString stringWithFormat:@"%lld",idate],
+                        }};
+        
+    } else {
+        msg = @{@"message":@{
+                        @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
+                        @"content":content,
+                        @"type":@(MessageBodyType_Video),
+                        @"time":[NSString stringWithFormat:@"%lld",idate],
+                        }};
+    }
+    
     NSString *msgStr = [InputCheck convertToJSONData:msg];
         
     NSDictionary *params;
