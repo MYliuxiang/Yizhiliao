@@ -230,11 +230,13 @@
         if(result){
             int results = [[result objectForKey:@"result"] intValue];
             if (results == 0) {
-                NSDate *date = [NSDate date];
-                NSInteger timeSp = [date timeIntervalSince1970];
-                [LXUserDefaults setInteger:timeSp forKey:RobotLastTime];
-                [LXUserDefaults synchronize];
+//                NSInteger timeSp = [date timeIntervalSince1970];
+//                [LXUserDefaults setInteger:timeSp forKey:RobotLastTime];
+//                [LXUserDefaults synchronize];
                 NSArray *datas = [result objectForKey:@"data"];
+                
+                long long timeSp = 0;
+                
                 for (NSDictionary *dic in datas) {
                     NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",dic[@"senderId"],[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
                     if ([MessageCount findFirstByCriteria:criteria]) {
@@ -256,6 +258,7 @@
                         [count save];
                     }
                     
+                    
                     Message *messageModel = [Message new];
                     messageModel.isSender = NO;
                     messageModel.isRead = YES;
@@ -269,11 +272,24 @@
                     messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
                     messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],dic[@"senderId"]];
                     [messageModel save];
+                    
                     NSString *time = [NSString stringWithFormat:@"%lld",messageModel.date];
+                    
+                    if (timeSp < messageModel.date) {
+                        
+                        timeSp = messageModel.date;
+                    }
+                    
+                    
                     NSDictionary *sdic = @{@"content":dic[@"text"],@"messageID":@"-4",@"time":time, @"type":@1};
                     NSDictionary *mdic = @{@"account":dic[@"senderId"],@"msg":sdic};
                     [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                 }
+                
+                [LXUserDefaults setInteger:timeSp forKey:RobotLastTime];
+                [LXUserDefaults synchronize];
+                
+                
             }
             NSLog(@"%@", result);
         }
