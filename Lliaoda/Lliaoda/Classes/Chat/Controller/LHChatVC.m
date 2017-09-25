@@ -1258,6 +1258,7 @@ NSString *const kTableViewFrame = @"frame";
         [self.dataSource removeObjectAtIndex:index];
         [self.dataSource insertObject:self.lastTime atIndex:0];
     }
+    
 }
 
 - (NSIndexPath *)insertNewMessageOrTime:(id)NewMessage {
