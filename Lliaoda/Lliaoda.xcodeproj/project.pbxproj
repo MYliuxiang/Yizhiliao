@@ -584,6 +584,7 @@
 		841AD6CE1F3C6CB400A3CE0D /* SelectedBannersHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841AD6CC1F3C6CB400A3CE0D /* SelectedBannersHeader.xib */; };
 		8420E7221F2773F000ADA26E /* LHChatGiftBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8420E7211F2773F000ADA26E /* LHChatGiftBubbleView.m */; };
 		8420E7251F2779E600ADA26E /* LHChatChongZhiBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8420E7241F2779E600ADA26E /* LHChatChongZhiBubbleView.m */; };
+		8430C5D81F7B88E700F953EB /* VideoCallRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FA8681EFCF34200E91AE5 /* VideoCallRedView.m */; };
 		843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31F71F2B3879003C4EB2 /* RepetitionCount.m */; };
 		843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */; };
 		843EC0261F29D9750051AFD3 /* OrderID.m in Sources */ = {isa = PBXBuildFile; fileRef = 843EC0251F29D9750051AFD3 /* OrderID.m */; };
@@ -4173,6 +4174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8430C5D81F7B88E700F953EB /* VideoCallRedView.m in Sources */,
 				22E8D7871EA49AE300C5FC6B /* LliaodaTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
