@@ -180,7 +180,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "758"
             endingLineNumber = "758"
-            landmarkName = "-jubaoWithtype:"
+            landmarkName = "-buttonAC:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -261,22 +261,6 @@
             startingLineNumber = "651"
             endingLineNumber = "651"
             landmarkName = "-orderCreate:withType:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AppDelegate.m"
-            timestampString = "528036829.976731"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "-messageRobot"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
