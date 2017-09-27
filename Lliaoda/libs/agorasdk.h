@@ -2,7 +2,7 @@
 #ifndef io_agora_sdk2_h
 #define io_agora_sdk2_h
 
-#define AGORA_SDK_VERSION "1.1.1.2"
+#define AGORA_SDK_VERSION "1.1.3.42"
 
 
 
@@ -47,7 +47,8 @@ typedef NS_ENUM(NSUInteger, AgoraEcode){
     AgoraEcode_GENERAL_E_FAILED = 1001,
     AgoraEcode_GENERAL_E_UNKNOWN = 1002,
     AgoraEcode_GENERAL_E_NOT_LOGIN = 1003,
-    AgoraEcode_GENERAL_E_WRONG_PARAM = 1004
+    AgoraEcode_GENERAL_E_WRONG_PARAM = 1004,
+    AgoraEcode_GENERAL_E_LARGE_PARAM = 1005
 };
 
 __attribute__ ((visibility ("default"))) @interface AgoraAPI : NSObject
@@ -80,6 +81,7 @@ __attribute__ ((visibility ("default"))) @interface AgoraAPI : NSObject
 @property (copy) void(^onInviteEndByMyself)(NSString* channelID,NSString* account,uint32_t uid) ;
 @property (copy) void(^onInviteMsg)(NSString* channelID,NSString* account,uint32_t uid,NSString* msgType,NSString* msgData,NSString* extra) ;
 @property (copy) void(^onMessageSendError)(NSString* messageID,AgoraEcode ecode) ;
+@property (copy) void(^onMessageSendProgress)(NSString* account,NSString* messageID,NSString* type,NSString* info) ;
 @property (copy) void(^onMessageSendSuccess)(NSString* messageID) ;
 @property (copy) void(^onMessageAppReceived)(NSString* msg) ;
 @property (copy) void(^onMessageInstantReceive)(NSString* account,uint32_t uid,NSString* msg) ;
@@ -92,6 +94,7 @@ __attribute__ ((visibility ("default"))) @interface AgoraAPI : NSObject
 @property (copy) void(^onError)(NSString* name,AgoraEcode ecode,NSString* desc) ;
 @property (copy) void(^onQueryUserStatusResult)(NSString* name,NSString* status) ;
 @property (copy) void(^onDbg)(NSString* a,NSString* b) ;
+@property (copy) void(^onBCCall_result)(NSString* reason,NSString* json_ret,NSString* callID) ;
 
 
 
@@ -118,6 +121,7 @@ __attribute__ ((visibility ("default"))) @interface AgoraAPI : NSObject
 - (void) channelInviteEnd:(NSString*)channelID account:(NSString*)account uid:(uint32_t)uid ;
 - (void) messageAppSend:(NSString*)msg msgID:(NSString*)msgID ;
 - (void) messageInstantSend:(NSString*)account uid:(uint32_t)uid msg:(NSString*)msg msgID:(NSString*)msgID ;
+- (void) messageInstantSend2:(NSString*)account uid:(uint32_t)uid msg:(NSString*)msg msgID:(NSString*)msgID options:(NSString*)options ;
 - (void) messageChannelSend:(NSString*)channelID msg:(NSString*)msg msgID:(NSString*)msgID ;
 - (void) messageChannelSendFast:(NSString*)channelID msg:(NSString*)msg msgID:(NSString*)msgID ;
 - (void) messagePushSend:(NSString*)account uid:(uint32_t)uid msg:(NSString*)msg msgID:(NSString*)msgID ;
@@ -138,6 +142,7 @@ __attribute__ ((visibility ("default"))) @interface AgoraAPI : NSObject
 - (bool) isOnline;
 - (int) getStatus;
 - (int) getSdkVersion;
+- (void) bc_call:(NSString*)func json_args:(NSString*)json_args callID:(NSString*)callID ;
 - (void) dbg:(NSString*)a b:(NSString*)b ;
 
 @end

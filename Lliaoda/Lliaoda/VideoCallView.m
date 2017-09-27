@@ -1927,12 +1927,11 @@
     button.selected = !button.selected;
     if (button.selected) {
         //蔗渣
-        self.effectView.hidden = YES;
-    }else{
-    
-        //开启
-        self.effectView.hidden = NO;
+//        self.effectView.hidden = YES;
 
+    }else{
+        //开启
+//        self.effectView.hidden = NO;
     }
         
 }

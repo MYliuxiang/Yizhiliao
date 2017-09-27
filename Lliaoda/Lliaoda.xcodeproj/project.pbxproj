@@ -396,11 +396,6 @@
 		225DC9CF1ED803BB002ADA8F /* InvitationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225DC9CD1ED803BB002ADA8F /* InvitationVC.xib */; };
 		225DC9D41ED806FE002ADA8F /* AcceptVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225DC9D21ED806FE002ADA8F /* AcceptVC.xib */; };
 		225DC9D61ED818B3002ADA8F /* AcceptVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 225DC9D51ED818B3002ADA8F /* AcceptVC.m */; };
-		225FA96D1EFB7E590086287E /* libagora_fat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA96B1EFB7E590086287E /* libagora_fat.a */; };
-		225FA96E1EFB7E590086287E /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = 225FA96C1EFB7E590086287E /* note.txt */; };
-		225FA9801EFBA01F0086287E /* AgoraRtcCryptoLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA97D1EFBA01F0086287E /* AgoraRtcCryptoLoader.framework */; };
-		225FA9821EFBA01F0086287E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA97F1EFBA01F0086287E /* libcrypto.a */; };
-		225FA9931EFBBA0D0086287E /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225FA9921EFBBA0D0086287E /* AgoraRtcEngineKit.framework */; };
 		225FA9EE1EFBD6C90086287E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 225FA9ED1EFBD6C90086287E /* UserModel.m */; };
 		2263D3E81EF392BD0020E092 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263D3E71EF392BD0020E092 /* AboutVC.m */; };
 		2265F8CA1F3C0D98001A6308 /* UIButton+HQCustomIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2265F8C91F3C0D98001A6308 /* UIButton+HQCustomIcon.m */; };
@@ -561,6 +556,8 @@
 		22E8D77C1EA49AE300C5FC6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E8D77A1EA49AE300C5FC6B /* LaunchScreen.storyboard */; };
 		22E8D7871EA49AE300C5FC6B /* LliaodaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E8D7861EA49AE300C5FC6B /* LliaodaTests.m */; };
 		22E8D7921EA49AE300C5FC6B /* LliaodaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E8D7911EA49AE300C5FC6B /* LliaodaUITests.m */; };
+		22F05DA21F7B87CA00844DFC /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F05D9D1F7B869500844DFC /* AgoraRtcEngineKit.framework */; };
+		22F05DA31F7B87D300844DFC /* AgoraSignalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F05D9E1F7B86AD00844DFC /* AgoraSignalKit.framework */; };
 		22FAD5541EE11FB100BF8BDB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD5531EE11FB100BF8BDB /* Reachability.m */; };
 		22FD1DA91F0A1F70007D52DE /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FD1DA81F0A1F70007D52DE /* libiconv.tbd */; };
 		22FD1DAB1F0A1F88007D52DE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FD1DAA1F0A1F88007D52DE /* libsqlite3.tbd */; };
@@ -1201,12 +1198,6 @@
 		225DC9D01ED806FE002ADA8F /* AcceptVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcceptVC.h; sourceTree = "<group>"; };
 		225DC9D21ED806FE002ADA8F /* AcceptVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AcceptVC.xib; sourceTree = "<group>"; };
 		225DC9D51ED818B3002ADA8F /* AcceptVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AcceptVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		225FA96A1EFB7E590086287E /* agorasdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = agorasdk.h; sourceTree = "<group>"; };
-		225FA96B1EFB7E590086287E /* libagora_fat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libagora_fat.a; sourceTree = "<group>"; };
-		225FA96C1EFB7E590086287E /* note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
-		225FA97D1EFBA01F0086287E /* AgoraRtcCryptoLoader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcCryptoLoader.framework; sourceTree = "<group>"; };
-		225FA97F1EFBA01F0086287E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		225FA9921EFBBA0D0086287E /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
 		225FA9EC1EFBD6C90086287E /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		225FA9ED1EFBD6C90086287E /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		2263D3E61EF392BD0020E092 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
@@ -1482,6 +1473,13 @@
 		22E8D78D1EA49AE300C5FC6B /* LliaodaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LliaodaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E8D7911EA49AE300C5FC6B /* LliaodaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LliaodaUITests.m; sourceTree = "<group>"; };
 		22E8D7931EA49AE300C5FC6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22F05D9B1F7B869300844DFC /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		22F05D9C1F7B869300844DFC /* AgoraRtcCryptoLoader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcCryptoLoader.framework; sourceTree = "<group>"; };
+		22F05D9D1F7B869500844DFC /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
+		22F05D9E1F7B86AD00844DFC /* AgoraSignalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraSignalKit.framework; sourceTree = "<group>"; };
+		22F05D9F1F7B86B500844DFC /* agorasdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = agorasdk.h; sourceTree = "<group>"; };
+		22F05DA01F7B86B500844DFC /* libagora_fat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libagora_fat.a; sourceTree = "<group>"; };
+		22F05DA11F7B86B500844DFC /* note.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
 		22FAD5521EE11FB100BF8BDB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		22FAD5531EE11FB100BF8BDB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		22FD1DA81F0A1F70007D52DE /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -1595,9 +1593,11 @@
 				223DE5A91F20AB3700745E94 /* libyuv.a in Frameworks */,
 				22FD1DAF1F0A1FA7007D52DE /* Accounts.framework in Frameworks */,
 				222BC9EF1EA9D0C200206A04 /* libz.tbd in Frameworks */,
+				22F05DA31F7B87D300844DFC /* AgoraSignalKit.framework in Frameworks */,
 				22FD1DAD1F0A1F95007D52DE /* libstdc++.tbd in Frameworks */,
 				222BC9E91EA9D09F00206A04 /* CoreTelephony.framework in Frameworks */,
 				22FD1DAB1F0A1F88007D52DE /* libsqlite3.tbd in Frameworks */,
+				22F05DA21F7B87CA00844DFC /* AgoraRtcEngineKit.framework in Frameworks */,
 				222747171ECC4A1A009E98EC /* CoreGraphics.framework in Frameworks */,
 				222BC9EB1EA9D0A900206A04 /* SystemConfiguration.framework in Frameworks */,
 				22FD1DA91F0A1F70007D52DE /* libiconv.tbd in Frameworks */,
@@ -1613,9 +1613,7 @@
 				222396E91EB1D991001D4814 /* AVFoundation.framework in Frameworks */,
 				222BF2951EAF4DCE002EDA49 /* libresolv.tbd in Frameworks */,
 				2286DC411EF2379900FDF801 /* UserNotifications.framework in Frameworks */,
-				225FA9821EFBA01F0086287E /* libcrypto.a in Frameworks */,
 				22B63C8A1EFA719900F10039 /* videoprp.framework in Frameworks */,
-				225FA9801EFBA01F0086287E /* AgoraRtcCryptoLoader.framework in Frameworks */,
 				222747DD1ECC5B75009E98EC /* UIKit.framework in Frameworks */,
 				222747DB1ECC5B6D009E98EC /* Foundation.framework in Frameworks */,
 				2286DC3F1EF2374900FDF801 /* CoreFoundation.framework in Frameworks */,
@@ -1625,7 +1623,6 @@
 				222747111ECC49F9009E98EC /* CoreText.framework in Frameworks */,
 				222747131ECC4A00009E98EC /* QuartzCore.framework in Frameworks */,
 				222BC9ED1EA9D0BA00206A04 /* libsqlite3.0.tbd in Frameworks */,
-				225FA9931EFBBA0D0086287E /* AgoraRtcEngineKit.framework in Frameworks */,
 				227DE5E01F0CDF9900FD7DD3 /* FBSDKLoginKit.framework in Frameworks */,
 				2227471B1ECC4A5B009E98EC /* libMobileGestalt.tbd in Frameworks */,
 				222747191ECC4A3A009E98EC /* libstdc++.6.tbd in Frameworks */,
@@ -1634,7 +1631,6 @@
 				226CB6221EE6653700FF7EC8 /* libWeChatSDK.a in Frameworks */,
 				222747091ECC49C9009E98EC /* CoreLocation.framework in Frameworks */,
 				222747071ECC49C1009E98EC /* libz.1.2.5.tbd in Frameworks */,
-				225FA96D1EFB7E590086287E /* libagora_fat.a in Frameworks */,
 				CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1685,25 +1681,6 @@
 				222396CE1EB1CDCC001D4814 /* MessageCell.xib */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		222396D11EB1D743001D4814 /* 声网SDK */ = {
-			isa = PBXGroup;
-			children = (
-				225FA9571EFB7C530086287E /* 视频libs */,
-				222396D21EB1D76D001D4814 /* libs */,
-			);
-			name = "声网SDK";
-			sourceTree = "<group>";
-		};
-		222396D21EB1D76D001D4814 /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				225FA96A1EFB7E590086287E /* agorasdk.h */,
-				225FA96B1EFB7E590086287E /* libagora_fat.a */,
-				225FA96C1EFB7E590086287E /* note.txt */,
-			);
-			path = libs;
 			sourceTree = "<group>";
 		};
 		222396EA1EB1DE33001D4814 /* 视频通话页面 */ = {
@@ -2537,16 +2514,6 @@
 			path = UIImagePicker;
 			sourceTree = "<group>";
 		};
-		225FA9571EFB7C530086287E /* 视频libs */ = {
-			isa = PBXGroup;
-			children = (
-				225FA9921EFBBA0D0086287E /* AgoraRtcEngineKit.framework */,
-				225FA97D1EFBA01F0086287E /* AgoraRtcCryptoLoader.framework */,
-				225FA97F1EFBA01F0086287E /* libcrypto.a */,
-			);
-			name = "视频libs";
-			sourceTree = "<group>";
-		};
 		226B6FEE1F3858FF00AEC7D2 /* 多语言 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3138,10 +3105,11 @@
 		22E8D7601EA49AE300C5FC6B = {
 			isa = PBXGroup;
 			children = (
+				22F05D9A1F7B867800844DFC /* libs */,
+				22F05D981F7B862F00844DFC /* 视频libs */,
 				222E9A941F04F92E00C252D2 /* FB */,
 				22B63C891EFA719900F10039 /* videoprp.framework */,
 				227553711ECED99900CE6507 /* OpenSDK1.7.7 */,
-				222396D11EB1D743001D4814 /* 声网SDK */,
 				222AA1791EB0775B0038416D /* YYKit */,
 				22E8D76B1EA49AE300C5FC6B /* Lliaoda */,
 				22E8D7851EA49AE300C5FC6B /* LliaodaTests */,
@@ -3221,6 +3189,27 @@
 				22E8D7931EA49AE300C5FC6B /* Info.plist */,
 			);
 			path = LliaodaUITests;
+			sourceTree = "<group>";
+		};
+		22F05D981F7B862F00844DFC /* 视频libs */ = {
+			isa = PBXGroup;
+			children = (
+				22F05D9C1F7B869300844DFC /* AgoraRtcCryptoLoader.framework */,
+				22F05D9D1F7B869500844DFC /* AgoraRtcEngineKit.framework */,
+				22F05D9B1F7B869300844DFC /* libcrypto.a */,
+			);
+			path = "视频libs";
+			sourceTree = "<group>";
+		};
+		22F05D9A1F7B867800844DFC /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				22F05D9F1F7B86B500844DFC /* agorasdk.h */,
+				22F05DA01F7B86B500844DFC /* libagora_fat.a */,
+				22F05DA11F7B86B500844DFC /* note.txt */,
+				22F05D9E1F7B86AD00844DFC /* AgoraSignalKit.framework */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 		849901751F555FEF00D4DD40 /* 在线用户 */ = {
@@ -3481,7 +3470,6 @@
 				225827781ECC09CC0049A6C1 /* end.wav in Resources */,
 				222AA0861EB071910038416D /* b_5@2x.gif in Resources */,
 				222AA0AF1EB071910038416D /* B_97@2x.gif in Resources */,
-				225FA96E1EFB7E590086287E /* note.txt in Resources */,
 				224F24721EA7521A00C0FDC6 /* VideoOneVC.xib in Resources */,
 				222AA06E1EB071910038416D /* B_38@2x.gif in Resources */,
 				2290A8461F4BE826005DA0AE /* BannerView.xib in Resources */,
@@ -4362,6 +4350,7 @@
 					"$(PROJECT_DIR)/Lliaoda",
 					"$(PROJECT_DIR)/OpenSDK1.7.7",
 					"$(PROJECT_DIR)/视频libs",
+					"$(PROJECT_DIR)/libs",
 				);
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Lliaoda/Lliaoda.pch";
@@ -4461,6 +4450,7 @@
 					"$(PROJECT_DIR)/Lliaoda",
 					"$(PROJECT_DIR)/OpenSDK1.7.7",
 					"$(PROJECT_DIR)/视频libs",
+					"$(PROJECT_DIR)/libs",
 				);
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Lliaoda/Lliaoda.pch";
