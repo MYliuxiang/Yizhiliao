@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -64,7 +64,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view hidden="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k1w-kG-5t6">
-                    <rect key="frame" x="0.0" y="350" width="375" height="317"/>
+                    <rect key="frame" x="0.0" y="635" width="375" height="32"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCc-FF-vA2">
                             <rect key="frame" x="168" y="15" width="40" height="40"/>
@@ -83,28 +83,14 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBB-s6-GAQ">
-                            <rect key="frame" x="118" y="217" width="60" height="60"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="60" id="Aha-1w-8gF"/>
-                                <constraint firstAttribute="width" constant="60" id="sJj-O8-ci8"/>
-                            </constraints>
-                            <state key="normal" image="pingbi"/>
-                            <state key="selected" image="stop_pingbi"/>
-                            <connections>
-                                <action selector="redAC:" destination="iN0-l3-epB" eventType="touchUpInside" id="zTa-Bi-lCI"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="VBB-s6-GAQ" secondAttribute="bottom" constant="40" id="4YK-Zx-KM9"/>
                         <constraint firstItem="0ed-sy-Ucq" firstAttribute="top" secondItem="GCc-FF-vA2" secondAttribute="bottom" constant="5" id="IhE-FA-0f9"/>
                         <constraint firstAttribute="height" constant="90" id="KoU-93-6eq"/>
                         <constraint firstItem="GCc-FF-vA2" firstAttribute="centerX" secondItem="k1w-kG-5t6" secondAttribute="centerX" id="N66-Mk-LRb"/>
                         <constraint firstItem="GCc-FF-vA2" firstAttribute="centerY" secondItem="k1w-kG-5t6" secondAttribute="centerY" constant="-10" id="ONm-tl-dR1"/>
                         <constraint firstItem="0ed-sy-Ucq" firstAttribute="centerX" secondItem="k1w-kG-5t6" secondAttribute="centerX" id="Q4x-BT-2WU"/>
-                        <constraint firstItem="VBB-s6-GAQ" firstAttribute="centerX" secondItem="k1w-kG-5t6" secondAttribute="centerX" constant="-40" id="d3V-iB-AjE"/>
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5mn-4f-1MC">
@@ -214,6 +200,18 @@
                         <constraint firstItem="aWx-EK-Svr" firstAttribute="centerY" secondItem="M9G-35-74s" secondAttribute="centerY" id="slJ-1q-Q9y"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBB-s6-GAQ">
+                    <rect key="frame" x="117.5" y="567" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Aha-1w-8gF"/>
+                        <constraint firstAttribute="width" constant="60" id="sJj-O8-ci8"/>
+                    </constraints>
+                    <state key="normal" image="pingbi"/>
+                    <state key="selected" image="stop_pingbi"/>
+                    <connections>
+                        <action selector="redAC:" destination="iN0-l3-epB" eventType="touchUpInside" id="zTa-Bi-lCI"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -222,6 +220,7 @@
                 <constraint firstItem="hkA-Oj-Avg" firstAttribute="centerY" secondItem="5mn-4f-1MC" secondAttribute="centerY" id="6pv-5c-vAY"/>
                 <constraint firstItem="KZt-xG-Vzi" firstAttribute="centerX" secondItem="5mn-4f-1MC" secondAttribute="centerX" id="7Im-cW-u59"/>
                 <constraint firstAttribute="bottom" secondItem="jAX-1m-Ln2" secondAttribute="bottom" id="9GF-l0-XVU"/>
+                <constraint firstAttribute="bottom" secondItem="VBB-s6-GAQ" secondAttribute="bottom" constant="40" id="9Ye-fC-20e"/>
                 <constraint firstAttribute="trailing" secondItem="M9G-35-74s" secondAttribute="trailing" id="B5F-kI-Wfg"/>
                 <constraint firstItem="TIy-pc-bux" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.5" id="Bdl-wx-Cdz"/>
                 <constraint firstAttribute="trailing" secondItem="k1w-kG-5t6" secondAttribute="trailing" id="EM6-1Z-BU1"/>
@@ -231,6 +230,7 @@
                 <constraint firstAttribute="bottom" secondItem="M9G-35-74s" secondAttribute="bottom" id="Jwd-oE-IG3"/>
                 <constraint firstItem="CYX-Dk-Anp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="L3V-NF-m7k"/>
                 <constraint firstAttribute="trailing" secondItem="jAX-1m-Ln2" secondAttribute="trailing" id="Ppw-ot-mNi"/>
+                <constraint firstItem="VBB-s6-GAQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-40" id="Qgc-Ln-Udr"/>
                 <constraint firstItem="CYX-Dk-Anp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TVe-Ae-3mR"/>
                 <constraint firstItem="k1w-kG-5t6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Uof-sH-Ade"/>
                 <constraint firstAttribute="bottom" secondItem="k1w-kG-5t6" secondAttribute="bottom" id="YQe-r3-o2H"/>
@@ -271,7 +271,7 @@
         </view>
     </objects>
     <resources>
-        <image name="delete" width="10" height="10"/>
+        <image name="delete" width="20" height="20"/>
         <image name="icon_audio_receive_normal" width="60" height="60"/>
         <image name="icon_call_reject_normal" width="60" height="60"/>
         <image name="liwu" width="70" height="70"/>

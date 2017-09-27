@@ -52,7 +52,8 @@
             mainStr = @"https://aplid.yizhiliao.tv/api/";
 
         }else{
-        mainStr = @"https://www.yizhiliao.live/api/";
+//            mainStr = @"https://www.yizhiliao.live/api/";
+            mainStr = @"http://demo.yizhiliao.live/api/";
         }
 
         
@@ -63,7 +64,8 @@
             mainStr = @"https://aplme.yizhiliao.tv/api/";
             
         }else{
-            mainStr = @"https://www.yizhiliao.net/api/";
+//            mainStr = @"https://www.yizhiliao.net/api/";
+            mainStr = @"http://demo.yizhiliao.net/api/";
         }
         
     }

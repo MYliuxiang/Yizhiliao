@@ -884,6 +884,7 @@ NSString *const kTableViewFrame = @"frame";
 {
    
     NSDictionary *userInfo = notification.userInfo;
+    NSLog(@"======%@", userInfo);
     NSString *account = [NSString stringWithFormat:@"%@",userInfo[@"account"]];
     if ( ![account isEqualToString:self.sendUid]) {
         

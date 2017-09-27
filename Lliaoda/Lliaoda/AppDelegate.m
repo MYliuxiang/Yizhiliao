@@ -210,7 +210,7 @@
         if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"2"]) {
             // 是用户
             [self messageRobot];
-            self.robotTimer = [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(messageRobot) userInfo:nil repeats:YES];
+            self.robotTimer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(messageRobot) userInfo:nil repeats:YES];
         }
         
     } else {
@@ -287,7 +287,7 @@
                         
                         OtimeSp = messageModel.date;
                     }
-                    
+     
                     NSDictionary *sdic = @{@"content":dic[@"text"],@"messageID":[NSString stringWithFormat:@"%@_%@",dic[@"senderId"],dic[@"createdAt"]],@"time":time, @"type":@1};
                     NSDictionary *mdic = @{@"account":dic[@"senderId"],@"msg":sdic};
                     [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
