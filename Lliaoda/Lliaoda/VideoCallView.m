@@ -30,7 +30,7 @@
 
 //        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
 //        if ([lang hasPrefix:@"ar"]) {
-            self.gitfButtonCenter.constant = 0;
+            self.gitfButtonCenter.constant = 40;
 //            self.redBtn.hidden = YES;
 //        } else {
 //            self.gitfButtonCenter.constant = 40;
@@ -1496,7 +1496,7 @@
  
     if(uid == [self.uid integerValue]){
         
-//        self.redBtn.hidden = NO;
+        self.redBtn.hidden = NO;
         self.giftBtn.hidden = NO;
         self.iscalling = YES;
 
@@ -1884,19 +1884,30 @@
 }
 
 
+//
+//- (UIBlurEffect *)effectView{
+//
+//    if (_effectView == nil) {
+//
+//        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+//        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+//        //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
+//        effectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth / 750 * 450);
+//        [self.bigImageView addSubview:effectView];
+//
+//    }
+//    return _effectView;
+//}
 
-- (UIBlurEffect *)effectView{
-    
-    if (self.effectView == nil) {
-        
+- (UIVisualEffectView *)effectView {
+    if (_effectView == nil) {
         UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        _effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
         //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
-        effectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth / 750 * 450);
-        [self.bigImageView addSubview:effectView];
-
+        _effectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        [self.bigImageView addSubview:_effectView];
     }
-    return self.effectView;
+    return _effectView;
 }
 
 

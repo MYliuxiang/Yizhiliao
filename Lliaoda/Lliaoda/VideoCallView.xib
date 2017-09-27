@@ -271,7 +271,7 @@
         </view>
     </objects>
     <resources>
-        <image name="delete" width="20" height="20"/>
+        <image name="delete" width="10" height="10"/>
         <image name="icon_audio_receive_normal" width="60" height="60"/>
         <image name="icon_call_reject_normal" width="60" height="60"/>
         <image name="liwu" width="70" height="70"/>
