@@ -200,7 +200,7 @@
                         <constraint firstItem="aWx-EK-Svr" firstAttribute="centerY" secondItem="M9G-35-74s" secondAttribute="centerY" id="slJ-1q-Q9y"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBB-s6-GAQ">
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBB-s6-GAQ">
                     <rect key="frame" x="117.5" y="567" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="Aha-1w-8gF"/>
