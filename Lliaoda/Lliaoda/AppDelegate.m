@@ -210,7 +210,7 @@
         if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"2"]) {
             // 是用户
             [self messageRobot];
-            self.robotTimer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(messageRobot) userInfo:nil repeats:YES];
+            self.robotTimer = [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(messageRobot) userInfo:nil repeats:YES];
         }
         
     } else {
@@ -238,6 +238,7 @@
         if(result){
             int results = [[result objectForKey:@"result"] intValue];
             if (results == 0) {
+//                NSDate *date = [NSDate date];
 //                NSInteger timeSp = [date timeIntervalSince1970];
 //                [LXUserDefaults setInteger:timeSp forKey:RobotLastTime];
 //                [LXUserDefaults synchronize];
@@ -292,8 +293,12 @@
                     NSDictionary *mdic = @{@"account":dic[@"senderId"],@"msg":sdic};
                     [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                 }
+                if (datas.count != 0) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:Notice_robotMessage object:nil];
+                }
                 
-                [LXUserDefaults setObject:[NSString stringWithFormat:@"%lld",OtimeSp] forKey:RobotLastTime];                [LXUserDefaults synchronize];
+                [LXUserDefaults setObject:[NSString stringWithFormat:@"%lld",OtimeSp] forKey:RobotLastTime];
+                [LXUserDefaults synchronize];
                 
             }
             NSLog(@"%@", result);
