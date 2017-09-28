@@ -22,6 +22,11 @@
     self.seltedView.layer.cornerRadius = 5;
     self.seltedView.layer.masksToBounds = YES;
     
+        if (@available(iOS 11.0, *)) {
+            self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            // Fallback on earlier versions
+        }
     
     self.nameArray = [NSMutableArray array];
     self.messagePhotos = [NSMutableArray array];

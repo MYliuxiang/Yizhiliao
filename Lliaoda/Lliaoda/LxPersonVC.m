@@ -22,6 +22,12 @@
     // Do any additional setup after loading the view from its nib.
     _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
 
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        // Fallback on earlier versions
+    }
+
     self.photos = [NSMutableArray array];
     self.nav.backgroundColor = [UIColor clearColor];
     self.titleLable.textColor = [UIColor whiteColor];

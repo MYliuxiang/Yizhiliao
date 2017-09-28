@@ -39,6 +39,10 @@
 #define  kScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define  kScreenWidth [[UIScreen mainScreen] bounds].size.width
 
+#define  SVersion [[UIDevice currentDevice] systemVersion]
+
+
+
 //色值
 #define UIColorFromRGB(rgbValue) \
 [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -60,7 +64,6 @@ alpha:1.0]
 #define Color_Text_lightGray  UIColorFromRGB(0x666666)
 
 #define Color_Cell  UIColorFromRGB(0xFFFFFF)
-
 
 
 
@@ -219,6 +222,7 @@ alpha:1.0]
 #define Notice_onMessageSendSuccess            @"onMessageSendSuccess"    //发送訊息成功。
 #define Notice_appPaySugerss                   @"appPaySugerss"    //发送訊息成功。
 #define Notice_onMessageInstantReceive         @"onMessageInstantReceive"    //收到訊息。
+#define Notice_robotMessage                    @"robotMessageGet"   // 收到机器讯息
 #define Notice_onMessageNoData                 @"onMessageNoData"   // 没有未读
 #define Notice_weiXinPay                       @"weiXinPay"    //微信支付。
 #define Notice_weiXinShare                     @"weiXinShare"    //微信分享。

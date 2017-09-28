@@ -80,6 +80,7 @@ NSString *const kTableViewFrame = @"frame";
     
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     
     [IQKeyboardManager sharedManager].enable = NO;
     
@@ -100,6 +101,7 @@ NSString *const kTableViewFrame = @"frame";
     
     [self _loadData1];
     [self setupInit];
+   
     [self loadData];
     [self loadMessageWithDate:0];
     
@@ -1183,6 +1185,7 @@ NSString *const kTableViewFrame = @"frame";
     if (!self.dataSource.count) return;
     NSIndexPath *lastPath = [NSIndexPath indexPathForRow:self.dataSource.count - 1 inSection:0];
     [self.tableView scrollToRowAtIndexPath:lastPath atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+  
 }
 
 #pragma mark - private
@@ -1319,7 +1322,7 @@ NSString *const kTableViewFrame = @"frame";
     
     
     NSDictionary *msg;
-    if (lastMe.isRobotMessage) {
+    if (!lastMe.isRobotMessage) {
         // 回复机器消息
         msg = @{@"message":@{
                         @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
@@ -1331,6 +1334,7 @@ NSString *const kTableViewFrame = @"frame";
         NSString *msgStr = [InputCheck convertToJSONData:msg];
 
          [_inst messageInstantSend:self.sendUid uid:0 msg:msgStr msgID:[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate]];
+        return;
         
     }
     
@@ -1449,7 +1453,7 @@ NSString *const kTableViewFrame = @"frame";
         if (newValue.size.height != oldValue.size.height &&
             tableView.contentSize.height > newValue.size.height) {
             
-            [tableView setContentOffset:CGPointMake(0, tableView.contentSize.height - newValue.size.height) animated:YES];
+//            [tableView setContentOffset:CGPointMake(0, tableView.contentSize.height - newValue.size.height) animated:YES];
         }
         return;
     }
@@ -2039,6 +2043,12 @@ NSString *const kTableViewFrame = @"frame";
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavBarHeight -1, SCREEN_W, SCREEN_H - kChatBarHeight - kNavBarHeight) style:UITableViewStyleGrouped];
+        
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+            _tableView.scrollIndicatorInsets = _tableView.contentInset;
+        }
+        
         _tableView.backgroundColor = [UIColor lh_colorWithHex:0xffffff];
         _tableView.delegate = self;
         _tableView.dataSource = self;

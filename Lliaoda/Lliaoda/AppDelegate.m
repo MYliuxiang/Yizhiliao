@@ -234,10 +234,11 @@
 //    1506303672000
     
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:str, @"timestamp", nil];
-    [WXDataService requestAFWithURL:Url_chatmessagerobot params:params httpMethod:@"GET" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+    [WXDataService requestAFWithURL:Url_chatmessagerobot params:nil httpMethod:@"GET" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
         if(result){
             int results = [[result objectForKey:@"result"] intValue];
             if (results == 0) {
+//                NSDate *date = [NSDate date];
 //                NSInteger timeSp = [date timeIntervalSince1970];
 //                [LXUserDefaults setInteger:timeSp forKey:RobotLastTime];
 //                [LXUserDefaults synchronize];
@@ -292,8 +293,12 @@
                     NSDictionary *mdic = @{@"account":dic[@"senderId"],@"msg":sdic};
                     [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageInstantReceive object:nil userInfo:mdic];
                 }
+                if (datas.count != 0) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:Notice_robotMessage object:nil];
+                }
                 
-                [LXUserDefaults setObject:[NSString stringWithFormat:@"%lld",OtimeSp] forKey:RobotLastTime];                [LXUserDefaults synchronize];
+                [LXUserDefaults setObject:[NSString stringWithFormat:@"%lld",OtimeSp] forKey:RobotLastTime];
+                [LXUserDefaults synchronize];
                 
             }
             NSLog(@"%@", result);
@@ -1664,8 +1669,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                 messageModel.sendUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
                 messageModel.chancelID = [NSString stringWithFormat:@"%@_%@",[LXUserDefaults objectForKey:UID],account];
                 if([request isEqualToString:@"-4"]){
-                    messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-                    messageModel.sendUid =account;
+                    messageModel.uid = account;
+                    messageModel.sendUid =[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
                 }
                 
                 
