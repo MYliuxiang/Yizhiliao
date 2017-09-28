@@ -915,7 +915,10 @@ NSString *const kTableViewFrame = @"frame";
         }
     }else if ([messageModel.request isEqualToString:@"-4"]) {
         messageModel.content = [NSString stringWithFormat:@"%@(系统提示)",userInfo[@"msg"][@"content"]];
-        
+        messageModel.isSender = YES;
+        messageModel.isRead = NO;
+        messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        messageModel.sendUid = userInfo[@"account"];
     } else {
         messageModel.content = userInfo[@"msg"][@"content"];
     }
