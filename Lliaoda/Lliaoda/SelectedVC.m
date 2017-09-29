@@ -81,8 +81,8 @@
 //                    [_tableView.mj_header beginRefreshing];
 //                    
 //                }else{
-                    [LXUserDefaults setObject:@"2" forKey:itemNumber];
-                    [LXUserDefaults synchronize];
+//                    [LXUserDefaults setObject:@"2" forKey:itemNumber];
+//                    [LXUserDefaults synchronize];
                     self.tableView.hidden = YES;
                     self.collectionView.hidden = NO;
                     [_collectionView.mj_header beginRefreshing];
