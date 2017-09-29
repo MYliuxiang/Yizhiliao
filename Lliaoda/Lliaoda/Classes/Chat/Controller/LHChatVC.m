@@ -925,7 +925,7 @@ NSString *const kTableViewFrame = @"frame";
             messageModel.content = [NSString stringWithFormat:LXSring(@"我已通過你的頁面儲值：%@"), userInfo[@"msg"][@"content"]];
         }
     }else if ([messageModel.request isEqualToString:@"-4"]) {
-        messageModel.content = [NSString stringWithFormat:@"%@(系统提示)",userInfo[@"msg"][@"content"]];
+        messageModel.content = [NSString stringWithFormat:LXSring(@"%@(系统自动推送)"),userInfo[@"msg"][@"content"]];
         messageModel.isSender = YES;
         messageModel.isRead = NO;
         messageModel.uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];

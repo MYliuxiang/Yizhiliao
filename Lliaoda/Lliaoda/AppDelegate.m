@@ -1653,7 +1653,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                     
                     
                 } else if ([request isEqualToString:@"-4"]) {
-                    messageModel.content = [NSString stringWithFormat:@"%@(系统提示)",dic[@"message"][@"content"]];
+                    messageModel.content = [NSString stringWithFormat:LXSring(@"%@(系统自动推送)"),dic[@"message"][@"content"]];
                     messageModel.type = MessageBodyType_Text;
                     
                     
