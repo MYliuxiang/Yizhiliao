@@ -205,6 +205,7 @@
 
 #pragma mark - 机器消息定时请求
 - (void)messageRobotRequest {
+    NSLog(@"%@", [LXUserDefaults objectForKey:itemNumber]);
     if ([LXUserDefaults boolForKey:IsLogin]) {
         // 已经登录
         if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"2"]) {

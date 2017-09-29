@@ -1495,8 +1495,17 @@
 {
  
     if(uid == [self.uid integerValue]){
+        NSLog(@"%@", [LXUserDefaults objectForKey:itemNumber]);
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            // 是主播
+            self.redBtn.hidden = NO;
+            self.gitfButtonCenter.constant = 40;
+        } else {
+            // 是用户
+            self.redBtn.hidden = YES;
+            self.gitfButtonCenter.constant = 0;
+        }
         
-        self.redBtn.hidden = NO;
         self.giftBtn.hidden = NO;
         self.iscalling = YES;
 
@@ -1522,9 +1531,9 @@
         
         
         
-    self.headeLab.text = [NSString stringWithFormat:LXSring(@"与 %@ 通话"),self.model.nickname];
-    self.callTime = 0;
-    _timer =  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(function:) userInfo:nil repeats:YES];
+        self.headeLab.text = [NSString stringWithFormat:LXSring(@"与 %@ 通话"),self.model.nickname];
+        self.callTime = 0;
+        _timer =  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(function:) userInfo:nil repeats:YES];
     }
 
 }
