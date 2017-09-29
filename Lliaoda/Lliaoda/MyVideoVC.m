@@ -26,6 +26,9 @@
     _layout.itemSize = CGSizeMake((kScreenWidth - 45) / 2.0 - 1,(kScreenWidth - 45) / 2.0 - 1 );
     [_layout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
     
+    if (@available(iOS 11.0, *)) {
+        _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
     //設定代理
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor whiteColor];

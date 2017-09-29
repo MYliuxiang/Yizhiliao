@@ -75,12 +75,18 @@ NSString *const kTableViewFrame = @"frame";
      }
 
 }
+
 #pragma mark - 初始化
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-//    self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+//
+    if (@available(iOS 11, *)) {
+        [UIScrollView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    self.tableView.estimatedSectionFooterHeight = 0;
+    self.tableView.estimatedRowHeight = 100;
     
     [IQKeyboardManager sharedManager].enable = NO;
     
@@ -95,7 +101,6 @@ NSString *const kTableViewFrame = @"frame";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageSendError:) name:Notice_onMessageSendError object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageVideoTime:) name:Notice_messageVideoTime object:nil];
-
     [self addrightImage:@"gengduo"];
     
     
@@ -104,11 +109,15 @@ NSString *const kTableViewFrame = @"frame";
    
     [self loadData];
     [self loadMessageWithDate:0];
-    
+    self.tableView.backgroundColor = Color_bg;
+    [self.tableView reloadData];
     [self scrollToBottomAnimated:NO refresh:YES];
     
+    [_tableView addObserver:self forKeyPath:kTableViewOffset options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+//
+    [_tableView addObserver:self forKeyPath:kTableViewFrame options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+//
     [self loadYUe];
-    self.tableView.backgroundColor = Color_bg;
     
 }
 
@@ -1185,7 +1194,7 @@ NSString *const kTableViewFrame = @"frame";
 - (void)scrollToBottomAnimated:(BOOL)animated refresh:(BOOL)refresh {
     // 表格滑动到底部
     if (refresh) [self.tableView reloadData];
-    if (!self.dataSource.count) return;
+    if (self.dataSource.count == 0) return;
     NSIndexPath *lastPath = [NSIndexPath indexPathForRow:self.dataSource.count - 1 inSection:0];
     [self.tableView scrollToRowAtIndexPath:lastPath atScrollPosition:UITableViewScrollPositionBottom animated:animated];
   
@@ -1198,9 +1207,13 @@ NSString *const kTableViewFrame = @"frame";
         
         Message *model = self.messages.firstObject;
         self.tableViewOffSetY = (self.tableView.contentSize.height - self.tableView.contentOffset.y);
+        int index = self.dataSource.count - 1;
         [self loadMessageWithDate:model.date];
         [self.tableView reloadData];
-        [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height - self.tableViewOffSetY)];
+//        [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height - self.tableViewOffSetY - self.tableView.height)];
+        
+        NSIndexPath *lastPath = [NSIndexPath indexPathForRow:(self.dataSource.count - 1 - index) inSection:0];
+        [self.tableView scrollToRowAtIndexPath:lastPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
         self.headerRefreshing = NO;
     }
 }
@@ -1270,7 +1283,7 @@ NSString *const kTableViewFrame = @"frame";
 - (NSIndexPath *)insertNewMessageOrTime:(id)NewMessage {
     NSIndexPath *index = [NSIndexPath indexPathForRow:self.dataSource.count inSection:0];
     [self.dataSource addObject:NewMessage];
-    [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationBottom];
     return index;
 }
 
@@ -1325,7 +1338,7 @@ NSString *const kTableViewFrame = @"frame";
     
     
     NSDictionary *msg;
-    if (!lastMe.isRobotMessage) {
+    if (lastMe.isRobotMessage) {
         // 回复机器消息
         msg = @{@"message":@{
                         @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
@@ -1456,15 +1469,18 @@ NSString *const kTableViewFrame = @"frame";
         if (newValue.size.height != oldValue.size.height &&
             tableView.contentSize.height > newValue.size.height) {
             
-//            [tableView setContentOffset:CGPointMake(0, tableView.contentSize.height - newValue.size.height) animated:YES];
+            [tableView setContentOffset:CGPointMake(0, tableView.contentSize.height - newValue.size.height) animated:YES];
         }
         return;
     }
     
     //    UITableView *tableView = (UITableView *)object;
     CGPoint newValue = [change[NSKeyValueChangeNewKey] CGPointValue];
-    CGPoint oldValue = [change[NSKeyValueChangeOldKey] CGPointValue];
-    if (!self.headerRefreshing) self.headerRefreshing = newValue.y < 40 && self.isMeetRefresh;
+//    CGPoint oldValue = [change[NSKeyValueChangeOldKey] CGPointValue];
+    if (!self.headerRefreshing){
+        
+        self.headerRefreshing = newValue.y < 40 && self.isMeetRefresh;
+    }
 }
 
 #pragma mark  cell事件处理
@@ -2049,15 +2065,14 @@ NSString *const kTableViewFrame = @"frame";
         
         if (@available(iOS 11.0, *)) {
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-            _tableView.scrollIndicatorInsets = _tableView.contentInset;
         }
         
         _tableView.backgroundColor = [UIColor lh_colorWithHex:0xffffff];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView addObserver:self forKeyPath:kTableViewOffset options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-        [_tableView addObserver:self forKeyPath:kTableViewFrame options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+       
+      
     }
     return _tableView;
 }

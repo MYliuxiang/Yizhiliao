@@ -21,6 +21,9 @@
     self.nav.hidden = YES;
     self.dataList = [NSMutableArray array];
 
+    if (@available(iOS 11.0, *)) {
+        _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
     _layout.sectionInset=UIEdgeInsetsMake(0, 15, 0, 15);
     _layout.minimumLineSpacing= 15;
     _layout.minimumInteritemSpacing= 15;
