@@ -85,7 +85,7 @@
         }else if ([lang hasPrefix:@"id"]){
             
             if (textField.text.length > 12) {
-                textField.text = [textField.text substringToIndex:10];
+                textField.text = [textField.text substringToIndex:12];
             }
             
         }else{
@@ -440,7 +440,7 @@
         
     }else if ([lang hasPrefix:@"id"]){
     
-        if (self.phoneNumTextField.text.length != 12) {
+        if (self.phoneNumTextField.text.length > 12) {
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
             [alert show];
