@@ -53,4 +53,7 @@ typedef NS_ENUM(NSInteger, MyType) {
 @property (nonatomic, strong)UIPickerView *endPK;//地址选择器
 @property (nonatomic, strong)UIView *pickerBG;//选择器底
 @property (nonatomic, retain) UIView *maskView;
+@property (weak, nonatomic) IBOutlet UIButton *unDisturbButton;
+- (IBAction)unDisturbBtnAC:(id)sender;
+
 @end
