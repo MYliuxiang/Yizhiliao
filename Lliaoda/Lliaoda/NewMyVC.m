@@ -1052,4 +1052,40 @@
 //修改头像
 - (IBAction)fixProtaitAC:(id)sender {
 }
+#pragma mark - 免打扰
+- (IBAction)unDisturbBtnAC:(id)sender {
+    self.unDisturbButton.selected = !self.unDisturbButton.selected;
+    if (self.unDisturbButton.selected) {
+        // 设置免打扰
+        [self unDisturb:1];
+    } else {
+        // 解除免打扰
+        [self unDisturb:2];
+    }
+}
+
+- (void)unDisturb:(int)isDnD {
+    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:@(isDnD), @"isDND", nil];
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                NSLog(@"%@", result);
+                
+            } else{
+                self.unDisturbButton.selected = !self.unDisturbButton.selected;
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                });
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+}
+
 @end
