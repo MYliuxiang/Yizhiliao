@@ -212,6 +212,35 @@
                         <action selector="redAC:" destination="iN0-l3-epB" eventType="touchUpInside" id="zTa-Bi-lCI"/>
                     </connections>
                 </button>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqi-Pd-oFF">
+                    <rect key="frame" x="0.0" y="119" width="97.5" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="LJu-Ow-YLk"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ec9-RX-dHE">
+                    <rect key="frame" x="0.0" y="119" width="97.5" height="30"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jinbi" translatesAutoresizingMaskIntoConstraints="NO" id="qCX-JV-pC4">
+                            <rect key="frame" x="10" y="6" width="17" height="18"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="333333" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAu-yb-vpy">
+                            <rect key="frame" x="32" y="5.5" width="55.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="NAu-yb-vpy" firstAttribute="leading" secondItem="qCX-JV-pC4" secondAttribute="trailing" constant="5" id="6Ja-HX-gZc"/>
+                        <constraint firstItem="qCX-JV-pC4" firstAttribute="centerY" secondItem="ec9-RX-dHE" secondAttribute="centerY" id="LcB-2x-Fd1"/>
+                        <constraint firstItem="qCX-JV-pC4" firstAttribute="leading" secondItem="ec9-RX-dHE" secondAttribute="leading" constant="10" id="Vl6-gV-R0j"/>
+                        <constraint firstAttribute="trailing" secondItem="NAu-yb-vpy" secondAttribute="trailing" constant="10" id="gb7-bT-5qg"/>
+                        <constraint firstItem="NAu-yb-vpy" firstAttribute="centerY" secondItem="ec9-RX-dHE" secondAttribute="centerY" id="vJo-2P-NW8"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -219,6 +248,7 @@
                 <constraint firstItem="ixL-OQ-SWO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="40" id="6Aq-Bm-30C"/>
                 <constraint firstItem="hkA-Oj-Avg" firstAttribute="centerY" secondItem="5mn-4f-1MC" secondAttribute="centerY" id="6pv-5c-vAY"/>
                 <constraint firstItem="KZt-xG-Vzi" firstAttribute="centerX" secondItem="5mn-4f-1MC" secondAttribute="centerX" id="7Im-cW-u59"/>
+                <constraint firstItem="ec9-RX-dHE" firstAttribute="centerY" secondItem="Yqi-Pd-oFF" secondAttribute="centerY" id="7oQ-r0-loy"/>
                 <constraint firstAttribute="bottom" secondItem="jAX-1m-Ln2" secondAttribute="bottom" id="9GF-l0-XVU"/>
                 <constraint firstAttribute="bottom" secondItem="VBB-s6-GAQ" secondAttribute="bottom" constant="40" id="9Ye-fC-20e"/>
                 <constraint firstAttribute="trailing" secondItem="M9G-35-74s" secondAttribute="trailing" id="B5F-kI-Wfg"/>
@@ -227,20 +257,25 @@
                 <constraint firstItem="k1w-kG-5t6" firstAttribute="top" secondItem="TIy-pc-bux" secondAttribute="bottom" constant="30" id="Flg-Vn-3bl"/>
                 <constraint firstItem="5mn-4f-1MC" firstAttribute="top" secondItem="CYX-Dk-Anp" secondAttribute="bottom" constant="15" id="G5h-IH-ctq"/>
                 <constraint firstAttribute="bottom" secondItem="ixL-OQ-SWO" secondAttribute="bottom" constant="40" id="J8a-yo-Brt"/>
+                <constraint firstItem="ec9-RX-dHE" firstAttribute="centerX" secondItem="Yqi-Pd-oFF" secondAttribute="centerX" id="JWj-7W-se8"/>
                 <constraint firstAttribute="bottom" secondItem="M9G-35-74s" secondAttribute="bottom" id="Jwd-oE-IG3"/>
                 <constraint firstItem="CYX-Dk-Anp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="L3V-NF-m7k"/>
                 <constraint firstAttribute="trailing" secondItem="jAX-1m-Ln2" secondAttribute="trailing" id="Ppw-ot-mNi"/>
                 <constraint firstItem="VBB-s6-GAQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-40" id="Qgc-Ln-Udr"/>
                 <constraint firstItem="CYX-Dk-Anp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TVe-Ae-3mR"/>
                 <constraint firstItem="k1w-kG-5t6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Uof-sH-Ade"/>
+                <constraint firstItem="Yqi-Pd-oFF" firstAttribute="top" secondItem="KZt-xG-Vzi" secondAttribute="bottom" constant="10" id="WTY-t7-0Gu"/>
                 <constraint firstAttribute="bottom" secondItem="k1w-kG-5t6" secondAttribute="bottom" id="YQe-r3-o2H"/>
                 <constraint firstItem="jAX-1m-Ln2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="b3k-ja-dDg"/>
                 <constraint firstItem="KZt-xG-Vzi" firstAttribute="top" secondItem="5mn-4f-1MC" secondAttribute="bottom" constant="10" id="bJ5-TU-H8Y"/>
                 <constraint firstItem="k1w-kG-5t6" firstAttribute="top" secondItem="gcD-oh-Lfa" secondAttribute="bottom" constant="30" id="c34-CO-4sS"/>
+                <constraint firstItem="ec9-RX-dHE" firstAttribute="width" secondItem="Yqi-Pd-oFF" secondAttribute="width" id="cGn-Ap-GNo"/>
                 <constraint firstAttribute="trailing" secondItem="CYX-Dk-Anp" secondAttribute="trailing" id="cRN-BE-LNJ"/>
                 <constraint firstItem="jAX-1m-Ln2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eUD-W2-9yL"/>
+                <constraint firstItem="ec9-RX-dHE" firstAttribute="height" secondItem="Yqi-Pd-oFF" secondAttribute="height" id="eol-PY-nLe"/>
                 <constraint firstItem="gcD-oh-Lfa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.5" id="f8w-JB-OXL"/>
                 <constraint firstItem="M9G-35-74s" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iq5-bi-WXe"/>
+                <constraint firstItem="Yqi-Pd-oFF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lIN-2q-YqA"/>
                 <constraint firstItem="hkA-Oj-Avg" firstAttribute="leading" secondItem="5mn-4f-1MC" secondAttribute="trailing" constant="10" id="q0b-9b-GHF"/>
             </constraints>
             <connections>
@@ -257,6 +292,8 @@
                 <outlet property="gitfButtonCenter" destination="6Aq-Bm-30C" id="Q77-ao-Rc0"/>
                 <outlet property="gotoMoneyBtn" destination="aWx-EK-Svr" id="TmD-m4-jiW"/>
                 <outlet property="headeLab" destination="6C2-bB-h68" id="tZI-Yu-ieG"/>
+                <outlet property="jinbiLabel" destination="NAu-yb-vpy" id="bQD-OA-rlf"/>
+                <outlet property="jinbiView" destination="Yqi-Pd-oFF" id="SuL-V2-IAJ"/>
                 <outlet property="likeLab" destination="0ed-sy-Ucq" id="Rzi-uN-Ov8"/>
                 <outlet property="lowMoneyView" destination="M9G-35-74s" id="2sO-3b-XbU"/>
                 <outlet property="lowTimeLabel" destination="DfO-A0-dBh" id="guC-91-j24"/>
@@ -274,6 +311,7 @@
         <image name="delete" width="10" height="10"/>
         <image name="icon_audio_receive_normal" width="60" height="60"/>
         <image name="icon_call_reject_normal" width="60" height="60"/>
+        <image name="jinbi" width="17" height="18"/>
         <image name="liwu" width="70" height="70"/>
         <image name="pingbi" width="70" height="70"/>
         <image name="stop_pingbi" width="70" height="70"/>

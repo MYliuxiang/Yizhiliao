@@ -138,6 +138,8 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *gitfButtonCenter;
 
+@property (weak, nonatomic) IBOutlet UIView *jinbiView;
+@property (weak, nonatomic) IBOutlet UILabel *jinbiLabel;
 
 
 
