@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -134,15 +134,30 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3N-7S-BGE">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                     <subviews>
-                        <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlz-lR-NbA">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlz-lR-NbA">
                             <rect key="frame" x="0.0" y="225" width="375" height="150"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jianbian_xia" translatesAutoresizingMaskIntoConstraints="NO" id="ZMj-ey-bAj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="ZMj-ey-bAj" firstAttribute="top" secondItem="Wlz-lR-NbA" secondAttribute="top" id="5PE-OH-M7g"/>
+                                <constraint firstAttribute="bottom" secondItem="ZMj-ey-bAj" secondAttribute="bottom" id="I1I-3C-Z6A"/>
+                                <constraint firstItem="ZMj-ey-bAj" firstAttribute="leading" secondItem="Wlz-lR-NbA" secondAttribute="leading" id="JnH-km-gVO"/>
                                 <constraint firstAttribute="height" constant="150" id="hL1-5W-reg"/>
+                                <constraint firstAttribute="trailing" secondItem="ZMj-ey-bAj" secondAttribute="trailing" id="wPC-zQ-0uL"/>
                             </constraints>
                         </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jianbian_top" translatesAutoresizingMaskIntoConstraints="NO" id="kio-FI-RXo">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="dxM-cX-iPb"/>
+                            </constraints>
+                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ok-v7-OwL">
-                            <rect key="frame" x="15" y="239" width="59" height="29"/>
+                            <rect key="frame" x="15" y="239" width="57" height="29"/>
                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -220,7 +235,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gld-Ii-pI4">
-                            <rect key="frame" x="84" y="242.5" width="55" height="22"/>
+                            <rect key="frame" x="82" y="242.5" width="55" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="eB8-zg-Wua"/>
                                 <constraint firstAttribute="height" constant="22" id="hnf-bM-2JE"/>
@@ -241,7 +256,9 @@
                         <constraint firstItem="Ew3-8n-1IP" firstAttribute="leading" secondItem="D3N-7S-BGE" secondAttribute="leading" constant="15" id="BiW-8k-NxX"/>
                         <constraint firstAttribute="bottom" secondItem="Ew3-8n-1IP" secondAttribute="bottom" constant="45" id="EG6-8H-Rjp"/>
                         <constraint firstItem="fOc-LW-sLS" firstAttribute="leading" secondItem="Ew3-8n-1IP" secondAttribute="trailing" constant="5" id="F7t-pf-HNO"/>
+                        <constraint firstItem="kio-FI-RXo" firstAttribute="leading" secondItem="D3N-7S-BGE" secondAttribute="leading" id="HKr-bl-QB8"/>
                         <constraint firstItem="AAa-Qz-d40" firstAttribute="top" secondItem="9Ok-v7-OwL" secondAttribute="bottom" constant="15" id="LZJ-3T-IZP"/>
+                        <constraint firstItem="kio-FI-RXo" firstAttribute="top" secondItem="D3N-7S-BGE" secondAttribute="top" id="Mhg-7l-fmm"/>
                         <constraint firstAttribute="trailing" secondItem="Wlz-lR-NbA" secondAttribute="trailing" id="QwZ-hn-lfe"/>
                         <constraint firstItem="Ew3-8n-1IP" firstAttribute="top" secondItem="AAa-Qz-d40" secondAttribute="bottom" constant="15" id="RxK-PF-hjW"/>
                         <constraint firstItem="p4V-z4-Wyb" firstAttribute="leading" secondItem="fOc-LW-sLS" secondAttribute="trailing" constant="5" id="TrQ-2n-saC"/>
@@ -250,6 +267,7 @@
                         <constraint firstAttribute="width" secondItem="D3N-7S-BGE" secondAttribute="height" multiplier="1:1" id="e6g-zL-hxF"/>
                         <constraint firstAttribute="bottom" secondItem="p4V-z4-Wyb" secondAttribute="bottom" constant="45" id="k3M-hy-fhW"/>
                         <constraint firstItem="Wlz-lR-NbA" firstAttribute="leading" secondItem="D3N-7S-BGE" secondAttribute="leading" id="mRJ-A8-Rb4"/>
+                        <constraint firstAttribute="trailing" secondItem="kio-FI-RXo" secondAttribute="trailing" id="mYz-6a-o6Z"/>
                         <constraint firstItem="Gld-Ii-pI4" firstAttribute="centerY" secondItem="9Ok-v7-OwL" secondAttribute="centerY" id="sy7-cY-o0O"/>
                         <constraint firstItem="Gld-Ii-pI4" firstAttribute="leading" secondItem="9Ok-v7-OwL" secondAttribute="trailing" constant="10" id="vac-OI-T73"/>
                         <constraint firstAttribute="bottom" secondItem="Wlz-lR-NbA" secondAttribute="bottom" id="woT-JE-Zrh"/>
@@ -340,6 +358,8 @@
     </objects>
     <resources>
         <image name="chongzuan" width="70" height="70"/>
+        <image name="jianbian_top" width="375" height="64"/>
+        <image name="jianbian_xia" width="375" height="100"/>
         <image name="liwu" width="70" height="70"/>
         <image name="nvsheng" width="10" height="10"/>
         <image name="shipintonghua_h" width="22" height="20"/>

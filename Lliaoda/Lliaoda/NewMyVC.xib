@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,6 +20,7 @@
                 <outlet property="nickLabel" destination="a6s-Gf-FLm" id="hec-G1-Myj"/>
                 <outlet property="seltedView" destination="M6t-eh-DUb" id="WqV-2F-Ek5"/>
                 <outlet property="tableView" destination="Afr-QN-zTv" id="C7Y-3U-3zr"/>
+                <outlet property="unDisturbButton" destination="2Nj-C8-uf3" id="8KD-D1-rRV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -57,7 +58,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNk-Mu-0IK">
-                    <rect key="frame" x="315" y="20" width="60" height="60"/>
+                    <rect key="frame" x="0.0" y="20" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="rb1-w8-RLy"/>
                         <constraint firstAttribute="width" constant="60" id="z6B-T2-2a0"/>
@@ -137,10 +138,23 @@
                         <constraint firstAttribute="width" constant="28" id="eqw-me-dBS"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nj-C8-uf3">
+                    <rect key="frame" x="315" y="20" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="NMF-gB-Q3F"/>
+                        <constraint firstAttribute="height" constant="60" id="SaR-wv-n8Z"/>
+                    </constraints>
+                    <state key="normal" image="busy_n"/>
+                    <state key="selected" image="busy_h"/>
+                    <connections>
+                        <action selector="unDisturbBtnAC:" destination="-1" eventType="touchUpInside" id="vVo-UT-jOw"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="ZNk-Mu-0IK" firstAttribute="leading" secondItem="jal-f6-M7U" secondAttribute="leading" id="32G-FT-P9a"/>
                 <constraint firstItem="a6s-Gf-FLm" firstAttribute="centerX" secondItem="jal-f6-M7U" secondAttribute="centerX" id="3nU-Cp-Od4"/>
                 <constraint firstItem="kZQ-HM-MAz" firstAttribute="centerX" secondItem="a6s-Gf-FLm" secondAttribute="centerX" id="F5d-ol-xB8"/>
                 <constraint firstItem="a6s-Gf-FLm" firstAttribute="top" secondItem="kSp-M7-PUA" secondAttribute="bottom" constant="10" id="FSV-N1-UCy"/>
@@ -151,12 +165,13 @@
                 <constraint firstItem="M6t-eh-DUb" firstAttribute="centerY" secondItem="oWF-hJ-Tvg" secondAttribute="bottom" id="PLj-Nm-PNs"/>
                 <constraint firstItem="ZNk-Mu-0IK" firstAttribute="top" secondItem="jal-f6-M7U" secondAttribute="top" constant="20" id="X2F-V6-F3g"/>
                 <constraint firstItem="kEW-P1-10H" firstAttribute="trailing" secondItem="kSp-M7-PUA" secondAttribute="trailing" id="YGR-LU-ygP"/>
+                <constraint firstItem="2Nj-C8-uf3" firstAttribute="top" secondItem="jal-f6-M7U" secondAttribute="top" constant="20" id="ao5-HS-CfH"/>
                 <constraint firstAttribute="trailing" secondItem="oWF-hJ-Tvg" secondAttribute="trailing" id="b0w-Rf-a7E"/>
                 <constraint firstItem="M6t-eh-DUb" firstAttribute="leading" secondItem="jal-f6-M7U" secondAttribute="leading" constant="15" id="buC-Hg-q7a"/>
                 <constraint firstItem="oWF-hJ-Tvg" firstAttribute="top" secondItem="jal-f6-M7U" secondAttribute="top" id="ee5-12-9YB"/>
+                <constraint firstAttribute="trailing" secondItem="2Nj-C8-uf3" secondAttribute="trailing" id="gvg-SL-wFp"/>
                 <constraint firstAttribute="trailing" secondItem="M6t-eh-DUb" secondAttribute="trailing" constant="15" id="lh4-B3-bsX"/>
                 <constraint firstItem="kSp-M7-PUA" firstAttribute="top" secondItem="jal-f6-M7U" secondAttribute="top" constant="60" id="oX7-Bo-HFV"/>
-                <constraint firstAttribute="trailing" secondItem="ZNk-Mu-0IK" secondAttribute="trailing" id="yJt-dd-96H"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -171,7 +186,9 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="bianji" width="17" height="17"/>
+        <image name="bianji" width="15" height="16"/>
+        <image name="busy_h" width="28" height="15"/>
+        <image name="busy_n" width="28" height="15"/>
         <image name="geren_lan" width="27" height="27"/>
         <image name="paizhao_s" width="28" height="28"/>
         <image name="shipin_lan" width="30" height="30"/>

@@ -77,6 +77,9 @@
         self.redBtn.hidden = YES;
         self.giftBtn.hidden = YES;
         
+        self.jinbiView.layer.cornerRadius = 15;
+        
+        
         [self _loadSelfData];
         
         //从budle路径下读取音频文件　　 这个文件名是你的歌曲名字,mp3是你的音频格式
