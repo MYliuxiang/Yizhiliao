@@ -39,6 +39,19 @@
     self.loginoutButton.layer.shadowRadius = 5.f;
     self.loginoutButton.layer.shadowOpacity = .3f;
     self.loginoutButton.layer.shadowOffset = CGSizeMake(0, 0);
+    
+    self.disturbBGView.layer.cornerRadius = 5;
+    self.disturbBGView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.disturbBGView.layer.shadowRadius = 5.f;
+    self.disturbBGView.layer.shadowOpacity = .3f;
+    self.disturbBGView.layer.shadowOffset = CGSizeMake(0, 0);
+    
+    self.disturbLabel.text = LXSring(@"免打扰");
+    if (self.isDND == 1) {
+        self.disturbButton.selected = YES;
+    } else {
+        self.disturbButton.selected = NO;
+    }
 
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
@@ -170,6 +183,39 @@
 - (IBAction)checkoutButtonAC:(id)sender {
     LanguageVC *vc = [[LanguageVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)disturbBtnAC:(id)sender {
+    _disturbButton.selected = !_disturbButton.selected;
+    if (_disturbButton.selected) {
+        // 设置免打扰
+        [self unDisturb:1];
+    } else {
+        // 解除免打扰
+        [self unDisturb:2];
+    }
+}
+- (void)unDisturb:(int)isDnD {
+    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:@(isDnD), @"isDND", nil];
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                NSLog(@"%@", result);
+                
+            } else{
+                self.disturbButton.selected = !self.disturbButton.selected;
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                });
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
 }
 @end
 
