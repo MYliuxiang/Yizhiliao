@@ -39,7 +39,7 @@
         
          _instMedia = [AgoraRtcEngineKit sharedEngineWithAppId:agoreappID delegate:self];
         _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
-        
+        _giftCharge = 0;
         self.yuvEN = [[AgoraYuvEnhancerObjc alloc] init];
         self.yuvEN.lighteningFactor = .7;
         self.yuvEN.smoothness = .6;
@@ -59,9 +59,23 @@
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(locationChange:)];
         pan.delaysTouchesBegan = YES;
         self.smallImageView.userInteractionEnabled = YES;
+        
         [self.smallImageView addGestureRecognizer:pan];
         [self addSubview:self.smallImageView];
+        
+        self.xuanzhuanButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.xuanzhuanButton.frame = CGRectMake(kScreenWidth - 15 - 27, self.smallImageView.bottom + 15, 27, 27);
+        [self.xuanzhuanButton setImage:[UIImage imageNamed:@"quan_xuanzhuan"] forState:UIControlStateNormal];
+        [self.xuanzhuanButton addTarget:self action:@selector(xuanzhuanAC:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:self.xuanzhuanButton];
+        
+        self.xuanzhuanButton.hidden = YES;
         self.smallImageView.hidden = YES;
+        self.timeLabelBGView.hidden = YES;
+        self.timeLabelBGView1.hidden = YES;
+        self.jinbiView.hidden = YES;
+        self.jinbiView1.hidden = YES;
+        
         self.agreeBtn.hidden = YES;
         self.refuseBtn.hidden = YES;
         self.channel = chancel;
@@ -78,6 +92,9 @@
         self.giftBtn.hidden = YES;
         
         self.jinbiView.layer.cornerRadius = 15;
+        self.headerBGView.layer.cornerRadius = 20;
+        self.avatarImageView.layer.cornerRadius = 20;
+        self.timeLabelBGView.layer.cornerRadius = 15;
         
         
         [self _loadSelfData];
@@ -271,7 +288,7 @@
                // 礼物模型
                 GiftModel *giftModel = [[GiftModel alloc] init];
                 if([model.uid isEqualToString:@"-1"]){
-                //是红包
+                    //是红包
                     giftModel.giftName = [NSString stringWithFormat:@"%@:%@",self.model.nickname,model.message];
                     giftModel.headImage = [UIImage imageNamed:@"红包雨02"];
                     
@@ -302,7 +319,11 @@
                     [manager animWithUserID:userId model:giftModel finishedBlock:^(BOOL result) {
                         
                     }];
-
+                }
+                if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+                    // 主播显示金币收益（本次通话）
+                    _giftCharge = giftModel.diamonds * 10 + _giftCharge;
+//                    _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
                 }
                 
                 
@@ -651,7 +672,9 @@
                self.model = [PersonModel mj_objectWithKeyValues:result[@"data"]];
                 [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
                 self.nickeNameLab.text = self.model.nickname;
-                
+                if (self.model.charge == -1) {
+                    self.model.charge = 100;
+                }
          
                 [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
                 
@@ -689,17 +712,17 @@
         [_instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
         [_instMedia enableAudio];
         
-        AgoraRtcVideoCanvas *local = [[AgoraRtcVideoCanvas alloc] init];
-        local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
-        local.view = self.bigImageView;
-        local.renderMode = AgoraRtc_Render_Hidden;
-        [_instMedia setupLocalVideo:local];
+        _local = [[AgoraRtcVideoCanvas alloc] init];
+        _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
+        _local.view = self.bigImageView;
+        _local.renderMode = AgoraRtc_Render_Hidden;
+        [_instMedia setupLocalVideo:_local];
         
-        AgoraRtcVideoCanvas *remate = [[AgoraRtcVideoCanvas alloc] init];
-        remate.uid = [self.uid integerValue];
-        remate.view = self.smallImageView;
-        remate.renderMode = AgoraRtc_Render_Hidden;
-        [self.instMedia setupRemoteVideo:remate];
+        _remate = [[AgoraRtcVideoCanvas alloc] init];
+        _remate.uid = [self.uid integerValue];
+        _remate.view = self.smallImageView;
+        _remate.renderMode = AgoraRtc_Render_Hidden;
+        [self.instMedia setupRemoteVideo:_remate];
         [_instMedia enableVideo];
         [_instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
         [_instMedia startPreview];
@@ -1236,18 +1259,18 @@
     self.agreeBtn.hidden = YES;
     [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
     [self.instMedia enableAudio];
-    AgoraRtcVideoCanvas *local = [[AgoraRtcVideoCanvas alloc] init];
-    local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
-    local.view = self.bigImageView;
-    local.renderMode = AgoraRtc_Render_Hidden;
-    [self.instMedia setupLocalVideo:local];
+    _local = [[AgoraRtcVideoCanvas alloc] init];
+    _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
+    _local.view = self.bigImageView;
+    _local.renderMode = AgoraRtc_Render_Hidden;
+    [self.instMedia setupLocalVideo:_local];
     
-    AgoraRtcVideoCanvas *remate = [[AgoraRtcVideoCanvas alloc] init];
+    _remate = [[AgoraRtcVideoCanvas alloc] init];
     
-    remate.uid = [self.uid integerValue];
-    remate.view = self.smallImageView;
-    remate.renderMode = AgoraRtc_Render_Hidden;
-    [self.instMedia setupRemoteVideo:remate];
+    _remate.uid = [self.uid integerValue];
+    _remate.view = self.smallImageView;
+    _remate.renderMode = AgoraRtc_Render_Hidden;
+    [self.instMedia setupRemoteVideo:_remate];
     [self.instMedia enableVideo];
     
     [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_720P_3 swapWidthAndHeight:false];
@@ -1514,20 +1537,21 @@
 
         UITapGestureRecognizer *hidRandG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideRenandGift)];
         [self.bigImageView addGestureRecognizer:hidRandG];
-        
+        self.xuanzhuanButton.hidden = NO;
         self.smallImageView.hidden = NO;
+        
         [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
         [self.instMedia enableAudio];
-        AgoraRtcVideoCanvas *local = [[AgoraRtcVideoCanvas alloc] init];
-        local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
-        local.view = self.smallImageView;
-        local.renderMode = AgoraRtc_Render_Hidden;
-        [self.instMedia setupLocalVideo:local];
-        AgoraRtcVideoCanvas *remate = [[AgoraRtcVideoCanvas alloc] init];
-        remate.uid = [self.uid integerValue];
-        remate.view = self.bigImageView;
-        remate.renderMode = AgoraRtc_Render_Hidden;
-        [self.instMedia setupRemoteVideo:remate];
+        _local = [[AgoraRtcVideoCanvas alloc] init];
+        _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
+        _local.view = self.smallImageView;
+        _local.renderMode = AgoraRtc_Render_Hidden;
+        [self.instMedia setupLocalVideo:_local];
+        _remate = [[AgoraRtcVideoCanvas alloc] init];
+        _remate.uid = [self.uid integerValue];
+        _remate.view = self.bigImageView;
+        _remate.renderMode = AgoraRtc_Render_Hidden;
+        [self.instMedia setupRemoteVideo:_remate];
         [self.instMedia enableVideo];
         [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
         [self.instMedia startPreview];
@@ -1556,6 +1580,32 @@
     }
     NSString *timeStr = [self timeFormatted:self.callTime];
     self.timeLab.text = timeStr;
+    if (self.timeLabelBGView.hidden) {
+        self.timeLabelBGView.hidden = NO;
+        self.timeLabelBGView1.hidden = NO;
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            // 主播显示金币收益（本次通话）
+            self.jinbiView.hidden = NO;
+            self.jinbiView1.hidden = NO;
+        }
+    }
+    
+    int charges = 0;
+    for (Charge *mo in self.model.charges) {
+        NSLog(@"%@", mo);
+        if (mo.uid == self.model.charge) {
+            charges = mo.value;
+        }
+    }
+    int time1 = self.callTime / 60;
+    int time2 = self.callTime % 60;
+    if (time2 != 0) {
+        _charge = charges * (time1 + 1) * 10 + _giftCharge;
+    } else {
+        _charge = charges * time1 * 10 + _giftCharge;
+    }
+    _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
+    
     
     if (self.callTime % 30 == 0) {
         
@@ -1996,6 +2046,51 @@
     }];
     }
 
+}
+
+
+#pragma mark - 切换
+- (void)xuanzhuanAC:(UIButton *)button {
+    button.selected = !button.selected;
+    [self.instMedia stopPreview];
+    if (button.selected) {
+//        _local.view = self.smallImageView;
+//        _remate.view = self.bigImageView;
+        
+        [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
+        [self.instMedia enableAudio];
+        _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
+        _local.view = self.bigImageView;
+        _local.renderMode = AgoraRtc_Render_Hidden;
+        [self.instMedia setupLocalVideo:_local];
+        
+        _remate.uid = [self.uid integerValue];
+        _remate.view = self.smallImageView;
+        _remate.renderMode = AgoraRtc_Render_Hidden;
+        [self.instMedia setupRemoteVideo:_remate];
+        [self.instMedia enableVideo];
+        [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
+        [self.instMedia startPreview];
+        
+    } else {
+//        _local.view = self.bigImageView;
+//        _remate.view = self.smallImageView;
+        
+        [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
+        [self.instMedia enableAudio];
+        _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
+        _local.view = self.smallImageView;
+        _local.renderMode = AgoraRtc_Render_Hidden;
+        [self.instMedia setupLocalVideo:_local];
+
+        _remate.uid = [self.uid integerValue];
+        _remate.view = self.bigImageView;
+        _remate.renderMode = AgoraRtc_Render_Hidden;
+        [self.instMedia setupRemoteVideo:_remate];
+        [self.instMedia enableVideo];
+        [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
+        [self.instMedia startPreview];
+    }
 }
 
 

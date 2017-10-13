@@ -191,15 +191,20 @@
         [self unDisturb:1];
     } else {
         // 解除免打扰
-        [self unDisturb:2];
+        [self unDisturb:0];
     }
 }
-- (void)unDisturb:(int)isDnD {
+- (void)unDisturb:(BOOL)isDnD {
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:@(isDnD), @"isDND", nil];
     [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
-                NSLog(@"%@", result);
+                NSDictionary *resultDic = result;
+                NSDictionary *data = resultDic[@"data"];
+                int isDND = [data[@"isDND"] intValue];
+                if (isDND != 1 && isDND != 0) {
+                    self.disturbButton.selected = !self.disturbButton.selected;
+                }
                 
             } else{
                 self.disturbButton.selected = !self.disturbButton.selected;
