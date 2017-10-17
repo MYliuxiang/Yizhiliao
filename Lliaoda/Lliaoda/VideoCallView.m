@@ -1404,8 +1404,36 @@
         
         return;
     }
+    
+    NSString *timeStr = [self timeFormatted:self.callTime];
+    self.timeLab.text = timeStr;
+    if (self.timeLabelBGView.hidden) {
+        self.timeLabelBGView.hidden = NO;
+        self.timeLabelBGView1.hidden = NO;
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            // 主播显示金币收益（本次通话）
+            self.jinbiView.hidden = NO;
+            self.jinbiView1.hidden = NO;
+        }
+    }
+    
+    int charges = 0;
+    for (Charge *mo in self.model.charges) {
+        if (mo.uid == self.model.charge) {
+            charges = mo.value;
+        }
+    }
+    int time1 = self.callTime / 60;
+    int time2 = self.callTime % 60;
+    if (time2 != 0) {
+        _charge = charges * (time1 + 1) * 10 + _giftCharge;
+    } else {
+        _charge = charges * time1 * 10 + _giftCharge;
+    }
+    _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
+    
+    
     self.keyTime = 0;
-    NSLog(@"%@",[NSDate date]);
     NSDictionary *params;
     params = @{@"channel":self.channel};
     [WXDataService requestAFWithURL:Url_chatvideorenew params:params httpMethod:@"POST" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
@@ -1592,7 +1620,6 @@
     
     int charges = 0;
     for (Charge *mo in self.model.charges) {
-        NSLog(@"%@", mo);
         if (mo.uid == self.model.charge) {
             charges = mo.value;
         }
