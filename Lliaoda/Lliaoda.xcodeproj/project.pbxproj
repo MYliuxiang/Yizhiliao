@@ -4338,7 +4338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 633THM6R4D;
 				ENABLE_BITCODE = NO;
@@ -4423,8 +4423,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.TalkToMe.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f785c7db-7215-4a2f-97a2-13a82c435da1";
-				PROVISIONING_PROFILE_SPECIFIER = dev;
+				PROVISIONING_PROFILE = "04e4d354-a8f6-49a6-bd51-acbeff33c70e";
+				PROVISIONING_PROFILE_SPECIFIER = tablemeHC;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -4438,7 +4438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 633THM6R4D;
 				ENABLE_BITCODE = NO;
@@ -4523,8 +4523,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.TalkToMe.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f785c7db-7215-4a2f-97a2-13a82c435da1";
-				PROVISIONING_PROFILE_SPECIFIER = dev;
+				PROVISIONING_PROFILE = "04e4d354-a8f6-49a6-bd51-acbeff33c70e";
+				PROVISIONING_PROFILE_SPECIFIER = tablemeHC;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				VALID_ARCHS = "arm64 armv7 armv7s";
