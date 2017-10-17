@@ -610,6 +610,7 @@
             }else if(indexPath.section == 2){
                 //设置
                 SettingVC *vc = [[SettingVC alloc] init];
+                vc.isDND = self.model.isDND;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             
@@ -668,6 +669,7 @@
             }else{
                 //设置
                 SettingVC *vc = [[SettingVC alloc] init];
+                vc.isDND = self.model.isDND;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             

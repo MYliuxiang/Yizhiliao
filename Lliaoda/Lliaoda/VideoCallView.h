@@ -64,6 +64,7 @@
 
 
 @property (retain, nonatomic) UIImageView *smallImageView;
+@property (nonatomic, retain) UIButton *xuanzhuanButton;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (nonatomic,copy) NSString *channel;
@@ -140,11 +141,17 @@
 
 @property (weak, nonatomic) IBOutlet UIView *jinbiView;
 @property (weak, nonatomic) IBOutlet UILabel *jinbiLabel;
+@property (weak, nonatomic) IBOutlet UIView *jinbiView1;
 
 
+@property (weak, nonatomic) IBOutlet UIView *headerBGView;
 
+@property (weak, nonatomic) IBOutlet UIView *timeLabelBGView;
+@property (weak, nonatomic) IBOutlet UIView *timeLabelBGView1;
 
+@property (nonatomic, strong) AgoraRtcVideoCanvas *local;
+@property (nonatomic, strong) AgoraRtcVideoCanvas *remate;
 
-
-
+@property (nonatomic, assign) int charge;
+@property (nonatomic, assign) int giftCharge; // 礼物收入
 @end

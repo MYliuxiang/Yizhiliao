@@ -58,7 +58,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNk-Mu-0IK">
-                    <rect key="frame" x="0.0" y="20" width="60" height="60"/>
+                    <rect key="frame" x="315" y="20" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="rb1-w8-RLy"/>
                         <constraint firstAttribute="width" constant="60" id="z6B-T2-2a0"/>
@@ -138,8 +138,8 @@
                         <constraint firstAttribute="width" constant="28" id="eqw-me-dBS"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nj-C8-uf3">
-                    <rect key="frame" x="315" y="20" width="60" height="60"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nj-C8-uf3">
+                    <rect key="frame" x="0.0" y="20" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="NMF-gB-Q3F"/>
                         <constraint firstAttribute="height" constant="60" id="SaR-wv-n8Z"/>
@@ -154,13 +154,13 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="ZNk-Mu-0IK" firstAttribute="leading" secondItem="jal-f6-M7U" secondAttribute="leading" id="32G-FT-P9a"/>
                 <constraint firstItem="a6s-Gf-FLm" firstAttribute="centerX" secondItem="jal-f6-M7U" secondAttribute="centerX" id="3nU-Cp-Od4"/>
                 <constraint firstItem="kZQ-HM-MAz" firstAttribute="centerX" secondItem="a6s-Gf-FLm" secondAttribute="centerX" id="F5d-ol-xB8"/>
                 <constraint firstItem="a6s-Gf-FLm" firstAttribute="top" secondItem="kSp-M7-PUA" secondAttribute="bottom" constant="10" id="FSV-N1-UCy"/>
                 <constraint firstItem="kEW-P1-10H" firstAttribute="bottom" secondItem="kSp-M7-PUA" secondAttribute="bottom" id="HdP-PT-a7Q"/>
                 <constraint firstItem="oWF-hJ-Tvg" firstAttribute="leading" secondItem="jal-f6-M7U" secondAttribute="leading" id="K2i-o8-Pzq"/>
                 <constraint firstItem="kSp-M7-PUA" firstAttribute="centerX" secondItem="jal-f6-M7U" secondAttribute="centerX" id="LcG-ti-Typ"/>
+                <constraint firstItem="2Nj-C8-uf3" firstAttribute="leading" secondItem="jal-f6-M7U" secondAttribute="leading" id="Mh2-tt-uRZ"/>
                 <constraint firstItem="kZQ-HM-MAz" firstAttribute="top" secondItem="a6s-Gf-FLm" secondAttribute="bottom" constant="5" id="OB0-A5-Gy3"/>
                 <constraint firstItem="M6t-eh-DUb" firstAttribute="centerY" secondItem="oWF-hJ-Tvg" secondAttribute="bottom" id="PLj-Nm-PNs"/>
                 <constraint firstItem="ZNk-Mu-0IK" firstAttribute="top" secondItem="jal-f6-M7U" secondAttribute="top" constant="20" id="X2F-V6-F3g"/>
@@ -168,8 +168,8 @@
                 <constraint firstItem="2Nj-C8-uf3" firstAttribute="top" secondItem="jal-f6-M7U" secondAttribute="top" constant="20" id="ao5-HS-CfH"/>
                 <constraint firstAttribute="trailing" secondItem="oWF-hJ-Tvg" secondAttribute="trailing" id="b0w-Rf-a7E"/>
                 <constraint firstItem="M6t-eh-DUb" firstAttribute="leading" secondItem="jal-f6-M7U" secondAttribute="leading" constant="15" id="buC-Hg-q7a"/>
+                <constraint firstAttribute="trailing" secondItem="ZNk-Mu-0IK" secondAttribute="trailing" id="ccE-1G-FSq"/>
                 <constraint firstItem="oWF-hJ-Tvg" firstAttribute="top" secondItem="jal-f6-M7U" secondAttribute="top" id="ee5-12-9YB"/>
-                <constraint firstAttribute="trailing" secondItem="2Nj-C8-uf3" secondAttribute="trailing" id="gvg-SL-wFp"/>
                 <constraint firstAttribute="trailing" secondItem="M6t-eh-DUb" secondAttribute="trailing" constant="15" id="lh4-B3-bsX"/>
                 <constraint firstItem="kSp-M7-PUA" firstAttribute="top" secondItem="jal-f6-M7U" secondAttribute="top" constant="60" id="oX7-Bo-HFV"/>
             </constraints>

@@ -20,5 +20,9 @@
 - (IBAction)checkoutButtonAC:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *loginoutButton;
 @property (weak, nonatomic) IBOutlet UIButton *aboutButton;
-
+@property (weak, nonatomic) IBOutlet UIView *disturbBGView;
+@property (weak, nonatomic) IBOutlet UIButton *disturbButton;
+- (IBAction)disturbBtnAC:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *disturbLabel;
+@property (nonatomic, assign) int isDND;
 @end
