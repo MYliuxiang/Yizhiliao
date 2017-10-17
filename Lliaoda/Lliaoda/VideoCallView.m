@@ -87,6 +87,9 @@
         self.lowMoneyView.hidden = YES;
         [self addNotice];
         [self loadAccountWithUid:uid];
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            [self loadAccountWithUid1];
+        }
         
         self.redBtn.hidden = YES;
         self.giftBtn.hidden = YES;
@@ -701,6 +704,37 @@
         [self dismiss];
     }];
 
+}
+
+- (void)loadAccountWithUid1
+{
+    
+    NSDictionary *params;
+    params = @{@"uid":[LXUserDefaults objectForKey:UID]};
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                self.pModel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
+                if (self.pModel.charge == -1) {
+                    self.pModel.charge = 100;
+                }
+            }else{    //请求失败
+                
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                    [self dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        
+        [self dismiss];
+    }];
+    
 }
 
 
@@ -1407,6 +1441,7 @@
     
     NSString *timeStr = [self timeFormatted:self.callTime];
     self.timeLab.text = timeStr;
+    
     if (self.timeLabelBGView.hidden) {
         self.timeLabelBGView.hidden = NO;
         self.timeLabelBGView1.hidden = NO;
@@ -1414,23 +1449,24 @@
             // 主播显示金币收益（本次通话）
             self.jinbiView.hidden = NO;
             self.jinbiView1.hidden = NO;
+            int charges = 0;
+            for (Charge *mo in self.pModel.charges) {
+                if (mo.uid == self.pModel.charge) {
+                    charges = mo.value;
+                }
+            }
+            int time1 = self.callTime / 60;
+            int time2 = self.callTime % 60;
+            if (time2 != 0) {
+                _charge = charges * (time1 + 1) * 10 + _giftCharge;
+            } else {
+                _charge = charges * time1 * 10 + _giftCharge;
+            }
+            _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
         }
     }
     
-    int charges = 0;
-    for (Charge *mo in self.model.charges) {
-        if (mo.uid == self.model.charge) {
-            charges = mo.value;
-        }
-    }
-    int time1 = self.callTime / 60;
-    int time2 = self.callTime % 60;
-    if (time2 != 0) {
-        _charge = charges * (time1 + 1) * 10 + _giftCharge;
-    } else {
-        _charge = charges * time1 * 10 + _giftCharge;
-    }
-    _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
+    
     
     
     self.keyTime = 0;
@@ -1608,30 +1644,32 @@
     }
     NSString *timeStr = [self timeFormatted:self.callTime];
     self.timeLab.text = timeStr;
-    if (self.timeLabelBGView.hidden) {
-        self.timeLabelBGView.hidden = NO;
-        self.timeLabelBGView1.hidden = NO;
-        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+    
+    if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+        if (self.timeLabelBGView.hidden) {
+            self.timeLabelBGView.hidden = NO;
+            self.timeLabelBGView1.hidden = NO;
             // 主播显示金币收益（本次通话）
             self.jinbiView.hidden = NO;
             self.jinbiView1.hidden = NO;
         }
+        
+        int charges = 0;
+        for (Charge *mo in self.pModel.charges) {
+            if (mo.uid == self.pModel.charge) {
+                charges = mo.value;
+            }
+        }
+        int time1 = self.callTime / 60;
+        int time2 = self.callTime % 60;
+        if (time2 != 0) {
+            _charge = charges * (time1 + 1) * 10 + _giftCharge;
+        } else {
+            _charge = charges * time1 * 10 + _giftCharge;
+        }
+        _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
     }
     
-    int charges = 0;
-    for (Charge *mo in self.model.charges) {
-        if (mo.uid == self.model.charge) {
-            charges = mo.value;
-        }
-    }
-    int time1 = self.callTime / 60;
-    int time2 = self.callTime % 60;
-    if (time2 != 0) {
-        _charge = charges * (time1 + 1) * 10 + _giftCharge;
-    } else {
-        _charge = charges * time1 * 10 + _giftCharge;
-    }
-    _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
     
     
     if (self.callTime % 30 == 0) {

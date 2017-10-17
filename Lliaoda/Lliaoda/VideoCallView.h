@@ -85,6 +85,8 @@
 
 @property (nonatomic,retain) PersonModel *model;
 
+@property (nonatomic, retain) PersonModel *pModel;
+
 @property (nonatomic,retain) NSTimer *timer;
 
 @property (nonatomic,retain) NSTimer *longTimer;
