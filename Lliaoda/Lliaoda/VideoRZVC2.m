@@ -427,6 +427,11 @@
 */
 
 - (IBAction)confirmButtonAC:(id)sender {
+    if (self.phoneNumTextField.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     if ([lang hasPrefix:@"zh-Hant"]) {
         
@@ -439,7 +444,8 @@
         }
         
     }else if ([lang hasPrefix:@"id"]){
-    
+        
+        
         if (self.phoneNumTextField.text.length > 12) {
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];

@@ -55,6 +55,8 @@
         self.bigImageView.contentMode = UIViewContentModeCenter;
         self.gotoMoneyBtn.layer.masksToBounds = YES;
         self.gotoMoneyBtn.layer.cornerRadius = 15;
+        
+        self.isBigLocal = NO;
         //添加移动的手势
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(locationChange:)];
         pan.delaysTouchesBegan = YES;
@@ -2037,6 +2039,16 @@
     return _effectView;
 }
 
+- (UIVisualEffectView *)smallEffectView {
+    if (_smallEffectView == nil) {
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        _smallEffectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
+        _smallEffectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        [self.smallImageView addSubview:_smallEffectView];
+    }
+    return _smallEffectView;
+}
 
 - (IBAction)redAC:(id)sender {
     
@@ -2052,14 +2064,26 @@
     
     UIButton *button = sender;
     button.selected = !button.selected;
-    if (button.selected) {
-        //蔗渣
-        self.effectView.hidden = YES;
-
-    }else{
-        //开启
-        self.effectView.hidden = NO;
+    if (!self.isBigLocal) {
+        if (button.selected) {
+            //蔗渣
+            self.effectView.hidden = YES;
+            
+        }else{
+            //开启
+            self.effectView.hidden = NO;
+        }
+    } else {
+        if (button.selected) {
+            //蔗渣
+            self.smallEffectView.hidden = YES;
+            
+        }else{
+            //开启
+            self.smallEffectView.hidden = NO;
+        }
     }
+    
         
 }
 
@@ -2121,7 +2145,7 @@
     if (button.selected) {
 //        _local.view = self.smallImageView;
 //        _remate.view = self.bigImageView;
-        
+        self.isBigLocal = YES;
         [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
         [self.instMedia enableAudio];
         _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
@@ -2137,10 +2161,17 @@
         [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
         [self.instMedia startPreview];
         
+        if (self.effectView.hidden) {
+            self.smallEffectView.hidden = YES;
+        } else {
+            self.effectView.hidden = YES;
+            self.smallEffectView.hidden = NO;
+        }
+        
     } else {
 //        _local.view = self.bigImageView;
 //        _remate.view = self.smallImageView;
-        
+        self.isBigLocal = NO;
         [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
         [self.instMedia enableAudio];
         _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
@@ -2155,6 +2186,13 @@
         [self.instMedia enableVideo];
         [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
         [self.instMedia startPreview];
+        
+        if (self.smallEffectView.hidden) {
+            self.effectView.hidden = YES;
+        } else {
+            self.smallEffectView.hidden = YES;
+            self.effectView.hidden = NO;
+        }
     }
 }
 
