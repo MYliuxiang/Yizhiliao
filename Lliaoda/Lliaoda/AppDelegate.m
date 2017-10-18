@@ -744,11 +744,11 @@
     NSString *expire = [LXUserDefaults objectForKey:Expire];
     if (expire == nil) {
         
-
         LoginVC *loginVC = [[LoginVC alloc]init];
         baseNAV = [[BaseNavigationController alloc] initWithRootViewController:loginVC];
         self.window.rootViewController =baseNAV;
         return;
+        
     }
     NSDate *expiredate = [NSDate dateWithTimeIntervalSince1970:[expire doubleValue]/ 1000.0];
     NSComparisonResult result = [expiredate compare:[NSDate date]];
