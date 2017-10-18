@@ -127,8 +127,8 @@
         self.noweixinView.hidden = YES;
         self.faceBtn.hidden = NO;
     }
-    self.noweixinView.hidden = YES;
-    self.faceBtn.hidden = NO;
+//    self.noweixinView.hidden = YES;
+//    self.faceBtn.hidden = NO;
     
     NSString *data = [[NSBundle mainBundle] pathForResource:@"2" ofType:nil];
     NSData *da = [NSData dataWithContentsOfFile:data];

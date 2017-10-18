@@ -131,6 +131,9 @@
 - (IBAction)redAC:(id)sender;
 
 @property (nonatomic,retain)  UIVisualEffectView *effectView;
+
+@property (nonatomic, retain) UIVisualEffectView *smallEffectView;
+
 @property (weak, nonatomic) IBOutlet UIButton *refuse;
 
 @property (weak, nonatomic) IBOutlet UIButton *acceptBtn;
@@ -154,6 +157,10 @@
 @property (nonatomic, strong) AgoraRtcVideoCanvas *local;
 @property (nonatomic, strong) AgoraRtcVideoCanvas *remate;
 
+@property (nonatomic, assign) BOOL isBigLocal;
+
 @property (nonatomic, assign) int charge;
 @property (nonatomic, assign) int giftCharge; // 礼物收入
+
+
 @end
