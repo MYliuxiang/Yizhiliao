@@ -353,7 +353,6 @@
 //监听购买结果
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
     
-    
     for (SKPaymentTransaction *transaction in transactions)
     {
         switch (transaction.transactionState)
@@ -558,10 +557,6 @@
                         [self appPay];
                         
                     }];
-                
-                
-               
-
                 
             }else{    //请求失败
                 

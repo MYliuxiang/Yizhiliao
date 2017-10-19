@@ -55,6 +55,8 @@
         self.bigImageView.contentMode = UIViewContentModeCenter;
         self.gotoMoneyBtn.layer.masksToBounds = YES;
         self.gotoMoneyBtn.layer.cornerRadius = 15;
+        
+        self.isBigLocal = NO;
         //添加移动的手势
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(locationChange:)];
         pan.delaysTouchesBegan = YES;
@@ -87,6 +89,9 @@
         self.lowMoneyView.hidden = YES;
         [self addNotice];
         [self loadAccountWithUid:uid];
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            [self loadAccountWithUid1];
+        }
         
         self.redBtn.hidden = YES;
         self.giftBtn.hidden = YES;
@@ -701,6 +706,37 @@
         [self dismiss];
     }];
 
+}
+
+- (void)loadAccountWithUid1
+{
+    
+    NSDictionary *params;
+    params = @{@"uid":[LXUserDefaults objectForKey:UID]};
+    [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                self.pModel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
+                if (self.pModel.charge == -1) {
+                    self.pModel.charge = 100;
+                }
+            }else{    //请求失败
+                
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                    [self dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        
+        [self dismiss];
+    }];
+    
 }
 
 
@@ -1404,8 +1440,38 @@
         
         return;
     }
+    
+    NSString *timeStr = [self timeFormatted:self.callTime];
+    self.timeLab.text = timeStr;
+    
+    if (self.timeLabelBGView.hidden) {
+        self.timeLabelBGView.hidden = NO;
+        self.timeLabelBGView1.hidden = NO;
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            // 主播显示金币收益（本次通话）
+            self.jinbiView.hidden = NO;
+            self.jinbiView1.hidden = NO;
+            int charges = 0;
+            for (Charge *mo in self.pModel.charges) {
+                if (mo.uid == self.pModel.charge) {
+                    charges = mo.value;
+                }
+            }
+            int time1 = self.callTime / 60;
+            int time2 = self.callTime % 60;
+            if (time2 != 0) {
+                _charge = charges * (time1 + 1) * 10 + _giftCharge;
+            } else {
+                _charge = charges * time1 * 10 + _giftCharge;
+            }
+            _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
+        }
+    }
+    
+    
+    
+    
     self.keyTime = 0;
-    NSLog(@"%@",[NSDate date]);
     NSDictionary *params;
     params = @{@"channel":self.channel};
     [WXDataService requestAFWithURL:Url_chatvideorenew params:params httpMethod:@"POST" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
@@ -1580,31 +1646,32 @@
     }
     NSString *timeStr = [self timeFormatted:self.callTime];
     self.timeLab.text = timeStr;
-    if (self.timeLabelBGView.hidden) {
-        self.timeLabelBGView.hidden = NO;
-        self.timeLabelBGView1.hidden = NO;
-        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+    
+    if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+        if (self.timeLabelBGView.hidden) {
+            self.timeLabelBGView.hidden = NO;
+            self.timeLabelBGView1.hidden = NO;
             // 主播显示金币收益（本次通话）
             self.jinbiView.hidden = NO;
             self.jinbiView1.hidden = NO;
         }
+        
+        int charges = 0;
+        for (Charge *mo in self.pModel.charges) {
+            if (mo.uid == self.pModel.charge) {
+                charges = mo.value;
+            }
+        }
+        int time1 = self.callTime / 60;
+        int time2 = self.callTime % 60;
+        if (time2 != 0) {
+            _charge = charges * (time1 + 1) * 10 + _giftCharge;
+        } else {
+            _charge = charges * time1 * 10 + _giftCharge;
+        }
+        _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
     }
     
-    int charges = 0;
-    for (Charge *mo in self.model.charges) {
-        NSLog(@"%@", mo);
-        if (mo.uid == self.model.charge) {
-            charges = mo.value;
-        }
-    }
-    int time1 = self.callTime / 60;
-    int time2 = self.callTime % 60;
-    if (time2 != 0) {
-        _charge = charges * (time1 + 1) * 10 + _giftCharge;
-    } else {
-        _charge = charges * time1 * 10 + _giftCharge;
-    }
-    _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
     
     
     if (self.callTime % 30 == 0) {
@@ -1972,6 +2039,16 @@
     return _effectView;
 }
 
+- (UIVisualEffectView *)smallEffectView {
+    if (_smallEffectView == nil) {
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        _smallEffectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
+        _smallEffectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        [self.smallImageView addSubview:_smallEffectView];
+    }
+    return _smallEffectView;
+}
 
 - (IBAction)redAC:(id)sender {
     
@@ -1987,14 +2064,26 @@
     
     UIButton *button = sender;
     button.selected = !button.selected;
-    if (button.selected) {
-        //蔗渣
-        self.effectView.hidden = YES;
-
-    }else{
-        //开启
-        self.effectView.hidden = NO;
+    if (!self.isBigLocal) {
+        if (button.selected) {
+            //蔗渣
+            self.effectView.hidden = YES;
+            
+        }else{
+            //开启
+            self.effectView.hidden = NO;
+        }
+    } else {
+        if (button.selected) {
+            //蔗渣
+            self.smallEffectView.hidden = YES;
+            
+        }else{
+            //开启
+            self.smallEffectView.hidden = NO;
+        }
     }
+    
         
 }
 
@@ -2056,7 +2145,7 @@
     if (button.selected) {
 //        _local.view = self.smallImageView;
 //        _remate.view = self.bigImageView;
-        
+        self.isBigLocal = YES;
         [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
         [self.instMedia enableAudio];
         _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
@@ -2072,10 +2161,17 @@
         [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
         [self.instMedia startPreview];
         
+        if (self.effectView.hidden) {
+            self.smallEffectView.hidden = YES;
+        } else {
+            self.effectView.hidden = YES;
+            self.smallEffectView.hidden = NO;
+        }
+        
     } else {
 //        _local.view = self.bigImageView;
 //        _remate.view = self.smallImageView;
-        
+        self.isBigLocal = NO;
         [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
         [self.instMedia enableAudio];
         _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
@@ -2090,6 +2186,13 @@
         [self.instMedia enableVideo];
         [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
         [self.instMedia startPreview];
+        
+        if (self.smallEffectView.hidden) {
+            self.effectView.hidden = YES;
+        } else {
+            self.smallEffectView.hidden = YES;
+            self.effectView.hidden = NO;
+        }
     }
 }
 
