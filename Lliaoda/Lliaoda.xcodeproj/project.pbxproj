@@ -424,7 +424,6 @@
 		227DE5DC1F0CDF8A00FD7DD3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227DE5DB1F0CDF8A00FD7DD3 /* Bolts.framework */; };
 		227DE5DE1F0CDF9300FD7DD3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227DE5DD1F0CDF9300FD7DD3 /* FBSDKCoreKit.framework */; };
 		227DE5E01F0CDF9900FD7DD3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227DE5DF1F0CDF9900FD7DD3 /* FBSDKLoginKit.framework */; };
-		2283AA031F0E158D00E9ABB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2283AA021F0E158D00E9ABB5 /* Assets.xcassets */; };
 		22844F4F1ED2A1B800A9E32E /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 22844F2E1ED2A1B800A9E32E /* IQNSArray+Sort.m */; };
 		22844F501ED2A1B800A9E32E /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22844F301ED2A1B800A9E32E /* IQUIScrollView+Additions.m */; };
 		22844F511ED2A1B800A9E32E /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22844F321ED2A1B800A9E32E /* IQUITextFieldView+Additions.m */; };
@@ -1245,10 +1244,10 @@
 		227971C91EF8DC0900BC8E18 /* DateUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUnit.m; sourceTree = "<group>"; };
 		227971CA1EF8DC0900BC8E18 /* FileUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUnit.h; sourceTree = "<group>"; };
 		227971CB1EF8DC0900BC8E18 /* FileUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUnit.m; sourceTree = "<group>"; };
+		227B15CD1F9889E2008D6F71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		227DE5DB1F0CDF8A00FD7DD3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		227DE5DD1F0CDF9300FD7DD3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		227DE5DF1F0CDF9900FD7DD3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		2283AA021F0E158D00E9ABB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22844F2D1ED2A1B800A9E32E /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		22844F2E1ED2A1B800A9E32E /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
 		22844F2F1ED2A1B800A9E32E /* IQUIScrollView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIScrollView+Additions.h"; sourceTree = "<group>"; };
@@ -3156,10 +3155,10 @@
 				22E8D77D1EA49AE300C5FC6B /* Info.plist */,
 				226B6FF61F38649E00AEC7D2 /* InfoPlist.strings */,
 				84F970CE1F38541B00336234 /* Localizable.strings */,
+				227B15CD1F9889E2008D6F71 /* Assets.xcassets */,
 				22B1090D1EA4A23800E35B74 /* Lliaoda.pch */,
 				22DC05631F39A91C00E2E015 /* PchTool.h */,
 				22DC05641F39A91C00E2E015 /* PchTool.m */,
-				2283AA021F0E158D00E9ABB5 /* Assets.xcassets */,
 				22E8D76C1EA49AE300C5FC6B /* Supporting Files */,
 			);
 			path = Lliaoda;
@@ -3477,7 +3476,6 @@
 				8413A2AF1F4C2ACF00CB3CBC /* PersonalDataCell.xib in Resources */,
 				84F0871E1F541BBF00026235 /* headerImage.jpg in Resources */,
 				8483AAFA1F4EC65B008BA674 /* AccountChargeCell.xib in Resources */,
-				2283AA031F0E158D00E9ABB5 /* Assets.xcassets in Resources */,
 				22DC05681F39BE8200E2E015 /* albumVideo.png in Resources */,
 				222AA0011EB071910038416D /* IM_Chat_receiver_bg@3x.png in Resources */,
 				222AA0271EB071910038416D /* C_88@2x.png in Resources */,
@@ -4424,7 +4422,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.TalkToMe.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d59b7090-ec64-4978-8c5c-9723f3981131";
-				PROVISIONING_PROFILE = "cbffadd3-206f-4136-9a68-1125bb3b001c";
 				PROVISIONING_PROFILE_SPECIFIER = dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
@@ -4525,7 +4522,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.TalkToMe.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d59b7090-ec64-4978-8c5c-9723f3981131";
-				PROVISIONING_PROFILE = "cbffadd3-206f-4136-9a68-1125bb3b001c";
 				PROVISIONING_PROFILE_SPECIFIER = dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";

@@ -127,7 +127,19 @@
             
         }else{
             
-            [self.nameArray addObject:@[LXSring(@"賬戶"),LXSring(@"收入")]];
+            
+            if (self.model.auth == 2) {
+                
+                [self.nameArray addObject:@[LXSring(@"賬戶"),LXSring(@"收入")]];
+
+                
+                
+            }else{
+                
+                [self.nameArray addObject:@[LXSring(@"賬戶")]];
+                
+            }
+
             [self.messagePhotos addObject:@[@"zhanghu",@"shouru"]];
             [self.nameArray addObject:array];
             [self.messagePhotos addObject:array1];
