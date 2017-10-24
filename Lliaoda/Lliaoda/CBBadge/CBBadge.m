@@ -66,10 +66,5 @@
     }
 }
 
-- (void)badgeValue
-{
-    
-    
-}
 
 @end
