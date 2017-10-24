@@ -9,14 +9,11 @@
 #import "TJPTabBarController.h"
 #import "NewMyVC.h"
 #import "OnlineUserVC.h"
-#import "TJPTabBar.h"
 
 @interface TJPTabBarController ()<UINavigationControllerDelegate>
 {
     UIView *tabBarView;
-    UIView *tabBarView1;
-    UIView *tabBarView2;
-    UIView *tabBarView3;
+   
     
 }
 @end
@@ -33,43 +30,7 @@
     return tabBarC;
 }
 
-//+ (instancetype)tabBarControllerWitnAddChildVCBlock:(void (^)(TJPTabBarController *))addVCBlock
-//{
-//    TJPTabBarController *tabBarVC = [[TJPTabBarController alloc] init];
-//    if (addVCBlock) {
-//        addVCBlock(tabBarVC);
-//    }
-//    return tabBarVC;
-//}
-//
-//
-//- (void)addChildVC:(UIViewController *)vc normalImageName:(NSString *)normalImageName selectedImageName:(NSString *)selectedImageName isRequiredNavController:(BOOL)isRequired
-//{
-//    if (isRequired) {
-//        BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-//        nav.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[UIImage imageNamed:normalImageName] selectedImage:[UIImage imageNamed:selectedImageName]];
-//        nav.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
-//
-//        [self addChildViewController:nav];
-//    }else {
-//        [self addChildViewController:vc];
-//    }
-//    
-//}
-//
-//- (void)addCenterChildVC:(UIViewController *)vc normalImageName:(NSString *)normalImageName selectedImageName:(NSString *)selectedImageName isRequiredNavController:(BOOL)isRequired
-//{
-//    if (isRequired) {
-//        BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-//        nav.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[UIImage imageNamed:normalImageName] selectedImage:[UIImage imageNamed:selectedImageName]];
-//        nav.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
-//        
-//        [self addChildViewController:nav];
-//    }else {
-//        [self addChildViewController:vc];
-//    }
-//
-//}
+
 
 
 - (void)viewDidLoad {
@@ -85,32 +46,29 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
+
 - (void)setupTabBar
 {
-//    TJPTabBar *tabbar = [[TJPTabBar alloc] init];
-//    [self setValue:tabbar forKey:@"tabBar"];
-//    [tabbar setCenterBtnClickBlock:^{
-//        //中间按钮方法
-//        self.selectedIndex = -1;
-//    
-//        
-//    }];
+
     
     tabBarView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_H - 49, SCREEN_W, 49)];
     tabBarView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:tabBarView];
     
-//    tabBarView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W / 2, 49)];
-//    tabBarView1.backgroundColor = [UIColor clearColor];
-//    [tabBarView addSubview:tabBarView1];
-//    
-//    tabBarView3 = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_W / 3 * 2, 0, SCREEN_W / 3, 49)];
-//    tabBarView3.backgroundColor = [UIColor clearColor];
-//    [tabBarView addSubview:tabBarView3];
-//    
-//    tabBarView2 = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_W / 3, 0, 49, 49)];
-//    tabBarView2.backgroundColor = [UIColor clearColor];
-//    [tabBarView addSubview:tabBarView2];
+    NSArray *narray = @[];
+    NSArray *sarray = @[];
+    for (int i =0 ; i< 5; i++) {
+        
+       UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.tag = i;
+        btn.frame = CGRectMake(0, 0, SCREEN_W / 3, 49);
+        [btn setImage:[UIImage imageNamed:narray[i]] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:sarray[i]] forState:UIControlStateSelected];
+        [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [tabBarView addSubview:btn];
+        
+    }
+    
     
     _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
     _button1.tag = 1;
@@ -177,14 +135,12 @@
 - (void)initViewController {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NSArray *vcs;
-//    FindVC *homeVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
     SelectedVC *managementVC = [storyBoard instantiateViewControllerWithIdentifier:@"SelectedVC"];
 
-//    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
-//    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
     FindVC *findVC = [storyBoard instantiateViewControllerWithIdentifier:@"FindVC"];
-//    MyVC *myVC = [storyBoard instantiateViewControllerWithIdentifier:@"MyVC"];
+    
     NewMyVC *myVC = [[NewMyVC alloc] init];
+    
     OnlineUserVC *onlineVC = [[OnlineUserVC alloc] init];
     if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
         vcs = @[managementVC, onlineVC, myVC];

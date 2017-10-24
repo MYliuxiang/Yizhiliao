@@ -416,8 +416,6 @@
 		22721FC61EE80C68003A19D3 /* PPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22721FC41EE80C68003A19D3 /* PPhotoVC.m */; };
 		22721FC71EE80C68003A19D3 /* PPhotoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22721FC51EE80C68003A19D3 /* PPhotoVC.xib */; };
 		227303031F4AC75D0069F53B /* TJPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227303021F4AC75D0069F53B /* TJPTabBarController.m */; };
-		227303061F4AC7630069F53B /* TJPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 227303051F4AC7630069F53B /* TJPTabBar.m */; };
-		227303091F4ADC390069F53B /* LxBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 227303081F4ADC390069F53B /* LxBarItem.m */; };
 		227553781ECED99900CE6507 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 227553731ECED99900CE6507 /* README.txt */; };
 		227971CC1EF8DC0900BC8E18 /* DateUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227971C91EF8DC0900BC8E18 /* DateUnit.m */; };
 		227971CD1EF8DC0900BC8E18 /* FileUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227971CB1EF8DC0900BC8E18 /* FileUnit.m */; };
@@ -523,6 +521,7 @@
 		22B109351EA4B2CF00E35B74 /* SelectedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B109331EA4B2CF00E35B74 /* SelectedCell.xib */; };
 		22B109391EA4B56500E35B74 /* SelectedHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B109371EA4B56500E35B74 /* SelectedHeader.m */; };
 		22B1093A1EA4B56500E35B74 /* SelectedHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B109381EA4B56500E35B74 /* SelectedHeader.xib */; };
+		22B63C631F9F14AC00D1E2CD /* AppDelegate+Cofing.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B63C621F9F14AC00D1E2CD /* AppDelegate+Cofing.m */; };
 		22B63C8A1EFA719900F10039 /* videoprp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B63C891EFA719900F10039 /* videoprp.framework */; };
 		22B691E41F3ABD4D00CDF0F2 /* id1495262516.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 22B691E31F3ABD4D00CDF0F2 /* id1495262516.mp4 */; };
 		22BBE5281F502B4B007631DC /* OtherVideoPlayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BBE5261F502B4B007631DC /* OtherVideoPlayVC.m */; };
@@ -1232,10 +1231,6 @@
 		22721FC51EE80C68003A19D3 /* PPhotoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPhotoVC.xib; sourceTree = "<group>"; };
 		227303011F4AC75D0069F53B /* TJPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPTabBarController.h; sourceTree = "<group>"; };
 		227303021F4AC75D0069F53B /* TJPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPTabBarController.m; sourceTree = "<group>"; };
-		227303041F4AC7630069F53B /* TJPTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPTabBar.h; sourceTree = "<group>"; };
-		227303051F4AC7630069F53B /* TJPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPTabBar.m; sourceTree = "<group>"; };
-		227303071F4ADC390069F53B /* LxBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxBarItem.h; sourceTree = "<group>"; };
-		227303081F4ADC390069F53B /* LxBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxBarItem.m; sourceTree = "<group>"; };
 		227553731ECED99900CE6507 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		227553741ECED99900CE6507 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		227553751ECED99900CE6507 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -1422,6 +1417,8 @@
 		22B109361EA4B56500E35B74 /* SelectedHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedHeader.h; sourceTree = "<group>"; };
 		22B109371EA4B56500E35B74 /* SelectedHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedHeader.m; sourceTree = "<group>"; };
 		22B109381EA4B56500E35B74 /* SelectedHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedHeader.xib; sourceTree = "<group>"; };
+		22B63C611F9F14AC00D1E2CD /* AppDelegate+Cofing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Cofing.h"; sourceTree = "<group>"; };
+		22B63C621F9F14AC00D1E2CD /* AppDelegate+Cofing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Cofing.m"; sourceTree = "<group>"; };
 		22B63C891EFA719900F10039 /* videoprp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = videoprp.framework; path = OpenSDK1.7.7/videoprp.framework; sourceTree = "<group>"; };
 		22B691E31F3ABD4D00CDF0F2 /* id1495262516.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = id1495262516.mp4; sourceTree = "<group>"; };
 		22BBE5251F502B4B007631DC /* OtherVideoPlayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherVideoPlayVC.h; sourceTree = "<group>"; };
@@ -2834,10 +2831,6 @@
 		22B1090E1EA4A49B00E35B74 /* 基类 */ = {
 			isa = PBXGroup;
 			children = (
-				227303041F4AC7630069F53B /* TJPTabBar.h */,
-				227303051F4AC7630069F53B /* TJPTabBar.m */,
-				227303071F4ADC390069F53B /* LxBarItem.h */,
-				227303081F4ADC390069F53B /* LxBarItem.m */,
 				227303011F4AC75D0069F53B /* TJPTabBarController.h */,
 				227303021F4AC75D0069F53B /* TJPTabBarController.m */,
 				22B109121EA4A4E200E35B74 /* MainTabBarController.h */,
@@ -3136,6 +3129,8 @@
 				222740181EC56A95002FEF5B /* 启动视屏 */,
 				22E8D76F1EA49AE300C5FC6B /* AppDelegate.h */,
 				22E8D7701EA49AE300C5FC6B /* AppDelegate.m */,
+				22B63C611F9F14AC00D1E2CD /* AppDelegate+Cofing.h */,
+				22B63C621F9F14AC00D1E2CD /* AppDelegate+Cofing.m */,
 				22ADAE291F0BC352005D08A4 /* IAPModel.h */,
 				22ADAE2A1F0BC352005D08A4 /* IAPModel.m */,
 				843EC0241F29D9750051AFD3 /* OrderID.h */,
@@ -3924,6 +3919,7 @@
 				222B38651ED96843009DB58F /* UIImage+MSSScale.m in Sources */,
 				2263D3E81EF392BD0020E092 /* AboutVC.m in Sources */,
 				222B385C1ED96843009DB58F /* MSSBrowseActionSheetCell.m in Sources */,
+				22B63C631F9F14AC00D1E2CD /* AppDelegate+Cofing.m in Sources */,
 				228B89C11EA85744002B8D3C /* VideoRZTwoVC.m in Sources */,
 				222B38201ED9642B009DB58F /* FSActionSheet.m in Sources */,
 				2244B4641F00B96800685217 /* GiftModel.m in Sources */,
@@ -3945,7 +3941,6 @@
 				2286DC6C1EF26AFE00FDF801 /* LHChatBarView.m in Sources */,
 				841AD6CD1F3C6CB400A3CE0D /* SelectedBannersHeader.m in Sources */,
 				2244B4661F00B96800685217 /* ShakeLabel.m in Sources */,
-				227303061F4AC7630069F53B /* TJPTabBar.m in Sources */,
 				223DE5AF1F20AB5100745E94 /* OpenGLView20.m in Sources */,
 				222B381E1ED9642B009DB58F /* UIImage+XLExtension.m in Sources */,
 				222AA1D81EB0775B0038416D /* YYTextRunDelegate.m in Sources */,
@@ -4097,7 +4092,6 @@
 				228CF7461EDEC8610045986D /* FindVC.m in Sources */,
 				2265F8CA1F3C0D98001A6308 /* UIButton+HQCustomIcon.m in Sources */,
 				2290A8451F4BE826005DA0AE /* BannerView.m in Sources */,
-				227303091F4ADC390069F53B /* LxBarItem.m in Sources */,
 				2244B4691F00B96800685217 /* AnimOperationManager.m in Sources */,
 				8420E7251F2779E600ADA26E /* LHChatChongZhiBubbleView.m in Sources */,
 				22844F591ED2A1B800A9E32E /* IQTitleBarButtonItem.m in Sources */,
