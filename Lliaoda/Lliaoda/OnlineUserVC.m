@@ -31,7 +31,7 @@
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downLoad1)];
     _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(upLoad1)];
     [_tableView.mj_header beginRefreshing];
-    self.isShowMessageButton = YES;
+//    self.isShowMessageButton = YES;
 }
 
 ////下啦刷新
@@ -59,11 +59,8 @@
 {
     NSDictionary *params;
     
-    
     params = @{@"page":[NSString stringWithFormat:@"%d",_begin]};
-    
-    
-    
+        
     [WXDataService requestAFWithURL:Url_recommendusers params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
         
         if(result){
@@ -279,26 +276,26 @@
 - (void)widthString:(NSString *)string {
     int value = [string intValue];
     if (value <= 0) {
-        self.messageCountLabel.hidden = YES;
+//        self.messageCountLabel.hidden = YES;
     } else {
-        self.messageCountLabel.hidden = NO;
+//        self.messageCountLabel.hidden = NO;
         if (value > 0 && value < 10) {
-            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, 15, 15);
+//            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, 15, 15);
         } else if (value >= 10 && value < 100) {
             CGSize size = [self setWidth:300 height:15 font:10 content:string];
-            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
+//            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
         } else if (value >= 100) {
             string = @"99+";
             CGSize size = [self setWidth:300 height:15 font:10 content:string];
-            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
+//            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
         }
-        self.messageCountLabel.text = string;
+//        self.messageCountLabel.text = string;
     }
 }
 
 - (void)onMessageNoData:(NSNotification *)notification {
-    self.messageCountLabel.text = @"0";
-    self.messageCountLabel.hidden = YES;
+//    self.messageCountLabel.text = @"0";
+//    self.messageCountLabel.hidden = YES;
 }
 
 #pragma mark - 根据文本内容确定label的大小

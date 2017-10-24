@@ -7,18 +7,9 @@
 //
 
 #import "BaseViewController.h"
-#import "SelectedModel.h"
-#import "SelectedBannersModel.h"
-#import "Mymodel.h"
-#import "UserCell.h"
-#import "UserModel.h"
-#import <SDCycleScrollView.h>
-#import "SelectedBannersHeader.h"
-#import "BannerView.h"
-#import "LxPersonVC.h"
-#import "OnlineUserCell.h"
 
-@interface SelectedVC : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate>
+
+@interface SelectedVC : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
     int _begin;
     BOOL _isdownLoad;
@@ -33,7 +24,6 @@
 @property (nonatomic, retain) NSMutableArray *bannersTitlesArray;
 @property (nonatomic, retain) NSMutableArray *bannersImagesArray;
 @property (nonatomic, retain) NSMutableArray *bannersLinksArray;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,retain) NSMutableArray *tDataList;
 @property (nonatomic, strong) SDCycleScrollView *cycleScrollView;
 

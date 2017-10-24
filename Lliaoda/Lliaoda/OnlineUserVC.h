@@ -7,6 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "UserModel.h"
+#import "SelectedBannersModel.h"
+#import "SelectedBannersHeader.h"
+#import "OnlineUserCell.h"
 
 @interface OnlineUserVC : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 {

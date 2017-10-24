@@ -52,8 +52,6 @@
     self.view.backgroundColor = Color_bg;
     [self _initnav];
    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_robotMessage object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageNoData:) name:Notice_onMessageNoData object:nil];
 }
 
 
@@ -108,86 +106,13 @@
 //    [self.nav addSubview:_rightChargeButton];
 //    self.isRight = NO;
     
-    _messageBtnBgView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth - 44 - 15, 20, 60, 44)];
-    _messageBtnBgView.backgroundColor = [UIColor clearColor];
-    [self.nav addSubview:_messageBtnBgView];
-    self.isShowMessageButton = NO;
+ 
     
-    _messageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _messageButton.frame = CGRectMake(0, 0, 44, 44);
-    [_messageButton setBackgroundColor:[UIColor clearColor]];
-    [_messageButton setImage:[UIImage imageNamed:@"xiaoxi"] forState:UIControlStateNormal];
-    [_messageButton addTarget:self action:@selector(messageBtnAC) forControlEvents:UIControlEventTouchUpInside];
-    [_messageBtnBgView addSubview:_messageButton];
-    
-    _messageCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(_messageButton.right - 20, 0, 15, 15)];
-    _messageCountLabel.textAlignment = NSTextAlignmentCenter;
-    _messageCountLabel.backgroundColor = UIColorFromRGB(0xfe707d);
-    _messageCountLabel.font = [UIFont systemFontOfSize:10];
-    _messageCountLabel.textColor = [UIColor whiteColor];
-    _messageCountLabel.hidden = YES;
-    _messageCountLabel.layer.cornerRadius = 15 / 2;
-    _messageCountLabel.layer.masksToBounds = YES;
-    [_messageBtnBgView addSubview:_messageCountLabel];
-//    [self addrighttitleString:@"Top up manual"];
-//    [self widthString:@"9"];
-    
-}
-
-#pragma mark - LeftView红点判断
-- (void)onMessageInstantReceive:(NSNotification *)notification
-{
-    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
-    NSArray *array = [MessageCount findByCriteria:criteria];
-    int count = 0;
-    
-    for (MessageCount *mcount in array) {
-        count += mcount.count;
-        
-    }
-    [self widthString:[NSString stringWithFormat:@"%d", count]];
-    
-    
-}
-
-- (void)widthString:(NSString *)string {
-    int value = [string intValue];
-    if (value <= 0) {
-        self.messageCountLabel.hidden = YES;
-    } else {
-        self.messageCountLabel.hidden = NO;
-        if (value > 0 && value < 10) {
-            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, 15, 15);
-        } else if (value >= 10 && value < 100) {
-            CGSize size = [self setWidth:300 height:15 font:10 content:string];
-            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
-        } else if (value >= 100) {
-            string = @"99+";
-            CGSize size = [self setWidth:300 height:15 font:10 content:string];
-            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
-        }
-        self.messageCountLabel.text = string;
-    }
-}
-
-- (void)onMessageNoData:(NSNotification *)notification {
-    self.messageCountLabel.text = @"0";
-    self.messageCountLabel.hidden = YES;
-}
-
-#pragma mark - 根据文本内容确定label的大小
-- (CGSize) setWidth:(CGFloat)width height:(CGFloat)height font:(CGFloat)font content:(NSString *)content{
-    UIFont *fonts = [UIFont systemFontOfSize:font];
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:fonts,NSFontAttributeName, nil];
-    CGSize size1 = [content boundingRectWithSize:CGSizeMake(width, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
-    return size1;
 }
 
 - (void)rightAction
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:@"Untuk top up manual, mohon hubungi line:  CS.SugarTalk" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"", nil];
-    [alert show];
+  
 
 }
 
@@ -287,45 +212,10 @@
 }
 
 
-//- (void)rightAction
-//{
-//    
-//}
 
 - (void)leftAction
 {
     
-}
-
-//- (void)setIsRight:(BOOL)isRight {
-//    if (isRight) {
-//        self.rightChargeButton.hidden = NO;
-//    } else {
-//        self.rightChargeButton.hidden = YES;
-//    }
-//}
-
-- (void)setIsShowMessageButton:(BOOL)isShowMessageButton {
-    if (isShowMessageButton) {
-        self.messageBtnBgView.hidden = NO;
-    } else {
-        self.messageBtnBgView.hidden = YES;
-    }
-}
-
-- (void)messageBtnAC {
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MeassageVC *vipbusinessVC = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
-    [self.navigationController pushViewController:vipbusinessVC animated:YES];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        // 複製賬號
-        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-        NSString *urlStr = @"CandyTalk";
-        pasteboard.string = urlStr;
-    }
 }
 
 
