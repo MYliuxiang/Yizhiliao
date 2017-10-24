@@ -63,4 +63,14 @@ typedef NS_ENUM(NSInteger, MyType) {
 @property (weak, nonatomic) IBOutlet UIButton *unDisturbButton;
 - (IBAction)unDisturbBtnAC:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *sqrzButton;
+- (IBAction)sqrzButtonAC:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel; // 年齡
+@property (weak, nonatomic) IBOutlet UILabel *constellationsLabel; // 星座
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel; // 地區
+@property (weak, nonatomic) IBOutlet UILabel *upCountLabel; // 被贊數
+
+- (IBAction)editUserinfoBtnAC:(id)sender;
+
 @end
