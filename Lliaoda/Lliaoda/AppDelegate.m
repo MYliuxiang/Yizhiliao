@@ -664,7 +664,7 @@
 
     }];
     [dataTask resume];
-    dispatch_semaphore_wait(semaphore,DISPATCH_TIME_FOREVER);  //等待
+   dispatch_semaphore_wait(semaphore,DISPATCH_TIME_FOREVER);  //等待
 
     
 

@@ -191,7 +191,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/AppDelegate.m"
-            timestampString = "530180508.435353"
+            timestampString = "530184359.454154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "430"
@@ -207,12 +207,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lliaoda/AppDelegate.m"
-            timestampString = "530180508.435869"
+            timestampString = "530184359.454624"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "421"
             endingLineNumber = "421"
             landmarkName = "-appPay"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lliaoda/AppDelegate.m"
+            timestampString = "530184359.455016"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "649"
+            endingLineNumber = "649"
+            landmarkName = "-appconfig"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
