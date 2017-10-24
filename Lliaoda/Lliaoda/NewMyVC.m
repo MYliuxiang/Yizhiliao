@@ -17,16 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.headerView.height = kScreenWidth / 750 * 450 + (kScreenWidth - 30) / 69 * 15 / 2;
+    self.headerView.height = kScreenWidth / 750 * 450 + 50;
     self.nav.hidden = YES;
     self.seltedView.layer.cornerRadius = 5;
     self.seltedView.layer.masksToBounds = YES;
     
-        if (@available(iOS 11.0, *)) {
-            self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        } else {
-            // Fallback on earlier versions
-        }
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        // Fallback on earlier versions
+    }
     
     self.nameArray = [NSMutableArray array];
     self.messagePhotos = [NSMutableArray array];
@@ -299,6 +299,27 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    
+    if (indexPath.section == 0) {
+        if (self.cellType == MyTypeVideo) {
+            NewMyVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewMyVideoCell"];
+            if (cell == nil) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyVideoCell" owner:self options:nil] lastObject];
+            }
+            return cell;
+            
+        } else if (self.cellType == MyTypePhoto) {
+            NewMyalbumCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewMyalbumCell"];
+            if (cell == nil) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
+            }
+            return cell;
+        }
+    }
+    
+    
+    
+    
     if(self.cellType == MyTypePhoto){
         
         static NSString *identifie = @"cellPhotoID";
@@ -516,22 +537,28 @@
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor clearColor];
     return view;
-
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.cellType == MyTypeMessage) {
-        
-        return 50;
-    }else if (self.cellType == MyTypeVideo){
-    
-        return (self.videoDataList.count + 2) / 2 * (((kScreenWidth - 45) / 2.0 - 1) + 15);
-
-    }else{
-    return (self.photoDataList.count + 3) / 3 *  ((kScreenWidth - 60) / 3.0 - 1 + 15);
-
+    if (indexPath.section == 0) {
+        return (kScreenWidth - 30) / 2 + 15;
+    } else {
+        return 60;
     }
+    
+    
+//    if (self.cellType == MyTypeMessage) {
+//
+//        return 50;
+//    }else if (self.cellType == MyTypeVideo){
+//
+//        return (self.videoDataList.count + 2) / 2 * (((kScreenWidth - 45) / 2.0 - 1) + 15);
+//
+//    }else{
+//    return (self.photoDataList.count + 3) / 3 *  ((kScreenWidth - 60) / 3.0 - 1 + 15);
+//
+//    }
 
 }
 
@@ -1032,9 +1059,15 @@
 }
 
 - (IBAction)videoAC:(UIButton *)sender {
+    self.photoButton.selected = YES;
+    self.videoButton.selected = NO;
+    self.photoLineView.hidden = YES;
+    self.videoLineView.hidden = NO;
+    
     self.cellType = MyTypeVideo;
     [UIView animateWithDuration:.35 animations:^{
-        self.lineView.centerX = sender.centerX;
+//        self.lineView.centerX = sender.centerX;
+        
     } completion:^(BOOL finished) {
         
         [self.tableView reloadData];
@@ -1042,6 +1075,11 @@
 }
 
 - (IBAction)photoAC:(UIButton *)sender {
+    self.photoButton.selected = NO;
+    self.videoButton.selected = YES;
+    self.photoLineView.hidden = NO;
+    self.videoLineView.hidden = YES;
+    
     self.cellType = MyTypePhoto;
     [UIView animateWithDuration:.35 animations:^{
         self.lineView.centerX = sender.centerX;

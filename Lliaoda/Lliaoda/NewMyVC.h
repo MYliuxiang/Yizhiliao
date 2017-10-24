@@ -12,6 +12,8 @@
 #import "MyalbumVC.h"
 #import "FixpersonalVC.h"
 #import "SetHeaderImageVC.h"
+#import "NewMyalbumCell.h"
+#import "NewMyVideoCell.h"
 typedef NS_ENUM(NSInteger, MyType) {
     MyTypeVideo,
     MyTypePhoto,
@@ -33,6 +35,11 @@ typedef NS_ENUM(NSInteger, MyType) {
 - (IBAction)videoAC:(UIButton *)sender;
 - (IBAction)photoAC:(UIButton *)sender;
 - (IBAction)messageAC:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *photoButton;
+@property (weak, nonatomic) IBOutlet UIButton *videoButton;
+@property (weak, nonatomic) IBOutlet UIView *photoLineView;
+@property (weak, nonatomic) IBOutlet UIView *videoLineView;
+
 
 @property (nonatomic,retain) NSMutableArray *nameArray;
 @property (nonatomic,retain) NSMutableArray *messagePhotos;

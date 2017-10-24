@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="NewMyVideoCell">
+            <rect key="frame" x="0.0" y="0.0" width="406" height="170"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="406" height="169.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h9k-IL-wkG">
+                        <rect key="frame" x="15" y="0.0" width="154.5" height="154.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="h9k-IL-wkG" secondAttribute="height" multiplier="1:1" id="vhh-Sc-6vx"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yhQ-hR-nuQ">
+                        <rect key="frame" x="174.5" y="0.0" width="106" height="75"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="78K-QP-wvs">
+                        <rect key="frame" x="285.5" y="0.0" width="105.5" height="75"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-Rg-4Zc">
+                        <rect key="frame" x="174.5" y="80" width="106" height="74.5"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJg-L4-nw3">
+                        <rect key="frame" x="285.5" y="80" width="105.5" height="74.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-wy-QW2">
+                                <rect key="frame" x="0.0" y="0.0" width="105.5" height="74.5"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="15"/>
+                                <state key="normal" image="tianjia"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上傳視頻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOZ-wA-XOw">
+                                <rect key="frame" x="0.0" y="41.5" width="105.5" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85882352939999995" green="0.88235294119999996" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uXe-wy-QW2" secondAttribute="trailing" id="8TA-R6-bZ5"/>
+                            <constraint firstAttribute="bottom" secondItem="oOZ-wA-XOw" secondAttribute="bottom" constant="21" id="M73-om-6fw"/>
+                            <constraint firstItem="uXe-wy-QW2" firstAttribute="top" secondItem="rJg-L4-nw3" secondAttribute="top" id="MfL-Y8-8px"/>
+                            <constraint firstItem="oOZ-wA-XOw" firstAttribute="leading" secondItem="rJg-L4-nw3" secondAttribute="leading" id="ZBy-zu-Leo"/>
+                            <constraint firstAttribute="bottom" secondItem="uXe-wy-QW2" secondAttribute="bottom" id="d0S-F2-g8e"/>
+                            <constraint firstItem="uXe-wy-QW2" firstAttribute="leading" secondItem="rJg-L4-nw3" secondAttribute="leading" id="ggm-6o-j7q"/>
+                            <constraint firstAttribute="trailing" secondItem="oOZ-wA-XOw" secondAttribute="trailing" id="ogj-Cj-XT5"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8y-U6-Cg6">
+                        <rect key="frame" x="174.5" y="0.5" width="106" height="75"/>
+                        <state key="normal" image="dashipin"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOJ-Nq-c9T">
+                        <rect key="frame" x="285.5" y="0.5" width="105.5" height="75"/>
+                        <state key="normal" image="dashipin"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5G-z4-vH1">
+                        <rect key="frame" x="175" y="79.5" width="106" height="74.5"/>
+                        <state key="normal" image="dashipin"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rJg-L4-nw3" firstAttribute="leading" secondItem="cx1-Rg-4Zc" secondAttribute="trailing" constant="5" id="2LO-XM-eFb"/>
+                    <constraint firstItem="rJg-L4-nw3" firstAttribute="height" secondItem="yhQ-hR-nuQ" secondAttribute="height" id="4Xz-IS-JgY"/>
+                    <constraint firstItem="rJg-L4-nw3" firstAttribute="width" secondItem="yhQ-hR-nuQ" secondAttribute="width" id="4jp-lU-KZk"/>
+                    <constraint firstItem="Q5G-z4-vH1" firstAttribute="centerX" secondItem="cx1-Rg-4Zc" secondAttribute="centerX" id="6xU-RO-sNP"/>
+                    <constraint firstAttribute="bottom" secondItem="cx1-Rg-4Zc" secondAttribute="bottom" constant="15" id="86z-oO-HIG"/>
+                    <constraint firstItem="tOJ-Nq-c9T" firstAttribute="centerX" secondItem="78K-QP-wvs" secondAttribute="centerX" id="A1n-ex-DuZ"/>
+                    <constraint firstItem="Q5G-z4-vH1" firstAttribute="centerY" secondItem="cx1-Rg-4Zc" secondAttribute="centerY" id="Bhq-lk-WwE"/>
+                    <constraint firstItem="cx1-Rg-4Zc" firstAttribute="width" secondItem="yhQ-hR-nuQ" secondAttribute="width" id="Ceb-8S-JUp"/>
+                    <constraint firstItem="cx1-Rg-4Zc" firstAttribute="top" secondItem="yhQ-hR-nuQ" secondAttribute="bottom" constant="5" id="Fi8-il-uji"/>
+                    <constraint firstItem="yhQ-hR-nuQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HIo-9K-Djq"/>
+                    <constraint firstItem="rJg-L4-nw3" firstAttribute="top" secondItem="78K-QP-wvs" secondAttribute="bottom" constant="5" id="Jjd-EA-SDw"/>
+                    <constraint firstItem="78K-QP-wvs" firstAttribute="height" secondItem="yhQ-hR-nuQ" secondAttribute="height" id="LTh-fS-OJk"/>
+                    <constraint firstItem="yhQ-hR-nuQ" firstAttribute="leading" secondItem="h9k-IL-wkG" secondAttribute="trailing" constant="5" id="LqU-MB-T34"/>
+                    <constraint firstItem="78K-QP-wvs" firstAttribute="width" secondItem="yhQ-hR-nuQ" secondAttribute="width" id="Pte-z2-AX8"/>
+                    <constraint firstItem="78K-QP-wvs" firstAttribute="leading" secondItem="yhQ-hR-nuQ" secondAttribute="trailing" constant="5" id="RGO-BH-BNC"/>
+                    <constraint firstItem="78K-QP-wvs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ro1-uV-wxy"/>
+                    <constraint firstAttribute="trailing" secondItem="78K-QP-wvs" secondAttribute="trailing" constant="15" id="UvB-r6-Plb"/>
+                    <constraint firstItem="cx1-Rg-4Zc" firstAttribute="leading" secondItem="h9k-IL-wkG" secondAttribute="trailing" constant="5" id="ZY2-ah-Lm6"/>
+                    <constraint firstItem="Q5G-z4-vH1" firstAttribute="height" secondItem="cx1-Rg-4Zc" secondAttribute="height" id="a3u-i6-BvQ"/>
+                    <constraint firstItem="w8y-U6-Cg6" firstAttribute="width" secondItem="yhQ-hR-nuQ" secondAttribute="width" id="enY-ia-tDb"/>
+                    <constraint firstItem="h9k-IL-wkG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="fGW-AG-sl8"/>
+                    <constraint firstItem="w8y-U6-Cg6" firstAttribute="height" secondItem="yhQ-hR-nuQ" secondAttribute="height" id="fT0-yF-NYk"/>
+                    <constraint firstItem="w8y-U6-Cg6" firstAttribute="centerY" secondItem="yhQ-hR-nuQ" secondAttribute="centerY" id="jGA-ki-KFt"/>
+                    <constraint firstItem="h9k-IL-wkG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kSP-yD-1HN"/>
+                    <constraint firstItem="Q5G-z4-vH1" firstAttribute="width" secondItem="cx1-Rg-4Zc" secondAttribute="width" id="kkZ-6B-5H6"/>
+                    <constraint firstItem="tOJ-Nq-c9T" firstAttribute="width" secondItem="78K-QP-wvs" secondAttribute="width" id="kpB-gY-JdP"/>
+                    <constraint firstItem="tOJ-Nq-c9T" firstAttribute="centerY" secondItem="78K-QP-wvs" secondAttribute="centerY" id="pUO-DG-j1K"/>
+                    <constraint firstItem="w8y-U6-Cg6" firstAttribute="centerX" secondItem="yhQ-hR-nuQ" secondAttribute="centerX" id="q1G-87-uwC"/>
+                    <constraint firstAttribute="bottom" secondItem="h9k-IL-wkG" secondAttribute="bottom" constant="15" id="rEg-gb-QaN"/>
+                    <constraint firstItem="cx1-Rg-4Zc" firstAttribute="height" secondItem="yhQ-hR-nuQ" secondAttribute="height" id="xFi-KN-Ezo"/>
+                    <constraint firstItem="tOJ-Nq-c9T" firstAttribute="height" secondItem="78K-QP-wvs" secondAttribute="height" id="xS0-kG-NbJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="77" y="63"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dashipin" width="60" height="60"/>
+        <image name="tianjia" width="22" height="22"/>
+    </resources>
+</document>
