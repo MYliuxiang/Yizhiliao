@@ -142,6 +142,9 @@ alpha:1.0]
 
 #import "OrderID.h"
 #import "OtherVideoPlayVC.h"
+#import "AppDelegate+Cofing.h"
+
+
 
 #define CityCache @"CityCache"
 #define ISMEiGUO @"meiguo"
