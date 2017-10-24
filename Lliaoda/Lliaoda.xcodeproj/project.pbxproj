@@ -15,6 +15,18 @@
 		221EEBE01F9F260600618FB9 /* VideoShowVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221EEBDE1F9F260600618FB9 /* VideoShowVC.xib */; };
 		221EEBE41F9F262500618FB9 /* RankingListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEBE21F9F262500618FB9 /* RankingListVC.m */; };
 		221EEBE51F9F262500618FB9 /* RankingListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221EEBE31F9F262500618FB9 /* RankingListVC.xib */; };
+		221EEBF21F9F2D8B00618FB9 /* MLMSegmentHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEBE81F9F2D0200618FB9 /* MLMSegmentHead.m */; };
+		221EEBF31F9F2DAB00618FB9 /* MLMSegmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEBEA1F9F2D0200618FB9 /* MLMSegmentManager.m */; };
+		221EEBF41F9F2DAB00618FB9 /* MLMSegmentScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEBEC1F9F2D0200618FB9 /* MLMSegmentScroll.m */; };
+		221EEBF51F9F2DAB00618FB9 /* UIView+EasyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEBEF1F9F2D0200618FB9 /* UIView+EasyFrame.m */; };
+		221EEBF61F9F2DAB00618FB9 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEBF11F9F2D0200618FB9 /* UIView+ViewController.m */; };
+		221EEBF91F9F302500618FB9 /* FSBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEBF71F9F302000618FB9 /* FSBaseTableView.m */; };
+		221EEBFD1F9F332200618FB9 /* HotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEBFB1F9F332200618FB9 /* HotVC.m */; };
+		221EEBFE1F9F332200618FB9 /* HotVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221EEBFC1F9F332200618FB9 /* HotVC.xib */; };
+		221EEC0B1F9F44A800618FB9 /* CBBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEC061F9F447B00618FB9 /* CBBadge.m */; };
+		221EEC0C1F9F44A800618FB9 /* UIBarButtonItem+CBBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEC081F9F447B00618FB9 /* UIBarButtonItem+CBBadge.m */; };
+		221EEC0D1F9F44A800618FB9 /* UIView+CBBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEC0A1F9F447B00618FB9 /* UIView+CBBadge.m */; };
+		221EEC131F9F45D300618FB9 /* MEntrance.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEC121F9F45D300618FB9 /* MEntrance.m */; };
 		2223307A1F2AEA4F000D5FA2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222330791F2AEA4F000D5FA2 /* FBSDKShareKit.framework */; };
 		222396CF1EB1CDCC001D4814 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 222396CD1EB1CDCC001D4814 /* MessageCell.m */; };
 		222396D01EB1CDCC001D4814 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222396CE1EB1CDCC001D4814 /* MessageCell.xib */; };
@@ -25,7 +37,6 @@
 		222396E91EB1D991001D4814 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222396E81EB1D991001D4814 /* AVFoundation.framework */; };
 		222396ED1EB1DE4F001D4814 /* VideoCallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222396EC1EB1DE4F001D4814 /* VideoCallView.m */; };
 		222396EF1EB1ED33001D4814 /* VideoCallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222396EE1EB1ED33001D4814 /* VideoCallView.xib */; };
-		222456991F4C5E25005575C2 /* FSBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222456981F4C5E25005575C2 /* FSBaseTableView.m */; };
 		222740141EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 222740131EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v */; };
 		222740171EC56A92002FEF5B /* ZYLauchMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 222740161EC56A92002FEF5B /* ZYLauchMovieViewController.m */; };
 		222747051ECC49B8009E98EC /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222747041ECC49B8009E98EC /* JavaScriptCore.framework */; };
@@ -658,6 +669,30 @@
 		221EEBE11F9F262500618FB9 /* RankingListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingListVC.h; sourceTree = "<group>"; };
 		221EEBE21F9F262500618FB9 /* RankingListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingListVC.m; sourceTree = "<group>"; };
 		221EEBE31F9F262500618FB9 /* RankingListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingListVC.xib; sourceTree = "<group>"; };
+		221EEBE71F9F2D0200618FB9 /* MLMSegmentHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLMSegmentHead.h; sourceTree = "<group>"; };
+		221EEBE81F9F2D0200618FB9 /* MLMSegmentHead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLMSegmentHead.m; sourceTree = "<group>"; };
+		221EEBE91F9F2D0200618FB9 /* MLMSegmentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLMSegmentManager.h; sourceTree = "<group>"; };
+		221EEBEA1F9F2D0200618FB9 /* MLMSegmentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLMSegmentManager.m; sourceTree = "<group>"; };
+		221EEBEB1F9F2D0200618FB9 /* MLMSegmentScroll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLMSegmentScroll.h; sourceTree = "<group>"; };
+		221EEBEC1F9F2D0200618FB9 /* MLMSegmentScroll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLMSegmentScroll.m; sourceTree = "<group>"; };
+		221EEBED1F9F2D0200618FB9 /* SegmentPageHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentPageHead.h; sourceTree = "<group>"; };
+		221EEBEE1F9F2D0200618FB9 /* UIView+EasyFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EasyFrame.h"; sourceTree = "<group>"; };
+		221EEBEF1F9F2D0200618FB9 /* UIView+EasyFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+EasyFrame.m"; sourceTree = "<group>"; };
+		221EEBF01F9F2D0200618FB9 /* UIView+ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
+		221EEBF11F9F2D0200618FB9 /* UIView+ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
+		221EEBF71F9F302000618FB9 /* FSBaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSBaseTableView.m; sourceTree = "<group>"; };
+		221EEBF81F9F302200618FB9 /* FSBaseTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSBaseTableView.h; sourceTree = "<group>"; };
+		221EEBFA1F9F332200618FB9 /* HotVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotVC.h; sourceTree = "<group>"; };
+		221EEBFB1F9F332200618FB9 /* HotVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotVC.m; sourceTree = "<group>"; };
+		221EEBFC1F9F332200618FB9 /* HotVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotVC.xib; sourceTree = "<group>"; };
+		221EEC051F9F447B00618FB9 /* CBBadge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBBadge.h; sourceTree = "<group>"; };
+		221EEC061F9F447B00618FB9 /* CBBadge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBBadge.m; sourceTree = "<group>"; };
+		221EEC071F9F447B00618FB9 /* UIBarButtonItem+CBBadge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CBBadge.h"; sourceTree = "<group>"; };
+		221EEC081F9F447B00618FB9 /* UIBarButtonItem+CBBadge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CBBadge.m"; sourceTree = "<group>"; };
+		221EEC091F9F447B00618FB9 /* UIView+CBBadge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CBBadge.h"; sourceTree = "<group>"; };
+		221EEC0A1F9F447B00618FB9 /* UIView+CBBadge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CBBadge.m"; sourceTree = "<group>"; };
+		221EEC111F9F45D300618FB9 /* MEntrance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEntrance.h; sourceTree = "<group>"; };
+		221EEC121F9F45D300618FB9 /* MEntrance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEntrance.m; sourceTree = "<group>"; };
 		222330791F2AEA4F000D5FA2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		222396CC1EB1CDCC001D4814 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		222396CD1EB1CDCC001D4814 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
@@ -670,8 +705,6 @@
 		222396EB1EB1DE4F001D4814 /* VideoCallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCallView.h; sourceTree = "<group>"; };
 		222396EC1EB1DE4F001D4814 /* VideoCallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCallView.m; sourceTree = "<group>"; };
 		222396EE1EB1ED33001D4814 /* VideoCallView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCallView.xib; sourceTree = "<group>"; };
-		222456971F4C5E25005575C2 /* FSBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaseTableView.h; sourceTree = "<group>"; };
-		222456981F4C5E25005575C2 /* FSBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseTableView.m; sourceTree = "<group>"; };
 		222740131EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "v1.0版本启动动画定版.mp4.m4v"; sourceTree = "<group>"; };
 		222740151EC56A92002FEF5B /* ZYLauchMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYLauchMovieViewController.h; sourceTree = "<group>"; };
 		222740161EC56A92002FEF5B /* ZYLauchMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYLauchMovieViewController.m; sourceTree = "<group>"; };
@@ -1705,6 +1738,37 @@
 				221EEBE31F9F262500618FB9 /* RankingListVC.xib */,
 			);
 			name = "排行榜";
+			sourceTree = "<group>";
+		};
+		221EEBE61F9F2D0200618FB9 /* MLMSegmentPageView */ = {
+			isa = PBXGroup;
+			children = (
+				221EEBE71F9F2D0200618FB9 /* MLMSegmentHead.h */,
+				221EEBE81F9F2D0200618FB9 /* MLMSegmentHead.m */,
+				221EEBE91F9F2D0200618FB9 /* MLMSegmentManager.h */,
+				221EEBEA1F9F2D0200618FB9 /* MLMSegmentManager.m */,
+				221EEBEB1F9F2D0200618FB9 /* MLMSegmentScroll.h */,
+				221EEBEC1F9F2D0200618FB9 /* MLMSegmentScroll.m */,
+				221EEBED1F9F2D0200618FB9 /* SegmentPageHead.h */,
+				221EEBEE1F9F2D0200618FB9 /* UIView+EasyFrame.h */,
+				221EEBEF1F9F2D0200618FB9 /* UIView+EasyFrame.m */,
+				221EEBF01F9F2D0200618FB9 /* UIView+ViewController.h */,
+				221EEBF11F9F2D0200618FB9 /* UIView+ViewController.m */,
+			);
+			path = MLMSegmentPageView;
+			sourceTree = "<group>";
+		};
+		221EEC041F9F447B00618FB9 /* CBBadge */ = {
+			isa = PBXGroup;
+			children = (
+				221EEC051F9F447B00618FB9 /* CBBadge.h */,
+				221EEC061F9F447B00618FB9 /* CBBadge.m */,
+				221EEC071F9F447B00618FB9 /* UIBarButtonItem+CBBadge.h */,
+				221EEC081F9F447B00618FB9 /* UIBarButtonItem+CBBadge.m */,
+				221EEC091F9F447B00618FB9 /* UIView+CBBadge.h */,
+				221EEC0A1F9F447B00618FB9 /* UIView+CBBadge.m */,
+			);
+			path = CBBadge;
 			sourceTree = "<group>";
 		};
 		222396C81EB1CD6A001D4814 /* Views */ = {
@@ -2902,6 +2966,8 @@
 				222A9F3F1EB071900038416D /* Images */,
 				22B1092A1EA4A5C500E35B74 /* MeassageVC.h */,
 				22B1092B1EA4A5C500E35B74 /* MeassageVC.m */,
+				221EEC111F9F45D300618FB9 /* MEntrance.h */,
+				221EEC121F9F45D300618FB9 /* MEntrance.m */,
 			);
 			name = "消息";
 			sourceTree = "<group>";
@@ -2909,11 +2975,14 @@
 		22B109111EA4A4B900E35B74 /* 精选 */ = {
 			isa = PBXGroup;
 			children = (
-				222456971F4C5E25005575C2 /* FSBaseTableView.h */,
-				222456981F4C5E25005575C2 /* FSBaseTableView.m */,
+				221EEBF81F9F302200618FB9 /* FSBaseTableView.h */,
+				221EEBF71F9F302000618FB9 /* FSBaseTableView.m */,
 				224428081EA895DD00BF3E4D /* Models */,
 				22B109271EA4A59100E35B74 /* SelectedVC.h */,
 				22B109281EA4A59100E35B74 /* SelectedVC.m */,
+				221EEBFA1F9F332200618FB9 /* HotVC.h */,
+				221EEBFB1F9F332200618FB9 /* HotVC.m */,
+				221EEBFC1F9F332200618FB9 /* HotVC.xib */,
 				2291CBC31F4D2F02001AB139 /* LxPersonVC.h */,
 				2291CBC41F4D2F02001AB139 /* LxPersonVC.m */,
 				2291CBC51F4D2F02001AB139 /* LxPersonVC.xib */,
@@ -2946,6 +3015,8 @@
 		22B1091B1EA4A4FE00E35B74 /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
+				221EEC041F9F447B00618FB9 /* CBBadge */,
+				221EEBE61F9F2D0200618FB9 /* MLMSegmentPageView */,
 				84B8CDB31F4AD92300A13D27 /* UIButton+backgroundColor.h */,
 				84B8CDB41F4AD92300A13D27 /* UIButton+backgroundColor.m */,
 				2265F8C81F3C0D98001A6308 /* UIButton+HQCustomIcon.h */,
@@ -3560,6 +3631,7 @@
 				222AA0A81EB071910038416D /* B_90@2x.gif in Resources */,
 				222AA04C1EB071910038416D /* B_114@2x.gif in Resources */,
 				84F970D61F38946100336234 /* LanguageVC.xib in Resources */,
+				221EEBFE1F9F332200618FB9 /* HotVC.xib in Resources */,
 				222AA05E1EB071910038416D /* B_23@2x.gif in Resources */,
 				222AA0001EB071910038416D /* IM_Chat_receiver_bg@2x.png in Resources */,
 				222AA0131EB071910038416D /* C_101@2x.png in Resources */,
@@ -3923,6 +3995,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221EEC0B1F9F44A800618FB9 /* CBBadge.m in Sources */,
+				221EEC0C1F9F44A800618FB9 /* UIBarButtonItem+CBBadge.m in Sources */,
+				221EEC0D1F9F44A800618FB9 /* UIView+CBBadge.m in Sources */,
+				221EEBF31F9F2DAB00618FB9 /* MLMSegmentManager.m in Sources */,
+				221EEBF41F9F2DAB00618FB9 /* MLMSegmentScroll.m in Sources */,
+				221EEBF51F9F2DAB00618FB9 /* UIView+EasyFrame.m in Sources */,
+				221EEBF61F9F2DAB00618FB9 /* UIView+ViewController.m in Sources */,
+				221EEBF21F9F2D8B00618FB9 /* MLMSegmentHead.m in Sources */,
 				222AA0CE1EB071A50038416D /* NSBundle+TZImagePicker.m in Sources */,
 				222AA1CE1EB0775B0038416D /* YYTextInput.m in Sources */,
 				2244280B1EA8967D00BF3E4D /* SelectedCachModel.m in Sources */,
@@ -3985,6 +4065,7 @@
 				2286DC6A1EF26AFE00FDF801 /* LHChatVideoBubbleView.m in Sources */,
 				222AA1681EB071C20038416D /* KeyboardEmojiModel.m in Sources */,
 				8476D5751F5017F300855CDF /* AccountPayTypeVC.m in Sources */,
+				221EEBF91F9F302500618FB9 /* FSBaseTableView.m in Sources */,
 				84B8CDB91F4ADBE100A13D27 /* PersonBottomCell.m in Sources */,
 				222AA1DB1EB0775B0038416D /* UIPasteboard+YYText.m in Sources */,
 				2286DC6C1EF26AFE00FDF801 /* LHChatBarView.m in Sources */,
@@ -3994,7 +4075,6 @@
 				222B381E1ED9642B009DB58F /* UIImage+XLExtension.m in Sources */,
 				222AA1D81EB0775B0038416D /* YYTextRunDelegate.m in Sources */,
 				223DE5AA1F20AB3700745E94 /* LivePusher.m in Sources */,
-				222456991F4C5E25005575C2 /* FSBaseTableView.m in Sources */,
 				2244B4671F00B96800685217 /* PresentView.m in Sources */,
 				222B38631ED96843009DB58F /* MSSBrowseRemindView.m in Sources */,
 				2244B46D1F00E02400685217 /* MGiftModel.m in Sources */,
@@ -4061,6 +4141,7 @@
 				222B383A1ED9642B009DB58F /* XLPhotoBrowser.m in Sources */,
 				849901791F55601B00D4DD40 /* OnlineUserVC.m in Sources */,
 				22844F571ED2A1B800A9E32E /* IQTextView.m in Sources */,
+				221EEBFD1F9F332200618FB9 /* HotVC.m in Sources */,
 				22721FAD1EE7E3E7003A19D3 /* MediaCell.m in Sources */,
 				22453BAE1F1C74290000C006 /* UserCell.m in Sources */,
 				2286DC6F1EF26AFE00FDF801 /* LHChatViewCell.m in Sources */,
@@ -4166,6 +4247,7 @@
 				222AA14D1EB071C10038416D /* UIImage+Common.m in Sources */,
 				22721FA81EE7D5F7003A19D3 /* PeriSonMediaCell.m in Sources */,
 				2286DC651EF26AFE00FDF801 /* LHChatAudioBubbleView.m in Sources */,
+				221EEC131F9F45D300618FB9 /* MEntrance.m in Sources */,
 				22B109211EA4A51F00E35B74 /* UIView+ViewController.m in Sources */,
 				2227E5781F02312300507F69 /* RecordGiftModel.m in Sources */,
 				222AA1C71EB0775B0038416D /* YYFrameImage.m in Sources */,

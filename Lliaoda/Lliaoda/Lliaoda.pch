@@ -54,7 +54,7 @@ alpha:1.0]
 
 //颜色
 #define Color_bg     [MyColor colorWithHexString:@"#F7FCFF"]
-#define Color_nav    UIColorFromRGB(0xFFFFFF)  
+#define Color_nav    [MyColor colorWithHexString:@"#F7DB00"]
 #define Color_green  UIColorFromRGB(0x7ED321)
 #define Color_Tab    [MyColor colorWithHexString:@"#00DDCC"]
 
@@ -143,6 +143,9 @@ alpha:1.0]
 #import "OrderID.h"
 #import "OtherVideoPlayVC.h"
 #import "AppDelegate+Cofing.h"
+#import "MLMSegmentManager.h"
+#import "UIView+CBBadge.h"
+#import "MEntrance.h"
 
 
 

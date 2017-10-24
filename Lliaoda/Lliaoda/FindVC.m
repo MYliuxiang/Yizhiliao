@@ -82,7 +82,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageNoData object:nil];
     
     self.text = LXSring(@"發現");
-    self.isShowMessageButton = YES;
+//    self.isShowMessageButton = YES;
     self.colors = @[[MyColor colorWithHexString:@"#E84969"],[MyColor colorWithHexString:@"#F1B534"],[MyColor colorWithHexString:@"#6AE8BB"],[MyColor colorWithHexString:@"#40B2F2"],[MyColor colorWithHexString:@"#6AE7BD"],[MyColor colorWithHexString:@"#F6BF33"],[MyColor colorWithHexString:@"#A753EA"]];
     [self.rechargeBtn setTitle:LXSring(@"快速儲值") forState:UIControlStateNormal];
     self.label1.text = LXSring(@"正在為您尋找有緣人");
@@ -910,26 +910,26 @@
 - (void)widthString:(NSString *)string {
     int value = [string intValue];
     if (value <= 0) {
-        self.messageCountLabel.hidden = YES;
+//        self.messageCountLabel.hidden = YES;
     } else {
-        self.messageCountLabel.hidden = NO;
+//        self.messageCountLabel.hidden = NO;
         if (value > 0 && value < 10) {
-            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, 15, 15);
+//            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, 15, 15);
         } else if (value >= 10 && value < 100) {
             CGSize size = [self setWidth:300 height:15 font:10 content:string];
-            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
+//            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
         } else if (value >= 100) {
             string = @"99+";
             CGSize size = [self setWidth:300 height:15 font:10 content:string];
-            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
+//            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
         }
-        self.messageCountLabel.text = string;
+//        self.messageCountLabel.text = string;
     }
 }
 
 - (void)onMessageNoData:(NSNotification *)notification {
-    self.messageCountLabel.text = @"0";
-    self.messageCountLabel.hidden = YES;
+//    self.messageCountLabel.text = @"0";
+//    self.messageCountLabel.hidden = YES;
 }
 
 #pragma mark - 根据文本内容确定label的大小

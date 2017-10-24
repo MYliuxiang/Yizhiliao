@@ -496,58 +496,9 @@
                     <view key="view" contentMode="scaleToFill" id="z6a-Wt-A0P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jk5-RO-9oP">
-                                <rect key="frame" x="0.0" y="63" width="375" height="604"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="yfR-Hs-Gzg" id="9H2-L7-OVZ"/>
-                                    <outlet property="delegate" destination="yfR-Hs-Gzg" id="tsU-N8-4TO"/>
-                                </connections>
-                            </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Kb-Oa-2nd">
-                                <rect key="frame" x="0.0" y="63" width="375" height="555"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oq0-3Q-WaB">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3Vu-pp-EPp">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="yfR-Hs-Gzg" id="fbI-yz-WSh"/>
-                                    <outlet property="delegate" destination="yfR-Hs-Gzg" id="xoi-cx-Az8"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Jk5-RO-9oP" firstAttribute="leading" secondItem="z6a-Wt-A0P" secondAttribute="leading" id="4Np-xT-ADu"/>
-                            <constraint firstItem="Jk5-RO-9oP" firstAttribute="top" secondItem="z6a-Wt-A0P" secondAttribute="top" constant="63" id="7OT-Za-27S"/>
-                            <constraint firstItem="5Kb-Oa-2nd" firstAttribute="leading" secondItem="z6a-Wt-A0P" secondAttribute="leading" id="MN8-qI-hND"/>
-                            <constraint firstItem="5Kb-Oa-2nd" firstAttribute="top" secondItem="z6a-Wt-A0P" secondAttribute="top" constant="63" id="PcX-WL-ZFI"/>
-                            <constraint firstAttribute="bottom" secondItem="5Kb-Oa-2nd" secondAttribute="bottom" constant="49" id="QbG-hb-bHf"/>
-                            <constraint firstAttribute="trailing" secondItem="Jk5-RO-9oP" secondAttribute="trailing" id="S6s-yb-Kkb"/>
-                            <constraint firstAttribute="trailing" secondItem="5Kb-Oa-2nd" secondAttribute="trailing" id="XXE-vE-obT"/>
-                            <constraint firstItem="37f-Gz-Gdz" firstAttribute="top" secondItem="Jk5-RO-9oP" secondAttribute="bottom" id="nJl-eF-MI8"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="at5-8G-WTB"/>
-                    <connections>
-                        <outlet property="collectionView" destination="5Kb-Oa-2nd" id="kIX-7Q-mHW"/>
-                        <outlet property="flowlayout" destination="oq0-3Q-WaB" id="Ter-Ua-b1I"/>
-                        <outlet property="tableView" destination="Jk5-RO-9oP" id="pR8-ur-oC8"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7O-eS-6aT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -635,14 +586,14 @@
     <resources>
         <image name="33" width="404" height="448"/>
         <image name="Image-1" width="32" height="32"/>
-        <image name="bianji" width="17" height="17"/>
+        <image name="bianji" width="15" height="15"/>
         <image name="delete2" width="50" height="50"/>
         <image name="faxian" width="22" height="22"/>
-        <image name="jingxuan_h" width="25" height="27"/>
-        <image name="jingxuan_n" width="20" height="22"/>
+        <image name="jingxuan_h" width="22" height="17"/>
+        <image name="jingxuan_n" width="22" height="17"/>
         <image name="map_hui" width="7" height="10"/>
-        <image name="me_h" width="24" height="26"/>
-        <image name="me_n" width="24" height="26"/>
+        <image name="me_h" width="22" height="21"/>
+        <image name="me_n" width="22" height="21"/>
         <image name="nvsheng" width="10" height="10"/>
         <image name="shezhi" width="22" height="22"/>
         <image name="tishitankuang" width="185" height="59"/>
