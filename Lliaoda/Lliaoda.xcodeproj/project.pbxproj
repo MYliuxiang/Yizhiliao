@@ -11,6 +11,10 @@
 		2204AA971EAD995F0034C0F3 /* Mymodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204AA961EAD995F0034C0F3 /* Mymodel.m */; };
 		2204AA9A1EADA8FE0034C0F3 /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204AA991EADA8FE0034C0F3 /* AccountModel.m */; };
 		220654501EDFF60E00DFE8EB /* JXRadarPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2206544F1EDFF60E00DFE8EB /* JXRadarPointView.m */; };
+		221EEBDF1F9F260600618FB9 /* VideoShowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEBDD1F9F260600618FB9 /* VideoShowVC.m */; };
+		221EEBE01F9F260600618FB9 /* VideoShowVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221EEBDE1F9F260600618FB9 /* VideoShowVC.xib */; };
+		221EEBE41F9F262500618FB9 /* RankingListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EEBE21F9F262500618FB9 /* RankingListVC.m */; };
+		221EEBE51F9F262500618FB9 /* RankingListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221EEBE31F9F262500618FB9 /* RankingListVC.xib */; };
 		2223307A1F2AEA4F000D5FA2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222330791F2AEA4F000D5FA2 /* FBSDKShareKit.framework */; };
 		222396CF1EB1CDCC001D4814 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 222396CD1EB1CDCC001D4814 /* MessageCell.m */; };
 		222396D01EB1CDCC001D4814 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222396CE1EB1CDCC001D4814 /* MessageCell.xib */; };
@@ -405,7 +409,6 @@
 		226BA9101ED7E324004D983A /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226BA90E1ED7E324004D983A /* MyCell.xib */; };
 		226CB6221EE6653700FF7EC8 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 226CB6211EE6653700FF7EC8 /* libWeChatSDK.a */; };
 		226E2EE71F0F3651009953FD /* BlackName.m in Sources */ = {isa = PBXBuildFile; fileRef = 226E2EE61F0F3651009953FD /* BlackName.m */; };
-		226E52BD1EE144940081A482 /* 屏幕快照 2017-06-02 下午2.59.40.png in Resources */ = {isa = PBXBuildFile; fileRef = 226E52BC1EE144940081A482 /* 屏幕快照 2017-06-02 下午2.59.40.png */; };
 		2270AB6B1F03E263003D5E00 /* GiftLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2270AB6A1F03E263003D5E00 /* GiftLayout.m */; };
 		22721FA81EE7D5F7003A19D3 /* PeriSonMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22721FA61EE7D5F7003A19D3 /* PeriSonMediaCell.m */; };
 		22721FA91EE7D5F7003A19D3 /* PeriSonMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22721FA71EE7D5F7003A19D3 /* PeriSonMediaCell.xib */; };
@@ -645,6 +648,12 @@
 		2204AA991EADA8FE0034C0F3 /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountModel.m; sourceTree = "<group>"; };
 		2206544E1EDFF60E00DFE8EB /* JXRadarPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXRadarPointView.h; sourceTree = "<group>"; };
 		2206544F1EDFF60E00DFE8EB /* JXRadarPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXRadarPointView.m; sourceTree = "<group>"; };
+		221EEBDC1F9F260600618FB9 /* VideoShowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoShowVC.h; sourceTree = "<group>"; };
+		221EEBDD1F9F260600618FB9 /* VideoShowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoShowVC.m; sourceTree = "<group>"; };
+		221EEBDE1F9F260600618FB9 /* VideoShowVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoShowVC.xib; sourceTree = "<group>"; };
+		221EEBE11F9F262500618FB9 /* RankingListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingListVC.h; sourceTree = "<group>"; };
+		221EEBE21F9F262500618FB9 /* RankingListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingListVC.m; sourceTree = "<group>"; };
+		221EEBE31F9F262500618FB9 /* RankingListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingListVC.xib; sourceTree = "<group>"; };
 		222330791F2AEA4F000D5FA2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		222396CC1EB1CDCC001D4814 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		222396CD1EB1CDCC001D4814 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
@@ -1214,7 +1223,6 @@
 		226CB6211EE6653700FF7EC8 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		226E2EE51F0F3651009953FD /* BlackName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackName.h; sourceTree = "<group>"; };
 		226E2EE61F0F3651009953FD /* BlackName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackName.m; sourceTree = "<group>"; };
-		226E52BC1EE144940081A482 /* 屏幕快照 2017-06-02 下午2.59.40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "屏幕快照 2017-06-02 下午2.59.40.png"; path = "Assets.xcassets/登录条款切图/33.imageset/屏幕快照 2017-06-02 下午2.59.40.png"; sourceTree = "<group>"; };
 		2270AB691F03E263003D5E00 /* GiftLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftLayout.h; sourceTree = "<group>"; };
 		2270AB6A1F03E263003D5E00 /* GiftLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftLayout.m; sourceTree = "<group>"; };
 		22721FA51EE7D5F7003A19D3 /* PeriSonMediaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriSonMediaCell.h; sourceTree = "<group>"; };
@@ -1667,6 +1675,26 @@
 				228CF73C1EDEBB2F0045986D /* MyVideoModel.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		221EEBDA1F9F25A600618FB9 /* 视频秀 */ = {
+			isa = PBXGroup;
+			children = (
+				221EEBDC1F9F260600618FB9 /* VideoShowVC.h */,
+				221EEBDD1F9F260600618FB9 /* VideoShowVC.m */,
+				221EEBDE1F9F260600618FB9 /* VideoShowVC.xib */,
+			);
+			name = "视频秀";
+			sourceTree = "<group>";
+		};
+		221EEBDB1F9F25BC00618FB9 /* 排行榜 */ = {
+			isa = PBXGroup;
+			children = (
+				221EEBE11F9F262500618FB9 /* RankingListVC.h */,
+				221EEBE21F9F262500618FB9 /* RankingListVC.m */,
+				221EEBE31F9F262500618FB9 /* RankingListVC.xib */,
+			);
+			name = "排行榜";
 			sourceTree = "<group>";
 		};
 		222396C81EB1CD6A001D4814 /* Views */ = {
@@ -2839,7 +2867,6 @@
 				22B109151EA4A4E200E35B74 /* BaseViewController.m */,
 				22B109161EA4A4E200E35B74 /* BaseNavigationController.h */,
 				22B109171EA4A4E200E35B74 /* BaseNavigationController.m */,
-				226E52BC1EE144940081A482 /* 屏幕快照 2017-06-02 下午2.59.40.png */,
 			);
 			name = "基类";
 			sourceTree = "<group>";
@@ -3136,6 +3163,8 @@
 				843EC0241F29D9750051AFD3 /* OrderID.h */,
 				843EC0251F29D9750051AFD3 /* OrderID.m */,
 				229094371EF2774100715841 /* start_30.wav */,
+				221EEBDB1F9F25BC00618FB9 /* 排行榜 */,
+				221EEBDA1F9F25A600618FB9 /* 视频秀 */,
 				849901751F555FEF00D4DD40 /* 在线用户 */,
 				228CF7431EDEC8380045986D /* 发现 */,
 				222396EA1EB1DE33001D4814 /* 视频通话页面 */,
@@ -3485,7 +3514,6 @@
 				22B1093A1EA4B56500E35B74 /* SelectedHeader.xib in Resources */,
 				8483AAF01F4E8138008BA674 /* ProfitCell3.xib in Resources */,
 				222AA0201EB071910038416D /* C_77@2x.png in Resources */,
-				226E52BD1EE144940081A482 /* 屏幕快照 2017-06-02 下午2.59.40.png in Resources */,
 				222AA0291EB071910038416D /* C_90@2x.png in Resources */,
 				222AA0091EB071910038416D /* chatBar_colorMore_photo@3x.png in Resources */,
 				222AA0241EB071910038416D /* C_85@2x.png in Resources */,
@@ -3673,6 +3701,7 @@
 				222AA0961EB071910038416D /* B_74@2x.gif in Resources */,
 				228B89C71EA85F3D002B8D3C /* VideoRZResultVC.xib in Resources */,
 				222AA04A1EB071910038416D /* B_112@2x.gif in Resources */,
+				221EEBE01F9F260600618FB9 /* VideoShowVC.xib in Resources */,
 				222AA0A71EB071910038416D /* b_8@2x.gif in Resources */,
 				222AA08A1EB071910038416D /* B_63@2x.gif in Resources */,
 				222FA8701EFD151400E91AE5 /* GiftsView.xib in Resources */,
@@ -3698,6 +3727,7 @@
 				222AA0901EB071910038416D /* B_69@2x.gif in Resources */,
 				222AA1661EB071C20038416D /* Keyboard_gradient_mask@3x.png in Resources */,
 				222AA0781EB071910038416D /* B_47@2x.gif in Resources */,
+				221EEBE51F9F262500618FB9 /* RankingListVC.xib in Resources */,
 				222AA02E1EB071910038416D /* C_95@2x.png in Resources */,
 				222AA00C1EB071910038416D /* IM_Chat_expression@2x.png in Resources */,
 			);
@@ -3891,6 +3921,7 @@
 				222AA1D31EB0775B0038416D /* YYTextSelectionView.m in Sources */,
 				2286DC6B1EF26AFE00FDF801 /* LHChatBarMoreView.m in Sources */,
 				222AA14C1EB071C10038416D /* UIColor+RGB.m in Sources */,
+				221EEBDF1F9F260600618FB9 /* VideoShowVC.m in Sources */,
 				222AA16A1EB071C20038416D /* KeyboardButton.m in Sources */,
 				228CF7391EDE7D070045986D /* MyVideoCell.m in Sources */,
 				222AA1D91EB0775B0038416D /* NSAttributedString+YYText.m in Sources */,
@@ -4019,6 +4050,7 @@
 				222B385B1ED96843009DB58F /* MSSBrowseActionSheet.m in Sources */,
 				224F24651EA73ED300C0FDC6 /* VideoRZThreeCell.m in Sources */,
 				224428071EA890C800BF3E4D /* JKDBModel.m in Sources */,
+				221EEBE41F9F262500618FB9 /* RankingListVC.m in Sources */,
 				222740171EC56A92002FEF5B /* ZYLauchMovieViewController.m in Sources */,
 				2286DC631EF26AFE00FDF801 /* LHChatVC.m in Sources */,
 				222AA0D31EB071A50038416D /* TZImagePickerController.m in Sources */,

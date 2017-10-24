@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LxBarItem.h"
 
 @interface TJPTabBarController : UITabBarController
 
