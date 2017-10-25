@@ -1,23 +1,20 @@
 //
-//  RankingListCell1.m
+//  RankingListCell3.m
 //  Lliaoda
 //
 //  Created by 小牛 on 2017/10/25.
 //  Copyright © 2017年 刘翔. All rights reserved.
 //
 
-#import "RankingListCell1.h"
+#import "RankingListCell3.h"
 
-@implementation RankingListCell1
+@implementation RankingListCell3
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     
-    _bottomImage.layer.cornerRadius = 42;
-    _headerImageView.layer.cornerRadius = 40;
-//    _headerImageView.layer.borderColor = UIColorFromRGB(0xf7db00).CGColor;
-//    _headerImageView.layer.borderWidth = 2;
+    self.headerImageView.layer.cornerRadius = 25;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
