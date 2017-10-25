@@ -32,6 +32,8 @@
     self.messagePhotos = [NSMutableArray array];
     self.contents = [NSMutableArray array];
     
+    self.photoArrays = [NSMutableArray array];
+    
     self.cellType = MyTypePhoto;
     self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, (kScreenWidth - 30) / 69 * 15 - 4, 50, 4)];
     self.lineView.left = ((kScreenWidth - 30) / 3 - 50)/2;
@@ -79,7 +81,45 @@
     [self _loadData1];
     
     [self setHeaderVIew];
+    
+    [self _loadPhotoData];
 
+}
+
+- (void)_loadPhotoData
+{
+    NSDictionary *params;
+    params = @{@"type":@"photo"};
+    [WXDataService requestAFWithURL:Url_accountmedia params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                [self.photoArrays removeAllObjects];
+                NSArray *array = result[@"data"];
+                for (NSDictionary *dic in array) {
+                    AlbumModel *model = [AlbumModel mj_objectWithKeyValues:dic];
+                    [self.photoArrays addObject:model];
+                }
+                [self.tableView reloadData];
+//                self.reloadData(self.dataList);
+//                [self.collectionView reloadData];
+                
+                
+            } else{
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+    
 }
 
 - (void)setHeaderVIew {
@@ -352,6 +392,7 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
+            cell.photoArray = self.photoArrays;
             return cell;
         }
     }
@@ -384,6 +425,7 @@
                     cell.accountBGView.hidden = NO;
                     cell.accountLabel.text = [NSString stringWithFormat:@"%d鑽石",self.model.deposit];
                     [cell.accountButton setTitle:@"充值" forState:UIControlStateNormal];
+                    cell.accountButton.layer.cornerRadius = 5;
                     
                 } else if (indexPath.section == 3) {
                     if (indexPath.row == 0) {
@@ -402,6 +444,7 @@
                     cell.accountBGView.hidden = NO;
                     cell.accountLabel.text = [NSString stringWithFormat:@"%d鑽石",self.model.deposit];
                     [cell.accountButton setTitle:@"充值" forState:UIControlStateNormal];
+                    cell.accountButton.layer.cornerRadius = 5;
                 } else if (indexPath.section == 3) {
                     if (indexPath.row == 0) {
                         cell.bottomLineView.hidden = NO;
@@ -471,6 +514,7 @@
                     cell.accountBGView.hidden = NO;
                     cell.accountLabel.text = [NSString stringWithFormat:@"%d鑽石",self.model.deposit];
                     [cell.accountButton setTitle:@"充值" forState:UIControlStateNormal];
+                    cell.accountButton.layer.cornerRadius = 5;
 
                 }else{
                     cell.samallImage.hidden = YES;
@@ -478,6 +522,7 @@
                     cell.accountBGView.hidden = NO;
                     cell.accountLabel.text = [NSString stringWithFormat:@"%d聊幣",self.model.income];
                     [cell.accountButton setTitle:@"提現" forState:UIControlStateNormal];
+                    cell.accountButton.layer.cornerRadius = 5;
                 }
             } else if (indexPath.section == 4) {
                 cell.samallImage.hidden = YES;
@@ -546,7 +591,17 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+//    if (indexPath.section == 0) {
+//        if (self.cellType == PhotoType) {
+//            MyalbumVC *vc = [[MyalbumVC alloc] init];
+//            [self.navigationController pushViewController:vc animated:YES];
+//
+//        } else if (self.cellType == VideoType) {
+//            MyVideoVC *vc = [[MyVideoVC alloc] init];
+//            [self.navigationController pushViewController:vc animated:YES];
+//
+//        }
+//    }
     if ([LXUserDefaults boolForKey:ISMEiGUO]) {
         if (self.model.auth == 2) {
             if (indexPath.section == 1) {

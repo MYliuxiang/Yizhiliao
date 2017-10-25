@@ -18,11 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.nav.hidden = YES;
+    self.nav.hidden = NO;
     self.dataList = [NSMutableArray array];
 
     if (@available(iOS 11.0, *)) {
-        _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     _layout.sectionInset=UIEdgeInsetsMake(0, 15, 0, 15);
     _layout.minimumLineSpacing= 15;
@@ -57,7 +57,7 @@
                     AlbumModel *model = [AlbumModel mj_objectWithKeyValues:dic];
                     [self.dataList addObject:model];
                 }
-                self.reloadData(self.dataList);
+//                self.reloadData(self.dataList);
                 [self.collectionView reloadData];
                 
                 
@@ -487,7 +487,7 @@
                     
                 } completion:^(BOOL finished) {
                     
-                    self.reloadData(self.dataList);
+//                    self.reloadData(self.dataList);
                     [self.collectionView reloadData];
                     
                 }];

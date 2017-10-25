@@ -45,6 +45,9 @@ typedef NS_ENUM(NSInteger, MyType) {
 @property (nonatomic,retain) NSMutableArray *messagePhotos;
 @property (nonatomic,retain) NSMutableArray *contents;
 
+@property (nonatomic, retain) NSMutableArray *photoArrays;
+@property (nonatomic, retain) NSMutableArray *videoArrays;
+
 @property (nonatomic,retain) UIView *lineView;
 @property (nonatomic,assign) MyType cellType;
 

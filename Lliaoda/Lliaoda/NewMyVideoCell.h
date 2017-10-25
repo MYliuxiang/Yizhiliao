@@ -10,4 +10,5 @@
 
 @interface NewMyVideoCell : UITableViewCell
 
+
 @end
