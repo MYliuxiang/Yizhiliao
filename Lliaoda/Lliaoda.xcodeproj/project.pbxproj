@@ -630,6 +630,8 @@
 		848D91871FA0970C00891B21 /* RankingListCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848D91851FA0970C00891B21 /* RankingListCell2.xib */; };
 		848D918B1FA09D2900891B21 /* RankingListCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D91891FA09D2900891B21 /* RankingListCell3.m */; };
 		848D918C1FA09D2900891B21 /* RankingListCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848D918A1FA09D2900891B21 /* RankingListCell3.xib */; };
+		848D91901FA0A76700891B21 /* SuggestFeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D918E1FA0A76700891B21 /* SuggestFeedbackVC.m */; };
+		848D91911FA0A76700891B21 /* SuggestFeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848D918F1FA0A76700891B21 /* SuggestFeedbackVC.xib */; };
 		849901791F55601B00D4DD40 /* OnlineUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849901771F55601B00D4DD40 /* OnlineUserVC.m */; };
 		8499017A1F55601B00D4DD40 /* OnlineUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849901781F55601B00D4DD40 /* OnlineUserVC.xib */; };
 		849C6D261F590B6800E2289D /* PayWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C6D241F590B6800E2289D /* PayWebViewVC.m */; };
@@ -1628,6 +1630,9 @@
 		848D91881FA09D2900891B21 /* RankingListCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingListCell3.h; sourceTree = "<group>"; };
 		848D91891FA09D2900891B21 /* RankingListCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingListCell3.m; sourceTree = "<group>"; };
 		848D918A1FA09D2900891B21 /* RankingListCell3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingListCell3.xib; sourceTree = "<group>"; };
+		848D918D1FA0A76700891B21 /* SuggestFeedbackVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuggestFeedbackVC.h; sourceTree = "<group>"; };
+		848D918E1FA0A76700891B21 /* SuggestFeedbackVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuggestFeedbackVC.m; sourceTree = "<group>"; };
+		848D918F1FA0A76700891B21 /* SuggestFeedbackVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestFeedbackVC.xib; sourceTree = "<group>"; };
 		849901761F55601B00D4DD40 /* OnlineUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineUserVC.h; sourceTree = "<group>"; };
 		849901771F55601B00D4DD40 /* OnlineUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineUserVC.m; sourceTree = "<group>"; };
 		849901781F55601B00D4DD40 /* OnlineUserVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlineUserVC.xib; sourceTree = "<group>"; };
@@ -2915,6 +2920,9 @@
 				849C6D231F590B6800E2289D /* PayWebViewVC.h */,
 				849C6D241F590B6800E2289D /* PayWebViewVC.m */,
 				849C6D251F590B6800E2289D /* PayWebViewVC.xib */,
+				848D918D1FA0A76700891B21 /* SuggestFeedbackVC.h */,
+				848D918E1FA0A76700891B21 /* SuggestFeedbackVC.m */,
+				848D918F1FA0A76700891B21 /* SuggestFeedbackVC.xib */,
 				222B383D1ED96843009DB58F /* MSSBrowse */,
 				222B37DA1ED9642B009DB58F /* XLPhotoBrowser */,
 			);
@@ -3745,6 +3753,7 @@
 				841AD6CE1F3C6CB400A3CE0D /* SelectedBannersHeader.xib in Resources */,
 				222AA0671EB071910038416D /* B_31@2x.gif in Resources */,
 				225DC9CF1ED803BB002ADA8F /* InvitationVC.xib in Resources */,
+				848D91911FA0A76700891B21 /* SuggestFeedbackVC.xib in Resources */,
 				222AA0171EB071910038416D /* C_105@2x.png in Resources */,
 				222AA0181EB071910038416D /* C_106@2x.png in Resources */,
 				222AA07D1EB071910038416D /* B_51@2x.gif in Resources */,
@@ -4066,6 +4075,7 @@
 				221EEBF61F9F2DAB00618FB9 /* UIView+ViewController.m in Sources */,
 				221EEBF21F9F2D8B00618FB9 /* MLMSegmentHead.m in Sources */,
 				222AA0CE1EB071A50038416D /* NSBundle+TZImagePicker.m in Sources */,
+				848D91901FA0A76700891B21 /* SuggestFeedbackVC.m in Sources */,
 				222AA1CE1EB0775B0038416D /* YYTextInput.m in Sources */,
 				2244280B1EA8967D00BF3E4D /* SelectedCachModel.m in Sources */,
 				225DC9CE1ED803BB002ADA8F /* InvitationVC.m in Sources */,
