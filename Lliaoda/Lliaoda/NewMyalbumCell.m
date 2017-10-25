@@ -28,9 +28,17 @@
             AlbumModel *model = photoArray[i];
             switch (i) {
                 case 0:
-                    [_imageView1 sd_setImageWithURL:model.url];
+                    [_imageView1 sd_setImageWithURL:[NSURL URLWithString:model.url]];
                     break;
-                    
+                case 1:
+                    [_imageView2 sd_setImageWithURL:[NSURL URLWithString:model.url]];
+                    break;
+                case 2:
+                    [_imageView3 sd_setImageWithURL:[NSURL URLWithString:model.url]];
+                    break;
+                case 3:
+                    [_imageView4 sd_setImageWithURL:[NSURL URLWithString:model.url]];
+                    break;
                     
                 default:
                     break;

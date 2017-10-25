@@ -57,7 +57,7 @@
                     AlbumModel *model = [AlbumModel mj_objectWithKeyValues:dic];
                     [self.dataList addObject:model];
                 }
-//                self.reloadData(self.dataList);
+                self.reloadData(self.dataList);
                 [self.collectionView reloadData];
                 
                 
