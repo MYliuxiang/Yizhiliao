@@ -8,6 +8,8 @@
 
 #import "RankingListVC.h"
 #import "RankingListCell1.h"
+#import "RankingListCell2.h"
+#import "RankingListCell3.h"
 @interface RankingListVC ()
 {
     NSArray *list;
@@ -53,9 +55,10 @@
         [self.view addSubview:_segScroll];
     }];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H - 64 - 49) style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
 }
 
@@ -73,21 +76,61 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    RankingListCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"RankingListCell1"];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"RankingListCell1" owner:self options:nil] lastObject];
+    if (indexPath.row == 0) {
+        RankingListCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"RankingListCell1"];
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"RankingListCell1" owner:self options:nil] lastObject];
+        }
+        return cell;
+        
+    } else if (indexPath.row == 1 || indexPath.row == 2) {
+        RankingListCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"RankingListCell2"];
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"RankingListCell2" owner:self options:nil] lastObject];
+        }
+        cell.headerImageVIew.layer.cornerRadius = 25;
+        cell.bottomImage.layer.cornerRadius = 27;
+        if (indexPath.row == 1) {
+            cell.countLabel1.text = @"2";
+            cell.countLabel2.text = @"No.2";
+            cell.yinguanImage.image = [UIImage imageNamed:@"yinguan"];
+            cell.yindaiImage.image = [UIImage imageNamed:@"yindai"];
+            cell.nameLabel.text = @"啊啊啊啊";
+            cell.bottomImage.backgroundColor = UIColorFromRGB(0xe3e3e3);
+            cell.headerImageVIew.layer.borderColor = UIColorFromRGB(0xe3e3e3).CGColor;
+            
+        } else if (indexPath.row == 2) {
+            cell.countLabel1.text = @"3";
+            cell.countLabel2.text = @"No.3";
+            cell.yinguanImage.image = [UIImage imageNamed:@"tongguan"];
+            cell.yindaiImage.image = [UIImage imageNamed:@"tongdai"];
+            cell.nameLabel.text = @"噼噼啪啪铺";
+            cell.bottomImage.backgroundColor = UIColorFromRGB(0xdcc7ac);
+            cell.headerImageVIew.layer.borderColor = UIColorFromRGB(0xdcc7ac).CGColor;
+        }
+        return cell;
+        
+    } else {
+        RankingListCell3 *cell = [tableView dequeueReusableCellWithIdentifier:@"RankingListCell3"];
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"RankingListCell3" owner:self options:nil] lastObject];
+        }
+        cell.countLabel.text = [NSString stringWithFormat:@"No.%ld", indexPath.row + 1];
+        return cell;
     }
     
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 165;
+    if (indexPath.row == 0) {
+        return 165;
+    }
+    return 100;
 }
 
 

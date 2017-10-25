@@ -628,6 +628,8 @@
 		848A0AB41F45A44000057C5B /* ar1502964098.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 848A0AB31F45A44000057C5B /* ar1502964098.mp4 */; };
 		848D91861FA0970C00891B21 /* RankingListCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D91841FA0970C00891B21 /* RankingListCell2.m */; };
 		848D91871FA0970C00891B21 /* RankingListCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848D91851FA0970C00891B21 /* RankingListCell2.xib */; };
+		848D918B1FA09D2900891B21 /* RankingListCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D91891FA09D2900891B21 /* RankingListCell3.m */; };
+		848D918C1FA09D2900891B21 /* RankingListCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848D918A1FA09D2900891B21 /* RankingListCell3.xib */; };
 		849901791F55601B00D4DD40 /* OnlineUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849901771F55601B00D4DD40 /* OnlineUserVC.m */; };
 		8499017A1F55601B00D4DD40 /* OnlineUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849901781F55601B00D4DD40 /* OnlineUserVC.xib */; };
 		849C6D261F590B6800E2289D /* PayWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C6D241F590B6800E2289D /* PayWebViewVC.m */; };
@@ -1623,6 +1625,9 @@
 		848D91831FA0970C00891B21 /* RankingListCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingListCell2.h; sourceTree = "<group>"; };
 		848D91841FA0970C00891B21 /* RankingListCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingListCell2.m; sourceTree = "<group>"; };
 		848D91851FA0970C00891B21 /* RankingListCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingListCell2.xib; sourceTree = "<group>"; };
+		848D91881FA09D2900891B21 /* RankingListCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingListCell3.h; sourceTree = "<group>"; };
+		848D91891FA09D2900891B21 /* RankingListCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingListCell3.m; sourceTree = "<group>"; };
+		848D918A1FA09D2900891B21 /* RankingListCell3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingListCell3.xib; sourceTree = "<group>"; };
 		849901761F55601B00D4DD40 /* OnlineUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineUserVC.h; sourceTree = "<group>"; };
 		849901771F55601B00D4DD40 /* OnlineUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineUserVC.m; sourceTree = "<group>"; };
 		849901781F55601B00D4DD40 /* OnlineUserVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlineUserVC.xib; sourceTree = "<group>"; };
@@ -3376,6 +3381,9 @@
 				848D91831FA0970C00891B21 /* RankingListCell2.h */,
 				848D91841FA0970C00891B21 /* RankingListCell2.m */,
 				848D91851FA0970C00891B21 /* RankingListCell2.xib */,
+				848D91881FA09D2900891B21 /* RankingListCell3.h */,
+				848D91891FA09D2900891B21 /* RankingListCell3.m */,
+				848D918A1FA09D2900891B21 /* RankingListCell3.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -3644,6 +3652,7 @@
 				222AA0451EB071910038416D /* B_108@2x.gif in Resources */,
 				222396D01EB1CDCC001D4814 /* MessageCell.xib in Resources */,
 				222AA0AE1EB071910038416D /* B_96@2x.gif in Resources */,
+				848D918C1FA09D2900891B21 /* RankingListCell3.xib in Resources */,
 				2291CBE61F4D77B7001AB139 /* CVideoCell.xib in Resources */,
 				2291CBF01F4DBCEA001AB139 /* BaseCellVC.xib in Resources */,
 				222AA1C51EB0775B0038416D /* Animated image support.txt in Resources */,
@@ -4202,6 +4211,7 @@
 				22453BAE1F1C74290000C006 /* UserCell.m in Sources */,
 				2286DC6F1EF26AFE00FDF801 /* LHChatViewCell.m in Sources */,
 				2286DC671EF26AFE00FDF801 /* LHChatImageBubbleView.m in Sources */,
+				848D918B1FA09D2900891B21 /* RankingListCell3.m in Sources */,
 				2291CBF91F4DBD17001AB139 /* InfomationVideoVC.m in Sources */,
 				222B385B1ED96843009DB58F /* MSSBrowseActionSheet.m in Sources */,
 				224F24651EA73ED300C0FDC6 /* VideoRZThreeCell.m in Sources */,
