@@ -78,6 +78,11 @@
   
     [self _loadData1];
     
+    [self setHeaderVIew];
+
+}
+
+- (void)setHeaderVIew {
     if (self.model.auth == 2) {
         // 已認證
         self.sqrzButton.backgroundColor = [UIColor clearColor];
@@ -109,7 +114,16 @@
         [self.sqrzButton setTitle:@"申請認證" forState:UIControlStateNormal];
         self.sqrzButton.userInteractionEnabled = YES;
     }
-
+    
+    NSDate *date = [NSDate date];
+    long timeInt = [date timeIntervalSince1970] * 1000;
+    NSInteger times = (timeInt - self.model.birthday) / 1000;
+    NSInteger birthday = times / 3600 / 24 / 365;
+    _ageLabel.text = [NSString stringWithFormat:@"%ld", (long)birthday];
+    
+    _constellationsLabel.text = [InputCheck getXingzuo:[NSDate dateWithTimeIntervalSince1970:self.model.birthday / 1000]];
+ 
+    _addressLabel.text = [[CityTool sharedCityTool] getCityWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
 }
 
 - (void)headImageAC {
