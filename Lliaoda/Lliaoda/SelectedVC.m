@@ -29,7 +29,7 @@
     
     [self creatUI];
     
-    MEntrance *rance = [MEntrance sharedManager];
+  MEntrance *rance = [[MEntrance alloc] initWithVC:self withimageName:@"qipao" withBageColor:[UIColor whiteColor]];
     [self.nav addSubview:rance];
     
     
@@ -69,9 +69,6 @@
     }
     return arr;
 }
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

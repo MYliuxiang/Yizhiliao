@@ -1,25 +1,23 @@
 //
-//  VideoShowVC.m
+//  CallrecordVC.m
 //  Lliaoda
 //
-//  Created by 刘翔 on 2017/10/24.
+//  Created by 刘翔 on 2017/10/25.
 //  Copyright © 2017年 刘翔. All rights reserved.
 //
 
-#import "VideoShowVC.h"
+#import "CallrecordVC.h"
 
-@interface VideoShowVC ()
+@interface CallrecordVC ()
 
 @end
 
-@implementation VideoShowVC
+@implementation CallrecordVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = @"视频秀";
-    MEntrance *rance = [[MEntrance alloc] initWithVC:self withimageName:@"qipao" withBageColor:[UIColor whiteColor]];
-    [self.nav addSubview:rance];
+    self.navbarHiden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

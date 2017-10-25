@@ -27,5 +27,6 @@
 @property (nonatomic,retain) NSMutableArray *dataList;
 @property (nonatomic,assign) BOOL isNoWifi;
 @property (weak, nonatomic) IBOutlet UIView *noDataView;
+@property (nonatomic,assign) NSInteger index;
 
 @end

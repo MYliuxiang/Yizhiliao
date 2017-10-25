@@ -78,10 +78,7 @@ static MeassageVC *this;
     [aPath moveToPoint:CGPointMake(0, 0)];
    
     self.tableView.layer.cornerRadius = 5;
-//    self.tableView.layer.borderWidth = .5;
-//    self.tableView.layer.borderColor = UIColorFromRGB(0xD8D8D8).CGColor;
-    // Do any additional setup after loading the view.
-    self.text = LXSring(@"訊息");
+    self.navbarHiden = YES;
     self.nomessageLabel.text = LXSring(@"暫時沒有消息，去交些新朋友吧！😊");
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {

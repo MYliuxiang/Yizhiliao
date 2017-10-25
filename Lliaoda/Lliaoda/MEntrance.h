@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface MEntrance : UIView
-{
-    UIButton *_btn;
-    
-}
 
-+ (MEntrance *)sharedManager;
+@property (nonatomic,retain)UIButton *btn;
+
+@property (nonatomic,retain) UIViewController *vc;
+
+- (instancetype)initWithVC:(UIViewController *)vc withimageName:(NSString *)imagename withBageColor:(UIColor *)color;
+
 - (void)setBageMessageCount:(int)count;
 
 @end
