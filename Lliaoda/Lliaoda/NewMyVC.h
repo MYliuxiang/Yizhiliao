@@ -12,6 +12,8 @@
 #import "MyalbumVC.h"
 #import "FixpersonalVC.h"
 #import "SetHeaderImageVC.h"
+#import "NewMyalbumCell.h"
+#import "NewMyVideoCell.h"
 typedef NS_ENUM(NSInteger, MyType) {
     MyTypeVideo,
     MyTypePhoto,
@@ -33,6 +35,11 @@ typedef NS_ENUM(NSInteger, MyType) {
 - (IBAction)videoAC:(UIButton *)sender;
 - (IBAction)photoAC:(UIButton *)sender;
 - (IBAction)messageAC:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *photoButton;
+@property (weak, nonatomic) IBOutlet UIButton *videoButton;
+@property (weak, nonatomic) IBOutlet UIView *photoLineView;
+@property (weak, nonatomic) IBOutlet UIView *videoLineView;
+
 
 @property (nonatomic,retain) NSMutableArray *nameArray;
 @property (nonatomic,retain) NSMutableArray *messagePhotos;
@@ -55,5 +62,15 @@ typedef NS_ENUM(NSInteger, MyType) {
 @property (nonatomic, retain) UIView *maskView;
 @property (weak, nonatomic) IBOutlet UIButton *unDisturbButton;
 - (IBAction)unDisturbBtnAC:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *sqrzButton;
+- (IBAction)sqrzButtonAC:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel; // 年齡
+@property (weak, nonatomic) IBOutlet UILabel *constellationsLabel; // 星座
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel; // 地區
+@property (weak, nonatomic) IBOutlet UILabel *upCountLabel; // 被贊數
+
+- (IBAction)editUserinfoBtnAC:(id)sender;
 
 @end

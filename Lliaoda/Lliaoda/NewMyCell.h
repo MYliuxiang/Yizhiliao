@@ -13,5 +13,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *samallImage;
+@property (weak, nonatomic) IBOutlet UIView *bottomLineView;
+
+@property (weak, nonatomic) IBOutlet UIView *accountBGView;
+@property (weak, nonatomic) IBOutlet UIButton *accountButton;
+@property (weak, nonatomic) IBOutlet UILabel *accountLabel;
 
 @end
