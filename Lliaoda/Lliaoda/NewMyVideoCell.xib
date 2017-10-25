@@ -41,17 +41,20 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJg-L4-nw3">
                         <rect key="frame" x="285.5" y="80" width="105.5" height="74.5"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-wy-QW2">
-                                <rect key="frame" x="0.0" y="0.0" width="105.5" height="74.5"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="15"/>
-                                <state key="normal" image="tianjia"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上傳視頻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOZ-wA-XOw">
-                                <rect key="frame" x="0.0" y="41.5" width="105.5" height="12"/>
+                                <rect key="frame" x="-0.5" y="41" width="105.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-wy-QW2">
+                                <rect key="frame" x="0.0" y="0.0" width="105.5" height="74.5"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="15"/>
+                                <state key="normal" image="tianjia"/>
+                                <connections>
+                                    <action selector="addButtonAC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ACC-fN-ThZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85882352939999995" green="0.88235294119999996" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -64,6 +67,10 @@
                             <constraint firstAttribute="trailing" secondItem="oOZ-wA-XOw" secondAttribute="trailing" id="ogj-Cj-XT5"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMe-Uj-1dU">
+                        <rect key="frame" x="15" y="0.0" width="154.5" height="154.5"/>
+                        <state key="normal" image="dashipin"/>
+                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8y-U6-Cg6">
                         <rect key="frame" x="174.5" y="0.5" width="106" height="75"/>
                         <state key="normal" image="dashipin"/>
@@ -78,6 +85,7 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="hMe-Uj-1dU" firstAttribute="centerY" secondItem="h9k-IL-wkG" secondAttribute="centerY" id="0c9-mF-8PD"/>
                     <constraint firstItem="rJg-L4-nw3" firstAttribute="leading" secondItem="cx1-Rg-4Zc" secondAttribute="trailing" constant="5" id="2LO-XM-eFb"/>
                     <constraint firstItem="rJg-L4-nw3" firstAttribute="height" secondItem="yhQ-hR-nuQ" secondAttribute="height" id="4Xz-IS-JgY"/>
                     <constraint firstItem="rJg-L4-nw3" firstAttribute="width" secondItem="yhQ-hR-nuQ" secondAttribute="width" id="4jp-lU-KZk"/>
@@ -92,15 +100,18 @@
                     <constraint firstItem="78K-QP-wvs" firstAttribute="height" secondItem="yhQ-hR-nuQ" secondAttribute="height" id="LTh-fS-OJk"/>
                     <constraint firstItem="yhQ-hR-nuQ" firstAttribute="leading" secondItem="h9k-IL-wkG" secondAttribute="trailing" constant="5" id="LqU-MB-T34"/>
                     <constraint firstItem="78K-QP-wvs" firstAttribute="width" secondItem="yhQ-hR-nuQ" secondAttribute="width" id="Pte-z2-AX8"/>
+                    <constraint firstItem="hMe-Uj-1dU" firstAttribute="centerX" secondItem="h9k-IL-wkG" secondAttribute="centerX" id="R04-fc-jB8"/>
                     <constraint firstItem="78K-QP-wvs" firstAttribute="leading" secondItem="yhQ-hR-nuQ" secondAttribute="trailing" constant="5" id="RGO-BH-BNC"/>
                     <constraint firstItem="78K-QP-wvs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ro1-uV-wxy"/>
                     <constraint firstAttribute="trailing" secondItem="78K-QP-wvs" secondAttribute="trailing" constant="15" id="UvB-r6-Plb"/>
+                    <constraint firstItem="hMe-Uj-1dU" firstAttribute="height" secondItem="h9k-IL-wkG" secondAttribute="height" id="Z53-8z-KXu"/>
                     <constraint firstItem="cx1-Rg-4Zc" firstAttribute="leading" secondItem="h9k-IL-wkG" secondAttribute="trailing" constant="5" id="ZY2-ah-Lm6"/>
                     <constraint firstItem="Q5G-z4-vH1" firstAttribute="height" secondItem="cx1-Rg-4Zc" secondAttribute="height" id="a3u-i6-BvQ"/>
                     <constraint firstItem="w8y-U6-Cg6" firstAttribute="width" secondItem="yhQ-hR-nuQ" secondAttribute="width" id="enY-ia-tDb"/>
                     <constraint firstItem="h9k-IL-wkG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="fGW-AG-sl8"/>
                     <constraint firstItem="w8y-U6-Cg6" firstAttribute="height" secondItem="yhQ-hR-nuQ" secondAttribute="height" id="fT0-yF-NYk"/>
                     <constraint firstItem="w8y-U6-Cg6" firstAttribute="centerY" secondItem="yhQ-hR-nuQ" secondAttribute="centerY" id="jGA-ki-KFt"/>
+                    <constraint firstItem="hMe-Uj-1dU" firstAttribute="width" secondItem="h9k-IL-wkG" secondAttribute="width" id="k9N-eC-MKP"/>
                     <constraint firstItem="h9k-IL-wkG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kSP-yD-1HN"/>
                     <constraint firstItem="Q5G-z4-vH1" firstAttribute="width" secondItem="cx1-Rg-4Zc" secondAttribute="width" id="kkZ-6B-5H6"/>
                     <constraint firstItem="tOJ-Nq-c9T" firstAttribute="width" secondItem="78K-QP-wvs" secondAttribute="width" id="kpB-gY-JdP"/>
@@ -111,6 +122,17 @@
                     <constraint firstItem="tOJ-Nq-c9T" firstAttribute="height" secondItem="78K-QP-wvs" secondAttribute="height" id="xS0-kG-NbJ"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addBGView" destination="rJg-L4-nw3" id="VtP-rc-1kR"/>
+                <outlet property="imageView1" destination="h9k-IL-wkG" id="9hI-sX-6dk"/>
+                <outlet property="imageView2" destination="yhQ-hR-nuQ" id="BKR-kV-69D"/>
+                <outlet property="imageView3" destination="78K-QP-wvs" id="9cP-pD-qhq"/>
+                <outlet property="imageView4" destination="cx1-Rg-4Zc" id="GbH-CZ-SVU"/>
+                <outlet property="playButton1" destination="hMe-Uj-1dU" id="7o1-N1-334"/>
+                <outlet property="playButton2" destination="w8y-U6-Cg6" id="Wf5-dL-axC"/>
+                <outlet property="playButton3" destination="tOJ-Nq-c9T" id="il8-6Q-8bs"/>
+                <outlet property="playButton4" destination="Q5G-z4-vH1" id="jyf-zj-KX4"/>
+            </connections>
             <point key="canvasLocation" x="77" y="63"/>
         </tableViewCell>
     </objects>

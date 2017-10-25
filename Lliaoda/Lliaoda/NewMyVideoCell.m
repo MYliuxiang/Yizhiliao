@@ -21,4 +21,33 @@
     // Configure the view for the selected state
 }
 
+- (void)setVideoArray:(NSMutableArray *)videoArray {
+    if (videoArray.count >= 4) {
+        for (int i = 0; i < videoArray.count; i++) {
+            MyVideoModel *model = videoArray[i];
+            switch (i) {
+                case 0:
+                    [_imageView1 sd_setImageWithURL:[NSURL URLWithString:model.cover]];
+                    break;
+                case 1:
+                    [_imageView2 sd_setImageWithURL:[NSURL URLWithString:model.cover]];
+                    break;
+                case 2:
+                    [_imageView3 sd_setImageWithURL:[NSURL URLWithString:model.cover]];
+                    break;
+                case 3:
+                    [_imageView4 sd_setImageWithURL:[NSURL URLWithString:model.cover]];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+    }
+}
+
+- (IBAction)addButtonAC:(id)sender {
+    MyVideoVC *vc = [[MyVideoVC alloc] init];
+    [[self viewController].navigationController pushViewController:vc animated:YES];
+}
 @end
