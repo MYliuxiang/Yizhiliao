@@ -7,7 +7,7 @@
 //
 
 #import "RankingListVC.h"
-
+#import "RankingListCell1.h"
 @interface RankingListVC ()
 {
     NSArray *list;
@@ -27,6 +27,7 @@
     [self.nav addSubview:rance];
     [rance setBageMessageCount:50];
     [self creatUI];
+    
     
 }
 
@@ -52,6 +53,10 @@
         [self.view addSubview:_segScroll];
     }];
     
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H) style:UITableViewStylePlain];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [self.view addSubview:_tableView];
 }
 
 #pragma mark - 数据源
@@ -66,9 +71,23 @@
     return arr;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    RankingListCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"RankingListCell1"];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"RankingListCell1" owner:self options:nil] lastObject];
+    }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 165;
 }
 
 
