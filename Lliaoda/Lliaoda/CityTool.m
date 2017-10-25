@@ -89,12 +89,11 @@ static CityTool *_instance;
     for (CountrieModel *model in self.countrys) {
         
         if (model.uid == countrieId) {
-            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-            if ([lang hasPrefix:@"ar"]) {
+//            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
                 [adress appendString:model.name];
-            }
             for (ProvinceModel *pmodel in model.provinces) {
                 if (pmodel.uid == provinceId) {
+                    [adress appendString:@"."];
                     [adress appendString:pmodel.name];
                     
                     for (CityModel *cmodel in pmodel.cities) {
@@ -107,6 +106,10 @@ static CityTool *_instance;
             }
         }
         
+    }
+    
+    if (adress.length == 0) {
+        adress = @"地球";
     }
     
     return adress;

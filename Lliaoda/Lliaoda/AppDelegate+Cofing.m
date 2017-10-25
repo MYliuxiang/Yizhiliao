@@ -20,18 +20,21 @@
     NSString *agent;
     NSString *mutableUrl;
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    
+    agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+    mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
     //    if ([lang hasPrefix:@"zh-Hant"]) {
     //        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
     //        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
     //    }else
-    if ([lang hasPrefix:@"id"]){
-        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,402",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.live/api/%@",Url_appconfig]];
-    } else {
-        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,403",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.net/api/%@",Url_appconfig]];
-    }
-    
+//    if ([lang hasPrefix:@"id"]){
+//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,402",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+//        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.live/api/%@",Url_appconfig]];
+//    } else {
+//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,403",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+//        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.net/api/%@",Url_appconfig]];
+//    }
+//
     
     NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlEnCode]];

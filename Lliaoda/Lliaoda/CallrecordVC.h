@@ -10,5 +10,6 @@
 
 @interface CallrecordVC : BaseViewController
 @property (nonatomic,assign) NSInteger index;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

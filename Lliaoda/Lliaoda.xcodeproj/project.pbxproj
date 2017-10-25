@@ -409,6 +409,8 @@
 		2250E62D1EA9EE4D00849842 /* PersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250E62B1EA9EE4D00849842 /* PersonCell.m */; };
 		2250E62E1EA9EE4D00849842 /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2250E62C1EA9EE4D00849842 /* PersonCell.xib */; };
 		2250E6301EAA013F00849842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2250E62F1EAA013F00849842 /* Assets.xcassets */; };
+		2256B2711FA07F6700B0FA12 /* CallRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2256B26F1FA07F6700B0FA12 /* CallRecordCell.m */; };
+		2256B2721FA07F6700B0FA12 /* CallRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2256B2701FA07F6700B0FA12 /* CallRecordCell.xib */; };
 		225827781ECC09CC0049A6C1 /* end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 225827761ECC09CC0049A6C1 /* end.wav */; };
 		225827791ECC09CC0049A6C1 /* start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 225827771ECC09CC0049A6C1 /* start.wav */; };
 		2258B6EB1ECAA44D005375AE /* PresentTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2258B6EA1ECAA44D005375AE /* PresentTransition.m */; };
@@ -486,7 +488,6 @@
 		228B89D91EA866FB002B8D3C /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89D31EA866FB002B8D3C /* YYMemoryCache.m */; };
 		228B89DC1EA8671B002B8D3C /* SPHttpWithYYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89DB1EA8671B002B8D3C /* SPHttpWithYYCache.m */; };
 		228B89DF1EA87778002B8D3C /* LXCachNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89DE1EA87778002B8D3C /* LXCachNetWorking.m */; };
-		228C307F1EB1A12800C2B55F /* ServiceErrorType.m in Sources */ = {isa = PBXBuildFile; fileRef = 228C307E1EB1A12800C2B55F /* ServiceErrorType.m */; };
 		228CF7341EDE7C2C0045986D /* MyVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 228CF7321EDE7C2C0045986D /* MyVideoVC.m */; };
 		228CF7351EDE7C2C0045986D /* MyVideoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228CF7331EDE7C2C0045986D /* MyVideoVC.xib */; };
 		228CF7391EDE7D070045986D /* MyVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 228CF7371EDE7D070045986D /* MyVideoCell.m */; };
@@ -539,8 +540,6 @@
 		22B1092F1EA4A5D500E35B74 /* MyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1092E1EA4A5D500E35B74 /* MyVC.m */; };
 		22B109341EA4B2CF00E35B74 /* SelectedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B109321EA4B2CF00E35B74 /* SelectedCell.m */; };
 		22B109351EA4B2CF00E35B74 /* SelectedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B109331EA4B2CF00E35B74 /* SelectedCell.xib */; };
-		22B109391EA4B56500E35B74 /* SelectedHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B109371EA4B56500E35B74 /* SelectedHeader.m */; };
-		22B1093A1EA4B56500E35B74 /* SelectedHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B109381EA4B56500E35B74 /* SelectedHeader.xib */; };
 		22B63C631F9F14AC00D1E2CD /* AppDelegate+Cofing.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B63C621F9F14AC00D1E2CD /* AppDelegate+Cofing.m */; };
 		22B63C8A1EFA719900F10039 /* videoprp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B63C891EFA719900F10039 /* videoprp.framework */; };
 		22B691E41F3ABD4D00CDF0F2 /* id1495262516.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 22B691E31F3ABD4D00CDF0F2 /* id1495262516.mp4 */; };
@@ -565,7 +564,6 @@
 		22DC05651F39A91C00E2E015 /* PchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DC05641F39A91C00E2E015 /* PchTool.m */; };
 		22DC05681F39BE8200E2E015 /* albumVideo.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DC05661F39BE8200E2E015 /* albumVideo.png */; };
 		22DC05691F39BE8200E2E015 /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DC05671F39BE8200E2E015 /* album.png */; };
-		22DC056B1F39F66900E2E015 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22DC056A1F39F66900E2E015 /* login.jpg */; };
 		22DC056E1F39FAA600E2E015 /* noVideo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22DC056C1F39FAA600E2E015 /* noVideo.jpg */; };
 		22DC056F1F39FAA600E2E015 /* noPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22DC056D1F39FAA600E2E015 /* noPhoto.jpg */; };
 		22E8D76E1EA49AE300C5FC6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E8D76D1EA49AE300C5FC6B /* main.m */; };
@@ -1245,6 +1243,9 @@
 		2250E62B1EA9EE4D00849842 /* PersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCell.m; sourceTree = "<group>"; };
 		2250E62C1EA9EE4D00849842 /* PersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
 		2250E62F1EAA013F00849842 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2256B26E1FA07F6700B0FA12 /* CallRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallRecordCell.h; sourceTree = "<group>"; };
+		2256B26F1FA07F6700B0FA12 /* CallRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallRecordCell.m; sourceTree = "<group>"; };
+		2256B2701FA07F6700B0FA12 /* CallRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallRecordCell.xib; sourceTree = "<group>"; };
 		225827761ECC09CC0049A6C1 /* end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = end.wav; sourceTree = "<group>"; };
 		225827771ECC09CC0049A6C1 /* start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = start.wav; sourceTree = "<group>"; };
 		2258B6E91ECAA44D005375AE /* PresentTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentTransition.h; sourceTree = "<group>"; };
@@ -1387,8 +1388,6 @@
 		228B89DB1EA8671B002B8D3C /* SPHttpWithYYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHttpWithYYCache.m; sourceTree = "<group>"; };
 		228B89DD1EA87778002B8D3C /* LXCachNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXCachNetWorking.h; sourceTree = "<group>"; };
 		228B89DE1EA87778002B8D3C /* LXCachNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXCachNetWorking.m; sourceTree = "<group>"; };
-		228C307D1EB1A12800C2B55F /* ServiceErrorType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceErrorType.h; sourceTree = "<group>"; };
-		228C307E1EB1A12800C2B55F /* ServiceErrorType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceErrorType.m; sourceTree = "<group>"; };
 		228CF7311EDE7C2C0045986D /* MyVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyVideoVC.h; sourceTree = "<group>"; };
 		228CF7321EDE7C2C0045986D /* MyVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyVideoVC.m; sourceTree = "<group>"; };
 		228CF7331EDE7C2C0045986D /* MyVideoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyVideoVC.xib; sourceTree = "<group>"; };
@@ -1474,9 +1473,6 @@
 		22B109311EA4B2CF00E35B74 /* SelectedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCell.h; sourceTree = "<group>"; };
 		22B109321EA4B2CF00E35B74 /* SelectedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCell.m; sourceTree = "<group>"; };
 		22B109331EA4B2CF00E35B74 /* SelectedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedCell.xib; sourceTree = "<group>"; };
-		22B109361EA4B56500E35B74 /* SelectedHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedHeader.h; sourceTree = "<group>"; };
-		22B109371EA4B56500E35B74 /* SelectedHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedHeader.m; sourceTree = "<group>"; };
-		22B109381EA4B56500E35B74 /* SelectedHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedHeader.xib; sourceTree = "<group>"; };
 		22B63C611F9F14AC00D1E2CD /* AppDelegate+Cofing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Cofing.h"; sourceTree = "<group>"; };
 		22B63C621F9F14AC00D1E2CD /* AppDelegate+Cofing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Cofing.m"; sourceTree = "<group>"; };
 		22B63C891EFA719900F10039 /* videoprp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = videoprp.framework; path = OpenSDK1.7.7/videoprp.framework; sourceTree = "<group>"; };
@@ -1513,7 +1509,6 @@
 		22DC05641F39A91C00E2E015 /* PchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PchTool.m; sourceTree = "<group>"; };
 		22DC05661F39BE8200E2E015 /* albumVideo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = albumVideo.png; sourceTree = "<group>"; };
 		22DC05671F39BE8200E2E015 /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album.png; sourceTree = "<group>"; };
-		22DC056A1F39F66900E2E015 /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login.jpg; sourceTree = "<group>"; };
 		22DC056C1F39FAA600E2E015 /* noVideo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noVideo.jpg; sourceTree = "<group>"; };
 		22DC056D1F39FAA600E2E015 /* noPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noPhoto.jpg; sourceTree = "<group>"; };
 		22E8D7691EA49AE300C5FC6B /* Lliaoda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lliaoda.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1795,6 +1790,9 @@
 				222396CC1EB1CDCC001D4814 /* MessageCell.h */,
 				222396CD1EB1CDCC001D4814 /* MessageCell.m */,
 				222396CE1EB1CDCC001D4814 /* MessageCell.xib */,
+				2256B26E1FA07F6700B0FA12 /* CallRecordCell.h */,
+				2256B26F1FA07F6700B0FA12 /* CallRecordCell.m */,
+				2256B2701FA07F6700B0FA12 /* CallRecordCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2460,7 +2458,6 @@
 			children = (
 				2290942D1EF2756200715841 /* LoginVC.h */,
 				2290942E1EF2756200715841 /* LoginVC.m */,
-				22DC056A1F39F66900E2E015 /* login.jpg */,
 				2290942F1EF2756200715841 /* LoginVC.xib */,
 				229094301EF2756200715841 /* AgreementVC.h */,
 				229094311EF2756200715841 /* AgreementVC.m */,
@@ -3094,8 +3091,6 @@
 				228B89DB1EA8671B002B8D3C /* SPHttpWithYYCache.m */,
 				2244280F1EA8AE4500BF3E4D /* WXDataService.h */,
 				224428101EA8AE4500BF3E4D /* WXDataService.m */,
-				228C307D1EB1A12800C2B55F /* ServiceErrorType.h */,
-				228C307E1EB1A12800C2B55F /* ServiceErrorType.m */,
 			);
 			name = "网络请求";
 			sourceTree = "<group>";
@@ -3106,9 +3101,6 @@
 				22B109311EA4B2CF00E35B74 /* SelectedCell.h */,
 				22B109321EA4B2CF00E35B74 /* SelectedCell.m */,
 				22B109331EA4B2CF00E35B74 /* SelectedCell.xib */,
-				22B109361EA4B56500E35B74 /* SelectedHeader.h */,
-				22B109371EA4B56500E35B74 /* SelectedHeader.m */,
-				22B109381EA4B56500E35B74 /* SelectedHeader.xib */,
 				2290A8421F4BE826005DA0AE /* BannerView.h */,
 				2290A8431F4BE826005DA0AE /* BannerView.m */,
 				2290A8441F4BE826005DA0AE /* BannerView.xib */,
@@ -3624,7 +3616,6 @@
 				222AA1C51EB0775B0038416D /* Animated image support.txt in Resources */,
 				222AA1651EB071C20038416D /* Keyboard_gradient_mask@2x.png in Resources */,
 				222AA0AD1EB071910038416D /* B_95@2x.gif in Resources */,
-				22B1093A1EA4B56500E35B74 /* SelectedHeader.xib in Resources */,
 				8483AAF01F4E8138008BA674 /* ProfitCell3.xib in Resources */,
 				222AA0201EB071910038416D /* C_77@2x.png in Resources */,
 				222AA0291EB071910038416D /* C_90@2x.png in Resources */,
@@ -3664,6 +3655,7 @@
 				222AA0251EB071910038416D /* C_86@2x.png in Resources */,
 				222AA0B01EB071910038416D /* B_98@2x.gif in Resources */,
 				840BE3211F1F02C40004B6D9 /* ProfitCell.xib in Resources */,
+				2256B2721FA07F6700B0FA12 /* CallRecordCell.xib in Resources */,
 				222AA0801EB071910038416D /* B_54@2x.gif in Resources */,
 				8413A2B41F4C412C00CB3CBC /* FixIndustryVC.xib in Resources */,
 				222AA0711EB071910038416D /* B_40@2x.gif in Resources */,
@@ -3700,7 +3692,6 @@
 				228B89C21EA85744002B8D3C /* VideoRZTwoVC.xib in Resources */,
 				229094381EF2774100715841 /* start_30.wav in Resources */,
 				222AA0461EB071910038416D /* B_109@2x.gif in Resources */,
-				22DC056B1F39F66900E2E015 /* login.jpg in Resources */,
 				222AA02F1EB071910038416D /* C_96@2x.png in Resources */,
 				2250E62E1EA9EE4D00849842 /* PersonCell.xib in Resources */,
 				222AA0A11EB071910038416D /* B_84@2x.gif in Resources */,
@@ -4114,7 +4105,6 @@
 				84B8CDAD1F4AD3F800A13D27 /* PersonHeaderScroolView.m in Sources */,
 				84F970D51F38946100336234 /* LanguageVC.m in Sources */,
 				22DC05651F39A91C00E2E015 /* PchTool.m in Sources */,
-				228C307F1EB1A12800C2B55F /* ServiceErrorType.m in Sources */,
 				8483AAF41F4EAE9E008BA674 /* AccountHeaderView.m in Sources */,
 				22844F551ED2A1B800A9E32E /* IQKeyboardManager.m in Sources */,
 				222AA1671EB071C20038416D /* KeyboardEmojiAttachment.m in Sources */,
@@ -4240,7 +4230,6 @@
 				222AA0D51EB071A50038416D /* TZPhotoPreviewCell.m in Sources */,
 				228B89DF1EA87778002B8D3C /* LXCachNetWorking.m in Sources */,
 				222AA1E01EB0775B0038416D /* YYTextWeakProxy.m in Sources */,
-				22B109391EA4B56500E35B74 /* SelectedHeader.m in Sources */,
 				224601E91EB317B9000D4A96 /* Message.m in Sources */,
 				224428061EA890C800BF3E4D /* JKDBHelper.m in Sources */,
 				222AA0D01EB071A50038416D /* TZAssetModel.m in Sources */,
@@ -4282,6 +4271,7 @@
 				222AA1C71EB0775B0038416D /* YYFrameImage.m in Sources */,
 				222AA1CA1EB0775B0038416D /* YYSpriteSheetImage.m in Sources */,
 				8476D56B1F4FCB0C00855CDF /* SetHeaderImageVC.m in Sources */,
+				2256B2711FA07F6700B0FA12 /* CallRecordCell.m in Sources */,
 				22CDA9731EA5F68A006CD611 /* FixintroduceVC.m in Sources */,
 				222AA1D01EB0775B0038416D /* YYTextLayout.m in Sources */,
 				22CDA9621EA5DDC6006CD611 /* MyColor.m in Sources */,

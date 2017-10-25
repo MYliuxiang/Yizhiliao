@@ -81,7 +81,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageInstantReceive object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageNoData object:nil];
     
-    self.text = LXSring(@"發現");
+    self.text = @"發現";
+    
+    MEntrance *rance = [[MEntrance alloc] initWithVC:self withimageName:@"qipao" withBageColor:[UIColor whiteColor]];
+    [self.nav addSubview:rance];
+    
 //    self.isShowMessageButton = YES;
     self.colors = @[[MyColor colorWithHexString:@"#E84969"],[MyColor colorWithHexString:@"#F1B534"],[MyColor colorWithHexString:@"#6AE8BB"],[MyColor colorWithHexString:@"#40B2F2"],[MyColor colorWithHexString:@"#6AE7BD"],[MyColor colorWithHexString:@"#F6BF33"],[MyColor colorWithHexString:@"#A753EA"]];
     [self.rechargeBtn setTitle:LXSring(@"快速儲值") forState:UIControlStateNormal];
@@ -561,7 +565,9 @@
         
     }
     
-    self.statelabel.text = [InputCheck dateToOld:[NSDate dateWithTimeIntervalSince1970:model.birthday/ 1000]];
+    
+    
+    self.statelabel.text = [InputCheck dateToOld:[NSDate dateWithTimeIntervalSince1970:model.birthday/1000]];
     
     if (self.placelabel.text.length == 0) {
         
