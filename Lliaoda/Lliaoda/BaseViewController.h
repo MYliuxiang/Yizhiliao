@@ -34,4 +34,6 @@
 
 - (void)leftAction;
 
+//- (void)addMessageEntrance;
+
 @end

@@ -399,6 +399,12 @@
 		224F246D1EA74B7400C0FDC6 /* FMVideoPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F246C1EA74B7400C0FDC6 /* FMVideoPlayController.m */; };
 		224F24711EA7521A00C0FDC6 /* VideoOneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F246F1EA7521A00C0FDC6 /* VideoOneVC.m */; };
 		224F24721EA7521A00C0FDC6 /* VideoOneVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224F24701EA7521A00C0FDC6 /* VideoOneVC.xib */; };
+		2250CDD41FA03F3200A03BE7 /* MessageRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250CDD21FA03F3200A03BE7 /* MessageRecordVC.m */; };
+		2250CDD51FA03F3200A03BE7 /* MessageRecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2250CDD31FA03F3200A03BE7 /* MessageRecordVC.xib */; };
+		2250CDD91FA03F8900A03BE7 /* CallrecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250CDD71FA03F8900A03BE7 /* CallrecordVC.m */; };
+		2250CDDA1FA03F8900A03BE7 /* CallrecordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2250CDD81FA03F8900A03BE7 /* CallrecordVC.xib */; };
+		2250CDDE1FA042E000A03BE7 /* TopListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250CDDC1FA042E000A03BE7 /* TopListVC.m */; };
+		2250CDDF1FA042E000A03BE7 /* TopListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2250CDDD1FA042E000A03BE7 /* TopListVC.xib */; };
 		2250E6261EA9E15200849842 /* InputCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250E6251EA9E15200849842 /* InputCheck.m */; };
 		2250E62D1EA9EE4D00849842 /* PersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250E62B1EA9EE4D00849842 /* PersonCell.m */; };
 		2250E62E1EA9EE4D00849842 /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2250E62C1EA9EE4D00849842 /* PersonCell.xib */; };
@@ -1224,6 +1230,15 @@
 		224F246E1EA7521A00C0FDC6 /* VideoOneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoOneVC.h; sourceTree = "<group>"; };
 		224F246F1EA7521A00C0FDC6 /* VideoOneVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoOneVC.m; sourceTree = "<group>"; };
 		224F24701EA7521A00C0FDC6 /* VideoOneVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoOneVC.xib; sourceTree = "<group>"; };
+		2250CDD11FA03F3200A03BE7 /* MessageRecordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageRecordVC.h; sourceTree = "<group>"; };
+		2250CDD21FA03F3200A03BE7 /* MessageRecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageRecordVC.m; sourceTree = "<group>"; };
+		2250CDD31FA03F3200A03BE7 /* MessageRecordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageRecordVC.xib; sourceTree = "<group>"; };
+		2250CDD61FA03F8900A03BE7 /* CallrecordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallrecordVC.h; sourceTree = "<group>"; };
+		2250CDD71FA03F8900A03BE7 /* CallrecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallrecordVC.m; sourceTree = "<group>"; };
+		2250CDD81FA03F8900A03BE7 /* CallrecordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallrecordVC.xib; sourceTree = "<group>"; };
+		2250CDDB1FA042E000A03BE7 /* TopListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopListVC.h; sourceTree = "<group>"; };
+		2250CDDC1FA042E000A03BE7 /* TopListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopListVC.m; sourceTree = "<group>"; };
+		2250CDDD1FA042E000A03BE7 /* TopListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopListVC.xib; sourceTree = "<group>"; };
 		2250E6241EA9E15200849842 /* InputCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCheck.h; sourceTree = "<group>"; };
 		2250E6251EA9E15200849842 /* InputCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCheck.m; sourceTree = "<group>"; };
 		2250E62A1EA9EE4D00849842 /* PersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCell.h; sourceTree = "<group>"; };
@@ -1736,6 +1751,9 @@
 				221EEBE11F9F262500618FB9 /* RankingListVC.h */,
 				221EEBE21F9F262500618FB9 /* RankingListVC.m */,
 				221EEBE31F9F262500618FB9 /* RankingListVC.xib */,
+				2250CDDB1FA042E000A03BE7 /* TopListVC.h */,
+				2250CDDC1FA042E000A03BE7 /* TopListVC.m */,
+				2250CDDD1FA042E000A03BE7 /* TopListVC.xib */,
 			);
 			name = "排行榜";
 			sourceTree = "<group>";
@@ -2966,6 +2984,12 @@
 				222A9F3F1EB071900038416D /* Images */,
 				22B1092A1EA4A5C500E35B74 /* MeassageVC.h */,
 				22B1092B1EA4A5C500E35B74 /* MeassageVC.m */,
+				2250CDD61FA03F8900A03BE7 /* CallrecordVC.h */,
+				2250CDD71FA03F8900A03BE7 /* CallrecordVC.m */,
+				2250CDD81FA03F8900A03BE7 /* CallrecordVC.xib */,
+				2250CDD11FA03F3200A03BE7 /* MessageRecordVC.h */,
+				2250CDD21FA03F3200A03BE7 /* MessageRecordVC.m */,
+				2250CDD31FA03F3200A03BE7 /* MessageRecordVC.xib */,
 				221EEC111F9F45D300618FB9 /* MEntrance.h */,
 				221EEC121F9F45D300618FB9 /* MEntrance.m */,
 			);
@@ -3537,6 +3561,7 @@
 				222AA0571EB071910038416D /* B_17@2x.gif in Resources */,
 				222AA02D1EB071910038416D /* C_94@2x.png in Resources */,
 				222AA0721EB071910038416D /* B_41@2x.gif in Resources */,
+				2250CDDF1FA042E000A03BE7 /* TopListVC.xib in Resources */,
 				2291CBDC1F4D6FE7001AB139 /* LxMessageCell.xib in Resources */,
 				222AA0B31EB071910038416D /* emotion.plist in Resources */,
 				222AA00E1EB071910038416D /* IM_Chat_keyboard@2x.png in Resources */,
@@ -3572,6 +3597,7 @@
 				222AA0651EB071910038416D /* b_2@2x.gif in Resources */,
 				226BA9101ED7E324004D983A /* MyCell.xib in Resources */,
 				22721FB81EE8018F003A19D3 /* PVideoVC.xib in Resources */,
+				2250CDD51FA03F3200A03BE7 /* MessageRecordVC.xib in Resources */,
 				222AA05F1EB071910038416D /* B_24@2x.gif in Resources */,
 				222AA05C1EB071910038416D /* B_21@2x.gif in Resources */,
 				222AA0471EB071910038416D /* B_10@2x.gif in Resources */,
@@ -3680,6 +3706,7 @@
 				222AA0A11EB071910038416D /* B_84@2x.gif in Resources */,
 				8489F5511F9F2323002D1BA4 /* NewMyVideoCell.xib in Resources */,
 				2291CBFA1F4DBD17001AB139 /* InfomationVideoVC.xib in Resources */,
+				2250CDDA1FA03F8900A03BE7 /* CallrecordVC.xib in Resources */,
 				222AA08C1EB071910038416D /* B_65@2x.gif in Resources */,
 				841AD6CE1F3C6CB400A3CE0D /* SelectedBannersHeader.xib in Resources */,
 				222AA0671EB071910038416D /* B_31@2x.gif in Resources */,
@@ -4010,6 +4037,7 @@
 				22721FC61EE80C68003A19D3 /* PPhotoVC.m in Sources */,
 				22CDA96E1EA5F350006CD611 /* FixNickNameVC.m in Sources */,
 				22B1092C1EA4A5C500E35B74 /* MeassageVC.m in Sources */,
+				2250CDDE1FA042E000A03BE7 /* TopListVC.m in Sources */,
 				2204AA9A1EADA8FE0034C0F3 /* AccountModel.m in Sources */,
 				224F244F1EA732C800C0FDC6 /* VideoRZVC.m in Sources */,
 				222AA1DA1EB0775B0038416D /* NSParagraphStyle+YYText.m in Sources */,
@@ -4064,6 +4092,7 @@
 				22844F5B1ED2A1B800A9E32E /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				2286DC6A1EF26AFE00FDF801 /* LHChatVideoBubbleView.m in Sources */,
 				222AA1681EB071C20038416D /* KeyboardEmojiModel.m in Sources */,
+				2250CDD41FA03F3200A03BE7 /* MessageRecordVC.m in Sources */,
 				8476D5751F5017F300855CDF /* AccountPayTypeVC.m in Sources */,
 				221EEBF91F9F302500618FB9 /* FSBaseTableView.m in Sources */,
 				84B8CDB91F4ADBE100A13D27 /* PersonBottomCell.m in Sources */,
@@ -4270,6 +4299,7 @@
 				222AA1CF1EB0775B0038416D /* YYTextKeyboardManager.m in Sources */,
 				228CF7411EDEBD840045986D /* VideoPlayVC.m in Sources */,
 				2270AB6B1F03E263003D5E00 /* GiftLayout.m in Sources */,
+				2250CDD91FA03F8900A03BE7 /* CallrecordVC.m in Sources */,
 				220654501EDFF60E00DFE8EB /* JXRadarPointView.m in Sources */,
 				849C6D261F590B6800E2289D /* PayWebViewVC.m in Sources */,
 				226BA90F1ED7E324004D983A /* MyCell.m in Sources */,

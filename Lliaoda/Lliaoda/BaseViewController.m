@@ -211,6 +211,15 @@
     
 }
 
+//- (void)addMessageEntrance
+//{
+//    MEntrance *rance = [[MEntrance alloc] initWithVC:self];
+//    [self.nav addSubview:rance];
+//    [rance setBageMessageCount:50];
+//    
+//}
+
+
 
 
 - (void)leftAction
