@@ -140,9 +140,6 @@
                 NSString *deposit = [NSString stringWithFormat:@"%d",self.selfModel.deposit];
                 NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
                 
-//                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
-//                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
-
                 [self newgiftView];
                 [self newredView];
                 self.giftsView.elabel.text = str;
@@ -1063,18 +1060,8 @@
         }];
         
 
-        
-        NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-        NSString *itemcriteria = [NSString stringWithFormat:@"WHERE uid = %@ order by timeDate DESC",selfuid];
-        NSArray *array = [MessageCount findByCriteria:criteria];
-        NSMutableArray *marray = [NSMutableArray arrayWithArray:array];
-        int count = 0;
-        for (MessageCount *mcount in marray) {
-            count += mcount.count;
-        }
-        
         MEntrance *rance = [[MEntrance alloc] init];
-        [rance setBageMessageCount:count];
+        [rance updateBage];
         
         NSDictionary *msg = @{@"message":@{
                                       @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],
@@ -1784,19 +1771,8 @@
             [count save];
         }
 
-        
-        NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-        NSString *itemcriteria = [NSString stringWithFormat:@"WHERE uid = %@ order by timeDate DESC",selfuid];
-        NSArray *array = [MessageCount findByCriteria:criteria];
-        NSMutableArray *marray = [NSMutableArray arrayWithArray:array];
-        int count = 0;
-        for (MessageCount *mcount in marray) {
-            count += mcount.count;
-        }
-        
         MEntrance *rance = [[MEntrance alloc] init];
-        [rance setBageMessageCount:count];
-        
+        [rance updateBage];
 
         NSDictionary *msg = @{@"message":@{
                                       @"messageID":[NSString stringWithFormat:@"%@_%lld",[LXUserDefaults objectForKey:UID],idate],

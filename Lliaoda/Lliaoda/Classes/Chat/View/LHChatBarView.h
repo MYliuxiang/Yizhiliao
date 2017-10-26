@@ -14,6 +14,9 @@
 
 @required
 - (void)videoCall;
+
+- (void)vioceCall;
+
 // 用戶
 - (void)giftGive;
 

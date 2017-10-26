@@ -146,6 +146,7 @@ alpha:1.0]
 #import "MLMSegmentManager.h"
 #import "UIView+CBBadge.h"
 #import "MEntrance.h"
+#import "VoiceCall.h"
 
 
 

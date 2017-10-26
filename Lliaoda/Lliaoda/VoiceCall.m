@@ -1047,19 +1047,8 @@
         }];
         
         
-        
-        NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-        NSString *itemcriteria = [NSString stringWithFormat:@"WHERE uid = %@ order by timeDate DESC",selfuid];
-        NSArray *array = [MessageCount findByCriteria:criteria];
-        NSMutableArray *marray = [NSMutableArray arrayWithArray:array];
-        int count = 0;
-        for (MessageCount *mcount in marray) {
-            count += mcount.count;
-        }
-        
         MEntrance *rance = [[MEntrance alloc] init];
-        [rance setBageMessageCount:count];
-        
+        [rance updateBage];
         
         
         
@@ -1770,17 +1759,8 @@
             }
             
             
-            NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-            NSString *itemcriteria = [NSString stringWithFormat:@"WHERE uid = %@ order by timeDate DESC",selfuid];
-            NSArray *array = [MessageCount findByCriteria:criteria];
-            NSMutableArray *marray = [NSMutableArray arrayWithArray:array];
-            int count = 0;
-            for (MessageCount *mcount in marray) {
-                count += mcount.count;
-            }
-            
             MEntrance *rance = [[MEntrance alloc] init];
-            [rance setBageMessageCount:count];
+            [rance updateBage];
             
             
             NSDictionary *msg = @{@"message":@{

@@ -37,140 +37,95 @@ const NSInteger INSETS = 8;
 }
 
 - (void)setupSubviews {
-//    CGFloat insets = (self.frame.size.width - 4 * CHAT_BUTTON_SIZE) / 5;
     
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     bgView.backgroundColor = [UIColor clearColor];
     [self addSubview:bgView];
-    CGFloat width = self.frame.size.width;
     NSArray *nameArr;
+    NSArray *imageNameArr;
     if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
-        nameArr = @[LXSring(@"視頻通訊"), LXSring(@"提示用戶送禮"), LXSring(@"提示用戶儲值")];
+        nameArr = @[LXSring(@"視頻通訊"),@"語音通話", LXSring(@"提示用戶送禮"), LXSring(@"提示用戶儲值")];
+        imageNameArr = @[@"shipinliaotian",@"yuyintonghua", @"songlitixing", @"chongzhi"];
     } else {
-        nameArr = @[LXSring(@"視頻通訊"), LXSring(@"送禮物"), LXSring(@"儲值")];
-        
+        nameArr = @[LXSring(@"視頻通訊"),@"語音通話", LXSring(@"送禮物"), LXSring(@"儲值")];
+        imageNameArr = @[@"shipinliaotian",@"yuyintonghua", @"songliwu", @"chongzhi"];
+
     }
-//    if (self.isZhubo) { // 是主播
-//        nameArr = @[LXSring(@"視頻通訊"), LXSring(@"提示用戶送禮"), LXSring(@"提示用戶儲值")];
-//    } else { // 是用户
-//        nameArr = @[LXSring(@"視頻通訊"), LXSring(@"送禮物"), LXSring(@"儲值")];
-//        
-//    }
     
-    NSArray *imageNameArr = @[@"shipinliaotian", @"songlitixing", @"chongzhi"];
-    NSArray *imageNameArr1 = @[@"shipinliaotian", @"songliwu", @"chongzhi"];
-//    NSArray *imageNameArr = @[@"shipin_01", @"liwu_01", @"chongzhi_01"];
-//    NSArray *selectImageNameArr = @[@"shipin_02",@"liwu_02", @"chongzhi_02"];
+
     for (int i = 0; i < nameArr.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.tag = 100 + i;
-        
-//        [button setImage:[UIImage imageNamed:selectImageNameArr[i]] forState:UIControlStateHighlighted];
         [self addSubview:button];
-        
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
         label.textColor = UIColorFromRGB(0x666666);
         label.font = [UIFont systemFontOfSize:12];
-        label.text = nameArr[i];
         label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:label];
         
-        
-        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+        [button addTarget:self action:@selector(chatMoreAC:) forControlEvents:UIControlEventTouchUpInside];
+        button.frame = CGRectMake(15 + (kScreenWidth / 4 - 30 + 30) * i, 25, kScreenWidth / 4 - 30, 60);
+        label.frame = CGRectMake(button.x, button.bottom + 10, kScreenWidth / 4 - 30, 15);
+       
+            label.text = nameArr[i];
             [button setImage:[UIImage imageNamed:imageNameArr[i]] forState:UIControlStateNormal];
-            if (i == 0) {
-                [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
-                button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-                
-            } else if (i == 1) {
-                [button addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
-                button.frame = CGRectMake((width - CHAT_BUTTON_SIZE) / 2, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-                
-            } else {
-                [button addTarget:self action:@selector(chongzhiAction) forControlEvents:UIControlEventTouchUpInside];
-                button.frame = CGRectMake(width - 30 - CHAT_BUTTON_SIZE, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-            }
-        } else { // 是用户
-            [button setImage:[UIImage imageNamed:imageNameArr1[i]] forState:UIControlStateNormal];
-            if (i == 0) {
-                [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
-                button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-                
-            } else if (i == 1) {
-                [button addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
-                button.frame = CGRectMake((width - CHAT_BUTTON_SIZE) / 2, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-                
-            } else {
-                [button addTarget:self action:@selector(chongzhiAction) forControlEvents:UIControlEventTouchUpInside];
-                button.frame = CGRectMake(width - 30 - CHAT_BUTTON_SIZE, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-            }
-        }
-//        if (_isZhubo) { // 是主播
-//            if (i == 0) {
-//                [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
-//                button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-//                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-//                
-//            } else if (i == 1) {
-//                [button addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
-//                button.frame = CGRectMake((width - CHAT_BUTTON_SIZE) / 2, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-//                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-//                
-//            } else {
-//                [button addTarget:self action:@selector(chongzhiAction) forControlEvents:UIControlEventTouchUpInside];
-//                button.frame = CGRectMake(width - 30 - CHAT_BUTTON_SIZE, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-//                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-//            }
-//        } else { // 是用户
-//            if (i == 0) {
-//                [button addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
-//                button.frame = CGRectMake(30, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-//                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-//                
-//            } else if (i == 1) {
-//                [button addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
-//                button.frame = CGRectMake((width - CHAT_BUTTON_SIZE) / 2, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-//                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-//                
-//            } else {
-//                [button addTarget:self action:@selector(chongzhiAction) forControlEvents:UIControlEventTouchUpInside];
-//                button.frame = CGRectMake(width - 30 - CHAT_BUTTON_SIZE, 25, CHAT_BUTTON_SIZE, CHAT_BUTTON_SIZE);
-//                label.frame = CGRectMake(button.x - CHAT_BUTTON_SIZE / 2, button.bottom + 10, CHAT_BUTTON_SIZE * 2, 15);
-//            }
-//        }
+       
     }
+
 }
 
 #pragma mark - action
 
-- (void)takePicAction {
-    if(_delegate && [_delegate respondsToSelector:@selector(moreViewTakePicAction:)]){
-        [_delegate moreViewTakePicAction:self];
+- (void)chatMoreAC:(UIButton *)btn
+{
+    int index = (int)btn.tag - 100;
+    switch (index) {
+        case 0:
+            
+            if(_delegate && [_delegate respondsToSelector:@selector(moreViewVideoCall:)]){
+                [_delegate moreViewVideoCall:self];
+            }
+            break;
+            
+        case 1:
+            
+            if (_delegate && [_delegate respondsToSelector:@selector(moreViewVioceCallAction:)]) {
+                [_delegate moreViewVioceCallAction:self];
+            }
+            break;
+            
+        case 2:
+            
+            if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+                
+                if (_delegate && [_delegate respondsToSelector:@selector(moreViewGiftPrompt:)]) {
+                    [_delegate moreViewGiftPrompt:self];
+                }
+            }else{
+                
+                if (_delegate && [_delegate respondsToSelector:@selector(moreViewGiftAction:)]) {
+                    [_delegate moreViewGiftAction:self];
+                }
+                
+            }
+            
+            break;
+            
+        case 3:
+            
+            if (_delegate && [_delegate respondsToSelector:@selector(moreViewChongZhiAction:)]) {
+                [_delegate moreViewChongZhiAction:self];
+            }
+            
+            break;
+            
+            
+            
+        default:
+            break;
     }
+    
 }
 
-- (void)photoAction {
-    if (_delegate && [_delegate respondsToSelector:@selector(moreViewPhotoAction:)]) {
-        [_delegate moreViewPhotoAction:self];
-    }
-}
-
-- (void)giftAction {
-    if (_delegate && [_delegate respondsToSelector:@selector(moreViewGiftAction:)]) {
-        [_delegate moreViewGiftAction:self];
-    }
-}
-
-- (void)chongzhiAction {
-    if (_delegate && [_delegate respondsToSelector:@selector(moreViewChongZhiAction:)]) {
-        [_delegate moreViewChongZhiAction:self];
-    }
-}
 
 @end
