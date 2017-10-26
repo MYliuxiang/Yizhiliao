@@ -29,7 +29,7 @@
     [self.nav addSubview:rance];
     [self creatUI];
     
-    [self _loadData];
+    [self _loadTopHostsData];
 }
 
 - (void)creatUI
@@ -132,7 +132,7 @@
     return 100;
 }
 
-- (void)_loadData
+- (void)_loadTopHostsData
 {
     NSDictionary *params;
     [WXDataService requestAFWithURL:Url_topHosts params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
