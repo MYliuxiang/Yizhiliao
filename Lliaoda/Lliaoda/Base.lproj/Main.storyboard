@@ -228,15 +228,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vD4-1q-QjJ">
-                                <rect key="frame" x="95" y="534" width="185" height="58"/>
+                                <rect key="frame" x="137.5" y="534" width="100" height="58"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="OqX-b1-jEP"/>
-                                    <constraint firstAttribute="width" constant="185" id="gTA-Ap-9dJ"/>
+                                    <constraint firstAttribute="width" constant="100" id="gTA-Ap-9dJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="-6" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Tekan tomnol untuk pencaroan~" backgroundImage="tishitankuang">
+                                <state key="normal" title="隨機匹配" backgroundImage="suijipipei">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -291,7 +291,7 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlT-YB-IO7">
                             <rect key="frame" x="168" y="574" width="120" height="44"/>
-                            <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.96833306549999998" green="0.85722500089999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="dR0-6i-uUx"/>
                                 <constraint firstAttribute="height" constant="44" id="jeu-g5-PpL"/>
@@ -317,7 +317,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZT-5f-PT7">
                                     <rect key="frame" x="0.0" y="335" width="335" height="98"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zuanshi_fen" translatesAutoresizingMaskIntoConstraints="NO" id="cOS-Yt-9VX">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zuanshi36" translatesAutoresizingMaskIntoConstraints="NO" id="cOS-Yt-9VX">
                                             <rect key="frame" x="235" y="57.5" width="15" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="15" id="epF-3l-aaJ"/>
@@ -339,7 +339,7 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_hui" translatesAutoresizingMaskIntoConstraints="NO" id="j0r-zJ-zcj">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dingwei_hui20" translatesAutoresizingMaskIntoConstraints="NO" id="j0r-zJ-zcj">
                                                     <rect key="frame" x="0.0" y="26" width="8" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="8" id="Kv6-GH-Gol"/>
@@ -352,7 +352,7 @@
                                                     <color key="textColor" red="0.0" green="0.86666666670000003" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mey-WZ-JFk">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mey-WZ-JFk">
                                                     <rect key="frame" x="53" y="1.5" width="56" height="14"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nvsheng" translatesAutoresizingMaskIntoConstraints="NO" id="95Q-IU-bZb">
@@ -411,7 +411,7 @@
                                         <constraint firstAttribute="width" constant="50" id="2FH-P9-XBg"/>
                                         <constraint firstAttribute="height" constant="50" id="a9t-MG-EzS"/>
                                     </constraints>
-                                    <state key="normal" image="delete2"/>
+                                    <state key="normal" image="delete_sanjiao"/>
                                     <connections>
                                         <action selector="closeAC:" destination="pVv-p5-Vf0" eventType="touchUpInside" id="pxh-hA-Ufc"/>
                                     </connections>
@@ -432,7 +432,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.16282719373703003" green="0.16298320889472961" blue="0.16285133361816406" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.18692046400000001" green="0.20504927640000001" blue="0.32889795300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="dVk-0R-A7i" firstAttribute="centerX" secondItem="Ktq-NC-Tl2" secondAttribute="centerX" id="786-n9-VZ3"/>
                         <constraint firstAttribute="bottom" secondItem="FlT-YB-IO7" secondAttribute="bottom" constant="35" id="9Rk-Tv-UiD"/>
@@ -466,13 +466,13 @@
                                 <constraint firstAttribute="width" constant="40" id="A0K-Wq-d2d"/>
                                 <constraint firstAttribute="height" constant="40" id="I71-Pl-trk"/>
                             </constraints>
-                            <state key="normal" image="Image-1"/>
+                            <state key="normal" image="delete_quan"/>
                             <connections>
                                 <action selector="closeMatch:" destination="pVv-p5-Vf0" eventType="touchUpInside" id="UqK-BL-9be"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.16282719370000001" green="0.16298320890000001" blue="0.16285133360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.18692046403884888" green="0.20504927635192871" blue="0.32889795303344727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="afH-DJ-73q" firstAttribute="centerX" secondItem="c5s-bo-MOc" secondAttribute="centerX" id="6sO-Sc-Y08"/>
                         <constraint firstAttribute="right" secondItem="YvI-Mw-7D3" secondAttribute="right" constant="10" id="LY1-hj-dxc"/>
@@ -520,11 +520,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="g1j-BL-67B">
-                                    <rect key="frame" x="0.0" y="0.0" width="360" height="588"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="588"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暫時沒有消息，去交些新朋友吧！😊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n54-zf-3GS">
-                                            <rect key="frame" x="46" y="100" width="268" height="20"/>
+                                            <rect key="frame" x="53.5" y="100" width="268" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -582,20 +582,20 @@
     </scenes>
     <resources>
         <image name="33" width="404" height="448"/>
-        <image name="Image-1" width="32" height="32"/>
         <image name="bianji" width="15" height="15"/>
-        <image name="delete2" width="50" height="50"/>
+        <image name="delete_quan" width="37" height="37"/>
+        <image name="delete_sanjiao" width="50" height="50"/>
+        <image name="dingwei_hui20" width="7" height="10"/>
         <image name="faxian" width="22" height="22"/>
         <image name="jingxuan_h" width="22" height="17"/>
         <image name="jingxuan_n" width="22" height="17"/>
-        <image name="map_hui" width="7" height="10"/>
         <image name="me_h" width="22" height="21"/>
         <image name="me_n" width="22" height="21"/>
         <image name="nvsheng" width="10" height="10"/>
         <image name="shezhi" width="22" height="22"/>
-        <image name="tishitankuang" width="185" height="59"/>
+        <image name="suijipipei" width="75" height="49"/>
         <image name="xiaoxi_h" width="26" height="22"/>
         <image name="xiaoxi_n" width="26" height="22"/>
-        <image name="zuanshi_fen" width="15" height="12"/>
+        <image name="zuanshi36" width="18" height="15"/>
     </resources>
 </document>

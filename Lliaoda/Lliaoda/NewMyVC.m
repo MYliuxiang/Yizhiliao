@@ -22,6 +22,9 @@
     self.seltedView.layer.cornerRadius = 5;
     self.seltedView.layer.masksToBounds = YES;
     
+    MEntrance *rance = [[MEntrance alloc] initWithVC:self withimageName:@"xiaoxi_bai" withBageColor:Color_nav];
+    [self.headerView addSubview:rance];
+    
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {

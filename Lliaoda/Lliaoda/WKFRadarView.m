@@ -117,10 +117,10 @@
     thumb.center = CGPointMake(rect.size.width / 2.0, rect.size.width / 2.0);
     thumb.layer.cornerRadius = 42;
     thumb.layer.masksToBounds = YES;
-    thumb.layer.borderColor = Color_nav.CGColor;
+    thumb.layer.borderColor = [UIColor whiteColor].CGColor;
     thumb.layer.borderWidth = 2.0;
 //    [thumb sd_setImageWithURL:[NSURL URLWithString:self.url]];
-    thumb.image = [UIImage imageNamed:@"pipei"];
+    thumb.image = [UIImage imageNamed:@"fushe"];
     [self addSubview:thumb];
     
 //    CALayer * thumbnailLayer = [[CALayer alloc]init];
