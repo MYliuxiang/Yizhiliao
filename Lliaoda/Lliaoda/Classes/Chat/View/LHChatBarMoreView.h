@@ -13,8 +13,10 @@
 @protocol LHChatBarMoreViewDelegate <NSObject>
 
 @required
-- (void)moreViewTakePicAction:(LHChatBarMoreView *)moreView;
-- (void)moreViewPhotoAction:(LHChatBarMoreView *)moreView;
+- (void)moreViewVideoCall:(LHChatBarMoreView *)moreView;
+- (void)moreViewVioceCallAction:(LHChatBarMoreView *)moreView;
+
+- (void)moreViewGiftPrompt:(LHChatBarMoreView *)moreView;
 - (void)moreViewGiftAction:(LHChatBarMoreView *)moreView;
 - (void)moreViewChongZhiAction:(LHChatBarMoreView *)moreView;
 

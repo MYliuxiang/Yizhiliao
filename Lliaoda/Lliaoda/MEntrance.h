@@ -18,4 +18,6 @@
 
 - (void)setBageMessageCount:(int)count;
 
+- (void)updateBage;
+
 @end

@@ -112,5 +112,23 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:Notice_MEntranceNotice object:nil userInfo:dic];
 }
 
+- (void)updateBage
+{
+    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
+    NSArray *array = [MessageCount findByCriteria:criteria];
+    int count = 0;
+    
+    for (MessageCount *mcount in array) {
+        count += mcount.count;
+        
+    }
+    
+    [self setBageMessageCount:count];
+    
+    
+}
+
+
 
 @end

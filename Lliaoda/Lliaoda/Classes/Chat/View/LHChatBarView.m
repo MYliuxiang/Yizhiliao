@@ -413,6 +413,52 @@ CGFloat const kChatBatItemWH = 26.0f;
 }
 
 #pragma mark - LHChatBarMoreViewDelegate
+- (void)moreViewVideoCall:(LHChatBarMoreView *)moreView
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(videoCall)]) {
+        
+        [self.delegate videoCall];
+    }
+    
+}
+- (void)moreViewVioceCallAction:(LHChatBarMoreView *)moreView
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(vioceCall)]) {
+        
+        [self.delegate vioceCall];
+    }
+    
+}
+
+- (void)moreViewGiftPrompt:(LHChatBarMoreView *)moreView{
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(remindGiveGift)]) {
+        [self.delegate remindGiveGift];
+    }
+    self.textView.text = @"";
+    self.contentModel =  [LHContentModel contentModelWitiPhotos:self.photos words:self.textView.text];
+    
+}
+- (void)moreViewGiftAction:(LHChatBarMoreView *)moreView
+{
+    
+    self.moreKeyboard = YES;
+    self.showingSystemKeyboard = YES;
+    self.moreBtn.selected = NO;
+    self.emojiBtn.selected = NO;
+    self.y = SCREEN_H - self.height;
+    _tableView.height = self.y - kNavBarHeight;
+    [UIView animateWithDuration:_animationDuration delay:0 options:(_animationCurve << 16 | UIViewAnimationOptionBeginFromCurrentState) animations:^{
+        self.moreView.y = SCREEN_H - kChatMoreHeight;
+        [self.superview layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self.moreView removeFromSuperview];
+    }];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(giftGive)]) {
+        [self.delegate giftGive];
+    }
+}
+
 - (void)moreViewTakePicAction:(LHChatBarMoreView *)moreView {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
@@ -437,75 +483,6 @@ CGFloat const kChatBatItemWH = 26.0f;
         [self.viewController presentViewController:picker animated:YES completion:nil];
     }
 }
-
-
-- (void)moreViewGiftAction:(LHChatBarMoreView *)moreView {
-    NSString *item = [LXUserDefaults objectForKey:itemNumber];
-    if ([item isEqualToString:@"1"]) {// 主播
-        if (self.delegate && [self.delegate respondsToSelector:@selector(remindGiveGift)]) {
-            [self.delegate remindGiveGift];
-        }
-        self.textView.text = @"";
-        self.contentModel =  [LHContentModel contentModelWitiPhotos:self.photos words:self.textView.text];
-//        !self.sendContent ? : self.sendContent(self.contentModel);
-        
-    } else { // 用戶
-        self.moreKeyboard = YES;
-        self.showingSystemKeyboard = YES;
-        self.moreBtn.selected = NO;
-        self.emojiBtn.selected = NO;
-        self.y = SCREEN_H - self.height;
-        _tableView.height = self.y - kNavBarHeight;
-        [UIView animateWithDuration:_animationDuration delay:0 options:(_animationCurve << 16 | UIViewAnimationOptionBeginFromCurrentState) animations:^{
-            self.moreView.y = SCREEN_H - kChatMoreHeight;
-            [self.superview layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            [self.moreView removeFromSuperview];
-        }];
-        if (self.delegate && [self.delegate respondsToSelector:@selector(giftGive)]) {
-            [self.delegate giftGive];
-        }
-    }
-    
-}
-
-- (void)moreViewChongZhiAction:(LHChatBarMoreView *)moreView {
-    NSString *item = [LXUserDefaults objectForKey:itemNumber];
-    if ([item isEqualToString:@"1"]) { // 主播
-        if (self.delegate && [self.delegate respondsToSelector:@selector(remindChongZhi)]) {
-            [self.delegate remindChongZhi];
-        }
-    } else { // 用户
-        if (self.delegate && [self.delegate respondsToSelector:@selector(chongZhi)]) {
-            [self.delegate chongZhi];
-        }
-    }
-    
-}
-
-
-#warning 对視訊-------
-- (void)moreViewPhotoAction:(LHChatBarMoreView *)moreVie {
-    
-    if (self.delegate && [self.delegate respondsToSelector:@selector(videoCall)]) {
-        
-        [self.delegate videoCall];
-    }
-    
-//    if (![LHTools photoLimit]) {
-//        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:nil message:@"请在iPhone的\"設定-隐私-照片\"选项中,允许LHChatUI访问你的照片" delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
-//        [alertView show];
-//        return;
-//    }
-//    
-//    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
-//    imagePickerVc.alwaysEnableDoneBtn = NO;
-//    imagePickerVc.allowPickingVideo = NO;
-//    imagePickerVc.allowTakePicture = NO;
-//    imagePickerVc.allowPickingOriginalPhoto = NO;
-//    [self.viewController presentViewController:imagePickerVc animated:YES completion:nil];
-}
-
 
 #pragma mark - UITextViewDelegate
 - (void)textViewDidChange:(UITextView *)textView {

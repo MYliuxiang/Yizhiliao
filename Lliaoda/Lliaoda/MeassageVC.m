@@ -344,16 +344,7 @@ static MeassageVC *this;
         }
         
         MEntrance *rance = [[MEntrance alloc] init];
-        NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-        NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
-        NSArray *array = [MessageCount findByCriteria:criteria];
-        int count3 = 0;
-        
-        for (MessageCount *mcount in array) {
-            count3 += mcount.count;
-            
-        }
-        [rance setBageMessageCount:count3];
+        [rance updateBage];
         
         //2.更新UI
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationAutomatic)];
@@ -378,16 +369,7 @@ static MeassageVC *this;
     chatVC.count = self.dataList[indexPath.row];
    
     MEntrance *rance = [[MEntrance alloc] init];
-    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
-    NSArray *array = [MessageCount findByCriteria:criteria];
-    int count3 = 0;
-    
-    for (MessageCount *mcount in array) {
-        count3 += mcount.count;
-        
-    }
-    [rance setBageMessageCount:count3];
+    [rance updateBage];
     
     [self.navigationController pushViewController:chatVC animated:YES];
     

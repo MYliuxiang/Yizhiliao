@@ -16,6 +16,9 @@
 
 @property(nonatomic,copy)NSString *nickname;	//String	主播暱稱
 @property(nonatomic,assign)int charge;	//Int	主播收費設定，返回标识，前端决定显示内容
+@property(nonatomic,assign)int chargeAudio;    //Int    主播收費設定，返回标识，前端决定显示内容
+
+
 @property(nonatomic,copy)NSString *portrait;	//String[url]	主播大頭貼地址
 @property(nonatomic,copy)NSString *photo;	//String[url]	主播大頭貼地址
 @property(nonatomic,assign)int likeCount;	//Int	主播状态

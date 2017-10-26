@@ -67,12 +67,25 @@ NSString *const kTableViewFrame = @"frame";
     [self hideBlack];
     
     NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",_sendUid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
-    NSArray *array = [MessageCount findAll];
      if ([MessageCount findFirstByCriteria:criteria]) {
          MessageCount *count = [MessageCount findFirstByCriteria:criteria];
          count.count = 0;
          [count update];
+         
      }
+    
+    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    NSString *itemcriteria = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
+    NSArray *array = [MessageCount findByCriteria:itemcriteria];
+    NSMutableArray *marray = [NSMutableArray arrayWithArray:array];
+    int count = 0;
+    for (MessageCount *mcount in marray) {
+        count += mcount.count;
+    }
+    MEntrance *rance = [[MEntrance alloc] init];
+    [rance setBageMessageCount:count];
+    
+    
 
 }
 
@@ -736,6 +749,137 @@ NSString *const kTableViewFrame = @"frame";
     [self.view addSubview:self.giftsView];
     
 }
+
+- (void)vioceCall
+{
+    if (_pmodel == nil) {
+        
+        NSDictionary *params;
+        params = @{@"uid":self.sendUid};
+        [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+            if(result){
+                if ([[result objectForKey:@"result"] integerValue] == 0) {
+                    
+                    LxCache *lxcache = [LxCache sharedLxCache];
+                    [lxcache setCacheData:result WithKey:[NSString stringWithFormat:@"%@-%@",Url_account,self.sendUid]];
+                    _pmodel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
+                    [self vioceCallAC];
+                    
+                }else{    //请求失败
+                    
+            if ([[result objectForKey:@"result"] integerValue] == 8) {
+                        
+                [self showNoManyMony];
+
+                    }
+                }
+            }
+            
+        } errorBlock:^(NSError *error) {
+            
+        }];
+        
+        
+    }else{
+        
+        [self vioceCallAC];
+        
+    }
+    
+}
+
+
+- (void)showNoManyMony{
+    
+    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
+    
+    lg.destructiveButtonBackgroundColor = Color_nav;
+    lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
+    lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+    lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+    lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
+    lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
+        if ([LXUserDefaults boolForKey:ISMEiGUO]){
+            AccountVC *vc = [[AccountVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }else{
+            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+            if ([lang hasPrefix:@"id"]){
+                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            } else if ([lang hasPrefix:@"ar"]){
+                AccountVC *vc = [[AccountVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
+        }
+        
+    };
+    [lg showAnimated:YES completionHandler:nil];
+}
+
+- (void)vioceCallAC
+{
+    if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"当前网络不可用，请检查您的网络設定") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return;
+    }
+    
+    if (self.pmodel.state == 2) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"当前用户正在忙碌") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    AppDelegate *app = [AppDelegate shareAppDelegate];
+    if(![app.inst isOnline]){
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您正处于离线状态") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
+    NSDictionary *params;
+   
+    params = @{@"uid":self.sendUid,@"type":@1};
+    
+    [WXDataService requestAFWithURL:Url_chatvideocall params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                
+                NSString *channel = [NSString stringWithFormat:@"%@",result[@"data"][@"channel"]];
+                VoiceCall *voiceView = [[VoiceCall alloc] initVideoCallViewWithChancel:channel withUid:self.sendUid withIsSend:YES];
+                [voiceView show];
+                
+            }else{    //请求失败
+                
+                if ([[result objectForKey:@"result"] integerValue] == 8) {
+                    
+                    [self showNoManyMony];
+                }else{
+                    
+                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                        [SVProgressHUD dismiss];
+                    });
+                }
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        
+    }];
+
+    
+}
+
 - (void)videoCall
 {
     
@@ -756,34 +900,8 @@ NSString *const kTableViewFrame = @"frame";
                     
                     if ([[result objectForKey:@"result"] integerValue] == 8) {
                         
-                        LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
-                       
-                        lg.destructiveButtonBackgroundColor = Color_nav;
-                        lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
-                        lg.cancelButtonFont = [UIFont systemFontOfSize:16];
-                        lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                        lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
-                        lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
-                            if ([LXUserDefaults boolForKey:ISMEiGUO]){
-                                AccountVC *vc = [[AccountVC alloc] init];
-                                vc.orderReferee = self.sendUid;
-                                [self.navigationController pushViewController:vc animated:YES];
-                                
-                            }else{
-                                NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-                                if ([lang hasPrefix:@"id"]){
-                                    AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                                    [self.navigationController pushViewController:vc animated:YES];
-                                    
-                                } else if ([lang hasPrefix:@"ar"]){
-                                    AccountVC *vc = [[AccountVC alloc] init];
-                                    [self.navigationController pushViewController:vc animated:YES];
-                                }
-                            }
-                            
-                            
-                        };
-                        [lg showAnimated:YES completionHandler:nil];
+                        [self showNoManyMony];
+
                     }
 
                 }
@@ -827,12 +945,7 @@ NSString *const kTableViewFrame = @"frame";
     }
     
     NSDictionary *params;
-//    if (self.isFromHeader) {
-//        params = @{@"uid":self.personID};
-//    } else {
-        params = @{@"uid":self.sendUid};
-//    }
-    
+    params = @{@"uid":self.sendUid};
     [WXDataService requestAFWithURL:Url_chatvideocall params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
@@ -845,33 +958,8 @@ NSString *const kTableViewFrame = @"frame";
                 
                 if ([[result objectForKey:@"result"] integerValue] == 8) {
                     
-                    LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
-                    
-                    lg.destructiveButtonBackgroundColor = Color_nav;
-                    lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
-                    lg.cancelButtonFont = [UIFont systemFontOfSize:16];
-                    lg.cancelButtonBackgroundColor = [UIColor whiteColor];
-                    lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
-                    lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
-                        if ([LXUserDefaults boolForKey:ISMEiGUO]){
-                            AccountVC *vc = [[AccountVC alloc] init];
-                            [self.navigationController pushViewController:vc animated:YES];
-                            
-                        }else{
-                            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-                            if ([lang hasPrefix:@"id"]){
-                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                                [self.navigationController pushViewController:vc animated:YES];
-                                
-                            } else if ([lang hasPrefix:@"ar"]){
-                                AccountVC *vc = [[AccountVC alloc] init];
-                                [self.navigationController pushViewController:vc animated:YES];
-                            }
-                            
-                        }
-                        
-                    };
-                    [lg showAnimated:YES completionHandler:nil];
+                    [self showNoManyMony];
+
                 }else{
                 
                     [SVProgressHUD showErrorWithStatus:result[@"message"]];
@@ -914,18 +1002,8 @@ NSString *const kTableViewFrame = @"frame";
         [count save];
     }
     
-    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-    
-    NSString *criteria1 = [NSString stringWithFormat:@"WHERE uid = %@ order by timeDate DESC",selfuid];
-    NSArray *array = [MessageCount findByCriteria:criteria1];
-    NSMutableArray *marray = [NSMutableArray array];
-    int ccount = 0;
-    for (MessageCount *mcount in array) {
-        ccount += mcount.count;
-    }
-    
     MEntrance *rance = [[MEntrance alloc] init];
-    [rance setBageMessageCount:ccount];
+    [rance updateBage];
     
     Message *messageModel = [Message new];
     messageModel.isSender = NO;
@@ -1027,30 +1105,8 @@ NSString *const kTableViewFrame = @"frame";
     }
     
     
-    NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",messageModel.sendUid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
-    if ([MessageCount findFirstByCriteria:criteria]) {
-        MessageCount *count = [MessageCount findFirstByCriteria:criteria];
-        count.count = 0;
-        [count update];
-        
-    }else{
-        MessageCount *count = [[MessageCount alloc] init];
-        count.count = 0;
-        [count save];
-    }
-    
-    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
-    
-    NSString *criteria1 = [NSString stringWithFormat:@"WHERE uid = %@ order by timeDate DESC",selfuid];
-    NSArray *array = [MessageCount findByCriteria:criteria1];
-    NSMutableArray *marray = [NSMutableArray array];
-    int ccount = 0;
-    for (MessageCount *mcount in array) {
-        ccount += mcount.count;
-    }
-    
     MEntrance *rance = [[MEntrance alloc] init];
-    [rance setBageMessageCount:ccount];
+    [rance updateBage];
     
     NSString *time = [LHTools processingTimeWithDate:[NSString stringWithFormat:@"%lld",messageModel.date]];
     if (![time isEqualToString:self.lastTime]) {
@@ -1161,9 +1217,6 @@ NSString *const kTableViewFrame = @"frame";
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 NSString *deposit = [NSString stringWithFormat:@"%@",result[@"data"][@"deposit"]];
                 NSString *str = [NSString stringWithFormat:LXSring(@"余额:%@鑽"),deposit];
-//                NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:str];
-//                [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:Color_nav range:NSMakeRange(3, deposit.length)];
-//                [self newgiftView];
                 self.giftsView.elabel.text = str;
                 
             } else{
@@ -1196,7 +1249,6 @@ NSString *const kTableViewFrame = @"frame";
 //多选删除
 - (void)buttonAC
 {
-//    NSArray *array = self.tableView.indexPathsForSelectedRows;
     for (Message *model in self.deltedArray) {
         
         [self myDelete:model];
@@ -1218,7 +1270,7 @@ NSString *const kTableViewFrame = @"frame";
 }
 
 #pragma mark - UIGestureRecognizerDelegate
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     if (self.tableView.editing == YES) {//判断如果点击的是tableView的cell，就把手势给关闭了
         return NO;//关闭手势
     }//否则手势存在
@@ -1270,7 +1322,6 @@ NSString *const kTableViewFrame = @"frame";
 
 //加载数据
 - (void)loadMessageWithDate:(long)date {
-//    NSArray *messages = [[LHIMDBManager shareManager] searchModelArr:[LHMessageModel class] byKey:Id];
     
     NSString *findStr;
     NSString *selfUid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
