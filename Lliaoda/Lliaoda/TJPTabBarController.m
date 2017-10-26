@@ -81,31 +81,7 @@
         
     }
     
-    
-//    _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-//    _button1.tag = 1;
-//    _button1.frame = CGRectMake(0, 0, SCREEN_W / 3, 49);
-//    [_button1 setImage:[UIImage imageNamed:@"jingxuan_n"] forState:UIControlStateNormal];
-//    [_button1 setImage:[UIImage imageNamed:@"jingxuan_h"] forState:UIControlStateSelected];
-//    [_button1 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [tabBarView addSubview:_button1];
-//
-//    _button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-//    _button2.tag = 2;
-//    _button2.backgroundColor = [UIColor clearColor];
-//    _button2.frame = CGRectMake(tabBarView.width / 2 - 35, -21, 70, 70);
-//    [_button2 setBackgroundImage:[UIImage imageNamed:@"faxian_n"] forState:UIControlStateNormal];
-//    [_button2 setBackgroundImage:[UIImage imageNamed:@"faxian_h"] forState:UIControlStateSelected];
-//    [_button2 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [tabBarView addSubview:_button2];
-//
-//    _button3 = [UIButton buttonWithType:UIButtonTypeCustom];
-//    _button3.tag = 3;
-//    _button3.frame = CGRectMake(SCREEN_W / 3 * 2, 0, SCREEN_W / 3, 49);
-//    [_button3 setImage:[UIImage imageNamed:@"me_n"] forState:UIControlStateNormal];
-//    [_button3 setImage:[UIImage imageNamed:@"me_h"] forState:UIControlStateSelected];
-//    [_button3 addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [tabBarView addSubview:_button3];
+
     NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
     if ([userDef boolForKey:@"ToEdit"]) {
         [userDef setBool:NO forKey:@"ToEdit"];

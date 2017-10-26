@@ -307,7 +307,7 @@
     NSTimeInterval time = [currentDate timeIntervalSinceDate:bornDate];
     //时间间隔以秒作为单位,求年的话除以60*60*24*356
     int age = ((int)time)/(3600*24*365);
-    return [NSString stringWithFormat:@"%d",age];
+    return [NSString stringWithFormat:@"%d岁",age];
 }
 
 

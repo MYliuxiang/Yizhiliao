@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OSp-tI-WQs">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                     <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EBP-5V-cbh">
                         <size key="itemSize" width="50" height="50"/>
@@ -39,7 +39,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="OSp-tI-WQs" secondAttribute="bottom" id="Nxn-Lg-v9v"/>
+                <constraint firstAttribute="bottom" secondItem="OSp-tI-WQs" secondAttribute="bottom" constant="49" id="Nxn-Lg-v9v"/>
                 <constraint firstItem="OSp-tI-WQs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Piu-tr-82X"/>
                 <constraint firstItem="OSp-tI-WQs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WOi-NC-ehh"/>
                 <constraint firstAttribute="trailing" secondItem="OSp-tI-WQs" secondAttribute="trailing" id="fc4-4x-omS"/>

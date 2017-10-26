@@ -89,19 +89,19 @@
     
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
 //    if ([lang hasPrefix:@"zh-Hant"]) {
-//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-//        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
-//    }else
-    if ([lang hasPrefix:@"id"]){
-        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,402",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
-    }else if ([lang hasPrefix:@"ar"]){
-        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,403",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
-    }else{
         agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
-    }
+//    }else
+//    if ([lang hasPrefix:@"id"]){
+//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,402",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+//        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+//    }else if ([lang hasPrefix:@"ar"]){
+//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,403",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+//        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+//    }else{
+//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+//        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+//    }
 
     
     [manager.requestSerializer setValue:agent forHTTPHeaderField:@"User-Agent"];
@@ -219,20 +219,20 @@
     
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
 //    if ([lang hasPrefix:@"zh-Hant"]) {
-//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-//        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
-//    }else
-    if ([lang hasPrefix:@"id"]){
-        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,402",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
-    }else if ([lang hasPrefix:@"ar"]){
-        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,403",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
-    }
-    else{
         agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
-    }
+//    }else
+//    if ([lang hasPrefix:@"id"]){
+//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,402",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+//        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+//    }else if ([lang hasPrefix:@"ar"]){
+//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,403",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+//        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+//    }
+//    else{
+//        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+//        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
+//    }
 
     
     [manager.requestSerializer setValue:agent forHTTPHeaderField:@"User-Agent"];

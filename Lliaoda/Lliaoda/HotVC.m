@@ -8,7 +8,6 @@
 
 #import "HotVC.h"
 #import "SelectedCell.h"
-#import "SelectedHeader.h"
 #import "PersonalVC.h"
 @interface HotVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
@@ -52,7 +51,7 @@
     self.collectionView.showsVerticalScrollIndicator = NO;
     //    self.collectionView.contentInset = UIEdgeInsetsMake(0, 15, 5, 15);
     [_collectionView registerNib:[UINib nibWithNibName:@"SelectedCell" bundle:nil] forCellWithReuseIdentifier:@"SelectedCellID"];
-    [_collectionView registerNib:[UINib nibWithNibName:@"SelectedHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID"];
+   
     //    [_collectionView registerNib:[UINib nibWithNibName:@"SelectedBannersHeader" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1"];
     [_collectionView registerClass:[BannerView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1"];
     
@@ -65,8 +64,9 @@
     self.bannersImagesArray = [NSMutableArray array];
     self.bannersLinksArray = [NSMutableArray array];
     
-//    _collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downLoad)];
-//    _collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(upLoad)];
+    _collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downLoad)];
+    _collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(upLoad)];
+    [_collectionView.mj_header beginRefreshing];
     
     
 }
@@ -75,7 +75,6 @@
 {
     HotVC *vc = [[HotVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
-    
     
 }
 
@@ -114,6 +113,7 @@
     }
     
     [WXDataService requestAFWithURL:Url_recommend params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+   
         
         if(result){
             NSLog(@"%@",result[@"message"]);
@@ -250,7 +250,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
-    return 30;
+    return self.dataList.count;
 }
 
 
@@ -258,7 +258,7 @@
 {
     //如果有闲置的就拿到使用,如果没有,系统自动的去创建
     SelectedCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SelectedCellID" forIndexPath:indexPath];
-//    cell.model = self.dataList[indexPath.row];
+    cell.model = self.dataList[indexPath.row];
     [cell setNeedsLayout];
     return cell;
     
@@ -273,14 +273,9 @@
     if (kind == UICollectionElementKindSectionHeader){
         
         if (self.bannersArray.count == 0) {
-            SelectedHeader *_heardView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID" forIndexPath:indexPath];
-            if (self.dataList.count != 0) {
-                _heardView.model = self.dataList[0];
-                
-            }
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
-            [_heardView addGestureRecognizer:tap];
-            reusableview = _heardView;
+           
+            reusableview = nil;
+            
         } else {
             
             BannerView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1" forIndexPath:indexPath];

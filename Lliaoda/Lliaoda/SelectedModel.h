@@ -41,7 +41,7 @@
 @property (nonatomic,assign)int charge;
 @property (nonatomic,copy)NSString *intro;
 @property (nonatomic,assign)int gender;
-@property (nonatomic,assign)int birthday;
+@property (nonatomic,assign)long long birthday;
 @property (nonatomic,assign)int deposit;
 @property (nonatomic,assign)int income;
 

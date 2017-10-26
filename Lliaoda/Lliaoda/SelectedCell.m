@@ -16,6 +16,9 @@
   
     self.layer.cornerRadius = 5;
     self.layer.masksToBounds = YES;
+    
+    self.nianView.layer.cornerRadius = 11;
+    self.nianView.layer.masksToBounds = YES;
     //不在线
     //忙碌
     
@@ -27,6 +30,8 @@
     [self.headerImage sd_setImageWithURL:[NSURL URLWithString:_model.portrait] placeholderImage:[UIImage imageNamed:@"Image"]];
     self.nameLabel.text = _model.nickname;
     _placeLabel.text = [[CityTool sharedCityTool] getAdressWithCountrieId:_model.country WithprovinceId:_model.province WithcityId:_model.city];
+//    self.nianLabel.text =  [InputCheck dateToOld:[NSDate dateWithTimeIntervalSince1970:[_model.birthday longLongValue] / 1000]];
+    self.nianLabel.text = [InputCheck dateToOld:[NSDate dateWithTimeIntervalSince1970:_model.birthday/1000]];
     //主播状态，0 表示离线，1 表示在线，2 表示忙碌。app根据当前语言显示状态
     if(_placeLabel.text.length == 0){
         
@@ -37,48 +42,11 @@
         _palceImageV.hidden = NO;
         
     }
-    if(_model.state == 0){
     
-        self.stateView.layer.borderColor = Color_green.CGColor;
-        self.stateView.layer.cornerRadius = 10;
-        self.stateView.layer.masksToBounds = YES;
-        self.stateView.layer.borderWidth = .5;
-        self.stateLabel.text = LXSring(@"空闲");
-        self.stateLabel1.backgroundColor = Color_green;
-        self.stateLabel1.layer.cornerRadius = 8;
-        self.stateLabel1.layer.masksToBounds = YES;
-        
-        self.stateView.hidden = YES;
-        self.stateLabel.hidden = YES;
-        
-    }else if (_model.state == 1){
-        
-        self.stateView.hidden = YES;
-        self.stateLabel.hidden = YES;
-        self.stateView.layer.borderColor = Color_green.CGColor;
-        self.stateView.layer.cornerRadius = 10;
-        self.stateView.layer.masksToBounds = YES;
-        self.stateView.layer.borderWidth = .5;
-        self.stateLabel.text = LXSring(@"空闲");
-        self.stateLabel1.backgroundColor = Color_green;
-        self.stateLabel1.layer.cornerRadius = 8;
-        self.stateLabel1.layer.masksToBounds = YES;
-    
-    }else{
-        
-        self.stateView.hidden = NO;
-        self.stateLabel.hidden = NO;
-        self.stateView.layer.borderColor = Color_nav.CGColor;
-        self.stateView.layer.cornerRadius = 10;
-        self.stateView.layer.masksToBounds = YES;
-        self.stateView.layer.borderWidth = .5;
-        self.stateLabel.text = LXSring(@"忙碌");
-        self.stateLabel1.backgroundColor = Color_nav;
-        self.stateLabel1.layer.cornerRadius = 8;
-        self.stateLabel1.layer.masksToBounds = YES;
-    
+    if (_model.intro.length != 0) {
+        self.introLabel.text = _model.intro;
     }
-    
+  
 
 }
 

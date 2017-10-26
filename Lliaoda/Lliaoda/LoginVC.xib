@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -271,7 +271,7 @@
     <resources>
         <image name="WechatIMG216" width="11" height="11"/>
         <image name="bg_loading" width="375" height="667"/>
-        <image name="facebook" width="7" height="15"/>
+        <image name="facebook" width="18" height="18"/>
         <image name="gouxuan" width="11" height="11"/>
         <image name="long_talk" width="220" height="230"/>
         <image name="weixin1" width="22" height="18"/>

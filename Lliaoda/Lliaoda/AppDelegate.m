@@ -568,8 +568,6 @@
 - (void)isLogin
 {
     
-    [self homePageViewControllerShow];
-    return;
     
     BaseNavigationController *baseNAV;
     NSString *expire = [LXUserDefaults objectForKey:Expire];
