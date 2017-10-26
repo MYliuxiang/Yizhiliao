@@ -32,6 +32,7 @@
     self.messagePhotos = [NSMutableArray array];
     self.contents = [NSMutableArray array];
     
+    self.videoArrays = [NSMutableArray array];
     self.photoArrays = [NSMutableArray array];
     
     self.cellType = MyTypePhoto;
@@ -47,7 +48,7 @@
     effectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth / 750 * 450);
     [self.backImage addSubview:effectView];
     
-    self.headerImage.layer.cornerRadius = 35;
+    self.headerImage.layer.cornerRadius = 40;
     self.headerImage.layer.masksToBounds = YES;
     
     UITapGestureRecognizer *headImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headImageAC)];
@@ -83,6 +84,8 @@
     [self setHeaderVIew];
     
     [self _loadPhotoData];
+    
+    [self _loadVideoData];
 
 }
 
@@ -102,6 +105,40 @@
                 [self.tableView reloadData];
 //                self.reloadData(self.dataList);
 //                [self.collectionView reloadData];
+                
+                
+            } else{
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                });
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+    
+}
+
+
+- (void)_loadVideoData
+{
+    NSDictionary *params;
+    params = @{@"type":@"video"};
+    [WXDataService requestAFWithURL:Url_accountmedia params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                NSArray *array = result[@"data"];
+                for (NSDictionary *dic in array) {
+                    MyVideoModel *model = [MyVideoModel mj_objectWithKeyValues:dic];
+                    [self.videoArrays addObject:model];
+                }
+                
+                [self.tableView reloadData];
                 
                 
             } else{
@@ -385,6 +422,7 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyVideoCell" owner:self options:nil] lastObject];
             }
+            cell.videoArray = self.videoArrays;
             return cell;
             
         } else if (self.cellType == MyTypePhoto) {

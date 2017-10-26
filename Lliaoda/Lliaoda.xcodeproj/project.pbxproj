@@ -624,10 +624,16 @@
 		8489F5501F9F2323002D1BA4 /* NewMyVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489F54E1F9F2323002D1BA4 /* NewMyVideoCell.m */; };
 		8489F5511F9F2323002D1BA4 /* NewMyVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8489F54F1F9F2323002D1BA4 /* NewMyVideoCell.xib */; };
 		848A0AB41F45A44000057C5B /* ar1502964098.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 848A0AB31F45A44000057C5B /* ar1502964098.mp4 */; };
+		848D91861FA0970C00891B21 /* RankingListCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D91841FA0970C00891B21 /* RankingListCell2.m */; };
+		848D91871FA0970C00891B21 /* RankingListCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848D91851FA0970C00891B21 /* RankingListCell2.xib */; };
+		848D918B1FA09D2900891B21 /* RankingListCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D91891FA09D2900891B21 /* RankingListCell3.m */; };
+		848D918C1FA09D2900891B21 /* RankingListCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848D918A1FA09D2900891B21 /* RankingListCell3.xib */; };
 		849901791F55601B00D4DD40 /* OnlineUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849901771F55601B00D4DD40 /* OnlineUserVC.m */; };
 		8499017A1F55601B00D4DD40 /* OnlineUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849901781F55601B00D4DD40 /* OnlineUserVC.xib */; };
 		849C6D261F590B6800E2289D /* PayWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C6D241F590B6800E2289D /* PayWebViewVC.m */; };
 		849C6D271F590B6800E2289D /* PayWebViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849C6D251F590B6800E2289D /* PayWebViewVC.xib */; };
+		84A2A9BB1FA07FA20045A298 /* RankingListCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A9B91FA07FA20045A298 /* RankingListCell1.m */; };
+		84A2A9BC1FA07FA20045A298 /* RankingListCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A9BA1FA07FA20045A298 /* RankingListCell1.xib */; };
 		84B8CDA91F4AC92700A13D27 /* PersonHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */; };
 		84B8CDAA1F4AC92700A13D27 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */; };
 		84B8CDAD1F4AD3F800A13D27 /* PersonHeaderScroolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDAC1F4AD3F800A13D27 /* PersonHeaderScroolView.m */; };
@@ -1611,12 +1617,21 @@
 		848A0AB11F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		848A0AB21F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		848A0AB31F45A44000057C5B /* ar1502964098.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ar1502964098.mp4; sourceTree = "<group>"; };
+		848D91831FA0970C00891B21 /* RankingListCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingListCell2.h; sourceTree = "<group>"; };
+		848D91841FA0970C00891B21 /* RankingListCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingListCell2.m; sourceTree = "<group>"; };
+		848D91851FA0970C00891B21 /* RankingListCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingListCell2.xib; sourceTree = "<group>"; };
+		848D91881FA09D2900891B21 /* RankingListCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingListCell3.h; sourceTree = "<group>"; };
+		848D91891FA09D2900891B21 /* RankingListCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingListCell3.m; sourceTree = "<group>"; };
+		848D918A1FA09D2900891B21 /* RankingListCell3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingListCell3.xib; sourceTree = "<group>"; };
 		849901761F55601B00D4DD40 /* OnlineUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineUserVC.h; sourceTree = "<group>"; };
 		849901771F55601B00D4DD40 /* OnlineUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineUserVC.m; sourceTree = "<group>"; };
 		849901781F55601B00D4DD40 /* OnlineUserVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlineUserVC.xib; sourceTree = "<group>"; };
 		849C6D231F590B6800E2289D /* PayWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayWebViewVC.h; sourceTree = "<group>"; };
 		849C6D241F590B6800E2289D /* PayWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayWebViewVC.m; sourceTree = "<group>"; };
 		849C6D251F590B6800E2289D /* PayWebViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayWebViewVC.xib; sourceTree = "<group>"; };
+		84A2A9B81FA07FA20045A298 /* RankingListCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingListCell1.h; sourceTree = "<group>"; };
+		84A2A9B91FA07FA20045A298 /* RankingListCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingListCell1.m; sourceTree = "<group>"; };
+		84A2A9BA1FA07FA20045A298 /* RankingListCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingListCell1.xib; sourceTree = "<group>"; };
 		84B8CDA61F4AC92700A13D27 /* PersonHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHeaderCell.h; sourceTree = "<group>"; };
 		84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeaderCell.m; sourceTree = "<group>"; };
 		84B8CDA81F4AC92700A13D27 /* PersonHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonHeaderCell.xib; sourceTree = "<group>"; };
@@ -1749,6 +1764,7 @@
 				2250CDDB1FA042E000A03BE7 /* TopListVC.h */,
 				2250CDDC1FA042E000A03BE7 /* TopListVC.m */,
 				2250CDDD1FA042E000A03BE7 /* TopListVC.xib */,
+				84A2A9B71FA07F3D0045A298 /* views */,
 			);
 			name = "排行榜";
 			sourceTree = "<group>";
@@ -3348,6 +3364,22 @@
 			name = "在线用户";
 			sourceTree = "<group>";
 		};
+		84A2A9B71FA07F3D0045A298 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				84A2A9B81FA07FA20045A298 /* RankingListCell1.h */,
+				84A2A9B91FA07FA20045A298 /* RankingListCell1.m */,
+				84A2A9BA1FA07FA20045A298 /* RankingListCell1.xib */,
+				848D91831FA0970C00891B21 /* RankingListCell2.h */,
+				848D91841FA0970C00891B21 /* RankingListCell2.m */,
+				848D91851FA0970C00891B21 /* RankingListCell2.xib */,
+				848D91881FA09D2900891B21 /* RankingListCell3.h */,
+				848D91891FA09D2900891B21 /* RankingListCell3.m */,
+				848D918A1FA09D2900891B21 /* RankingListCell3.xib */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		DCB50922C1221103A1864F3F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -3598,6 +3630,7 @@
 				225827781ECC09CC0049A6C1 /* end.wav in Resources */,
 				222AA0861EB071910038416D /* b_5@2x.gif in Resources */,
 				222AA0AF1EB071910038416D /* B_97@2x.gif in Resources */,
+				848D91871FA0970C00891B21 /* RankingListCell2.xib in Resources */,
 				224F24721EA7521A00C0FDC6 /* VideoOneVC.xib in Resources */,
 				222AA06E1EB071910038416D /* B_38@2x.gif in Resources */,
 				2290A8461F4BE826005DA0AE /* BannerView.xib in Resources */,
@@ -3611,6 +3644,7 @@
 				222AA0451EB071910038416D /* B_108@2x.gif in Resources */,
 				222396D01EB1CDCC001D4814 /* MessageCell.xib in Resources */,
 				222AA0AE1EB071910038416D /* B_96@2x.gif in Resources */,
+				848D918C1FA09D2900891B21 /* RankingListCell3.xib in Resources */,
 				2291CBE61F4D77B7001AB139 /* CVideoCell.xib in Resources */,
 				2291CBF01F4DBCEA001AB139 /* BaseCellVC.xib in Resources */,
 				222AA1C51EB0775B0038416D /* Animated image support.txt in Resources */,
@@ -3754,6 +3788,7 @@
 				222AA0AA1EB071910038416D /* B_92@2x.gif in Resources */,
 				222AA09D1EB071910038416D /* B_80@2x.gif in Resources */,
 				222AA00F1EB071910038416D /* IM_Chat_keyboard@3x.png in Resources */,
+				84A2A9BC1FA07FA20045A298 /* RankingListCell1.xib in Resources */,
 				222AA0911EB071910038416D /* b_6@2x.gif in Resources */,
 				222AA0101EB071910038416D /* IM_Chat_more@2x.png in Resources */,
 				8483AAF51F4EAE9E008BA674 /* AccountHeaderView.xib in Resources */,
@@ -4041,6 +4076,7 @@
 				221EEBDF1F9F260600618FB9 /* VideoShowVC.m in Sources */,
 				222AA16A1EB071C20038416D /* KeyboardButton.m in Sources */,
 				228CF7391EDE7D070045986D /* MyVideoCell.m in Sources */,
+				84A2A9BB1FA07FA20045A298 /* RankingListCell1.m in Sources */,
 				222AA1D91EB0775B0038416D /* NSAttributedString+YYText.m in Sources */,
 				22ADAE2B1F0BC352005D08A4 /* IAPModel.m in Sources */,
 				222AA1D21EB0775B0038416D /* YYTextMagnifier.m in Sources */,
@@ -4165,6 +4201,7 @@
 				22453BAE1F1C74290000C006 /* UserCell.m in Sources */,
 				2286DC6F1EF26AFE00FDF801 /* LHChatViewCell.m in Sources */,
 				2286DC671EF26AFE00FDF801 /* LHChatImageBubbleView.m in Sources */,
+				848D918B1FA09D2900891B21 /* RankingListCell3.m in Sources */,
 				2291CBF91F4DBD17001AB139 /* InfomationVideoVC.m in Sources */,
 				222B385B1ED96843009DB58F /* MSSBrowseActionSheet.m in Sources */,
 				224F24651EA73ED300C0FDC6 /* VideoRZThreeCell.m in Sources */,
@@ -4265,6 +4302,7 @@
 				222AA14D1EB071C10038416D /* UIImage+Common.m in Sources */,
 				22721FA81EE7D5F7003A19D3 /* PeriSonMediaCell.m in Sources */,
 				2286DC651EF26AFE00FDF801 /* LHChatAudioBubbleView.m in Sources */,
+				848D91861FA0970C00891B21 /* RankingListCell2.m in Sources */,
 				221EEC131F9F45D300618FB9 /* MEntrance.m in Sources */,
 				22B109211EA4A51F00E35B74 /* UIView+ViewController.m in Sources */,
 				2227E5781F02312300507F69 /* RecordGiftModel.m in Sources */,

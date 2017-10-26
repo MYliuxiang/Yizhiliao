@@ -17,7 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.nav.hidden = YES;
+//    self.nav.hidden = YES;
+    self.nav.hidden = NO;
     self.dataList = [NSMutableArray array];
     
     _layout.sectionInset=UIEdgeInsetsMake(0, 15, 0, 15);
