@@ -146,7 +146,7 @@
 - (void)_loadTopHostsData
 {
     NSDictionary *params;
-    [WXDataService requestAFWithURL:Url_topHosts params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+    [WXDataService requestAFWithURL:Url_topHosts params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 NSDictionary *dics = result;
@@ -175,7 +175,7 @@
 - (void)_loadTopUsersData
 {
     NSDictionary *params;
-    [WXDataService requestAFWithURL:Url_topUsers params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+    [WXDataService requestAFWithURL:Url_topUsers params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 NSDictionary *dics = result;

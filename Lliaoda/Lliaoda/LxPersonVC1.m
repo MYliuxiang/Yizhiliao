@@ -34,36 +34,28 @@
 - (void)_loadData
 {
     NSDictionary *params;
-    NSString *str = [LXUserDefaults objectForKey:itemNumber];
-    if ([str isEqualToString:@"1"]) {
-        params = @{@"uid":self.model.uid};
-//        if (self.isFromHeader) {
-//            params = @{@"uid":self.personUID};
-//        } else {
-//            params = @{@"uid":self.model.uid};
-//        }
-
-    } else {
-//        if (self.isFromHeader) {
-//            params = @{@"uid":self.personUID};
-//        } else {
-//            params = @{@"uid":self.model.uid};
-//        }
-        params = @{@"uid":self.model.uid};
-    }
+//    NSString *str = [LXUserDefaults objectForKey:itemNumber];
+//    if ([str isEqualToString:@"1"]) {
+//        params = @{@"uid":self.model.uid};
+//
+//    } else {
+//        params = @{@"uid":self.model.uid};
+//    }
+    params = @{@"uid":self.model.uid};
     [WXDataService requestAFWithURL:Url_accountshow params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
-                self.headerView.height = kScreenWidth + 45 + 40;
                 self.tableView.tableHeaderView = self.headerView;
-                
-                
                 self.pmodel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
-                
                 self.nameLabel.text = self.pmodel.nickname;
                 self.idLabel.text = [NSString stringWithFormat:@"ID：%@",self.pmodel.uid];
-                
+                CGFloat height = [self heightForText:self.pmodel.intro];
+                if (height <= 30) {
+                    self.headerView.height = kScreenWidth / 750 * 450 + 60 + 60;
+                } else {
+                    self.headerView.height = kScreenWidth / 750 * 450 + 60 + height;
+                }
                 if (self.pmodel.like == 0) {
 //                    self.likeButton.selected = NO;
                     //                    self.likeImge.image = [UIImage imageNamed:@"xinxing_22"];
@@ -175,7 +167,14 @@
         
         
     }];
-    
+}
+
+
+- (CGFloat)heightForText:(NSString *)text
+{
+    //设置计算文本时字体的大小,以什么标准来计算
+    NSDictionary *attrbute = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
+    return [text boundingRectWithSize:CGSizeMake(SCREEN_W - 140, 1000) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) attributes:attrbute context:nil].size.height;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -189,6 +188,21 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        if (_type == 0) {
+            LxPersonAlbumCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LxPersonAlbumCell"];
+            if (cell == nil) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"LxPersonAlbumCell" owner:self options:nil] lastObject];
+            }
+            return cell;
+        } else {
+            LxPersonVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LxPersonVideoCell"];
+            if (cell == nil) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"LxPersonVideoCell" owner:self options:nil] lastObject];
+            }
+            return cell;
+        }
+    }
     static NSString *iden = @"cellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:iden];
     if (cell == nil) {
