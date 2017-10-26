@@ -198,6 +198,7 @@ alpha:1.0]
 #define Url_accountheartbeat              @"account/heartbeat"//app在激活状态时发送给服务器
 #define Url_chatvideoreport               @"chat/video/report"//设置当前用户与直播的喜欢状态
 #define Url_chatmessagerobot            @"chat/message/robot"//机器消息  查询假消息
+#define Url_topHosts                      @"top/hosts" // 魅力排行榜
 
 
 //-------------微信登入---------

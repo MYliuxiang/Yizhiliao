@@ -30,7 +30,7 @@
     [rance setBageMessageCount:50];
     [self creatUI];
     
-    
+    [self _loadData];
 }
 
 - (void)creatUI
@@ -133,6 +133,23 @@
     return 100;
 }
 
-
+- (void)_loadData
+{
+    NSDictionary *params;
+    [WXDataService requestAFWithURL:Url_topHosts params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+        
+        if(result){
+            NSLog(@"%@",result);
+            
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                
+            }
+        }
+    } errorBlock:^(NSError *error) {
+        
+        
+    }];
+    
+}
 
 @end
