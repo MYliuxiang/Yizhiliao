@@ -156,6 +156,9 @@ alpha:1.0]
 #define Url_account                       @"account"//获取主播信息
 #define Url_like                          @"like"//設定当前用户与直播的讚状态
 #define Url_recommendusers                @"recommend/users"//首页
+
+#define Url_recommendnew               @"recommend/hosts/new"//首页
+
 #define Url_report                        @"report"//舉報主播
 #define Url_block                         @"block"//拉黑主播
 

@@ -113,13 +113,13 @@ static MeassageVC *this;
         count += mcount.count;
     }
     
-    UITabBarItem *item=[self.tabBarController.tabBar.items objectAtIndex:[MainTabBarController shareMainTabBarController].tabBar.items.count - 2];
-    // 显示
-    item.badgeValue=[NSString stringWithFormat:@"%d",count];
-    if(count == 0){
-        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
-        item.badgeValue = nil;
-    }
+//    UITabBarItem *item=[self.tabBarController.tabBar.items objectAtIndex:[MainTabBarController shareMainTabBarController].tabBar.items.count - 2];
+//    // 显示
+//    item.badgeValue=[NSString stringWithFormat:@"%d",count];
+//    if(count == 0){
+//        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
+//        item.badgeValue = nil;
+//    }
     [self.tableView reloadData];
     [self _initView];
     [self initAgore];
@@ -343,19 +343,26 @@ static MeassageVC *this;
             bage += mcount.count;
         }
         
-        UITabBarItem *item=[self.tabBarController.tabBar.items objectAtIndex:[MainTabBarController shareMainTabBarController].tabBar.items.count - 2];
-        // 显示
-        item.badgeValue=[NSString stringWithFormat:@"%d",bage];
-        if(bage == 0){
-            [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
-            item.badgeValue = nil;
+        MEntrance *rance = [[MEntrance alloc] init];
+        NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
+        NSArray *array = [MessageCount findByCriteria:criteria];
+        int count3 = 0;
+        
+        for (MessageCount *mcount in array) {
+            count3 += mcount.count;
+            
         }
+        [rance setBageMessageCount:count3];
         
         //2.更新UI
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationAutomatic)];
     }];
     //删除按钮颜色
-    deleteAction.backgroundColor = Color_Tab;
+    deleteAction.backgroundColor = Color_nav;
+    if (self.dataList.count == 0) {
+        self.noDataView.hidden = NO;
+    }
     //将設定好的按钮方到数组中返回
     return @[deleteAction];
     // return @[deleteAction,topRowAction,collectRowAction];

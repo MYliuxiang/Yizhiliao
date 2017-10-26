@@ -14,6 +14,9 @@
 @property (nonatomic, assign) long long endedAt;
 @property (nonatomic, assign) long long duration;
 @property (nonatomic, assign)  int uid;
+@property (nonatomic,assign) int type;//0視頻1語音
+@property (nonatomic,assign) int upload;//0為上傳1上傳
+
 
 
 @end

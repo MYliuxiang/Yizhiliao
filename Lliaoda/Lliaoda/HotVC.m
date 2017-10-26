@@ -102,14 +102,23 @@
 {
     NSDictionary *params;
     
-    if(_isdownLoad){
-        
-        params = @{@"begin":[NSString stringWithFormat:@"%d",_begin],@"count":@"20"};
-        
+    NSString *urlStr;
+    if (self.index == 0) {
+        urlStr = Url_recommend;
+       params = @{@"begin":[NSString stringWithFormat:@"%d",_begin],@"count":@"20"};
     }else{
         
-        params = @{@"begin":[NSString stringWithFormat:@"%d",_begin],@"count":@"20"};
-        
+        if(_begin == 0){
+            
+            params = @{@"count":@"20"};
+
+        }else{
+            SelectedModel *model = self.dataList[_begin -1];
+            params = @{@"begin":@(model.updatedAt),@"count":@"20"};
+
+            
+        }
+      urlStr = Url_recommendnew;
     }
     
     [WXDataService requestAFWithURL:Url_recommend params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {

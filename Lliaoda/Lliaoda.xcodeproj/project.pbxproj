@@ -384,6 +384,8 @@
 		22453BAE1F1C74290000C006 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22453BAC1F1C74290000C006 /* UserCell.m */; };
 		22453BAF1F1C74290000C006 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22453BAD1F1C74290000C006 /* UserCell.xib */; };
 		224601E91EB317B9000D4A96 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 224601E81EB317B9000D4A96 /* Message.m */; };
+		224642781FA195DF008B29B8 /* VoiceCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 224642771FA195DF008B29B8 /* VoiceCall.m */; };
+		2246427A1FA195ED008B29B8 /* VoiceCall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224642791FA195ED008B29B8 /* VoiceCall.xib */; };
 		224A4D9B1EBC56BD000D17B5 /* MessageCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A4D9A1EBC56BD000D17B5 /* MessageCount.m */; };
 		224F244F1EA732C800C0FDC6 /* VideoRZVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F244D1EA732C800C0FDC6 /* VideoRZVC.m */; };
 		224F24501EA732C800C0FDC6 /* VideoRZVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224F244E1EA732C800C0FDC6 /* VideoRZVC.xib */; };
@@ -1211,6 +1213,9 @@
 		22453BAD1F1C74290000C006 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		224601E71EB317B9000D4A96 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		224601E81EB317B9000D4A96 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		224642761FA195DF008B29B8 /* VoiceCall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceCall.h; sourceTree = "<group>"; };
+		224642771FA195DF008B29B8 /* VoiceCall.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceCall.m; sourceTree = "<group>"; };
+		224642791FA195ED008B29B8 /* VoiceCall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoiceCall.xib; sourceTree = "<group>"; };
 		224A4D991EBC56BD000D17B5 /* MessageCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCount.h; sourceTree = "<group>"; };
 		224A4D9A1EBC56BD000D17B5 /* MessageCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCount.m; sourceTree = "<group>"; };
 		224F244C1EA732C800C0FDC6 /* VideoRZVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRZVC.h; sourceTree = "<group>"; };
@@ -1830,6 +1835,9 @@
 				222396EB1EB1DE4F001D4814 /* VideoCallView.h */,
 				222396EC1EB1DE4F001D4814 /* VideoCallView.m */,
 				222396EE1EB1ED33001D4814 /* VideoCallView.xib */,
+				224642761FA195DF008B29B8 /* VoiceCall.h */,
+				224642771FA195DF008B29B8 /* VoiceCall.m */,
+				224642791FA195ED008B29B8 /* VoiceCall.xib */,
 				222FA8671EFCF34200E91AE5 /* VideoCallRedView.h */,
 				222FA8681EFCF34200E91AE5 /* VideoCallRedView.m */,
 				222FA86A1EFCF35500E91AE5 /* VideoCallRedView.xib */,
@@ -3707,6 +3715,7 @@
 				222AA0531EB071910038416D /* B_13@2x.gif in Resources */,
 				222AA08E1EB071910038416D /* B_67@2x.gif in Resources */,
 				222B385A1ED96843009DB58F /* mss_browseLoading@3x.png in Resources */,
+				2246427A1FA195ED008B29B8 /* VoiceCall.xib in Resources */,
 				222AA07F1EB071910038416D /* B_53@2x.gif in Resources */,
 				222AA01B1EB071910038416D /* C_109@2x.png in Resources */,
 				222AA0B11EB071910038416D /* B_99@2x.gif in Resources */,
@@ -4298,6 +4307,7 @@
 				8413A2B31F4C412C00CB3CBC /* FixIndustryVC.m in Sources */,
 				228B89D91EA866FB002B8D3C /* YYMemoryCache.m in Sources */,
 				227971CD1EF8DC0900BC8E18 /* FileUnit.m in Sources */,
+				224642781FA195DF008B29B8 /* VoiceCall.m in Sources */,
 				843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */,
 				222AA1D41EB0775B0038416D /* YYTextArchiver.m in Sources */,
 				226E2EE71F0F3651009953FD /* BlackName.m in Sources */,
