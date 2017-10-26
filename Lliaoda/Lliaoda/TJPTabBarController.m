@@ -193,15 +193,12 @@
     if (navigationController.viewControllers.count == 1) {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:.35];
-        if (tabBarView == nil) {
-            [self setupTabBar];
-        }
+        tabBarView.left = 0;
         [UIView commitAnimations];
     } else if (navigationController.viewControllers.count >= 2) {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:.35];
-        [tabBarView removeFromSuperview];
-        tabBarView = nil;
+        tabBarView.right = 0;
         [UIView commitAnimations];
     }
 }

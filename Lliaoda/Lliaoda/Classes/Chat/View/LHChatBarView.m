@@ -623,7 +623,7 @@ CGFloat const kChatBatItemWH = 26.0f;
 - (UIButton *)moreBtn {
     if (!_moreBtn) {
         _moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_moreBtn setImage:[UIImage imageNamed:@"jiahao"] forState:UIControlStateNormal];
+        [_moreBtn setImage:[UIImage imageNamed:@"tianjia"] forState:UIControlStateNormal];
         [_moreBtn setImage:[UIImage imageWithContentsOfFile:[[NSString alloc] initWithFormat:@"%@/%@",recourcesPath,@"IM_Chat_keyboard"]] forState:UIControlStateSelected];
         [_moreBtn addTarget:self action:@selector(moreBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }

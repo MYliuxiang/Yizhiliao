@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,12 +30,12 @@
                                 <constraint firstAttribute="width" constant="44" id="0Vx-hf-IiQ"/>
                                 <constraint firstAttribute="height" constant="44" id="SQh-hm-2M4"/>
                             </constraints>
-                            <state key="normal" image="quan_delete"/>
+                            <state key="normal" image="delete_quan"/>
                             <connections>
                                 <action selector="closeVideo:" destination="iN0-l3-epB" eventType="touchUpInside" id="hJh-kx-rh8"/>
                             </connections>
                         </button>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6C2-bB-h68">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6C2-bB-h68">
                             <rect key="frame" x="187.5" y="22.5" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,8 +83,8 @@
                         <constraint firstItem="hkA-Oj-Avg" firstAttribute="leading" secondItem="jnU-SS-7CW" secondAttribute="leading" constant="44" id="sbY-hS-yYJ"/>
                     </constraints>
                 </view>
-                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aa8-fm-uhP">
-                    <rect key="frame" x="15" y="109" width="22" height="30"/>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aa8-fm-uhP">
+                    <rect key="frame" x="15" y="109" width="86" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UF0-lc-1OO" userLabel="timelabelView">
@@ -109,20 +109,20 @@
                     </constraints>
                 </view>
                 <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqi-Pd-oFF">
-                    <rect key="frame" x="15" y="149" width="97.5" height="30"/>
+                    <rect key="frame" x="15" y="149" width="98.5" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="LJu-Ow-YLk"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ec9-RX-dHE">
-                    <rect key="frame" x="15" y="149" width="97.5" height="30"/>
+                    <rect key="frame" x="15" y="149" width="98.5" height="30"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jinbi" translatesAutoresizingMaskIntoConstraints="NO" id="qCX-JV-pC4">
-                            <rect key="frame" x="10" y="6" width="17" height="18"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zuanshi36" translatesAutoresizingMaskIntoConstraints="NO" id="qCX-JV-pC4">
+                            <rect key="frame" x="10" y="7.5" width="18" height="15"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="333333" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAu-yb-vpy">
-                            <rect key="frame" x="32" y="5.5" width="55.5" height="18"/>
+                            <rect key="frame" x="33" y="5.5" width="55.5" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -220,8 +220,8 @@
                         <action selector="redAC:" destination="iN0-l3-epB" eventType="touchUpInside" id="zTa-Bi-lCI"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9G-35-74s">
-                    <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M9G-35-74s">
+                    <rect key="frame" x="0.0" y="658" width="375" height="9"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户余额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y51-n4-j8g">
                             <rect key="frame" x="15" y="21.5" width="66" height="19.5"/>
@@ -249,7 +249,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zuanshi_fen" translatesAutoresizingMaskIntoConstraints="NO" id="PbQ-Jd-d4S">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zuanshi25" translatesAutoresizingMaskIntoConstraints="NO" id="PbQ-Jd-d4S">
                             <rect key="frame" x="96" y="16" width="15" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="jJq-no-XOE"/>
@@ -263,7 +263,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.0081658530980348587" green="0.80248123407363892" blue="0.74305099248886108" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.0081658530979999994" green="0.80248123410000005" blue="0.74305099249999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="DfO-A0-dBh" firstAttribute="leading" secondItem="Y51-n4-j8g" secondAttribute="trailing" constant="15" id="7uX-9d-ngc"/>
                         <constraint firstItem="drP-Ug-xyK" firstAttribute="centerY" secondItem="PbQ-Jd-d4S" secondAttribute="centerY" constant="-1" id="CB2-AJ-am4"/>
@@ -356,14 +356,14 @@
         </view>
     </objects>
     <resources>
+        <image name="delete_quan" width="37" height="37"/>
         <image name="icon_audio_receive_normal" width="60" height="60"/>
         <image name="icon_call_reject_normal" width="60" height="60"/>
-        <image name="jinbi" width="17" height="18"/>
         <image name="liwu" width="70" height="70"/>
         <image name="pingbi" width="70" height="70"/>
-        <image name="quan_delete" width="27" height="27"/>
         <image name="stop_pingbi" width="70" height="70"/>
         <image name="xihuanbig_h" width="40" height="40"/>
-        <image name="zuanshi_fen" width="15" height="12"/>
+        <image name="zuanshi25" width="15" height="12"/>
+        <image name="zuanshi36" width="18" height="15"/>
     </resources>
 </document>

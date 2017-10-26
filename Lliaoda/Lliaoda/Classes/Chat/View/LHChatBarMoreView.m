@@ -57,8 +57,8 @@ const NSInteger INSETS = 8;
 //        
 //    }
     
-    NSArray *imageNameArr = @[@"shipinliaotian", @"songlitixing", @"chongzhitixing"];
-    NSArray *imageNameArr1 = @[@"shipinliaotian", @"songliwu", @"chuzhi"];
+    NSArray *imageNameArr = @[@"shipinliaotian", @"songlitixing", @"chongzhi"];
+    NSArray *imageNameArr1 = @[@"shipinliaotian", @"songliwu", @"chongzhi"];
 //    NSArray *imageNameArr = @[@"shipin_01", @"liwu_01", @"chongzhi_01"];
 //    NSArray *selectImageNameArr = @[@"shipin_02",@"liwu_02", @"chongzhi_02"];
     for (int i = 0; i < nameArr.count; i++) {

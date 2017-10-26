@@ -30,7 +30,7 @@
 
 - (void)creatUI
 {
-    list = @[@"消息",
+    list = @[@"訊息",
              @"通話記錄",
              ];
     _segHead = [[MLMSegmentHead alloc] initWithFrame:CGRectMake((kScreenWidth - 200) / 2.0, 20, 200, 40) titles:list headStyle:SegmentHeadStyleLine layoutStyle:MLMSegmentLayoutDefault];
@@ -43,6 +43,7 @@
     _segScroll = [[MLMSegmentScroll alloc] initWithFrame:CGRectMake(0, 63, SCREEN_WIDTH, SCREEN_HEIGHT-CGRectGetMaxY(_segHead.frame)) vcOrViews:[self vcArr:list.count]];
     _segScroll.loadAll = NO;
     _segScroll.showIndex = 0;
+    _segScroll.scrollEnabled = NO;
     
     [MLMSegmentManager associateHead:_segHead withScroll:_segScroll completion:^{
         [self.nav addSubview:_segHead];

@@ -114,9 +114,11 @@
     
     NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
     
-    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",uid];
+    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@ and upload = 0",uid];
     
     NSArray *array = [CallTime findByCriteria:criteria];
+    NSArray *array1 = [CallTime findAll];
+
     
     if (array.count == 0) {
         return;
@@ -136,7 +138,8 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 for (CallTime *call in array) {
-                    [call deleteObject];
+                    call.type = 1;
+                    [call update];
                 }
                 
             }else{
@@ -190,9 +193,5 @@
     
     return nil;
 }
-
-
-
-
 
 @end

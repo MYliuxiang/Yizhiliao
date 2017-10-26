@@ -16,19 +16,19 @@
     NSString *s = NSLocalizedString(translation_key, nil);
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
 //    if ([lang hasPrefix:@"zh-Hant"]) {
-//        NSString * path = [[NSBundle mainBundle] pathForResource:@"zh-Hant" ofType:@"lproj"];
-//        NSBundle * languageBundle = [NSBundle bundleWithPath:path];
-//        s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
+        NSString * path = [[NSBundle mainBundle] pathForResource:@"zh-Hant" ofType:@"lproj"];
+        NSBundle * languageBundle = [NSBundle bundleWithPath:path];
+        s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
 //    }else
-    if ([lang hasPrefix:@"id"]){
-        NSString * path = [[NSBundle mainBundle] pathForResource:@"id-ID" ofType:@"lproj"];
-        NSBundle *languageBundle = [NSBundle bundleWithPath:path];
-        s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
-    }else if ([lang hasPrefix:@"ar"]){
-        NSString * path = [[NSBundle mainBundle] pathForResource:@"ar" ofType:@"lproj"];
-        NSBundle *languageBundle = [NSBundle bundleWithPath:path];
-        s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
-    }
+//    if ([lang hasPrefix:@"id"]){
+//        NSString * path = [[NSBundle mainBundle] pathForResource:@"id-ID" ofType:@"lproj"];
+//        NSBundle *languageBundle = [NSBundle bundleWithPath:path];
+//        s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
+//    }else if ([lang hasPrefix:@"ar"]){
+//        NSString * path = [[NSBundle mainBundle] pathForResource:@"ar" ofType:@"lproj"];
+//        NSBundle *languageBundle = [NSBundle bundleWithPath:path];
+//        s = [languageBundle localizedStringForKey:translation_key value:@"" table:nil];
+//    }
 //    else{
 //        
 //        NSString * path = [[NSBundle mainBundle] pathForResource:@"Base" ofType:@"lproj"];

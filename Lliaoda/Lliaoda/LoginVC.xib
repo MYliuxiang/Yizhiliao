@@ -105,11 +105,10 @@
                         <constraint firstAttribute="height" constant="90" id="qZH-Xw-cBT"/>
                         <constraint firstAttribute="width" constant="90" id="yfX-WL-uas"/>
                     </constraints>
-                    <state key="normal" image="long_talk"/>
+                    <state key="normal" image="you"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsn-p2-H3M">
                     <rect key="frame" x="63" y="474" width="250" height="44"/>
-                    <color key="backgroundColor" red="0.31150594349999999" green="0.44067072870000001" blue="0.71868640179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="QEK-oL-lRh"/>
                         <constraint firstAttribute="width" constant="250" id="deq-x2-m6P"/>
@@ -124,7 +123,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEL-n5-5yL">
                     <rect key="frame" x="63" y="538" width="250" height="44"/>
-                    <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="250" id="pfd-fY-hw0"/>
                         <constraint firstAttribute="height" constant="44" id="vyy-LX-YqP"/>
@@ -163,23 +161,23 @@
                         <action selector="tongyiAC:" destination="-1" eventType="touchUpInside" id="SfC-lv-2Hy"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk To Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1R-If-70e">
-                    <rect key="frame" x="144.5" y="205" width="86" height="22"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU 聊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1R-If-70e">
+                    <rect key="frame" x="157" y="205" width="61" height="22"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxg-RA-Hsy">
-                    <rect key="frame" x="63" y="382" width="250" height="200"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nxg-RA-Hsy">
+                    <rect key="frame" x="251" y="396" width="250" height="200"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IZC-Za-D0X">
-                            <rect key="frame" x="67" y="44" width="173" height="30"/>
+                            <rect key="frame" x="67" y="44" width="172" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="002-Sp-ujZ">
-                            <rect key="frame" x="67" y="95" width="173" height="30"/>
+                            <rect key="frame" x="67" y="95" width="172" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -197,8 +195,8 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEN-im-qCT">
-                            <rect key="frame" x="0.0" y="156" width="250" height="44"/>
-                            <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="0.0" y="156" width="249" height="44"/>
+                            <color key="backgroundColor" red="0.96833306549999998" green="0.85722500089999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Ynz-NI-MPV"/>
                             </constraints>
@@ -273,7 +271,7 @@
         <image name="bg_loading" width="375" height="667"/>
         <image name="facebook" width="18" height="18"/>
         <image name="gouxuan" width="11" height="11"/>
-        <image name="long_talk" width="220" height="230"/>
         <image name="weixin1" width="22" height="18"/>
+        <image name="you" width="90" height="90"/>
     </resources>
 </document>

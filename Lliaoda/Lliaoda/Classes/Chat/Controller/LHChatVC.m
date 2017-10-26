@@ -898,9 +898,35 @@ NSString *const kTableViewFrame = @"frame";
     NSLog(@"======%@", userInfo);
     NSString *account = [NSString stringWithFormat:@"%@",userInfo[@"account"]];
     if ( ![account isEqualToString:self.sendUid]) {
-        
+       
         return;
     }
+    
+    NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",userInfo[@"account"],[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
+    if ([MessageCount findFirstByCriteria:criteria]) {
+        MessageCount *count = [MessageCount findFirstByCriteria:criteria];
+        count.count = 0;
+        [count update];
+        
+    }else{
+        MessageCount *count = [[MessageCount alloc] init];
+        count.count = 0;
+        [count save];
+    }
+    
+    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    
+    NSString *criteria1 = [NSString stringWithFormat:@"WHERE uid = %@ order by timeDate DESC",selfuid];
+    NSArray *array = [MessageCount findByCriteria:criteria1];
+    NSMutableArray *marray = [NSMutableArray array];
+    int ccount = 0;
+    for (MessageCount *mcount in array) {
+        ccount += mcount.count;
+    }
+    
+    MEntrance *rance = [[MEntrance alloc] init];
+    [rance setBageMessageCount:ccount];
+    
     Message *messageModel = [Message new];
     messageModel.isSender = NO;
     messageModel.isRead = YES;
@@ -991,14 +1017,40 @@ NSString *const kTableViewFrame = @"frame";
 {
     
     NSDictionary *userInfo = notification.userInfo;
-//     NSDictionary *dic = [InputCheck dictionaryWithJsonString:userInfo[@"msg"]];
-//    NSString *criteria = [NSString stringWithFormat:@"WHERE  messageID = '%@' and sendUid = %@",dic[@"messageID"],self.sendUid];
     Message *messageModel = userInfo[@"msg"];
+    
     if (![messageModel.sendUid isEqualToString:self.sendUid]) {
+        
+      
         
         return;
     }
-   
+    
+    
+    NSString *criteria = [NSString stringWithFormat:@"WHERE sendUid = %@ and uid = %@",messageModel.sendUid,[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]];
+    if ([MessageCount findFirstByCriteria:criteria]) {
+        MessageCount *count = [MessageCount findFirstByCriteria:criteria];
+        count.count = 0;
+        [count update];
+        
+    }else{
+        MessageCount *count = [[MessageCount alloc] init];
+        count.count = 0;
+        [count save];
+    }
+    
+    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    
+    NSString *criteria1 = [NSString stringWithFormat:@"WHERE uid = %@ order by timeDate DESC",selfuid];
+    NSArray *array = [MessageCount findByCriteria:criteria1];
+    NSMutableArray *marray = [NSMutableArray array];
+    int ccount = 0;
+    for (MessageCount *mcount in array) {
+        ccount += mcount.count;
+    }
+    
+    MEntrance *rance = [[MEntrance alloc] init];
+    [rance setBageMessageCount:ccount];
     
     NSString *time = [LHTools processingTimeWithDate:[NSString stringWithFormat:@"%lld",messageModel.date]];
     if (![time isEqualToString:self.lastTime]) {
@@ -1063,9 +1115,7 @@ NSString *const kTableViewFrame = @"frame";
         NSIndexPath *index = [self insertNewMessageOrTime:messageModel];
         [self.messages addObject:messageModel];
         [self.tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    
     }
-   
     
 }
 

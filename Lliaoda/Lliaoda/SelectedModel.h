@@ -48,6 +48,6 @@
 @property(nonatomic,assign) int like;
 @property (nonatomic,retain) NSArray *charges;
 @property (nonatomic,assign)BOOL selected;
-
+@property (nonatomic,assign)long long updatedAt;
 
 @end
