@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RankingListVC">
             <connections>
-                <outlet property="tableView" destination="pNI-8C-1z0" id="vHc-6X-nWK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,23 +18,7 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pNI-8C-1z0">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="svr-lY-RmQ"/>
-                        <outlet property="delegate" destination="-1" id="TfG-e4-X0i"/>
-                    </connections>
-                </tableView>
-            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="pNI-8C-1z0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="920-0N-HEl"/>
-                <constraint firstItem="pNI-8C-1z0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MJ0-T4-byt"/>
-                <constraint firstAttribute="bottom" secondItem="pNI-8C-1z0" secondAttribute="bottom" id="gYp-Yj-jrs"/>
-                <constraint firstAttribute="trailing" secondItem="pNI-8C-1z0" secondAttribute="trailing" id="s18-ky-3af"/>
-            </constraints>
         </view>
     </objects>
 </document>

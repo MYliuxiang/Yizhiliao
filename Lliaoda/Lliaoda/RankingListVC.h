@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "TopListVC.h"
 
-@interface RankingListVC : BaseViewController<UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) UITableView *tableView;
+@interface RankingListVC : BaseViewController
+
 
 @end

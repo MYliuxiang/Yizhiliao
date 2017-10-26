@@ -8,7 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface TopListVC : BaseViewController
+@interface TopListVC : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic,assign) NSInteger index;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
