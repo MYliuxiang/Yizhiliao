@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -403,7 +403,7 @@
             <connections>
                 <outletCollection property="gestureRecognizers" destination="Ta5-FK-Duq" appends="YES" id="CjB-XF-vH5"/>
             </connections>
-            <point key="canvasLocation" x="-189.5" y="362"/>
+            <point key="canvasLocation" x="-415" y="267"/>
         </view>
         <tapGestureRecognizer id="Ta5-FK-Duq">
             <connections>
