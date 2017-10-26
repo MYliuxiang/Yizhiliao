@@ -1,5 +1,5 @@
 //
-//  NewMyVC1.m
+//  LxPersonVC1.m
 //  Lliaoda
 //
 //  Created by 小牛 on 2017/10/26.
@@ -7,7 +7,8 @@
 //
 
 #import "LxPersonVC1.h"
-
+#import "LxPersonNewCell1.h"
+#import "LxPersonNewCell2.h"
 @interface LxPersonVC1 ()
 
 @end
@@ -104,7 +105,7 @@
 //                    }
 //                }
                 
-                NSMutableArray *marray = [NSMutableArray array];
+//                NSMutableArray *marray = [NSMutableArray array];
 //                for (Photo *photo in self.pmodel.photos) {
 //                    [self.photos addObject:photo.url];
 //                }
@@ -120,8 +121,8 @@
                 
                 
                 NSArray *array = [InputCheck getpreferOptions];
-                NSString *str = [InputCheck handleActiveWith:self.pmodel.lastActiveAt];
-                NSString *str1 = [[CityTool sharedCityTool] getAdressWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
+//                NSString *str = [InputCheck handleActiveWith:self.pmodel.lastActiveAt];
+//                NSString *str1 = [[CityTool sharedCityTool] getAdressWithCountrieId:self.model.country WithprovinceId:self.model.province WithcityId:self.model.city];
                 NSString *str2;
                 if (self.pmodel.intro.length == 0) {
                     str2 = @"";
@@ -134,11 +135,11 @@
                 }else{
                     str4 = [NSString stringWithFormat:@"%@",self.pmodel.intro];
                 }
-                NSString *str3 = [NSString stringWithFormat:@"%@-%@",array[self.pmodel.preferOnlineOption],array[self.pmodel.preferOfflineOption]];
+//                NSString *str3 = [NSString stringWithFormat:@"%@-%@",array[self.pmodel.preferOnlineOption],array[self.pmodel.preferOfflineOption]];
                 
 //                self.contentArray = @[str,str1,str4,str2,str3];
                 
-                Present *present = self.pmodel.presents[0];
+//                Present *present = self.pmodel.presents[0];
                 
                 
                 [_tableView reloadData];
@@ -182,41 +183,94 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (section == 0) {
+        return 1;
+    } else if (section == 1) {
+        return 2;
+    } else {
+        return 3;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         if (_type == 0) {
-            LxPersonAlbumCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LxPersonAlbumCell"];
+            NewMyVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewMyVideoCell"];
             if (cell == nil) {
-                cell = [[[NSBundle mainBundle] loadNibNamed:@"LxPersonAlbumCell" owner:self options:nil] lastObject];
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyVideoCell" owner:self options:nil] lastObject];
             }
+//            cell.videoArray = self.videoArrays;
+            cell.addLabel.hidden = YES;
+            [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+            [cell.addButton addTarget:self action:@selector(toVideo) forControlEvents:UIControlEventTouchUpInside];
             return cell;
-        } else {
-            LxPersonVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LxPersonVideoCell"];
+            
+        } else if (_type == 1) {
+            NewMyalbumCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewMyalbumCell"];
             if (cell == nil) {
-                cell = [[[NSBundle mainBundle] loadNibNamed:@"LxPersonVideoCell" owner:self options:nil] lastObject];
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
+            cell.addLabel.hidden = YES;
+            [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+//            cell.photoArray = self.photoArrays;
+            [cell.addButton addTarget:self action:@selector(toAlbum) forControlEvents:UIControlEventTouchUpInside];
             return cell;
         }
+    } else if (indexPath.section == 1) {
+        LxPersonNewCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"LxPersonNewCell1"];
+        
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"LxPersonNewCell1" owner:self options:nil] lastObject];
+        }
+        cell.bottomLineView.hidden = NO;
+        if (indexPath.row == 0) {
+            cell.littleImageView.image = [UIImage imageNamed:@"shijian"];
+            cell.leftLabel.text = @"常在線時間";
+        } else {
+            cell.bottomLineView.hidden = YES;
+            cell.littleImageView.image = [UIImage imageNamed:@"jietonglv"];
+            cell.leftLabel.text = @"接聽率";
+        }
+        return cell;
     }
-    static NSString *iden = @"cellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:iden];
+    LxPersonNewCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"LxPersonNewCell2"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:iden];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"LxPersonNewCell2" owner:self options:nil] lastObject];
+    }
+    cell.bottomLineView.hidden = NO;
+    if (indexPath.row == 0) {
+        [cell.chatButton setImage:[UIImage imageNamed:@"sixinliaotian"] forState:UIControlStateNormal];
+        [cell.chatButton setTitle:@"私訊聊天" forState:UIControlStateNormal];
+        
+    } else if (indexPath.row == 1) {
+        [cell.chatButton setImage:[UIImage imageNamed:@"yuyin_s"] forState:UIControlStateNormal];
+        [cell.chatButton setTitle:@"語音聊天" forState:UIControlStateNormal];
+        
+    } else {
+        cell.bottomLineView.hidden = YES;
+        [cell.chatButton setImage:[UIImage imageNamed:@"yuyinliaotian"] forState:UIControlStateNormal];
+        [cell.chatButton setTitle:@"視訊聊天" forState:UIControlStateNormal];
     }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 12;
+    if (indexPath.section == 0) {
+        return (SCREEN_W - 40) / 2 + 15;
+    }
+    return 60;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 9;
+    if (section == 0) {
+        return 0;
+    }
+    return 10;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0;
@@ -233,8 +287,28 @@
 */
 
 - (IBAction)albumBtnAC:(id)sender {
+    _type = 0;
+    _albumButton.selected = YES;
+    _videoButton.selected = NO;
+    _albumLineView.hidden = NO;
+    _videoLineView.hidden = YES;
 }
 
 - (IBAction)videoBtnAC:(id)sender {
+    _type = 1;
+    _albumButton.selected = NO;
+    _videoButton.selected = YES;
+    _albumLineView.hidden = YES;
+    _videoLineView.hidden = NO;
+}
+
+- (void)toAlbum {
+    MyalbumVC *vc = [[MyalbumVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)toVideo {
+    MyVideoVC *vc = [[MyVideoVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

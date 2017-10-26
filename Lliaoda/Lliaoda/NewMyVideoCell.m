@@ -46,8 +46,4 @@
     }
 }
 
-- (IBAction)addButtonAC:(id)sender {
-    MyVideoVC *vc = [[MyVideoVC alloc] init];
-    [[self viewController].navigationController pushViewController:vc animated:YES];
-}
 @end

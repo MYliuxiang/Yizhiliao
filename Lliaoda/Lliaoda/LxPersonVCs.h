@@ -1,5 +1,5 @@
 //
-//  LxPersonVC1.h
+//  LxPersonVCs.h
 //  Lliaoda
 //
 //  Created by 小牛 on 2017/10/26.
@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "NewMyalbumCell.h"
 #import "NewMyVideoCell.h"
-@interface LxPersonVC1 : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+@interface LxPersonVCs : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;

@@ -588,18 +588,16 @@
 		840BE31C1F1F01A70004B6D9 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE3181F1F01A70004B6D9 /* CollectionHeaderView.xib */; };
 		840BE3201F1F02C40004B6D9 /* ProfitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BE31E1F1F02C40004B6D9 /* ProfitCell.m */; };
 		840BE3211F1F02C40004B6D9 /* ProfitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */; };
-		84123E641FA1C91C00D97BF4 /* LxPersonVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E621FA1C91C00D97BF4 /* LxPersonVC1.m */; };
-		84123E651FA1C91C00D97BF4 /* LxPersonVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E631FA1C91C00D97BF4 /* LxPersonVC1.xib */; };
 		84123E691FA1D1AC00D97BF4 /* LxPersonCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E671FA1D1AC00D97BF4 /* LxPersonCell1.m */; };
 		84123E6A1FA1D1AC00D97BF4 /* LxPersonCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E681FA1D1AC00D97BF4 /* LxPersonCell1.xib */; };
-		84123E6E1FA1DE9B00D97BF4 /* LxPersonAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E6C1FA1DE9B00D97BF4 /* LxPersonAlbumCell.m */; };
-		84123E6F1FA1DE9B00D97BF4 /* LxPersonAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E6D1FA1DE9B00D97BF4 /* LxPersonAlbumCell.xib */; };
-		84123E731FA1DEB300D97BF4 /* LxPersonVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E711FA1DEB300D97BF4 /* LxPersonVideoCell.m */; };
-		84123E741FA1DEB300D97BF4 /* LxPersonVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E721FA1DEB300D97BF4 /* LxPersonVideoCell.xib */; };
 		84123E781FA1E4C600D97BF4 /* LxPersonNewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E761FA1E4C600D97BF4 /* LxPersonNewCell1.m */; };
 		84123E791FA1E4C600D97BF4 /* LxPersonNewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E771FA1E4C600D97BF4 /* LxPersonNewCell1.xib */; };
 		84123E7D1FA1E56800D97BF4 /* LxPersonNewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E7B1FA1E56800D97BF4 /* LxPersonNewCell2.m */; };
 		84123E7E1FA1E56800D97BF4 /* LxPersonNewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E7C1FA1E56800D97BF4 /* LxPersonNewCell2.xib */; };
+		84123E821FA1F63A00D97BF4 /* LxPersonVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E801FA1F63900D97BF4 /* LxPersonVC1.m */; };
+		84123E831FA1F63A00D97BF4 /* LxPersonVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E811FA1F63A00D97BF4 /* LxPersonVC1.xib */; };
+		84123E871FA1FA8A00D97BF4 /* LxPersonVCs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E851FA1FA8A00D97BF4 /* LxPersonVCs.m */; };
+		84123E881FA1FA8A00D97BF4 /* LxPersonVCs.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E861FA1FA8A00D97BF4 /* LxPersonVCs.xib */; };
 		8413A2AE1F4C2ACF00CB3CBC /* PersonalDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8413A2AC1F4C2ACF00CB3CBC /* PersonalDataCell.m */; };
 		8413A2AF1F4C2ACF00CB3CBC /* PersonalDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8413A2AD1F4C2ACF00CB3CBC /* PersonalDataCell.xib */; };
 		8413A2B31F4C412C00CB3CBC /* FixIndustryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8413A2B11F4C412C00CB3CBC /* FixIndustryVC.m */; };
@@ -1576,24 +1574,21 @@
 		840BE31D1F1F02C40004B6D9 /* ProfitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitCell.h; sourceTree = "<group>"; };
 		840BE31E1F1F02C40004B6D9 /* ProfitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitCell.m; sourceTree = "<group>"; };
 		840BE31F1F1F02C40004B6D9 /* ProfitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitCell.xib; sourceTree = "<group>"; };
-		84123E611FA1C91C00D97BF4 /* LxPersonVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxPersonVC1.h; sourceTree = "<group>"; };
-		84123E621FA1C91C00D97BF4 /* LxPersonVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxPersonVC1.m; sourceTree = "<group>"; };
-		84123E631FA1C91C00D97BF4 /* LxPersonVC1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxPersonVC1.xib; sourceTree = "<group>"; };
 		84123E661FA1D1AC00D97BF4 /* LxPersonCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxPersonCell1.h; sourceTree = "<group>"; };
 		84123E671FA1D1AC00D97BF4 /* LxPersonCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxPersonCell1.m; sourceTree = "<group>"; };
 		84123E681FA1D1AC00D97BF4 /* LxPersonCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxPersonCell1.xib; sourceTree = "<group>"; };
-		84123E6B1FA1DE9B00D97BF4 /* LxPersonAlbumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxPersonAlbumCell.h; sourceTree = "<group>"; };
-		84123E6C1FA1DE9B00D97BF4 /* LxPersonAlbumCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxPersonAlbumCell.m; sourceTree = "<group>"; };
-		84123E6D1FA1DE9B00D97BF4 /* LxPersonAlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxPersonAlbumCell.xib; sourceTree = "<group>"; };
-		84123E701FA1DEB300D97BF4 /* LxPersonVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxPersonVideoCell.h; sourceTree = "<group>"; };
-		84123E711FA1DEB300D97BF4 /* LxPersonVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxPersonVideoCell.m; sourceTree = "<group>"; };
-		84123E721FA1DEB300D97BF4 /* LxPersonVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxPersonVideoCell.xib; sourceTree = "<group>"; };
 		84123E751FA1E4C600D97BF4 /* LxPersonNewCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxPersonNewCell1.h; sourceTree = "<group>"; };
 		84123E761FA1E4C600D97BF4 /* LxPersonNewCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxPersonNewCell1.m; sourceTree = "<group>"; };
 		84123E771FA1E4C600D97BF4 /* LxPersonNewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxPersonNewCell1.xib; sourceTree = "<group>"; };
 		84123E7A1FA1E56800D97BF4 /* LxPersonNewCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxPersonNewCell2.h; sourceTree = "<group>"; };
 		84123E7B1FA1E56800D97BF4 /* LxPersonNewCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxPersonNewCell2.m; sourceTree = "<group>"; };
 		84123E7C1FA1E56800D97BF4 /* LxPersonNewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxPersonNewCell2.xib; sourceTree = "<group>"; };
+		84123E7F1FA1F63900D97BF4 /* LxPersonVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxPersonVC1.h; sourceTree = "<group>"; };
+		84123E801FA1F63900D97BF4 /* LxPersonVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxPersonVC1.m; sourceTree = "<group>"; };
+		84123E811FA1F63A00D97BF4 /* LxPersonVC1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LxPersonVC1.xib; sourceTree = "<group>"; };
+		84123E841FA1FA8A00D97BF4 /* LxPersonVCs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxPersonVCs.h; sourceTree = "<group>"; };
+		84123E851FA1FA8A00D97BF4 /* LxPersonVCs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxPersonVCs.m; sourceTree = "<group>"; };
+		84123E861FA1FA8A00D97BF4 /* LxPersonVCs.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxPersonVCs.xib; sourceTree = "<group>"; };
 		8413A2AB1F4C2ACF00CB3CBC /* PersonalDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataCell.h; sourceTree = "<group>"; };
 		8413A2AC1F4C2ACF00CB3CBC /* PersonalDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataCell.m; sourceTree = "<group>"; };
 		8413A2AD1F4C2ACF00CB3CBC /* PersonalDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalDataCell.xib; sourceTree = "<group>"; };
@@ -3067,12 +3062,15 @@
 				221EEBFA1F9F332200618FB9 /* HotVC.h */,
 				221EEBFB1F9F332200618FB9 /* HotVC.m */,
 				221EEBFC1F9F332200618FB9 /* HotVC.xib */,
+				84123E841FA1FA8A00D97BF4 /* LxPersonVCs.h */,
+				84123E851FA1FA8A00D97BF4 /* LxPersonVCs.m */,
+				84123E861FA1FA8A00D97BF4 /* LxPersonVCs.xib */,
+				84123E7F1FA1F63900D97BF4 /* LxPersonVC1.h */,
+				84123E801FA1F63900D97BF4 /* LxPersonVC1.m */,
+				84123E811FA1F63A00D97BF4 /* LxPersonVC1.xib */,
 				2291CBC31F4D2F02001AB139 /* LxPersonVC.h */,
 				2291CBC41F4D2F02001AB139 /* LxPersonVC.m */,
 				2291CBC51F4D2F02001AB139 /* LxPersonVC.xib */,
-				84123E611FA1C91C00D97BF4 /* LxPersonVC1.h */,
-				84123E621FA1C91C00D97BF4 /* LxPersonVC1.m */,
-				84123E631FA1C91C00D97BF4 /* LxPersonVC1.xib */,
 				22D7A2EC1EA5AFA800A631B5 /* PersonalVC.h */,
 				22D7A2ED1EA5AFA800A631B5 /* PersonalVC.m */,
 				22D7A2EE1EA5AFA800A631B5 /* PersonalVC.xib */,
@@ -3217,12 +3215,6 @@
 				84123E671FA1D1AC00D97BF4 /* LxPersonCell1.m */,
 				84123E681FA1D1AC00D97BF4 /* LxPersonCell1.xib */,
 				84F0871D1F541BBF00026235 /* headerImage.jpg */,
-				84123E6B1FA1DE9B00D97BF4 /* LxPersonAlbumCell.h */,
-				84123E6C1FA1DE9B00D97BF4 /* LxPersonAlbumCell.m */,
-				84123E6D1FA1DE9B00D97BF4 /* LxPersonAlbumCell.xib */,
-				84123E701FA1DEB300D97BF4 /* LxPersonVideoCell.h */,
-				84123E711FA1DEB300D97BF4 /* LxPersonVideoCell.m */,
-				84123E721FA1DEB300D97BF4 /* LxPersonVideoCell.xib */,
 				84123E751FA1E4C600D97BF4 /* LxPersonNewCell1.h */,
 				84123E761FA1E4C600D97BF4 /* LxPersonNewCell1.m */,
 				84123E771FA1E4C600D97BF4 /* LxPersonNewCell1.xib */,
@@ -3676,6 +3668,7 @@
 				222AA0121EB071910038416D /* C_100@2x.png in Resources */,
 				222AA0B51EB071910038416D /* icon_success_hite@2x.png in Resources */,
 				22D7A2F01EA5AFA800A631B5 /* PersonalVC.xib in Resources */,
+				84123E831FA1F63A00D97BF4 /* LxPersonVC1.xib in Resources */,
 				222AA02A1EB071910038416D /* C_91@2x.png in Resources */,
 				222AA0951EB071910038416D /* B_73@2x.gif in Resources */,
 				222AA0151EB071910038416D /* C_103@2x.png in Resources */,
@@ -3755,7 +3748,6 @@
 				222AA04C1EB071910038416D /* B_114@2x.gif in Resources */,
 				84F970D61F38946100336234 /* LanguageVC.xib in Resources */,
 				221EEBFE1F9F332200618FB9 /* HotVC.xib in Resources */,
-				84123E741FA1DEB300D97BF4 /* LxPersonVideoCell.xib in Resources */,
 				222AA05E1EB071910038416D /* B_23@2x.gif in Resources */,
 				222AA0001EB071910038416D /* IM_Chat_receiver_bg@2x.png in Resources */,
 				222AA0131EB071910038416D /* C_101@2x.png in Resources */,
@@ -3785,7 +3777,6 @@
 				848A0AB41F45A44000057C5B /* ar1502964098.mp4 in Resources */,
 				222AA07B1EB071910038416D /* b_4@2x.gif in Resources */,
 				22CDA9741EA5F68A006CD611 /* FixintroduceVC.xib in Resources */,
-				84123E6F1FA1DE9B00D97BF4 /* LxPersonAlbumCell.xib in Resources */,
 				222AA0311EB071910038416D /* C_98@2x.png in Resources */,
 				222AA01E1EB071910038416D /* C_112@2x.png in Resources */,
 				222AA0521EB071910038416D /* B_12@2x.gif in Resources */,
@@ -3804,6 +3795,7 @@
 				222AA0461EB071910038416D /* B_109@2x.gif in Resources */,
 				222AA02F1EB071910038416D /* C_96@2x.png in Resources */,
 				2250E62E1EA9EE4D00849842 /* PersonCell.xib in Resources */,
+				84123E881FA1FA8A00D97BF4 /* LxPersonVCs.xib in Resources */,
 				222AA0A11EB071910038416D /* B_84@2x.gif in Resources */,
 				8489F5511F9F2323002D1BA4 /* NewMyVideoCell.xib in Resources */,
 				2291CBFA1F4DBD17001AB139 /* InfomationVideoVC.xib in Resources */,
@@ -3928,7 +3920,6 @@
 				222AA08A1EB071910038416D /* B_63@2x.gif in Resources */,
 				222FA8701EFD151400E91AE5 /* GiftsView.xib in Resources */,
 				222AA0351EB071910038416D /* B_02@2x.gif in Resources */,
-				84123E651FA1C91C00D97BF4 /* LxPersonVC1.xib in Resources */,
 				222AA09B1EB071910038416D /* B_79@2x.gif in Resources */,
 				222740141EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v in Resources */,
 				22DC056F1F39FAA600E2E015 /* noPhoto.jpg in Resources */,
@@ -4215,6 +4206,7 @@
 				223DE5AA1F20AB3700745E94 /* LivePusher.m in Sources */,
 				2244B4671F00B96800685217 /* PresentView.m in Sources */,
 				222B38631ED96843009DB58F /* MSSBrowseRemindView.m in Sources */,
+				84123E821FA1F63A00D97BF4 /* LxPersonVC1.m in Sources */,
 				2244B46D1F00E02400685217 /* MGiftModel.m in Sources */,
 				222AA1DF1EB0775B0038416D /* YYTextUtilities.m in Sources */,
 				2291CBFE1F4DBD30001AB139 /* PersonSelectCell.m in Sources */,
@@ -4268,7 +4260,6 @@
 				2291CBEF1F4DBCEA001AB139 /* BaseCellVC.m in Sources */,
 				222AA1501EB071C10038416D /* UIView+frameAdjust.m in Sources */,
 				2244B4681F00B96800685217 /* AnimOperation.m in Sources */,
-				84123E6E1FA1DE9B00D97BF4 /* LxPersonAlbumCell.m in Sources */,
 				222B38611ED96843009DB58F /* MSSBrowseModel.m in Sources */,
 				841AD6C61F3C580800A3CE0D /* SelectedBannersModel.m in Sources */,
 				222AA1E21EB0775B0038416D /* YYTextView.m in Sources */,
@@ -4287,6 +4278,7 @@
 				2286DC671EF26AFE00FDF801 /* LHChatImageBubbleView.m in Sources */,
 				848D918B1FA09D2900891B21 /* RankingListCell3.m in Sources */,
 				2291CBF91F4DBD17001AB139 /* InfomationVideoVC.m in Sources */,
+				84123E871FA1FA8A00D97BF4 /* LxPersonVCs.m in Sources */,
 				222B385B1ED96843009DB58F /* MSSBrowseActionSheet.m in Sources */,
 				224F24651EA73ED300C0FDC6 /* VideoRZThreeCell.m in Sources */,
 				224428071EA890C800BF3E4D /* JKDBModel.m in Sources */,
@@ -4369,7 +4361,6 @@
 				22844F591ED2A1B800A9E32E /* IQTitleBarButtonItem.m in Sources */,
 				223BDF0F1EA70547006DCD65 /* SettingVC.m in Sources */,
 				224F24571EA7339200C0FDC6 /* UIView+WHC_AutoLayout.m in Sources */,
-				84123E731FA1DEB300D97BF4 /* LxPersonVideoCell.m in Sources */,
 				2286DC641EF26AFE00FDF801 /* LHContentModel.m in Sources */,
 				8413A2B31F4C412C00CB3CBC /* FixIndustryVC.m in Sources */,
 				228B89D91EA866FB002B8D3C /* YYMemoryCache.m in Sources */,
@@ -4391,7 +4382,6 @@
 				2286DC651EF26AFE00FDF801 /* LHChatAudioBubbleView.m in Sources */,
 				848D91861FA0970C00891B21 /* RankingListCell2.m in Sources */,
 				221EEC131F9F45D300618FB9 /* MEntrance.m in Sources */,
-				84123E641FA1C91C00D97BF4 /* LxPersonVC1.m in Sources */,
 				22B109211EA4A51F00E35B74 /* UIView+ViewController.m in Sources */,
 				2227E5781F02312300507F69 /* RecordGiftModel.m in Sources */,
 				222AA1C71EB0775B0038416D /* YYFrameImage.m in Sources */,

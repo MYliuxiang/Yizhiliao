@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="LxPersonNewCell2">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="LxPersonNewCell2">
             <rect key="frame" x="0.0" y="0.0" width="386" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -41,17 +41,28 @@
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mn-aR-GJd">
+                        <rect key="frame" x="0.0" y="59" width="386" height="0.5"/>
+                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="ePr-Ph-nz9"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="u3w-n9-xdC" secondAttribute="trailing" constant="15" id="Xc8-KJ-qvf"/>
                     <constraint firstItem="VbC-1F-caD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="XgL-KE-KCA"/>
+                    <constraint firstAttribute="bottom" secondItem="0mn-aR-GJd" secondAttribute="bottom" id="k3O-e3-lV2"/>
                     <constraint firstItem="Rkd-HH-Zbb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mqH-Mg-Ggr"/>
                     <constraint firstItem="u3w-n9-xdC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="n9p-c3-Oe7"/>
+                    <constraint firstItem="0mn-aR-GJd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sTD-46-OgX"/>
+                    <constraint firstAttribute="trailing" secondItem="0mn-aR-GJd" secondAttribute="trailing" id="tqA-fC-wXp"/>
                     <constraint firstItem="Rkd-HH-Zbb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="xgm-di-uQz"/>
                     <constraint firstItem="VbC-1F-caD" firstAttribute="leading" secondItem="Rkd-HH-Zbb" secondAttribute="trailing" constant="15" id="zxd-eB-YuK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="bottomLineView" destination="0mn-aR-GJd" id="CaP-mM-Zsg"/>
                 <outlet property="chatButton" destination="u3w-n9-xdC" id="PXA-XT-fQU"/>
                 <outlet property="contentLabel" destination="VbC-1F-caD" id="H0n-Vh-j0X"/>
             </connections>
