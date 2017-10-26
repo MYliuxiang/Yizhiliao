@@ -49,7 +49,7 @@
     
     _segScroll = [[MLMSegmentScroll alloc] initWithFrame:CGRectMake(0, 63, SCREEN_WIDTH, SCREEN_HEIGHT-CGRectGetMaxY(_segHead.frame)) vcOrViews:[self vcArr:list.count]];
     _segScroll.loadAll = NO;
-    _segScroll.showIndex = 2;
+    _segScroll.showIndex = 0;
     
     [MLMSegmentManager associateHead:_segHead withScroll:_segScroll completion:^{
         [self.nav addSubview:_segHead];

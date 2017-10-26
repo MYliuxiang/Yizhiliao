@@ -43,8 +43,7 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onrobotMessage:) name:Notice_robotMessage object:nil];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageNoData:) name:Notice_onMessageNoData object:nil];
-        
+      
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageInstantReceive object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMEntranceNotice:) name:Notice_MEntranceNotice object:nil];
@@ -96,11 +95,6 @@
     
 }
 
-- (void)onMessageNoData:(NSNotification *)notification {
-
-    [_btn.cb_badge setBadgeValue:0];
-}
-
 - (void)buttonClick:(UIButton *)btn
 {
     if (self.vc != nil) {
@@ -113,11 +107,9 @@
 
 - (void)setBageMessageCount:(int)count
 {
-    
     [_btn.cb_badge setBadgeValue:count];
     NSDictionary *dic = @{@"count":[NSString stringWithFormat:@"%d",count]};
     [[NSNotificationCenter defaultCenter] postNotificationName:Notice_MEntranceNotice object:nil userInfo:dic];
-    
 }
 
 
