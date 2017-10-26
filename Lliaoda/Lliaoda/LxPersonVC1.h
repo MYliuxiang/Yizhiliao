@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
+#import "LxPersonAlbumCell.h"
+#import "LxPersonVideoCell.h"
 @interface LxPersonVC1 : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -31,4 +32,6 @@
 
 @property (nonatomic,retain) SelectedModel *model;
 @property (nonatomic,retain) PersonModel *pmodel;
+
+@property (nonatomic, assign) int type; // 视频相册类型  0相册  1视频
 @end
