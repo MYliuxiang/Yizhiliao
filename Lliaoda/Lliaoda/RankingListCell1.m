@@ -14,8 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     
-    _bottomImage.layer.cornerRadius = 42;
-    _headerImageView.layer.cornerRadius = 40;
+    
 //    _headerImageView.layer.borderColor = UIColorFromRGB(0xf7db00).CGColor;
 //    _headerImageView.layer.borderWidth = 2;
 }
