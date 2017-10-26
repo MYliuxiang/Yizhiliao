@@ -1769,6 +1769,7 @@
 				2250CDDB1FA042E000A03BE7 /* TopListVC.h */,
 				2250CDDC1FA042E000A03BE7 /* TopListVC.m */,
 				2250CDDD1FA042E000A03BE7 /* TopListVC.xib */,
+				84123E581FA18FDD00D97BF4 /* models */,
 				84A2A9B71FA07F3D0045A298 /* views */,
 			);
 			name = "排行榜";
@@ -3360,6 +3361,13 @@
 				22F05D9E1F7B86AD00844DFC /* AgoraSignalKit.framework */,
 			);
 			path = libs;
+			sourceTree = "<group>";
+		};
+		84123E581FA18FDD00D97BF4 /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 		849901751F555FEF00D4DD40 /* 在线用户 */ = {

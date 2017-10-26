@@ -20,8 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aDN-du-Em2">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aDN-du-Em2">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="zdz-HL-jP9"/>
@@ -33,7 +33,7 @@
             <constraints>
                 <constraint firstItem="aDN-du-Em2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="J7r-M2-sKy"/>
                 <constraint firstItem="aDN-du-Em2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Zho-XU-E9S"/>
-                <constraint firstAttribute="bottom" secondItem="aDN-du-Em2" secondAttribute="bottom" id="gh5-Qf-YdW"/>
+                <constraint firstAttribute="bottom" secondItem="aDN-du-Em2" secondAttribute="bottom" constant="49" id="gh5-Qf-YdW"/>
                 <constraint firstAttribute="trailing" secondItem="aDN-du-Em2" secondAttribute="trailing" id="wqw-dZ-56i"/>
             </constraints>
         </view>

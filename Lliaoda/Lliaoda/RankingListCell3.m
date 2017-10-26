@@ -14,7 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.headerImageView.layer.cornerRadius = 25;
+//    self.headerImageView.layer.cornerRadius = 25;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

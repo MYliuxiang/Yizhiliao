@@ -61,7 +61,7 @@
     NSArray *sarray = @[@"duanshipin_h",@"jingxuan_h",@"faxian_h",@"paihang_h",@"me_h"];
     for (int i =0 ; i< 5; i++) {
         
-       UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.tag = i;
         btn.frame = CGRectMake(i*SCREEN_W / 5, 0, SCREEN_W / 5, 49);
         if (i == 2) {
