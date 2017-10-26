@@ -397,8 +397,9 @@
         call.type = 1;
         call.upload = 0;
         call.duration = self.callTime * 1000;
-        call.uid = [self.uid integerValue];
-        
+        NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        call.uid = [uid intValue];
+        call.sendUid = [self.uid intValue];
         
         NSDictionary *params = @{@"calls":@[@{@"channelId":@(call.channelId),@"endedAt":@(call.endedAt),@"duration":@(call.duration)}]};
         
@@ -1025,8 +1026,9 @@
         call.upload = 0;
         call.type = 1;
         call.duration = self.callTime * 1000;
-        call.uid = [self.uid intValue];
-        
+        NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        call.uid = [uid intValue];
+        call.sendUid = [self.uid intValue];
         NSDictionary *params = @{@"calls":@[@{@"channelId":@(call.channelId),@"endedAt":@(call.endedAt),@"duration":@(call.duration)}]};
         
         [WXDataService requestAFWithURL:Url_chatvideoreport params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
@@ -1662,8 +1664,9 @@
         call.endedAt = idate;
         call.upload = 0;
         call.duration = self.callTime * 1000;
-        call.uid = [self.uid intValue];
-        call.type = 1;
+        NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        call.uid = [uid intValue];
+        call.sendUid = [self.uid intValue];        call.type = 1;
         [call save];
         
     }else{
@@ -1673,8 +1676,9 @@
         call.upload = 0;
         call.duration = self.callTime * 1000;
         call.type = 1;
-        call.uid = [self.uid intValue];
-        [call update];
+        NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        call.uid = [uid intValue];
+        call.sendUid = [self.uid intValue];        [call update];
         
     }
     

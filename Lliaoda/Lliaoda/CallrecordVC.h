@@ -7,6 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "CallTime.h"
+#import "CallRecordCell.h"
 
 @interface CallrecordVC : BaseViewController
 @property (nonatomic,assign) NSInteger index;

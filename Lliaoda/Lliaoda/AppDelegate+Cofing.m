@@ -117,7 +117,6 @@
     NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@ and upload = 0",uid];
     
     NSArray *array = [CallTime findByCriteria:criteria];
-    NSArray *array1 = [CallTime findAll];
 
     
     if (array.count == 0) {

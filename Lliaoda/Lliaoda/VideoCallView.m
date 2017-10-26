@@ -404,8 +404,9 @@
         call.upload = 0;
         call.duration = self.callTime * 1000;
         call.type = 0;
-        call.uid = [self.uid integerValue];
-        
+        NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        call.uid = [uid intValue];
+        call.sendUid = [self.uid intValue];
         
         NSDictionary *params = @{@"calls":@[@{@"channelId":@(call.channelId),@"endedAt":@(call.endedAt),@"duration":@(call.duration)}]};
         
@@ -1040,8 +1041,9 @@
         call.duration = self.callTime * 1000;
         call.type = 0;
         call.upload = 0;
-        call.uid = [self.uid intValue];
-        
+        NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        call.uid = [uid intValue];
+        call.sendUid = [self.uid intValue];
         NSDictionary *params = @{@"calls":@[@{@"channelId":@(call.channelId),@"endedAt":@(call.endedAt),@"duration":@(call.duration)}]};
         
         [WXDataService requestAFWithURL:Url_chatvideoreport params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
@@ -1676,8 +1678,9 @@
         call.channelId = [self.channel intValue];
         call.endedAt = idate;
         call.duration = self.callTime * 1000;
-        call.uid = [self.uid intValue];
-        call.upload = 0;
+        NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        call.uid = [uid intValue];
+        call.sendUid = [self.uid intValue];        call.upload = 0;
         call.type = 0;
         [call save];
         
@@ -1686,8 +1689,9 @@
         call.channelId = [self.channel intValue];
         call.endedAt = idate;
         call.duration = self.callTime * 1000;
-        call.uid = [self.uid intValue];
-        call.upload = 0;
+        NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+        call.uid = [uid intValue];
+        call.sendUid = [self.uid intValue];        call.upload = 0;
         call.type = 0;
         [call update];
         
