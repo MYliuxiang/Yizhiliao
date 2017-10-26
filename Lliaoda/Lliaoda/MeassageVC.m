@@ -369,17 +369,18 @@ static MeassageVC *this;
     LHChatVC *chatVC = [[LHChatVC alloc] init];
     chatVC.sendUid = count.sendUid;
     chatVC.count = self.dataList[indexPath.row];
+   
+    MEntrance *rance = [[MEntrance alloc] init];
+    NSString *selfuid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
+    NSString *criteria = [NSString stringWithFormat:@"WHERE uid = %@",selfuid];
+    NSArray *array = [MessageCount findByCriteria:criteria];
+    int count3 = 0;
     
-    UITabBarItem * item=[self.tabBarController.tabBar.items objectAtIndex:[MainTabBarController shareMainTabBarController].tabBar.items.count - 2];
-    int oldValue = [item.badgeValue intValue];
-    int newValue = oldValue - count.count;
-    if (newValue > 0) {
-        item.badgeValue = [NSString stringWithFormat:@"%d",newValue];
-
-    }else{
-    [[NSNotificationCenter defaultCenter] postNotificationName:Notice_onMessageNoData object:nil];
-        item.badgeValue = nil;
+    for (MessageCount *mcount in array) {
+        count3 += mcount.count;
+        
     }
+    [rance setBageMessageCount:count3];
     
     [self.navigationController pushViewController:chatVC animated:YES];
     

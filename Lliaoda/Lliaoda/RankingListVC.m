@@ -27,7 +27,6 @@
    
     MEntrance *rance = [[MEntrance alloc] initWithVC:self withimageName:@"qipao" withBageColor:[UIColor whiteColor]];
     [self.nav addSubview:rance];
-    [rance setBageMessageCount:50];
     [self creatUI];
     
     
