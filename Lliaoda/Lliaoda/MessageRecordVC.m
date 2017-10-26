@@ -54,7 +54,9 @@
 #pragma mark - 数据源
 - (NSArray *)vcArr:(NSInteger)count {
     NSMutableArray *arr = [NSMutableArray array];
-    MeassageVC *vc = [[MeassageVC alloc] init];
+    
+   UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MeassageVC *vc = [storyBoard instantiateViewControllerWithIdentifier:@"MeassageVC"];
     vc.index = 0;
     [arr addObject:vc];
     
