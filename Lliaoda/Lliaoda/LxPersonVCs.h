@@ -39,4 +39,6 @@
 
 @property (nonatomic, assign) BOOL isFromHeader;
 @property (nonatomic, copy) NSString *personUID;
+
+@property (nonatomic, retain) NSMutableArray *photos;
 @end

@@ -46,4 +46,26 @@
     }
 }
 
+- (void)setVideosArray:(NSArray *)videosArray {
+    for (int i = 0; i < videosArray.count; i++) {
+        Video *video = videosArray[i];
+        switch (i) {
+            case 0:
+                [_imageView1 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
+                break;
+            case 1:
+                [_imageView2 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
+                break;
+            case 2:
+                [_imageView3 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
+                break;
+            case 3:
+                [_imageView4 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 @end

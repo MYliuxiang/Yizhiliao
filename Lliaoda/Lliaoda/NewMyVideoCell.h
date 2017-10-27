@@ -23,5 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *addLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 
-@property (nonatomic, strong) NSMutableArray *videoArray;
+@property (nonatomic, strong) NSArray *videoArray;
+
+@property (nonatomic, strong) NSArray *videosArray;
+
 @end
