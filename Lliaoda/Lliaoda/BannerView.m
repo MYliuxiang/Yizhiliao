@@ -20,7 +20,7 @@
     
     if (!_cycleScrollView) {
         CGRect frame = CGRectMake(15, 15, kScreenWidth - 30, (kScreenWidth - 30) / 690 * 230);
-        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:frame delegate:self placeholderImage:[UIImage imageNamed:@"33"]];
+        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:frame delegate:self placeholderImage:nil];
         [_cycleScrollView setPageControlAliment:SDCycleScrollViewPageContolAlimentRight];
         [_cycleScrollView setPageControlStyle:SDCycleScrollViewPageContolStyleAnimated];
         [_cycleScrollView setPageControlDotSize:CGSizeMake(6, 6)];

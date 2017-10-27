@@ -113,6 +113,7 @@
 {
     _isdownLoad = YES;
     _begin = 0;
+    [self.bannersArray removeAllObjects];
     [self.bannersImagesArray removeAllObjects];
     [self.bannersTitlesArray removeAllObjects];
     [self.bannersLinksArray removeAllObjects];
