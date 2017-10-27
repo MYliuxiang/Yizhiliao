@@ -611,6 +611,8 @@
 		843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31F71F2B3879003C4EB2 /* RepetitionCount.m */; };
 		843E31FB1F2B3B57003C4EB2 /* RechargeCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */; };
 		843EC0261F29D9750051AFD3 /* OrderID.m in Sources */ = {isa = PBXBuildFile; fileRef = 843EC0251F29D9750051AFD3 /* OrderID.m */; };
+		8450DCEA1FA34ACA007729AA /* LxPersonNewCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 8450DCE81FA34ACA007729AA /* LxPersonNewCell3.m */; };
+		8450DCEB1FA34ACA007729AA /* LxPersonNewCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8450DCE91FA34ACA007729AA /* LxPersonNewCell3.xib */; };
 		8476D56B1F4FCB0C00855CDF /* SetHeaderImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476D5691F4FCB0C00855CDF /* SetHeaderImageVC.m */; };
 		8476D56C1F4FCB0C00855CDF /* SetHeaderImageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8476D56A1F4FCB0C00855CDF /* SetHeaderImageVC.xib */; };
 		8476D5701F500E0800855CDF /* AccountPayTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476D56E1F500E0800855CDF /* AccountPayTypeCell.m */; };
@@ -1608,6 +1610,9 @@
 		843E31FA1F2B3B57003C4EB2 /* RechargeCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCount.m; sourceTree = "<group>"; };
 		843EC0241F29D9750051AFD3 /* OrderID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderID.h; sourceTree = "<group>"; };
 		843EC0251F29D9750051AFD3 /* OrderID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderID.m; sourceTree = "<group>"; };
+		8450DCE71FA34ACA007729AA /* LxPersonNewCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxPersonNewCell3.h; sourceTree = "<group>"; };
+		8450DCE81FA34ACA007729AA /* LxPersonNewCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxPersonNewCell3.m; sourceTree = "<group>"; };
+		8450DCE91FA34ACA007729AA /* LxPersonNewCell3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxPersonNewCell3.xib; sourceTree = "<group>"; };
 		8476D5681F4FCB0C00855CDF /* SetHeaderImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetHeaderImageVC.h; sourceTree = "<group>"; };
 		8476D5691F4FCB0C00855CDF /* SetHeaderImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetHeaderImageVC.m; sourceTree = "<group>"; };
 		8476D56A1F4FCB0C00855CDF /* SetHeaderImageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetHeaderImageVC.xib; sourceTree = "<group>"; };
@@ -3213,6 +3218,9 @@
 				84123E7A1FA1E56800D97BF4 /* LxPersonNewCell2.h */,
 				84123E7B1FA1E56800D97BF4 /* LxPersonNewCell2.m */,
 				84123E7C1FA1E56800D97BF4 /* LxPersonNewCell2.xib */,
+				8450DCE71FA34ACA007729AA /* LxPersonNewCell3.h */,
+				8450DCE81FA34ACA007729AA /* LxPersonNewCell3.m */,
+				8450DCE91FA34ACA007729AA /* LxPersonNewCell3.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3916,6 +3924,7 @@
 				22DC056F1F39FAA600E2E015 /* noPhoto.jpg in Resources */,
 				228CF73A1EDE7D070045986D /* MyVideoCell.xib in Resources */,
 				2250E6301EAA013F00849842 /* Assets.xcassets in Resources */,
+				8450DCEB1FA34ACA007729AA /* LxPersonNewCell3.xib in Resources */,
 				222396EF1EB1ED33001D4814 /* VideoCallView.xib in Resources */,
 				222AA0361EB071910038416D /* B_03@2x.gif in Resources */,
 				22721FC71EE80C68003A19D3 /* PPhotoVC.xib in Resources */,
@@ -4245,6 +4254,7 @@
 				222B38621ED96843009DB58F /* MSSBrowseNetworkViewController.m in Sources */,
 				225FA9EE1EFBD6C90086287E /* UserModel.m in Sources */,
 				2291CBCC1F4D30E8001AB139 /* LxPersonHeader.m in Sources */,
+				8450DCEA1FA34ACA007729AA /* LxPersonNewCell3.m in Sources */,
 				2244280E1EA8A98900BF3E4D /* SelectedModel.m in Sources */,
 				228B89D61EA866FB002B8D3C /* YYCache.m in Sources */,
 				2291CBEF1F4DBCEA001AB139 /* BaseCellVC.m in Sources */,

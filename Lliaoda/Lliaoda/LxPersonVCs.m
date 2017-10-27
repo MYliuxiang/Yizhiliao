@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.headerView.height = kScreenWidth / 750 * 450 + 60 + 60;
+    self.headerView.height = kScreenWidth / 750 * 450 + 60 + 60 + 40;
     self.nav.backgroundColor = [UIColor clearColor];
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -94,7 +94,7 @@
                 
                 self.ageLabel.text = [InputCheck dateToOld:[NSDate dateWithTimeIntervalSince1970:[_pmodel.birthday longLongValue] / 1000]];
                 self.text = self.pmodel.nickname;
-                
+                self.placeLabel.text = [[CityTool sharedCityTool] getCityWithCountrieId:_pmodel.country WithprovinceId:_pmodel.province WithcityId:_pmodel.city];
                 Charge *charge;
                 for (Charge *mo in self.pmodel.charges) {
                     if (mo.uid == self.pmodel.charge) {
@@ -698,5 +698,12 @@
         
     }];
     
+}
+- (IBAction)giftBtnAC:(id)sender {
+}
+
+- (IBAction)upTopBtnAC:(id)sender {
+}
+- (IBAction)zanButtonAC:(id)sender {
 }
 @end

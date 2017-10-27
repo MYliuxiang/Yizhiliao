@@ -41,4 +41,13 @@
 @property (nonatomic, copy) NSString *personUID;
 
 @property (nonatomic, retain) NSMutableArray *photos;
+
+@property (weak, nonatomic) IBOutlet UIView *giftBGView;
+- (IBAction)giftBtnAC:(id)sender;  // 礼物
+- (IBAction)upTopBtnAC:(id)sender; // 充值
+
+@property (weak, nonatomic) IBOutlet UIView *zanBGView; // 点赞背景
+@property (weak, nonatomic) IBOutlet UIButton *zanButton;
+- (IBAction)zanButtonAC:(id)sender;
+
 @end
