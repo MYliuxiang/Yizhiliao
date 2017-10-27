@@ -211,26 +211,27 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
-//            for (int i = 0; i < self.pmodel.photos.count; i++) {
-//                Photo *photo = self.pmodel.photos[i];
-//                switch (i) {
-//                    case 0:
-//                        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
-//                        break;
-//                    case 1:
-//                        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
-//                        break;
-//                    case 2:
-//                        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
-//                        break;
-//                    case 3:
-//                        [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
-//                        break;
-//
-//                    default:
-//                        break;
-//                }
-//            }
+            cell.delegate = self;
+            for (int i = 0; i < self.pmodel.photos.count; i++) {
+                Photo *photo = self.pmodel.photos[i];
+                switch (i) {
+                    case 0:
+                        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+                        break;
+                    case 1:
+                        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+                        break;
+                    case 2:
+                        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+                        break;
+                    case 3:
+                        [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+                        break;
+
+                    default:
+                        break;
+                }
+            }
             cell.addLabel.hidden = YES;
             [cell.addButton setImage:[UIImage imageNamed:@"dengdeng_huang"] forState:UIControlStateNormal];
             [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
@@ -351,13 +352,21 @@
 }
 
 - (void)toAlbum {
-    MyalbumVC *vc = [[MyalbumVC alloc] init];
+    PPhotoVC *vc = [[PPhotoVC alloc] init];
+    vc.pmodel = self.pmodel;
+    vc.model = self.model;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)toVideo {
-    MyVideoVC *vc = [[MyVideoVC alloc] init];
+    
+    PVideoVC *vc = [[PVideoVC alloc] init];
+    vc.pmodel = self.pmodel;
+    vc.model = self.model;
     [self.navigationController pushViewController:vc animated:YES];
+    
+//    MyVideoVC *vc = [[MyVideoVC alloc] init];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)rightAction
@@ -530,9 +539,37 @@
     }];
 }
 
+#pragma mark - NewMyalbumCellDelegate
+- (void)imageShowAC:(UITapGestureRecognizer *)tap {
+    NSInteger index = tap.view.tag - 100;
+    if (index < self.pmodel.photos.count) {
+        NSMutableArray *browseItemArray = [[NSMutableArray alloc]init];
+        for(int i = 0; i < self.pmodel.photos.count; i++)
+        {
+            Photo *model = self.pmodel.photos[i];
+            UIImageView *imageView = (UIImageView *)tap.view;
+            MSSBrowseModel *browseItem = [[MSSBrowseModel alloc]init];
+            browseItem.bigImageUrl = model.url;// 加载网络图片大图地址
+            browseItem.smallImageView = imageView;// 小图
+            [browseItemArray addObject:browseItem];
+        }
+        MSSBrowseNetworkViewController *bvc = [[MSSBrowseNetworkViewController alloc]initWithBrowseItemArray:browseItemArray currentIndex:index];
+        //    bvc.isEqualRatio = NO;// 大图小图不等比时需要設定这个属性（建议等比）
+        [bvc showBrowseViewController];
+    }
+}
+
+
 #pragma mark - NewMyVideoCellDelegate
-- (void)videoPlayAC:(NewMyVideoCell *)cell {
-    
+- (void)videoPlayAC:(UIButton *)button {
+    NSInteger tag = button.tag - 100;
+    if (tag >= self.pmodel.videos.count) {
+        return;
+    }
+    Video *video = self.pmodel.videos[tag];
+    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+    vc.videoUrl = [NSURL URLWithString:video.url];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - 私信聊天

@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class NewMyalbumCell;
+@protocol NewMyalbumCellDelegate <NSObject>
+
+- (void)imageShowAC:(UITapGestureRecognizer *)tap;
+
+@end
 
 @interface NewMyalbumCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView1;
@@ -17,4 +23,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *addLabel;
 
 @property (nonatomic, strong) NSMutableArray *photoArray;
+@property (nonatomic, weak) id<NewMyalbumCellDelegate>delegate;
 @end

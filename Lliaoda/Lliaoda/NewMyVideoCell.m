@@ -73,7 +73,7 @@
 
 - (IBAction)videoPlayAC:(id)sender {
     if (_delegate && [_delegate respondsToSelector:@selector(videoPlayAC:)]) {
-        [_delegate videoPlayAC:self];
+        [_delegate videoPlayAC:sender];
     }
 //    UIButton *button = sender;
 //    NSInteger tag = button.tag;

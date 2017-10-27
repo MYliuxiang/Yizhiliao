@@ -10,7 +10,7 @@
 @class NewMyVideoCell;
 @protocol NewMyVideoCellDelegate <NSObject>
 
-- (void)videoPlayAC:(NewMyVideoCell *)cell;
+- (void)videoPlayAC:(UIButton *)button;
 
 @end
 @interface NewMyVideoCell : UITableViewCell
