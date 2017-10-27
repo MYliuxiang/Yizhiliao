@@ -426,6 +426,7 @@
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyVideoCell" owner:self options:nil] lastObject];
             }
             cell.videoArray = self.videoArrays;
+            [cell.addButton addTarget:self action:@selector(toVideo) forControlEvents:UIControlEventTouchUpInside];
             return cell;
             
         } else if (self.cellType == MyTypePhoto) {
@@ -434,6 +435,7 @@
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
             cell.photoArray = self.photoArrays;
+            [cell.addButton addTarget:self action:@selector(toAlbum) forControlEvents:UIControlEventTouchUpInside];
             return cell;
         }
     }
@@ -1343,9 +1345,20 @@
     VideoRZVC *vc = [[VideoRZVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 - (IBAction)editUserinfoBtnAC:(id)sender {
     FixpersonalVC *vc = [[FixpersonalVC alloc] init];
     vc.model = self.model;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)toAlbum {
+    MyalbumVC *vc = [[MyalbumVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)toVideo {
+    MyVideoVC *vc = [[MyVideoVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

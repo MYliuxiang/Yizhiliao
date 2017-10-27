@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *littleImageView;
 @property (weak, nonatomic) IBOutlet UILabel *leftLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIView *bottomLineView;
 
 @end

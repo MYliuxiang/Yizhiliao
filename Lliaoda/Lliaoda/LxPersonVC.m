@@ -527,7 +527,7 @@
                 
                 self.contentArray = @[str,str1,str4,str2,str3];
                 
-                Present *present = self.pmodel.presents[0];
+//                Present *present = self.pmodel.presents[0];
                
                 
                 [_tableView reloadData];

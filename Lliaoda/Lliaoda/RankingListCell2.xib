@@ -29,7 +29,7 @@
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I1q-5r-7QF">
                         <rect key="frame" x="63" y="24" width="50" height="50"/>
-                        <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="U9e-Ol-Id0"/>
                             <constraint firstAttribute="height" constant="50" id="gMk-pR-m68"/>

@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,9 +51,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="105.5" height="74.5"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="15"/>
                                 <state key="normal" image="tianjia"/>
-                                <connections>
-                                    <action selector="addButtonAC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ACC-fN-ThZ"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85882352939999995" green="0.88235294119999996" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,21 +64,33 @@
                             <constraint firstAttribute="trailing" secondItem="oOZ-wA-XOw" secondAttribute="trailing" id="ogj-Cj-XT5"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMe-Uj-1dU">
+                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMe-Uj-1dU">
                         <rect key="frame" x="15" y="0.0" width="154.5" height="154.5"/>
                         <state key="normal" image="dashipin"/>
+                        <connections>
+                            <action selector="videoPlayAC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TN3-bP-9BF"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8y-U6-Cg6">
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8y-U6-Cg6">
                         <rect key="frame" x="174.5" y="0.5" width="106" height="75"/>
                         <state key="normal" image="dashipin"/>
+                        <connections>
+                            <action selector="videoPlayAC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gvr-Md-A73"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOJ-Nq-c9T">
+                    <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOJ-Nq-c9T">
                         <rect key="frame" x="285.5" y="0.5" width="105.5" height="75"/>
                         <state key="normal" image="dashipin"/>
+                        <connections>
+                            <action selector="videoPlayAC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3rR-hh-YXa"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5G-z4-vH1">
+                    <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5G-z4-vH1">
                         <rect key="frame" x="175" y="79.5" width="106" height="74.5"/>
                         <state key="normal" image="dashipin"/>
+                        <connections>
+                            <action selector="videoPlayAC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Bfq-7N-2uy"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -124,6 +133,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="addBGView" destination="rJg-L4-nw3" id="VtP-rc-1kR"/>
+                <outlet property="addButton" destination="uXe-wy-QW2" id="3bJ-Re-aiw"/>
+                <outlet property="addLabel" destination="oOZ-wA-XOw" id="RCj-Zx-guQ"/>
                 <outlet property="imageView1" destination="h9k-IL-wkG" id="9hI-sX-6dk"/>
                 <outlet property="imageView2" destination="yhQ-hR-nuQ" id="BKR-kV-69D"/>
                 <outlet property="imageView3" destination="78K-QP-wvs" id="9cP-pD-qhq"/>

@@ -46,8 +46,34 @@
     }
 }
 
-- (IBAction)addButtonAC:(id)sender {
-    MyVideoVC *vc = [[MyVideoVC alloc] init];
-    [[self viewController].navigationController pushViewController:vc animated:YES];
+- (void)setVideosArray:(NSArray *)videosArray {
+    for (int i = 0; i < videosArray.count; i++) {
+        Video *video = videosArray[i];
+        switch (i) {
+            case 0:
+                [_imageView1 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
+                break;
+            case 1:
+                [_imageView2 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
+                break;
+            case 2:
+                [_imageView3 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
+                break;
+            case 3:
+                [_imageView4 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+- (IBAction)videoPlayAC:(id)sender {
+    UIButton *button = sender;
+    NSInteger tag = button.tag;
+    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+    Video *video = _videosArray[tag - 100];
+    vc.videoUrl = [NSURL URLWithString:video.url];
+    [[self viewController] presentViewController:vc animated:YES completion:nil];
 }
 @end

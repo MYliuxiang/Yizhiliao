@@ -20,8 +20,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *playButton4;
 
 @property (weak, nonatomic) IBOutlet UIView *addBGView;
+@property (weak, nonatomic) IBOutlet UILabel *addLabel;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+- (IBAction)videoPlayAC:(id)sender;
 
-- (IBAction)addButtonAC:(id)sender;
+@property (nonatomic, strong) NSArray *videoArray;
 
-@property (nonatomic, strong) NSMutableArray *videoArray;
+@property (nonatomic, strong) NSArray *videosArray;
+
 @end

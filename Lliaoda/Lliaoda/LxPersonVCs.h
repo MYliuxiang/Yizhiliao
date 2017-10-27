@@ -1,5 +1,5 @@
 //
-//  NewMyVC1.h
+//  LxPersonVCs.h
 //  Lliaoda
 //
 //  Created by 小牛 on 2017/10/26.
@@ -7,10 +7,12 @@
 //
 
 #import "BaseViewController.h"
-#import "LxPersonAlbumCell.h"
-#import "LxPersonVideoCell.h"
-@interface LxPersonVC1 : BaseViewController<UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) IBOutlet UIView *headerView;
+#import "NewMyalbumCell.h"
+#import "NewMyVideoCell.h"
+#import "LxPersonNewCell1.h"
+#import "LxPersonNewCell2.h"
+@interface LxPersonVCs : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
@@ -34,4 +36,9 @@
 @property (nonatomic,retain) PersonModel *pmodel;
 
 @property (nonatomic, assign) int type; // 视频相册类型  0相册  1视频
+
+@property (nonatomic, assign) BOOL isFromHeader;
+@property (nonatomic, copy) NSString *personUID;
+
+@property (nonatomic, retain) NSMutableArray *photos;
 @end
