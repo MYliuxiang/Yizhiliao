@@ -64,21 +64,33 @@
                             <constraint firstAttribute="trailing" secondItem="oOZ-wA-XOw" secondAttribute="trailing" id="ogj-Cj-XT5"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMe-Uj-1dU">
+                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMe-Uj-1dU">
                         <rect key="frame" x="15" y="0.0" width="154.5" height="154.5"/>
                         <state key="normal" image="dashipin"/>
+                        <connections>
+                            <action selector="videoPlayAC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TN3-bP-9BF"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8y-U6-Cg6">
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8y-U6-Cg6">
                         <rect key="frame" x="174.5" y="0.5" width="106" height="75"/>
                         <state key="normal" image="dashipin"/>
+                        <connections>
+                            <action selector="videoPlayAC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gvr-Md-A73"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOJ-Nq-c9T">
+                    <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOJ-Nq-c9T">
                         <rect key="frame" x="285.5" y="0.5" width="105.5" height="75"/>
                         <state key="normal" image="dashipin"/>
+                        <connections>
+                            <action selector="videoPlayAC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3rR-hh-YXa"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5G-z4-vH1">
+                    <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5G-z4-vH1">
                         <rect key="frame" x="175" y="79.5" width="106" height="74.5"/>
                         <state key="normal" image="dashipin"/>
+                        <connections>
+                            <action selector="videoPlayAC:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Bfq-7N-2uy"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

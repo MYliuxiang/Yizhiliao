@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIView *addBGView;
 @property (weak, nonatomic) IBOutlet UILabel *addLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+- (IBAction)videoPlayAC:(id)sender;
 
 @property (nonatomic, strong) NSArray *videoArray;
 

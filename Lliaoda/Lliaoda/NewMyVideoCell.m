@@ -68,4 +68,12 @@
     }
 }
 
+- (IBAction)videoPlayAC:(id)sender {
+    UIButton *button = sender;
+    NSInteger tag = button.tag;
+    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+    Video *video = _videosArray[tag - 100];
+    vc.videoUrl = [NSURL URLWithString:video.url];
+    [[self viewController] presentViewController:vc animated:YES completion:nil];
+}
 @end
