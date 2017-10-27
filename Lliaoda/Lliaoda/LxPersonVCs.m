@@ -211,26 +211,26 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
-            for (int i = 0; i < self.pmodel.photos.count; i++) {
-                Photo *photo = self.pmodel.photos[i];
-                switch (i) {
-                    case 0:
-                        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
-                        break;
-                    case 1:
-                        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
-                        break;
-                    case 2:
-                        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
-                        break;
-                    case 3:
-                        [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
-                        break;
-                        
-                    default:
-                        break;
-                }
-            }
+//            for (int i = 0; i < self.pmodel.photos.count; i++) {
+//                Photo *photo = self.pmodel.photos[i];
+//                switch (i) {
+//                    case 0:
+//                        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+//                        break;
+//                    case 1:
+//                        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+//                        break;
+//                    case 2:
+//                        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+//                        break;
+//                    case 3:
+//                        [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+//                        break;
+//
+//                    default:
+//                        break;
+//                }
+//            }
             cell.addLabel.hidden = YES;
             [cell.addButton setImage:[UIImage imageNamed:@"dengdeng_huang"] forState:UIControlStateNormal];
             [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
@@ -242,6 +242,7 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyVideoCell" owner:self options:nil] lastObject];
             }
+            cell.delegate = self;
             for (int i = 0; i < self.pmodel.videos.count; i++) {
                 Video *video = self.pmodel.videos[i];
                 switch (i) {
@@ -361,7 +362,6 @@
 
 - (void)rightAction
 {
-    
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
         [userDef setBool:YES forKey:@"ToEdit"];
@@ -529,6 +529,12 @@
         
     }];
 }
+
+#pragma mark - NewMyVideoCellDelegate
+- (void)videoPlayAC:(NewMyVideoCell *)cell {
+    
+}
+
 #pragma mark - 私信聊天
 - (void)chatButtonAC {
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {

@@ -11,7 +11,7 @@
 #import "NewMyVideoCell.h"
 #import "LxPersonNewCell1.h"
 #import "LxPersonNewCell2.h"
-@interface LxPersonVCs : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+@interface LxPersonVCs : BaseViewController<UITableViewDelegate, UITableViewDataSource, NewMyVideoCellDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;

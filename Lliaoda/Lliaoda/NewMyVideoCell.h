@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class NewMyVideoCell;
+@protocol NewMyVideoCellDelegate <NSObject>
 
+- (void)videoPlayAC:(NewMyVideoCell *)cell;
+
+@end
 @interface NewMyVideoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView1;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView2;
@@ -27,5 +32,5 @@
 @property (nonatomic, strong) NSArray *videoArray;
 
 @property (nonatomic, strong) NSArray *videosArray;
-
+@property (nonatomic, weak) id<NewMyVideoCellDelegate>delegate;
 @end

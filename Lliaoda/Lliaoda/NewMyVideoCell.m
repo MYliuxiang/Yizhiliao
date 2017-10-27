@@ -21,6 +21,7 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - 我的
 - (void)setVideoArray:(NSMutableArray *)videoArray {
     if (videoArray.count >= 4) {
         for (int i = 0; i < videoArray.count; i++) {
@@ -46,6 +47,8 @@
     }
 }
 
+
+#pragma mark - 个人中心
 - (void)setVideosArray:(NSArray *)videosArray {
     for (int i = 0; i < videosArray.count; i++) {
         Video *video = videosArray[i];
@@ -69,11 +72,18 @@
 }
 
 - (IBAction)videoPlayAC:(id)sender {
-    UIButton *button = sender;
-    NSInteger tag = button.tag;
-    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
-    Video *video = _videosArray[tag - 100];
-    vc.videoUrl = [NSURL URLWithString:video.url];
-    [[self viewController] presentViewController:vc animated:YES completion:nil];
+    if (_delegate && [_delegate respondsToSelector:@selector(videoPlayAC:)]) {
+        [_delegate videoPlayAC:self];
+    }
+//    UIButton *button = sender;
+//    NSInteger tag = button.tag;
+//    NSLog(@"%lu", (unsigned long)self.videosArray.count);
+//    Video *video = self.videosArray[tag - 100];
+//    if (video != nil) {
+//        VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+//        vc.videoUrl = [NSURL URLWithString:video.url];
+//        [[self viewController] presentViewController:vc animated:YES completion:nil];
+//    }
+    
 }
 @end
