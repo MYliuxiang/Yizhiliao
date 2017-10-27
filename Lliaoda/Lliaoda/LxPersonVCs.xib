@@ -12,7 +12,23 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LxPersonVCs">
             <connections>
+                <outlet property="ageLabel" destination="GRJ-Gu-9Nx" id="c4u-zC-0EZ"/>
+                <outlet property="albumButton" destination="4JP-ja-479" id="Otu-Pc-mN0"/>
+                <outlet property="albumLineView" destination="XRe-ec-caA" id="PeV-e2-LIR"/>
+                <outlet property="biaoqianLabel" destination="P8b-25-G1C" id="itY-CM-EAj"/>
+                <outlet property="headerImageView" destination="XXT-Bq-Xtq" id="gce-EX-CA1"/>
+                <outlet property="headerView" destination="Ord-Wo-Rbe" id="slz-Wp-Wsx"/>
+                <outlet property="idLabel" destination="QDv-SJ-nUC" id="qBO-CN-Ntv"/>
+                <outlet property="nameLabel" destination="Nm4-E9-xKP" id="Muw-IW-n5e"/>
+                <outlet property="placeLabel" destination="aLm-BS-eoY" id="8aI-ta-IGo"/>
+                <outlet property="renzhengButton" destination="a2B-XA-Yfk" id="PD6-2y-h2l"/>
+                <outlet property="tableView" destination="RQK-z4-vp7" id="QR7-MJ-D2w"/>
+                <outlet property="unDisturbButton" destination="tRo-Sd-igF" id="qnI-lA-3Bp"/>
+                <outlet property="videoButton" destination="oLI-3V-Ezk" id="nuG-LC-Vj6"/>
+                <outlet property="videoLineView" destination="pUP-Fm-Irs" id="CH8-yY-boW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="xingzuoLabel" destination="C40-vl-vmn" id="0pz-G5-qlZ"/>
+                <outlet property="zanCountLabel" destination="Y9A-dN-2Td" id="u09-Pu-lkP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -47,7 +63,7 @@
                         <constraint firstAttribute="width" secondItem="dof-kq-Xyv" secondAttribute="height" multiplier="750:450" id="vQW-2M-aXr"/>
                     </constraints>
                 </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XXT-Bq-Xtq">
+                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XXT-Bq-Xtq">
                     <rect key="frame" x="22" y="62" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="0aW-p2-ddE"/>
@@ -310,6 +326,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <inset key="titleEdgeInsets" minX="0.0" minY="-6" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" title="相冊">
                                                 <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -317,6 +334,9 @@
                                             <state key="selected">
                                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="albumBtnAC:" destination="-1" eventType="touchUpInside" id="NZk-h8-Xrk"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRe-ec-caA">
                                             <rect key="frame" x="84" y="34" width="20" height="1"/>
@@ -344,6 +364,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <inset key="titleEdgeInsets" minX="0.0" minY="-6" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" title="視頻">
                                                 <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -351,6 +372,9 @@
                                             <state key="selected">
                                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="videoBtnAC:" destination="-1" eventType="touchUpInside" id="ZGv-U1-Chp"/>
+                                            </connections>
                                         </button>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUP-Fm-Irs">
                                             <rect key="frame" x="84" y="34" width="20" height="1"/>

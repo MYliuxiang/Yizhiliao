@@ -9,7 +9,7 @@
 #import "HotVC.h"
 #import "SelectedCell.h"
 #import "PersonalVC.h"
-#import "LxPersonVC1.h"
+#import "LxPersonVCs.h"
 @interface HotVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
     int _begin;
@@ -325,7 +325,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    LxPersonVC1 *vc = [[LxPersonVC1 alloc] init];
+    LxPersonVCs *vc = [[LxPersonVCs alloc] init];
     vc.model = self.dataList[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
     

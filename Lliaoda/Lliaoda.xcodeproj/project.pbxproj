@@ -594,8 +594,6 @@
 		84123E791FA1E4C600D97BF4 /* LxPersonNewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E771FA1E4C600D97BF4 /* LxPersonNewCell1.xib */; };
 		84123E7D1FA1E56800D97BF4 /* LxPersonNewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E7B1FA1E56800D97BF4 /* LxPersonNewCell2.m */; };
 		84123E7E1FA1E56800D97BF4 /* LxPersonNewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E7C1FA1E56800D97BF4 /* LxPersonNewCell2.xib */; };
-		84123E821FA1F63A00D97BF4 /* LxPersonVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E801FA1F63900D97BF4 /* LxPersonVC1.m */; };
-		84123E831FA1F63A00D97BF4 /* LxPersonVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E811FA1F63A00D97BF4 /* LxPersonVC1.xib */; };
 		84123E871FA1FA8A00D97BF4 /* LxPersonVCs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84123E851FA1FA8A00D97BF4 /* LxPersonVCs.m */; };
 		84123E881FA1FA8A00D97BF4 /* LxPersonVCs.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84123E861FA1FA8A00D97BF4 /* LxPersonVCs.xib */; };
 		8413A2AE1F4C2ACF00CB3CBC /* PersonalDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8413A2AC1F4C2ACF00CB3CBC /* PersonalDataCell.m */; };
@@ -1583,9 +1581,6 @@
 		84123E7A1FA1E56800D97BF4 /* LxPersonNewCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxPersonNewCell2.h; sourceTree = "<group>"; };
 		84123E7B1FA1E56800D97BF4 /* LxPersonNewCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxPersonNewCell2.m; sourceTree = "<group>"; };
 		84123E7C1FA1E56800D97BF4 /* LxPersonNewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxPersonNewCell2.xib; sourceTree = "<group>"; };
-		84123E7F1FA1F63900D97BF4 /* LxPersonVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxPersonVC1.h; sourceTree = "<group>"; };
-		84123E801FA1F63900D97BF4 /* LxPersonVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxPersonVC1.m; sourceTree = "<group>"; };
-		84123E811FA1F63A00D97BF4 /* LxPersonVC1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LxPersonVC1.xib; sourceTree = "<group>"; };
 		84123E841FA1FA8A00D97BF4 /* LxPersonVCs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxPersonVCs.h; sourceTree = "<group>"; };
 		84123E851FA1FA8A00D97BF4 /* LxPersonVCs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxPersonVCs.m; sourceTree = "<group>"; };
 		84123E861FA1FA8A00D97BF4 /* LxPersonVCs.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxPersonVCs.xib; sourceTree = "<group>"; };
@@ -3065,9 +3060,6 @@
 				84123E841FA1FA8A00D97BF4 /* LxPersonVCs.h */,
 				84123E851FA1FA8A00D97BF4 /* LxPersonVCs.m */,
 				84123E861FA1FA8A00D97BF4 /* LxPersonVCs.xib */,
-				84123E7F1FA1F63900D97BF4 /* LxPersonVC1.h */,
-				84123E801FA1F63900D97BF4 /* LxPersonVC1.m */,
-				84123E811FA1F63A00D97BF4 /* LxPersonVC1.xib */,
 				2291CBC31F4D2F02001AB139 /* LxPersonVC.h */,
 				2291CBC41F4D2F02001AB139 /* LxPersonVC.m */,
 				2291CBC51F4D2F02001AB139 /* LxPersonVC.xib */,
@@ -3668,7 +3660,6 @@
 				222AA0121EB071910038416D /* C_100@2x.png in Resources */,
 				222AA0B51EB071910038416D /* icon_success_hite@2x.png in Resources */,
 				22D7A2F01EA5AFA800A631B5 /* PersonalVC.xib in Resources */,
-				84123E831FA1F63A00D97BF4 /* LxPersonVC1.xib in Resources */,
 				222AA02A1EB071910038416D /* C_91@2x.png in Resources */,
 				222AA0951EB071910038416D /* B_73@2x.gif in Resources */,
 				222AA0151EB071910038416D /* C_103@2x.png in Resources */,
@@ -4206,7 +4197,6 @@
 				223DE5AA1F20AB3700745E94 /* LivePusher.m in Sources */,
 				2244B4671F00B96800685217 /* PresentView.m in Sources */,
 				222B38631ED96843009DB58F /* MSSBrowseRemindView.m in Sources */,
-				84123E821FA1F63A00D97BF4 /* LxPersonVC1.m in Sources */,
 				2244B46D1F00E02400685217 /* MGiftModel.m in Sources */,
 				222AA1DF1EB0775B0038416D /* YYTextUtilities.m in Sources */,
 				2291CBFE1F4DBD30001AB139 /* PersonSelectCell.m in Sources */,

@@ -9,6 +9,8 @@
 #import "BaseViewController.h"
 #import "NewMyalbumCell.h"
 #import "NewMyVideoCell.h"
+#import "LxPersonNewCell1.h"
+#import "LxPersonNewCell2.h"
 @interface LxPersonVCs : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -34,4 +36,7 @@
 @property (nonatomic,retain) PersonModel *pmodel;
 
 @property (nonatomic, assign) int type; // 视频相册类型  0相册  1视频
+
+@property (nonatomic, assign) BOOL isFromHeader;
+@property (nonatomic, copy) NSString *personUID;
 @end
