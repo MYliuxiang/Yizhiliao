@@ -11,7 +11,7 @@
 #import "NewMyVideoCell.h"
 #import "LxPersonNewCell1.h"
 #import "LxPersonNewCell2.h"
-@interface LxPersonVCs : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+@interface LxPersonVCs : BaseViewController<UITableViewDelegate, UITableViewDataSource, NewMyVideoCellDelegate, NewMyalbumCellDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
@@ -41,4 +41,13 @@
 @property (nonatomic, copy) NSString *personUID;
 
 @property (nonatomic, retain) NSMutableArray *photos;
+
+@property (weak, nonatomic) IBOutlet UIView *giftBGView;
+- (IBAction)giftBtnAC:(id)sender;  // 礼物
+- (IBAction)upTopBtnAC:(id)sender; // 充值
+
+@property (weak, nonatomic) IBOutlet UIView *zanBGView; // 点赞背景
+@property (weak, nonatomic) IBOutlet UIButton *zanButton;
+- (IBAction)zanButtonAC:(id)sender;
+
 @end

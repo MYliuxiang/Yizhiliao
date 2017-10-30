@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.headerView.height = kScreenWidth / 750 * 450 + 60 + 60;
+    self.headerView.height = kScreenWidth / 750 * 450 + 60 + 60 + 40;
     self.nav.backgroundColor = [UIColor clearColor];
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -94,7 +94,7 @@
                 
                 self.ageLabel.text = [InputCheck dateToOld:[NSDate dateWithTimeIntervalSince1970:[_pmodel.birthday longLongValue] / 1000]];
                 self.text = self.pmodel.nickname;
-                
+                self.placeLabel.text = [[CityTool sharedCityTool] getCityWithCountrieId:_pmodel.country WithprovinceId:_pmodel.province WithcityId:_pmodel.city];
                 Charge *charge;
                 for (Charge *mo in self.pmodel.charges) {
                     if (mo.uid == self.pmodel.charge) {
@@ -211,6 +211,7 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
+            cell.delegate = self;
             for (int i = 0; i < self.pmodel.photos.count; i++) {
                 Photo *photo = self.pmodel.photos[i];
                 switch (i) {
@@ -226,7 +227,7 @@
                     case 3:
                         [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
                         break;
-                        
+
                     default:
                         break;
                 }
@@ -242,6 +243,7 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyVideoCell" owner:self options:nil] lastObject];
             }
+            cell.delegate = self;
             for (int i = 0; i < self.pmodel.videos.count; i++) {
                 Video *video = self.pmodel.videos[i];
                 switch (i) {
@@ -350,18 +352,25 @@
 }
 
 - (void)toAlbum {
-    MyalbumVC *vc = [[MyalbumVC alloc] init];
+    PPhotoVC *vc = [[PPhotoVC alloc] init];
+    vc.pmodel = self.pmodel;
+    vc.model = self.model;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)toVideo {
-    MyVideoVC *vc = [[MyVideoVC alloc] init];
+    
+    PVideoVC *vc = [[PVideoVC alloc] init];
+    vc.pmodel = self.pmodel;
+    vc.model = self.model;
     [self.navigationController pushViewController:vc animated:YES];
+    
+//    MyVideoVC *vc = [[MyVideoVC alloc] init];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)rightAction
 {
-    
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
         [userDef setBool:YES forKey:@"ToEdit"];
@@ -529,6 +538,40 @@
         
     }];
 }
+
+#pragma mark - NewMyalbumCellDelegate
+- (void)imageShowAC:(UITapGestureRecognizer *)tap {
+    NSInteger index = tap.view.tag - 100;
+    if (index < self.pmodel.photos.count) {
+        NSMutableArray *browseItemArray = [[NSMutableArray alloc]init];
+        for(int i = 0; i < self.pmodel.photos.count; i++)
+        {
+            Photo *model = self.pmodel.photos[i];
+            UIImageView *imageView = (UIImageView *)tap.view;
+            MSSBrowseModel *browseItem = [[MSSBrowseModel alloc]init];
+            browseItem.bigImageUrl = model.url;// 加载网络图片大图地址
+            browseItem.smallImageView = imageView;// 小图
+            [browseItemArray addObject:browseItem];
+        }
+        MSSBrowseNetworkViewController *bvc = [[MSSBrowseNetworkViewController alloc]initWithBrowseItemArray:browseItemArray currentIndex:index];
+        //    bvc.isEqualRatio = NO;// 大图小图不等比时需要設定这个属性（建议等比）
+        [bvc showBrowseViewController];
+    }
+}
+
+
+#pragma mark - NewMyVideoCellDelegate
+- (void)videoPlayAC:(UIButton *)button {
+    NSInteger tag = button.tag - 100;
+    if (tag >= self.pmodel.videos.count) {
+        return;
+    }
+    Video *video = self.pmodel.videos[tag];
+    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+    vc.videoUrl = [NSURL URLWithString:video.url];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 #pragma mark - 私信聊天
 - (void)chatButtonAC {
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
@@ -655,5 +698,12 @@
         
     }];
     
+}
+- (IBAction)giftBtnAC:(id)sender {
+}
+
+- (IBAction)upTopBtnAC:(id)sender {
+}
+- (IBAction)zanButtonAC:(id)sender {
 }
 @end
