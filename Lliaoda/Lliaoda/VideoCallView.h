@@ -26,6 +26,13 @@
 #import "Mymodel.h"
 #import "AGVideoProcessing.h"
 
+typedef NS_ENUM(NSInteger, CallType) {
+    CallTypeVideo,
+    CallTypeVoice
+};
+
+
+
 @interface VideoCallView : UIView<AgoraRtcEngineDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *refuseBtn;
 - (IBAction)refuseAC:(id)sender;
@@ -34,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 
 @property (nonatomic,retain) Mymodel *selfModel;
+@property (nonatomic,assign) CallType callType;
 
 @property (weak, nonatomic) IBOutlet UIView *closeView;
 

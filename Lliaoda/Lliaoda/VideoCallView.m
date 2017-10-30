@@ -40,13 +40,8 @@
          _instMedia = [AgoraRtcEngineKit sharedEngineWithAppId:agoreappID delegate:self];
         _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
         _giftCharge = 0;
-        self.yuvEN = [[AgoraYuvEnhancerObjc alloc] init];
-        self.yuvEN.lighteningFactor = .7;
-        self.yuvEN.smoothness = .6;
-        [self.yuvEN turnOn];
-        
+       
         self.gifts = [NSMutableArray array];
-        
         self.isfist = YES;
         self.smallImageView = [[UIImageView alloc] init];
         self.smallImageView.layer.masksToBounds = YES;
@@ -93,41 +88,49 @@
         self.headerBGView.layer.cornerRadius = 20;
         self.avatarImageView.layer.cornerRadius = 20;
         self.timeLabelBGView.layer.cornerRadius = 15;
-        [self _loadSelfData];
         
-        //从budle路径下读取音频文件　　 这个文件名是你的歌曲名字,mp3是你的音频格式
-        NSString *string = [[NSBundle mainBundle] pathForResource:@"start" ofType:@"wav"];
-        //把音频文件转换成url格式
-        NSURL *url = [NSURL fileURLWithPath:string];
-        //初始化音频类 并且添加播放文件
-        NSError *error;
-        _avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        //設定初始音量大小
-        //設定音乐播放次数  -1为一直循环
-        _avAudioPlayer.numberOfLoops = -1;
-        //预播放
-        [_avAudioPlayer prepareToPlay];
-        NSLog(@"%ld",(long)error.code);
-        _avAudioPlayer.volume =  1;
-
-        NSString *endstring = [[NSBundle mainBundle] pathForResource:@"end" ofType:@"wav"];
-        //把音频文件转换成url格式
-        NSURL *endurl = [NSURL fileURLWithPath:endstring];
-        //初始化音频类 并且添加播放文件
-        NSError *error1;
-        _endPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:endurl error:&error1];
-        //設定初始音量大小
-        //設定音乐播放次数  -1为一直循环
-        _endPlayer.volume =  1;
-        _endPlayer.numberOfLoops = 1;
-        //预播放
-        [_endPlayer prepareToPlay];
-        NSLog(@"%ld",(long)error.code);
+      
+        [self _loadSelfData];
+        [self playStartVoice];
+        
         
     }
     return self;
 }
 
+- (void)playStartVoice
+{
+    //从budle路径下读取音频文件　　 这个文件名是你的歌曲名字,mp3是你的音频格式
+    NSString *string = [[NSBundle mainBundle] pathForResource:@"start" ofType:@"wav"];
+    //把音频文件转换成url格式
+    NSURL *url = [NSURL fileURLWithPath:string];
+    //初始化音频类 并且添加播放文件
+    NSError *error;
+    _avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    //設定初始音量大小
+    //設定音乐播放次数  -1为一直循环
+    _avAudioPlayer.numberOfLoops = -1;
+    //预播放
+    [_avAudioPlayer prepareToPlay];
+    NSLog(@"%ld",(long)error.code);
+    _avAudioPlayer.volume =  1;
+    
+    NSString *endstring = [[NSBundle mainBundle] pathForResource:@"end" ofType:@"wav"];
+    //把音频文件转换成url格式
+    NSURL *endurl = [NSURL fileURLWithPath:endstring];
+    //初始化音频类 并且添加播放文件
+    NSError *error1;
+    _endPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:endurl error:&error1];
+    //設定初始音量大小
+    //設定音乐播放次数  -1为一直循环
+    _endPlayer.volume =  1;
+    _endPlayer.numberOfLoops = 1;
+    //预播放
+    [_endPlayer prepareToPlay];
+    
+}
+
+//请求自己的信息
 - (void)_loadSelfData
 {
     
@@ -678,7 +681,6 @@
                 UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
                 toolbar.barStyle = UIBarStyleBlackTranslucent;
                 [_bigImageView addSubview:toolbar];
-                
                 [self setAgroe];
                 
             }else{    //请求失败
@@ -700,6 +702,7 @@
 
 }
 
+//请求对方信息
 - (void)loadAccountWithUid1
 {
     
@@ -731,31 +734,42 @@
     
 }
 
-
 - (void)setAgroe
 {
     if (self.isSend) {
         //主动呼叫
+        
+       
+        
+        
         self.closeBtn.hidden = NO;
         [_instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
         [_instMedia enableAudio];
         
-        _local = [[AgoraRtcVideoCanvas alloc] init];
-        _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
-        _local.view = self.bigImageView;
-        _local.renderMode = AgoraRtc_Render_Hidden;
-        [_instMedia setupLocalVideo:_local];
+        if (_callType == CallTypeVideo) {
+            self.yuvEN = [[AgoraYuvEnhancerObjc alloc] init];
+            self.yuvEN.lighteningFactor = .7;
+            self.yuvEN.smoothness = .6;
+            [self.yuvEN turnOn];
+            _local = [[AgoraRtcVideoCanvas alloc] init];
+            _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
+            _local.view = self.bigImageView;
+            _local.renderMode = AgoraRtc_Render_Hidden;
+            [_instMedia setupLocalVideo:_local];
+            
+            _remate = [[AgoraRtcVideoCanvas alloc] init];
+            _remate.uid = [self.uid integerValue];
+            _remate.view = self.smallImageView;
+            _remate.renderMode = AgoraRtc_Render_Hidden;
+            [self.instMedia setupRemoteVideo:_remate];
+            [_instMedia enableVideo];
+            [_instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
+            [_instMedia startPreview];
+        }
         
-        _remate = [[AgoraRtcVideoCanvas alloc] init];
-        _remate.uid = [self.uid integerValue];
-        _remate.view = self.smallImageView;
-        _remate.renderMode = AgoraRtc_Render_Hidden;
-        [self.instMedia setupRemoteVideo:_remate];
-        [_instMedia enableVideo];
-        [_instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
-        [_instMedia startPreview];
+      
         
-//        [AGVideoPreProcessing registerVideoPreprocessing:_instMedia];
+//     [AGVideoPreProcessing registerVideoPreprocessing:_instMedia];
 
         self.headeLab.text = [NSString stringWithFormat:LXSring(@"正在呼叫%@..."),self.model.nickname];
         [_inst channelInviteUser:self.channel account:self.uid uid:0];
@@ -862,7 +876,6 @@
     self.avatarImageView.layer.masksToBounds = YES;
     self.avatarImageView.layer.cornerRadius = 20;
     
-    
 }
 
 #pragma mark -触摸事件监听
@@ -948,7 +961,6 @@
 
 - (void)show
 {
-    
     
     [self play];
     self.starttime = [[NSDate date] timeIntervalSince1970] * 100;
@@ -1265,27 +1277,6 @@
     
     self.closeBtn.hidden = NO;
     [self stop];
-    [_inst channelInviteAccept:self.channel account:self.uid uid:0];
-    self.refuseBtn.hidden = YES;
-    self.agreeBtn.hidden = YES;
-    [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
-    [self.instMedia enableAudio];
-    _local = [[AgoraRtcVideoCanvas alloc] init];
-    _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
-    _local.view = self.bigImageView;
-    _local.renderMode = AgoraRtc_Render_Hidden;
-    [self.instMedia setupLocalVideo:_local];
-    
-    _remate = [[AgoraRtcVideoCanvas alloc] init];
-    
-    _remate.uid = [self.uid integerValue];
-    _remate.view = self.smallImageView;
-    _remate.renderMode = AgoraRtc_Render_Hidden;
-    [self.instMedia setupRemoteVideo:_remate];
-    [self.instMedia enableVideo];
-    
-    [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_720P_3 swapWidthAndHeight:false];
-    [self.instMedia startPreview];
     
     NSDictionary *params;
     params = @{@"channel":self.channel};
@@ -1293,12 +1284,16 @@
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
+              
+                
                 NSLog(@"%@",result);
                 NSString *key = result[@"data"][@"key"];
                 self.accountLabel.text = [NSString stringWithFormat:LXSring(@"%@鑽石"),result[@"data"][@"deposit"]];
                 self.lowTimeLabel.text = [NSString stringWithFormat:LXSring(@"可通话时长%@分钟"),result[@"data"][@"sustain"]];
                 int sustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"sustain"]] intValue];
                 int peerSustain = [[NSString stringWithFormat:@"%@",result[@"data"][@"peerSustain"]] intValue];
+                
+                int type = [[NSString stringWithFormat:@"%@",result[@"data"][@"type"]] intValue];
                 
                 if(peerSustain <= 2 && peerSustain != -1 && !self.islow){
                     
@@ -1331,6 +1326,37 @@
                         });
                         
                     }];
+                }
+                
+                [_inst channelInviteAccept:self.channel account:self.uid uid:0];
+                self.refuseBtn.hidden = YES;
+                self.agreeBtn.hidden = YES;
+                [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
+                [self.instMedia enableAudio];
+                
+                if (type == 0) {
+                    
+                    _callType = CallTypeVideo;
+                    _local = [[AgoraRtcVideoCanvas alloc] init];
+                    _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
+                    _local.view = self.bigImageView;
+                    _local.renderMode = AgoraRtc_Render_Hidden;
+                    [self.instMedia setupLocalVideo:_local];
+                    
+                    _remate = [[AgoraRtcVideoCanvas alloc] init];
+                    
+                    _remate.uid = [self.uid integerValue];
+                    _remate.view = self.smallImageView;
+                    _remate.renderMode = AgoraRtc_Render_Hidden;
+                    [self.instMedia setupRemoteVideo:_remate];
+                    [self.instMedia enableVideo];
+                    
+                    [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_720P_3 swapWidthAndHeight:false];
+                    [self.instMedia startPreview];
+                    
+                }else{
+                    
+                    _callType = CallTypeVoice;
                 }
                 
                 int code = [_instMedia joinChannelByKey:key channelName:self.channel info:nil uid:[[LXUserDefaults objectForKey:UID] integerValue] joinSuccess:^(NSString *channel, NSUInteger uid, NSInteger elapsed) {
@@ -1580,25 +1606,27 @@
         UITapGestureRecognizer *hidRandG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideRenandGift)];
         [self.bigImageView addGestureRecognizer:hidRandG];
         self.xuanzhuanButton.hidden = NO;
-        self.smallImageView.hidden = NO;
         
         [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
         [self.instMedia enableAudio];
-        _local = [[AgoraRtcVideoCanvas alloc] init];
-        _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
-        _local.view = self.smallImageView;
-        _local.renderMode = AgoraRtc_Render_Hidden;
-        [self.instMedia setupLocalVideo:_local];
-        _remate = [[AgoraRtcVideoCanvas alloc] init];
-        _remate.uid = [self.uid integerValue];
-        _remate.view = self.bigImageView;
-        _remate.renderMode = AgoraRtc_Render_Hidden;
-        [self.instMedia setupRemoteVideo:_remate];
-        [self.instMedia enableVideo];
-        [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
-        [self.instMedia startPreview];
-        
-        
+        if (_callType == CallTypeVideo) {
+            
+            self.smallImageView.hidden = NO;
+            _local = [[AgoraRtcVideoCanvas alloc] init];
+            _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
+            _local.view = self.smallImageView;
+            _local.renderMode = AgoraRtc_Render_Hidden;
+            [self.instMedia setupLocalVideo:_local];
+            _remate = [[AgoraRtcVideoCanvas alloc] init];
+            _remate.uid = [self.uid integerValue];
+            _remate.view = self.bigImageView;
+            _remate.renderMode = AgoraRtc_Render_Hidden;
+            [self.instMedia setupRemoteVideo:_remate];
+            [self.instMedia enableVideo];
+            [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
+            [self.instMedia startPreview];
+
+        }
         
         self.headeLab.text = [NSString stringWithFormat:LXSring(@"与 %@ 通话"),self.model.nickname];
         self.callTime = 0;
@@ -1979,21 +2007,6 @@
     }];
 }
 
-
-//
-//- (UIBlurEffect *)effectView{
-//
-//    if (_effectView == nil) {
-//
-//        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-//        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
-//        //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
-//        effectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth / 750 * 450);
-//        [self.bigImageView addSubview:effectView];
-//
-//    }
-//    return _effectView;
-//}
 
 - (UIVisualEffectView *)effectView {
     if (_effectView == nil) {
