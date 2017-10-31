@@ -21,4 +21,15 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)getGiftBtnAC:(id)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(giftBtnClick)]) {
+        [_delegate giftBtnClick];
+    }
+}
+
+- (IBAction)getMoneyBtnAC:(id)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(chargeBtnClick)]) {
+        [_delegate chargeBtnClick];
+    }
+}
 @end

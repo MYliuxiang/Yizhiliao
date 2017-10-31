@@ -10,6 +10,7 @@
 #import "RankingListCell1.h"
 #import "RankingListCell2.h"
 #import "RankingListCell3.h"
+#import "LxPersonVCs.h"
 @interface TopListVC ()
 
 @end
@@ -138,7 +139,7 @@
     } else {
         model = _dataList1[indexPath.row];
     }
-    LxPersonVC *vc = [[LxPersonVC alloc] init];
+    LxPersonVCs *vc = [[LxPersonVCs alloc] init];
     vc.model = model;
     [self.navigationController pushViewController:vc animated:YES];
 }

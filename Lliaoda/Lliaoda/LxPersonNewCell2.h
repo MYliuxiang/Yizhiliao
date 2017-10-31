@@ -12,5 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIButton *chatButton;
 @property (weak, nonatomic) IBOutlet UIView *bottomLineView;
+@property (weak, nonatomic) IBOutlet UIView *priceBGView;
+@property (weak, nonatomic) IBOutlet UILabel *freeLabel;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "SDCycleScrollView.h"
 
 @interface SelectedVC : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
@@ -24,8 +24,8 @@
 @property (nonatomic, retain) NSMutableArray *bannersTitlesArray;
 @property (nonatomic, retain) NSMutableArray *bannersImagesArray;
 @property (nonatomic, retain) NSMutableArray *bannersLinksArray;
-@property (nonatomic,retain) NSMutableArray *tDataList;
-@property (nonatomic, strong) SDCycleScrollView *cycleScrollView;
+@property (nonatomic, retain) NSMutableArray *tDataList;
+@property (nonatomic, retain) SDCycleScrollView *cycleScrollView;
 
 @property (nonatomic,retain) MJRefreshBackNormalFooter *footer;
 

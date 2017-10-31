@@ -12,8 +12,8 @@
 #import "JXRadarPointView.h"
 #import "PersonalVC.h"
 #import "SelectedModel.h"
-#import "LxPersonVC.h"
-
+//#import "LxPersonVC.h"
+#import "LxPersonVCs.h"
 @interface FindVC : BaseViewController
 @property (weak, nonatomic) IBOutlet UIButton *finBtn;
 - (IBAction)findAC:(id)sender;

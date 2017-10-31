@@ -535,7 +535,7 @@
     }
     
     SelectedModel *model = self.pointsModels[pointView.tag];
-    LxPersonVC *vc = [[LxPersonVC alloc] init];
+    LxPersonVCs *vc = [[LxPersonVCs alloc] init];
     vc.model = model;
     [self.navigationController pushViewController:vc animated:YES];
     
