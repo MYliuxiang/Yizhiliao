@@ -56,6 +56,8 @@
 
 @property (nonatomic, assign) BOOL blocked;  // 是否被拉黑
 
+@property (nonatomic, assign) BOOL isDND; // 是否免打擾
+
 
 @end
 

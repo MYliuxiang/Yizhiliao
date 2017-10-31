@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LxPersonNewCell3;
+@protocol LxPersonNewCell3Delegate <NSObject>
+- (void)giftBtnClick;
+- (void)chargeBtnClick;
+@end
 
 @interface LxPersonNewCell3 : UITableViewCell
-
+- (IBAction)getGiftBtnAC:(id)sender;
+- (IBAction)getMoneyBtnAC:(id)sender;
+@property (nonatomic, weak) id<LxPersonNewCell3Delegate>delegate;
 @end

@@ -24,9 +24,12 @@
 }
 
 - (void)headerImageAC {
-    LxPersonVC *vc = [[LxPersonVC alloc] init];
-    vc.personUID = self.model.uid;
-    vc.isFromHeader = YES;
+    SelectedModel *model;
+    model.uid = self.model.uid;
+    LxPersonVCs *vc = [[LxPersonVCs alloc] init];
+//    vc.personUID = self.model.uid;
+//    vc.isFromHeader = YES;
+    vc.model = model;
     [[self viewController].navigationController pushViewController:vc animated:YES];
 }
 

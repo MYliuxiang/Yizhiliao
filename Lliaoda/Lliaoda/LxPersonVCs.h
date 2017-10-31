@@ -11,7 +11,11 @@
 #import "NewMyVideoCell.h"
 #import "LxPersonNewCell1.h"
 #import "LxPersonNewCell2.h"
-@interface LxPersonVCs : BaseViewController<UITableViewDelegate, UITableViewDataSource, NewMyVideoCellDelegate, NewMyalbumCellDelegate>
+#import "LxPersonNewCell3.h"
+@interface LxPersonVCs : BaseViewController<UITableViewDelegate, UITableViewDataSource, NewMyVideoCellDelegate, NewMyalbumCellDelegate, LxPersonNewCell3Delegate>
+{
+    BOOL isSelf; // 判断当前用户是不是自己
+}
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
@@ -28,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *videoButton;
 @property (weak, nonatomic) IBOutlet UIView *videoLineView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIView *blackView;
 
 - (IBAction)albumBtnAC:(id)sender;
 - (IBAction)videoBtnAC:(id)sender;
@@ -35,10 +40,18 @@
 @property (nonatomic,retain) SelectedModel *model;
 @property (nonatomic,retain) PersonModel *pmodel;
 
+@property (nonatomic,retain) GiftsView *giftsView;
+
 @property (nonatomic, assign) int type; // 视频相册类型  0相册  1视频
 
 @property (nonatomic, assign) BOOL isFromHeader;
 @property (nonatomic, copy) NSString *personUID;
+
+@property (nonatomic,retain) MessageCount *count;
+@property (nonatomic,retain) AgoraAPI *inst;
+
+@property (nonatomic, strong) NSString *lastTime;
+@property (nonatomic, strong) NSMutableArray *messages;
 
 @property (nonatomic, retain) NSMutableArray *photos;
 
@@ -49,5 +62,8 @@
 @property (weak, nonatomic) IBOutlet UIView *zanBGView; // 点赞背景
 @property (weak, nonatomic) IBOutlet UIButton *zanButton;
 - (IBAction)zanButtonAC:(id)sender;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *albumVideoBGViewTop;
+
+
 
 @end

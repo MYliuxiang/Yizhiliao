@@ -282,11 +282,11 @@
         if (value > 0 && value < 10) {
 //            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, 15, 15);
         } else if (value >= 10 && value < 100) {
-            CGSize size = [self setWidth:300 height:15 font:10 content:string];
+//            CGSize size = [self setWidth:300 height:15 font:10 content:string];
 //            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
         } else if (value >= 100) {
             string = @"99+";
-            CGSize size = [self setWidth:300 height:15 font:10 content:string];
+//            CGSize size = [self setWidth:300 height:15 font:10 content:string];
 //            self.messageCountLabel.frame = CGRectMake(self.messageButton.right - 20, 0, size.width + 6, 15);
         }
 //        self.messageCountLabel.text = string;

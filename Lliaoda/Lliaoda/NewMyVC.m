@@ -425,6 +425,7 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyVideoCell" owner:self options:nil] lastObject];
             }
+            cell.delegate = self;
             cell.videoArray = self.videoArrays;
             [cell.addButton addTarget:self action:@selector(toVideo) forControlEvents:UIControlEventTouchUpInside];
             return cell;
@@ -434,6 +435,7 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
+            cell.delegate = self;
             cell.photoArray = self.photoArrays;
             [cell.addButton addTarget:self action:@selector(toAlbum) forControlEvents:UIControlEventTouchUpInside];
             return cell;
@@ -1183,6 +1185,39 @@
     [attributedString addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x333333) range:range];
     
     return attributedString;
+}
+
+#pragma mark - NewMyalbumCellDelegate
+- (void)imageShowAC:(UITapGestureRecognizer *)tap {
+    NSInteger index = tap.view.tag - 100;
+    if (index < self.photoArrays.count) {
+        NSMutableArray *browseItemArray = [[NSMutableArray alloc]init];
+        for(int i = 0; i < self.photoArrays.count; i++)
+        {
+            AlbumModel *model = self.photoArrays[i];
+            UIImageView *imageView = (UIImageView *)tap.view;
+            MSSBrowseModel *browseItem = [[MSSBrowseModel alloc]init];
+            browseItem.bigImageUrl = model.url;// 加载网络图片大图地址
+            browseItem.smallImageView = imageView;// 小图
+            [browseItemArray addObject:browseItem];
+        }
+        MSSBrowseNetworkViewController *bvc = [[MSSBrowseNetworkViewController alloc]initWithBrowseItemArray:browseItemArray currentIndex:index];
+        //    bvc.isEqualRatio = NO;// 大图小图不等比时需要設定这个属性（建议等比）
+        [bvc showBrowseViewController];
+    }
+}
+
+
+#pragma mark - NewMyVideoCellDelegate
+- (void)videoPlayAC:(UIButton *)button {
+    NSInteger tag = button.tag - 100;
+    if (tag >= self.videoArrays.count) {
+        return;
+    }
+    MyVideoModel *model = self.videoArrays[tag];
+    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+    vc.videoUrl = [NSURL URLWithString:model.url];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark ----------取消-------------

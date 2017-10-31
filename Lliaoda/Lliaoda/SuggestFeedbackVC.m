@@ -17,6 +17,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.nav.hidden = NO;
+    self.title = @"反饋";
+    [self addrighttitleString:@"提交"];
+    
+}
+#pragma mark - 提交
+- (void)rightAction {
+    
+}
+
+
+#pragma mark - UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView {
+    if (textView.text.length == 0) {
+        self.placeHolderLabel.hidden = NO;
+        
+    } else {
+        self.placeHolderLabel.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +54,20 @@
 }
 */
 
+- (IBAction)typeButtonAC:(id)sender {
+    UIButton *button = sender;
+    if (button == _typeButton1) {
+        _typeButton1.selected = YES;
+        _typeButton2.selected = NO;
+        _typeButton3.selected = NO;
+    } else if (button == _typeButton2) {
+        _typeButton1.selected = NO;
+        _typeButton2.selected = YES;
+        _typeButton3.selected = NO;
+    } else if (button == _typeButton3) {
+        _typeButton1.selected = NO;
+        _typeButton2.selected = NO;
+        _typeButton3.selected = YES;
+    }
+}
 @end

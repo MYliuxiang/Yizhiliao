@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, MyType) {
     MyTypeError
 };
 
-@interface NewMyVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource>
+@interface NewMyVC : BaseViewController<UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource, NewMyVideoCellDelegate, NewMyalbumCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (nonatomic,retain) Mymodel *model;

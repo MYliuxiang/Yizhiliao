@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
-@interface SuggestFeedbackVC : BaseViewController
+@interface SuggestFeedbackVC : BaseViewController<UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *typeButton1;
+@property (weak, nonatomic) IBOutlet UIButton *typeButton2;
+@property (weak, nonatomic) IBOutlet UIButton *typeButton3;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *placeHolderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+- (IBAction)typeButtonAC:(id)sender;
 
 @end

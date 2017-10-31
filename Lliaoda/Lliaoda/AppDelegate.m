@@ -19,6 +19,7 @@
 #import "PersonalVC.h"
 #import  <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <StoreKit/StoreKit.h>
+#import "LxPersonVCs.h"
 // 引入JPush功能所需头文件
 #import "JPUSHService.h"
 // iOS10注册APNs所需头文件
@@ -731,7 +732,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
             NSString *senderId = userInfo[@"senderId"];
             SelectedModel *model = [[SelectedModel alloc] init];
             model.uid = senderId;
-            LxPersonVC *vc = [[LxPersonVC alloc] init];
+            LxPersonVCs *vc = [[LxPersonVCs alloc] init];
             vc.model = model;
             [[self topViewController].navigationController pushViewController:vc animated:YES];
             
