@@ -29,7 +29,7 @@
     self.invitationBtn.layer.cornerRadius = 22;
     self.invitationBtn.layer.masksToBounds = YES;
     self.invitationBtn.layer.borderWidth = 1;
-    self.invitationBtn.layer.borderColor = Color_nav.CGColor;
+    self.invitationBtn.layer.borderColor = Color_Text_origin.CGColor;
     self.label1.text = LXSring(@"邀請碼");
     self.label2.text = LXSring(@"填入好友分享的邀請碼，即可獲得獎勵");
     self.textField.placeholder = LXSring(@"請輸入5位邀請碼，即可獲得獎勵");

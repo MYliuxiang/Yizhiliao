@@ -17,8 +17,8 @@
     _bigBGView.layer.cornerRadius = 5;
     _bgView.layer.cornerRadius = 5;
     _chargeButton.layer.cornerRadius = 15;
-    _chargeButton.layer.borderWidth = 1;
-    _chargeButton.layer.borderColor = UIColorFromRGB(0x00DDCC).CGColor;
+//    _chargeButton.layer.borderWidth = 1;
+//    _chargeButton.layer.borderColor = UIColorFromRGB(0x00DDCC).CGColor;
     
 //    _bigBGView.layer.shadowColor = [UIColor blackColor].CGColor;
 //    _bigBGView.layer.shadowRadius = 5.f;

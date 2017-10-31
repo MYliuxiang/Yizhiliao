@@ -19,13 +19,14 @@
     // Do any additional setup after loading the view from its nib.
     
     self.nav.hidden = NO;
-    self.title = @"反饋";
+    self.text = @"建議與反饋";
     [self addrighttitleString:@"提交"];
+    [self.rightbutton setTitleColor:Color_Text_black forState:UIControlStateNormal];
     
 }
 #pragma mark - 提交
 - (void)rightAction {
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -37,6 +38,13 @@
     } else {
         self.placeHolderLabel.hidden = YES;
     }
+    
+    if (textView.text.length >= 200) {
+        return;
+    }
+    
+    _countLabel.text = [NSString stringWithFormat:@"%lu", 200 - textView.text.length];
+    
 }
 
 - (void)didReceiveMemoryWarning {

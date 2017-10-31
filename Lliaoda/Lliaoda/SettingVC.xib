@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBk-JC-jDl">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBk-JC-jDl">
                     <rect key="frame" x="15" y="159" width="345" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -38,7 +38,7 @@
                         <action selector="checkoutButtonAC:" destination="-1" eventType="touchUpInside" id="00V-nW-h29"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFe-JR-3zZ">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFe-JR-3zZ">
                     <rect key="frame" x="15" y="234" width="345" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -52,19 +52,19 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZO-hY-hVC">
-                    <rect key="frame" x="15" y="309" width="345" height="60"/>
+                    <rect key="frame" x="0.0" y="74" width="375" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="7Ma-oT-osm"/>
                     </constraints>
                     <state key="normal" title="退出登陸">
-                        <color key="titleColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.96862745100000003" green="0.85882352939999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="loginout:" destination="-1" eventType="touchUpInside" id="eiq-eB-t6e"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWJ-rf-zaS">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWJ-rf-zaS">
                     <rect key="frame" x="15" y="84" width="345" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="免打扰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClA-cV-JJT">
@@ -103,11 +103,11 @@
                 <constraint firstItem="SBk-JC-jDl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="3bt-AU-akI"/>
                 <constraint firstItem="lFe-JR-3zZ" firstAttribute="top" secondItem="SBk-JC-jDl" secondAttribute="bottom" constant="15" id="9VQ-6e-w7a"/>
                 <constraint firstAttribute="trailing" secondItem="SBk-JC-jDl" secondAttribute="trailing" constant="15" id="BeS-9R-PJD"/>
+                <constraint firstItem="OZO-hY-hVC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="Fav-lU-hBD"/>
                 <constraint firstItem="SBk-JC-jDl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="159" id="WNC-MP-7fn"/>
-                <constraint firstAttribute="trailing" secondItem="OZO-hY-hVC" secondAttribute="trailing" constant="15" id="ZL4-kd-fiS"/>
+                <constraint firstAttribute="trailing" secondItem="OZO-hY-hVC" secondAttribute="trailing" id="ZL4-kd-fiS"/>
                 <constraint firstItem="XWJ-rf-zaS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="c9f-xq-1tk"/>
-                <constraint firstItem="OZO-hY-hVC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="d6x-e3-a2R"/>
-                <constraint firstItem="OZO-hY-hVC" firstAttribute="top" secondItem="lFe-JR-3zZ" secondAttribute="bottom" constant="15" id="elV-P4-c2Z"/>
+                <constraint firstItem="OZO-hY-hVC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="d6x-e3-a2R"/>
                 <constraint firstAttribute="trailing" secondItem="lFe-JR-3zZ" secondAttribute="trailing" constant="15" id="fWt-ED-KeY"/>
                 <constraint firstAttribute="trailing" secondItem="XWJ-rf-zaS" secondAttribute="trailing" constant="15" id="sCd-T7-v1U"/>
                 <constraint firstItem="XWJ-rf-zaS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="uFM-2V-Ga8"/>

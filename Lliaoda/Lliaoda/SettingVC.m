@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = LXSring(@"設定");
+    self.text = @"設置";
     [self.checkoutButton setTitle:LXSring(@"切換語言") forState:UIControlStateNormal];
     [self.aboutButton setTitle:LXSring(@"關於我們") forState:UIControlStateNormal];
     [self.loginoutButton setTitle:LXSring(@"退出登陸") forState:UIControlStateNormal];
@@ -34,11 +34,11 @@
     self.aboutButton.layer.shadowOpacity = .3f;
     self.aboutButton.layer.shadowOffset = CGSizeMake(0, 0);
     
-    self.loginoutButton.layer.cornerRadius = 5;
-    self.loginoutButton.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.loginoutButton.layer.shadowRadius = 5.f;
-    self.loginoutButton.layer.shadowOpacity = .3f;
-    self.loginoutButton.layer.shadowOffset = CGSizeMake(0, 0);
+//    self.loginoutButton.layer.cornerRadius = 5;
+//    self.loginoutButton.layer.shadowColor = [UIColor blackColor].CGColor;
+//    self.loginoutButton.layer.shadowRadius = 5.f;
+//    self.loginoutButton.layer.shadowOpacity = .3f;
+//    self.loginoutButton.layer.shadowOffset = CGSizeMake(0, 0);
     
     self.disturbBGView.layer.cornerRadius = 5;
     self.disturbBGView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -101,7 +101,7 @@
     [alertController addAction:cancelAction];
 //    [self presentViewController:alertController animated:YES completion:nil];
     
-    LGAlertView *alert = [[LGAlertView alloc] initWithTitle:nil message:nil style:LGAlertViewStyleActionSheet buttonTitles:@[LXSring(@"退出登陸")] cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:nil delegate:self];
+    LGAlertView *alert = [[LGAlertView alloc] initWithTitle:nil message:nil style:LGAlertViewStyleActionSheet buttonTitles:@[@"退出登陸"] cancelButtonTitle:@"取消" destructiveButtonTitle:nil delegate:self];
     
     alert.actionHandler = ^(LGAlertView * _Nonnull alertView, NSUInteger index, NSString * _Nullable title){
         
@@ -149,7 +149,7 @@
     
     };
     
-    alert.buttonsTitleColor = UIColorFromRGB(0x00ddcc);
+    alert.buttonsTitleColor = Color_Text_origin;
     alert.cancelButtonTitleColor = Color_Text_lightGray;
     alert.tintColor = [UIColor whiteColor];
     [alert showAnimated:YES completionHandler:^{
