@@ -438,6 +438,7 @@
 		227553781ECED99900CE6507 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 227553731ECED99900CE6507 /* README.txt */; };
 		227971CC1EF8DC0900BC8E18 /* DateUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227971C91EF8DC0900BC8E18 /* DateUnit.m */; };
 		227971CD1EF8DC0900BC8E18 /* FileUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227971CB1EF8DC0900BC8E18 /* FileUnit.m */; };
+		227A86051FA87604006B1EF3 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A86041FA87604006B1EF3 /* WebVC.m */; };
 		227DE5DC1F0CDF8A00FD7DD3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227DE5DB1F0CDF8A00FD7DD3 /* Bolts.framework */; };
 		227DE5DE1F0CDF9300FD7DD3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227DE5DD1F0CDF9300FD7DD3 /* FBSDKCoreKit.framework */; };
 		227DE5E01F0CDF9900FD7DD3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227DE5DF1F0CDF9900FD7DD3 /* FBSDKLoginKit.framework */; };
@@ -1313,6 +1314,8 @@
 		227971C91EF8DC0900BC8E18 /* DateUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUnit.m; sourceTree = "<group>"; };
 		227971CA1EF8DC0900BC8E18 /* FileUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUnit.h; sourceTree = "<group>"; };
 		227971CB1EF8DC0900BC8E18 /* FileUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUnit.m; sourceTree = "<group>"; };
+		227A86031FA87604006B1EF3 /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
+		227A86041FA87604006B1EF3 /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
 		227B15CD1F9889E2008D6F71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		227DE5DB1F0CDF8A00FD7DD3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		227DE5DD1F0CDF9300FD7DD3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -2614,6 +2617,8 @@
 		224428081EA895DD00BF3E4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				227A86031FA87604006B1EF3 /* WebVC.h */,
+				227A86041FA87604006B1EF3 /* WebVC.m */,
 				226E2EE51F0F3651009953FD /* BlackName.h */,
 				226E2EE61F0F3651009953FD /* BlackName.m */,
 				224428091EA8967D00BF3E4D /* SelectedCachModel.h */,
@@ -4238,6 +4243,7 @@
 				22B1092F1EA4A5D500E35B74 /* MyVC.m in Sources */,
 				222AA0D41EB071A50038416D /* TZPhotoPickerController.m in Sources */,
 				222B38601ED96843009DB58F /* MSSBrowseLocalViewController.m in Sources */,
+				227A86051FA87604006B1EF3 /* WebVC.m in Sources */,
 				22453BA91F1C73FF0000C006 /* ProfitVC.m in Sources */,
 				229094351EF2756200715841 /* AgreementVC.m in Sources */,
 				22B109191EA4A4E200E35B74 /* BaseViewController.m in Sources */,
