@@ -13,6 +13,73 @@
 
 @implementation VideoCallView
 
+- (instancetype)initVideoCallViewWithChancel:(NSString *)chancel withUid:(NSString *)uid withIsSend:(BOOL)isSend withType:(NSInteger)callType
+{
+    self = [super initWithFrame:[UIScreen mainScreen].bounds];
+    
+    if (self) {
+        self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
+        _callType = callType;
+        self.clipsToBounds = YES;
+        self.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        [self.refuse setTitle:LXSring(@"拒绝") forState:UIControlStateNormal];
+        [self.acceptBtn setTitle:LXSring(@"接受") forState:UIControlStateNormal];
+        self.yeLab.text = LXSring(@"账户余额");
+        [self.gotoMoneyBtn setTitle:LXSring(@"去充值") forState:UIControlStateNormal];
+        self.likeLab.text = LXSring(@"互相喜欢后可私信聊天");
+        
+//        self.gitfButtonCenter.constant = 40;
+        //            self.redBtn.hidden = YES;
+        //            self.gitfButtonCenter.constant = 40;
+        //            self.redBtn.hidden = NO;
+        //        }
+        
+        _instMedia = [AgoraRtcEngineKit sharedEngineWithAppId:agoreappID delegate:self];
+        _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
+        _giftCharge = 0;
+        
+        [self creatUI];
+        
+        self.gifts = [NSMutableArray array];
+        self.isfist = YES;
+        
+        self.xuanzhuanButton.hidden = YES;
+        self.smallImageView.hidden = YES;
+        self.timeLabelBGView.hidden = YES;
+        self.timeLabelBGView1.hidden = YES;
+        self.jinbiView.hidden = YES;
+        self.jinbiView1.hidden = YES;
+        self.agreeBtn.hidden = YES;
+        self.refuseBtn.hidden = YES;
+        self.channel = chancel;
+        self.uid = uid;
+        self.isSend = isSend;
+        self.footerView.hidden = YES;
+        self.callTime = NO;
+        self.closeBtn.hidden = YES;
+        self.lowMoneyView.hidden = YES;
+        [self addNotice];
+        [self loadAccountWithUid:uid];
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            [self loadAccountWithUid1];
+        }
+        
+        self.redBtn.hidden = YES;
+        self.giftBtn.hidden = YES;
+        
+        self.jinbiView.layer.cornerRadius = 15;
+        self.headerBGView.layer.cornerRadius = 20;
+        self.avatarImageView.layer.cornerRadius = 20;
+        self.timeLabelBGView.layer.cornerRadius = 15;
+        
+        
+        [self _loadSelfData];
+        [self playStartVoice];
+        
+        
+    }
+    return self;
+}
 
 - (instancetype)initVideoCallViewWithChancel:(NSString *)chancel withUid:(NSString *)uid withIsSend:(BOOL)isSend
 {
@@ -30,7 +97,6 @@
 
 //        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
 //        if ([lang hasPrefix:@"ar"]) {
-            self.gitfButtonCenter.constant = 40;
 //            self.redBtn.hidden = YES;
 //        } else {
 //            self.gitfButtonCenter.constant = 40;
@@ -40,32 +106,18 @@
          _instMedia = [AgoraRtcEngineKit sharedEngineWithAppId:agoreappID delegate:self];
         _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
         _giftCharge = 0;
+        
+        [self creatUI];
        
         self.gifts = [NSMutableArray array];
         self.isfist = YES;
-        self.smallImageView = [[UIImageView alloc] init];
-        self.smallImageView.layer.masksToBounds = YES;
-        self.smallImageView.layer.cornerRadius = 5;
-        self.smallImageView.frame = CGRectMake(kScreenWidth - kScreenWidth / 750 * 200 - 5,44 + 5, kScreenWidth / 750 * 200, kScreenWidth / 750 * 200 / 200 * 356);
-        self.bigImageView.contentMode = UIViewContentModeCenter;
-        self.gotoMoneyBtn.layer.masksToBounds = YES;
-        self.gotoMoneyBtn.layer.cornerRadius = 15;
-        
-        self.isBigLocal = NO;
-        //添加移动的手势
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(locationChange:)];
-        pan.delaysTouchesBegan = YES;
-        self.smallImageView.userInteractionEnabled = YES;
-        
-        [self.smallImageView addGestureRecognizer:pan];
-        [self addSubview:self.smallImageView];
-        
+       
+        self.xuanzhuanButton.hidden = YES;
         self.smallImageView.hidden = YES;
         self.timeLabelBGView.hidden = YES;
         self.timeLabelBGView1.hidden = YES;
         self.jinbiView.hidden = YES;
         self.jinbiView1.hidden = YES;
-        
         self.agreeBtn.hidden = YES;
         self.refuseBtn.hidden = YES;
         self.channel = chancel;
@@ -96,6 +148,33 @@
         
     }
     return self;
+}
+
+- (void)creatUI
+{
+    self.smallImageView = [[UIImageView alloc] init];
+    self.smallImageView.layer.masksToBounds = YES;
+    self.smallImageView.layer.cornerRadius = 5;
+    self.smallImageView.frame = CGRectMake(kScreenWidth - kScreenWidth / 750 * 200 - 5,44 + 5, kScreenWidth / 750 * 200, kScreenWidth / 750 * 200 / 200 * 356);
+    self.bigImageView.contentMode = UIViewContentModeCenter;
+    self.gotoMoneyBtn.layer.masksToBounds = YES;
+    self.gotoMoneyBtn.layer.cornerRadius = 15;
+    
+    self.isBigLocal = NO;
+    //添加移动的手势
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(locationChange:)];
+    pan.delaysTouchesBegan = YES;
+    self.smallImageView.userInteractionEnabled = YES;
+    
+    [self.smallImageView addGestureRecognizer:pan];
+    [self addSubview:self.smallImageView];
+    
+    self.xuanzhuanButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.xuanzhuanButton.frame = CGRectMake(kScreenWidth - 15 - 27, self.smallImageView.bottom + 15, 27, 27);
+    [self.xuanzhuanButton setImage:[UIImage imageNamed:@"quan_xuanzhuan"] forState:UIControlStateNormal];
+    [self.xuanzhuanButton addTarget:self action:@selector(xuanzhuanAC:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.xuanzhuanButton];
+    
 }
 
 - (void)playStartVoice
@@ -171,20 +250,12 @@
 - (void)removeNotice
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:Notice_onInviteFailed object:nil];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:Notice_onInviteReceivedByPeer object:nil];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:Notice_onInviteAcceptedByPeer object:nil];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:Notice_onInviteRefusedByPeer object:nil];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:Notice_onInviteEndByPeer object:nil];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:Notice_noMonny object:nil];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:Notice_ReceivedGift object:nil];
-
-    
 
 }
 
@@ -403,7 +474,7 @@
         call.endedAt = idate;
         call.upload = 0;
         call.duration = self.callTime * 1000;
-        call.type = 0;
+        call.type = _callType;
         NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
         call.uid = [uid intValue];
         call.sendUid = [self.uid intValue];
@@ -504,8 +575,10 @@
                 
             }];
             
-            [self.yuvEN turnOff];
-            [AgoraRtcEngineKit destroy];
+            if (_callType == CallTypeVideo) {
+                [self.yuvEN turnOff];
+                
+            }            [AgoraRtcEngineKit destroy];
         }
         
        
@@ -739,12 +812,13 @@
     if (self.isSend) {
         //主动呼叫
         
-       
-        
-        
         self.closeBtn.hidden = NO;
         [_instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
         [_instMedia enableAudio];
+        if ([_instMedia isSpeakerphoneEnabled]) {
+            [_instMedia setDefaultAudioRouteToSpeakerphone:YES];
+        }
+        
         
         if (_callType == CallTypeVideo) {
             self.yuvEN = [[AgoraYuvEnhancerObjc alloc] init];
@@ -767,10 +841,6 @@
             [_instMedia startPreview];
         }
         
-      
-        
-//     [AGVideoPreProcessing registerVideoPreprocessing:_instMedia];
-
         self.headeLab.text = [NSString stringWithFormat:LXSring(@"正在呼叫%@..."),self.model.nickname];
         [_inst channelInviteUser:self.channel account:self.uid uid:0];
         _longTime = 0;
@@ -862,7 +932,10 @@
         [_instMedia leaveChannel:^(AgoraRtcStats *stat) {
                 
         }];
-        [self.yuvEN turnOff];
+            if (_callType == CallTypeVideo) {
+                [self.yuvEN turnOff];
+
+            }
         [AgoraRtcEngineKit destroy];
         [self removeFromSuperview];
 
@@ -1048,7 +1121,7 @@
         call.channelId = [self.channel intValue];
         call.endedAt = idate;
         call.duration = self.callTime * 1000;
-        call.type = 0;
+        call.type = _callType;
         call.upload = 0;
         NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
         call.uid = [uid intValue];
@@ -1181,7 +1254,10 @@
             
         }];
         
-        [self.yuvEN turnOff];
+        if (_callType == CallTypeVideo) {
+            [self.yuvEN turnOff];
+            
+        }
         [AgoraRtcEngineKit destroy];
     }
 }
@@ -1203,6 +1279,7 @@
         LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"確定退出") message:LXSring(@"確定退出視訊通話吗？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"確定") delegate:nil];
         lg.destructiveButtonBackgroundColor = [UIColor whiteColor];
         lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
+        lg.destructiveButtonBackgroundColorHighlighted = [UIColor whiteColor];
         lg.destructiveButtonFont = [UIFont systemFontOfSize:16];
 
         lg.cancelButtonFont = [UIFont systemFontOfSize:16];
@@ -1284,8 +1361,6 @@
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
-              
-                
                 NSLog(@"%@",result);
                 NSString *key = result[@"data"][@"key"];
                 self.accountLabel.text = [NSString stringWithFormat:LXSring(@"%@鑽石"),result[@"data"][@"deposit"]];
@@ -1333,6 +1408,9 @@
                 self.agreeBtn.hidden = YES;
                 [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
                 [self.instMedia enableAudio];
+                if ([_instMedia isSpeakerphoneEnabled]) {
+                    [_instMedia setDefaultAudioRouteToSpeakerphone:YES];
+                }
                 
                 if (type == 0) {
                     
@@ -1402,14 +1480,14 @@
                                 
                             }else{
                                 NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-                                if ([lang hasPrefix:@"id"]){
+//                                if ([lang hasPrefix:@"id"]){
                                     AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
                                     [[self topViewController].navigationController pushViewController:vc animated:YES];
                                     
-                                } else if ([lang hasPrefix:@"ar"]){
-                                    AccountVC *vc = [[AccountVC alloc] init];
-                                    [[self topViewController].navigationController pushViewController:vc animated:YES];
-                                }
+//                                } else if ([lang hasPrefix:@"ar"]){
+//                                    AccountVC *vc = [[AccountVC alloc] init];
+//                                    [[self topViewController].navigationController pushViewController:vc animated:YES];
+//                                }
                             }
                             
                         };
@@ -1442,33 +1520,33 @@
         return;
     }
     
-    NSString *timeStr = [self timeFormatted:self.callTime];
-    self.timeLab.text = timeStr;
-    
-    if (self.timeLabelBGView.hidden) {
-        self.timeLabelBGView.hidden = NO;
-        self.timeLabelBGView1.hidden = NO;
-        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
-            // 主播显示金币收益（本次通话）
-            self.jinbiView.hidden = NO;
-            self.jinbiView1.hidden = NO;
-            int charges = 0;
-            for (Charge *mo in self.pModel.charges) {
-                if (mo.uid == self.pModel.charge) {
-                    charges = mo.value;
-                }
-            }
-            int time1 = self.callTime / 60;
-            int time2 = self.callTime % 60;
-            if (time2 != 0) {
-                _charge = charges * (time1 + 1) * 10 + _giftCharge;
-            } else {
-                _charge = charges * time1 * 10 + _giftCharge;
-            }
-            _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
-        }
-    }
-        
+//    NSString *timeStr = [self timeFormatted:self.callTime];
+//    self.timeLab.text = timeStr;
+//
+//    if (self.timeLabelBGView.hidden) {
+//        self.timeLabelBGView.hidden = NO;
+//        self.timeLabelBGView1.hidden = NO;
+//        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+//            // 主播显示金币收益（本次通话）
+//            self.jinbiView.hidden = NO;
+//            self.jinbiView1.hidden = NO;
+//            int charges = 0;
+//            for (Charge *mo in self.pModel.charges) {
+//                if (mo.uid == self.pModel.charge) {
+//                    charges = mo.value;
+//                }
+//            }
+//            int time1 = self.callTime / 60;
+//            int time2 = self.callTime % 60;
+//            if (time2 != 0) {
+//                _charge = charges * (time1 + 1) * 10 + _giftCharge;
+//            } else {
+//                _charge = charges * time1 * 10 + _giftCharge;
+//            }
+//            _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
+//        }
+//    }
+//
     
     self.keyTime = 0;
     NSDictionary *params;
@@ -1551,20 +1629,6 @@
 
 #pragma mark ------AgoraRtcEngineDelegate--------
 
-//发生错误回调
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOccurError:(AgoraRtcErrorCode)errorCode
-{
-
-
-}
-
-//发生警告回调 (didOccurWarning)
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOccurWarning:(AgoraRtcWarningCode)warningCode
-{
-
-    
-}
-
 //加入频道成功回调 (didJoinChannel)
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinChannel:(NSString *)channel withUid:(NSUInteger)uid elapsed:(NSInteger)elapsed
 {
@@ -1586,32 +1650,41 @@
 {
  
     if(uid == [self.uid integerValue]){
-        NSLog(@"%@", [LXUserDefaults objectForKey:itemNumber]);
         if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
             // 是主播
             self.redBtn.hidden = NO;
-            self.gitfButtonCenter.constant = 40;
+            self.redlayoutConstranint.constant = 0;
+            self.giftBtn.hidden = YES;
         } else {
             // 是用户
-            self.redBtn.hidden = YES;
-            self.gitfButtonCenter.constant = 0;
+            self.redlayoutConstranint.constant = -40;
+            self.redBtn.hidden = NO;
+            self.giftBtn.hidden = NO;
+
         }
         
         self.timeLabelBGView1.hidden = NO;
         self.timeLabelBGView.hidden = NO;
         self.timeLab.hidden = NO;
-        self.giftBtn.hidden = NO;
         self.iscalling = YES;
 
+        
         UITapGestureRecognizer *hidRandG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideRenandGift)];
         [self.bigImageView addGestureRecognizer:hidRandG];
-        self.xuanzhuanButton.hidden = NO;
         
         [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
         [self.instMedia enableAudio];
+        if ([_instMedia isSpeakerphoneEnabled]) {
+            [_instMedia setDefaultAudioRouteToSpeakerphone:YES];
+        }
+
+
+
         if (_callType == CallTypeVideo) {
             
             self.smallImageView.hidden = NO;
+            self.xuanzhuanButton.hidden = NO;
+
             _local = [[AgoraRtcVideoCanvas alloc] init];
             _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
             _local.view = self.smallImageView;
@@ -1626,6 +1699,10 @@
             [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
             [self.instMedia startPreview];
 
+        }else{
+            
+            self.redBtn.hidden = YES;
+            self.gitfButtonCenter.constant = 0;
         }
         
         self.headeLab.text = [NSString stringWithFormat:LXSring(@"与 %@ 通话"),self.model.nickname];
@@ -1652,13 +1729,11 @@
     self.timeLab.text = timeStr;
     
     if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
-        if (self.timeLabelBGView.hidden) {
-            self.timeLabelBGView.hidden = NO;
-            self.timeLabelBGView1.hidden = NO;
+        self.timeLabelBGView.hidden = NO;
+        self.timeLabelBGView1.hidden = NO;
             // 主播显示金币收益（本次通话）
-            self.jinbiView.hidden = NO;
-            self.jinbiView1.hidden = NO;
-        }
+        self.jinbiView.hidden = NO;
+        self.jinbiView1.hidden = NO;
         
         int charges = 0;
         for (Charge *mo in self.pModel.charges) {
@@ -1677,9 +1752,8 @@
     }
     
     
-    
-    if (self.callTime % 30 == 0) {
-        
+    if(_callType == CallTypeVideo && self.callTime % 30 == 0){
+   
         [AGVideoProcessing registerVideoPreprocessing:_instMedia withchanel:self.channel];
     }
 
@@ -1696,7 +1770,7 @@
         NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
         call.uid = [uid intValue];
         call.sendUid = [self.uid intValue];        call.upload = 0;
-        call.type = 0;
+        call.type = _callType;
         [call save];
         
     }else{
@@ -1707,7 +1781,7 @@
         NSString *uid = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
         call.uid = [uid intValue];
         call.sendUid = [self.uid intValue];        call.upload = 0;
-        call.type = 0;
+        call.type = _callType;
         [call update];
         
     }
@@ -1842,8 +1916,10 @@
                 
             }];
             
-            [self.yuvEN turnOff];
-            [AgoraRtcEngineKit destroy];
+            if (_callType == CallTypeVideo) {
+                [self.yuvEN turnOff];
+                
+            }            [AgoraRtcEngineKit destroy];
         }
         
     });
@@ -2007,7 +2083,6 @@
     }];
 }
 
-
 - (UIVisualEffectView *)effectView {
     if (_effectView == nil) {
         UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
@@ -2123,11 +2198,11 @@
     button.selected = !button.selected;
     [self.instMedia stopPreview];
     if (button.selected) {
-//        _local.view = self.smallImageView;
-//        _remate.view = self.bigImageView;
+
+        
         self.isBigLocal = YES;
         [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
-        [self.instMedia enableAudio];
+
         _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
         _local.view = self.bigImageView;
         _local.renderMode = AgoraRtc_Render_Hidden;
@@ -2149,11 +2224,10 @@
         }
         
     } else {
-//        _local.view = self.bigImageView;
-//        _remate.view = self.smallImageView;
+        
         self.isBigLocal = NO;
         [self.instMedia setChannelProfile:AgoraRtc_ChannelProfile_Communication];
-        [self.instMedia enableAudio];
+
         _local.uid = [[LXUserDefaults objectForKey:UID] integerValue];
         _local.view = self.smallImageView;
         _local.renderMode = AgoraRtc_Render_Hidden;

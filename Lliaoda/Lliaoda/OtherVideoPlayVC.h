@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GiftsView.h"
 
 @interface OtherVideoPlayVC : UIViewController
 @property (nonatomic, strong) NSURL *videoUrl;
@@ -16,7 +17,7 @@
 - (IBAction)giftAC:(id)sender;
 - (IBAction)closeVideoAC:(id)sender;
 @property (nonatomic,retain) PersonModel *model;
-@property (nonatomic,retain) GiftsView *giftsView;
+@property (nonatomic,strong) GiftsView *giftsView;
 @property (weak, nonatomic) IBOutlet UIView *backView;
 
 

@@ -853,7 +853,7 @@ NSString *const kTableViewFrame = @"frame";
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 NSString *channel = [NSString stringWithFormat:@"%@",result[@"data"][@"channel"]];
-                VoiceCall *voiceView = [[VoiceCall alloc] initVideoCallViewWithChancel:channel withUid:self.sendUid withIsSend:YES];
+                VideoCallView *voiceView = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:self.sendUid withIsSend:YES withType:CallTypeVoice];
                 [voiceView show];
                 
             }else{    //请求失败
@@ -951,7 +951,7 @@ NSString *const kTableViewFrame = @"frame";
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 
                 NSString *channel = [NSString stringWithFormat:@"%@",result[@"data"][@"channel"]];
-                VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:self.sendUid withIsSend:YES];
+                VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:self.sendUid withIsSend:YES withType:CallTypeVideo];
                 [video show];
                 
             }else{    //请求失败

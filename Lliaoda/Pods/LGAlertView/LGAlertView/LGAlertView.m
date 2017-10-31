@@ -871,7 +871,7 @@ LGAlertViewType;
         _destructiveButtonTextAlignment = NSTextAlignmentCenter;
         _destructiveButtonFont = [UIFont systemFontOfSize:18.0];
         _destructiveButtonBackgroundColor = UIColor.clearColor;
-        _destructiveButtonBackgroundColorHighlighted = UIColor.redColor;
+        _destructiveButtonBackgroundColorHighlighted = UIColor.clearColor;
         _destructiveButtonBackgroundColorDisabled = nil;
         _destructiveButtonNumberOfLines = 1;
         _destructiveButtonLineBreakMode = NSLineBreakByTruncatingMiddle;

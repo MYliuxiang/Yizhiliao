@@ -345,6 +345,7 @@
                 <outlet property="lowTimeLabel" destination="DfO-A0-dBh" id="guC-91-j24"/>
                 <outlet property="nickeNameLab" destination="hkA-Oj-Avg" id="YQj-zO-uas"/>
                 <outlet property="redBtn" destination="VBB-s6-GAQ" id="YOl-2Y-apX"/>
+                <outlet property="redlayoutConstranint" destination="Qgc-Ln-Udr" id="l2b-hx-rmp"/>
                 <outlet property="refuse" destination="gcD-oh-Lfa" id="VNs-Np-apS"/>
                 <outlet property="refuseBtn" destination="gcD-oh-Lfa" id="kPA-j4-pth"/>
                 <outlet property="timeLab" destination="KZt-xG-Vzi" id="Fnw-rg-cge"/>

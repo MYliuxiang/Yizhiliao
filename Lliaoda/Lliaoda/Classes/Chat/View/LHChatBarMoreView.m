@@ -44,7 +44,7 @@ const NSInteger INSETS = 8;
     NSArray *nameArr;
     NSArray *imageNameArr;
     if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
-        nameArr = @[LXSring(@"視頻通訊"),@"語音通話", LXSring(@"提示用戶送禮"), LXSring(@"提示用戶儲值")];
+        nameArr = @[LXSring(@"視頻通訊"),@"語音通話", LXSring(@"提示用戶\n送禮"), LXSring(@"提示用戶\n儲值")];
         imageNameArr = @[@"shipinliaotian",@"yuyintonghua", @"songlitixing", @"chongzhi"];
     } else {
         nameArr = @[LXSring(@"視頻通訊"),@"語音通話", LXSring(@"送禮物"), LXSring(@"儲值")];
@@ -64,14 +64,13 @@ const NSInteger INSETS = 8;
         [self addSubview:label];
         
         [button addTarget:self action:@selector(chatMoreAC:) forControlEvents:UIControlEventTouchUpInside];
-        button.frame = CGRectMake(15 + (kScreenWidth / 4 - 30 + 30) * i, 25, kScreenWidth / 4 - 30, 60);
-        label.frame = CGRectMake(button.x, button.bottom + 10, kScreenWidth / 4 - 30, 15);
+        button.frame = CGRectMake(5 + (kScreenWidth / 4 - 30 + 30) * i, 25, kScreenWidth / 4 - 30, 60);
+        label.frame = CGRectMake(button.x, button.bottom + 5, kScreenWidth / 4 - 30, 30);
+        label.numberOfLines = 2;
        
             label.text = nameArr[i];
             [button setImage:[UIImage imageNamed:imageNameArr[i]] forState:UIControlStateNormal];
-       
     }
-
 }
 
 #pragma mark - action

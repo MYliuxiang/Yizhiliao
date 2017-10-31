@@ -31,7 +31,7 @@
     //    //隐藏系统自带UI
         self.showsCameraControls = YES;
     //    //設定摄像头
-    //    [self switchCameraIsFront:NO];
+        [self switchCameraIsFront:NO];
     //    //設定視訊画质类别
     //    self.videoQuality = UIImagePickerControllerQualityTypeMedium;
     //    //設定散光灯类型
@@ -39,12 +39,7 @@
     //    //設定录制的最大时长
         self.videoMaximumDuration = 30;
 }
-
-
-
-
 #pragma mark 自定义方法
-
 - (void)startRecorder
 {
     [self startVideoCapture];
@@ -83,7 +78,6 @@
     }
 }
 
-
 //隐藏系统自带的UI，可以自定义UI
 - (void)configureCustomUIOnImagePicker
 {
@@ -93,7 +87,6 @@
 }
 
 #pragma mark - UIImagePickerControllerDelegate methods
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
         

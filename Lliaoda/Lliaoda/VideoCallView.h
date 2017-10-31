@@ -31,8 +31,6 @@ typedef NS_ENUM(NSInteger, CallType) {
     CallTypeVoice
 };
 
-
-
 @interface VideoCallView : UIView<AgoraRtcEngineDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *refuseBtn;
 - (IBAction)refuseAC:(id)sender;
@@ -128,6 +126,10 @@ typedef NS_ENUM(NSInteger, CallType) {
 
 - (instancetype)initVideoCallViewWithChancel:(NSString *)chancel withUid:(NSString *)uid withIsSend:(BOOL)isSend;
 
+//主动呼叫
+- (instancetype)initVideoCallViewWithChancel:(NSString *)chancel withUid:(NSString *)uid withIsSend:(BOOL)isSend withType:(NSInteger)callType;
+
+
 - (void)show;
 
 - (void)dismiss;
@@ -155,6 +157,7 @@ typedef NS_ENUM(NSInteger, CallType) {
 @property (weak, nonatomic) IBOutlet UIView *jinbiView;
 @property (weak, nonatomic) IBOutlet UILabel *jinbiLabel;
 @property (weak, nonatomic) IBOutlet UIView *jinbiView1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *redlayoutConstranint;
 
 
 @property (weak, nonatomic) IBOutlet UIView *headerBGView;

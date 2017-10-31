@@ -717,7 +717,7 @@
                 self.findBgView.hidden = YES;
                 
                 NSString *channel = [NSString stringWithFormat:@"%@",result[@"data"][@"channel"]];
-                VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:model.uid withIsSend:YES];
+                VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:model.uid withIsSend:YES withType:CallTypeVideo];
                 [video show];
                 
             }else{    //请求失败

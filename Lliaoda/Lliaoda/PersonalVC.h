@@ -20,6 +20,8 @@
 #import "InfomationVideoVC.h"
 #import "InfomationMessageVC.h"
 #import "FSBaseTableView.h"
+#import "GiftsView.h"
+
 typedef NS_ENUM(NSInteger, CellType) {
     CellMessage,
     CellVideoType

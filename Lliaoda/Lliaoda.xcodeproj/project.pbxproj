@@ -35,8 +35,6 @@
 		222396E51EB1D982001D4814 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222396E41EB1D982001D4814 /* VideoToolbox.framework */; };
 		222396E71EB1D98B001D4814 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222396E61EB1D98B001D4814 /* AudioToolbox.framework */; };
 		222396E91EB1D991001D4814 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222396E81EB1D991001D4814 /* AVFoundation.framework */; };
-		222396ED1EB1DE4F001D4814 /* VideoCallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222396EC1EB1DE4F001D4814 /* VideoCallView.m */; };
-		222396EF1EB1ED33001D4814 /* VideoCallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222396EE1EB1ED33001D4814 /* VideoCallView.xib */; };
 		222740141EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 222740131EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v */; };
 		222740171EC56A92002FEF5B /* ZYLauchMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 222740161EC56A92002FEF5B /* ZYLauchMovieViewController.m */; };
 		222747051ECC49B8009E98EC /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222747041ECC49B8009E98EC /* JavaScriptCore.framework */; };
@@ -384,8 +382,6 @@
 		22453BAE1F1C74290000C006 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22453BAC1F1C74290000C006 /* UserCell.m */; };
 		22453BAF1F1C74290000C006 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22453BAD1F1C74290000C006 /* UserCell.xib */; };
 		224601E91EB317B9000D4A96 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 224601E81EB317B9000D4A96 /* Message.m */; };
-		224642781FA195DF008B29B8 /* VoiceCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 224642771FA195DF008B29B8 /* VoiceCall.m */; };
-		2246427A1FA195ED008B29B8 /* VoiceCall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224642791FA195ED008B29B8 /* VoiceCall.xib */; };
 		224A4D9B1EBC56BD000D17B5 /* MessageCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A4D9A1EBC56BD000D17B5 /* MessageCount.m */; };
 		224F244F1EA732C800C0FDC6 /* VideoRZVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F244D1EA732C800C0FDC6 /* VideoRZVC.m */; };
 		224F24501EA732C800C0FDC6 /* VideoRZVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224F244E1EA732C800C0FDC6 /* VideoRZVC.xib */; };
@@ -526,6 +522,8 @@
 		2291CBFE1F4DBD30001AB139 /* PersonSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2291CBFC1F4DBD30001AB139 /* PersonSelectCell.m */; };
 		2291CBFF1F4DBD30001AB139 /* PersonSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2291CBFD1F4DBD30001AB139 /* PersonSelectCell.xib */; };
 		22A454F01F064C1E0020225E /* share-result.html in Resources */ = {isa = PBXBuildFile; fileRef = 22A454EF1F064C1E0020225E /* share-result.html */; };
+		22A8E6AE1FA72E4200D7FBFA /* VideoCallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8E6AB1FA72E4100D7FBFA /* VideoCallView.m */; };
+		22A8E6AF1FA72E4200D7FBFA /* VideoCallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A8E6AC1FA72E4100D7FBFA /* VideoCallView.xib */; };
 		22AC02A21F4EC07600369C6D /* NewMyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AC02A01F4EC07600369C6D /* NewMyVC.m */; };
 		22AC02A31F4EC07600369C6D /* NewMyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AC02A11F4EC07600369C6D /* NewMyVC.xib */; };
 		22AC02A71F4ED0BA00369C6D /* NewMyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AC02A51F4ED0BA00369C6D /* NewMyCell.m */; };
@@ -563,7 +561,6 @@
 		22CDA97F1EA6076C006CD611 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CDA97D1EA6076C006CD611 /* AccountCell.xib */; };
 		22D7A2EF1EA5AFA800A631B5 /* PersonalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D7A2ED1EA5AFA800A631B5 /* PersonalVC.m */; };
 		22D7A2F01EA5AFA800A631B5 /* PersonalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D7A2EE1EA5AFA800A631B5 /* PersonalVC.xib */; };
-		22DC05651F39A91C00E2E015 /* PchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DC05641F39A91C00E2E015 /* PchTool.m */; };
 		22DC05681F39BE8200E2E015 /* albumVideo.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DC05661F39BE8200E2E015 /* albumVideo.png */; };
 		22DC05691F39BE8200E2E015 /* album.png in Resources */ = {isa = PBXBuildFile; fileRef = 22DC05671F39BE8200E2E015 /* album.png */; };
 		22DC056E1F39FAA600E2E015 /* noVideo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22DC056C1F39FAA600E2E015 /* noVideo.jpg */; };
@@ -726,9 +723,6 @@
 		222396E41EB1D982001D4814 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		222396E61EB1D98B001D4814 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		222396E81EB1D991001D4814 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		222396EB1EB1DE4F001D4814 /* VideoCallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCallView.h; sourceTree = "<group>"; };
-		222396EC1EB1DE4F001D4814 /* VideoCallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCallView.m; sourceTree = "<group>"; };
-		222396EE1EB1ED33001D4814 /* VideoCallView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCallView.xib; sourceTree = "<group>"; };
 		222740131EC55C61002FEF5B /* v1.0版本启动动画定版.mp4.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "v1.0版本启动动画定版.mp4.m4v"; sourceTree = "<group>"; };
 		222740151EC56A92002FEF5B /* ZYLauchMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYLauchMovieViewController.h; sourceTree = "<group>"; };
 		222740161EC56A92002FEF5B /* ZYLauchMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYLauchMovieViewController.m; sourceTree = "<group>"; };
@@ -1223,9 +1217,6 @@
 		22453BAD1F1C74290000C006 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		224601E71EB317B9000D4A96 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		224601E81EB317B9000D4A96 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		224642761FA195DF008B29B8 /* VoiceCall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceCall.h; sourceTree = "<group>"; };
-		224642771FA195DF008B29B8 /* VoiceCall.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceCall.m; sourceTree = "<group>"; };
-		224642791FA195ED008B29B8 /* VoiceCall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoiceCall.xib; sourceTree = "<group>"; };
 		224A4D991EBC56BD000D17B5 /* MessageCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCount.h; sourceTree = "<group>"; };
 		224A4D9A1EBC56BD000D17B5 /* MessageCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCount.m; sourceTree = "<group>"; };
 		224F244C1EA732C800C0FDC6 /* VideoRZVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRZVC.h; sourceTree = "<group>"; };
@@ -1290,7 +1281,6 @@
 		226B6FEF1F38591000AEC7D2 /* LocalizationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationUtils.h; sourceTree = "<group>"; };
 		226B6FF01F38591000AEC7D2 /* LocalizationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationUtils.m; sourceTree = "<group>"; };
 		226B6FF51F38649E00AEC7D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		226B6FF71F3864A100AEC7D2 /* id-ID */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id-ID"; path = "id-ID.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		226B6FF81F3864A200AEC7D2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		226B703E1F38819D00AEC7D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		226BA90C1ED7E324004D983A /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
@@ -1466,6 +1456,9 @@
 		2291CBFC1F4DBD30001AB139 /* PersonSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonSelectCell.m; sourceTree = "<group>"; };
 		2291CBFD1F4DBD30001AB139 /* PersonSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonSelectCell.xib; sourceTree = "<group>"; };
 		22A454EF1F064C1E0020225E /* share-result.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "share-result.html"; sourceTree = "<group>"; };
+		22A8E6AB1FA72E4100D7FBFA /* VideoCallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCallView.m; sourceTree = "<group>"; };
+		22A8E6AC1FA72E4100D7FBFA /* VideoCallView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCallView.xib; sourceTree = "<group>"; };
+		22A8E6AD1FA72E4200D7FBFA /* VideoCallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCallView.h; sourceTree = "<group>"; };
 		22AC029F1F4EC07600369C6D /* NewMyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMyVC.h; sourceTree = "<group>"; };
 		22AC02A01F4EC07600369C6D /* NewMyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMyVC.m; sourceTree = "<group>"; };
 		22AC02A11F4EC07600369C6D /* NewMyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMyVC.xib; sourceTree = "<group>"; };
@@ -1528,8 +1521,6 @@
 		22D7A2EC1EA5AFA800A631B5 /* PersonalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalVC.h; sourceTree = "<group>"; };
 		22D7A2ED1EA5AFA800A631B5 /* PersonalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalVC.m; sourceTree = "<group>"; };
 		22D7A2EE1EA5AFA800A631B5 /* PersonalVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalVC.xib; sourceTree = "<group>"; };
-		22DC05631F39A91C00E2E015 /* PchTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PchTool.h; sourceTree = "<group>"; };
-		22DC05641F39A91C00E2E015 /* PchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PchTool.m; sourceTree = "<group>"; };
 		22DC05661F39BE8200E2E015 /* albumVideo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = albumVideo.png; sourceTree = "<group>"; };
 		22DC05671F39BE8200E2E015 /* album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album.png; sourceTree = "<group>"; };
 		22DC056C1F39FAA600E2E015 /* noVideo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noVideo.jpg; sourceTree = "<group>"; };
@@ -1646,8 +1637,6 @@
 		8489F54D1F9F2323002D1BA4 /* NewMyVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewMyVideoCell.h; sourceTree = "<group>"; };
 		8489F54E1F9F2323002D1BA4 /* NewMyVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewMyVideoCell.m; sourceTree = "<group>"; };
 		8489F54F1F9F2323002D1BA4 /* NewMyVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewMyVideoCell.xib; sourceTree = "<group>"; };
-		848A0AB11F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		848A0AB21F453F0600057C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		848A0AB31F45A44000057C5B /* ar1502964098.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ar1502964098.mp4; sourceTree = "<group>"; };
 		848D91831FA0970C00891B21 /* RankingListCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingListCell2.h; sourceTree = "<group>"; };
 		848D91841FA0970C00891B21 /* RankingListCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingListCell2.m; sourceTree = "<group>"; };
@@ -1682,7 +1671,6 @@
 		84F0871A1F54039A00026235 /* OnlineUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnlineUserCell.xib; sourceTree = "<group>"; };
 		84F0871D1F541BBF00026235 /* headerImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headerImage.jpg; sourceTree = "<group>"; };
 		84F970CD1F38541B00336234 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		84F970CF1F38541C00336234 /* id-ID */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id-ID"; path = "id-ID.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		84F970D21F38946100336234 /* LanguageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageVC.h; sourceTree = "<group>"; };
 		84F970D31F38946100336234 /* LanguageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageVC.m; sourceTree = "<group>"; };
 		84F970D41F38946100336234 /* LanguageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageVC.xib; sourceTree = "<group>"; };
@@ -1858,12 +1846,9 @@
 				22A8D24C1EFD438400946A33 /* 礼物 */,
 				225827761ECC09CC0049A6C1 /* end.wav */,
 				225827771ECC09CC0049A6C1 /* start.wav */,
-				222396EB1EB1DE4F001D4814 /* VideoCallView.h */,
-				222396EC1EB1DE4F001D4814 /* VideoCallView.m */,
-				222396EE1EB1ED33001D4814 /* VideoCallView.xib */,
-				224642761FA195DF008B29B8 /* VoiceCall.h */,
-				224642771FA195DF008B29B8 /* VoiceCall.m */,
-				224642791FA195ED008B29B8 /* VoiceCall.xib */,
+				22A8E6AD1FA72E4200D7FBFA /* VideoCallView.h */,
+				22A8E6AB1FA72E4100D7FBFA /* VideoCallView.m */,
+				22A8E6AC1FA72E4100D7FBFA /* VideoCallView.xib */,
 				222FA8671EFCF34200E91AE5 /* VideoCallRedView.h */,
 				222FA8681EFCF34200E91AE5 /* VideoCallRedView.m */,
 				222FA86A1EFCF35500E91AE5 /* VideoCallRedView.xib */,
@@ -3357,8 +3342,6 @@
 				84F970CE1F38541B00336234 /* Localizable.strings */,
 				227B15CD1F9889E2008D6F71 /* Assets.xcassets */,
 				22B1090D1EA4A23800E35B74 /* Lliaoda.pch */,
-				22DC05631F39A91C00E2E015 /* PchTool.h */,
-				22DC05641F39A91C00E2E015 /* PchTool.m */,
 				22E8D76C1EA49AE300C5FC6B /* Supporting Files */,
 			);
 			path = Lliaoda;
@@ -3612,11 +3595,8 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
-				"id-ID",
 				"zh-Hant",
-				ar,
 			);
 			mainGroup = 22E8D7601EA49AE300C5FC6B;
 			productRefGroup = 22E8D76A1EA49AE300C5FC6B /* Products */;
@@ -3763,7 +3743,6 @@
 				222AA0531EB071910038416D /* B_13@2x.gif in Resources */,
 				222AA08E1EB071910038416D /* B_67@2x.gif in Resources */,
 				222B385A1ED96843009DB58F /* mss_browseLoading@3x.png in Resources */,
-				2246427A1FA195ED008B29B8 /* VoiceCall.xib in Resources */,
 				222AA07F1EB071910038416D /* B_53@2x.gif in Resources */,
 				222AA01B1EB071910038416D /* C_109@2x.png in Resources */,
 				222AA0B11EB071910038416D /* B_99@2x.gif in Resources */,
@@ -3844,6 +3823,7 @@
 				22DC056E1F39FAA600E2E015 /* noVideo.jpg in Resources */,
 				222AA03C1EB071910038416D /* B_09@2x.gif in Resources */,
 				222AA06A1EB071910038416D /* B_34@2x.gif in Resources */,
+				22A8E6AF1FA72E4200D7FBFA /* VideoCallView.xib in Resources */,
 				222AA0191EB071910038416D /* C_107@2x.png in Resources */,
 				222AA0321EB071910038416D /* C_99@2x.png in Resources */,
 				222AA0591EB071910038416D /* B_19@2x.gif in Resources */,
@@ -3925,7 +3905,6 @@
 				228CF73A1EDE7D070045986D /* MyVideoCell.xib in Resources */,
 				2250E6301EAA013F00849842 /* Assets.xcassets in Resources */,
 				8450DCEB1FA34ACA007729AA /* LxPersonNewCell3.xib in Resources */,
-				222396EF1EB1ED33001D4814 /* VideoCallView.xib in Resources */,
 				222AA0361EB071910038416D /* B_03@2x.gif in Resources */,
 				22721FC71EE80C68003A19D3 /* PPhotoVC.xib in Resources */,
 				222AA07C1EB071910038416D /* B_50@2x.gif in Resources */,
@@ -4185,7 +4164,6 @@
 				222B38211ED9642B009DB58F /* FSActionSheetCell.m in Sources */,
 				222DD1A61EADCCF500B7A8D7 /* CityTool.m in Sources */,
 				840BE31B1F1F01A70004B6D9 /* CollectionHeaderView.m in Sources */,
-				222396ED1EB1DE4F001D4814 /* VideoCallView.m in Sources */,
 				222B385F1ED96843009DB58F /* MSSBrowseLoadingImageView.m in Sources */,
 				222AA1DD1EB0775B0038416D /* YYTextAsyncLayer.m in Sources */,
 				84123E781FA1E4C600D97BF4 /* LxPersonNewCell1.m in Sources */,
@@ -4213,7 +4191,6 @@
 				224F24601EA73EB200C0FDC6 /* VideoRZTwoCell.m in Sources */,
 				84B8CDAD1F4AD3F800A13D27 /* PersonHeaderScroolView.m in Sources */,
 				84F970D51F38946100336234 /* LanguageVC.m in Sources */,
-				22DC05651F39A91C00E2E015 /* PchTool.m in Sources */,
 				8483AAF41F4EAE9E008BA674 /* AccountHeaderView.m in Sources */,
 				22844F551ED2A1B800A9E32E /* IQKeyboardManager.m in Sources */,
 				222AA1671EB071C20038416D /* KeyboardEmojiAttachment.m in Sources */,
@@ -4357,6 +4334,7 @@
 				2265F8CA1F3C0D98001A6308 /* UIButton+HQCustomIcon.m in Sources */,
 				2290A8451F4BE826005DA0AE /* BannerView.m in Sources */,
 				2244B4691F00B96800685217 /* AnimOperationManager.m in Sources */,
+				22A8E6AE1FA72E4200D7FBFA /* VideoCallView.m in Sources */,
 				8420E7251F2779E600ADA26E /* LHChatChongZhiBubbleView.m in Sources */,
 				22844F591ED2A1B800A9E32E /* IQTitleBarButtonItem.m in Sources */,
 				223BDF0F1EA70547006DCD65 /* SettingVC.m in Sources */,
@@ -4365,7 +4343,6 @@
 				8413A2B31F4C412C00CB3CBC /* FixIndustryVC.m in Sources */,
 				228B89D91EA866FB002B8D3C /* YYMemoryCache.m in Sources */,
 				227971CD1EF8DC0900BC8E18 /* FileUnit.m in Sources */,
-				224642781FA195DF008B29B8 /* VoiceCall.m in Sources */,
 				843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */,
 				222AA1D41EB0775B0038416D /* YYTextArchiver.m in Sources */,
 				226E2EE71F0F3651009953FD /* BlackName.m in Sources */,
@@ -4457,9 +4434,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				226B6FF51F38649E00AEC7D2 /* Base */,
-				226B6FF71F3864A100AEC7D2 /* id-ID */,
 				226B6FF81F3864A200AEC7D2 /* zh-Hant */,
-				848A0AB11F453F0600057C5B /* ar */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -4484,9 +4459,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				84F970CD1F38541B00336234 /* zh-Hant */,
-				84F970CF1F38541C00336234 /* id-ID */,
 				226B703E1F38819D00AEC7D2 /* Base */,
-				848A0AB21F453F0600057C5B /* ar */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

@@ -121,7 +121,6 @@ alpha:1.0]
 #import "UIImage+Common.h"
 #import "UIView+Addtions.h"
 #import "UIButton+WebCache.h"
-#import "VideoCallView.h"
 #import "Message.h"
 #import "MessageCount.h"
 #import "NetWorkManager.h"
@@ -146,9 +145,9 @@ alpha:1.0]
 #import "MLMSegmentManager.h"
 #import "UIView+CBBadge.h"
 #import "MEntrance.h"
-#import "VoiceCall.h"
 
-
+#import "VideoCallView.h"
+#import "GiftsView.h"
 
 #define CityCache @"CityCache"
 #define ISMEiGUO @"meiguo"
@@ -246,7 +245,6 @@ alpha:1.0]
 #define Notice_weiXinShare                     @"weiXinShare"    //微信分享。
 
 //--------------网络请求--------
-#import "PchTool.h"
 
 //#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://aplid.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
 //#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://aplme.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL

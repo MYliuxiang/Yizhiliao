@@ -642,10 +642,10 @@
                 
                 NSString *channel = [NSString stringWithFormat:@"%@",result[@"data"][@"channel"]];
                 if (self.isFromHeader) {
-                    VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:self.personUID withIsSend:YES];
+                    VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:self.personUID withIsSend:YES withType:CallTypeVideo];
                     [video show];
                 } else {
-                    VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:self.model.uid withIsSend:YES];
+                    VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:self.model.uid withIsSend:YES withType:CallTypeVideo];
                     [video show];
                 }
                 

@@ -35,29 +35,29 @@
         NSArray *languages = [NSLocale preferredLanguages];
         NSString *currentLanguage = [languages objectAtIndex:0];
 //        if([currentLanguage hasPrefix:@"zh-Hant"] || [currentLanguage hasPrefix:@"zh-Hans"]){
+            self.languageBGView.hidden = YES;
+            [LXUserDefaults setObject:@"zh-Hant" forKey:@"appLanguage"];
+            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
+            [LXUserDefaults synchronize];
+//
+//        }else
+//        if ([currentLanguage hasPrefix:@"id"]){
 //            self.languageBGView.hidden = YES;
-//            [LXUserDefaults setObject:@"zh-Hant" forKey:@"appLanguage"];
+//            [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
 //            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
 //            [LXUserDefaults synchronize];
 //
-//        }else
-        if ([currentLanguage hasPrefix:@"id"]){
-            self.languageBGView.hidden = YES;
-            [LXUserDefaults setObject:@"id" forKey:@"appLanguage"];
-            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
-            [LXUserDefaults synchronize];
-
-        } else if ([currentLanguage hasPrefix:@"ar"]) {
-            self.languageBGView.hidden = YES;
-            [LXUserDefaults setObject:@"ar" forKey:@"appLanguage"];
-            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
-            [LXUserDefaults synchronize];
-            
-        } else {
-            
-            self.languageBGView.hidden = NO;
-        }
-
+//        } else if ([currentLanguage hasPrefix:@"ar"]) {
+//            self.languageBGView.hidden = YES;
+//            [LXUserDefaults setObject:@"ar" forKey:@"appLanguage"];
+//            [LXUserDefaults setBool:YES forKey:@"firstLaunch"];
+//            [LXUserDefaults synchronize];
+//            
+//        } else {
+//            
+//            self.languageBGView.hidden = NO;
+//        }
+//
     }
     
     

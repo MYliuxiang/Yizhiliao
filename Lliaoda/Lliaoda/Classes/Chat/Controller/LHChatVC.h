@@ -11,6 +11,7 @@
 #import "MessageCount.h"
 #import "RepetitionCount.h"
 #import "RechargeCount.h"
+#import "GiftsView.h"
 @interface LHChatVC : BaseViewController<UIGestureRecognizerDelegate>
 
 @property (nonatomic,copy) NSString *channelId;
@@ -30,6 +31,7 @@
 @property (nonatomic, assign) BOOL isFromHeader;
 
 @property (nonatomic, copy) NSString *personID;
+
 @property (nonatomic,retain) GiftsView *giftsView;
 - (void)scrollToBottomAnimated:(BOOL)animated refresh:(BOOL)refresh;
 @end

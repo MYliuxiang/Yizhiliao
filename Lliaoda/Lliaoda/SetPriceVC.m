@@ -256,7 +256,7 @@
 {
     
     NSDictionary *params;
-    params = @{@"uid":[NSString stringWithFormat:@"%d",self.cmodel.uid]};
+    params = @{@"uid":[NSString stringWithFormat:@"%d",self.cmodel.uid],@"type":@1};
     [WXDataService requestAFWithURL:Url_accountcharge params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
