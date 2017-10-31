@@ -55,6 +55,7 @@
                     <constraint firstItem="ym1-pG-Knd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="yJN-7R-kuB"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="alltime" destination="oF4-ih-b4h" id="bLf-H4-Zdf"/>
                 <outlet property="name" destination="aKu-Eo-yyI" id="IWt-1J-Nys"/>

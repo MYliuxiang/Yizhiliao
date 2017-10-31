@@ -393,7 +393,6 @@
 		224F24611EA73EB200C0FDC6 /* VideoRZTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224F245F1EA73EB200C0FDC6 /* VideoRZTwoCell.xib */; };
 		224F24651EA73ED300C0FDC6 /* VideoRZThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F24631EA73ED300C0FDC6 /* VideoRZThreeCell.m */; };
 		224F24661EA73ED300C0FDC6 /* VideoRZThreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224F24641EA73ED300C0FDC6 /* VideoRZThreeCell.xib */; };
-		224F246A1EA74B6700C0FDC6 /* FMImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F24691EA74B6700C0FDC6 /* FMImagePicker.m */; };
 		224F246D1EA74B7400C0FDC6 /* FMVideoPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F246C1EA74B7400C0FDC6 /* FMVideoPlayController.m */; };
 		224F24711EA7521A00C0FDC6 /* VideoOneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F246F1EA7521A00C0FDC6 /* VideoOneVC.m */; };
 		224F24721EA7521A00C0FDC6 /* VideoOneVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224F24701EA7521A00C0FDC6 /* VideoOneVC.xib */; };
@@ -546,6 +545,9 @@
 		22BBE5281F502B4B007631DC /* OtherVideoPlayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BBE5261F502B4B007631DC /* OtherVideoPlayVC.m */; };
 		22BBE5291F502B4B007631DC /* OtherVideoPlayVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22BBE5271F502B4B007631DC /* OtherVideoPlayVC.xib */; };
 		22C166361EAEF973002D9084 /* FundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C166351EAEF973002D9084 /* FundModel.m */; };
+		22C329401FA8258400FDC973 /* VideoShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C3293E1FA8258400FDC973 /* VideoShowCell.m */; };
+		22C329411FA8258400FDC973 /* VideoShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C3293F1FA8258400FDC973 /* VideoShowCell.xib */; };
+		22C329461FA8299100FDC973 /* VideoShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C329451FA8299100FDC973 /* VideoShowModel.m */; };
 		22C7A0171ED0220E00ED78A4 /* 1495262516.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 22C7A0161ED0220E00ED78A4 /* 1495262516.mp4 */; };
 		22CDA9621EA5DDC6006CD611 /* MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CDA9611EA5DDC6006CD611 /* MyColor.m */; };
 		22CDA9651EA5DDD3006CD611 /* LXBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CDA9641EA5DDD3006CD611 /* LXBaseModel.m */; };
@@ -1235,8 +1237,6 @@
 		224F24621EA73ED300C0FDC6 /* VideoRZThreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRZThreeCell.h; sourceTree = "<group>"; };
 		224F24631EA73ED300C0FDC6 /* VideoRZThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRZThreeCell.m; sourceTree = "<group>"; };
 		224F24641EA73ED300C0FDC6 /* VideoRZThreeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoRZThreeCell.xib; sourceTree = "<group>"; };
-		224F24681EA74B6700C0FDC6 /* FMImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMImagePicker.h; sourceTree = "<group>"; };
-		224F24691EA74B6700C0FDC6 /* FMImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMImagePicker.m; sourceTree = "<group>"; };
 		224F246B1EA74B7400C0FDC6 /* FMVideoPlayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMVideoPlayController.h; sourceTree = "<group>"; };
 		224F246C1EA74B7400C0FDC6 /* FMVideoPlayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMVideoPlayController.m; sourceTree = "<group>"; };
 		224F246E1EA7521A00C0FDC6 /* VideoOneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoOneVC.h; sourceTree = "<group>"; };
@@ -1498,6 +1498,11 @@
 		22BBE5271F502B4B007631DC /* OtherVideoPlayVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherVideoPlayVC.xib; sourceTree = "<group>"; };
 		22C166341EAEF973002D9084 /* FundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundModel.h; sourceTree = "<group>"; };
 		22C166351EAEF973002D9084 /* FundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundModel.m; sourceTree = "<group>"; };
+		22C3293D1FA8258400FDC973 /* VideoShowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoShowCell.h; sourceTree = "<group>"; };
+		22C3293E1FA8258400FDC973 /* VideoShowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoShowCell.m; sourceTree = "<group>"; };
+		22C3293F1FA8258400FDC973 /* VideoShowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoShowCell.xib; sourceTree = "<group>"; };
+		22C329441FA8299100FDC973 /* VideoShowModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoShowModel.h; sourceTree = "<group>"; };
+		22C329451FA8299100FDC973 /* VideoShowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoShowModel.m; sourceTree = "<group>"; };
 		22C7A0161ED0220E00ED78A4 /* 1495262516.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1495262516.mp4; sourceTree = "<group>"; };
 		22CDA9601EA5DDC6006CD611 /* MyColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyColor.h; sourceTree = "<group>"; };
 		22CDA9611EA5DDC6006CD611 /* MyColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyColor.m; sourceTree = "<group>"; };
@@ -1771,9 +1776,11 @@
 		221EEBDA1F9F25A600618FB9 /* 视频秀 */ = {
 			isa = PBXGroup;
 			children = (
+				22C329431FA8297500FDC973 /* Models */,
 				221EEBDC1F9F260600618FB9 /* VideoShowVC.h */,
 				221EEBDD1F9F260600618FB9 /* VideoShowVC.m */,
 				221EEBDE1F9F260600618FB9 /* VideoShowVC.xib */,
+				22C329421FA8269800FDC973 /* Views */,
 			);
 			name = "视频秀";
 			sourceTree = "<group>";
@@ -2658,15 +2665,6 @@
 			path = WHC_AutoLayoutKit;
 			sourceTree = "<group>";
 		};
-		224F24671EA74B6700C0FDC6 /* UIImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				224F24681EA74B6700C0FDC6 /* FMImagePicker.h */,
-				224F24691EA74B6700C0FDC6 /* FMImagePicker.m */,
-			);
-			path = UIImagePicker;
-			sourceTree = "<group>";
-		};
 		226B6FEE1F3858FF00AEC7D2 /* 多语言 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3008,7 +3006,6 @@
 			children = (
 				228CE5C21ED434D700764B0C /* Controllers */,
 				2204AA941EAD99460034C0F3 /* Models */,
-				224F24671EA74B6700C0FDC6 /* UIImagePicker */,
 				22CDA97A1EA60752006CD611 /* Views */,
 			);
 			name = "我的";
@@ -3208,6 +3205,25 @@
 				8450DCE91FA34ACA007729AA /* LxPersonNewCell3.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		22C329421FA8269800FDC973 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22C3293D1FA8258400FDC973 /* VideoShowCell.h */,
+				22C3293E1FA8258400FDC973 /* VideoShowCell.m */,
+				22C3293F1FA8258400FDC973 /* VideoShowCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		22C329431FA8297500FDC973 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				22C329441FA8299100FDC973 /* VideoShowModel.h */,
+				22C329451FA8299100FDC973 /* VideoShowModel.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		22CDA97A1EA60752006CD611 /* Views */ = {
@@ -3686,6 +3702,7 @@
 				222AA0011EB071910038416D /* IM_Chat_receiver_bg@3x.png in Resources */,
 				222AA0271EB071910038416D /* C_88@2x.png in Resources */,
 				222AA0451EB071910038416D /* B_108@2x.gif in Resources */,
+				22C329411FA8258400FDC973 /* VideoShowCell.xib in Resources */,
 				222396D01EB1CDCC001D4814 /* MessageCell.xib in Resources */,
 				222AA0AE1EB071910038416D /* B_96@2x.gif in Resources */,
 				848D918C1FA09D2900891B21 /* RankingListCell3.xib in Resources */,
@@ -4236,6 +4253,7 @@
 				228B89D61EA866FB002B8D3C /* YYCache.m in Sources */,
 				2291CBEF1F4DBCEA001AB139 /* BaseCellVC.m in Sources */,
 				222AA1501EB071C10038416D /* UIView+frameAdjust.m in Sources */,
+				22C329401FA8258400FDC973 /* VideoShowCell.m in Sources */,
 				2244B4681F00B96800685217 /* AnimOperation.m in Sources */,
 				222B38611ED96843009DB58F /* MSSBrowseModel.m in Sources */,
 				841AD6C61F3C580800A3CE0D /* SelectedBannersModel.m in Sources */,
@@ -4279,6 +4297,7 @@
 				222396CF1EB1CDCC001D4814 /* MessageCell.m in Sources */,
 				22C166361EAEF973002D9084 /* FundModel.m in Sources */,
 				22B109341EA4B2CF00E35B74 /* SelectedCell.m in Sources */,
+				22C329461FA8299100FDC973 /* VideoShowModel.m in Sources */,
 				222AA1511EB071C10038416D /* UIViewController+Set.m in Sources */,
 				222AA1491EB071C10038416D /* NSCalendar+Establish.m in Sources */,
 				222DD1AA1EADD0E400B7A8D7 /* CityModel.m in Sources */,
@@ -4375,7 +4394,6 @@
 				228CF73D1EDEBB2F0045986D /* MyVideoModel.m in Sources */,
 				223740C51EA9AB1500EFB6D8 /* LxCache.m in Sources */,
 				2286DC6E1EF26AFE00FDF801 /* LHChatViewBaseCell.m in Sources */,
-				224F246A1EA74B6700C0FDC6 /* FMImagePicker.m in Sources */,
 				840BE3191F1F01A70004B6D9 /* AccountCollectionCell.m in Sources */,
 				222AA0D71EB071A50038416D /* TZVideoPlayerController.m in Sources */,
 				222AA0D61EB071A50038416D /* TZPhotoPreviewController.m in Sources */,

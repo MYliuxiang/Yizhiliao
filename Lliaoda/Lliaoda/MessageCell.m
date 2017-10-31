@@ -13,8 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.layer.cornerRadius = 5;
-    self.contentView.layer.cornerRadius = 5;
+//    self.layer.cornerRadius = 5;
+//    self.contentView.layer.cornerRadius = 5;
     self.headerImageView.layer.masksToBounds = YES;
     self.headerImageView.layer.cornerRadius = 30;
     [self.countLabel sizeToFit];

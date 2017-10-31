@@ -75,7 +75,12 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    CallTime *call = self.dataList[indexPath.row];
+    SelectedModel *model = [[SelectedModel alloc] init];
+    model.uid = [NSString stringWithFormat:@"%d",call.sendUid];
+    LxPersonVCs *vc = [[LxPersonVCs alloc] init];
+    vc.model = model;
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 - (void)didReceiveMemoryWarning {

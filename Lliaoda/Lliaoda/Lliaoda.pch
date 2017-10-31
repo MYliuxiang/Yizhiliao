@@ -53,7 +53,7 @@ alpha:1.0]
 #define ColorRGB(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 //颜色
-#define Color_bg     [MyColor colorWithHexString:@"#F7FCFF"]
+#define Color_bg     [MyColor colorWithHexString:@"#F1F9FD"]
 #define Color_nav    [MyColor colorWithHexString:@"#F7DB00"]
 #define Color_green  UIColorFromRGB(0x7ED321)
 #define Color_Tab    [MyColor colorWithHexString:@"#00DDCC"]
@@ -161,6 +161,8 @@ alpha:1.0]
 
 #define Url_report                        @"report"//舉報主播
 #define Url_block                         @"block"//拉黑主播
+
+#define Url_mediavideo                   @"media/video"//视频秀
 
 #define Url_commodities                   @"commodities"//获取可售卖商品
 #define Url_payzpayprepare                @"pay/qpay/prepare"//使用zpay支付

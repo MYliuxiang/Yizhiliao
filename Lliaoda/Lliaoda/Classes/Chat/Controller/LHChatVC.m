@@ -114,7 +114,7 @@ NSString *const kTableViewFrame = @"frame";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageSendError:) name:Notice_onMessageSendError object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageVideoTime:) name:Notice_messageVideoTime object:nil];
-    [self addrightImage:@"gengduo"];
+    [self addrightImage:@"dengdeng_bai"];
     
     
     [self _loadData1];

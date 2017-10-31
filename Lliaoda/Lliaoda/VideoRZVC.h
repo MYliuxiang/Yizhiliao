@@ -11,16 +11,18 @@
 #import "VideoRZTwoCell.h"
 #import "VideoRZThreeCell.h"
 #import "FMVideoPlayController.h"
-#import "FMImagePicker.h"
 #import "VideoOneVC.h"
 
-@interface VideoRZVC : BaseViewController
+@interface VideoRZVC : BaseViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property (strong,nonatomic) UIImagePickerController *imagePicker;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,retain) NSArray *dataList;
 @property (weak, nonatomic) IBOutlet UIButton *yanzBtn;
 - (IBAction)yanzhenAC:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *footerView;
 
+@property(nonatomic,assign) int type;
 // 未提交视频
 @property (weak, nonatomic) IBOutlet UIView *unApproveBGView;
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;

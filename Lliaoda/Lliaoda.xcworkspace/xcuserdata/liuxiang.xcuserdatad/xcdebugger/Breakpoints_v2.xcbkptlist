@@ -158,46 +158,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/VideoRZVC.m"
-            timestampString = "531046823.743224"
+            filePath = "Lliaoda/UIImagePicker/FMImagePicker.m"
+            timestampString = "531127872.120986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "-unApproveUploadButtonAC:"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[VideoRZVC unApproveUploadButtonAC:]"
-                  moduleName = "Lliaoda"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuxiang/Desktop/talketome_ios/Lliaoda/Lliaoda/VideoRZVC.m"
-                  timestampString = "531058306.329493"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "128">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__37-[VideoRZVC unApproveUploadButtonAC:]_block_invoke"
-                  moduleName = "Lliaoda"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liuxiang/Desktop/talketome_ios/Lliaoda/Lliaoda/VideoRZVC.m"
-                  timestampString = "531058306.331128"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -206,36 +206,83 @@
 
 - (IBAction)yanzhenAC:(id)sender {
     
-//    NSString *urlStr = @"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
-//    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    NSURL *url1 = [NSURL URLWithString:urlStr];
-//    
-//    FMVideoPlayController *playVC = [[FMVideoPlayController alloc] init];
-//    playVC.videoUrl = url1;
-//    [self.navigationController pushViewController:playVC animated:YES];
-    FMImagePicker *picker = [[FMImagePicker alloc] init];
-    picker.videoSucess = ^(NSDictionary *info){
+    self.type = 0;
+    if([self isVideoRecordingAvailable]){
+        
+        [self presentViewController:self.imagePicker animated:YES completion:nil];
+    }else{
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的手機暫不支持錄製視屏" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
     
+}
+- (IBAction)unApproveUploadButtonAC:(id)sender {
+
+    
+    self.type = 1;
+    if([self isVideoRecordingAvailable]){
+        
+        [self presentViewController:self.imagePicker animated:YES completion:nil];
+    }else{
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的手機暫不支持錄製視屏" delegate:nil cancelButtonTitle:@"確定" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
+
+    
+}
+
+#pragma mark - Private methods
+- (BOOL)isVideoRecordingAvailable
+{
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        NSArray *availableMediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        if([availableMediaTypes containsObject:(NSString *)kUTTypeMovie]){
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
+#pragma mark - UIImagePickerController代理方法
+//完成
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    if (self.type == 0) {
+        
         VideoOneVC *VC = [[VideoOneVC alloc] init];
         VC.infodic = info;
         [self.navigationController pushViewController:VC animated:YES];
-    
-    };
-
-    [self.navigationController presentViewController:picker animated:YES completion:nil];
-}
-- (IBAction)unApproveUploadButtonAC:(id)sender {
-    FMImagePicker *picker = [[FMImagePicker alloc] init];
-    picker.videoSucess = ^(NSDictionary *info){
+    }else{
         
         VideoRZVC1 *vc = [[VideoRZVC1 alloc] init];
-//        VideoOneVC *VC = [[VideoOneVC alloc] init];
-        vc.info = info;
+                vc.info = info;
         [self.navigationController pushViewController:vc animated:YES];
-//        self.approvingVideoImageView.image = [self thumbnailImageForVideo:     [info objectForKey:UIImagePickerControllerMediaURL]
-//                                                          atTime:1];
-    };
-    [self.navigationController presentViewController:picker animated:YES completion:nil];
+    }
+  
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - 私有方法
+-(UIImagePickerController *)imagePicker{
+    if (!_imagePicker) {
+        _imagePicker=[[UIImagePickerController alloc]init];
+        _imagePicker.sourceType=UIImagePickerControllerSourceTypeCamera;//设置image picker的来源，这里设置为摄像头
+        _imagePicker.cameraDevice=UIImagePickerControllerCameraDeviceFront;//设置使用哪个摄像头，这里设置为后置摄像头
+            _imagePicker.mediaTypes=@[(NSString *)kUTTypeMovie];
+            _imagePicker.videoQuality=UIImagePickerControllerQualityTypeIFrame1280x720;
+            _imagePicker.cameraCaptureMode=UIImagePickerControllerCameraCaptureModeVideo;//设置摄像头模式（拍照，录制视频）
+            
+       
+        _imagePicker.allowsEditing=YES;//允许编辑
+        _imagePicker.delegate=self;//设置代理，检测操作
+    }
+    return _imagePicker;
 }
 
 - (IBAction)unApproveVideoPlayButtonAC:(id)sender {
