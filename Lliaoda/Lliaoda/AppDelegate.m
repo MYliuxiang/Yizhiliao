@@ -1052,7 +1052,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                 BOOL  freeGift = [result[@"data"][@"freeGift"] boolValue];
                 if (freeGift) {
                     NSString *str = [NSString stringWithFormat:@"%@",result[@"data"][@"freeGiftMsg"]];
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:str delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"新用户礼包") message:str delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
                 }
                 

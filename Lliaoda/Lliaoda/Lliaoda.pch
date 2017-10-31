@@ -230,15 +230,14 @@ alpha:1.0]
 #define Notice_weiXinShare                     @"weiXinShare"    //微信分享。
 
 //--------------网络请求--------
-#import "PchTool.h"
 
 //#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://aplid.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
 //#define MAINURLStr   [LXUserDefaults boolForKey:ISMEiGUO] ? @"https://aplme.yizhiliao.tv/api/":[LocalizationUtils getMainUrl]//主URL
 
-#define MAINURLStr [LocalizationUtils getMainUrl]
+//#define MAINURLStr [LocalizationUtils getMainUrl]
 
 //#define MAINURLStr @"http://demo.yizhiliao.tv/api/"
-//#define MAINURLStr @"http://demo.yizhiliao.live/api/"
+#define MAINURLStr @"http://demo.yizhiliao.live/api/"
 //#define MAINURLStr [LocalizationUtils getMainUrl]
 
 #define MAINURL  MAINURLStr//主URL

@@ -25,7 +25,7 @@
     
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
    
-    if ([lang hasPrefix:@"id"]){
+    if ([lang hasPrefix:@"ar"]){
     self.backButtton.hidden = NO;
     [self.backButtton setImage:[UIImage imageNamed:@"kefu"] forState:UIControlStateNormal];
     }
@@ -74,7 +74,8 @@
 
 - (void)back
 {
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"联系客服") message:LXSring(@"感谢您使用TalkToMe\n欢迎添加官方whatsapp 00212611905696 进行反馈") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
     
 }
 
