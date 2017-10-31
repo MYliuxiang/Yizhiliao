@@ -72,12 +72,6 @@
     
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    HotVC *vc = [[HotVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-}
 
 ////下啦刷新
 - (void)downLoad
@@ -122,7 +116,7 @@
       urlStr = Url_recommendnew;
     }
     
-    [WXDataService requestAFWithURL:Url_recommend params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+    [WXDataService requestAFWithURL:urlStr params:params httpMethod:@"GET" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
    
         
         if(result){
@@ -176,7 +170,7 @@
                     self.dataList = marray;
                     
                     LxCache *lxcache = [LxCache sharedLxCache];
-                    [lxcache setCacheData:result WithKey:Url_recommend];
+                    [lxcache setCacheData:result WithKey:urlStr];
                     
                 } else {
                     

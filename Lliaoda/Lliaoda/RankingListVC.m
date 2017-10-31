@@ -39,10 +39,12 @@
              ];
     _segHead = [[MLMSegmentHead alloc] initWithFrame:CGRectMake((kScreenWidth - 200) / 2.0, 20, 200, 40) titles:list headStyle:SegmentHeadStyleLine layoutStyle:MLMSegmentLayoutCenter];
     _segHead.headColor = [UIColor clearColor];
+    _segHead.deSelectColor = [MyColor colorWithHexString:@"#666666"];
+
     _segHead.fontScale = 1.15;
     _segHead.fontSize = 16;
     _segHead.lineScale = 0.3;
-    _segHead.singleW_Add = 3;
+    _segHead.singleW_Add = 10;
     _segHead.bottomLineColor =  [UIColor clearColor];
     
     _segScroll = [[MLMSegmentScroll alloc] initWithFrame:CGRectMake(0, 63, SCREEN_WIDTH, SCREEN_HEIGHT-CGRectGetMaxY(_segHead.frame)) vcOrViews:[self vcArr:list.count]];

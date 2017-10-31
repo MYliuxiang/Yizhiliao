@@ -33,14 +33,15 @@
     list = @[@"訊息",
              @"通話記錄",
              ];
-    _segHead = [[MLMSegmentHead alloc] initWithFrame:CGRectMake((kScreenWidth - 200) / 2.0, 20, 200, 40) titles:list headStyle:SegmentHeadStyleLine layoutStyle:MLMSegmentLayoutDefault];
+    _segHead = [[MLMSegmentHead alloc] initWithFrame:CGRectMake((kScreenWidth - 150) / 2.0, 20, 150, 40) titles:list headStyle:SegmentHeadStyleLine layoutStyle:MLMSegmentLayoutDefault];
     _segHead.headColor = [UIColor clearColor];
+    _segHead.deSelectColor = [MyColor colorWithHexString:@"#666666"];
     _segHead.fontScale = 1.15;
     _segHead.fontSize = 16;
     _segHead.lineScale = 0.3;
     _segHead.bottomLineColor =  [UIColor clearColor];
     
-    _segScroll = [[MLMSegmentScroll alloc] initWithFrame:CGRectMake(0, 63, SCREEN_WIDTH, SCREEN_HEIGHT-CGRectGetMaxY(_segHead.frame)) vcOrViews:[self vcArr:list.count]];
+    _segScroll = [[MLMSegmentScroll alloc] initWithFrame:CGRectMake(0, 63, SCREEN_WIDTH, SCREEN_HEIGHT-64) vcOrViews:[self vcArr:list.count]];
     _segScroll.loadAll = NO;
     _segScroll.showIndex = 0;
     _segScroll.scrollEnabled = NO;

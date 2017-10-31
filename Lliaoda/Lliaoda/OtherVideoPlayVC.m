@@ -126,7 +126,6 @@
 - (void)setModel:(PersonModel *)model
 {
     _model = model;
-    
 
 }
 
