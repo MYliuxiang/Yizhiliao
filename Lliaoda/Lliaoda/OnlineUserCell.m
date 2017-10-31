@@ -46,6 +46,7 @@
     self.headerImageView.layer.shadowRadius = 5.f;
     self.headerImageView.layer.shadowOpacity = .3f;
     self.headerImageView.layer.shadowOffset = CGSizeMake(0, 2);
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerImageAC)];
     [self.headerImageView addGestureRecognizer:tap];
     

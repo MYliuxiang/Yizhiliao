@@ -247,13 +247,10 @@
             [self.nameArray addObject:@[@"常在線時間"]];
             [self.messagePhotos addObject:@[@"shijian"]];
             
-//            [self.nameArray addObject:@[]];
-//            [self.messagePhotos addObject:@[]];
-//
-            
             if (self.model.activated == 0) {
                 [self.nameArray addObject:@[@"語音聊天收費",@"視頻聊天收費",@"邀請有獎",@"接受邀请"]];
                 [self.messagePhotos addObject:@[@"yuyin",@"shipin",@"yaoqing",@"yaoqingmaduihuan"]];
+                
             }else{
                 [self.nameArray addObject:@[@"語音聊天收費",@"視頻聊天收費",@"邀請有獎"]];
                 [self.messagePhotos addObject:@[@"yuyin",@"shipin",@"yaoqing"]];
@@ -266,7 +263,7 @@
             
             if (self.model.activated == 0) {
                 [self.nameArray addObject:@[@"邀請有獎",@"接受邀请"]];
-                [self.messagePhotos addObject:@[@"yaoqing",@"yaoqingmaduihuan"]];
+                [self.messagePhotos addObject:@[@"yaoqing",@"jieshouyaoqing"]];
             }else{
                 [self.nameArray addObject:@[@"邀請有獎"]];
                 [self.messagePhotos addObject:@[@"yaoqing"]];
@@ -278,6 +275,9 @@
         
         [self.nameArray addObject:@[@"關於有的聊", @"建議與反饋"]];
         [self.messagePhotos addObject:@[@"guanyu", @"fankui"]];
+        
+        [self.nameArray addObject:@[@"設置"]];
+        [self.messagePhotos addObject:@[@"shezhi"]];
     }
     [_tableView reloadData];
 }
@@ -448,6 +448,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accountBGView.hidden = YES;
+    cell.bottomLineView.hidden = NO;
     cell.nameLabel.text = self.nameArray[indexPath.section - 1][indexPath.row];
     cell.headerImage.image = [UIImage imageNamed:self.messagePhotos[indexPath.section - 1][indexPath.row]];
     cell.accountBGView.layer.cornerRadius = 5;
@@ -498,59 +499,44 @@
             }
         }
     } else {
-        if (indexPath.section == 1) {
-            // 常在線時間
-            cell.bottomLineView.hidden = YES;
-            cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
-            NSArray *array = [InputCheck getpreferOptions];
-            cell.contentLabel.text = [NSString stringWithFormat:@"%@-%@",array[self.model.preferOnlineOption],array[self.model.preferOfflineOption]];
-            cell.samallImage.hidden = YES;
-        } else {
-            
-            cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
-            cell.bottomLineView.hidden = YES;
-            if (indexPath.section == 2) {
+        if (self.model.auth == 2) {
+            if (indexPath.section == 1) {
+                // 常在線時間
                 cell.bottomLineView.hidden = YES;
-                 cell.accountBGView.hidden = YES;
-                if (self.model.auth == 2) {
-                    // 主播
-                    if (indexPath.row == 0) {
-                        cell.bottomLineView.hidden = NO;
-                        cell.samallImage.hidden = NO;
-                        Charge *charge;
-                        for (Charge *mo in self.model.charges) {
-                            if (mo.uid == self.model.charge) {
-                                charge = mo;
-                            }
+                cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
+                NSArray *array = [InputCheck getpreferOptions];
+                cell.contentLabel.text = [NSString stringWithFormat:@"%@-%@",array[self.model.preferOnlineOption],array[self.model.preferOfflineOption]];
+                cell.samallImage.hidden = YES;
+            } else if (indexPath.section == 2) {
+                if (indexPath.row == 0) {
+                    cell.bottomLineView.hidden = NO;
+                    cell.samallImage.hidden = NO;
+                    Charge *charge;
+                    for (Charge *mo in self.model.charges) {
+                        if (mo.uid == self.model.charge) {
+                            charge = mo;
                         }
-                        cell.contentLabel.text = charge.name;
-                    } else if (indexPath.row == 1) {
-                        cell.bottomLineView.hidden = NO;
-                        cell.samallImage.hidden = NO;
-                        Charge *charge;
-                        for (Charge *mo in self.model.charges) {
-                            if (mo.uid == self.model.charge) {
-                                charge = mo;
-                            }
-                        }
-                        cell.contentLabel.text = charge.name;
-                    } else if (indexPath.row == 2) {
-                        cell.samallImage.hidden = YES;
-                        cell.contentLabel.text = @"邀請好友, 立刻獲得獎勵";
-                    } else {
-                        cell.samallImage.hidden = YES;
-                        cell.contentLabel.text = @"邀請好友, 立刻獲得獎勵";
                     }
+                    cell.contentLabel.text = charge.name;
+                } else if (indexPath.row == 1) {
+                    cell.bottomLineView.hidden = NO;
+                    cell.samallImage.hidden = NO;
+                    Charge *charge;
+                    for (Charge *mo in self.model.charges) {
+                        if (mo.uid == self.model.charge) {
+                            charge = mo;
+                        }
+                    }
+                    cell.contentLabel.text = charge.name;
+                } else if (indexPath.row == 2) {
+                    cell.samallImage.hidden = YES;
+                    cell.contentLabel.text = @"邀請好友, 立刻獲得獎勵";
                 } else {
-                    if (indexPath.row == 0) {
+                    if (self.model.activated == 0) {
                         cell.samallImage.hidden = YES;
-                        cell.contentLabel.text = @"邀請好友, 立刻獲得獎勵";
-                    } else {
-                        cell.samallImage.hidden = YES;
-                        cell.contentLabel.text = @"邀請好友, 立刻獲得獎勵";
+                        cell.contentLabel.text = @"填入邀請碼，獲得獎勵";
                     }
                 }
-                
             } else if (indexPath.section == 3) {
                 if (indexPath.row == 0) {
                     cell.samallImage.hidden = YES;
@@ -560,8 +546,8 @@
                     cell.accountLabel.text = [NSString stringWithFormat:@"%d鑽石",self.model.deposit];
                     [cell.accountButton setTitle:@"充值" forState:UIControlStateNormal];
                     cell.accountButton.layer.cornerRadius = 5;
-
-                }else{
+                    
+                } else {
                     cell.samallImage.hidden = YES;
                     cell.contentLabel.text = @"";
                     cell.accountBGView.hidden = NO;
@@ -569,15 +555,43 @@
                     [cell.accountButton setTitle:@"提現" forState:UIControlStateNormal];
                     cell.accountButton.layer.cornerRadius = 5;
                 }
-            } else if (indexPath.section == 4) {
+            } else {
                 cell.samallImage.hidden = YES;
                 cell.contentLabel.text = @"";
                 if (indexPath.row == 0) {
                     cell.bottomLineView.hidden = NO;
                 }
             }
+        } else {
+            // 未認證
+            if (indexPath.section == 1) {
+                if (indexPath.row == 0) {
+                    cell.samallImage.hidden = YES;
+                    cell.contentLabel.text = @"邀請好友, 立刻獲得獎勵";
+                } else {
+                    cell.samallImage.hidden = YES;
+                    cell.bottomLineView.hidden = YES;
+                    cell.contentLabel.text = @"填入邀請碼，獲得獎勵";
+                }
+            } else if (indexPath.section == 2) {
+                cell.samallImage.hidden = YES;
+                cell.bottomLineView.hidden = YES;
+                cell.contentLabel.text = @"";
+                cell.accountBGView.hidden = NO;
+                cell.accountLabel.text = [NSString stringWithFormat:@"%d鑽石",self.model.deposit];
+                [cell.accountButton setTitle:@"充值" forState:UIControlStateNormal];
+                cell.accountButton.layer.cornerRadius = 5;
+            } else if (indexPath.section == 3) {
+                cell.samallImage.hidden = YES;
+                if (indexPath.row == 1) {
+                    cell.bottomLineView.hidden = YES;
+                }
+            } else {
+                cell.samallImage.hidden = YES;
+                cell.contentLabel.text = @"";
+                cell.bottomLineView.hidden = YES;
+            }
         }
-        
     }
     return cell;
 }
@@ -650,7 +664,7 @@
     if ([LXUserDefaults boolForKey:ISMEiGUO]) {
         if (self.model.auth == 2) {
             if (indexPath.section == 1) {
-                // 收費設置
+                // 常在線時間
                 [self crpickerBG];
                 [UIView animateWithDuration:0.33 animations:^{
                     self.pickerBG.frame = CGRectMake(0, kScreenHeight - 266, kScreenWidth, 266);
@@ -687,7 +701,13 @@
                     [self.navigationController pushViewController:vc animated:YES];
                 } else {
                     // 建議
+                    SuggestFeedbackVC *vc = [[SuggestFeedbackVC alloc] init];
+                    [self.navigationController pushViewController:vc animated:YES];
                 }
+            } else {
+                // 設置
+                SettingVC *vc = [[SettingVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             
         }
@@ -695,7 +715,7 @@
         if (self.model.auth == 2) {
             // 主播
             if (indexPath.section == 1) {
-                // 收費設置
+                // 常在線時間
                 [self crpickerBG];
                 [UIView animateWithDuration:0.33 animations:^{
                     self.pickerBG.frame = CGRectMake(0, kScreenHeight - 266, kScreenWidth, 266);
@@ -703,8 +723,7 @@
                 } completion:^(BOOL finished) {
                     
                 }];
-            }
-            if (indexPath.section == 2) {
+            } else if (indexPath.section == 2) {
                 if (indexPath.row == 0) {
                     // 語音收费设置
                     SetPriceVC *vc = [[SetPriceVC alloc] init];
@@ -743,8 +762,14 @@
                     AboutVC *vc = [[AboutVC alloc] init];
                     [self.navigationController pushViewController:vc animated:YES];
                 } else {
-                    // 建议
+                    // 建議
+                    SuggestFeedbackVC *vc = [[SuggestFeedbackVC alloc] init];
+                    [self.navigationController pushViewController:vc animated:YES];
                 }
+            } else {
+                // 設置
+                SettingVC *vc = [[SettingVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
             }
         } else {
             // 用戶
@@ -765,14 +790,20 @@
                 AccountVC *vc = [[AccountVC alloc] init];
                 vc.deposit = self.model.deposit;
                 [self.navigationController pushViewController:vc animated:YES];
-            } else if (indexPath.row == 3) {
+            } else if (indexPath.section == 3) {
                 if (indexPath.row == 0) {
                     // 關於
                     AboutVC *vc = [[AboutVC alloc] init];
                     [self.navigationController pushViewController:vc animated:YES];
                 } else {
                     // 建議
+                    SuggestFeedbackVC *vc = [[SuggestFeedbackVC alloc] init];
+                    [self.navigationController pushViewController:vc animated:YES];
                 }
+            } else {
+                // 設置
+                SettingVC *vc = [[SettingVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
             }
         }
     }

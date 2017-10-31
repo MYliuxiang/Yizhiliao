@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="SSV-e8-uDh">
-                    <rect key="frame" x="15" y="79" width="345" height="588"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="VkN-Fy-zf9"/>
@@ -31,10 +31,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="SSV-e8-uDh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="79" id="DPd-nY-7CW"/>
-                <constraint firstItem="SSV-e8-uDh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="F8v-Cx-Qzf"/>
+                <constraint firstItem="SSV-e8-uDh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="DPd-nY-7CW"/>
+                <constraint firstItem="SSV-e8-uDh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="F8v-Cx-Qzf"/>
                 <constraint firstAttribute="bottom" secondItem="SSV-e8-uDh" secondAttribute="bottom" id="W72-kS-Mbv"/>
-                <constraint firstAttribute="trailing" secondItem="SSV-e8-uDh" secondAttribute="trailing" constant="15" id="quh-W9-Gxb"/>
+                <constraint firstAttribute="trailing" secondItem="SSV-e8-uDh" secondAttribute="trailing" id="quh-W9-Gxb"/>
             </constraints>
         </view>
     </objects>

@@ -14,6 +14,7 @@
 #import "SetHeaderImageVC.h"
 #import "NewMyalbumCell.h"
 #import "NewMyVideoCell.h"
+#import "SuggestFeedbackVC.h"
 typedef NS_ENUM(NSInteger, MyType) {
     MyTypeVideo,
     MyTypePhoto,

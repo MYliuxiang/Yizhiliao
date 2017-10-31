@@ -808,21 +808,21 @@ controller   didAuthorizePayment:(PKPayment *)payment
     cell.backgroundColor = [UIColor clearColor];
     AccountModel *model = self.dataList[indexPath.row];
     cell.countLabel.text = model.name;
-    cell.chargeButton.layer.borderWidth = 1;
-    cell.chargeButton.layer.borderColor = UIColorFromRGB(0x00ddcc).CGColor;
+//    cell.chargeButton.layer.borderWidth = 1;
+//    cell.chargeButton.layer.borderColor = UIColorFromRGB(0x00ddcc).CGColor;
     cell.chargeButton.layer.cornerRadius = 15;
-    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    NSString *money = @"";
-    if ([lang hasPrefix:@"ar"]){
-//        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian3"];
-        money = @"$";
-    }else if ([lang hasPrefix:@"id"]){
-//        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian2"];
-        money = @"Rp.";
-    }else{
-//        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian1"];
-        money = @"NT $";
-    }
+//    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    NSString *money = @"¥";
+//    if ([lang hasPrefix:@"ar"]){
+////        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian3"];
+//        money = @"$";
+//    }else if ([lang hasPrefix:@"id"]){
+////        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian2"];
+//        money = @"Rp.";
+//    }else{
+////        cell.leftTopImageView.image = [UIImage imageNamed:@"biaoqian1"];
+//        money = @"NT $";
+//    }
     if (fmodf(model.price / 100.00, 1)==0) {//如果有一位小数点
         [cell.chargeButton setTitle:[NSString stringWithFormat:@"%@%.0f",money,model.price / 100.00] forState:UIControlStateNormal];
     } else if (fmodf(model.price / 100.00, 1)==0) {//如果有两位小数点
@@ -887,11 +887,11 @@ controller   didAuthorizePayment:(PKPayment *)payment
         }
         headerView.backgroundColor = [UIColor whiteColor];
         headerView.countLabel.text = depositCount;
-        if([LXUserDefaults boolForKey:ISMEiGUO]) {
-            headerView.inviteButton.hidden = YES;
-        } else {
-            headerView.inviteButton.hidden = NO;
-        }
+//        if([LXUserDefaults boolForKey:ISMEiGUO]) {
+//            headerView.inviteButton.hidden = YES;
+//        } else {
+//            headerView.inviteButton.hidden = NO;
+//        }
         [headerView.inviteButton addTarget:self action:@selector(inviteBtnAC) forControlEvents:UIControlEventTouchUpInside];
         if (myModel.vipEndTime == 0) {
             // 没有vip

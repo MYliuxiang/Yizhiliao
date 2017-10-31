@@ -17,9 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = LXSring(@"簽名檔");
+    self.text = @"個人標籤";
     _placeHoldLabel.text = LXSring(@"一个特别的介绍能引起特别关注");
     [self addrighttitleString:LXSring(@"保存")];
+    [self.rightbutton setTitleColor:Color_Text_black forState:UIControlStateNormal];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.textView.text = self.model.intro;
     if (self.textView.text.length == 0) {

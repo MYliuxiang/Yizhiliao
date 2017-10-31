@@ -62,6 +62,7 @@ alpha:1.0]
 #define Color_Text_black      UIColorFromRGB(0x333333)
 #define Color_Text_gray       UIColorFromRGB(0x999999)
 #define Color_Text_lightGray  UIColorFromRGB(0x666666)
+#define Color_Text_origin     UIColorFromRGB(0xf7db00)
 
 #define Color_Cell  UIColorFromRGB(0xFFFFFF)
 

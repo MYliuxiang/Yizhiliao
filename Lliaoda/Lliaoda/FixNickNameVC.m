@@ -17,10 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = LXSring(@"修改暱稱");
+    self.text = @"修改暱稱";
     self.textField.text = self.model.nickname;
-    [self.saveButton setTitle:LXSring(@"保存") forState:UIControlStateNormal];
-//    [self addrighttitleString:LXSring(@"保存")];
+//    [self.saveButton setTitle:LXSring(@"保存") forState:UIControlStateNormal];
+    [self addrighttitleString:@"保存"];
+    [self.rightbutton setTitleColor:Color_Text_black forState:UIControlStateNormal];
+    
     self.saveButton.layer.cornerRadius = 5;
     self.bgView.layer.cornerRadius = 5;
     
