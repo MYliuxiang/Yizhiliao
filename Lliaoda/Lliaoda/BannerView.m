@@ -38,7 +38,12 @@
 {
     SelectedBannersModel *model = self.list[index];
     NSString *url = model.link;
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    
+    WebVC *vc = [[WebVC alloc] init];
+    vc.urlStr = model.link;
+    [[self viewController].navigationController pushViewController:vc animated:YES];
+    
     
 }
 

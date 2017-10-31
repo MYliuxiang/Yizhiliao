@@ -421,6 +421,7 @@
 		227553781ECED99900CE6507 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 227553731ECED99900CE6507 /* README.txt */; };
 		227971CC1EF8DC0900BC8E18 /* DateUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227971C91EF8DC0900BC8E18 /* DateUnit.m */; };
 		227971CD1EF8DC0900BC8E18 /* FileUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 227971CB1EF8DC0900BC8E18 /* FileUnit.m */; };
+		227A85FC1FA86F10006B1EF3 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A85FB1FA86F10006B1EF3 /* WebVC.m */; };
 		227DE5DC1F0CDF8A00FD7DD3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227DE5DB1F0CDF8A00FD7DD3 /* Bolts.framework */; };
 		227DE5DE1F0CDF9300FD7DD3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227DE5DD1F0CDF9300FD7DD3 /* FBSDKCoreKit.framework */; };
 		227DE5E01F0CDF9900FD7DD3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227DE5DF1F0CDF9900FD7DD3 /* FBSDKLoginKit.framework */; };
@@ -1244,6 +1245,8 @@
 		227971C91EF8DC0900BC8E18 /* DateUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUnit.m; sourceTree = "<group>"; };
 		227971CA1EF8DC0900BC8E18 /* FileUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUnit.h; sourceTree = "<group>"; };
 		227971CB1EF8DC0900BC8E18 /* FileUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUnit.m; sourceTree = "<group>"; };
+		227A85FA1FA86F10006B1EF3 /* WebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
+		227A85FB1FA86F10006B1EF3 /* WebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
 		227B15CD1F9889E2008D6F71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		227DE5DB1F0CDF8A00FD7DD3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		227DE5DD1F0CDF9300FD7DD3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -2884,6 +2887,8 @@
 				224428081EA895DD00BF3E4D /* Models */,
 				22B109271EA4A59100E35B74 /* SelectedVC.h */,
 				22B109281EA4A59100E35B74 /* SelectedVC.m */,
+				227A85FA1FA86F10006B1EF3 /* WebVC.h */,
+				227A85FB1FA86F10006B1EF3 /* WebVC.m */,
 				2291CBC31F4D2F02001AB139 /* LxPersonVC.h */,
 				2291CBC41F4D2F02001AB139 /* LxPersonVC.m */,
 				2291CBC51F4D2F02001AB139 /* LxPersonVC.xib */,
@@ -3929,6 +3934,7 @@
 				2244B4641F00B96800685217 /* GiftModel.m in Sources */,
 				22AC02A21F4EC07600369C6D /* NewMyVC.m in Sources */,
 				222AA0D81EB071A50038416D /* UIView+Layout.m in Sources */,
+				227A85FC1FA86F10006B1EF3 /* WebVC.m in Sources */,
 				222AA1E11EB0775B0038416D /* YYLabel.m in Sources */,
 				222B38211ED9642B009DB58F /* FSActionSheetCell.m in Sources */,
 				222DD1A61EADCCF500B7A8D7 /* CityTool.m in Sources */,
@@ -4336,7 +4342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 633THM6R4D;
 				ENABLE_BITCODE = NO;
@@ -4421,8 +4427,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.TalkToMe.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "041c3bae-50a7-4413-ac63-68c5b53d1012";
-				PROVISIONING_PROFILE_SPECIFIER = talkmeStore;
+				PROVISIONING_PROFILE = "cbffadd3-206f-4136-9a68-1125bb3b001c";
+				PROVISIONING_PROFILE_SPECIFIER = dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -4436,7 +4442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 633THM6R4D;
 				ENABLE_BITCODE = NO;
@@ -4521,8 +4527,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.TalkToMe.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "041c3bae-50a7-4413-ac63-68c5b53d1012";
-				PROVISIONING_PROFILE_SPECIFIER = talkmeStore;
+				PROVISIONING_PROFILE = "cbffadd3-206f-4136-9a68-1125bb3b001c";
+				PROVISIONING_PROFILE_SPECIFIER = dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				VALID_ARCHS = "arm64 armv7 armv7s";

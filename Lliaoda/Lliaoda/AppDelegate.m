@@ -1048,6 +1048,14 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
         if (result) {
             if ([result[@"result"] integerValue] == 0) {
                 //成功
+                
+                BOOL  freeGift = [result[@"data"][@"freeGift"] boolValue];
+                if (freeGift) {
+                    NSString *str = [NSString stringWithFormat:@"%@",result[@"data"][@"freeGiftMsg"]];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:str delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                
                 [self initAgora];
                 NSString *str = [NSString stringWithFormat:@"%@",result[@"data"][@"appkey"]];
                 [LXUserDefaults setObject:str forKey:LXAppkey];

@@ -22,6 +22,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.text = LXSring(@"精選");
+    
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+   
+    if ([lang hasPrefix:@"id"]){
+    self.backButtton.hidden = NO;
+    [self.backButtton setImage:[UIImage imageNamed:@"kefu"] forState:UIControlStateNormal];
+    }
+    
     self.bannersArray = [NSMutableArray array];
     _flowlayout.sectionInset=UIEdgeInsetsMake(15, 15, 15, 15);
     self.view.backgroundColor = UIColorFromRGB(0xf7fcff);
@@ -60,6 +68,12 @@
         
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageInstantReceive object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageNoData object:nil];
+    
+    
+}
+
+- (void)back
+{
     
     
 }
