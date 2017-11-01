@@ -19,7 +19,8 @@
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"視訊");
     [self addrightImage:@"dengdeng"];
-
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
+    
     self.dataList = [NSMutableArray array];
     
     _layout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);

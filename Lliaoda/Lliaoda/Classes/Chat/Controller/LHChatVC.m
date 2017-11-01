@@ -115,7 +115,7 @@ NSString *const kTableViewFrame = @"frame";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageVideoTime:) name:Notice_messageVideoTime object:nil];
     [self addrightImage:@"dengdeng_bai"];
-    
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
     
     [self _loadData1];
     [self setupInit];
@@ -877,7 +877,7 @@ NSString *const kTableViewFrame = @"frame";
         
     }];
 
-    
+
 }
 
 - (void)videoCall

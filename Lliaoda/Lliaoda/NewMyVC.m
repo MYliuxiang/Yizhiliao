@@ -353,9 +353,15 @@
                 
                 
                 self.nickLabel.text = self.model.nickname;
-                self.idLabel.text = [NSString stringWithFormat:LXSring(@"聊號：%@"),self.model.uid];
+                self.idLabel.text = [NSString stringWithFormat:@"ID：%@",self.model.uid];
                 [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
                 [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+                if (self.model.auth == 2) {
+                    _zanBgView.hidden = NO;
+                    _upCountLabel.text = [NSString stringWithFormat:@"%d", self.model.likeCount];
+                } else {
+                    _zanBgView.hidden = YES;
+                }
                 
                 [self setArrayForTable];
                 
@@ -438,7 +444,26 @@
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
             cell.delegate = self;
-            cell.photoArray = self.photoArrays;
+            for (int i = 0; i < self.photoArrays.count; i++) {
+                AlbumModel *model = self.photoArrays[i];
+                switch (i) {
+                    case 0:
+                        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:model.url]];
+                        break;
+                    case 1:
+                        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:model.url]];
+                        break;
+                    case 2:
+                        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:model.url]];
+                        break;
+                    case 3:
+                        [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:model.url]];
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
             [cell.addButton addTarget:self action:@selector(toAlbum) forControlEvents:UIControlEventTouchUpInside];
             return cell;
         }

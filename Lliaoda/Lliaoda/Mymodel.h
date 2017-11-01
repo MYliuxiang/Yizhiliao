@@ -35,4 +35,5 @@
 @property (nonatomic,retain) NSArray *charges;
 @property (nonatomic, copy) NSString *domain;  // 行业
 @property (nonatomic, assign) int isDND; // 是否设置了免打扰 1已设置
+@property (nonatomic, assign) int likeCount; // 喜欢的数量
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "SelectedBannersHeader.h"
-
+#import "WebVC.h"
 @implementation SelectedBannersHeader
 
 - (void)awakeFromNib {
@@ -92,7 +92,10 @@
     NSInteger tag = tap.view.tag - 100;
     if (self.linksArray.count == self.imagesArray.count) {
         NSString *url = self.linksArray[tag];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        WebVC *vc = [[WebVC alloc] init];
+        vc.urlStr = url;
+        [[self viewController].navigationController pushViewController:vc animated:YES];
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     }
     
 }

@@ -40,6 +40,7 @@ typedef NS_ENUM(NSInteger, MyType) {
 @property (weak, nonatomic) IBOutlet UIButton *videoButton;
 @property (weak, nonatomic) IBOutlet UIView *photoLineView;
 @property (weak, nonatomic) IBOutlet UIView *videoLineView;
+@property (weak, nonatomic) IBOutlet UIView *zanBgView;
 
 
 @property (nonatomic,retain) NSMutableArray *nameArray;
