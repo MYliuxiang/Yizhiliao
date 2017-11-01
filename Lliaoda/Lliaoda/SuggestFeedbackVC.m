@@ -20,6 +20,7 @@
     
     self.nav.hidden = NO;
     self.text = @"建議與反饋";
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
     [self addrighttitleString:@"提交"];
     [self.rightbutton setTitleColor:Color_Text_black forState:UIControlStateNormal];
     

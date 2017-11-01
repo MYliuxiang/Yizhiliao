@@ -60,16 +60,16 @@
     
 }
 // 重写父类的方法
-- (void)rightAction {
-    if (self.cmodel == nil) {
-        
-        [self.navigationController popViewControllerAnimated:YES];
-    }else{
-        
-        [self _loadData];
-        
-    }
-}
+//- (void)rightAction {
+//    if (self.cmodel == nil) {
+//
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }else{
+//
+//        [self _loadData];
+//
+//    }
+//}
 
 #pragma mark ----------確定-------------
 - (void)cancelAction:(UIButton *)sender
@@ -165,8 +165,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"收費設定");
-    
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
     [self setCorner];
+    
+    
     
 //    self.priceBtn.layer.borderColor = Color_nav.CGColor;
 //    self.priceBtn.layer.borderWidth = 1;
@@ -208,16 +210,16 @@
 //    [self.rightbutton setTitle:LXSring(@"保存") forState:UIControlStateNormal];
 //    [self.rightbutton setTitleColor:UIColorFromRGB(0x00ddcc) forState:UIControlStateNormal];
     
-    [self addrighttitleString:LXSring(@"保存")];
+//    [self addrighttitleString:LXSring(@"保存")];
 }
 
 
 - (void)setCorner {
-    self.bgView1.layer.cornerRadius = 5;
-    self.bgView1.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.bgView1.layer.shadowRadius = 5.f;
-    self.bgView1.layer.shadowOpacity = .3f;
-    self.bgView1.layer.shadowOffset = CGSizeMake(0, 0);
+//    self.bgView1.layer.cornerRadius = 5;
+//    self.bgView1.layer.shadowColor = [UIColor blackColor].CGColor;
+//    self.bgView1.layer.shadowRadius = 5.f;
+//    self.bgView1.layer.shadowOpacity = .3f;
+//    self.bgView1.layer.shadowOffset = CGSizeMake(0, 0);
     
     self.bgView2.layer.cornerRadius = 5;
     self.bgView2.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -226,6 +228,8 @@
     self.bgView2.layer.shadowOffset = CGSizeMake(0, 0);
     
     self.setPriceView.layer.cornerRadius = 5;
+    self.setPriceView.layer.borderColor = Color_Text_origin.CGColor;
+    self.setPriceView.layer.borderWidth = 1;
     
     self.bottomLabel1.layer.cornerRadius = 7.5;
     self.bottomLabel2.layer.cornerRadius = 7.5;
@@ -256,7 +260,12 @@
 {
     
     NSDictionary *params;
-    params = @{@"uid":[NSString stringWithFormat:@"%d",self.cmodel.uid],@"type":@1};
+    if (self.type == ChatTypeAudio) {
+        params = @{@"uid":[NSString stringWithFormat:@"%d",self.cmodel.uid],@"type":@1};
+    } else {
+        params = @{@"uid":[NSString stringWithFormat:@"%d",self.cmodel.uid],@"type":@0};
+    }
+    
     [WXDataService requestAFWithURL:Url_accountcharge params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {

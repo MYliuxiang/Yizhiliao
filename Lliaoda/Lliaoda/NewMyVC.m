@@ -84,7 +84,7 @@
   
     [self _loadData1];
     
-    [self setHeaderVIew];
+    
     
     [self _loadPhotoData];
     
@@ -170,17 +170,17 @@
         self.sqrzButton.layer.cornerRadius = 5;
         self.sqrzButton.layer.borderColor = [UIColor whiteColor].CGColor;
         self.sqrzButton.layer.borderWidth = 2;
-        [self.sqrzButton setTitle:@"已認證" forState:UIControlStateNormal];
-        self.sqrzButton.userInteractionEnabled = NO;
+        [self.sqrzButton setTitle:@"認證成功" forState:UIControlStateNormal];
+        self.sqrzButton.userInteractionEnabled = YES;
         
         
     } else if (self.model.auth == 1) {
         // 認證中
-        self.sqrzButton.backgroundColor = UIColorFromRGB(0xf7db00);
-        [self.sqrzButton setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
+        self.sqrzButton.backgroundColor = [UIColor clearColor];
+        [self.sqrzButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.sqrzButton.layer.cornerRadius = 5;
-        self.sqrzButton.layer.borderColor = [UIColor clearColor].CGColor;
-        self.sqrzButton.layer.borderWidth = 0;
+        self.sqrzButton.layer.borderColor = [UIColor whiteColor].CGColor;
+        self.sqrzButton.layer.borderWidth = 1;
         [self.sqrzButton setTitle:@"認證中" forState:UIControlStateNormal];
         self.sqrzButton.userInteractionEnabled = NO;
         
@@ -333,6 +333,8 @@
     self.nickLabel.text = self.model.nickname;
     [self _loadData];
     [self.tableView reloadData];
+    
+    
 }
 
 - (void)_loadData
@@ -357,7 +359,7 @@
                 
                 [self setArrayForTable];
                 
-                
+                [self setHeaderVIew];
                 
             } else{
                 [SVProgressHUD showErrorWithStatus:result[@"message"]];
@@ -446,9 +448,14 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyCell" owner:self options:nil] firstObject];
         cell.backgroundColor = [UIColor whiteColor];
     }
+    NSArray *array = self.nameArray[indexPath.section - 1];
+    if (indexPath.row == array.count - 1) {
+        cell.bottomLineView.hidden = YES;
+    } else {
+        cell.bottomLineView.hidden = NO;
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accountBGView.hidden = YES;
-    cell.bottomLineView.hidden = NO;
     cell.nameLabel.text = self.nameArray[indexPath.section - 1][indexPath.row];
     cell.headerImage.image = [UIImage imageNamed:self.messagePhotos[indexPath.section - 1][indexPath.row]];
     cell.accountBGView.layer.cornerRadius = 5;
@@ -457,14 +464,12 @@
             // 主播
             if (indexPath.section == 1) {
                 // 常在線時間
-                cell.bottomLineView.hidden = YES;
                 cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
                 NSArray *array = [InputCheck getpreferOptions];
                 cell.contentLabel.text = [NSString stringWithFormat:@"%@-%@",array[self.model.preferOnlineOption],array[self.model.preferOfflineOption]];
                 cell.samallImage.hidden = YES;
             } else if (indexPath.section == 2) {
                 cell.samallImage.hidden = YES;
-                cell.bottomLineView.hidden = NO;
                 cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
                 if (indexPath.section == 2) {
                     cell.contentLabel.text = @"";
@@ -473,17 +478,12 @@
                     [cell.accountButton setTitle:@"充值" forState:UIControlStateNormal];
                     cell.accountButton.layer.cornerRadius = 5;
                     
-                } else if (indexPath.section == 3) {
-                    if (indexPath.row == 0) {
-                        cell.bottomLineView.hidden = NO;
-                    }
                 }
             }
             
         } else {
             if (indexPath.section == 1) {
                 cell.samallImage.hidden = YES;
-                cell.bottomLineView.hidden = YES;
                 cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
                 if (indexPath.section == 2) {
                     cell.contentLabel.text = @"";
@@ -491,10 +491,6 @@
                     cell.accountLabel.text = [NSString stringWithFormat:@"%d鑽石",self.model.deposit];
                     [cell.accountButton setTitle:@"充值" forState:UIControlStateNormal];
                     cell.accountButton.layer.cornerRadius = 5;
-                } else if (indexPath.section == 3) {
-                    if (indexPath.row == 0) {
-                        cell.bottomLineView.hidden = NO;
-                    }
                 }
             }
         }
@@ -502,24 +498,23 @@
         if (self.model.auth == 2) {
             if (indexPath.section == 1) {
                 // 常在線時間
-                cell.bottomLineView.hidden = YES;
                 cell.contentLabel.textColor = [MyColor colorWithHexString:@"#666666"];
                 NSArray *array = [InputCheck getpreferOptions];
                 cell.contentLabel.text = [NSString stringWithFormat:@"%@-%@",array[self.model.preferOnlineOption],array[self.model.preferOfflineOption]];
                 cell.samallImage.hidden = YES;
+                
             } else if (indexPath.section == 2) {
                 if (indexPath.row == 0) {
-                    cell.bottomLineView.hidden = NO;
                     cell.samallImage.hidden = NO;
                     Charge *charge;
                     for (Charge *mo in self.model.charges) {
-                        if (mo.uid == self.model.charge) {
+                        if (mo.uid == self.model.chargeAudio) {
                             charge = mo;
                         }
                     }
                     cell.contentLabel.text = charge.name;
+                    
                 } else if (indexPath.row == 1) {
-                    cell.bottomLineView.hidden = NO;
                     cell.samallImage.hidden = NO;
                     Charge *charge;
                     for (Charge *mo in self.model.charges) {
@@ -528,9 +523,11 @@
                         }
                     }
                     cell.contentLabel.text = charge.name;
+                    
                 } else if (indexPath.row == 2) {
                     cell.samallImage.hidden = YES;
                     cell.contentLabel.text = @"邀請好友, 立刻獲得獎勵";
+                    
                 } else {
                     if (self.model.activated == 0) {
                         cell.samallImage.hidden = YES;
@@ -540,7 +537,6 @@
             } else if (indexPath.section == 3) {
                 if (indexPath.row == 0) {
                     cell.samallImage.hidden = YES;
-                    cell.bottomLineView.hidden = NO;
                     cell.contentLabel.text = @"";
                     cell.accountBGView.hidden = NO;
                     cell.accountLabel.text = [NSString stringWithFormat:@"%d鑽石",self.model.deposit];
@@ -558,9 +554,6 @@
             } else {
                 cell.samallImage.hidden = YES;
                 cell.contentLabel.text = @"";
-                if (indexPath.row == 0) {
-                    cell.bottomLineView.hidden = NO;
-                }
             }
         } else {
             // 未認證
@@ -570,26 +563,22 @@
                     cell.contentLabel.text = @"邀請好友, 立刻獲得獎勵";
                 } else {
                     cell.samallImage.hidden = YES;
-                    cell.bottomLineView.hidden = YES;
                     cell.contentLabel.text = @"填入邀請碼，獲得獎勵";
                 }
             } else if (indexPath.section == 2) {
                 cell.samallImage.hidden = YES;
-                cell.bottomLineView.hidden = YES;
                 cell.contentLabel.text = @"";
                 cell.accountBGView.hidden = NO;
                 cell.accountLabel.text = [NSString stringWithFormat:@"%d鑽石",self.model.deposit];
                 [cell.accountButton setTitle:@"充值" forState:UIControlStateNormal];
                 cell.accountButton.layer.cornerRadius = 5;
+                
             } else if (indexPath.section == 3) {
                 cell.samallImage.hidden = YES;
-                if (indexPath.row == 1) {
-                    cell.bottomLineView.hidden = YES;
-                }
+                
             } else {
                 cell.samallImage.hidden = YES;
                 cell.contentLabel.text = @"";
-                cell.bottomLineView.hidden = YES;
             }
         }
     }
@@ -728,10 +717,12 @@
                     // 語音收费设置
                     SetPriceVC *vc = [[SetPriceVC alloc] init];
                     vc.model = self.model;
+                    vc.type = ChatTypeAudio;
                     [self.navigationController pushViewController:vc animated:YES];
                 } else if (indexPath.row == 1) {
                     // 视频收费设置
                     SetPriceVC *vc = [[SetPriceVC alloc] init];
+                    vc.type = ChatTypeVideo;
                     vc.model = self.model;
                     [self.navigationController pushViewController:vc animated:YES];
                 } else if (indexPath.row == 2) {
@@ -1408,8 +1399,21 @@
 }
 
 - (IBAction)sqrzButtonAC:(id)sender {
-    VideoRZVC *vc = [[VideoRZVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.model.auth == 2) {
+        //認證成功
+        VideoRZResultVC *vc = [[VideoRZResultVC alloc] init];
+        vc.sucuress = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (self.model.auth == 0) {
+        // 未認證
+        VideoRZVC *vc = [[VideoRZVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        //認證失敗
+        VideoRZResultVC *vc = [[VideoRZResultVC alloc] init];
+        vc.sucuress = NO;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (IBAction)editUserinfoBtnAC:(id)sender {

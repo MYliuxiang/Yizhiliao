@@ -16,7 +16,6 @@
     ProfitCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfitCell1"];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfitCell1" owner:self options:nil] firstObject];
-        cell.backgroundColor = [UIColor clearColor];
     }
     cell.delegate = delegate;
     return cell;
@@ -24,9 +23,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.cashButton.layer.borderWidth = .5;
-    self.cashButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.cashButton.layer.cornerRadius = 20;
+    
+    self.cashButton.layer.cornerRadius = 22;
     [self.cashButton setTitle:LXSring(@"提現") forState:UIControlStateNormal];
 }
 

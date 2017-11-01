@@ -19,6 +19,8 @@
     // Do any additional setup after loading the view from its nib.
 //    self.nav.hidden = YES;
     self.nav.hidden = NO;
+    self.text = @"我的視頻";
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
     self.dataList = [NSMutableArray array];
     
     _layout.sectionInset=UIEdgeInsetsMake(0, 15, 0, 15);

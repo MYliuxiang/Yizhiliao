@@ -37,6 +37,11 @@
 @property (weak, nonatomic) IBOutlet UIView *unApproveView1;
 @property (weak, nonatomic) IBOutlet UIView *unApproveView2;
 
+
+@property (weak, nonatomic) IBOutlet UIView *bgView1;
+@property (weak, nonatomic) IBOutlet UIView *bgView2;
+@property (weak, nonatomic) IBOutlet UIView *bgView3;
+
 // 准备提交视频
 //@property (weak, nonatomic) IBOutlet UIView *approvingBGView;
 //@property (weak, nonatomic) IBOutlet UIImageView *approvingVideoImageView;
