@@ -10,6 +10,9 @@
 #import "VideoRZVC.h"
 
 @interface VideoRZResultVC : BaseViewController
+{
+    NSString *url;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *resultImageVIew;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stateTextLabel;

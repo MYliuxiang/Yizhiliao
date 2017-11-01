@@ -9,6 +9,10 @@
 #import "BaseViewController.h"
 #import "Mymodel.h"
 #import "Charge.h"
+typedef enum {
+    ChatTypeAudio,
+    ChatTypeVideo
+} ChatType;
 @interface SetPriceVC : BaseViewController
 @property (weak, nonatomic) IBOutlet UIButton *doneBtn;
 @property (weak, nonatomic) IBOutlet UIButton *priceBtn;
@@ -29,5 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *bottomLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *bottomDetaillabel1;
 @property (weak, nonatomic) IBOutlet UILabel *bottomDetaillabel2;
+
+@property (nonatomic, assign) ChatType type;
 
 @end

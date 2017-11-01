@@ -28,12 +28,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"視頻認證");
-    self.label1.text = LXSring(@"距離完成認證僅差一步，請如實填寫手機號，以便我們及時聯繫你，賺取更多的收益！");
-    self.label2.text = LXSring(@"手機號碼");
-    self.label3.text = LXSring(@"公会名称");
-    [self.completeBtn setTitle:LXSring(@"完成") forState:UIControlStateNormal];
-    self.ghuiLabel.placeholder = LXSring(@"如沒有公會號，填寫000");
-    self.textField.placeholder = LXSring(@"請輸入您真實的行動電話號碼");
+    [self.leftbutton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
+    self.nav.backgroundColor = Color_Text_origin;
+//    self.label1.text = LXSring(@"距離完成認證僅差一步，請如實填寫手機號，以便我們及時聯繫你，賺取更多的收益！");
+//    self.label2.text = LXSring(@"手機號碼");
+//    self.label3.text = LXSring(@"公会名称");
+//    [self.completeBtn setTitle:LXSring(@"完成") forState:UIControlStateNormal];
+//    self.ghuiLabel.placeholder = LXSring(@"如沒有公會號，填寫000");
+//    self.textField.placeholder = LXSring(@"請輸入您真實的行動電話號碼");
 
     self.completeBtn.layer.cornerRadius = 22;
     self.completeBtn.layer.masksToBounds = YES;

@@ -14,6 +14,7 @@
 @property(nonatomic,copy)NSString *nickname;	//String	主播暱稱
 @property (nonatomic,assign) int auth; //认证状态，0是未认证，1是认证中，2是認證成功，-1是認證失敗
 @property(nonatomic,assign)int charge;	//Int	收費設定，返回标识
+@property (nonatomic, assign) int chargeAudio; // 语音收费设定
 @property(nonatomic,copy)NSString *portrait;	//String[url]大頭貼地址
 @property(nonatomic,copy)NSString *photo;	//展示图片的地址，以后存在多张的情况，返回第一张
 @property(nonatomic,assign)int country;	//Int	国家

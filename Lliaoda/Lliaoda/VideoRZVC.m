@@ -20,10 +20,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"視頻認證");
-    self.nav.backgroundColor = [UIColor clearColor];
-    self.titleLable.textColor = [UIColor whiteColor];
-    [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
-    self.topLabel.text = LXSring(@"女生可通过提交一下认证信息成为主播，设计收费，聊天赚钱哦!");
+    self.nav.backgroundColor = Color_Text_origin;
+    self.titleLable.textColor = Color_Text_black;
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
+//    self.topLabel.text = LXSring(@"女生可通过提交一下认证信息成为主播，设计收费，聊天赚钱哦!");
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
@@ -35,25 +35,31 @@
     paraStyle.headIndent = 0;
     paraStyle.tailIndent = 0;
     //设置字间距 NSKernAttributeName:@1.5f
-    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@0.0f
-                          };
-    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:LXSring(@"1.本人半身录影，10~15秒，正面，五官清晰，包含自我介绍；\n2.与登录后提交的个人主页照片为同一人，均为本人；\n3.模仿范例视频可提高认证通过率；\n注意：录影不会对外公开，我们将对你的视频严格保密！认证如果失败，登录后可重新提交~") attributes:dic];
-    self.unApproveDetailLabel.attributedText = attributeStr;
-    self.unApproveLeftLabel.text = LXSring(@"范例视频");
+//    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@0.0f
+//                          };
+//    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:LXSring(@"1.本人半身录影，10~15秒，正面，五官清晰，包含自我介绍；\n2.与登录后提交的个人主页照片为同一人，均为本人；\n3.模仿范例视频可提高认证通过率；\n注意：录影不会对外公开，我们将对你的视频严格保密！认证如果失败，登录后可重新提交~") attributes:dic];
+//    self.unApproveDetailLabel.attributedText = attributeStr;
+//    self.unApproveLeftLabel.text = LXSring(@"范例视频");
 //    self.unApproveDetailLabel.text = LXSring(@"1.本人半身录影，10~15秒，正面，五官清晰，包含自我介绍；\n2.与登录后提交的个人主页照片为同一人，均为本人；\n3.模仿范例视频可提高认证通过率；\n注意：录影不会对外公开，我们将对你的视频严格保密！认证如果失败，登录后可重新提交~");
-    [self.unApproveUploadButton setTitle:LXSring(@"上传视频") forState:UIControlStateNormal];
-    self.unApproveTitleLabel.text = LXSring(@"認證要求");
-    self.unApproveView1.layer.cornerRadius = 5;
-    self.unApproveView1.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.unApproveView1.layer.shadowRadius = 5.f;
-    self.unApproveView1.layer.shadowOpacity = .3f;
-    self.unApproveView1.layer.shadowOffset = CGSizeMake(0, 0);
+//    [self.unApproveUploadButton setTitle:LXSring(@"上传视频") forState:UIControlStateNormal];
+//    self.unApproveTitleLabel.text = LXSring(@"認證要求");
+    self.bgView1.layer.cornerRadius = 5;
+    self.bgView1.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bgView1.layer.shadowRadius = 5.f;
+    self.bgView1.layer.shadowOpacity = .3f;
+    self.bgView1.layer.shadowOffset = CGSizeMake(0, 0);
     
-    self.unApproveView2.layer.cornerRadius = 5;
-    self.unApproveView2.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.unApproveView2.layer.shadowRadius = 5.f;
-    self.unApproveView2.layer.shadowOpacity = .3f;
-    self.unApproveView2.layer.shadowOffset = CGSizeMake(0, 0);
+    self.bgView2.layer.cornerRadius = 5;
+    self.bgView2.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bgView2.layer.shadowRadius = 5.f;
+    self.bgView2.layer.shadowOpacity = .3f;
+    self.bgView2.layer.shadowOffset = CGSizeMake(0, 0);
+    
+    self.bgView3.layer.cornerRadius = 5;
+    self.bgView3.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bgView3.layer.shadowRadius = 5.f;
+    self.bgView3.layer.shadowOpacity = .3f;
+    self.bgView3.layer.shadowOffset = CGSizeMake(0, 0);
     
     self.unApproveUploadButton.layer.cornerRadius = 22;
     self.unApproveUploadButton.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -61,8 +67,8 @@
     self.unApproveUploadButton.layer.shadowOpacity = .3f;
     self.unApproveUploadButton.layer.shadowOffset = CGSizeMake(0, 0);
     
-    self.unApproveVideoImageView.layer.cornerRadius = 5;
-    self.unApproveVideoPlayButton.layer.cornerRadius = 5;
+//    self.unApproveVideoImageView.layer.cornerRadius = 5;
+//    self.unApproveVideoPlayButton.layer.cornerRadius = 5;
     
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -254,11 +260,11 @@
         VideoOneVC *VC = [[VideoOneVC alloc] init];
         VC.infodic = info;
         [self.navigationController pushViewController:VC animated:YES];
-    }else{
-        
-        VideoRZVC1 *vc = [[VideoRZVC1 alloc] init];
-                vc.info = info;
-        [self.navigationController pushViewController:vc animated:YES];
+//    }else{
+//
+//        VideoRZVC1 *vc = [[VideoRZVC1 alloc] init];
+//                vc.info = info;
+//        [self.navigationController pushViewController:vc animated:YES];
     }
   
     [self dismissViewControllerAnimated:YES completion:nil];

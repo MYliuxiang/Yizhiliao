@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"個人資料");
-    
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
     self.dataList = @[@[@"大頭貼",@"暱稱",@"聊號",],@[@"性别",@"生日",@"地區"],@[@"簽名檔"]];
 //    self.dataList = @[LXSring(@"暱稱"), LXSring(@"性别"), LXSring(@"聊號"), LXSring(@"生日"), LXSring(@"地區"), LXSring(@"行业"), LXSring(@"簽名檔")];
 //    self.imagesArr = @[@"nicheng", @"xingbie", @"ID", @"shengri", @"laizi", @"hangye", @"gexingqianming"];
