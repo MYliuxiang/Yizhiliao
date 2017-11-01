@@ -7,6 +7,7 @@
 //
 
 #import "BannerView.h"
+#import "WebVC.h"
 
 @implementation BannerView
 
@@ -20,7 +21,7 @@
     
     if (!_cycleScrollView) {
         CGRect frame = CGRectMake(15, 15, kScreenWidth - 30, (kScreenWidth - 30) / 690 * 230);
-        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:frame delegate:self placeholderImage:[UIImage imageNamed:@"33"]];
+        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:frame delegate:self placeholderImage:nil];
         [_cycleScrollView setPageControlAliment:SDCycleScrollViewPageContolAlimentRight];
         [_cycleScrollView setPageControlStyle:SDCycleScrollViewPageContolStyleAnimated];
         [_cycleScrollView setPageControlDotSize:CGSizeMake(6, 6)];
@@ -38,7 +39,10 @@
 {
     SelectedBannersModel *model = self.list[index];
     NSString *url = model.link;
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    WebVC *vc = [[WebVC alloc] init];
+    vc.urlStr = model.link;
+    [[self viewController].navigationController pushViewController:vc animated:YES];
+    
     
 }
 
