@@ -351,7 +351,7 @@
                 NSString *cacheKey = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]];
                 [lxcache setCacheData:result WithKey:cacheKey];
                 
-                
+                self.unDisturbButton.selected = self.model.isDND;
                 self.nickLabel.text = self.model.nickname;
                 self.idLabel.text = [NSString stringWithFormat:@"ID：%@",self.model.uid];
                 [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
@@ -1412,7 +1412,7 @@
         [self unDisturb:1];
     } else {
         // 解除免打扰
-        [self unDisturb:0];
+        [self unDisturb:2];
     }
 }
 

@@ -114,11 +114,6 @@
                     _zanBGView.hidden = NO;
                     _unDisturbButton.hidden = NO;
                     _renzhengButton.hidden = NO;
-                    if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
-                        [self addrightImage:@"bianji"];
-                    } else {
-                        [self addrightImage:@"dengdeng"];
-                    }
                     _albumVideoBGViewTop.constant = 40;
                 } else {
                     _zanBGView.hidden = YES;
@@ -126,6 +121,12 @@
                     _renzhengButton.hidden = YES;
                     _giftBGView.hidden = YES;
                     _albumVideoBGViewTop.constant = 10;
+                }
+                if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
+                    [self addrightImage:@"bianji"];
+                    _albumVideoBGViewTop.constant = 10;
+                } else {
+                    [self addrightImage:@"dengdeng"];
                 }
                 [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:self.pmodel.portrait]];
                 
@@ -1072,14 +1073,14 @@
 
 #define mark - 点赞
 - (IBAction)zanButtonAC:(id)sender {
-    _zanButton.selected = !_zanButton.selected;
+    
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"亲，当前用户是您自己，不能設定讚与不讚！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
-    
+    _zanButton.selected = !_zanButton.selected;
     if (!_zanButton.selected) {
         
         //設定不讚
