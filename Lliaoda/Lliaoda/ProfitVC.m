@@ -315,6 +315,11 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 10)];
+        view.backgroundColor = [UIColor clearColor];
+        return view;
+    }
     return nil;
 }
 

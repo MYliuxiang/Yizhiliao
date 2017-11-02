@@ -473,6 +473,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyCell" owner:self options:nil] firstObject];
         cell.backgroundColor = [UIColor whiteColor];
     }
+    cell.delegate = self;
     NSArray *array = self.nameArray[indexPath.section - 1];
     if (indexPath.row == array.count - 1) {
         cell.bottomLineView.hidden = YES;
@@ -688,9 +689,9 @@
                 }];
             } else if (indexPath.section == 2) {
                 // 鑽石餘額
-                AccountVC *vc = [[AccountVC alloc] init];
-                vc.deposit = self.model.deposit;
-                [self.navigationController pushViewController:vc animated:YES];
+//                AccountVC *vc = [[AccountVC alloc] init];
+//                vc.deposit = self.model.deposit;
+//                [self.navigationController pushViewController:vc animated:YES];
                 
             } else if (indexPath.section == 3) {
                 
@@ -705,9 +706,9 @@
         } else {
             if (indexPath.section == 1) {
                 // 鑽石餘額
-                AccountVC *vc = [[AccountVC alloc] init];
-                vc.deposit = self.model.deposit;
-                [self.navigationController pushViewController:vc animated:YES];
+//                AccountVC *vc = [[AccountVC alloc] init];
+//                vc.deposit = self.model.deposit;
+//                [self.navigationController pushViewController:vc animated:YES];
             } else if (indexPath.row == 2) {
                 if (indexPath.row == 0) {
                     // 關於
@@ -764,13 +765,13 @@
             } else if (indexPath.section == 3) {
                 if (indexPath.row == 0) {
                     // 钻石
-                    AccountVC *vc = [[AccountVC alloc] init];
-                    vc.deposit = self.model.deposit;
-                    [self.navigationController pushViewController:vc animated:YES];
+//                    AccountVC *vc = [[AccountVC alloc] init];
+//                    vc.deposit = self.model.deposit;
+//                    [self.navigationController pushViewController:vc animated:YES];
                 } else {
                     // 收益
-                    ProfitVC *vc = [[ProfitVC alloc] init];
-                    [self.navigationController pushViewController:vc animated:YES];
+//                    ProfitVC *vc = [[ProfitVC alloc] init];
+//                    [self.navigationController pushViewController:vc animated:YES];
                 }
             } else if (indexPath.section == 4) {
                 if (indexPath.row == 0) {
@@ -803,9 +804,9 @@
                 }
             } else if (indexPath.section == 2) {
                 // 鑽石
-                AccountVC *vc = [[AccountVC alloc] init];
-                vc.deposit = self.model.deposit;
-                [self.navigationController pushViewController:vc animated:YES];
+//                AccountVC *vc = [[AccountVC alloc] init];
+//                vc.deposit = self.model.deposit;
+//                [self.navigationController pushViewController:vc animated:YES];
             } else if (indexPath.section == 3) {
                 if (indexPath.row == 0) {
                     // 關於
@@ -969,6 +970,7 @@
 }
 
 
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.cellType != 2) {
@@ -1062,6 +1064,21 @@
         }
     }
 }
+
+#pragma mark - NewMyCellDelegate
+- (void)accountButtonClick:(UIButton *)button {
+    if ([button.titleLabel.text isEqualToString:@"充值"]) {
+        AccountVC *vc = [[AccountVC alloc] init];
+        vc.deposit = self.model.deposit;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    } else if ([button.titleLabel.text isEqualToString:@"提現"]) {
+        ProfitVC *vc = [[ProfitVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+
 
 - (void)crpickerBG {
     

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class NewMyCell;
+@protocol NewMyCellDelegate <NSObject>
 
+- (void)accountButtonClick:(UIButton *)button;
+
+@end
 @interface NewMyCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *headerImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -18,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIView *accountBGView;
 @property (weak, nonatomic) IBOutlet UIButton *accountButton;
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
-
+- (IBAction)accountBtnAC:(id)sender;
+@property (nonatomic, weak) id<NewMyCellDelegate>delegate;
 @end

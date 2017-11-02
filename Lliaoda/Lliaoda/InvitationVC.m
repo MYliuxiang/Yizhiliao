@@ -20,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"邀請有獎");
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
     self.yaoBtn.layer.cornerRadius = 22;
     self.yaoBtn.layer.masksToBounds = YES;
     self.isBack = YES;

@@ -81,6 +81,8 @@
     [self.bannersImagesArray removeAllObjects];
     [self.bannersTitlesArray removeAllObjects];
     [self.bannersLinksArray removeAllObjects];
+    
+    [self.bannersArray removeAllObjects];
     [self _loadData];
     
 }
