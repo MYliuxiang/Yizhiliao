@@ -392,11 +392,10 @@
 - (void)rightAction
 {
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
-        NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-        [userDef setBool:YES forKey:@"ToEdit"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_toEdit object:nil];
         [self.navigationController popToRootViewControllerAnimated:NO];
-//        TJPTabBarController *tab = [[TJPTabBarController alloc] init];
-//        tab.selectedIndex = 2;
+//        TJPTabBarController *tab = [TJPTabBarController shareInstance];
+//        tab.selectedIndex = 4;
         
         
     } else {

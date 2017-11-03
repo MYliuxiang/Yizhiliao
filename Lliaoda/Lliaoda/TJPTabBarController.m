@@ -12,6 +12,8 @@
 #import "RankingListVC.h"
 #import "VideoShowVC.h"
 
+static TJPTabBarController *tabBarC;
+
 @interface TJPTabBarController ()<UINavigationControllerDelegate>
 {
     UIView *tabBarView;
@@ -24,11 +26,12 @@
 
 + (instancetype)shareInstance
 {
-    static TJPTabBarController *tabBarC;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        tabBarC = [[TJPTabBarController alloc] init];
-    });
+//    static TJPTabBarController *tabBarC;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        tabBarC = [[TJPTabBarController alloc] init];
+//    });
+//    return tabBarC;
     return tabBarC;
 }
 
@@ -41,12 +44,25 @@
     self.selectedIndex = 0;
     [self setupTabBar];
     [self initViewController];
+    tabBarC = self;
 
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toEdit) name:Notice_toEdit object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+}
+
+#define mark - 个人信息前往我的界面（选中按钮）
+- (void)toEdit {
+    self.selectedIndex = 4;
+    for (UIButton *button in tabBarView.subviews) {
+        if (button.tag == self.selectedIndex) {
+            button.selected = YES;
+        } else {
+            button.selected = NO;
+        }
+    }
 }
 
 - (void)setupTabBar
@@ -82,40 +98,40 @@
     }
     
 
-    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-    if ([userDef boolForKey:@"ToEdit"]) {
-        [userDef setBool:NO forKey:@"ToEdit"];
-        self.selectedIndex = 2;
-        if (self.selectedIndex == 1){
-            _button1.selected = NO;
-            _button2.selected = YES;
-            _button3.selected = NO;
-        }else if (self.selectedIndex == 2){
-            _button1.selected = NO;
-            _button2.selected = NO;
-            _button3.selected = YES;
-            
-        } else {
-            _button1.selected = YES;
-            _button2.selected = NO;
-            _button3.selected = NO;
-        }
-    } else {
-        if (self.selectedIndex == 1){
-            _button1.selected = NO;
-            _button2.selected = YES;
-            _button3.selected = NO;
-        }else if (self.selectedIndex == 2){
-            _button1.selected = NO;
-            _button2.selected = NO;
-            _button3.selected = YES;
-            
-        } else {
-            _button1.selected = YES;
-            _button2.selected = NO;
-            _button3.selected = NO;
-        }
-    }
+//    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+//    if ([userDef boolForKey:@"ToEdit"]) {
+//        [userDef setBool:NO forKey:@"ToEdit"];
+//        self.selectedIndex = 4;
+//        if (self.selectedIndex == 1){
+//            _button1.selected = NO;
+//            _button2.selected = YES;
+//            _button3.selected = NO;
+//        }else if (self.selectedIndex == 2){
+//            _button1.selected = NO;
+//            _button2.selected = NO;
+//            _button3.selected = YES;
+//
+//        } else {
+//            _button1.selected = YES;
+//            _button2.selected = NO;
+//            _button3.selected = NO;
+//        }
+//    } else {
+//        if (self.selectedIndex == 1){
+//            _button1.selected = NO;
+//            _button2.selected = YES;
+//            _button3.selected = NO;
+//        }else if (self.selectedIndex == 2){
+//            _button1.selected = NO;
+//            _button2.selected = NO;
+//            _button3.selected = YES;
+//
+//        } else {
+//            _button1.selected = YES;
+//            _button2.selected = NO;
+//            _button3.selected = NO;
+//        }
+//    }
     
     
 }
