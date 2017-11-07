@@ -1107,7 +1107,9 @@
                     
                     animation.values = values;
                     
-                    [self _loadData];
+                    int count = self.pmodel.likeCount;
+                    self.zanCountLabel.text = [NSString stringWithFormat:@"%d", count - 1];
+//                    [self _loadData];
                     
                 }else{    //请求失败
                     [SVProgressHUD showErrorWithStatus:result[@"message"]];
@@ -1143,7 +1145,11 @@
                     
                     
                     _zanButton.selected = YES;
-                    [self _loadData];
+//                    [self _loadData];
+                    
+                    int count = self.pmodel.likeCount;
+                    self.zanCountLabel.text = [NSString stringWithFormat:@"%d", count + 1];
+                    
                     CAKeyframeAnimation * animation;
                     animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
                     animation.duration = 0.5;
