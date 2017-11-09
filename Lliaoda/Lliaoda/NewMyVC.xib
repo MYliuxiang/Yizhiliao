@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -60,10 +59,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oWF-hJ-Tvg">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_me" translatesAutoresizingMaskIntoConstraints="NO" id="oWF-hJ-Tvg">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="oWF-hJ-Tvg" secondAttribute="height" multiplier="750:450" id="4cq-wB-ICg"/>
+                        <constraint firstAttribute="height" constant="225" id="lMM-wg-673"/>
                     </constraints>
                 </imageView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNk-Mu-0IK">
@@ -351,6 +350,7 @@
                         <constraint firstAttribute="bottom" secondItem="wf4-RJ-P57" secondAttribute="bottom" constant="10" id="fHA-PP-jPs"/>
                         <constraint firstItem="MSY-uA-mlk" firstAttribute="leading" secondItem="M6t-eh-DUb" secondAttribute="leading" id="gKz-iG-IwU"/>
                         <constraint firstItem="wf4-RJ-P57" firstAttribute="centerX" secondItem="MSY-uA-mlk" secondAttribute="centerX" id="v1b-C1-dz6"/>
+                        <constraint firstAttribute="height" constant="55" id="vsX-TW-rl9"/>
                         <constraint firstItem="912-Mw-4yO" firstAttribute="leading" secondItem="MSY-uA-mlk" secondAttribute="trailing" id="yof-eS-1Tw"/>
                     </constraints>
                 </view>
@@ -443,6 +443,7 @@
         </viewController>
     </objects>
     <resources>
+        <image name="bg_me" width="375" height="180"/>
         <image name="bianji" width="15" height="15"/>
         <image name="tonghua_h" width="40" height="18"/>
         <image name="tonghua_n" width="40" height="18"/>

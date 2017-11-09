@@ -87,6 +87,7 @@
                 self.nameLabel.text = self.pmodel.nickname;
                 self.idLabel.text = [NSString stringWithFormat:@"ID：%@",self.pmodel.uid];
                 self.zanCountLabel.text = [NSString stringWithFormat:@"%d", self.pmodel.likeCount];
+                likeCount = self.pmodel.likeCount;
                 _unDisturbButton.selected = self.pmodel.isDND;
                 
                 if (self.pmodel.like == 1) {
@@ -1107,8 +1108,8 @@
                     
                     animation.values = values;
                     
-                    int count = self.pmodel.likeCount;
-                    self.zanCountLabel.text = [NSString stringWithFormat:@"%d", count - 1];
+                    likeCount --;
+                    self.zanCountLabel.text = [NSString stringWithFormat:@"%d", likeCount];
 //                    [self _loadData];
                     
                 }else{    //请求失败
@@ -1147,8 +1148,8 @@
                     _zanButton.selected = YES;
 //                    [self _loadData];
                     
-                    int count = self.pmodel.likeCount;
-                    self.zanCountLabel.text = [NSString stringWithFormat:@"%d", count + 1];
+                    likeCount ++;
+                    self.zanCountLabel.text = [NSString stringWithFormat:@"%d", likeCount];
                     
                     CAKeyframeAnimation * animation;
                     animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];

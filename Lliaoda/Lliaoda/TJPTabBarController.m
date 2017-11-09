@@ -79,10 +79,10 @@ static TJPTabBarController *tabBarC;
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.tag = i;
-        btn.frame = CGRectMake(i*SCREEN_W / 5, 0, SCREEN_W / 5, 49);
+        btn.frame = CGRectMake(i*SCREEN_W / 5, 0, 64, 49);
         if (i == 2) {
-            btn.height = 80;
-            btn.top = 49 - 5 - 80;
+            btn.height = 64;
+            btn.top = 49 - 5 - 64;
         }
         
        
@@ -185,10 +185,14 @@ static TJPTabBarController *tabBarC;
         
         if (self.selectedIndex == 2) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"findVC" object:nil userInfo:nil];
-            _button2.userInteractionEnabled = NO;
+            button.userInteractionEnabled = NO;
         } else {
             self.selectedIndex = 2;
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeFind) name:@"closeFind" object:nil];
+        }
+    } else {
+        if (self.selectedIndex == 2) {
+            [self closeFind];
         }
     }
     self.selectedIndex = button.tag;
@@ -196,8 +200,9 @@ static TJPTabBarController *tabBarC;
    
 }
 - (void)closeFind {
-    
-    self.button2.userInteractionEnabled = YES;
+    UIButton *button = [tabBarView viewWithTag:2];
+    button.userInteractionEnabled = YES;
+//    self.button2.userInteractionEnabled = YES;
     
 }
 #pragma mark - UINavigationController Delegate
