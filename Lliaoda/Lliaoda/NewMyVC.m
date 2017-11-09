@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.headerView.height = kScreenWidth / 750 * 450 + 50;
+    self.headerView.height = 225 + 55;
     self.nav.hidden = YES;
     self.seltedView.layer.cornerRadius = 5;
     self.seltedView.layer.masksToBounds = YES;
@@ -49,7 +49,7 @@
     UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
     //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
     effectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth / 750 * 450);
-    [self.backImage addSubview:effectView];
+//    [self.backImage addSubview:effectView];
     
     self.headerImage.layer.cornerRadius = 40;
     self.headerImage.layer.masksToBounds = YES;
@@ -69,7 +69,7 @@
         
         self.idLabel.text = [NSString stringWithFormat:LXSring(@"聊號：%@"),self.model.uid];
         [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
-        [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+//        [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
 //        self.cellType = MyTypeVideo;
 
         [self setArrayForTable];
@@ -301,7 +301,7 @@
                 self.nickLabel.text = self.model.nickname;
                 self.idLabel.text = [NSString stringWithFormat:LXSring(@"聊號：%@"),self.model.uid];
                 [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];                
-                [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+//                [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
 //                self.cellType = MyTypeVideo;
 
                 [self setArrayForTable];
@@ -355,7 +355,7 @@
                 self.nickLabel.text = self.model.nickname;
                 self.idLabel.text = [NSString stringWithFormat:@"ID：%@",self.model.uid];
                 [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
-                [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+//                [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
                 if (self.model.auth == 2) {
                     _zanBgView.hidden = NO;
                     _upCountLabel.text = [NSString stringWithFormat:@"%d", self.model.likeCount];
