@@ -147,7 +147,7 @@
                                     model1.selected = 0;
                                 }
                             }
-                            self.reloadData(self.dataList);
+//                            self.reloadData(self.dataList);
 
                             [self.collectionView reloadData];
                            
@@ -192,7 +192,7 @@
                                     fmodel.selected = 1;
                                 }
                                 
-                                self.reloadData(self.dataList);
+//                                self.reloadData(self.dataList);
 
                                 [self.collectionView reloadData];
                                 

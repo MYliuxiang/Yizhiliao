@@ -214,6 +214,10 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
+            cell.imageView1.image = [UIImage imageNamed:@"moren"];
+            cell.imageView2.image = [UIImage imageNamed:@"moren"];
+            cell.imageView3.image = [UIImage imageNamed:@"moren"];
+            cell.imageView4.image = [UIImage imageNamed:@"moren"];
             cell.delegate = self;
             for (int i = 0; i < self.pmodel.photos.count; i++) {
                 Photo *photo = self.pmodel.photos[i];
@@ -291,6 +295,11 @@
                 cell.bottomLineView.hidden = YES;
                 cell.littleImageView.image = [UIImage imageNamed:@"jietonglv"];
                 cell.leftLabel.text = @"接聽率";
+                if (self.pmodel.rate1 == -1) {
+                    cell.contentLabel.text = @"0";
+                } else {
+                    cell.contentLabel.text = [NSString stringWithFormat:@"%d", self.pmodel.rate1];
+                }
             }
             return cell;
         } else {
@@ -317,6 +326,7 @@
         cell.priceBGView.hidden = YES;
     }
     if (indexPath.row == 0) {
+        cell.contentLabel.text = @"每日限免，VIP享無限暢聊！";
         [cell.chatButton setImage:[UIImage imageNamed:@"sixinliaotian"] forState:UIControlStateNormal];
         [cell.chatButton setTitle:@"私訊聊天" forState:UIControlStateNormal];
         [cell.chatButton addTarget:self action:@selector(chatButtonAC) forControlEvents:UIControlEventTouchUpInside];
@@ -572,6 +582,8 @@
         MSSBrowseNetworkViewController *bvc = [[MSSBrowseNetworkViewController alloc]initWithBrowseItemArray:browseItemArray currentIndex:index];
         //    bvc.isEqualRatio = NO;// 大图小图不等比时需要設定这个属性（建议等比）
         [bvc showBrowseViewController];
+    } else {
+        return;
     }
 }
 
