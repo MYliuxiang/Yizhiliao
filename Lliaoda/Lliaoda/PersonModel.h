@@ -58,6 +58,8 @@
 
 @property (nonatomic, assign) BOOL isDND; // 是否免打擾
 
+@property (nonatomic, assign) int rate1;  // 接通率 0.XXXX，-1 表示没有接通率
+
 
 @end
 

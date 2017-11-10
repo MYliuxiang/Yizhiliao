@@ -86,9 +86,7 @@
     
     
     
-    [self _loadPhotoData];
     
-    [self _loadVideoData];
 
 }
 
@@ -105,7 +103,6 @@
                     AlbumModel *model = [AlbumModel mj_objectWithKeyValues:dic];
                     [self.photoArrays addObject:model];
                 }
-                [self.tableView reloadData];
 //                self.reloadData(self.dataList);
 //                [self.collectionView reloadData];
                 
@@ -141,7 +138,6 @@
                     [self.videoArrays addObject:model];
                 }
                 
-                [self.tableView reloadData];
                 
                 
             } else{
@@ -332,6 +328,9 @@
     [super viewWillAppear:animated];
     self.nickLabel.text = self.model.nickname;
     [self _loadData];
+    [self _loadPhotoData];
+    
+    [self _loadVideoData];
     [self.tableView reloadData];
     
     
@@ -355,17 +354,20 @@
                 self.nickLabel.text = self.model.nickname;
                 self.idLabel.text = [NSString stringWithFormat:@"ID：%@",self.model.uid];
                 [self.headerImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
+                _upCountLabel.text = [NSString stringWithFormat:@"%d", self.model.likeCount];
 //                [self.backImage sd_setImageWithURL:[NSURL URLWithString:self.model.portrait]];
-                if (self.model.auth == 2) {
-                    _zanBgView.hidden = NO;
-                    _upCountLabel.text = [NSString stringWithFormat:@"%d", self.model.likeCount];
-                } else {
-                    _zanBgView.hidden = YES;
-                }
+//                if (self.model.auth == 2) {
+//                    _zanBgView.hidden = NO;
+//                    _upCountLabel.text = [NSString stringWithFormat:@"%d", self.model.likeCount];
+//                } else {
+//                    _zanBgView.hidden = YES;
+//                }
                 
                 [self setArrayForTable];
                 
                 [self setHeaderVIew];
+                
+                
                 
             } else{
                 [SVProgressHUD showErrorWithStatus:result[@"message"]];
@@ -444,6 +446,10 @@
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
             cell.delegate = self;
+            cell.imageView1.image = [UIImage imageNamed:@"jiahao"];
+            cell.imageView2.image = [UIImage imageNamed:@"jiahao"];
+            cell.imageView3.image = [UIImage imageNamed:@"jiahao"];
+            cell.imageView4.image = [UIImage imageNamed:@"jiahao"];
             for (int i = 0; i < self.photoArrays.count; i++) {
                 AlbumModel *model = self.photoArrays[i];
                 switch (i) {
@@ -1268,6 +1274,9 @@
         MSSBrowseNetworkViewController *bvc = [[MSSBrowseNetworkViewController alloc]initWithBrowseItemArray:browseItemArray currentIndex:index];
         //    bvc.isEqualRatio = NO;// 大图小图不等比时需要設定这个属性（建议等比）
         [bvc showBrowseViewController];
+    } else {
+        MyalbumVC *vc = [[MyalbumVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

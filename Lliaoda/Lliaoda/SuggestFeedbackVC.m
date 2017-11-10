@@ -27,9 +27,15 @@
 }
 #pragma mark - 提交
 - (void)rightAction {
-    [self.navigationController popViewControllerAnimated:YES];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的反饋提交成功，我們將盡快給予回復！謝謝您對我們產品的支持：）！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
+    
 }
 
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - UITextViewDelegate
 - (void)textViewDidChange:(UITextView *)textView {

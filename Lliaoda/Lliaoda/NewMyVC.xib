@@ -101,7 +101,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bianji" translatesAutoresizingMaskIntoConstraints="NO" id="kEW-P1-10H">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bianji" translatesAutoresizingMaskIntoConstraints="NO" id="kEW-P1-10H">
                     <rect key="frame" x="84" y="124" width="15" height="15"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lrq-d0-30B">
