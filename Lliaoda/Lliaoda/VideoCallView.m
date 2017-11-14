@@ -2042,29 +2042,39 @@
         [[self topViewController].navigationController pushViewController:vc animated:YES];
         
     }else{
-        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-        if ([lang hasPrefix:@"id"]){
-            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-            self.hidden = YES;
-            vc.isCall = YES;
-            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
-            vc.clickBlock = ^{
-                [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-                self.hidden = NO;
-            };
-            [[self topViewController].navigationController pushViewController:vc animated:YES];
-            
-        } else if ([lang hasPrefix:@"ar"]){
-            AccountVC *vc = [[AccountVC alloc] init];
-            self.hidden = YES;
-            vc.isCall = YES;
-            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
-            vc.clickBlock = ^{
-                [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-                self.hidden = NO;
-            };
-            [[self topViewController].navigationController pushViewController:vc animated:YES];
-        }
+        AccountVC *vc = [[AccountVC alloc] init];
+        self.hidden = YES;
+        vc.isCall = YES;
+        [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+        vc.clickBlock = ^{
+            [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+            self.hidden = NO;
+        };
+        [[self topViewController].navigationController pushViewController:vc animated:YES];
+        
+//        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//        if ([lang hasPrefix:@"id"]){
+//            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+//            self.hidden = YES;
+//            vc.isCall = YES;
+//            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+//            vc.clickBlock = ^{
+//                [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+//                self.hidden = NO;
+//            };
+//            [[self topViewController].navigationController pushViewController:vc animated:YES];
+//
+//        } else if ([lang hasPrefix:@"ar"]){
+//            AccountVC *vc = [[AccountVC alloc] init];
+//            self.hidden = YES;
+//            vc.isCall = YES;
+//            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+//            vc.clickBlock = ^{
+//                [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+//                self.hidden = NO;
+//            };
+//            [[self topViewController].navigationController pushViewController:vc animated:YES];
+//        }
     }
     
     
