@@ -327,6 +327,10 @@
 {
     [super viewWillAppear:animated];
     self.nickLabel.text = self.model.nickname;
+    
+    [self.videoArrays removeAllObjects];
+    [self.photoArrays removeAllObjects];
+    
     [self _loadData];
     [self _loadPhotoData];
     
@@ -436,7 +440,38 @@
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyVideoCell" owner:self options:nil] lastObject];
             }
             cell.delegate = self;
-            cell.videoArray = self.videoArrays;
+            [cell.playButton1 setImage:[UIImage imageNamed:@"jiahao"] forState:UIControlStateNormal];
+            [cell.playButton2 setImage:[UIImage imageNamed:@"jiahao"] forState:UIControlStateNormal];
+            [cell.playButton3 setImage:[UIImage imageNamed:@"jiahao"] forState:UIControlStateNormal];
+            [cell.playButton4 setImage:[UIImage imageNamed:@"jiahao"] forState:UIControlStateNormal];
+//            cell.playButton1.image = [UIImage imageNamed:@"jiahao"];
+//            cell.playButton2.image = [UIImage imageNamed:@"jiahao"];
+//            cell.playButton3.image = [UIImage imageNamed:@"jiahao"];
+//            cell.playButton4.image = [UIImage imageNamed:@"jiahao"];
+            for (int i = 0; i < self.videoArrays.count; i++) {
+                MyVideoModel *model = self.videoArrays[i];
+                switch (i) {
+                    case 0:
+                        [cell.playButton1 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
+                        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:model.cover]];
+                        break;
+                    case 1:
+                        [cell.playButton2 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
+                        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:model.cover]];
+                        break;
+                    case 2:
+                        [cell.playButton3 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
+                        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:model.cover]];
+                        break;
+                    case 3:
+                        [cell.playButton4 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
+                        [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:model.cover]];
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
             [cell.addButton addTarget:self action:@selector(toVideo) forControlEvents:UIControlEventTouchUpInside];
             return cell;
             
@@ -1275,8 +1310,7 @@
         //    bvc.isEqualRatio = NO;// 大图小图不等比时需要設定这个属性（建议等比）
         [bvc showBrowseViewController];
     } else {
-        MyalbumVC *vc = [[MyalbumVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self toAlbum];
     }
 }
 
@@ -1284,13 +1318,16 @@
 #pragma mark - NewMyVideoCellDelegate
 - (void)videoPlayAC:(UIButton *)button {
     NSInteger tag = button.tag - 100;
-    if (tag >= self.videoArrays.count) {
-        return;
+    if (tag < self.videoArrays.count) {
+        MyVideoModel *model = self.videoArrays[tag];
+        VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+        vc.videoUrl = [NSURL URLWithString:model.url];
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
+        [self toVideo];
     }
-    MyVideoModel *model = self.videoArrays[tag];
-    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
-    vc.videoUrl = [NSURL URLWithString:model.url];
-    [self presentViewController:vc animated:YES completion:nil];
+    
+    
 }
 
 #pragma mark ----------取消-------------
