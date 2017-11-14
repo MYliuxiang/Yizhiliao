@@ -459,6 +459,32 @@ CGFloat const kChatBatItemWH = 26.0f;
     }
 }
 
+- (void)moreViewChongZhiPrompt:(LHChatBarMoreView *)moreView {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(remindChongZhi)]) {
+        [self.delegate remindChongZhi];
+    }
+    self.textView.text = @"";
+    self.contentModel =  [LHContentModel contentModelWitiPhotos:self.photos words:self.textView.text];
+}
+
+- (void)moreViewChongZhiAction:(LHChatBarMoreView *)moreView {
+    self.moreKeyboard = YES;
+    self.showingSystemKeyboard = YES;
+    self.moreBtn.selected = NO;
+    self.emojiBtn.selected = NO;
+    self.y = SCREEN_H - self.height;
+    _tableView.height = self.y - kNavBarHeight;
+    [UIView animateWithDuration:_animationDuration delay:0 options:(_animationCurve << 16 | UIViewAnimationOptionBeginFromCurrentState) animations:^{
+        self.moreView.y = SCREEN_H - kChatMoreHeight;
+        [self.superview layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self.moreView removeFromSuperview];
+    }];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(chongZhi)]) {
+        [self.delegate chongZhi];
+    }
+}
+
 - (void)moreViewTakePicAction:(LHChatBarMoreView *)moreView {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         

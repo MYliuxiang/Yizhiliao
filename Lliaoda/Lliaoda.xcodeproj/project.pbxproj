@@ -4606,8 +4606,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiao niu (2758GL998Q)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 633THM6R4D;
 				ENABLE_BITCODE = NO;
@@ -4706,8 +4706,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiao niu (2758GL998Q)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 633THM6R4D;
 				ENABLE_BITCODE = NO;

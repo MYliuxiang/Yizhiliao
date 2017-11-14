@@ -250,20 +250,28 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyVideoCell" owner:self options:nil] lastObject];
             }
+            [cell.playButton1 setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+            [cell.playButton2 setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+            [cell.playButton3 setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+            [cell.playButton4 setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
             cell.delegate = self;
             for (int i = 0; i < self.pmodel.videos.count; i++) {
                 Video *video = self.pmodel.videos[i];
                 switch (i) {
                     case 0:
+                        [cell.playButton1 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
                         [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
                         break;
                     case 1:
+                        [cell.playButton2 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
                         [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
                         break;
                     case 2:
+                        [cell.playButton3 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
                         [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
                         break;
                     case 3:
+                        [cell.playButton4 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
                         [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
                         break;
                         
@@ -582,8 +590,6 @@
         MSSBrowseNetworkViewController *bvc = [[MSSBrowseNetworkViewController alloc]initWithBrowseItemArray:browseItemArray currentIndex:index];
         //    bvc.isEqualRatio = NO;// 大图小图不等比时需要設定这个属性（建议等比）
         [bvc showBrowseViewController];
-    } else {
-        return;
     }
 }
 
@@ -591,13 +597,13 @@
 #pragma mark - NewMyVideoCellDelegate
 - (void)videoPlayAC:(UIButton *)button {
     NSInteger tag = button.tag - 100;
-    if (tag >= self.pmodel.videos.count) {
-        return;
+    if (tag < self.pmodel.videos.count) {
+        Video *video = self.pmodel.videos[tag];
+        VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+        vc.videoUrl = [NSURL URLWithString:video.url];
+        [self presentViewController:vc animated:YES completion:nil];
     }
-    Video *video = self.pmodel.videos[tag];
-    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
-    vc.videoUrl = [NSURL URLWithString:video.url];
-    [self presentViewController:vc animated:YES completion:nil];
+    
 }
 
 #pragma mark - 私信聊天

@@ -19,7 +19,7 @@
 - (void)moreViewGiftPrompt:(LHChatBarMoreView *)moreView;
 - (void)moreViewGiftAction:(LHChatBarMoreView *)moreView;
 - (void)moreViewChongZhiAction:(LHChatBarMoreView *)moreView;
-
+- (void)moreViewChongZhiPrompt:(LHChatBarMoreView *)moreView;
 @end
 
 @interface LHChatBarMoreView : UIView

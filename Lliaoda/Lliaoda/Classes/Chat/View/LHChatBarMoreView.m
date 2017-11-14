@@ -64,12 +64,11 @@ const NSInteger INSETS = 8;
         [self addSubview:label];
         
         [button addTarget:self action:@selector(chatMoreAC:) forControlEvents:UIControlEventTouchUpInside];
-        button.frame = CGRectMake(5 + (kScreenWidth / 4 - 30 + 30) * i, 25, kScreenWidth / 4 - 30, 60);
-        label.frame = CGRectMake(button.x, button.bottom + 5, kScreenWidth / 4 - 30, 30);
+        button.frame = CGRectMake(kScreenWidth / 4 * i, 25, kScreenWidth / 4, 60);
+        label.frame = CGRectMake(button.x + 15, button.bottom + 5, kScreenWidth / 4 - 30, 30);
         label.numberOfLines = 2;
-       
-            label.text = nameArr[i];
-            [button setImage:[UIImage imageNamed:imageNameArr[i]] forState:UIControlStateNormal];
+        label.text = nameArr[i];
+        [button setImage:[UIImage imageNamed:imageNameArr[i]] forState:UIControlStateNormal];
     }
 }
 
@@ -112,9 +111,18 @@ const NSInteger INSETS = 8;
             
         case 3:
             
-            if (_delegate && [_delegate respondsToSelector:@selector(moreViewChongZhiAction:)]) {
-                [_delegate moreViewChongZhiAction:self];
+            if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+                if (_delegate && [_delegate respondsToSelector:@selector(moreViewChongZhiPrompt:)]) {
+                    [_delegate moreViewChongZhiPrompt:self];
+                }
+            }else{
+                if (_delegate && [_delegate respondsToSelector:@selector(moreViewChongZhiAction:)]) {
+                    [_delegate moreViewChongZhiAction:self];
+                }
+                
             }
+            
+            
             
             break;
             
