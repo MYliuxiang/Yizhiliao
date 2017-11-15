@@ -23,12 +23,8 @@
     // Do any additional setup after loading the view.
     self.text = LXSring(@"精選");
     
-    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-   
-    if ([lang hasPrefix:@"ar"]){
     self.backButtton.hidden = NO;
     [self.backButtton setImage:[UIImage imageNamed:@"kefu"] forState:UIControlStateNormal];
-    }
     
     self.bannersArray = [NSMutableArray array];
     _flowlayout.sectionInset=UIEdgeInsetsMake(15, 15, 15, 15);

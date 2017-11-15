@@ -18,6 +18,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.headerView.height = kScreenWidth / 750 * 450 + (kScreenWidth - 30) / 69 * 15 / 2;
+    
+
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(0, 20, 40, 40);
+        [btn setImage:[UIImage imageNamed:@"kefu"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(btnAC) forControlEvents:UIControlEventTouchUpInside];
+        [self.headerView addSubview:btn];
+        
+    
     self.nav.hidden = YES;
     self.seltedView.layer.cornerRadius = 5;
     self.seltedView.layer.masksToBounds = YES;
@@ -78,7 +87,12 @@
   
     [self _loadData1];
         
-
+}
+- (void)btnAC
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"联系客服") message:LXSring(@"感谢您使用TalkToMe\n欢迎添加官方whatsapp 00212611905696 进行反馈") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    
 }
 
 - (void)headImageAC {
