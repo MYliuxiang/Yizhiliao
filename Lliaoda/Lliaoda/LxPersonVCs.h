@@ -15,6 +15,7 @@
 @interface LxPersonVCs : BaseViewController<UITableViewDelegate, UITableViewDataSource, NewMyVideoCellDelegate, NewMyalbumCellDelegate, LxPersonNewCell3Delegate>
 {
     BOOL isSelf; // 判断当前用户是不是自己
+    int likeCount;
 }
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

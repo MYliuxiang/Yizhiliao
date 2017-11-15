@@ -646,6 +646,8 @@
 		8499017A1F55601B00D4DD40 /* OnlineUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849901781F55601B00D4DD40 /* OnlineUserVC.xib */; };
 		849C6D261F590B6800E2289D /* PayWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849C6D241F590B6800E2289D /* PayWebViewVC.m */; };
 		849C6D271F590B6800E2289D /* PayWebViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849C6D251F590B6800E2289D /* PayWebViewVC.xib */; };
+		849DC73F1FA971C200EFF694 /* ProfitNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DC73D1FA971C200EFF694 /* ProfitNewCell.m */; };
+		849DC7401FA971C200EFF694 /* ProfitNewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849DC73E1FA971C200EFF694 /* ProfitNewCell.xib */; };
 		84A2A9BB1FA07FA20045A298 /* RankingListCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A9B91FA07FA20045A298 /* RankingListCell1.m */; };
 		84A2A9BC1FA07FA20045A298 /* RankingListCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A9BA1FA07FA20045A298 /* RankingListCell1.xib */; };
 		84B8CDA91F4AC92700A13D27 /* PersonHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B8CDA71F4AC92700A13D27 /* PersonHeaderCell.m */; };
@@ -1661,6 +1663,9 @@
 		849C6D231F590B6800E2289D /* PayWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayWebViewVC.h; sourceTree = "<group>"; };
 		849C6D241F590B6800E2289D /* PayWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayWebViewVC.m; sourceTree = "<group>"; };
 		849C6D251F590B6800E2289D /* PayWebViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayWebViewVC.xib; sourceTree = "<group>"; };
+		849DC73C1FA971C200EFF694 /* ProfitNewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfitNewCell.h; sourceTree = "<group>"; };
+		849DC73D1FA971C200EFF694 /* ProfitNewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfitNewCell.m; sourceTree = "<group>"; };
+		849DC73E1FA971C200EFF694 /* ProfitNewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfitNewCell.xib; sourceTree = "<group>"; };
 		84A2A9B81FA07FA20045A298 /* RankingListCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingListCell1.h; sourceTree = "<group>"; };
 		84A2A9B91FA07FA20045A298 /* RankingListCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingListCell1.m; sourceTree = "<group>"; };
 		84A2A9BA1FA07FA20045A298 /* RankingListCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingListCell1.xib; sourceTree = "<group>"; };
@@ -3281,6 +3286,9 @@
 				8413A2B51F4C496E00CB3CBC /* ProfitCell1.h */,
 				8413A2B61F4C496E00CB3CBC /* ProfitCell1.m */,
 				8413A2B71F4C496E00CB3CBC /* ProfitCell1.xib */,
+				849DC73C1FA971C200EFF694 /* ProfitNewCell.h */,
+				849DC73D1FA971C200EFF694 /* ProfitNewCell.m */,
+				849DC73E1FA971C200EFF694 /* ProfitNewCell.xib */,
 				8483AAE71F4E7BEB008BA674 /* ProfitCell2.h */,
 				8483AAE81F4E7BEB008BA674 /* ProfitCell2.m */,
 				8483AAE91F4E7BEB008BA674 /* ProfitCell2.xib */,
@@ -3748,6 +3756,7 @@
 				222AA0A81EB071910038416D /* B_90@2x.gif in Resources */,
 				222AA04C1EB071910038416D /* B_114@2x.gif in Resources */,
 				84F970D61F38946100336234 /* LanguageVC.xib in Resources */,
+				849DC7401FA971C200EFF694 /* ProfitNewCell.xib in Resources */,
 				221EEBFE1F9F332200618FB9 /* HotVC.xib in Resources */,
 				222AA05E1EB071910038416D /* B_23@2x.gif in Resources */,
 				222AA0001EB071910038416D /* IM_Chat_receiver_bg@2x.png in Resources */,
@@ -4377,6 +4386,7 @@
 				222AA1C21EB0775B0038416D /* NSBundle+YYAdd.m in Sources */,
 				8483AB031F4EEF87008BA674 /* VideoRZVC2.m in Sources */,
 				227303031F4AC75D0069F53B /* TJPTabBarController.m in Sources */,
+				849DC73F1FA971C200EFF694 /* ProfitNewCell.m in Sources */,
 				2291CBF41F4DBD08001AB139 /* InfomationMessageVC.m in Sources */,
 				223DE5AC1F20AB3700745E94 /* YuvToJpg.m in Sources */,
 				222AA14D1EB071C10038416D /* UIImage+Common.m in Sources */,
@@ -4596,7 +4606,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 633THM6R4D;
@@ -4682,7 +4692,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.TalkToMe.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d59b7090-ec64-4978-8c5c-9723f3981131";
+				PROVISIONING_PROFILE = "cbffadd3-206f-4136-9a68-1125bb3b001c";
 				PROVISIONING_PROFILE_SPECIFIER = dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
@@ -4696,7 +4706,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 633THM6R4D;
@@ -4782,7 +4792,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.TalkToMe.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d59b7090-ec64-4978-8c5c-9723f3981131";
+				PROVISIONING_PROFILE = "cbffadd3-206f-4136-9a68-1125bb3b001c";
 				PROVISIONING_PROFILE_SPECIFIER = dev;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";

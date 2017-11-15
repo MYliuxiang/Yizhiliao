@@ -48,10 +48,12 @@
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         isSelf = YES;
         _giftBGView.hidden = YES;
-        
+        [self addrightImage:@"bianji"];
         
     } else {
         isSelf = NO;
+        _giftBGView.hidden = NO;
+        [self addrightImage:@"dengdeng"];
     }
     
     UITapGestureRecognizer *hidRandG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideRenandGift)];
@@ -85,6 +87,7 @@
                 self.nameLabel.text = self.pmodel.nickname;
                 self.idLabel.text = [NSString stringWithFormat:@"ID：%@",self.pmodel.uid];
                 self.zanCountLabel.text = [NSString stringWithFormat:@"%d", self.pmodel.likeCount];
+                likeCount = self.pmodel.likeCount;
                 _unDisturbButton.selected = self.pmodel.isDND;
                 
                 if (self.pmodel.like == 1) {
@@ -112,7 +115,6 @@
                     _zanBGView.hidden = NO;
                     _unDisturbButton.hidden = NO;
                     _renzhengButton.hidden = NO;
-                    _giftBGView.hidden = NO;
                     _albumVideoBGViewTop.constant = 40;
                 } else {
                     _zanBGView.hidden = YES;
@@ -120,6 +122,12 @@
                     _renzhengButton.hidden = YES;
                     _giftBGView.hidden = YES;
                     _albumVideoBGViewTop.constant = 10;
+                }
+                if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
+                    [self addrightImage:@"bianji"];
+                    _albumVideoBGViewTop.constant = 10;
+                } else {
+                    [self addrightImage:@"dengdeng"];
                 }
                 [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:self.pmodel.portrait]];
                 
@@ -206,6 +214,10 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyalbumCell" owner:self options:nil] lastObject];
             }
+            cell.imageView1.image = [UIImage imageNamed:@"moren"];
+            cell.imageView2.image = [UIImage imageNamed:@"moren"];
+            cell.imageView3.image = [UIImage imageNamed:@"moren"];
+            cell.imageView4.image = [UIImage imageNamed:@"moren"];
             cell.delegate = self;
             for (int i = 0; i < self.pmodel.photos.count; i++) {
                 Photo *photo = self.pmodel.photos[i];
@@ -238,20 +250,28 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMyVideoCell" owner:self options:nil] lastObject];
             }
+            [cell.playButton1 setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+            [cell.playButton2 setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+            [cell.playButton3 setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+            [cell.playButton4 setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
             cell.delegate = self;
             for (int i = 0; i < self.pmodel.videos.count; i++) {
                 Video *video = self.pmodel.videos[i];
                 switch (i) {
                     case 0:
+                        [cell.playButton1 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
                         [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
                         break;
                     case 1:
+                        [cell.playButton2 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
                         [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
                         break;
                     case 2:
+                        [cell.playButton3 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
                         [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
                         break;
                     case 3:
+                        [cell.playButton4 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
                         [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
                         break;
                         
@@ -283,6 +303,11 @@
                 cell.bottomLineView.hidden = YES;
                 cell.littleImageView.image = [UIImage imageNamed:@"jietonglv"];
                 cell.leftLabel.text = @"接聽率";
+                if (self.pmodel.rate1 == -1) {
+                    cell.contentLabel.text = @"0";
+                } else {
+                    cell.contentLabel.text = [NSString stringWithFormat:@"%d", self.pmodel.rate1];
+                }
             }
             return cell;
         } else {
@@ -309,6 +334,7 @@
         cell.priceBGView.hidden = YES;
     }
     if (indexPath.row == 0) {
+        cell.contentLabel.text = @"每日限免，VIP享無限暢聊！";
         [cell.chatButton setImage:[UIImage imageNamed:@"sixinliaotian"] forState:UIControlStateNormal];
         [cell.chatButton setTitle:@"私訊聊天" forState:UIControlStateNormal];
         [cell.chatButton addTarget:self action:@selector(chatButtonAC) forControlEvents:UIControlEventTouchUpInside];
@@ -385,9 +411,11 @@
 - (void)rightAction
 {
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
-        NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-        [userDef setBool:YES forKey:@"ToEdit"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:Notice_toEdit object:nil];
         [self.navigationController popToRootViewControllerAnimated:NO];
+//        TJPTabBarController *tab = [TJPTabBarController shareInstance];
+//        tab.selectedIndex = 4;
+        
         
     } else {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -569,13 +597,13 @@
 #pragma mark - NewMyVideoCellDelegate
 - (void)videoPlayAC:(UIButton *)button {
     NSInteger tag = button.tag - 100;
-    if (tag >= self.pmodel.videos.count) {
-        return;
+    if (tag < self.pmodel.videos.count) {
+        Video *video = self.pmodel.videos[tag];
+        VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+        vc.videoUrl = [NSURL URLWithString:video.url];
+        [self presentViewController:vc animated:YES completion:nil];
     }
-    Video *video = self.pmodel.videos[tag];
-    VideoPlayVC *vc = [[VideoPlayVC alloc] init];
-    vc.videoUrl = [NSURL URLWithString:video.url];
-    [self presentViewController:vc animated:YES completion:nil];
+    
 }
 
 #pragma mark - 私信聊天
@@ -601,6 +629,108 @@
 }
 #pragma mark - 语言聊天
 - (void)yuyinButtonAC {
+    [self vioceCallAC];
+}
+
+- (void)vioceCallAC
+{
+    if ([AppDelegate shareAppDelegate].netStatus == NotReachable) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"当前网络不可用，请检查您的网络設定") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return;
+    }
+    
+    if (self.pmodel.state == 2) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"当前用户正在忙碌") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    AppDelegate *app = [AppDelegate shareAppDelegate];
+    if(![app.inst isOnline]){
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您正处于离线状态") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
+    NSDictionary *params;
+    NSString *uid;
+    if (self.isFromHeader) {
+        uid = _personUID;
+    } else {
+        uid = self.model.uid;
+    }
+    params = @{@"uid":uid,@"type":@1};
+    
+    [WXDataService requestAFWithURL:Url_chatvideocall params:params httpMethod:@"POST" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                
+                NSString *channel = [NSString stringWithFormat:@"%@",result[@"data"][@"channel"]];
+                VideoCallView *voiceView = [[VideoCallView alloc] initVideoCallViewWithChancel:channel withUid:uid withIsSend:YES withType:CallTypeVoice];
+                [voiceView show];
+                
+            }else{    //请求失败
+                
+                if ([[result objectForKey:@"result"] integerValue] == 8) {
+                    
+                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                        [SVProgressHUD dismiss];
+                        
+                        if ([[result objectForKey:@"result"] integerValue] == 8) {
+                            
+                            LGAlertView *lg = [[LGAlertView alloc] initWithTitle:LXSring(@"购买鑽石") message:LXSring(@"亲，你的鑽石不足，儲值才能继续視訊通话，是否购买鑽石？") style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:LXSring(@"取消") destructiveButtonTitle:LXSring(@"快速购买") delegate:nil];
+                            
+                            lg.destructiveButtonBackgroundColor = Color_nav;
+                            lg.destructiveButtonTitleColor = UIColorFromRGB(0x00ddcc);
+                            lg.cancelButtonFont = [UIFont systemFontOfSize:16];
+                            lg.cancelButtonBackgroundColor = [UIColor whiteColor];
+                            lg.cancelButtonTitleColor = UIColorFromRGB(0x333333);
+                            lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
+                                if ([LXUserDefaults boolForKey:ISMEiGUO]){
+                                    AccountVC *vc = [[AccountVC alloc] init];
+                                    [self.navigationController pushViewController:vc animated:YES];
+                                    
+                                }else{
+                                    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+                                    if ([lang hasPrefix:@"id"]){
+                                        AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                                        [self.navigationController pushViewController:vc animated:YES];
+                                        
+                                    } else if ([lang hasPrefix:@"ar"]){
+                                        AccountVC *vc = [[AccountVC alloc] init];
+                                        [self.navigationController pushViewController:vc animated:YES];
+                                    }
+                                }
+                                
+                            };
+                            [lg showAnimated:YES completionHandler:nil];
+                            
+                            
+                        }
+                        
+                    });
+                }else{
+                    
+                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                        [SVProgressHUD dismiss];
+                    });
+                }
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        
+    }];
+    
     
 }
 #pragma mark - 视频聊天
@@ -706,19 +836,24 @@
     
 }
 
-#pragma mark - LxPersonNewCell3Delegate 用户充值和送礼
+#pragma mark - LxPersonNewCell3Delegate 提醒用户充值和送礼
 - (void)giftBtnClick {
-    [self newgiftView];
-    [self _loadData1];
-    self.giftsView.pmodel = self.pmodel;
-    self.giftsView.isVideoBool = NO;
-    [UIView animateWithDuration:.35 animations:^{
-        _blackView.hidden = NO;
-        self.giftsView.top = kScreenHeight - 300;
+    // 提醒用戶送禮
+    RepetitionCount *re = [RepetitionCount sharedRepetition];
+    long long idate = [[NSDate date] timeIntervalSince1970]*1000;
+    long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.personUID]] longLongValue];
+    if (idate - oldDate < 60 * 1000) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"發送太頻繁，會嚇走金主的~") delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
+        [alert show];
+    }else{
+        [self sendMessageToUserType:MessageBodyType_Gift name:LXSring(@"送禮") types:@"gift"];
+        if (self.isFromHeader) {
+            [re.mdic setObject:@(idate) forKey:self.personUID];
+        } else {
+            [re.mdic setObject:@(idate) forKey:self.model.uid];
+        }
         
-    } completion:^(BOOL finished) {
-        
-    }];
+    }
 }
 
 //影藏礼物
@@ -782,39 +917,48 @@
 }
 
 - (void)chargeBtnClick {
-    AccountVC *vc = [[AccountVC alloc] init];
-    vc.isCall = NO;
-    vc.orderReferee = self.model.uid;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-#pragma mark - 提醒用户充值送礼
-- (IBAction)giftBtnAC:(id)sender {
-    // 提醒用戶送禮
-    RepetitionCount *re = [RepetitionCount sharedRepetition];
-    long long idate = [[NSDate date] timeIntervalSince1970]*1000;
-    long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.personUID]] longLongValue];
-    if (idate - oldDate < 60 * 1000) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"發送太頻繁，會嚇走金主的~") delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
-        [alert show];
-    }else{
-        [self sendMessageToUserType:MessageBodyType_Gift name:LXSring(@"送禮") types:@"gift"];
-        [re.mdic setObject:@(idate) forKey:self.personUID];
-    }
-}
-
-- (IBAction)upTopBtnAC:(id)sender {
     // 提醒用戶充值
     RechargeCount *re = [RechargeCount sharedRecharge];
     long long idate = [[NSDate date] timeIntervalSince1970]*1000;
-    long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.personUID]] longLongValue];
+    long long oldDate = [[NSString stringWithFormat:@"%@",re.mdic[self.model.uid]] longLongValue];
     if (idate - oldDate < 60 * 1000) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"發送太頻繁，會嚇走金主的~") delegate:nil cancelButtonTitle:LXSring(@"好的") otherButtonTitles:nil, nil];
         [alert show];
     }else{
         [self sendMessageToUserType:MessageBodyType_ChongZhi name:LXSring(@"儲值") types:@"recharge"];
-        [re.mdic setObject:@(idate) forKey:self.personUID];
+        if (self.isFromHeader) {
+            [re.mdic setObject:@(idate) forKey:self.personUID];
+        } else {
+            [re.mdic setObject:@(idate) forKey:self.model.uid];
+        }
+        
     }
+    
+    
+}
+
+#pragma mark - 用户充值送礼
+- (IBAction)giftBtnAC:(id)sender {
+    [self newgiftView];
+    [self _loadData1];
+    self.giftsView.pmodel = self.pmodel;
+    self.giftsView.isVideoBool = NO;
+    [UIView animateWithDuration:.35 animations:^{
+        _blackView.hidden = NO;
+        self.giftsView.top = kScreenHeight - 300;
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+}
+
+- (IBAction)upTopBtnAC:(id)sender {
+    
+    AccountVC *vc = [[AccountVC alloc] init];
+    vc.isCall = NO;
+    vc.orderReferee = self.model.uid;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)sendMessageToUserType:(MessageBodyType)type name:(NSString *)name types:(NSString *)types {
@@ -842,10 +986,19 @@
     
     NSDictionary *params;
     if (type == MessageBodyType_Gift) {
-        params = @{@"uid":self.personUID, @"message":message, @"type":@1};
+        if (self.isFromHeader) {
+            params = @{@"uid":self.personUID, @"message":message, @"type":@1};
+        } else {
+            params = @{@"uid":self.model.uid, @"message":message, @"type":@1};
+        }
+        
         
     }else if(type == MessageBodyType_ChongZhi){
-        params = @{@"uid":self.personUID, @"message":message, @"type":@2};
+        if (self.isFromHeader) {
+            params = @{@"uid":self.personUID, @"message":message, @"type":@2};
+        } else {
+            params = @{@"uid":self.model.uid, @"message":message, @"type":@2};
+        }
         
     }
     [WXDataService requestAFWithURL:Url_chatmessagesend params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO  finishBlock:^(id result) {
@@ -938,14 +1091,14 @@
 
 #define mark - 点赞
 - (IBAction)zanButtonAC:(id)sender {
-    _zanButton.selected = !_zanButton.selected;
+    
     if ([self.model.uid isEqualToString:[NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:UID]]]) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"亲，当前用户是您自己，不能設定讚与不讚！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
-    
+    _zanButton.selected = !_zanButton.selected;
     if (!_zanButton.selected) {
         
         //設定不讚
@@ -972,6 +1125,10 @@
                     [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)]];
                     
                     animation.values = values;
+                    
+                    likeCount --;
+                    self.zanCountLabel.text = [NSString stringWithFormat:@"%d", likeCount];
+//                    [self _loadData];
                     
                 }else{    //请求失败
                     [SVProgressHUD showErrorWithStatus:result[@"message"]];
@@ -1007,6 +1164,10 @@
                     
                     
                     _zanButton.selected = YES;
+//                    [self _loadData];
+                    
+                    likeCount ++;
+                    self.zanCountLabel.text = [NSString stringWithFormat:@"%d", likeCount];
                     
                     CAKeyframeAnimation * animation;
                     animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];

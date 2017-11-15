@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = @"設置";
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
+    
     [self.checkoutButton setTitle:LXSring(@"切換語言") forState:UIControlStateNormal];
     [self.aboutButton setTitle:LXSring(@"關於我們") forState:UIControlStateNormal];
     [self.loginoutButton setTitle:LXSring(@"退出登陸") forState:UIControlStateNormal];

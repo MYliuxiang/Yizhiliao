@@ -13,4 +13,5 @@
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,assign) int uid;
 @property (nonatomic, assign) int value;
+@property (nonatomic, assign) int type;
 @end

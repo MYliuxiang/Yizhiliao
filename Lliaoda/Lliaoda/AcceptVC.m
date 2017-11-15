@@ -23,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"输入邀請碼");
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
     self.tijiaoBtn.layer.cornerRadius = 22;
     self.tijiaoBtn.layer.masksToBounds = YES;
     

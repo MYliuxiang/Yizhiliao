@@ -38,12 +38,9 @@
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
     SelectedBannersModel *model = self.list[index];
-    NSString *url = model.link;
     WebVC *vc = [[WebVC alloc] init];
     vc.urlStr = model.link;
     [[self viewController].navigationController pushViewController:vc animated:YES];
-    
-    
 }
 
 

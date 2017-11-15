@@ -32,5 +32,4 @@
  */
 + (instancetype)tabBarControllerWitnAddChildVCBlock:(void(^)(TJPTabBarController *tabBarVC))addVCBlock;
 
-
 @end

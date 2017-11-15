@@ -19,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.nav.hidden = NO;
+    self.text = @"我的相冊";
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
     self.dataList = [NSMutableArray array];
 
     if (@available(iOS 11.0, *)) {
@@ -57,7 +59,7 @@
                     AlbumModel *model = [AlbumModel mj_objectWithKeyValues:dic];
                     [self.dataList addObject:model];
                 }
-                self.reloadData(self.dataList);
+//                self.reloadData(self.dataList);
                 [self.collectionView reloadData];
                 
                 
@@ -145,7 +147,7 @@
                                     model1.selected = 0;
                                 }
                             }
-                            self.reloadData(self.dataList);
+//                            self.reloadData(self.dataList);
 
                             [self.collectionView reloadData];
                            
@@ -190,7 +192,7 @@
                                     fmodel.selected = 1;
                                 }
                                 
-                                self.reloadData(self.dataList);
+//                                self.reloadData(self.dataList);
 
                                 [self.collectionView reloadData];
                                 

@@ -240,6 +240,7 @@ alpha:1.0]
 #define Notice_onMessageInstantReceive         @"onMessageInstantReceive"    //收到訊息。
 #define Notice_robotMessage                    @"robotMessageGet"   // 收到机器讯息
 #define Notice_onMessageNoData                 @"onMessageNoData"   // 没有未读
+#define Notice_toEdit                          @"ToEdit"      // 个人信息前往我的界面
 
 #define Notice_MEntranceNotice                    @"MEntranceNotice"   // 消息入口通知
 

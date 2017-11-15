@@ -53,13 +53,14 @@ static NSString *const headerId = @"headerId";
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.text = LXSring(@"帳戶");
+    
     self.label1.text = LXSring(@"账户余额");
     self.label.text = LXSring(@"鑽石");
     
     
     self.nav.backgroundColor = [UIColor clearColor];
-    self.titleLable.textColor = [UIColor whiteColor];
-    [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
+    self.titleLable.textColor = Color_Text_black;
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
 
 //    self.view.backgroundColor = UIColorFromRGB(0xf0f0f0);
     self.dataList = [NSMutableArray array];
@@ -82,7 +83,7 @@ static NSString *const headerId = @"headerId";
     [_collectionViewLayout setScrollDirection:UICollectionViewScrollDirectionVertical];//滚动方向
     _collectionViewLayout.headerReferenceSize = CGSizeMake(SCREEN_W, 246);
     
-    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H - 0) collectionViewLayout:_collectionViewLayout];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, -20, SCREEN_W, SCREEN_H + 20) collectionViewLayout:_collectionViewLayout];
     _collectionView.dataSource = self;
     _collectionView.delegate=  self;
     _collectionView.hidden = NO;

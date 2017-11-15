@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface SuggestFeedbackVC : BaseViewController<UITextViewDelegate>
+@interface SuggestFeedbackVC : BaseViewController<UITextViewDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *typeButton1;
 @property (weak, nonatomic) IBOutlet UIButton *typeButton2;
 @property (weak, nonatomic) IBOutlet UIButton *typeButton3;

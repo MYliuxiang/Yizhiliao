@@ -21,4 +21,10 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)accountBtnAC:(id)sender {
+    UIButton *button = sender;
+    if (_delegate && [_delegate respondsToSelector:@selector(accountButtonClick:)]) {
+        [_delegate accountButtonClick:button];
+    }
+}
 @end

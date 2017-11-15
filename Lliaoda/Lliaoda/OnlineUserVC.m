@@ -7,7 +7,7 @@
 //
 
 #import "OnlineUserVC.h"
-
+#import "BannerView.h"
 @interface OnlineUserVC ()
 
 @end
@@ -20,14 +20,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageInstantReceive object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageInstantReceive:) name:Notice_onMessageNoData object:nil];
     
-    self.text = LXSring(@"在线用户");
-    self.nav.backgroundColor = [UIColor whiteColor];
-    self.bannersArray = [NSMutableArray array];
+    self.text = @"在線用戶";
+    self.nav.backgroundColor = Color_Text_origin;
     self.tDataList = [NSMutableArray array];
     self.bannersArray = [NSMutableArray array];
-    self.bannersTitlesArray = [NSMutableArray array];
-    self.bannersImagesArray = [NSMutableArray array];
-    self.bannersLinksArray = [NSMutableArray array];
+    
+    MEntrance *rance = [[MEntrance alloc] initWithVC:self withimageName:@"qipao" withBageColor:[UIColor whiteColor]];
+    [self.nav addSubview:rance];
+    
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downLoad1)];
     _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(upLoad1)];
     [_tableView.mj_header beginRefreshing];
@@ -40,9 +40,6 @@
     _isdownLoad = YES;
     _begin = 0;
     [self.bannersArray removeAllObjects];
-    [self.bannersTitlesArray removeAllObjects];
-    [self.bannersImagesArray removeAllObjects];
-    [self.bannersLinksArray removeAllObjects];
     [self tloadData];
     
 }
@@ -95,13 +92,6 @@
                 for (NSDictionary *subDic in array1) {
                     SelectedBannersModel *model = [SelectedBannersModel mj_objectWithKeyValues:subDic];
                     [self.bannersArray addObject:model];
-                    if (model.title == nil) {
-                        [self.bannersTitlesArray addObject:@""];
-                    } else {
-                        [self.bannersTitlesArray addObject:model.title];
-                    }
-                    [self.bannersImagesArray addObject:model.cover];
-                    [self.bannersLinksArray addObject:model.link];
                 }
                 
                 if (_isdownLoad) {
@@ -205,10 +195,8 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:iden];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:iden];
-                SelectedBannersHeader *headerView = [[SelectedBannersHeader alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_W / 2)];
-                headerView.linksArray = self.bannersLinksArray;
-                headerView.titlesArray = self.bannersTitlesArray;
-                headerView.imagesArray = self.bannersImagesArray;
+                BannerView *headerView = [[BannerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_W / 3)];
+                headerView.list = self.bannersArray;
                 [cell addSubview:headerView];
             }
             return cell;
@@ -234,7 +222,7 @@
 {
     if (self.bannersArray.count > 0) {
         if (indexPath.row == 0) {
-            return SCREEN_W / 2;
+            return SCREEN_W / 3;
         }
     }
     return 145;

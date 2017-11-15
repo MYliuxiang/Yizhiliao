@@ -19,10 +19,10 @@
     // Do any additional setup after loading the view from its nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.nav.backgroundColor = [UIColor clearColor];
-    self.titleLable.textColor = [UIColor whiteColor];
-    [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
-    self.text = LXSring(@"收益");
-    self.view.backgroundColor = UIColorFromRGB(0x00ddcc);
+    self.titleLable.textColor = Color_Text_black;
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
+    self.text = @"收入";
+//    self.view.backgroundColor = UIColorFromRGB(0x00ddcc);
 //    self.dataList = @[LXSring(@"通话收益"),LXSring(@"礼物及红包收益"),LXSring(@"总收益"),LXSring(@"可提现总收益")];
 //    self.dataList = @[LXSring(@"通话收益"),LXSring(@"礼物及红包收益"),LXSring(@"总收益"),LXSring(@"邀请"),LXSring(@"可提现总收益")];
     self.dataList = @[LXSring(@"通話收益"),LXSring(@"禮物及紅包收益"),LXSring(@"储值提成收益"),LXSring(@"邀請")];
@@ -81,7 +81,8 @@
 #pragma  mark --------UITableView Delegete----------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+//    return 1;
+    return 2;
 //    return 3;
 }
 
@@ -99,47 +100,88 @@
 //    } else {
 //        return 1;
 //    }
-    return 5;
+    if (section == 0) {
+        return 4;
+    }
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (indexPath.row == 0) {
-        ProfitCell1 *cell = [ProfitCell1 tableView:tableView
-                                         indexPath:indexPath
-                                          delegate:self];
-        cell.yueLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
-        cell.yueLabel.adjustsFontSizeToFitWidth = YES;
-        return cell;
-    } else if (indexPath.row == 4) {
-        ProfitCell3 *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfitCell3"];
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfitCell3" owner:self options:nil] lastObject];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            ProfitCell1 *cell = [ProfitCell1 tableView:tableView
+                                             indexPath:indexPath
+                                              delegate:self];
+            cell.yueLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
+            cell.yueLabel.adjustsFontSizeToFitWidth = YES;
+            return cell;
+        } else {
+            ProfitNewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfitNewCell"];
+            if (cell == nil) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfitNewCell" owner:self options:nil] lastObject];
+            }
+            cell.lineView.hidden = NO;
+            if (indexPath.row == 1) {
+                cell.leftLabel.text = @"通話收入";
+                cell.rightLabel.text = [NSString stringWithFormat:@"+%d聊幣",self.model.video];
+                
+            } else if (indexPath.row == 2) {
+                cell.leftLabel.text = @"禮物及紅包";
+                cell.rightLabel.text = [NSString stringWithFormat:@"+%d聊幣",self.model.gift];
+            } else {
+                cell.lineView.hidden = YES;
+                cell.leftLabel.text = @"邀請";
+                cell.rightLabel.text = [NSString stringWithFormat:@"+%d聊幣",self.model.share];
+            }
+            return cell;
         }
-        cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.settled];
-        return cell;
     } else {
-        ProfitCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfitCell2"];
+        ProfitNewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfitNewCell"];
         if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfitCell2" owner:self options:nil] lastObject];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfitNewCell" owner:self options:nil] lastObject];
         }
-        cell.bgView.layer.cornerRadius = 5;
-        if (indexPath.row == 1) {
-            cell.leftLabel.text = LXSring(@"通話收益");
-            cell.leftImageView.image = [UIImage imageNamed:@"tonghuashouyi"];
-            cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.video];
-        } else if (indexPath.row == 2) {
-            cell.leftLabel.text = LXSring(@"禮物收益");
-            cell.leftImageView.image = [UIImage imageNamed:@"liwushouyi"];
-            cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.gift];
-        } else if (indexPath.row == 3) {
-            cell.leftLabel.text = LXSring(@"邀請收益");
-            cell.leftImageView.image = [UIImage imageNamed:@"yaoqingshouyi"];
-            cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
-        }
+        cell.lineView.hidden = YES;
+        cell.leftLabel.text = @"累計提現";
+        cell.rightLabel.text = [NSString stringWithFormat:@"%d聊幣",self.model.settled];;
         return cell;
     }
+//    if (indexPath.row == 0) {
+//        ProfitCell1 *cell = [ProfitCell1 tableView:tableView
+//                                         indexPath:indexPath
+//                                          delegate:self];
+//        cell.yueLabel.text = [NSString stringWithFormat:@"%d",self.model.extractable];
+//        cell.yueLabel.adjustsFontSizeToFitWidth = YES;
+//        return cell;
+//    } else if (indexPath.row == 4) {
+//        ProfitCell3 *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfitCell3"];
+//        if (cell == nil) {
+//            cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfitCell3" owner:self options:nil] lastObject];
+//        }
+//        cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.settled];
+//        return cell;
+//    } else {
+//        ProfitCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfitCell2"];
+//        if (cell == nil) {
+//            cell = [[[NSBundle mainBundle] loadNibNamed:@"ProfitCell2" owner:self options:nil] lastObject];
+//        }
+//        cell.bgView.layer.cornerRadius = 5;
+//        if (indexPath.row == 1) {
+//            cell.leftLabel.text = LXSring(@"通話收益");
+//            cell.leftImageView.image = [UIImage imageNamed:@"tonghuashouyi"];
+//            cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.video];
+//        } else if (indexPath.row == 2) {
+//            cell.leftLabel.text = LXSring(@"禮物收益");
+//            cell.leftImageView.image = [UIImage imageNamed:@"liwushouyi"];
+//            cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.gift];
+//        } else if (indexPath.row == 3) {
+//            cell.leftLabel.text = LXSring(@"邀請收益");
+//            cell.leftImageView.image = [UIImage imageNamed:@"yaoqingshouyi"];
+//            cell.countLabel.text = [NSString stringWithFormat:@"%d",self.model.share];
+//        }
+//        return cell;
+//    }
     
     
     
@@ -244,6 +286,9 @@
 //    if (section == 0) {
 //        return 0;
 //    }
+    if (section == 1) {
+        return 10;
+    }
     return 0;
     
 }
@@ -259,23 +304,25 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        return 195 + 64;
-    } else if (indexPath.row == 4) {
-        return 100;
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return 250;
     }
-    return 90;
+    return 60;
 //    if (indexPath.section == 0) {
 //        return 200;
 //    }
 //    return 60;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 10)];
+        view.backgroundColor = [UIColor clearColor];
+        return view;
+    }
+    return nil;
 }
+
 
 - (IBAction)tixianAC:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LXSring(@"提現") message:LXSring(@"提現相關事宜，請聯繫客服\n微信：yizhiliao2017") delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
