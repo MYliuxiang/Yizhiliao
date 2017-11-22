@@ -380,20 +380,20 @@ static NSString *identifire = @"GiftID";
         [[self topViewController].navigationController pushViewController:vc animated:YES];
         
     }else{
-        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-        if ([lang hasPrefix:@"id"]){
-            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-            vc.isCall = YES;
-            vc.clickBlock = ^(){
-                if(self.isVideoBool){
-                    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-                }
-                self.superview.hidden = NO;
-            };
-            [[self topViewController].navigationController pushViewController:vc animated:YES];
-            
-            
-        } else if ([lang hasPrefix:@"ar"]){
+//        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//        if ([lang hasPrefix:@"id"]){
+//            AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+//            vc.isCall = YES;
+//            vc.clickBlock = ^(){
+//                if(self.isVideoBool){
+//                    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+//                }
+//                self.superview.hidden = NO;
+//            };
+//            [[self topViewController].navigationController pushViewController:vc animated:YES];
+//
+//
+//        } else if ([lang hasPrefix:@"ar"]){
             AccountVC *vc = [[AccountVC alloc] init];
             vc.isCall = YES;
             vc.clickBlock = ^(){
@@ -403,7 +403,7 @@ static NSString *identifire = @"GiftID";
                 self.superview.hidden = NO;
             };
             [[self topViewController].navigationController pushViewController:vc animated:YES];
-        }
+//        }
         
     }
 }
@@ -415,9 +415,7 @@ static NSString *identifire = @"GiftID";
         self.giftBlock(giftName, diamonds, giftUid);
         return;
         
-    }
-    
-    
+    }    
     
     NSString *content = @"";
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];

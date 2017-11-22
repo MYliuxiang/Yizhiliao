@@ -22,7 +22,7 @@
 {
     _isFirst = isFirst;
     if (_isFirst) {
-        self.bgImageView.image = [UIImage imageNamed:@"tianjia_lv"];
+        self.bgImageView.image = [UIImage imageNamed:@"tianjia"];
         
         self.bgImageView.contentMode = UIViewContentModeCenter;
 

@@ -52,14 +52,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
-    
-        [self appconfig];
 
-    }
+//    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
+//
+//        [self appconfig];
+//
+//    }
     [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
     [LXUserDefaults synchronize];
-    //2222
     
     [AppsFlyerTracker sharedTracker].appsFlyerDevKey = @"KqnwDx2iekh99XSrK76fr6";
     [AppsFlyerTracker sharedTracker].appleAppID = @"1275434834";
@@ -135,18 +135,6 @@
         [self isLogin];
 //    }
 
-    
-   
-    
-//    if ([WXApi isWXAppInstalled]&&[WXApi isWXAppSupportApi]){
-//        
-//        [LXUserDefaults setBool:YES forKey:ISMEiGUO];
-//        
-//    }else{
-//        
-//        [LXUserDefaults setBool:YES forKey:ISMEiGUO];
-//    }
-//    [LXUserDefaults synchronize];
     [self updataFinalCallTime];
     
     [self messageRobotRequest];
@@ -1136,13 +1124,26 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
     };
     
 
-    
+   
     //本地收到呼叫邀请
     _inst.onInviteReceived = ^(NSString *channelID, NSString *account, uint32_t uid, NSString *extra) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             //更新UI操作
+            
+             NSDictionary *dic = [InputCheck dictionaryWithJsonString:extra];
+            NSString *type = dic[@"type"];
+            
+            
             VideoCallView *video = [[VideoCallView alloc] initVideoCallViewWithChancel:channelID withUid:account withIsSend:NO];
+            if ([type integerValue] == 0 ) {
+                video.callType = CallTypeVideo;
+            }else{
+                
+                video.callType = CallTypeVoice;
+
+                
+            }
             [video show];
             
             //.....

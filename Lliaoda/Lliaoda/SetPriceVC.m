@@ -59,17 +59,7 @@
     
     
 }
-// 重写父类的方法
-//- (void)rightAction {
-//    if (self.cmodel == nil) {
-//
-//        [self.navigationController popViewControllerAnimated:YES];
-//    }else{
-//
-//        [self _loadData];
-//
-//    }
-//}
+
 
 #pragma mark ----------確定-------------
 - (void)cancelAction:(UIButton *)sender
@@ -234,7 +224,16 @@
     self.bottomLabel1.layer.cornerRadius = 7.5;
     self.bottomLabel2.layer.cornerRadius = 7.5;
     
-    self.lefLabel.text = LXSring(@"视频通话收费");
+    if(self.type == 0){
+        
+        self.lefLabel.text = @"語音聊天收費";
+
+    }else{
+        self.lefLabel.text = LXSring(@"视频通话收费");
+
+        
+    }
+    
     self.bottomDetaillabel1.text = LXSring(@"設定收費後，別人與你通話會消耗鑽石，你會獲得相對應的聊幣，聊幣可以提現");
     self.bottomDetaillabel2.text = LXSring(@"別人視訊呼叫你，從第一分鐘起，你按照收費標準獲得聊幣");
     

@@ -23,10 +23,6 @@
 
 @implementation OtherVideoPlayVC
 
-- (BOOL)prefersStatusBarHidden{
-    
-    return YES;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -129,12 +125,6 @@
 
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-}
-
 - (void)commit
 {
     
@@ -206,9 +196,20 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.videoPlayer stop];
-    self.videoPlayer = nil;
+    [self.videoPlayer pause];
+    [SVProgressHUD dismiss];
+
+//    self.videoPlayer = nil;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.videoPlayer play];
+
+    
+}
+
 
 
 - (void)captureImageAtTime:(float)time
@@ -267,6 +268,16 @@
     } completion:^(BOOL finished) {
         
     }];
+    
+    [self.giftsView.chonBtn addTarget:self action:@selector(chongAC:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+}
+
+- (void)chongAC:(UIButton *)sender
+{
+    
+    
 }
 
 #pragma mark - 获取用户钻石数量

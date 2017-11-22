@@ -167,6 +167,7 @@ typedef NS_ENUM(NSInteger, CallType) {
 
 @property (nonatomic, strong) AgoraRtcVideoCanvas *local;
 @property (nonatomic, strong) AgoraRtcVideoCanvas *remate;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *giftCentrConstraint;
 
 @property (nonatomic, assign) BOOL isBigLocal;
 
