@@ -361,11 +361,25 @@
         [cell.chatButton addTarget:self action:@selector(chatButtonAC) forControlEvents:UIControlEventTouchUpInside];
         
     } else if (indexPath.row == 1) {
+        Charge *charge;
+        for (Charge *mo in self.pmodel.charges) {
+            if (mo.uid == self.pmodel.chargeAudio) {
+                charge = mo;
+            }
+        }
+        cell.contentLabel.text = charge.name;
         [cell.chatButton setImage:[UIImage imageNamed:@"yuyin_s"] forState:UIControlStateNormal];
         [cell.chatButton setTitle:@"語音聊天" forState:UIControlStateNormal];
         [cell.chatButton addTarget:self action:@selector(yuyinButtonAC) forControlEvents:UIControlEventTouchUpInside];
         
     } else {
+        Charge *charge;
+        for (Charge *mo in self.pmodel.charges) {
+            if (mo.uid == self.pmodel.charge) {
+                charge = mo;
+            }
+        }
+        cell.contentLabel.text = charge.name;
         cell.bottomLineView.hidden = YES;
         [cell.chatButton setImage:[UIImage imageNamed:@"yuyinliaotian"] forState:UIControlStateNormal];
         [cell.chatButton setTitle:@"視訊聊天" forState:UIControlStateNormal];
