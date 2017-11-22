@@ -241,23 +241,26 @@
                         break;
                     case 3:
                         [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+                        [cell.imageView5 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
                         break;
-
+                    case 4:
+                        [cell.imageView5 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+                        break;
                     default:
                         break;
                 }
             }
             cell.addLabel.hidden = YES;
-            if (self.pmodel.photos.count < 6) {
-                
-                [cell.addButton setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
-                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-
-            }else{
+//            if (self.pmodel.photos.count < 6) {
+//
+//                [cell.addButton setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+//                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+//
+//            }else{
             [cell.addButton setImage:[UIImage imageNamed:@"dengdeng_huang"] forState:UIControlStateNormal];
             [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
             [cell.addButton addTarget:self action:@selector(toAlbum) forControlEvents:UIControlEventTouchUpInside];
-            }
+//            }
             return cell;
             
         } else if (_type == 1) {
@@ -289,21 +292,23 @@
                         [cell.playButton4 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
                         [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
                         break;
-                        
+                    case 4:
+                        [cell.imageView5 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
+                        break;
                     default:
                         break;
                 }
             }
-            if (self.pmodel.videos.count < 6) {
-                
-                [cell.addButton setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
-                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-            }else{
+//            if (self.pmodel.videos.count < 6) {
+//
+//                [cell.addButton setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+//                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+//            }else{
             cell.addLabel.hidden = YES;
             [cell.addButton setImage:[UIImage imageNamed:@"dengdeng_huang"] forState:UIControlStateNormal];
             [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
             [cell.addButton addTarget:self action:@selector(toVideo) forControlEvents:UIControlEventTouchUpInside];
-            }
+//            }
             return cell;
         }
         
@@ -367,7 +372,11 @@
                 charge = mo;
             }
         }
-        cell.contentLabel.text = charge.name;
+        if (charge.name.length == 0) {
+            cell.contentLabel.text = @"5鉆每分鐘";
+        } else {
+            cell.contentLabel.text = charge.name;
+        }
         [cell.chatButton setImage:[UIImage imageNamed:@"yuyin_s"] forState:UIControlStateNormal];
         [cell.chatButton setTitle:@"語音聊天" forState:UIControlStateNormal];
         [cell.chatButton addTarget:self action:@selector(yuyinButtonAC) forControlEvents:UIControlEventTouchUpInside];
@@ -379,7 +388,12 @@
                 charge = mo;
             }
         }
-        cell.contentLabel.text = charge.name;
+        if (charge.name.length == 0) {
+            cell.contentLabel.text = @"5鉆每分鐘";
+        } else {
+            cell.contentLabel.text = charge.name;
+        }
+        
         cell.bottomLineView.hidden = YES;
         [cell.chatButton setImage:[UIImage imageNamed:@"yuyinliaotian"] forState:UIControlStateNormal];
         [cell.chatButton setTitle:@"視訊聊天" forState:UIControlStateNormal];

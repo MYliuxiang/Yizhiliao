@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,28 +41,40 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJg-L4-nw3">
                         <rect key="frame" x="285.5" y="80" width="105.5" height="74.5"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xIu-38-src">
+                                <rect key="frame" x="0.0" y="0.0" width="105.5" height="74.5"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashipin" translatesAutoresizingMaskIntoConstraints="NO" id="sie-Jb-pa4">
+                                <rect key="frame" x="23" y="7.5" width="60" height="60"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上傳視頻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOZ-wA-XOw">
                                 <rect key="frame" x="-0.5" y="41" width="105.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-wy-QW2">
+                            <button opaque="NO" alpha="0.90000000000000002" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-wy-QW2">
                                 <rect key="frame" x="0.0" y="0.0" width="105.5" height="74.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.88235294119999996" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="15"/>
                                 <state key="normal" image="tianjia"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85882352939999995" green="0.88235294119999996" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xIu-38-src" secondAttribute="trailing" id="2N5-Rk-uMw"/>
                             <constraint firstAttribute="trailing" secondItem="uXe-wy-QW2" secondAttribute="trailing" id="8TA-R6-bZ5"/>
+                            <constraint firstAttribute="bottom" secondItem="xIu-38-src" secondAttribute="bottom" id="Coc-mm-Akm"/>
                             <constraint firstAttribute="bottom" secondItem="oOZ-wA-XOw" secondAttribute="bottom" constant="21" id="M73-om-6fw"/>
                             <constraint firstItem="uXe-wy-QW2" firstAttribute="top" secondItem="rJg-L4-nw3" secondAttribute="top" id="MfL-Y8-8px"/>
+                            <constraint firstItem="xIu-38-src" firstAttribute="top" secondItem="rJg-L4-nw3" secondAttribute="top" id="XqO-Ne-Nq1"/>
                             <constraint firstItem="oOZ-wA-XOw" firstAttribute="leading" secondItem="rJg-L4-nw3" secondAttribute="leading" id="ZBy-zu-Leo"/>
                             <constraint firstAttribute="bottom" secondItem="uXe-wy-QW2" secondAttribute="bottom" id="d0S-F2-g8e"/>
+                            <constraint firstItem="sie-Jb-pa4" firstAttribute="centerY" secondItem="rJg-L4-nw3" secondAttribute="centerY" id="ess-Br-vYz"/>
                             <constraint firstItem="uXe-wy-QW2" firstAttribute="leading" secondItem="rJg-L4-nw3" secondAttribute="leading" id="ggm-6o-j7q"/>
+                            <constraint firstItem="xIu-38-src" firstAttribute="leading" secondItem="rJg-L4-nw3" secondAttribute="leading" id="o91-yO-hsu"/>
                             <constraint firstAttribute="trailing" secondItem="oOZ-wA-XOw" secondAttribute="trailing" id="ogj-Cj-XT5"/>
+                            <constraint firstItem="sie-Jb-pa4" firstAttribute="centerX" secondItem="rJg-L4-nw3" secondAttribute="centerX" id="si5-Fy-V16"/>
                         </constraints>
                     </view>
                     <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMe-Uj-1dU">
@@ -140,6 +152,7 @@
                 <outlet property="imageView2" destination="yhQ-hR-nuQ" id="BKR-kV-69D"/>
                 <outlet property="imageView3" destination="78K-QP-wvs" id="9cP-pD-qhq"/>
                 <outlet property="imageView4" destination="cx1-Rg-4Zc" id="GbH-CZ-SVU"/>
+                <outlet property="imageView5" destination="xIu-38-src" id="3hb-8y-hwR"/>
                 <outlet property="playButton1" destination="hMe-Uj-1dU" id="7o1-N1-334"/>
                 <outlet property="playButton2" destination="w8y-U6-Cg6" id="Wf5-dL-axC"/>
                 <outlet property="playButton3" destination="tOJ-Nq-c9T" id="il8-6Q-8bs"/>

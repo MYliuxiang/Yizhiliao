@@ -59,7 +59,7 @@
         }
         
         self.redBtn.hidden = YES;
-        self.giftBtn.hidden = YES;
+//        self.giftBtn.hidden = YES;
         
         self.jinbiView.layer.cornerRadius = 15;
         self.headerBGView.layer.cornerRadius = 20;
@@ -120,7 +120,7 @@
         }
         
         self.redBtn.hidden = YES;
-        self.giftBtn.hidden = YES;
+//        self.giftBtn.hidden = YES;
         
         self.jinbiView.layer.cornerRadius = 15;
         self.headerBGView.layer.cornerRadius = 20;
@@ -1655,14 +1655,15 @@
         if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
             // 是主播
             self.redBtn.hidden = NO;
-            self.redlayoutConstranint.constant = 0;
-            self.giftBtn.hidden = YES;
+            self.redlayoutConstranint.constant = -40;
+            self.giftCentrConstraint.constant = 40;
+//            self.giftBtn.hidden = YES;
         } else {
             // 是用户
 //            self.redlayoutConstranint.constant = -40;
             self.giftCentrConstraint.constant = 0;
             self.redBtn.hidden = YES;
-            self.giftBtn.hidden = NO;
+//            self.giftBtn.hidden = NO;
         }
 
         self.timeLabelBGView1.hidden = NO;
