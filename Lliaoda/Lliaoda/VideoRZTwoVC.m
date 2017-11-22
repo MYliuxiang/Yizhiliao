@@ -67,24 +67,24 @@
     if (textField == self.textField) {
         
         NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-        if ([lang hasPrefix:@"zh-Hant"]) {
-            
-            if (textField.text.length > 10) {
+//        if ([lang hasPrefix:@"zh-Hant"]) {
+        
+            if (textField.text.length > 11) {
                 textField.text = [textField.text substringToIndex:10];
             }
             
-        }else if ([lang hasPrefix:@"id"]){
-            
-            if (textField.text.length > 12) {
-                textField.text = [textField.text substringToIndex:10];
-            }
-            
-        }else{
-            
+//        }else if ([lang hasPrefix:@"id"]){
+//
+//            if (textField.text.length > 12) {
+//                textField.text = [textField.text substringToIndex:10];
+//            }
+//
+//        }else{
+        
 //            if (textField.text.length > 10) {
 //                textField.text = [textField.text substringToIndex:10];
 //            }
-        }
+//        }
 
       
     }

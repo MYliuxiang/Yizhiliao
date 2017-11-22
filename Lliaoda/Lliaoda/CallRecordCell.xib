@@ -19,14 +19,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ym1-pG-Knd">
-                        <rect key="frame" x="30" y="15" width="50" height="50"/>
+                        <rect key="frame" x="15" y="15" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="7i4-3d-NKp"/>
                             <constraint firstAttribute="height" constant="50" id="Nq9-MO-QOB"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKu-Eo-yyI">
-                        <rect key="frame" x="90" y="31.5" width="35.5" height="17"/>
+                        <rect key="frame" x="75" y="31.5" width="35.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                     <constraint firstItem="aKu-Eo-yyI" firstAttribute="leading" secondItem="ym1-pG-Knd" secondAttribute="trailing" constant="10" id="Iuj-l8-iBQ"/>
                     <constraint firstItem="aKu-Eo-yyI" firstAttribute="centerY" secondItem="ym1-pG-Knd" secondAttribute="centerY" id="T7E-F5-VgI"/>
                     <constraint firstItem="oF4-ih-b4h" firstAttribute="centerY" secondItem="aKu-Eo-yyI" secondAttribute="centerY" id="uj4-7g-3eb"/>
-                    <constraint firstItem="ym1-pG-Knd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="yJN-7R-kuB"/>
+                    <constraint firstItem="ym1-pG-Knd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="yJN-7R-kuB"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>

@@ -16,12 +16,19 @@
 
 @implementation LxPersonVCs
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+        return UIStatusBarStyleLightContent;
+//    return UIStatusBarStyleDefault;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
     
-    self.headerView.height = kScreenWidth / 750 * 450 + AlbumVideoBGViewHeight + 60 + GiftChargeBGViewHeight;
+//    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+
+    
+      self.headerView.height = 376;
     self.nav.backgroundColor = [UIColor clearColor];
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -218,6 +225,7 @@
             cell.imageView2.image = [UIImage imageNamed:@"moren"];
             cell.imageView3.image = [UIImage imageNamed:@"moren"];
             cell.imageView4.image = [UIImage imageNamed:@"moren"];
+            
             cell.delegate = self;
             for (int i = 0; i < self.pmodel.photos.count; i++) {
                 Photo *photo = self.pmodel.photos[i];
@@ -240,9 +248,16 @@
                 }
             }
             cell.addLabel.hidden = YES;
+            if (self.pmodel.photos.count < 6) {
+                
+                [cell.addButton setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+
+            }else{
             [cell.addButton setImage:[UIImage imageNamed:@"dengdeng_huang"] forState:UIControlStateNormal];
             [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
             [cell.addButton addTarget:self action:@selector(toAlbum) forControlEvents:UIControlEventTouchUpInside];
+            }
             return cell;
             
         } else if (_type == 1) {
@@ -279,10 +294,16 @@
                         break;
                 }
             }
+            if (self.pmodel.videos.count < 6) {
+                
+                [cell.addButton setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+            }else{
             cell.addLabel.hidden = YES;
             [cell.addButton setImage:[UIImage imageNamed:@"dengdeng_huang"] forState:UIControlStateNormal];
             [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
             [cell.addButton addTarget:self action:@selector(toVideo) forControlEvents:UIControlEventTouchUpInside];
+            }
             return cell;
         }
         
@@ -598,10 +619,19 @@
 - (void)videoPlayAC:(UIButton *)button {
     NSInteger tag = button.tag - 100;
     if (tag < self.pmodel.videos.count) {
+        
         Video *video = self.pmodel.videos[tag];
-        VideoPlayVC *vc = [[VideoPlayVC alloc] init];
+        OtherVideoPlayVC *vc = [[OtherVideoPlayVC alloc] init];
+        PersonModel *pmodel = [[PersonModel alloc] init];
+        pmodel.nickname = self.pmodel.nickname;
+        pmodel.uid = self.pmodel.uid;
+        pmodel.portrait = self.pmodel.portrait;
+        vc.model = pmodel;
+        //播放視訊
         vc.videoUrl = [NSURL URLWithString:video.url];
-        [self presentViewController:vc animated:YES completion:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        
     }
     
 }

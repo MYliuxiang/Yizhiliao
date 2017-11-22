@@ -30,7 +30,9 @@
 //    @"endedAt":@(call.endedAt),@"duration":@(call.duration)
 //    self.time
     self.alltime.text = [self timeFormatted:(int)_call.duration /100];
-    self.time.text = [InputCheck timeWithTimeIntervalString:[NSString stringWithFormat:@"%lld",_call.endedAt - _call.duration] withDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    self.alltime.text = [InputCheck timeWithTimeIntervalString:[NSString stringWithFormat:@"%lld",_call.endedAt] withDateFormat:@"yyyy-MM-dd HH:mm"];
+    
+    self.time.text = [InputCheck timeWithTimeIntervalString:[NSString stringWithFormat:@"%lld",_call.endedAt - _call.duration] withDateFormat:@"yyyy-MM-dd HH:mm"];
     
     LxCache *lxcache = [LxCache sharedLxCache];
     id cacheData;

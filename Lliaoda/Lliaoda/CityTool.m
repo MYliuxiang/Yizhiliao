@@ -144,6 +144,9 @@ static CityTool *_instance;
         }
         
     }
+    if (adress.length == 0) {
+        adress = @"地球";
+    }
    
     return adress;
     

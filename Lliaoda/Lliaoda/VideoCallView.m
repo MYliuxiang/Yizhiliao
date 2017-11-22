@@ -28,12 +28,6 @@
         [self.gotoMoneyBtn setTitle:LXSring(@"去充值") forState:UIControlStateNormal];
         self.likeLab.text = LXSring(@"互相喜欢后可私信聊天");
         
-//        self.gitfButtonCenter.constant = 40;
-        //            self.redBtn.hidden = YES;
-        //            self.gitfButtonCenter.constant = 40;
-        //            self.redBtn.hidden = NO;
-        //        }
-        
         _instMedia = [AgoraRtcEngineKit sharedEngineWithAppId:agoreappID delegate:self];
         _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
         _giftCharge = 0;
@@ -95,14 +89,6 @@
         [self.gotoMoneyBtn setTitle:LXSring(@"去充值") forState:UIControlStateNormal];
         self.likeLab.text = LXSring(@"互相喜欢后可私信聊天");
 
-//        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-//        if ([lang hasPrefix:@"ar"]) {
-//            self.redBtn.hidden = YES;
-//        } else {
-//            self.gitfButtonCenter.constant = 40;
-//            self.redBtn.hidden = NO;
-//        }
-        
          _instMedia = [AgoraRtcEngineKit sharedEngineWithAppId:agoreappID delegate:self];
         _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
         _giftCharge = 0;
@@ -842,14 +828,30 @@
         }
         
         self.headeLab.text = [NSString stringWithFormat:LXSring(@"正在呼叫%@..."),self.model.nickname];
-        [_inst channelInviteUser:self.channel account:self.uid uid:0];
+//        [_inst channelInviteUser:self.channel account:self.uid uid:0];
+        if (_callType == CallTypeVideo) {
+            [_inst channelInviteUser2:self.channel account:self.uid extra:@"{\"type\":0}"];
+
+        }else{
+            [_inst channelInviteUser2:self.channel account:self.uid extra:@"{\"type\":1}"];
+
+        }
+        
         _longTime = 0;
         _longTimer =  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(longtime:) userInfo:nil repeats:YES];
         
     }else{
         
         //被动呼叫
-        self.headeLab.text = [NSString stringWithFormat:LXSring(@"%@邀请你加入視訊通話"),self.model.nickname];
+        if(self.callType == 0){
+            
+            self.headeLab.text = [NSString stringWithFormat:@"%@邀请你加入視頻通話",self.model.nickname];
+        }else{
+            self.headeLab.text = [NSString stringWithFormat:@"%@邀请你加入語音通話",self.model.nickname];
+            
+        }
+        
+    
         self.agreeBtn.hidden = NO;
         self.refuseBtn.hidden = NO;
         
@@ -1657,12 +1659,12 @@
             self.giftBtn.hidden = YES;
         } else {
             // 是用户
-            self.redlayoutConstranint.constant = -40;
-            self.redBtn.hidden = NO;
+//            self.redlayoutConstranint.constant = -40;
+            self.giftCentrConstraint.constant = 0;
+            self.redBtn.hidden = YES;
             self.giftBtn.hidden = NO;
-
         }
-        
+
         self.timeLabelBGView1.hidden = NO;
         self.timeLabelBGView.hidden = NO;
         self.timeLab.hidden = NO;

@@ -14,6 +14,9 @@
 
 @implementation NewMyVC
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -83,10 +86,6 @@
     }
   
     [self _loadData1];
-    
-    
-    
-    
 
 }
 
@@ -105,7 +104,7 @@
                 }
 //                self.reloadData(self.dataList);
 //                [self.collectionView reloadData];
-                
+                [self.tableView reloadData];
                 
             } else{
                 [SVProgressHUD showErrorWithStatus:result[@"message"]];
@@ -138,7 +137,8 @@
                     [self.videoArrays addObject:model];
                 }
                 
-                
+                [self.tableView reloadData];
+
                 
             } else{
                 [SVProgressHUD showErrorWithStatus:result[@"message"]];
@@ -203,24 +203,18 @@
 }
 
 - (void)headImageAC {
-    SetHeaderImageVC *vc = [[SetHeaderImageVC alloc] init];
-    vc.portrait = self.model.portrait;
+//    SetHeaderImageVC *vc = [[SetHeaderImageVC alloc] init];
+//    vc.portrait = self.model.portrait;
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    FixpersonalVC *vc = [[FixpersonalVC alloc] init];
+    vc.model = self.model;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)setArrayForTable
 {
-//    NSArray *array;
-//    NSArray *array1;
-//    if (self.model.activated == 0) {
-//        array = @[@"邀請有獎",@"接受邀请"];
-//        array1 = @[@"yaoqing",@"yaoqingmaduihuan"];
-//    }else{
-//        array = @[@"邀請有獎"];
-//        array1 = @[@"yaoqing"];
-//
-//    }
-//    
+
     [self.nameArray removeAllObjects];
     [self.messagePhotos removeAllObjects];
     
@@ -234,7 +228,7 @@
         [self.nameArray addObject:@[@"鑽石"]];
         [self.messagePhotos addObject:@[@"zuanshi"]];
         
-        [self.nameArray addObject:@[@"關於有的聊", @"建議與反饋"]];
+        [self.nameArray addObject:@[@"關於有聊", @"建議與反饋"]];
         [self.messagePhotos addObject:@[@"guanyu", @"fankui"]];
         
         
@@ -368,9 +362,9 @@
 //                }
                 
                 [self setArrayForTable];
-                
                 [self setHeaderVIew];
-                
+                [self.tableView reloadData];
+
                 
                 
             } else{
@@ -444,10 +438,7 @@
             [cell.playButton2 setImage:[UIImage imageNamed:@"jiahao"] forState:UIControlStateNormal];
             [cell.playButton3 setImage:[UIImage imageNamed:@"jiahao"] forState:UIControlStateNormal];
             [cell.playButton4 setImage:[UIImage imageNamed:@"jiahao"] forState:UIControlStateNormal];
-//            cell.playButton1.image = [UIImage imageNamed:@"jiahao"];
-//            cell.playButton2.image = [UIImage imageNamed:@"jiahao"];
-//            cell.playButton3.image = [UIImage imageNamed:@"jiahao"];
-//            cell.playButton4.image = [UIImage imageNamed:@"jiahao"];
+
             for (int i = 0; i < self.videoArrays.count; i++) {
                 MyVideoModel *model = self.videoArrays[i];
                 switch (i) {
@@ -1203,7 +1194,6 @@
 }
 
 #pragma mark pickerViewDelegate
-
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     
     return 1;
