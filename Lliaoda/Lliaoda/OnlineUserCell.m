@@ -51,7 +51,7 @@
     [self.headerImageView addGestureRecognizer:tap];
     
     [self.chatButton setTitle:@"私訊" forState:UIControlStateNormal];
-    [self.videoButton setTitle:LXSring(@"小視頻") forState:UIControlStateNormal];
+    [self.videoButton setTitle:@"視訊" forState:UIControlStateNormal];
 }
 
 - (void)headerImageAC {

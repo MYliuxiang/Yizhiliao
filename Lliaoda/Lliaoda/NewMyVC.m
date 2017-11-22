@@ -234,7 +234,7 @@
         [self.nameArray addObject:@[@"鑽石"]];
         [self.messagePhotos addObject:@[@"zuanshi"]];
         
-        [self.nameArray addObject:@[@"關於有的聊", @"建議與反饋"]];
+        [self.nameArray addObject:@[@"關於我們", @"建議與反饋"]];
         [self.messagePhotos addObject:@[@"guanyu", @"fankui"]];
         
         
@@ -269,7 +269,7 @@
             [self.messagePhotos addObject:@[@"zuanshi"]];
         }
         
-        [self.nameArray addObject:@[@"關於有的聊", @"建議與反饋"]];
+        [self.nameArray addObject:@[@"關於我們", @"建議與反饋"]];
         [self.messagePhotos addObject:@[@"guanyu", @"fankui"]];
         
         [self.nameArray addObject:@[@"設置"]];
