@@ -1446,14 +1446,14 @@
     self.unDisturbButton.selected = !self.unDisturbButton.selected;
     if (self.unDisturbButton.selected) {
         // 设置免打扰
-        [self unDisturb:1];
+        [self unDisturb:YES];
     } else {
         // 解除免打扰
-        [self unDisturb:2];
+        [self unDisturb:NO];
     }
 }
 
-- (void)unDisturb:(int)isDnD {
+- (void)unDisturb:(BOOL)isDnD {
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:@(isDnD), @"isDND", nil];
     [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
         if(result){
