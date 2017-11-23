@@ -21,7 +21,7 @@
     [self addrightImage:@"dengdeng"];
     [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
 
-    self.dataList = [NSMutableArray array];
+//    self.dataList = [NSMutableArray array];
     _layout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
     _layout.minimumLineSpacing= 10;
     _layout.minimumInteritemSpacing= 10;
@@ -35,7 +35,7 @@
     [_collectionView registerNib:[UINib nibWithNibName:@"MyalbumCell" bundle:nil] forCellWithReuseIdentifier:@"MyalbumCellID"];
     _collectionView.backgroundColor = Color_bg;
     
-    [self _loadData];
+//    [self _loadData];
     
 }
 

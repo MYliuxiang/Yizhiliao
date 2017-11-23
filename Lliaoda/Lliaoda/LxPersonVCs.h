@@ -55,6 +55,7 @@
 @property (nonatomic, strong) NSMutableArray *messages;
 
 @property (nonatomic, retain) NSMutableArray *photos;
+@property (nonatomic, retain) NSMutableArray *videos;
 
 @property (weak, nonatomic) IBOutlet UIView *giftBGView;
 - (IBAction)giftBtnAC:(id)sender;  // 礼物

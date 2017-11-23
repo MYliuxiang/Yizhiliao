@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playButton2;
 @property (weak, nonatomic) IBOutlet UIButton *playButton3;
 @property (weak, nonatomic) IBOutlet UIButton *playButton4;
+@property (weak, nonatomic) IBOutlet UIImageView *lastImage;
 
 @property (weak, nonatomic) IBOutlet UIView *addBGView;
 @property (weak, nonatomic) IBOutlet UILabel *addLabel;

@@ -21,7 +21,7 @@
     [self addrightImage:@"dengdeng"];
     [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
     
-    self.dataList = [NSMutableArray array];
+//    self.dataList = [NSMutableArray array];
     
     _layout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
     _layout.minimumLineSpacing= 10;
@@ -35,7 +35,7 @@
     self.collectionView.contentInset = UIEdgeInsetsMake(10,10, 10, 10);
     [_collectionView registerNib:[UINib nibWithNibName:@"MyVideoCell" bundle:nil] forCellWithReuseIdentifier:@"MyVideoCellID"];
     _collectionView.backgroundColor = Color_bg;
-    [self _loadData];
+//    [self _loadData];
 }
 
 - (void)_loadData

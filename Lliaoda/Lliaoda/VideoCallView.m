@@ -59,7 +59,7 @@
         }
         
         self.redBtn.hidden = YES;
-//        self.giftBtn.hidden = YES;
+        self.giftBtn.hidden = YES;
         
         self.jinbiView.layer.cornerRadius = 15;
         self.headerBGView.layer.cornerRadius = 20;
@@ -120,7 +120,7 @@
         }
         
         self.redBtn.hidden = YES;
-//        self.giftBtn.hidden = YES;
+        self.giftBtn.hidden = YES;
         
         self.jinbiView.layer.cornerRadius = 15;
         self.headerBGView.layer.cornerRadius = 20;
@@ -1657,13 +1657,13 @@
             self.redBtn.hidden = NO;
             self.redlayoutConstranint.constant = -40;
             self.giftCentrConstraint.constant = 40;
-//            self.giftBtn.hidden = YES;
+            self.giftBtn.hidden = NO;
         } else {
             // 是用户
 //            self.redlayoutConstranint.constant = -40;
             self.giftCentrConstraint.constant = 0;
             self.redBtn.hidden = YES;
-//            self.giftBtn.hidden = NO;
+            self.giftBtn.hidden = NO;
         }
 
         self.timeLabelBGView1.hidden = NO;
