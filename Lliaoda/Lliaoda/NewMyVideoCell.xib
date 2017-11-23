@@ -47,18 +47,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashipin" translatesAutoresizingMaskIntoConstraints="NO" id="sie-Jb-pa4">
                                 <rect key="frame" x="23" y="7.5" width="60" height="60"/>
                             </imageView>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-wy-QW2">
+                                <rect key="frame" x="0.0" y="0.0" width="105.5" height="74.5"/>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.88235294119999996" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="15"/>
+                                <state key="normal" image="tianjia"/>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上傳視頻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOZ-wA-XOw">
                                 <rect key="frame" x="-0.5" y="41" width="105.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.90000000000000002" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-wy-QW2">
-                                <rect key="frame" x="0.0" y="0.0" width="105.5" height="74.5"/>
-                                <color key="backgroundColor" red="0.85882352939999995" green="0.88235294119999996" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="15"/>
-                                <state key="normal" image="tianjia"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85882352939999995" green="0.88235294119999996" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -153,6 +153,7 @@
                 <outlet property="imageView3" destination="78K-QP-wvs" id="9cP-pD-qhq"/>
                 <outlet property="imageView4" destination="cx1-Rg-4Zc" id="GbH-CZ-SVU"/>
                 <outlet property="imageView5" destination="xIu-38-src" id="3hb-8y-hwR"/>
+                <outlet property="lastImage" destination="sie-Jb-pa4" id="S96-nX-JrY"/>
                 <outlet property="playButton1" destination="hMe-Uj-1dU" id="7o1-N1-334"/>
                 <outlet property="playButton2" destination="w8y-U6-Cg6" id="Wf5-dL-axC"/>
                 <outlet property="playButton3" destination="tOJ-Nq-c9T" id="il8-6Q-8bs"/>
