@@ -20,7 +20,12 @@
     self.navbarHiden = NO;
     [self _initViews];
     self.isBack = YES;
+    [_webView stringByEvaluatingJavaScriptFromString:@"linkTo"];
+    
+    
 }
+
+
 
 - (void)back
 {
@@ -43,7 +48,20 @@
     NSURLRequest *resquest = [NSURLRequest requestWithURL:url];
     [_webView loadRequest:resquest];
     
+    JSContext *context = [_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    context[@"app.linkTo"] = ^() {
+        NSArray *thisArr = [JSContext currentArguments];
+        for (JSValue *jsValue in thisArr) {
+            NSLog(@"=======%@",jsValue);
+        }
+    };
     
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *url = [request URL];
+    NSLog(@"%@", url);
+    return YES;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
@@ -63,6 +81,13 @@
     //关闭状态上的加载提示
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
+    
+//    NSString *alertJS = @"app.linkTo('/app/pay')"; //准备执行的js代码
+//    [context evaluateScript:alertJS];//通过oc方法调用js的alert
+}
+
+- (void)linkTo:(NSString *)string {
+    NSLog(@"%@", string);
 }
 
 @end

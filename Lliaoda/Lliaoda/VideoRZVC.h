@@ -34,6 +34,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *unApproveLeftLabel;
 @property (weak, nonatomic) IBOutlet UIView *unApproveView1;
 @property (weak, nonatomic) IBOutlet UIView *unApproveView2;
+@property (weak, nonatomic) IBOutlet UIButton *skipButton;
+- (IBAction)skipButtonAC:(id)sender;
+@property (nonatomic, assign) BOOL isFirst;
 
 // 准备提交视频
 //@property (weak, nonatomic) IBOutlet UIView *approvingBGView;

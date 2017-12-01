@@ -37,14 +37,46 @@
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
     SelectedBannersModel *model = self.list[index];
-    NSString *url = model.link;
+//    NSString *url = model.link;
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-    
-    WebVC *vc = [[WebVC alloc] init];
-    vc.urlStr = model.link;
-    [[self viewController].navigationController pushViewController:vc animated:YES];
-    
-    
+    if (model.target == 0) {
+        WebVC *vc = [[WebVC alloc] init];
+        vc.urlStr = model.link;
+        [[self viewController].navigationController pushViewController:vc animated:YES];
+        
+    } else {
+        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+        if ([lang hasPrefix:@"id"]){
+            if ([model.link isEqualToString:@"/app/pay"]) {
+                // 支付
+                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                [[self viewController].navigationController pushViewController:vc animated:YES];
+            } else {
+                //邀请有奖
+                InvitationVC *vc = [[InvitationVC alloc] init];
+                vc.model = self.model;
+                [[self viewController].navigationController pushViewController:vc animated:YES];
+                
+            }
+            
+        }else if ([lang hasPrefix:@"ar"]){
+            if ([model.link isEqualToString:@"/app/pay"]) {
+                // 支付
+                AccountVC *vc = [[AccountVC alloc] init];
+                [[self viewController].navigationController pushViewController:vc animated:YES];
+            } else {
+                //邀请有奖
+                InvitationVC *vc = [[InvitationVC alloc] init];
+                vc.model = self.model;
+                [[self viewController].navigationController pushViewController:vc animated:YES];
+                
+            }
+        }
+        
+//        WebVC *vc = [[WebVC alloc] init];
+//        vc.urlStr = model.link;
+//        [[self viewController].navigationController pushViewController:vc animated:YES];
+    }
 }
 
 

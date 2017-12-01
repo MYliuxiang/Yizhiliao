@@ -13,5 +13,5 @@
 @property (nonatomic, copy) NSString *title; // 标题
 @property (nonatomic, copy) NSString *cover; // 封面图片
 @property (nonatomic, copy) NSString *link; // 链接地址
-
+@property (nonatomic, assign) int target;  // 0网页跳转  1APP内跳转
 @end

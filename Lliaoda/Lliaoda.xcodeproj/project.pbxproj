@@ -619,6 +619,8 @@
 		84F970CC1F38541B00336234 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84F970CE1F38541B00336234 /* Localizable.strings */; };
 		84F970D51F38946100336234 /* LanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F970D31F38946100336234 /* LanguageVC.m */; };
 		84F970D61F38946100336234 /* LanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F970D41F38946100336234 /* LanguageVC.xib */; };
+		A86043B81FD1412800B269FD /* SelectSexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A86043B61FD1412800B269FD /* SelectSexVC.m */; };
+		A86043B91FD1412800B269FD /* SelectSexVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86043B71FD1412800B269FD /* SelectSexVC.xib */; };
 		CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */; };
 /* End PBXBuildFile section */
 
@@ -1578,6 +1580,9 @@
 		84F970D21F38946100336234 /* LanguageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageVC.h; sourceTree = "<group>"; };
 		84F970D31F38946100336234 /* LanguageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageVC.m; sourceTree = "<group>"; };
 		84F970D41F38946100336234 /* LanguageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageVC.xib; sourceTree = "<group>"; };
+		A86043B51FD1412800B269FD /* SelectSexVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectSexVC.h; sourceTree = "<group>"; };
+		A86043B61FD1412800B269FD /* SelectSexVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectSexVC.m; sourceTree = "<group>"; };
+		A86043B71FD1412800B269FD /* SelectSexVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectSexVC.xib; sourceTree = "<group>"; };
 		B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lliaoda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C168064B372F162D1F5BB065 /* Pods-Lliaoda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lliaoda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda.release.xcconfig"; sourceTree = "<group>"; };
 		E528CC8DA412F4F2C12F8084 /* libPods-LliaodaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LliaodaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2782,6 +2787,9 @@
 				849C6D231F590B6800E2289D /* PayWebViewVC.h */,
 				849C6D241F590B6800E2289D /* PayWebViewVC.m */,
 				849C6D251F590B6800E2289D /* PayWebViewVC.xib */,
+				A86043B51FD1412800B269FD /* SelectSexVC.h */,
+				A86043B61FD1412800B269FD /* SelectSexVC.m */,
+				A86043B71FD1412800B269FD /* SelectSexVC.xib */,
 				222B383D1ED96843009DB58F /* MSSBrowse */,
 				222B37DA1ED9642B009DB58F /* XLPhotoBrowser */,
 			);
@@ -3425,6 +3433,7 @@
 				222AA0221EB071910038416D /* C_83@2x.png in Resources */,
 				222AA0571EB071910038416D /* B_17@2x.gif in Resources */,
 				222AA02D1EB071910038416D /* C_94@2x.png in Resources */,
+				A86043B91FD1412800B269FD /* SelectSexVC.xib in Resources */,
 				222AA0721EB071910038416D /* B_41@2x.gif in Resources */,
 				2291CBDC1F4D6FE7001AB139 /* LxMessageCell.xib in Resources */,
 				222AA0B31EB071910038416D /* emotion.plist in Resources */,
@@ -3941,6 +3950,7 @@
 				2286DC6A1EF26AFE00FDF801 /* LHChatVideoBubbleView.m in Sources */,
 				222AA1681EB071C20038416D /* KeyboardEmojiModel.m in Sources */,
 				8476D5751F5017F300855CDF /* AccountPayTypeVC.m in Sources */,
+				A86043B81FD1412800B269FD /* SelectSexVC.m in Sources */,
 				84B8CDB91F4ADBE100A13D27 /* PersonBottomCell.m in Sources */,
 				222AA1DB1EB0775B0038416D /* UIPasteboard+YYText.m in Sources */,
 				2286DC6C1EF26AFE00FDF801 /* LHChatBarView.m in Sources */,

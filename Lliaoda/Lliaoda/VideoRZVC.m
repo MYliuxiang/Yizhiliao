@@ -77,6 +77,11 @@
     self.tableView.tableFooterView = self.footerView;
     
     [self getLocalVideo];
+    if (self.isFirst) {
+        self.skipButton.hidden = NO;
+    } else {
+        self.skipButton.hidden = YES;
+    }
 }
 
 #pragma mark - 获取范例视频
@@ -257,8 +262,11 @@
     [self.navigationController pushViewController:playVC animated:YES];
 }
 
-
-
+- (IBAction)skipButtonAC:(id)sender {
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    TJPTabBarController *rootVC = [[TJPTabBarController alloc] init];
+    delegate.window.rootViewController = rootVC;
+}
 @end
 
 

@@ -19,6 +19,7 @@
 #import "PersonalVC.h"
 #import  <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <StoreKit/StoreKit.h>
+#import "SelectSexVC.h"
 // 引入JPush功能所需头文件
 #import "JPUSHService.h"
 // iOS10注册APNs所需头文件
@@ -730,10 +731,14 @@
     self.window.rootViewController = rootVC;
 }
 
+- (void)toSelectSex {
+    SelectSexVC *vc = [[SelectSexVC alloc] init];
+    BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nav;
+}
 
 - (void)isLogin
 {
-    
     BaseNavigationController *baseNAV;
     NSString *expire = [LXUserDefaults objectForKey:Expire];
     if (expire == nil) {
@@ -1065,9 +1070,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                 [LXUserDefaults setObject:result[@"data"][@"token"] forKey:AGORETOKEN];
                 [LXUserDefaults setObject:result[@"data"][@"nickname"] forKey:NickName];
                 [LXUserDefaults setObject:result[@"data"][@"portrait"] forKey:Portrait];
+                [LXUserDefaults setBool:result[@"data"][@"newCreated"] forKey:NewCreated];
                 [LXUserDefaults setBool:YES forKey:IsLogin];
                 
                 [LXUserDefaults synchronize];
+                BOOL newCreated = [result[@"data"][@"newCreated"] boolValue];
                 
                 [self messageRobotRequest];
                 
@@ -1090,7 +1097,14 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                                 //是主播
                                 [LXUserDefaults setObject:@"1" forKey:itemNumber];
                                 [LXUserDefaults synchronize];
-                                [self homePageViewControllerShow];
+                                if (newCreated) {
+                                    // 第一次登录
+                                    [self toSelectSex];
+                                    
+                                } else {
+                                    [self homePageViewControllerShow];
+                                }
+                                
                                 
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                                 
@@ -1099,7 +1113,13 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                                 [LXUserDefaults setObject:@"2" forKey:itemNumber];
                                 [LXUserDefaults synchronize];
                                 [self messageRobotRequest];
-                                [self homePageViewControllerShow];
+                                if (newCreated) {
+                                    // 第一次登录
+                                    [self toSelectSex];
+                                    
+                                } else {
+                                    [self homePageViewControllerShow];
+                                }
                                 
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                                 
@@ -1109,7 +1129,13 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                             [LXUserDefaults setObject:@"2" forKey:itemNumber];
                             [LXUserDefaults synchronize];
                             
-                            [self homePageViewControllerShow];
+                            if (newCreated) {
+                                // 第一次登录
+                                [self toSelectSex];
+                                
+                            } else {
+                                [self homePageViewControllerShow];
+                            }
                             
                             self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                             
@@ -1120,7 +1146,13 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                     NSLog(@"%@",error);
                     [LXUserDefaults setObject:@"2" forKey:itemNumber];
                     [LXUserDefaults synchronize];
-                    [self homePageViewControllerShow];
+                    if (newCreated) {
+                        // 第一次登录
+                        [self toSelectSex];
+                        
+                    } else {
+                        [self homePageViewControllerShow];
+                    }
                     
                     self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                 }];
