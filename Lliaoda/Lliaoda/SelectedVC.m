@@ -68,6 +68,10 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated  ];
+}
+
 - (void)back
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"联系客服") message:LXSring(@"感谢您使用TalkToMe\n欢迎添加官方whatsapp 00212611905696 进行反馈") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -591,6 +595,7 @@
         
             BannerView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerID1" forIndexPath:indexPath];
             headerView.list = self.bannersArray;
+            headerView.model = self.model;
             reusableview = headerView;
         }
 

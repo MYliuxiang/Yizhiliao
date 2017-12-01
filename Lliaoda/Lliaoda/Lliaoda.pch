@@ -204,6 +204,7 @@ alpha:1.0]
 #define NickName        @"nickname"
 #define Portrait        @"portrait"
 #define payEnable       @"payEnable"
+#define NewCreated      @"newCreated" // 判断该账号是不是第一次登录
 
 //-----------声网通知----------
 #define Notice_onLogin                         @"onLogin" //正在登陆

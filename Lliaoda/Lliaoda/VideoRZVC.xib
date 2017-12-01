@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoRZVC">
             <connections>
                 <outlet property="footerView" destination="krY-NN-KiY" id="hsM-nY-iTU"/>
+                <outlet property="skipButton" destination="KaD-M6-drs" id="4kj-dG-LHO"/>
                 <outlet property="tableView" destination="AOU-WF-RUY" id="zBl-Tq-boU"/>
                 <outlet property="topLabel" destination="gDH-SO-1HG" id="FIS-KT-T2Q"/>
                 <outlet property="unApproveBGView" destination="Oo1-g6-TSZ" id="pjg-yQ-KqK"/>
@@ -139,6 +140,16 @@
                                                         <action selector="unApproveVideoPlayButtonAC:" destination="-1" eventType="touchUpInside" id="B9R-Ja-9jb"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaD-M6-drs">
+                                                    <rect key="frame" x="299" y="101" width="30" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="跳过">
+                                                        <color key="titleColor" red="0.0" green="0.86666666670000003" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="skipButtonAC:" destination="-1" eventType="touchUpInside" id="rtT-ar-57b"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -147,8 +158,10 @@
                                                 <constraint firstItem="v8f-LI-7sj" firstAttribute="centerY" secondItem="Mhk-r4-N4N" secondAttribute="centerY" id="OWO-dA-yIt"/>
                                                 <constraint firstAttribute="bottom" secondItem="Mhk-r4-N4N" secondAttribute="bottom" constant="15" id="PsT-4e-dHZ"/>
                                                 <constraint firstItem="v8f-LI-7sj" firstAttribute="height" secondItem="Mhk-r4-N4N" secondAttribute="height" id="X2K-tu-taJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="KaD-M6-drs" secondAttribute="trailing" constant="15" id="ebS-ib-Mzy"/>
                                                 <constraint firstItem="v8f-LI-7sj" firstAttribute="width" secondItem="Mhk-r4-N4N" secondAttribute="width" id="gWn-QJ-NSA"/>
                                                 <constraint firstItem="Mhk-r4-N4N" firstAttribute="centerX" secondItem="207-ah-nzZ" secondAttribute="centerX" id="qgf-zh-KvK"/>
+                                                <constraint firstAttribute="bottom" secondItem="KaD-M6-drs" secondAttribute="bottom" constant="15" id="wal-dM-DjV"/>
                                                 <constraint firstItem="PAL-N7-hMv" firstAttribute="top" secondItem="207-ah-nzZ" secondAttribute="top" constant="15" id="xAi-xZ-XTV"/>
                                                 <constraint firstItem="v8f-LI-7sj" firstAttribute="centerX" secondItem="Mhk-r4-N4N" secondAttribute="centerX" id="ySd-vE-X4v"/>
                                                 <constraint firstAttribute="height" constant="145" id="yVX-R6-w1X"/>

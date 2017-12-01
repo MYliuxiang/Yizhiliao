@@ -7,12 +7,11 @@
 //
 
 #import "BaseViewController.h"
-
+#import <JavaScriptCore/JavaScriptCore.h>
 @interface WebVC : BaseViewController<UIWebViewDelegate>
 {
     UIWebView *_webView;
     UIActivityIndicatorView *_actView;  //风火轮视图    
 }
 @property(nonatomic,copy)NSString *urlStr;
-
 @end

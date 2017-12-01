@@ -609,6 +609,7 @@
                         
                     } else {
                         VideoRZVC *vc = [[VideoRZVC alloc] init];
+                        vc.isFirst = NO;
                         [self.navigationController pushViewController:vc animated:YES];
                     }
                     
@@ -667,6 +668,7 @@
                         
                     } else {
                         VideoRZVC *vc = [[VideoRZVC alloc] init];
+                        vc.isFirst = NO;
                         [self.navigationController pushViewController:vc animated:YES];
                     }
                     

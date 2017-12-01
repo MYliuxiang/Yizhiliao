@@ -11,6 +11,7 @@
 
 @interface BannerView : UICollectionReusableView<SDCycleScrollViewDelegate>
 @property(nonatomic, strong)SDCycleScrollView *cycleScrollView;
+@property (nonatomic, strong) Mymodel *model;
 @property (nonatomic,strong)  NSArray *list;
 @property (nonatomic, strong) NSMutableArray *imagesArray;
 @property (nonatomic, strong) NSMutableArray *titlesArray;
