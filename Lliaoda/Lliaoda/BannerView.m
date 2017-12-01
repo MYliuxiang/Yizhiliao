@@ -42,6 +42,7 @@
     if (model.target == 0) {
         WebVC *vc = [[WebVC alloc] init];
         vc.urlStr = model.link;
+        vc.deposit = self.model.deposit;
         [[self viewController].navigationController pushViewController:vc animated:YES];
         
     } else {
