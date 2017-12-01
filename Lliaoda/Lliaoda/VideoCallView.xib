@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -203,8 +203,8 @@
                         <constraint firstAttribute="height" constant="60" id="Aha-1w-8gF"/>
                         <constraint firstAttribute="width" constant="60" id="sJj-O8-ci8"/>
                     </constraints>
-                    <state key="normal" image="zhengyanjing"/>
-                    <state key="selected" image="stop_pingbi"/>
+                    <state key="normal" image="biyanjing"/>
+                    <state key="selected" image="zhengyanjing"/>
                     <connections>
                         <action selector="redAC:" destination="iN0-l3-epB" eventType="touchUpInside" id="zTa-Bi-lCI"/>
                     </connections>
@@ -357,14 +357,14 @@
         </view>
     </objects>
     <resources>
+        <image name="biyanjing" width="50" height="50"/>
         <image name="delete_quan" width="37" height="37"/>
         <image name="icon_audio_receive_normal" width="60" height="60"/>
         <image name="icon_call_reject_normal" width="60" height="60"/>
         <image name="jinbi" width="17" height="18"/>
-        <image name="stop_pingbi" width="70" height="70"/>
         <image name="xihuanbig_h" width="40" height="40"/>
         <image name="zhengyanjing" width="50" height="50"/>
-        <image name="zheyanjing" width="50" height="50"/>
+        <image name="zheyanjing" width="70" height="70"/>
         <image name="zuanshi25" width="15" height="12"/>
     </resources>
 </document>

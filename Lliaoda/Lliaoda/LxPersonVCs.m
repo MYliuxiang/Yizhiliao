@@ -27,7 +27,8 @@
     
 //    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 
-    
+    _photos = [NSMutableArray array];
+    _videos = [NSMutableArray array];
       self.headerView.height = 376;
     self.nav.backgroundColor = [UIColor clearColor];
     if (@available(iOS 11.0, *)) {
@@ -65,6 +66,9 @@
     
     UITapGestureRecognizer *hidRandG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideRenandGift)];
     [_blackView addGestureRecognizer:hidRandG];
+    
+    [self _loadAllPhoto];
+    [self _loadAllVideo];
 }
 
 - (void)_loadData
@@ -180,6 +184,75 @@
         
     }];
 }
+
+- (void)_loadAllPhoto
+{
+    NSDictionary *params;
+    params = @{@"type":@"photo",@"uid":self.model.uid};
+    [WXDataService requestAFWithURL:Url_accountmedia params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                [_photos removeAllObjects];
+                NSArray *array = result[@"data"];
+                for (NSDictionary *dic in array) {
+                    AlbumModel *model = [AlbumModel mj_objectWithKeyValues:dic];
+                    [_photos addObject:model];
+                }
+                [self.tableView reloadData];
+                
+            } else{
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+    
+}
+
+- (void)_loadAllVideo
+{
+    NSDictionary *params;
+    params = @{@"type":@"video",@"uid":self.model.uid};
+    [WXDataService requestAFWithURL:Url_accountmedia params:params httpMethod:@"GET" isHUD:YES isErrorHud:YES finishBlock:^(id result) {
+        if(result){
+            if ([[result objectForKey:@"result"] integerValue] == 0) {
+                [_videos removeAllObjects];
+                NSArray *array = result[@"data"];
+                for (NSDictionary *dic in array) {
+                    MyVideoModel *model = [MyVideoModel mj_objectWithKeyValues:dic];
+                    [_videos addObject:model];
+                }
+                [self.tableView reloadData];
+                
+            }else{
+                
+                [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    
+                    [SVProgressHUD dismiss];
+                });
+                
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        
+    }];
+    
+}
+
+
 - (CGFloat)heightForText:(NSString *)text
 {
     //设置计算文本时字体的大小,以什么标准来计算
@@ -225,38 +298,44 @@
             cell.imageView2.image = [UIImage imageNamed:@"moren"];
             cell.imageView3.image = [UIImage imageNamed:@"moren"];
             cell.imageView4.image = [UIImage imageNamed:@"moren"];
-            
+            cell.imageView5.image = [UIImage imageNamed:@"moren"];
             cell.delegate = self;
-            for (int i = 0; i < self.pmodel.photos.count; i++) {
-                Photo *photo = self.pmodel.photos[i];
+            
+            for (int i = 0; i < self.photos.count; i++) {
+//                Photo *photo = self.pmodel.photos[i];
+                AlbumModel *model = _photos[i];
                 switch (i) {
                     case 0:
-                        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+                        [cell.imageView1 sd_setImageWithURL:[NSURL URLWithString:model.url]];
                         break;
                     case 1:
-                        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+                        [cell.imageView2 sd_setImageWithURL:[NSURL URLWithString:model.url]];
                         break;
                     case 2:
-                        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+                        [cell.imageView3 sd_setImageWithURL:[NSURL URLWithString:model.url]];
                         break;
                     case 3:
-                        [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:photo.url]];
+                        [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:model.url]];
                         break;
-
+                    case 4:
+                        [cell.imageView5 sd_setImageWithURL:[NSURL URLWithString:model.url]];
+                        break;
                     default:
                         break;
                 }
             }
             cell.addLabel.hidden = YES;
-            if (self.pmodel.photos.count < 6) {
-                
-                [cell.addButton setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
-                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+            if (self.photos.count < 6) {
+                cell.addButton.alpha = .1;
+                [cell.addButton addTarget:self action:@selector(shwoLastImage) forControlEvents:UIControlEventTouchUpInside];
+//                [cell.addButton setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+//                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
 
             }else{
-            [cell.addButton setImage:[UIImage imageNamed:@"dengdeng_huang"] forState:UIControlStateNormal];
-            [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-            [cell.addButton addTarget:self action:@selector(toAlbum) forControlEvents:UIControlEventTouchUpInside];
+                cell.addButton.alpha = .9;
+                [cell.addButton setImage:[UIImage imageNamed:@"dengdeng_huang"] forState:UIControlStateNormal];
+                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+                [cell.addButton addTarget:self action:@selector(toAlbum) forControlEvents:UIControlEventTouchUpInside];
             }
             return cell;
             
@@ -270,8 +349,9 @@
             [cell.playButton3 setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
             [cell.playButton4 setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
             cell.delegate = self;
-            for (int i = 0; i < self.pmodel.videos.count; i++) {
-                Video *video = self.pmodel.videos[i];
+            
+            for (int i = 0; i < self.videos.count; i++) {
+                MyVideoModel *video = self.videos[i];
                 switch (i) {
                     case 0:
                         [cell.playButton1 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
@@ -289,20 +369,30 @@
                         [cell.playButton4 setImage:[UIImage imageNamed:@"dashipin"] forState:UIControlStateNormal];
                         [cell.imageView4 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
                         break;
-                        
+                    case 4:
+                        [cell.imageView5 sd_setImageWithURL:[NSURL URLWithString:video.cover]];
+                        break;
                     default:
                         break;
                 }
             }
-            if (self.pmodel.videos.count < 6) {
-                
-                [cell.addButton setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
-                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+            if (self.videos.count < 6) {
+                if (self.videos.count < 5) {
+                    cell.lastImage.hidden = YES;
+                } else {
+                    cell.lastImage.hidden = NO;
+                }
+                cell.addButton.alpha = .1;
+                cell.addLabel.hidden = YES;
+                [cell.addButton addTarget:self action:@selector(playLastVideo) forControlEvents:UIControlEventTouchUpInside];
+//                [cell.addButton setImage:[UIImage imageNamed:@"moren"] forState:UIControlStateNormal];
+//                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
             }else{
-            cell.addLabel.hidden = YES;
-            [cell.addButton setImage:[UIImage imageNamed:@"dengdeng_huang"] forState:UIControlStateNormal];
-            [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-            [cell.addButton addTarget:self action:@selector(toVideo) forControlEvents:UIControlEventTouchUpInside];
+                cell.addButton.alpha = .9;
+                cell.addLabel.hidden = YES;
+                [cell.addButton setImage:[UIImage imageNamed:@"dengdeng_huang"] forState:UIControlStateNormal];
+                [cell.addButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+                [cell.addButton addTarget:self action:@selector(toVideo) forControlEvents:UIControlEventTouchUpInside];
             }
             return cell;
         }
@@ -361,11 +451,34 @@
         [cell.chatButton addTarget:self action:@selector(chatButtonAC) forControlEvents:UIControlEventTouchUpInside];
         
     } else if (indexPath.row == 1) {
+        Charge *charge;
+        for (Charge *mo in self.pmodel.charges) {
+            if (mo.uid == self.pmodel.chargeAudio) {
+                charge = mo;
+            }
+        }
+        if (charge.name.length == 0) {
+            cell.contentLabel.text = @"5鉆每分鐘";
+        } else {
+            cell.contentLabel.text = charge.name;
+        }
         [cell.chatButton setImage:[UIImage imageNamed:@"yuyin_s"] forState:UIControlStateNormal];
         [cell.chatButton setTitle:@"語音聊天" forState:UIControlStateNormal];
         [cell.chatButton addTarget:self action:@selector(yuyinButtonAC) forControlEvents:UIControlEventTouchUpInside];
         
     } else {
+        Charge *charge;
+        for (Charge *mo in self.pmodel.charges) {
+            if (mo.uid == self.pmodel.charge) {
+                charge = mo;
+            }
+        }
+        if (charge.name.length == 0) {
+            cell.contentLabel.text = @"5鉆每分鐘";
+        } else {
+            cell.contentLabel.text = charge.name;
+        }
+        
         cell.bottomLineView.hidden = YES;
         [cell.chatButton setImage:[UIImage imageNamed:@"yuyinliaotian"] forState:UIControlStateNormal];
         [cell.chatButton setTitle:@"視訊聊天" forState:UIControlStateNormal];
@@ -414,17 +527,20 @@
 }
 
 - (void)toAlbum {
+    
     PPhotoVC *vc = [[PPhotoVC alloc] init];
-    vc.pmodel = self.pmodel;
-    vc.model = self.model;
+//    vc.pmodel = self.pmodel;
+//    vc.model = self.model;
+    vc.dataList = _photos;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)toVideo {
     
     PVideoVC *vc = [[PVideoVC alloc] init];
-    vc.pmodel = self.pmodel;
-    vc.model = self.model;
+//    vc.pmodel = self.pmodel;
+//    vc.model = self.model;
+    vc.dataList = _videos;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -597,11 +713,11 @@
 #pragma mark - NewMyalbumCellDelegate
 - (void)imageShowAC:(UITapGestureRecognizer *)tap {
     NSInteger index = tap.view.tag - 100;
-    if (index < self.pmodel.photos.count) {
+    if (index < self.photos.count) {
         NSMutableArray *browseItemArray = [[NSMutableArray alloc]init];
-        for(int i = 0; i < self.pmodel.photos.count; i++)
+        for(int i = 0; i < self.photos.count; i++)
         {
-            Photo *model = self.pmodel.photos[i];
+            AlbumModel *model = self.photos[i];
             UIImageView *imageView = (UIImageView *)tap.view;
             MSSBrowseModel *browseItem = [[MSSBrowseModel alloc]init];
             browseItem.bigImageUrl = model.url;// 加载网络图片大图地址
@@ -614,13 +730,35 @@
     }
 }
 
+- (void)shwoLastImage {
+    
+    if (self.photos.count == 5) {
+        NSMutableArray *browseItemArray = [[NSMutableArray alloc]init];
+        for(int i = 0; i < self.photos.count; i++)
+        {
+            AlbumModel *model = self.photos[i];
+            //        UIImageView *imageView;
+            //        if (i == 4) {
+            //        }
+            MSSBrowseModel *browseItem = [[MSSBrowseModel alloc]init];
+            browseItem.bigImageUrl = model.url;// 加载网络图片大图地址
+            //        browseItem.smallImageView = imageView;// 小图
+            [browseItemArray addObject:browseItem];
+        }
+        MSSBrowseNetworkViewController *bvc = [[MSSBrowseNetworkViewController alloc]initWithBrowseItemArray:browseItemArray currentIndex:4];
+        //    bvc.isEqualRatio = NO;// 大图小图不等比时需要設定这个属性（建议等比）
+        [bvc showBrowseViewController];
+    }
+    
+}
+
 
 #pragma mark - NewMyVideoCellDelegate
 - (void)videoPlayAC:(UIButton *)button {
     NSInteger tag = button.tag - 100;
-    if (tag < self.pmodel.videos.count) {
+    if (tag < self.videos.count) {
         
-        Video *video = self.pmodel.videos[tag];
+        MyVideoModel *video = self.videos[tag];
         OtherVideoPlayVC *vc = [[OtherVideoPlayVC alloc] init];
         PersonModel *pmodel = [[PersonModel alloc] init];
         pmodel.nickname = self.pmodel.nickname;
@@ -630,10 +768,22 @@
         //播放視訊
         vc.videoUrl = [NSURL URLWithString:video.url];
         [self.navigationController pushViewController:vc animated:YES];
-        
-        
     }
-    
+}
+
+- (void)playLastVideo {
+    if (self.videos.count == 5) {
+        MyVideoModel *video = self.videos[4];
+        OtherVideoPlayVC *vc = [[OtherVideoPlayVC alloc] init];
+        PersonModel *pmodel = [[PersonModel alloc] init];
+        pmodel.nickname = self.pmodel.nickname;
+        pmodel.uid = self.pmodel.uid;
+        pmodel.portrait = self.pmodel.portrait;
+        vc.model = pmodel;
+        //播放視訊
+        vc.videoUrl = [NSURL URLWithString:video.url];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - 私信聊天

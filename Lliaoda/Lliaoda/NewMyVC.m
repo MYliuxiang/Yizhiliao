@@ -228,7 +228,8 @@
         [self.nameArray addObject:@[@"鑽石"]];
         [self.messagePhotos addObject:@[@"zuanshi"]];
         
-        [self.nameArray addObject:@[@"關於有聊", @"建議與反饋"]];
+        [self.nameArray addObject:@[@"關於我們", @"建議與反饋"]];
+
         [self.messagePhotos addObject:@[@"guanyu", @"fankui"]];
         
         
@@ -263,7 +264,7 @@
             [self.messagePhotos addObject:@[@"zuanshi"]];
         }
         
-        [self.nameArray addObject:@[@"關於有的聊", @"建議與反饋"]];
+        [self.nameArray addObject:@[@"關於我們", @"建議與反饋"]];
         [self.messagePhotos addObject:@[@"guanyu", @"fankui"]];
         
         [self.nameArray addObject:@[@"設置"]];
@@ -1445,14 +1446,14 @@
     self.unDisturbButton.selected = !self.unDisturbButton.selected;
     if (self.unDisturbButton.selected) {
         // 设置免打扰
-        [self unDisturb:1];
+        [self unDisturb:YES];
     } else {
         // 解除免打扰
-        [self unDisturb:2];
+        [self unDisturb:NO];
     }
 }
 
-- (void)unDisturb:(int)isDnD {
+- (void)unDisturb:(BOOL)isDnD {
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:@(isDnD), @"isDND", nil];
     [WXDataService requestAFWithURL:Url_account params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
         if(result){

@@ -41,18 +41,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzy-fZ-9of">
                         <rect key="frame" x="279.5" y="80" width="99.5" height="74.5"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YbP-HD-YgG">
+                                <rect key="frame" x="0.0" y="0.0" width="99.5" height="74.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tg-om-MCn">
+                                <rect key="frame" x="0.0" y="0.0" width="99.5" height="74.5"/>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.88235294119999996" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="15"/>
+                                <state key="normal" image="tianjia"/>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上傳圖片" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypk-hT-Vcl">
-                                <rect key="frame" x="0.0" y="41.5" width="99.5" height="12"/>
+                                <rect key="frame" x="-0.5" y="41" width="99.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tg-om-MCn">
-                                <rect key="frame" x="0.0" y="0.0" width="99.5" height="74.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="15"/>
-                                <state key="normal" image="tianjia"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85882352939999995" green="0.88235294119999996" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -60,8 +63,12 @@
                             <constraint firstAttribute="bottom" secondItem="ypk-hT-Vcl" secondAttribute="bottom" constant="21" id="3kA-im-dgN"/>
                             <constraint firstItem="2tg-om-MCn" firstAttribute="top" secondItem="yzy-fZ-9of" secondAttribute="top" id="C7Z-Nn-ViN"/>
                             <constraint firstAttribute="bottom" secondItem="2tg-om-MCn" secondAttribute="bottom" id="HH2-8r-wa9"/>
+                            <constraint firstAttribute="trailing" secondItem="YbP-HD-YgG" secondAttribute="trailing" id="St1-JW-vEK"/>
                             <constraint firstItem="2tg-om-MCn" firstAttribute="leading" secondItem="yzy-fZ-9of" secondAttribute="leading" id="Xxl-yJ-pmD"/>
+                            <constraint firstAttribute="bottom" secondItem="YbP-HD-YgG" secondAttribute="bottom" id="bbi-vH-Cps"/>
                             <constraint firstItem="ypk-hT-Vcl" firstAttribute="leading" secondItem="yzy-fZ-9of" secondAttribute="leading" id="jS4-Z4-SFR"/>
+                            <constraint firstItem="YbP-HD-YgG" firstAttribute="top" secondItem="yzy-fZ-9of" secondAttribute="top" id="ko8-6w-oPF"/>
+                            <constraint firstItem="YbP-HD-YgG" firstAttribute="leading" secondItem="yzy-fZ-9of" secondAttribute="leading" id="nJK-dH-a1G"/>
                             <constraint firstAttribute="trailing" secondItem="2tg-om-MCn" secondAttribute="trailing" id="wEc-OR-MZr"/>
                         </constraints>
                     </view>
@@ -95,6 +102,7 @@
                 <outlet property="imageView2" destination="lpY-WD-1HN" id="fBq-lE-1oy"/>
                 <outlet property="imageView3" destination="UfQ-ea-SeK" id="GEH-ru-EEU"/>
                 <outlet property="imageView4" destination="x2x-hU-1Jh" id="G8U-9S-9rX"/>
+                <outlet property="imageView5" destination="YbP-HD-YgG" id="ecH-xP-O2U"/>
             </connections>
             <point key="canvasLocation" x="-127" y="89"/>
         </tableViewCell>

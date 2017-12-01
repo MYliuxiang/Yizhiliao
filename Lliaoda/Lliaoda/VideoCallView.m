@@ -1655,8 +1655,9 @@
         if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
             // 是主播
             self.redBtn.hidden = NO;
-            self.redlayoutConstranint.constant = 0;
-            self.giftBtn.hidden = YES;
+            self.redlayoutConstranint.constant = -40;
+            self.giftCentrConstraint.constant = 40;
+            self.giftBtn.hidden = NO;
         } else {
             // 是用户
 //            self.redlayoutConstranint.constant = -40;
