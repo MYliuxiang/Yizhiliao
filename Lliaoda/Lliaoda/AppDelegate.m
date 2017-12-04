@@ -1145,6 +1145,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                 
             }
             [video show];
+        
             
             //.....
         });
