@@ -48,15 +48,41 @@
     NSURLRequest *resquest = [NSURLRequest requestWithURL:url];
     [_webView loadRequest:resquest];
     
-    JSContext *context = [_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    context[@"app.linkTo"] = ^() {
-        NSArray *thisArr = [JSContext currentArguments];
-        for (JSValue *jsValue in thisArr) {
-            NSLog(@"=======%@",jsValue);
+//    JSContext *context = [_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+//    context[@"app.linkTo"] = ^() {
+//        NSArray *thisArr = [JSContext currentArguments];
+//        for (JSValue *jsValue in thisArr) {
+//            NSLog(@"=======%@",jsValue);
+//        }
+//    };
+    
+    
+    JSContext *context = [[JSContext alloc] init];
+    // 定义一个block
+    context[@"log"] = ^() {
+        NSLog(@"+++++++Begin Log+++++++");
+        
+        NSArray *args = [JSContext currentArguments];
+        for (JSValue *jsVal in args) {
+            NSLog(@"%@", jsVal);
         }
+        
+        JSValue *this = [JSContext currentThis];
+        NSLog(@"this: %@",this);
+        NSLog(@"-------End Log-------");
     };
+//    // 调用js执行log方法
+//    [context evaluateScript:@"log('ider', [7, 21],
+//     { hello:'world', js:100 });"];
     
 }
+
+- (void)gotoVC
+{
+    
+    
+}
+
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSURL *url = [request URL];
