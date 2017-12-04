@@ -87,6 +87,7 @@
 - (IBAction)approvingUploadButtonAC:(id)sender {
     VideoRZVC2 *vc = [[VideoRZVC2 alloc] init];
     vc.info = self.info;
+    vc.isFirst = self.isFirst;
     [self.navigationController pushViewController:vc animated:YES];
 }
 /*

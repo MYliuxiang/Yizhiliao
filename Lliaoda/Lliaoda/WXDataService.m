@@ -200,7 +200,14 @@
     
     if (ishud) {
         
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow  animated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //更新UI操作
+            //            [this dismiss];
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow  animated:YES];
+
+            //.....
+        });
+        
     }
 
      NSString *urlStr ;

@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *unionTextField;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 - (IBAction)confirmButtonAC:(id)sender;
+@property (nonatomic, assign) BOOL isFirst;
 
 @end

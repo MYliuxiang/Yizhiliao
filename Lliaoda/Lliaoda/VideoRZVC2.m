@@ -370,7 +370,14 @@
                 dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.35 * NSEC_PER_SEC));
                 dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                     [SVProgressHUD dismiss];
-                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    if (self.isFirst) {
+                        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                        TJPTabBarController *rootVC = [[TJPTabBarController alloc] init];
+                        delegate.window.rootViewController = rootVC;
+                    } else {
+                        [self.navigationController popToRootViewControllerAnimated:YES];
+                    }
+                    
                 });
                 
             }else{    //请求失败

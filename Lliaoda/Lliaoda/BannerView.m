@@ -42,6 +42,8 @@
     if (model.target == 0) {
         WebVC *vc = [[WebVC alloc] init];
         vc.urlStr = model.link;
+        vc.deposit = self.model.deposit;
+        vc.model = self.model;
         [[self viewController].navigationController pushViewController:vc animated:YES];
         
     } else {
@@ -51,6 +53,19 @@
                 // 支付
                 AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
                 [[self viewController].navigationController pushViewController:vc animated:YES];
+                
+            } else if ([model.link isEqualToString:@"/app/pay/unipin"]) {
+                // 第三方支付
+                [self unipinAC];
+                
+            } else if ([model.link isEqualToString:@"/app/pay/unipin_dcb"]) {
+                // 话费支付
+                [self huafeiAC];
+                
+            } else if ([model.link isEqualToString:@"/app/pay/store"]) {
+                // 苹果支付
+                [self appleAC];
+                
             } else {
                 //邀请有奖
                 InvitationVC *vc = [[InvitationVC alloc] init];
@@ -60,7 +75,7 @@
             }
             
         }else if ([lang hasPrefix:@"ar"]){
-            if ([model.link isEqualToString:@"/app/pay"]) {
+            if ([model.link hasPrefix:@"/app/pay"]) {
                 // 支付
                 AccountVC *vc = [[AccountVC alloc] init];
                 [[self viewController].navigationController pushViewController:vc animated:YES];
@@ -77,6 +92,37 @@
 //        vc.urlStr = model.link;
 //        [[self viewController].navigationController pushViewController:vc animated:YES];
     }
+}
+
+// unipin
+- (void)unipinAC {
+    AccountVC *vc = [[AccountVC alloc] init];
+    vc.deposit = self.model.deposit;
+    vc.payType = UnipinPay;
+    vc.isCall = NO;
+    [[self viewController].navigationController pushViewController:vc animated:YES];
+}
+// 话费
+- (void)huafeiAC {
+    AccountVC *vc = [[AccountVC alloc] init];
+    vc.deposit = self.model.deposit;
+    vc.payType = HuaFeiPay;
+    vc.isCall = NO;
+    [[self viewController].navigationController pushViewController:vc animated:YES];
+    
+    //    http://demo.yizhiliao.tv/pages/id-id/unipin_dcb.html?order=<订单ID>&price=<支付的价格>
+    //    [self orderCreate:self.accountModel.uid withType:HuaFeiPay];
+}
+
+// 苹果支付
+- (void)appleAC {
+    AccountVC *vc = [[AccountVC alloc] init];
+    vc.deposit = self.model.deposit;
+    vc.payType = AppPay;
+    vc.isCall = NO;
+    [[self viewController].navigationController pushViewController:vc animated:YES];
+    
+    //    [self orderCreate:self.accountModel.uid withType:AppPay];
 }
 
 

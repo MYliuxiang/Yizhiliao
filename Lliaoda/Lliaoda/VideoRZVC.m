@@ -236,6 +236,7 @@
         VideoRZVC1 *vc = [[VideoRZVC1 alloc] init];
 //        VideoOneVC *VC = [[VideoOneVC alloc] init];
         vc.info = info;
+        vc.isFirst = self.isFirst;
         [self.navigationController pushViewController:vc animated:YES];
 //        self.approvingVideoImageView.image = [self thumbnailImageForVideo:     [info objectForKey:UIImagePickerControllerMediaURL]
 //                                                          atTime:1];
