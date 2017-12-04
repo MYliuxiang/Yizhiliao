@@ -4,28 +4,18 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AccountVC.m"
-            timestampString = "533828268.362706"
+            filePath = "Lliaoda/WebVC.m"
+            timestampString = "534065307.291969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "654"
-            endingLineNumber = "654"
-            landmarkName = "-orderCreate:withType:"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-linkTo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +25,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AccountVC.m"
-            timestampString = "533828268.363186"
+            filePath = "Lliaoda/SelectSexVC.m"
+            timestampString = "534065392.554967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "678"
-            endingLineNumber = "678"
-            landmarkName = "-orderCreate:withType:"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-setSex:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SelectSexVC setSex:]"
+                  moduleName = "Lliaoda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ludashi/Desktop/talketome_ios/Lliaoda/Lliaoda/SelectSexVC.m"
+                  timestampString = "534065392.565525"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__22-[SelectSexVC setSex:]_block_invoke"
+                  moduleName = "Lliaoda"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ludashi/Desktop/talketome_ios/Lliaoda/Lliaoda/SelectSexVC.m"
+                  timestampString = "534065392.567064"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lliaoda/SelectSexVC.m"
+            timestampString = "534065393.836365"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-setSex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,45 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AccountVC.m"
-            timestampString = "533828268.363397"
+            filePath = "Lliaoda/SelectSexVC.m"
+            timestampString = "534065396.041373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "980"
-            endingLineNumber = "980"
-            landmarkName = "-sendMessageToPerson:diamonds:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AccountVC.m"
-            timestampString = "533828268.363599"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "-requestProductData:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AccountVC.m"
-            timestampString = "533828422.220788"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "486"
-            endingLineNumber = "486"
-            landmarkName = "-_loadData"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-setSex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

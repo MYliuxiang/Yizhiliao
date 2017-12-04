@@ -108,8 +108,12 @@
     } else if ([type isEqualToString:@"/app/pay/store"]) {
         [self appleAC];
         
-    } else {
+    } else if ([type isEqualToString:@"/app/pay"]) {
         [self payType];
+        
+    } else if ([type isEqualToString:@"/app/invite"]) {
+        // 邀请
+        [self toInvite];
     }
 }
 
@@ -150,5 +154,10 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)toInvite {
+    InvitationVC *vc = [[InvitationVC alloc] init];
+    vc.model = self.model;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

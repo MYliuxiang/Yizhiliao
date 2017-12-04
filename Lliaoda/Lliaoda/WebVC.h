@@ -20,4 +20,5 @@
 }
 @property(nonatomic,copy)NSString *urlStr;
 @property (nonatomic, assign) int deposit;
+@property (nonatomic, strong) Mymodel *model;
 @end

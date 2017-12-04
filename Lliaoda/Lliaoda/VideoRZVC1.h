@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *approvingUploadButton;
 - (IBAction)approvingUploadButtonAC:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *approvingView;
+@property (nonatomic, assign) BOOL isFirst;
 @end
