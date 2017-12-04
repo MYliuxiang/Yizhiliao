@@ -80,7 +80,7 @@
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
    
     [JPUSHService setupWithOption:launchOptions
-                           appKey:@"99c719079d47d45dbfc2b69b"
+                           appKey:@"7b0f54f0278973b7cf76f20a"
                           channel:@"AppStore"
                  apsForProduction:1
             advertisingIdentifier:nil];
@@ -122,7 +122,7 @@
   //
     
     //微信
-    [WXApi registerApp:@"wxf86e96f49df077b8"];
+    [WXApi registerApp:@"wx3ac0f6623979ed1a"];
 //    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
 //        
 //        
