@@ -167,8 +167,7 @@
             }
         }
     } errorBlock:^(NSError *error) {
-        
-    
+        NSLog(@"%@", error);
     }];
     
 }
@@ -195,8 +194,7 @@
             }
         }
     } errorBlock:^(NSError *error) {
-        
-        
+        NSLog(@"%@", error);
     }];
     
 }

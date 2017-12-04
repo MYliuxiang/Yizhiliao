@@ -65,7 +65,7 @@ static MeassageVC *this;
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    [self.backButtton setImage:[UIImage imageNamed:@"back_hei"] forState:UIControlStateNormal];
 
     UIBezierPath *aPath = [[UIBezierPath alloc] init];
     [aPath moveToPoint:CGPointMake(0, 0)];
@@ -78,17 +78,17 @@ static MeassageVC *this;
         // 当网络状态改变时调用
         switch (status) {
             case AFNetworkReachabilityStatusUnknown:
-                NSLog(LXSring(@"未知网络"));
+                NSLog(@"%@", LXSring(@"未知网络"));
                 self.isNoWifi = NO;
                 [self.tableView reloadData];
                 break;
             case AFNetworkReachabilityStatusNotReachable:
-                NSLog(LXSring(@"没有网络"));
+                NSLog(@"%@", LXSring(@"没有网络"));
                 self.isNoWifi = YES;
                 [self.tableView reloadData];
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
-                NSLog(LXSring(@"手机自带网络"));
+                NSLog(@"%@", LXSring(@"手机自带网络"));
                 self.isNoWifi = NO;
                 [self.tableView reloadData];
                 break;
