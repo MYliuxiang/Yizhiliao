@@ -59,6 +59,42 @@
 //            NSLog(@"=======%@",jsValue);
 //        }
 //    };
+<<<<<<< HEAD
+    
+    
+    JSContext *context = [[JSContext alloc] init];
+    // 定义一个block
+    context[@"log"] = ^() {
+        NSLog(@"+++++++Begin Log+++++++");
+        
+        NSArray *args = [JSContext currentArguments];
+        for (JSValue *jsVal in args) {
+            NSLog(@"%@", jsVal);
+        }
+        
+        JSValue *this = [JSContext currentThis];
+        NSLog(@"this: %@",this);
+        NSLog(@"-------End Log-------");
+    };
+//    // 调用js执行log方法
+//    [context evaluateScript:@"log('ider', [7, 21],
+//     { hello:'world', js:100 });"];
+    
+}
+
+- (void)gotoVC
+{
+    
+    
+}
+
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *url = [request URL];
+    NSLog(@"%@", url);
+    return YES;
+}
+=======
     
 }
 
@@ -67,6 +103,7 @@
 //    NSLog(@"%@", url);
 //    return YES;
 //}
+>>>>>>> bd2f9a1a3a373deb6ef72c0c021d6328e2dd5f87
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
