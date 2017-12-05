@@ -17,12 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.text = @"你是";
+    self.text = LXSring(@"你是");
     self.bgView.layer.shadowColor = [UIColor blackColor].CGColor;
     self.bgView.layer.shadowRadius = 5.f;
     self.bgView.layer.shadowOpacity = .3f;
     self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
     
+    _textLabel.text = LXSring(@"性别一旦选择后，不能自行更改");
+    [_manButton setTitle:LXSring(@"男生") forState:UIControlStateNormal];
+    [_womanButton setTitle:LXSring(@"女生") forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

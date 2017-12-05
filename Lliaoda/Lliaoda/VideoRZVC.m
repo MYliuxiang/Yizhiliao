@@ -24,6 +24,7 @@
     self.titleLable.textColor = [UIColor whiteColor];
     [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
     self.topLabel.text = LXSring(@"女生可通过提交一下认证信息成为主播，设计收费，聊天赚钱哦!");
+    [_skipButton setTitle:LXSring(@"跳过") forState:UIControlStateNormal];
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
