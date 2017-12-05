@@ -59,7 +59,7 @@
 //            NSLog(@"=======%@",jsValue);
 //        }
 //    };
-<<<<<<< HEAD
+
     
     
     JSContext *context = [[JSContext alloc] init];
@@ -94,16 +94,13 @@
     NSLog(@"%@", url);
     return YES;
 }
-=======
-    
-}
+
 
 //- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 //    NSURL *url = [request URL];
 //    NSLog(@"%@", url);
 //    return YES;
 //}
->>>>>>> bd2f9a1a3a373deb6ef72c0c021d6328e2dd5f87
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
