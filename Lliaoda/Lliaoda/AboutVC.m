@@ -38,19 +38,20 @@
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
         
     NSString *urlstring;
-    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-Hant"]) {
-        urlstring = [NSString stringWithFormat:@"https://static.yizhiliao.tv/pages/zh-tw/aboutus.html?v=%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
-    }else if ([lang hasPrefix:@"id"]){
+//    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//    if ([lang hasPrefix:@"zh-Hant"]) {
+//        urlstring = [NSString stringWithFormat:@"https://static.yizhiliao.tv/pages/zh-tw/aboutus.html?v=%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
+//    }else if ([lang hasPrefix:@"id"]){
+//
+//        urlstring = [NSString stringWithFormat:@"http://sugar-public.oss-ap-southeast-1.aliyuncs.com/pages/id-id/aboutus.html?app=talktome&v=%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
+//    }else if ([lang hasPrefix:@"ar"]){
+//
+//        urlstring = [NSString stringWithFormat:@"https://arab-candy-public.oss-me-east-1.aliyuncs.com/pages/ar-sa/aboutus.html?v=%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
+//    }else{
+//        urlstring = [NSString stringWithFormat:@"https://static.yizhiliao.tv/pages/zh-tw/aboutus.html?v=%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
+//    }
 
-        urlstring = [NSString stringWithFormat:@"http://sugar-public.oss-ap-southeast-1.aliyuncs.com/pages/id-id/aboutus.html?app=talktome&v=%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
-    }else if ([lang hasPrefix:@"ar"]){
-        
-        urlstring = [NSString stringWithFormat:@"https://arab-candy-public.oss-me-east-1.aliyuncs.com/pages/ar-sa/aboutus.html?v=%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
-    }else{
-        urlstring = [NSString stringWithFormat:@"https://static.yizhiliao.tv/pages/zh-tw/aboutus.html?v=%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
-    }
-
+    urlstring = [NSString stringWithFormat:@"https://static.yizhiliao.tv/pages/zh-tw/aboutus.html?v=%@&app=youliao",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
     
     NSURL *url = [NSURL URLWithString:urlstring];
     NSURLRequest *resquest = [NSURLRequest requestWithURL:url];
