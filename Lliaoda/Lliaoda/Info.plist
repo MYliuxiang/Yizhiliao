@@ -51,7 +51,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb370628906702867</string>
+				<string>fb717852398421155</string>
 			</array>
 		</dict>
 		<dict>
@@ -67,7 +67,7 @@
 	<key>CFBundleVersion</key>
 	<string>2</string>
 	<key>FacebookAppID</key>
-	<string>370628906702867</string>
+	<string>717852398421155</string>
 	<key>FacebookDisplayName</key>
 	<string>talktome</string>
 	<key>LSApplicationCategoryType</key>
