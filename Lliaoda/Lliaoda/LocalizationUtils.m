@@ -46,32 +46,39 @@
 //    if ([lang hasPrefix:@"zh-Hant"]) {
 //        mainStr = @"https://www.yizhiliao.tv/api/";
 //    }else
-    if ([lang hasPrefix:@"id"]){
-        
-        if ([LXUserDefaults boolForKey:ISMEiGUO]) {
-            mainStr = @"https://aplid.yizhiliao.tv/api/";
-
-        }else{
-//            mainStr = @"https://www.yizhiliao.live/api/";
-            mainStr = @"http://demo.yizhiliao.live/api/";
-        }
-
-        
-    }else if ([lang hasPrefix:@"ar"]){
-        
-        if ([LXUserDefaults boolForKey:ISMEiGUO]) {
-            
-            mainStr = @"https://aplme.yizhiliao.tv/api/";
-            
-        }else{
-//            mainStr = @"https://www.yizhiliao.net/api/";
-            mainStr = @"http://demo.yizhiliao.net/api/";
-        }
-        
-    }
+//    if ([lang hasPrefix:@"id"]){
+//
+//        if ([LXUserDefaults boolForKey:ISMEiGUO]) {
+//            mainStr = @"https://aplid.yizhiliao.tv/api/";
+//
+//        }else{
+////            mainStr = @"https://www.yizhiliao.live/api/";
+//            mainStr = @"http://demo.yizhiliao.live/api/";
+//        }
+//
+//
+//    }else if ([lang hasPrefix:@"ar"]){
+//
+//        if ([LXUserDefaults boolForKey:ISMEiGUO]) {
+//
+//            mainStr = @"https://aplme.yizhiliao.tv/api/";
+//
+//        }else{
+////            mainStr = @"https://www.yizhiliao.net/api/";
+//            mainStr = @"http://demo.yizhiliao.net/api/";
+//        }
+//
+//    }
 //    else{
 //        mainStr = @"https://www.yizhiliao.tv/api/";
 //    }
+    
+    if ([LXUserDefaults boolForKey:ISMEiGUO]) {
+        mainStr = @"https://apl.yizhiliao.tv/api/";
+
+    }else{
+        mainStr = @"https://liao.yizhiliao.live/api/";
+    }
     
     return mainStr;
     

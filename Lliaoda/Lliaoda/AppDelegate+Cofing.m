@@ -19,10 +19,10 @@
     
     NSString *agent;
     NSString *mutableUrl;
-    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
     
-    agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
-    mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];
+    agent = [NSString stringWithFormat:@"%@,%@,ios,%@,501",@"youliao",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
+    mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://liao.yizhiliao.live/api/%@",Url_appconfig]];
     //    if ([lang hasPrefix:@"zh-Hant"]) {
     //        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
     //        mutableUrl = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"https://www.yizhiliao.tv/api/%@",Url_appconfig]];

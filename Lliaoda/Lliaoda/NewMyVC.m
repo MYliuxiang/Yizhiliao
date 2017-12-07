@@ -553,6 +553,7 @@
                 }
             }
         }
+        cell.samallImage.hidden = YES;
     } else {
         if (self.model.auth == 2) {
             if (indexPath.section == 1) {

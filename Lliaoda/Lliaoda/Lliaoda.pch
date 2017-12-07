@@ -256,8 +256,9 @@ alpha:1.0]
 //#define MAINURLStr [LocalizationUtils getMainUrl]
 
 //#define MAINURLStr @"http://demo.yizhiliao.tv/api/"
-#define MAINURLStr @"https://liao.yizhiliao.live/api/"
-//#define MAINURLStr [LocalizationUtils getMainUrl]
+//#define MAINURLStr @"https://liao.yizhiliao.live/api/"
+//#define MAINURLStr @"https://apl.yizhiliao.tv"
+#define MAINURLStr [LocalizationUtils getMainUrl]
 
 #define MAINURL  MAINURLStr//主URL
 
