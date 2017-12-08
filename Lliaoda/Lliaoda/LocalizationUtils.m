@@ -42,7 +42,7 @@
 + (NSString *)getMainUrl
 {
     NSString *mainStr;
-    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
 //    if ([lang hasPrefix:@"zh-Hant"]) {
 //        mainStr = @"https://www.yizhiliao.tv/api/";
 //    }else

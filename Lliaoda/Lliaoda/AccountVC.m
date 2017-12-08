@@ -95,7 +95,7 @@ static NSString *const headerId = @"headerId";
 //    [_collectionView registerNib:[UINib nibWithNibName:@"CollectionHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CollectionHeaderView"];
     _collectionView.tintColor = Color_nav;
     [self.view insertSubview:_collectionView atIndex:0];
-//    _collectionViewLayout.minimumLineSpacing = .5;
+//    _collectionView·Layout.minimumLineSpacing = .5;
 //    _collectionViewLayout.minimumInteritemSpacing = .5;
 //    CGFloat width = (SCREEN_W - 1) / 2;
 //    _collectionViewLayout.itemSize = CGSizeMake(width, 240);

@@ -1104,6 +1104,9 @@
     if ([button.titleLabel.text isEqualToString:@"充值"]) {
         AccountVC *vc = [[AccountVC alloc] init];
         vc.deposit = self.model.deposit;
+        if ([LXUserDefaults boolForKey:ISMEiGUO]) {
+            vc.payType = AppPay;
+        }
         [self.navigationController pushViewController:vc animated:YES];
         
     } else if ([button.titleLabel.text isEqualToString:@"提現"]) {
