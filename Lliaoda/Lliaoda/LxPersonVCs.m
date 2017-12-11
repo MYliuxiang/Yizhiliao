@@ -446,6 +446,7 @@
     }
     if (indexPath.row == 0) {
         cell.contentLabel.text = @"每日限免，VIP享無限暢聊！";
+        cell.contentLabel.text = @"每日限免";
         [cell.chatButton setImage:[UIImage imageNamed:@"sixinliaotian"] forState:UIControlStateNormal];
         [cell.chatButton setTitle:@"私訊聊天" forState:UIControlStateNormal];
         [cell.chatButton addTarget:self action:@selector(chatButtonAC) forControlEvents:UIControlEventTouchUpInside];
