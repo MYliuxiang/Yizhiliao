@@ -8,6 +8,7 @@
 
 #import "NewMyVC.h"
 #import "AccountPayTypeVC.h"
+#import "SearchVC.h"
 @interface NewMyVC ()
 
 @end
@@ -22,7 +23,8 @@
 
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(0, 20, 40, 40);
-        [btn setImage:[UIImage imageNamed:@"kefu"] forState:UIControlStateNormal];
+//        [btn setImage:[UIImage imageNamed:@"kefu"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"sousuo_lv"] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(btnAC) forControlEvents:UIControlEventTouchUpInside];
         [self.headerView addSubview:btn];
         
@@ -90,9 +92,10 @@
 }
 - (void)btnAC
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"联系客服") message:LXSring(@"感谢您使用TalkToMe\n欢迎添加官方whatsapp 00212611905696 进行反馈") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
-    
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"联系客服") message:LXSring(@"感谢您使用TalkToMe\n欢迎添加官方whatsapp 00212611905696 进行反馈") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    [alert show];
+    SearchVC *vc = [[SearchVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)headImageAC {

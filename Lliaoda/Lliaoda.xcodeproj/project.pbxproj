@@ -621,6 +621,10 @@
 		84F970D61F38946100336234 /* LanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F970D41F38946100336234 /* LanguageVC.xib */; };
 		A86043B81FD1412800B269FD /* SelectSexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A86043B61FD1412800B269FD /* SelectSexVC.m */; };
 		A86043B91FD1412800B269FD /* SelectSexVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86043B71FD1412800B269FD /* SelectSexVC.xib */; };
+		A86543741FDAA20600B0F6BE /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A86543721FDAA20600B0F6BE /* SearchVC.m */; };
+		A86543751FDAA20600B0F6BE /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86543731FDAA20600B0F6BE /* SearchVC.xib */; };
+		A86543791FDAA8F900B0F6BE /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A86543771FDAA8F900B0F6BE /* SearchCell.m */; };
+		A865437A1FDAA8F900B0F6BE /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86543781FDAA8F900B0F6BE /* SearchCell.xib */; };
 		CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */; };
 /* End PBXBuildFile section */
 
@@ -1583,6 +1587,12 @@
 		A86043B51FD1412800B269FD /* SelectSexVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectSexVC.h; sourceTree = "<group>"; };
 		A86043B61FD1412800B269FD /* SelectSexVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectSexVC.m; sourceTree = "<group>"; };
 		A86043B71FD1412800B269FD /* SelectSexVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectSexVC.xib; sourceTree = "<group>"; };
+		A86543711FDAA20600B0F6BE /* SearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchVC.h; sourceTree = "<group>"; };
+		A86543721FDAA20600B0F6BE /* SearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchVC.m; sourceTree = "<group>"; };
+		A86543731FDAA20600B0F6BE /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
+		A86543761FDAA8F900B0F6BE /* SearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
+		A86543771FDAA8F900B0F6BE /* SearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
+		A86543781FDAA8F900B0F6BE /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lliaoda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C168064B372F162D1F5BB065 /* Pods-Lliaoda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lliaoda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda.release.xcconfig"; sourceTree = "<group>"; };
 		E528CC8DA412F4F2C12F8084 /* libPods-LliaodaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LliaodaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2918,6 +2928,9 @@
 				22BBE5251F502B4B007631DC /* OtherVideoPlayVC.h */,
 				22BBE5261F502B4B007631DC /* OtherVideoPlayVC.m */,
 				22BBE5271F502B4B007631DC /* OtherVideoPlayVC.xib */,
+				A86543711FDAA20600B0F6BE /* SearchVC.h */,
+				A86543721FDAA20600B0F6BE /* SearchVC.m */,
+				A86543731FDAA20600B0F6BE /* SearchVC.xib */,
 				22B109301EA4B2AB00E35B74 /* Views */,
 			);
 			name = "精选";
@@ -3041,6 +3054,9 @@
 				84F087191F54039A00026235 /* OnlineUserCell.m */,
 				84F0871A1F54039A00026235 /* OnlineUserCell.xib */,
 				84F0871D1F541BBF00026235 /* headerImage.jpg */,
+				A86543761FDAA8F900B0F6BE /* SearchCell.h */,
+				A86543771FDAA8F900B0F6BE /* SearchCell.m */,
+				A86543781FDAA8F900B0F6BE /* SearchCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3465,6 +3481,7 @@
 				2291CBFF1F4DBD30001AB139 /* PersonSelectCell.xib in Resources */,
 				8476D5761F5017F300855CDF /* AccountPayTypeVC.xib in Resources */,
 				222AA0301EB071910038416D /* C_97@2x.png in Resources */,
+				A86543751FDAA20600B0F6BE /* SearchVC.xib in Resources */,
 				222AA0AC1EB071910038416D /* B_94@2x.gif in Resources */,
 				222AA0991EB071910038416D /* B_77@2x.gif in Resources */,
 				222AA0651EB071910038416D /* b_2@2x.gif in Resources */,
@@ -3504,6 +3521,7 @@
 				222AA0091EB071910038416D /* chatBar_colorMore_photo@3x.png in Resources */,
 				222AA0241EB071910038416D /* C_85@2x.png in Resources */,
 				222AA00B1EB071910038416D /* chatBar_colorMore_photoSelected@3x.png in Resources */,
+				A865437A1FDAA8F900B0F6BE /* SearchCell.xib in Resources */,
 				22E8D77C1EA49AE300C5FC6B /* LaunchScreen.storyboard in Resources */,
 				222AA0281EB071910038416D /* C_89@2x.png in Resources */,
 				222AA09E1EB071910038416D /* B_81@2x.gif in Resources */,
@@ -4107,12 +4125,14 @@
 				228CF7461EDEC8610045986D /* FindVC.m in Sources */,
 				2265F8CA1F3C0D98001A6308 /* UIButton+HQCustomIcon.m in Sources */,
 				2290A8451F4BE826005DA0AE /* BannerView.m in Sources */,
+				A86543741FDAA20600B0F6BE /* SearchVC.m in Sources */,
 				227303091F4ADC390069F53B /* LxBarItem.m in Sources */,
 				2244B4691F00B96800685217 /* AnimOperationManager.m in Sources */,
 				8420E7251F2779E600ADA26E /* LHChatChongZhiBubbleView.m in Sources */,
 				22844F591ED2A1B800A9E32E /* IQTitleBarButtonItem.m in Sources */,
 				223BDF0F1EA70547006DCD65 /* SettingVC.m in Sources */,
 				224F24571EA7339200C0FDC6 /* UIView+WHC_AutoLayout.m in Sources */,
+				A86543791FDAA8F900B0F6BE /* SearchCell.m in Sources */,
 				2286DC641EF26AFE00FDF801 /* LHContentModel.m in Sources */,
 				8413A2B31F4C412C00CB3CBC /* FixIndustryVC.m in Sources */,
 				228B89D91EA866FB002B8D3C /* YYMemoryCache.m in Sources */,

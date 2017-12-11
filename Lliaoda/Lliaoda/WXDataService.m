@@ -7,7 +7,7 @@
 //
 
 #import "WXDataService.h"
-
+#import <AdSupport/AdSupport.h>
 @implementation WXDataService
 
 - (BOOL)isConnected {
@@ -210,7 +210,8 @@
         
     }
 
-     NSString *urlStr ;
+    NSString *urlStr ;
+    NSString *adId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.requestSerializer= [AFJSONRequestSerializer serializer];
@@ -219,7 +220,7 @@
     NSString *appkey = [NSString stringWithFormat:@"%@",[LXUserDefaults objectForKey:LXAppkey]];
     [manager.requestSerializer setValue:appkey forHTTPHeaderField:@"appkey"];
     [manager.requestSerializer setValue:@"zh-tw" forHTTPHeaderField:@"user-language"];
-    
+    [manager.requestSerializer setValue:adId forHTTPHeaderField:@"device-id"];
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *phoneVersion = [[UIDevice currentDevice] systemVersion];
     NSString *agent;
@@ -229,6 +230,7 @@
 //        agent = [NSString stringWithFormat:@"%@,%@,ios,%@,301",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
 //        urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
 //    }else
+    
     if ([lang hasPrefix:@"id"]){
         agent = [NSString stringWithFormat:@"%@,%@,ios,%@,402",@"talktome",[infoDictionary objectForKey:@"CFBundleShortVersionString"],phoneVersion];
         urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
@@ -241,6 +243,7 @@
         urlStr = [NSString stringWithFormat:@"%@%@",MAINURL,url];
     }
 
+    
     
     [manager.requestSerializer setValue:agent forHTTPHeaderField:@"User-Agent"];
 

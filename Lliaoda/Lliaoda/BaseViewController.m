@@ -132,6 +132,20 @@
 //    [self addrighttitleString:@"Top up manual"];
 //    [self widthString:@"9"];
     
+    _searchView = [[UIView alloc] initWithFrame:CGRectMake(_backButtton.right, 25, SCREEN_W - _backButtton.width - _messageButton.width - 10, 34)];
+    _searchView.backgroundColor = [UIColor whiteColor];
+    _searchView.hidden = YES;
+    _searchView.layer.cornerRadius = 17;
+    [self.nav addSubview:_searchView];
+    
+    UIImageView *searchImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 14, 14)];
+    searchImage.image = [UIImage imageNamed:@"sousuo_hui"];
+    [_searchView addSubview:searchImage];
+    
+    _searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(searchImage.right + 5, 0, _searchView.width - searchImage.width - 20, 34)];
+    _searchTextField.placeholder = @"请输入主播ID或名字";
+    _searchTextField.font = [UIFont systemFontOfSize:12];
+    [_searchView addSubview:_searchTextField];
 }
 
 #pragma mark - LeftView红点判断

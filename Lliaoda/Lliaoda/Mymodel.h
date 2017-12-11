@@ -22,7 +22,7 @@
 
 @property(nonatomic,assign)int preferOfflineOption;
 @property(nonatomic,assign)int preferOnlineOption;
-@property(nonatomic,copy)NSString *intro;	//String	个人简介，200字上限
+@property(nonatomic,copy)NSString *intro;    //String    个人简介，200字上限
 @property(nonatomic,assign)int activated;
 @property(nonatomic,assign)int gender;	//Int	性别
 @property(nonatomic,assign)long birthday;	//String[date]	出生日期，公历，返回毫秒数，前端转化

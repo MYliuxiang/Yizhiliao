@@ -101,11 +101,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
-    
-        [self appconfig];
-
-    }
+//    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
+//
+//        [self appconfig];
+//
+//    }
     [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
     [LXUserDefaults synchronize];
     //2222
@@ -1100,12 +1100,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                                 if (newCreated) {
                                     // 第一次登录
                                     [self toSelectSex];
-                                    
+                                   
                                 } else {
                                     [self homePageViewControllerShow];
                                 }
                                 
-                                
+                                 [self getShareActivate];
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                                 
                             }else{
@@ -1120,7 +1120,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                                 } else {
                                     [self homePageViewControllerShow];
                                 }
-                                
+                                [self getShareActivate];
                                 self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                                 
                             }
@@ -1136,7 +1136,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                             } else {
                                 [self homePageViewControllerShow];
                             }
-                            
+                            [self getShareActivate];
                             self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                             
                         }
@@ -1153,7 +1153,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
                     } else {
                         [self homePageViewControllerShow];
                     }
-                    
+                    [self getShareActivate];
                     self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(heartBeat) userInfo:nil repeats:YES];
                 }];
                 
@@ -1750,6 +1750,60 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark - 判断邀请码
+- (void)getShareActivate {
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    NSString *string = board.string;
+    BOOL isShuzi = [self inputShouldNumber:string];
+    if (isShuzi) {
+        NSDictionary *params;
+        params = @{@"code":string};
+        [WXDataService requestAFWithURL:Url_accountshareactivate params:params httpMethod:@"POST" isHUD:NO isErrorHud:YES finishBlock:^(id result) {
+            if(result){
+                if ([[result objectForKey:@"result"] integerValue] == 0) {
+                    
+                    NSDictionary *dic = result[@"data"];
+                    int redirect = [dic[@"redirect"] intValue];
+                    [LXUserDefaults setInteger:redirect forKey:@"redirect"];
+                    [LXUserDefaults setObject:string forKey:@"ZhuboID"];
+                    [LXUserDefaults synchronize];
+                    //                [SVProgressHUD showSuccessWithStatus:LXSring(@"激活成功")];
+                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                        
+                        //                    [self.navigationController popViewControllerAnimated:YES];
+                        [SVProgressHUD dismiss];
+                    });
+                    
+                    
+                    
+                } else{
+                    [SVProgressHUD showErrorWithStatus:result[@"message"]];
+                    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                        
+                        [SVProgressHUD dismiss];
+                    });
+                    
+                }
+            }
+            
+        } errorBlock:^(NSError *error) {
+            NSLog(@"%@",error);
+            
+        }];
+    }
+}
+
+- (BOOL)inputShouldNumber:(NSString *)inputString {
+    if (inputString.length == 0) return NO;
+    NSString *regex =@"[0-9]*";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+    return [pred evaluateWithObject:inputString];
+}
+
 
 
 @end

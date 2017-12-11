@@ -27,6 +27,8 @@
 @property(nonatomic,retain)UILabel *messageCountLabel;  // 消息数
 @property (nonatomic, assign) BOOL isRight; // 隐藏右侧人工充值按钮
 @property (nonatomic, assign) BOOL isShowMessageButton; // 隐藏消息按钮
+@property (nonatomic, retain) UIView *searchView; // 搜索框
+@property (nonatomic, retain) UITextField *searchTextField;
 - (void)back;
 
 - (void)addrightImage:(NSString *)imageString;

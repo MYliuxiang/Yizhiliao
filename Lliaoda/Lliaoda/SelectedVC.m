@@ -10,7 +10,7 @@
 #import "SelectedCell.h"
 #import "SelectedHeader.h"
 #import "PersonalVC.h"
-
+#import "SearchVC.h"
 @interface SelectedVC ()
 
 @end
@@ -24,7 +24,8 @@
     self.text = LXSring(@"精選");
     
     self.backButtton.hidden = NO;
-    [self.backButtton setImage:[UIImage imageNamed:@"kefu"] forState:UIControlStateNormal];
+//    [self.backButtton setImage:[UIImage imageNamed:@"kefu"] forState:UIControlStateNormal];
+    [self.backButtton setImage:[UIImage imageNamed:@"sousuo_lv"] forState:UIControlStateNormal];
     
     self.bannersArray = [NSMutableArray array];
     _flowlayout.sectionInset=UIEdgeInsetsMake(15, 15, 15, 15);
@@ -69,14 +70,26 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated  ];
+    [super viewWillAppear:animated];
+    
+    NSInteger redirect = [LXUserDefaults integerForKey:@"redirect"];
+    NSString *personID = [LXUserDefaults objectForKey:@"ZhuboID"];
+    if (redirect == 1) {
+        LxPersonVC *vc = [[LxPersonVC alloc] init];
+        vc.personUID = personID;
+        vc.isFromHeader = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+//        [LXUserDefaults setObject:string forKey:@"ZhuboID"];
+    }
 }
 
 - (void)back
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"联系客服") message:LXSring(@"感谢您使用TalkToMe\n欢迎添加官方whatsapp 00212611905696 进行反馈") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"联系客服") message:LXSring(@"感谢您使用TalkToMe\n欢迎添加官方whatsapp 00212611905696 进行反馈") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    [alert show];
     
+    SearchVC *vc = [[SearchVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)isZhuBo
