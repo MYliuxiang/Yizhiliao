@@ -23,7 +23,7 @@
 }
 
 - (void)setModel:(IntiveProfitModel *)model {
-    [self.headerImage sd_setImageWithURL:[NSURL URLWithString:model.portrait]];
+    [self.headerImage sd_setImageWithURL:[NSURL URLWithString:model.portrait] placeholderImage:[UIImage imageNamed:@"headerImage.jpg"]];
     self.nameLabel.text = model.nickname;
     long timeSp = model.createdAt;
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeSp / 1000];
@@ -47,6 +47,8 @@
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
+  
+    self.headerImage.layer.cornerRadius = 25;
     // Initialization code
 }
 
