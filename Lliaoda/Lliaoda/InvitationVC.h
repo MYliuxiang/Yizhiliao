@@ -25,6 +25,8 @@
 - (void)call;
 - (void)getCall:(NSString *)callString;
 
+- (void)linkTo;
+
 @end
 @interface InvitationVC : BaseViewController<UIWebViewDelegate,JSObjcDelegate,FBSDKSharingDelegate>
 {

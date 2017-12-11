@@ -10,5 +10,5 @@
 
 @interface InviteProfitVC : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic, strong) NSMutableArray *dataList;
 @end

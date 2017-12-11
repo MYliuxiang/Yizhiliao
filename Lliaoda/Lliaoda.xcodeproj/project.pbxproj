@@ -627,6 +627,9 @@
 		A865437A1FDAA8F900B0F6BE /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86543781FDAA8F900B0F6BE /* SearchCell.xib */; };
 		A870B54F1FDE7AD900AAD58F /* InviteProfitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A870B54D1FDE7AD900AAD58F /* InviteProfitVC.m */; };
 		A870B5501FDE7AD900AAD58F /* InviteProfitVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A870B54E1FDE7AD900AAD58F /* InviteProfitVC.xib */; };
+		A870B5541FDE889E00AAD58F /* InviteProfitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A870B5521FDE889E00AAD58F /* InviteProfitCell.m */; };
+		A870B5551FDE889E00AAD58F /* InviteProfitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A870B5531FDE889E00AAD58F /* InviteProfitCell.xib */; };
+		A870B5581FDE94A400AAD58F /* IntiveProfitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A870B5571FDE94A400AAD58F /* IntiveProfitModel.m */; };
 		CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */; };
 /* End PBXBuildFile section */
 
@@ -1598,6 +1601,11 @@
 		A870B54C1FDE7AD900AAD58F /* InviteProfitVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InviteProfitVC.h; sourceTree = "<group>"; };
 		A870B54D1FDE7AD900AAD58F /* InviteProfitVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InviteProfitVC.m; sourceTree = "<group>"; };
 		A870B54E1FDE7AD900AAD58F /* InviteProfitVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteProfitVC.xib; sourceTree = "<group>"; };
+		A870B5511FDE889E00AAD58F /* InviteProfitCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InviteProfitCell.h; sourceTree = "<group>"; };
+		A870B5521FDE889E00AAD58F /* InviteProfitCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InviteProfitCell.m; sourceTree = "<group>"; };
+		A870B5531FDE889E00AAD58F /* InviteProfitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteProfitCell.xib; sourceTree = "<group>"; };
+		A870B5561FDE94A400AAD58F /* IntiveProfitModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntiveProfitModel.h; sourceTree = "<group>"; };
+		A870B5571FDE94A400AAD58F /* IntiveProfitModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntiveProfitModel.m; sourceTree = "<group>"; };
 		B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lliaoda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C168064B372F162D1F5BB065 /* Pods-Lliaoda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lliaoda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda.release.xcconfig"; sourceTree = "<group>"; };
 		E528CC8DA412F4F2C12F8084 /* libPods-LliaodaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LliaodaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1688,6 +1696,8 @@
 				228942031ED938380020C307 /* AlbumModel.m */,
 				228CF73B1EDEBB2F0045986D /* MyVideoModel.h */,
 				228CF73C1EDEBB2F0045986D /* MyVideoModel.m */,
+				A870B5561FDE94A400AAD58F /* IntiveProfitModel.h */,
+				A870B5571FDE94A400AAD58F /* IntiveProfitModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3131,6 +3141,9 @@
 				8476D56D1F500E0800855CDF /* AccountPayTypeCell.h */,
 				8476D56E1F500E0800855CDF /* AccountPayTypeCell.m */,
 				8476D56F1F500E0800855CDF /* AccountPayTypeCell.xib */,
+				A870B5511FDE889E00AAD58F /* InviteProfitCell.h */,
+				A870B5521FDE889E00AAD58F /* InviteProfitCell.m */,
+				A870B5531FDE889E00AAD58F /* InviteProfitCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3700,6 +3713,7 @@
 				222AA0541EB071910038416D /* B_14@2x.gif in Resources */,
 				222AA0391EB071910038416D /* B_06@2x.gif in Resources */,
 				8483AAFF1F4EEF0A008BA674 /* VideoRZVC1.xib in Resources */,
+				A870B5551FDE889E00AAD58F /* InviteProfitCell.xib in Resources */,
 				222AA06B1EB071910038416D /* B_35@2x.gif in Resources */,
 				222AA0411EB071910038416D /* B_104@2x.gif in Resources */,
 				222A9FFE1EB071910038416D /* IM_Chart_imageDownloadFail@2x.png in Resources */,
@@ -3934,6 +3948,7 @@
 				222AA14C1EB071C10038416D /* UIColor+RGB.m in Sources */,
 				222AA16A1EB071C20038416D /* KeyboardButton.m in Sources */,
 				228CF7391EDE7D070045986D /* MyVideoCell.m in Sources */,
+				A870B5541FDE889E00AAD58F /* InviteProfitCell.m in Sources */,
 				222AA1D91EB0775B0038416D /* NSAttributedString+YYText.m in Sources */,
 				22ADAE2B1F0BC352005D08A4 /* IAPModel.m in Sources */,
 				222AA1D21EB0775B0038416D /* YYTextMagnifier.m in Sources */,
@@ -4082,6 +4097,7 @@
 				22B109341EA4B2CF00E35B74 /* SelectedCell.m in Sources */,
 				222AA1511EB071C10038416D /* UIViewController+Set.m in Sources */,
 				222AA1491EB071C10038416D /* NSCalendar+Establish.m in Sources */,
+				A870B5581FDE94A400AAD58F /* IntiveProfitModel.m in Sources */,
 				222DD1AA1EADD0E400B7A8D7 /* CityModel.m in Sources */,
 				222F57881EE5546B00A8A784 /* FindModel.m in Sources */,
 				222B38221ED9642B009DB58F /* FSActionSheetConfig.m in Sources */,

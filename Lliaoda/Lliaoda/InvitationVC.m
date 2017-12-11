@@ -7,7 +7,7 @@
 //
 
 #import "InvitationVC.h"
-
+#import "InviteProfitVC.h"
 
 
 @interface InvitationVC ()
@@ -184,8 +184,8 @@
 
         urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.tv/pages/zh-tw/share-result.html?auth=%d",self.model.auth];
     }else if ([lang hasPrefix:@"id"]){
-    
-            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share-result.html?app=talktome&auth=%d",self.model.auth];
+        urlstring = [NSString stringWithFormat:@"http://demo.yizhiliao.live/pages/id-id/share-result.html?app=talktome&auth=%d",self.model.auth];
+//            urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.live/pages/id-id/share-result.html?app=talktome&auth=%d",self.model.auth];
     }else if ([lang hasPrefix:@"ar"]){
         
         urlstring = [NSString stringWithFormat:@"https://www.yizhiliao.net/pages/ar-sa/share-result.html?auth=%d",self.model.auth];
@@ -200,7 +200,20 @@
     NSURLRequest *resquest = [NSURLRequest requestWithURL:url];
     [_webView loadRequest:resquest];
     
-   
+    JSContext *context = [[JSContext alloc] init];
+    // 定义一个block
+    context[@"log"] = ^() {
+        NSLog(@"+++++++Begin Log+++++++");
+        
+        NSArray *args = [JSContext currentArguments];
+        for (JSValue *jsVal in args) {
+            NSLog(@"%@", jsVal);
+        }
+        
+        JSValue *this = [JSContext currentThis];
+        NSLog(@"this: %@",this);
+        NSLog(@"-------End Log-------");
+    };
     
 }
 
@@ -212,7 +225,9 @@
     //开启状态上的加载提示
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
+    
+    
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
     
     
 }
@@ -256,6 +271,19 @@
     [self addrightImage:@"fenxiang"];
     self.yaoBtn.hidden = NO;
     
+    self.jsContext = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    self.jsContext[@"app"] = self;
+    self.jsContext.exceptionHandler = ^(JSContext *context, JSValue *ex){
+        context.exception = ex;
+        NSLog(@"异常信息%@",ex);
+    };
+    
+}
+
+- (void)linkTo
+{
+    InviteProfitVC *vc = [[InviteProfitVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)loadData{
