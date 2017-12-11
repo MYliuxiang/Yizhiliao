@@ -625,6 +625,8 @@
 		A86543751FDAA20600B0F6BE /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86543731FDAA20600B0F6BE /* SearchVC.xib */; };
 		A86543791FDAA8F900B0F6BE /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A86543771FDAA8F900B0F6BE /* SearchCell.m */; };
 		A865437A1FDAA8F900B0F6BE /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86543781FDAA8F900B0F6BE /* SearchCell.xib */; };
+		A870B54F1FDE7AD900AAD58F /* InviteProfitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A870B54D1FDE7AD900AAD58F /* InviteProfitVC.m */; };
+		A870B5501FDE7AD900AAD58F /* InviteProfitVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A870B54E1FDE7AD900AAD58F /* InviteProfitVC.xib */; };
 		CDB491352D29AFF4D1DFA853 /* libPods-Lliaoda.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */; };
 /* End PBXBuildFile section */
 
@@ -1593,6 +1595,9 @@
 		A86543761FDAA8F900B0F6BE /* SearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
 		A86543771FDAA8F900B0F6BE /* SearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
 		A86543781FDAA8F900B0F6BE /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		A870B54C1FDE7AD900AAD58F /* InviteProfitVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InviteProfitVC.h; sourceTree = "<group>"; };
+		A870B54D1FDE7AD900AAD58F /* InviteProfitVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InviteProfitVC.m; sourceTree = "<group>"; };
+		A870B54E1FDE7AD900AAD58F /* InviteProfitVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteProfitVC.xib; sourceTree = "<group>"; };
 		B8E030BB83930EFAB57930D3 /* libPods-Lliaoda.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lliaoda.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C168064B372F162D1F5BB065 /* Pods-Lliaoda.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lliaoda.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lliaoda/Pods-Lliaoda.release.xcconfig"; sourceTree = "<group>"; };
 		E528CC8DA412F4F2C12F8084 /* libPods-LliaodaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LliaodaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2800,6 +2805,9 @@
 				A86043B51FD1412800B269FD /* SelectSexVC.h */,
 				A86043B61FD1412800B269FD /* SelectSexVC.m */,
 				A86043B71FD1412800B269FD /* SelectSexVC.xib */,
+				A870B54C1FDE7AD900AAD58F /* InviteProfitVC.h */,
+				A870B54D1FDE7AD900AAD58F /* InviteProfitVC.m */,
+				A870B54E1FDE7AD900AAD58F /* InviteProfitVC.xib */,
 				222B383D1ED96843009DB58F /* MSSBrowse */,
 				222B37DA1ED9642B009DB58F /* XLPhotoBrowser */,
 			);
@@ -3603,6 +3611,7 @@
 				222AA0181EB071910038416D /* C_106@2x.png in Resources */,
 				222AA07D1EB071910038416D /* B_51@2x.gif in Resources */,
 				84F0871C1F54039A00026235 /* OnlineUserCell.xib in Resources */,
+				A870B5501FDE7AD900AAD58F /* InviteProfitVC.xib in Resources */,
 				222AA0931EB071910038416D /* B_71@2x.gif in Resources */,
 				222AA01C1EB071910038416D /* C_110@2x.png in Resources */,
 				222AA09A1EB071910038416D /* B_78@2x.gif in Resources */,
@@ -3943,6 +3952,7 @@
 				2286DC691EF26AFE00FDF801 /* LHChatTextBubbleView.m in Sources */,
 				222AA1731EB071C20038416D /* LHTools.m in Sources */,
 				228CF7491EDED25F0045986D /* JXCircleView.m in Sources */,
+				A870B54F1FDE7AD900AAD58F /* InviteProfitVC.m in Sources */,
 				2286DC681EF26AFE00FDF801 /* LHChatLocationBubbleView.m in Sources */,
 				222B38231ED9642B009DB58F /* FSActionSheetItem.m in Sources */,
 				225DC9D61ED818B3002ADA8F /* AcceptVC.m in Sources */,
