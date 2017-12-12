@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIView *bottomLineView;
 @property (weak, nonatomic) IBOutlet UIView *priceBGView;
 @property (weak, nonatomic) IBOutlet UILabel *freeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *zuanshiImage;
 
 @end
