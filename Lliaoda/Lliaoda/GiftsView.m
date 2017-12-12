@@ -267,7 +267,7 @@ static NSString *identifire = @"GiftID";
                         self.superview.hidden = YES;
                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                         
-                        if ([LXUserDefaults boolForKey:ISMEiGUO]){
+//                        if ([LXUserDefaults boolForKey:ISMEiGUO]){
                             AccountVC *vc = [[AccountVC alloc] init];
                             vc.isCall = YES;
                             vc.clickBlock = ^(){
@@ -276,29 +276,29 @@ static NSString *identifire = @"GiftID";
                             };
                             [[self topViewController].navigationController pushViewController:vc animated:YES];
                             
-                        }else{
-                            
-                            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-                            if ([lang hasPrefix:@"id"]){
-                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                                vc.isCall = YES;
-                                vc.clickBlock = ^(){
-                                    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-                                    self.superview.hidden = NO;
-                                };
-                                [[self topViewController].navigationController pushViewController:vc animated:YES];
-                            } else if ([lang hasPrefix:@"ar"]){
-                                AccountVC *vc = [[AccountVC alloc] init];
-                                vc.isCall = YES;
-                                vc.clickBlock = ^(){
-                                    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-                                    self.superview.hidden = NO;
-                                };
-                                [[self topViewController].navigationController pushViewController:vc animated:YES];
-                            }
-                            
-                            
-                        }
+//                        }else{
+//                            
+//                            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//                            if ([lang hasPrefix:@"id"]){
+//                                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+//                                vc.isCall = YES;
+//                                vc.clickBlock = ^(){
+//                                    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+//                                    self.superview.hidden = NO;
+//                                };
+//                                [[self topViewController].navigationController pushViewController:vc animated:YES];
+//                            } else if ([lang hasPrefix:@"ar"]){
+//                                AccountVC *vc = [[AccountVC alloc] init];
+//                                vc.isCall = YES;
+//                                vc.clickBlock = ^(){
+//                                    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+//                                    self.superview.hidden = NO;
+//                                };
+//                                [[self topViewController].navigationController pushViewController:vc animated:YES];
+//                            }
+//                            
+//                            
+//                        }
                     };
                     [lg showAnimated:YES completionHandler:nil];
                     
