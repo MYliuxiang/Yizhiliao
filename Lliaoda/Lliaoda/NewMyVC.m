@@ -723,9 +723,9 @@
                 }];
             } else if (indexPath.section == 2) {
                 // 鑽石餘額
-//                AccountVC *vc = [[AccountVC alloc] init];
-//                vc.deposit = self.model.deposit;
-//                [self.navigationController pushViewController:vc animated:YES];
+                AccountVC *vc = [[AccountVC alloc] init];
+                vc.deposit = self.model.deposit;
+                [self.navigationController pushViewController:vc animated:YES];
                 
             } else if (indexPath.section == 3) {
                 
@@ -740,9 +740,9 @@
         } else {
             if (indexPath.section == 1) {
                 // 鑽石餘額
-//                AccountVC *vc = [[AccountVC alloc] init];
-//                vc.deposit = self.model.deposit;
-//                [self.navigationController pushViewController:vc animated:YES];
+                AccountVC *vc = [[AccountVC alloc] init];
+                vc.deposit = self.model.deposit;
+                [self.navigationController pushViewController:vc animated:YES];
             } else if (indexPath.row == 2) {
                 if (indexPath.row == 0) {
                     // 關於
