@@ -147,6 +147,7 @@
     [WXDataService requestAFWithURL:Url_accountheartbeat params:params httpMethod:@"POST" isHUD:NO isErrorHud:NO finishBlock:^(id result) {
         if(result){
             
+            //
         }
         
     } errorBlock:^(NSError *error) {
