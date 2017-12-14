@@ -24,7 +24,9 @@
     self.nav.backgroundColor = Color_Tab;
     [self.backButtton setImage:[UIImage imageNamed:@"back_bai"] forState:UIControlStateNormal];
     self.searchView.hidden = NO;
-    [self addrighttitleString:@"搜索"];
+    [self addrighttitleString:LXSring(@"搜索")];
+    _nilLabel.text = LXSring(@"对不起，暂时没有匹配到ID或昵称");
+//    self.searchTextField.placeholder = LXSring(@"请输入主播ID或者名字");
     [self.rightbutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 

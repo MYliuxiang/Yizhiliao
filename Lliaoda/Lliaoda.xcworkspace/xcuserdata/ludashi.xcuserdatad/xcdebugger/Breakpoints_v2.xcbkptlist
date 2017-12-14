@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Lliaoda/AccountVC.m"
-            timestampString = "534417373.58952"
+            filePath = "Lliaoda/AppDelegate.m"
+            timestampString = "534928586.009499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "-productsRequest:didReceiveResponse:"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "-paymentQueue:updatedTransactions:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

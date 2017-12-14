@@ -35,11 +35,11 @@
     if (model.categoryId == 0) {
         // 邀请
         _detailLabel.textColor = UIColorFromRGB(0x666666);
-        _detailLabel.text = [NSString stringWithFormat:@"你邀请的%@已经注册登陆，你已获得：", model.nickname];
+        _detailLabel.text = [NSString stringWithFormat:LXSring(@"你邀请的%@已经注册登陆，你已获得："), model.nickname];
     } else {
         // 充值
         _detailLabel.textColor = UIColorFromRGB(0xfe707d);
-        _detailLabel.text = [NSString stringWithFormat:@"你邀请的%@充值%d钻，你已获得：", model.nickname, model.value];
+        _detailLabel.text = [NSString stringWithFormat:LXSring(@"你邀请的%@充值%d钻，你已获得："), model.nickname, model.value];
     }
     self.countLabel.text = model.score;
     

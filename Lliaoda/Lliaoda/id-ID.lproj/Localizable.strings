@@ -443,3 +443,10 @@
 "女生"   = "Perempuan";
 "性别一旦选择后，不能自行更改"   = "Setelah dipilih, jenis kelamin tidak boleh diganti.";
 "跳过"   =  "lewati";
+"邀请收益明细"   =  "Rincian Invite";
+"你邀请的%@已经注册登陆，你已获得："  =  "%@ yang kamu invite telah berhasil register, kamu mendapat";
+"你邀请的%@充值%d钻，你已获得："  =  "%@ yang kamu invite telah berhasil top up %@ diamond, kamu mendapat";
+"请输入主播ID或者名字"   =   "Masukkan ID atau Nickname";
+"搜索"   =  "Cari";
+"取消"   =  "Batal";
+"对不起，暂时没有匹配到ID或昵称"   =  "Maaf, ID atau Nickname tidak tersedia";
