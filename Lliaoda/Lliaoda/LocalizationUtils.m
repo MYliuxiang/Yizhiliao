@@ -50,10 +50,12 @@
     }else{
         mainStr = @"https://liao.yizhiliao.live/api/";
     }
-
     return mainStr;
     
 }
+
+
+
 + (NSString *)getagoreappID
 {
     

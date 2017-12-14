@@ -284,7 +284,6 @@
 
 
 #pragma mark pickerViewDelegate
-
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     if (pickerView == self.picker) {
         return 3;
