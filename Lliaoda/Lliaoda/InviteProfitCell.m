@@ -39,6 +39,8 @@
     } else {
         // 充值
         _detailLabel.textColor = UIColorFromRGB(0xfe707d);
+//        _detailLabel.text = [NSString stringWithFormat:LXSring(@"你邀请的%@充值%d钻，你已获得："), model.nickname, model.value];
+        
         _detailLabel.text = [NSString stringWithFormat:LXSring(@"你邀请的%@充值%d钻，你已获得："), model.nickname, model.value];
     }
     self.countLabel.text = model.score;

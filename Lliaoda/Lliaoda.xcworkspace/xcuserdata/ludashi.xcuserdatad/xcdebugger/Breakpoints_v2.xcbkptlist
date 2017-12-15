@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "257"
             endingLineNumber = "257"
-            landmarkName = "-paymentQueue:updatedTransactions:"
+            landmarkName = "-messageRobot"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

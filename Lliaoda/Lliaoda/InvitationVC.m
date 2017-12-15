@@ -282,8 +282,11 @@
 
 - (void)linkTo
 {
-    InviteProfitVC *vc = [[InviteProfitVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+    if ([lang hasPrefix:@"id"]) {
+        InviteProfitVC *vc = [[InviteProfitVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)loadData{
