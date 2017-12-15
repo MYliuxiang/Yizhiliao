@@ -143,6 +143,7 @@
     [_searchView addSubview:searchImage];
     
     _searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(searchImage.right + 5, 0, _searchView.width - searchImage.width - 20, 34)];
+    _searchTextField.inputAccessoryView = [UIView new];
     _searchTextField.placeholder = LXSring(@"请输入主播ID或者名字");
     _searchTextField.font = [UIFont systemFontOfSize:12];
     [_searchView addSubview:_searchTextField];
