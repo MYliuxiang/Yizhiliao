@@ -34,6 +34,7 @@
     begin = 0;
     [_dataList removeAllObjects];
     isdownload = YES;
+    [self loadData];
 }
 - (void)upload {
     [self loadData];
@@ -49,7 +50,7 @@
                 NSDictionary *dic = result[@"data"];
                 NSArray *logs = dic[@"logs"];
                 for (NSDictionary *dics in logs) {
-                    IntiveProfitModel *model = [[IntiveProfitModel alloc] initWithDataDic:dics];
+                    IntiveProfitModel *model = [IntiveProfitModel mj_objectWithKeyValues:dics];
                     begin = model.pid;
                     [_dataList addObject:model];
                 }
@@ -126,7 +127,32 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    IntiveProfitModel *model;
+    if (indexPath.row < _dataList.count) {
+        model = _dataList[indexPath.row];
+    }
+//    "已经注册登陆，你已获得："  =  "已经注册登陆，你已获得：";
+//    "已充值%d钻，你获得："  =  "已充值%d钻，你获得：";
+    NSString *string = @"";
+    if (model.categoryId == 0) {
+        // 邀请
+        string = LXSring(@"已经注册登陆，你已获得：");
+    } else {
+        // 充值
+        string = [NSString stringWithFormat:LXSring(@"已充值%d钻，你获得："), model.value];
+    }
+    CGSize size = [self setWidth:SCREEN_W - 147 height:300 font:14 content:string];
+    
+    long timeSp = model.createdAt;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeSp / 1000];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY.MM.dd HH:mm:ss"];
+    NSString *string1 = [formatter stringFromDate:date];
+    NSString *string2 = model.nickname;
+    NSString *str = [NSString stringWithFormat:@"%@ %@", string2, string1];
+    CGSize size2 = [self setWidth:SCREEN_W - 147 height:300 font:14 content:str];
+    
+    return size.height + 62 - 17 + size2.height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,11 +160,20 @@
     if (indexPath.row < _dataList.count) {
         model = _dataList[indexPath.row];
     }
+    begin = [model.sourceId intValue];
     LxPersonVC *vc = [[LxPersonVC alloc] init];
     vc.isFromHeader = YES;
     vc.personUID = model.sourceId;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+- (CGSize) setWidth:(CGFloat)width height:(CGFloat)height font:(CGFloat)font content:(NSString *)content{
+    UIFont *fonts = [UIFont systemFontOfSize:font];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:fonts,NSFontAttributeName, nil];
+    CGSize size1 = [content boundingRectWithSize:CGSizeMake(width, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+    return size1;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

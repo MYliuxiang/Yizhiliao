@@ -5,7 +5,7 @@
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
 	<key>CFBundleDisplayName</key>
-	<string>TalkToMe</string>
+	<string>Talkee</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -90,11 +90,11 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>是否允许Candy Talk使用麦克风</string>
+	<string>是否允许Talkee使用麦克风</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>是否允许Candy Talk录制視訊</string>
+	<string>是否允许Talkee录制視訊</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>是否允许Candy Talk使用相薄</string>
+	<string>是否允许Talkee使用相薄</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

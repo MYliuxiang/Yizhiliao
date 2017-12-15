@@ -5,8 +5,8 @@
   Created by 刘翔 on 2017/8/7.
   Copyright © 2017年 刘翔. All rights reserved.
 */
-NSCameraUsageDescription = "是否允许Candy Talk使用麦克风";
-NSMicrophoneUsageDescription = "是否允许Candy Talk录制視訊";
-NSPhotoLibraryUsageDescription = "是否允许Candy Talk使用相薄";
+NSCameraUsageDescription = "是否允许Talkee使用麦克风";
+NSMicrophoneUsageDescription = "是否允许Talkee录制視訊";
+NSPhotoLibraryUsageDescription = "是否允许Talkee使用相薄";
 
 
