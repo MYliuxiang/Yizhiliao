@@ -65,7 +65,7 @@
 		<dict/>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>FacebookAppID</key>
 	<string>717852398421155</string>
 	<key>FacebookDisplayName</key>
@@ -90,11 +90,11 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>是否允许Candy Talk使用麦克风</string>
+	<string>是否允许YOU聊使用相机</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>是否允许Candy Talk录制視訊</string>
+	<string>是否允許YOU聊開啟相機進行視訊聊天</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>是否允许Candy Talk使用相薄</string>
+	<string>是否允许YOU聊使用相薄</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

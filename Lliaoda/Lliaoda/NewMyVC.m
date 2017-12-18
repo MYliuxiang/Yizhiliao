@@ -232,7 +232,8 @@
 
         [self.messagePhotos addObject:@[@"guanyu", @"fankui"]];
         
-        
+        [self.nameArray addObject:@[@"設置"]];
+        [self.messagePhotos addObject:@[@"shezhi"]];
     }else{
         if (self.model.auth == 2) {
             [self.nameArray addObject:@[@"常在線時間"]];
@@ -735,7 +736,13 @@
                     [self.navigationController pushViewController:vc animated:YES];
                 } else {
                     // 建議
+                    SuggestFeedbackVC *vc = [[SuggestFeedbackVC alloc] init];
+                    [self.navigationController pushViewController:vc animated:YES];
                 }
+            } else {
+                // 設置
+                SettingVC *vc = [[SettingVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
             }
         } else {
             if (indexPath.section == 1) {
@@ -743,7 +750,7 @@
                 AccountVC *vc = [[AccountVC alloc] init];
                 vc.deposit = self.model.deposit;
                 [self.navigationController pushViewController:vc animated:YES];
-            } else if (indexPath.row == 2) {
+            } else if (indexPath.section == 2) {
                 if (indexPath.row == 0) {
                     // 關於
                     AboutVC *vc = [[AboutVC alloc] init];

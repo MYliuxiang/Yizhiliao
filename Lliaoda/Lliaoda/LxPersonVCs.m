@@ -446,8 +446,8 @@
     }
     if (indexPath.row == 0) {
         if ([LXUserDefaults boolForKey:ISMEiGUO]) {
-//            cell.contentLabel.text = @"每日限免";
-            cell.contentLabel.hidden = YES;
+            cell.contentLabel.text = @"每日限免";
+//            cell.contentLabel.hidden = YES;
             cell.zuanshiImage.hidden = YES;
         } else {
             cell.contentLabel.hidden = NO;
@@ -467,7 +467,12 @@
             }
         }
         if ([LXUserDefaults boolForKey:ISMEiGUO]) {
-            cell.contentLabel.hidden = YES;
+            if (charge.name.length == 0) {
+                cell.contentLabel.text = @"5鉆每分鐘";
+            } else {
+                cell.contentLabel.text = charge.name;
+            }
+//            cell.contentLabel.hidden = YES;
             cell.zuanshiImage.hidden = YES;
         } else {
             if (charge.name.length == 0) {
@@ -489,7 +494,12 @@
             }
         }
         if ([LXUserDefaults boolForKey:ISMEiGUO]) {
-            cell.contentLabel.hidden = YES;
+            if (charge.name.length == 0) {
+                cell.contentLabel.text = @"5鉆每分鐘";
+            } else {
+                cell.contentLabel.text = charge.name;
+            }
+//            cell.contentLabel.hidden = YES;
             cell.zuanshiImage.hidden = YES;
         } else {
             if (charge.name.length == 0) {

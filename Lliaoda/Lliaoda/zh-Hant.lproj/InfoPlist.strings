@@ -5,7 +5,7 @@
   Created by 刘翔 on 2017/8/7.
   Copyright © 2017年 刘翔. All rights reserved.
 */
-NSCameraUsageDescription = "是否允许YOU 聊使用麦克风";
+NSCameraUsageDescription = "是否允許YOU聊開啟相機進行視訊聊天";
 NSMicrophoneUsageDescription = "是否允许YOU 聊录制視訊";
 NSPhotoLibraryUsageDescription = "是否允许YOU 聊使用相薄";
 

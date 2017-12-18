@@ -50,10 +50,12 @@
     }else{
         mainStr = @"https://liao.yizhiliao.live/api/";
     }
-
     return mainStr;
     
 }
+
+
+
 + (NSString *)getagoreappID
 {
     
@@ -71,9 +73,8 @@
 //        agoreappIDStr = @"e063233af0694b93a6639bbd7e92b26a";
 //    }
     
-    
-    
     return agoreappIDStr;
+    
 }
 
 + (NSString *)getPayMainUrl
