@@ -3180,9 +3180,9 @@
 			isa = PBXGroup;
 			children = (
 				22ADAE181F0B8EE9005D08A4 /* Lliaoda.entitlements */,
-				222740181EC56A95002FEF5B /* 启动视屏 */,
 				22E8D76F1EA49AE300C5FC6B /* AppDelegate.h */,
 				22E8D7701EA49AE300C5FC6B /* AppDelegate.m */,
+				222740181EC56A95002FEF5B /* 启动视屏 */,
 				22ADAE291F0BC352005D08A4 /* IAPModel.h */,
 				22ADAE2A1F0BC352005D08A4 /* IAPModel.m */,
 				843EC0241F29D9750051AFD3 /* OrderID.h */,
