@@ -2,7 +2,7 @@
 #ifndef io_agora_sdk2_h
 #define io_agora_sdk2_h
 
-#define AGORA_SDK_VERSION "1.1.3.42"
+#define AGORA_SDK_VERSION "1.1.4.29"
 
 
 
@@ -71,6 +71,7 @@ __attribute__ ((visibility ("default"))) @interface AgoraAPI : NSObject
 @property (copy) void(^onChannelUserLeaved)(NSString* account,uint32_t uid) ;
 @property (copy) void(^onChannelUserList)(NSMutableArray* accounts, NSMutableArray* uids);
 @property (copy) void(^onChannelQueryUserNumResult)(NSString* channelID,AgoraEcode ecode,int num) ;
+@property (copy) void(^onChannelQueryUserIsIn)(NSString* channelID,NSString* account,int isIn) ;
 @property (copy) void(^onChannelAttrUpdated)(NSString* channelID,NSString* name,NSString* value,NSString* type) ;
 @property (copy) void(^onInviteReceived)(NSString* channelID,NSString* account,uint32_t uid,NSString* extra) ;
 @property (copy) void(^onInviteReceivedByPeer)(NSString* channelID,NSString* account,uint32_t uid) ;
@@ -87,7 +88,7 @@ __attribute__ ((visibility ("default"))) @interface AgoraAPI : NSObject
 @property (copy) void(^onMessageInstantReceive)(NSString* account,uint32_t uid,NSString* msg) ;
 @property (copy) void(^onMessageChannelReceive)(NSString* channelID,NSString* account,uint32_t uid,NSString* msg) ;
 @property (copy) void(^onLog)(NSString* txt) ;
-@property (copy) void(^onInvokeRet)(NSString* name,int ofu,NSString* reason,NSString* resp) ;
+@property (copy) void(^onInvokeRet)(NSString* callID,NSString* err,NSString* resp) ;
 @property (copy) void(^onMsg)(NSString* from,NSString* t,NSString* msg) ;
 @property (copy) void(^onUserAttrResult)(NSString* account,NSString* name,NSString* value) ;
 @property (copy) void(^onUserAttrAllResult)(NSString* account,NSString* value) ;
@@ -107,6 +108,7 @@ __attribute__ ((visibility ("default"))) @interface AgoraAPI : NSObject
 
 - (void) channelLeave:(NSString*)channelID ;
 - (void) channelQueryUserNum:(NSString*)channelID ;
+- (void) channelQueryUserIsIn:(NSString*)channelID account:(NSString*)account ;
 - (void) channelSetAttr:(NSString*)channelID name:(NSString*)name value:(NSString*)value ;
 - (void) channelDelAttr:(NSString*)channelID name:(NSString*)name ;
 - (void) channelClearAttr:(NSString*)channelID ;
@@ -123,7 +125,7 @@ __attribute__ ((visibility ("default"))) @interface AgoraAPI : NSObject
 - (void) messageInstantSend:(NSString*)account uid:(uint32_t)uid msg:(NSString*)msg msgID:(NSString*)msgID ;
 - (void) messageInstantSend2:(NSString*)account uid:(uint32_t)uid msg:(NSString*)msg msgID:(NSString*)msgID options:(NSString*)options ;
 - (void) messageChannelSend:(NSString*)channelID msg:(NSString*)msg msgID:(NSString*)msgID ;
-- (void) messageChannelSendFast:(NSString*)channelID msg:(NSString*)msg msgID:(NSString*)msgID ;
+- (void) messageChannelSendForce:(NSString*)channelID msg:(NSString*)msg msgID:(NSString*)msgID ;
 - (void) messagePushSend:(NSString*)account uid:(uint32_t)uid msg:(NSString*)msg msgID:(NSString*)msgID ;
 - (void) messageChatSend:(NSString*)account uid:(uint32_t)uid msg:(NSString*)msg msgID:(NSString*)msgID ;
 - (void) messageDTMFSend:(uint32_t)uid msg:(NSString*)msg msgID:(NSString*)msgID ;
@@ -136,7 +138,7 @@ __attribute__ ((visibility ("default"))) @interface AgoraAPI : NSObject
 - (void) getUserAttr:(NSString*)account name:(NSString*)name ;
 - (void) getUserAttrAll:(NSString*)account ;
 - (void) queryUserStatus:(NSString*)account ;
-- (void) invoke:(NSString*)name req:(NSString*)req ;
+- (void) invoke:(NSString*)name req:(NSString*)req callID:(NSString*)callID ;
 - (void) start;
 - (void) stop;
 - (bool) isOnline;
