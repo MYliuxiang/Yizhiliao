@@ -27,5 +27,5 @@
 @property (nonatomic,retain) NSMutableArray *dataList;
 - (instancetype)initGiftsView;
 @property (nonatomic,retain) PersonModel *pmodel;
-@property (nonatomic, assign) BOOL isVideoBool;
+@property (nonatomic, assign) BOOL isCall;
 @end

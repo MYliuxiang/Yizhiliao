@@ -225,7 +225,7 @@ static NSString *identifire = @"GiftID";
                 giftModel.diamonds = model.diamonds;
                 
                 NSString *userId = [NSString stringWithFormat:@"%@%@",[LXUserDefaults objectForKey:UID],model.uid];
-                if (self.isVideoBool) {
+                if (self.isCall) {
                     AnimOperationManager *manager = [AnimOperationManager sharedManager];
                     manager.parentView = self.superview;
                     [manager animWithUserID:userId model:giftModel finishedBlock:^(BOOL result) {
@@ -269,7 +269,7 @@ static NSString *identifire = @"GiftID";
                         
                         if ([LXUserDefaults boolForKey:ISMEiGUO]){
                             AccountVC *vc = [[AccountVC alloc] init];
-                            vc.isCall = YES;
+                            vc.isCall = self.isCall;
                             vc.clickBlock = ^(){
                                 [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                                 self.superview.hidden = NO;
@@ -281,15 +281,16 @@ static NSString *identifire = @"GiftID";
                             NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
                             if ([lang hasPrefix:@"id"]){
                                 AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                                vc.isCall = YES;
+                                vc.isCall = self.isCall;
                                 vc.clickBlock = ^(){
                                     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                                     self.superview.hidden = NO;
                                 };
+                                self.superview.hidden = NO;
                                 [[self topViewController].navigationController pushViewController:vc animated:YES];
                             } else if ([lang hasPrefix:@"ar"]){
                                 AccountVC *vc = [[AccountVC alloc] init];
-                                vc.isCall = YES;
+                                vc.isCall = self.isCall;
                                 vc.clickBlock = ^(){
                                     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                                     self.superview.hidden = NO;
@@ -349,7 +350,7 @@ static NSString *identifire = @"GiftID";
 
 
 - (IBAction)chongAC:(id)sender {
-    if(self.isVideoBool){
+    if(self.isCall){
         
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
 
@@ -358,7 +359,7 @@ static NSString *identifire = @"GiftID";
 //    AccountVC *vc = [[AccountVC alloc] init];
 //    vc.isCall = YES;
 //    vc.clickBlock = ^(){
-//        if(self.isVideoBool){
+//        if(self.isCall){
 //            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 //
 //        }
@@ -369,9 +370,9 @@ static NSString *identifire = @"GiftID";
     
     if ([LXUserDefaults boolForKey:ISMEiGUO]){
         AccountVC *vc = [[AccountVC alloc] init];
-        vc.isCall = YES;
+        vc.isCall = self.isCall;
         vc.clickBlock = ^(){
-            if(self.isVideoBool){
+            if(self.isCall){
                 [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
                 
             }
@@ -383,9 +384,9 @@ static NSString *identifire = @"GiftID";
         NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
         if ([lang hasPrefix:@"id"]){
             AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-            vc.isCall = YES;
+            vc.isCall = self.isCall;
             vc.clickBlock = ^(){
-                if(self.isVideoBool){
+                if(self.isCall){
                     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
                 }
                 self.superview.hidden = NO;
@@ -395,9 +396,9 @@ static NSString *identifire = @"GiftID";
             
         } else if ([lang hasPrefix:@"ar"]){
             AccountVC *vc = [[AccountVC alloc] init];
-            vc.isCall = YES;
+            vc.isCall = self.isCall;
             vc.clickBlock = ^(){
-                if(self.isVideoBool){
+                if(self.isCall){
                     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
                 }
                 self.superview.hidden = NO;

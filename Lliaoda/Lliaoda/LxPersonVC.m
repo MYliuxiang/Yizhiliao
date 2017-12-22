@@ -282,6 +282,7 @@
                                 lg.destructiveHandler = ^(LGAlertView * _Nonnull alertView) {
                                     if ([LXUserDefaults boolForKey:ISMEiGUO]){
                                         AccountVC *vc = [[AccountVC alloc] init];
+                                        vc.isCall = NO;
                                         [self.navigationController pushViewController:vc animated:YES];
                                         
                                     }else{
@@ -1125,7 +1126,7 @@
         [self newgiftView];
         [self _loadData1];
         self.giftsView.pmodel = self.pmodel;
-        self.giftsView.isVideoBool = NO;
+        self.giftsView.isCall = NO;
         [UIView animateWithDuration:.35 animations:^{
             _blackView.hidden = NO;
             self.giftsView.top = kScreenHeight - 300;

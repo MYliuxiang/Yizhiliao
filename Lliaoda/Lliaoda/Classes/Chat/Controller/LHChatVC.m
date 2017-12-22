@@ -664,7 +664,7 @@ NSString *const kTableViewFrame = @"frame";
     [self newgiftView];
     [self loadYUe];
     self.giftsView.pmodel = self.pmodel;
-    self.giftsView.isVideoBool = NO;
+    self.giftsView.isCall = NO;
     [UIView animateWithDuration:.35 animations:^{
         _blackView.hidden = NO;
         self.giftsView.top = kScreenHeight - 300;
@@ -1547,7 +1547,7 @@ NSString *const kTableViewFrame = @"frame";
         [self newgiftView];
         
         self.giftsView.pmodel = self.pmodel;
-        self.giftsView.isVideoBool = NO;
+        self.giftsView.isCall = NO;
         
         [UIView animateWithDuration:.35 animations:^{
             _blackView.hidden = NO;

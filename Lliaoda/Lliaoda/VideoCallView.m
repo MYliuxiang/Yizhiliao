@@ -2002,7 +2002,7 @@
     
     [self newgiftView];
     self.giftsView.pmodel = self.model;
-    self.giftsView.isVideoBool = YES;
+    self.giftsView.isCall = YES;
     [UIView animateWithDuration:.35 animations:^{
         
         self.giftsView.top = kScreenHeight - 300;
