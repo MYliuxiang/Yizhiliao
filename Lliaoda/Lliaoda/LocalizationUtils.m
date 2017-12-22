@@ -50,6 +50,8 @@
     }else{
         mainStr = @"https://liao.yizhiliao.live/api/";
     }
+    mainStr = @"https://liao.yizhiliao.live/api/";
+
     return mainStr;
     
 }

@@ -133,6 +133,7 @@
     }
     view.frame = CGRectMake(index*self.width, 0, self.width, self.height);
     [self addSubview:view];
+    
 }
 
 

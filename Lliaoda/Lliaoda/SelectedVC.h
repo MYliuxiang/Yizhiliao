@@ -11,7 +11,7 @@
 
 @interface SelectedVC : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
-    int _begin;
+    int _start;
     BOOL _isdownLoad;
 
 }

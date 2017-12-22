@@ -53,13 +53,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
-
-        [self appconfig];
-
-    }
-    [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
-    [LXUserDefaults synchronize];
+//    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
+//
+//        [self appconfig];
+//
+//    }
+//    [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
+//    [LXUserDefaults synchronize];
     
     [AppsFlyerTracker sharedTracker].appsFlyerDevKey = @"KqnwDx2iekh99XSrK76fr6";
     [AppsFlyerTracker sharedTracker].appleAppID = @"1275434834";

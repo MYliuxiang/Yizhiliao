@@ -381,6 +381,10 @@
 		22453BAA1F1C73FF0000C006 /* ProfitVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22453BA81F1C73FF0000C006 /* ProfitVC.xib */; };
 		22453BAE1F1C74290000C006 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22453BAC1F1C74290000C006 /* UserCell.m */; };
 		22453BAF1F1C74290000C006 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22453BAD1F1C74290000C006 /* UserCell.xib */; };
+		2245FC281FEB917C00AE35F1 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2245FC201FEB917B00AE35F1 /* YYMemoryCache.m */; };
+		2245FC291FEB917C00AE35F1 /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2245FC211FEB917B00AE35F1 /* YYKVStorage.m */; };
+		2245FC2A1FEB917C00AE35F1 /* YYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2245FC221FEB917B00AE35F1 /* YYCache.m */; };
+		2245FC2B1FEB917C00AE35F1 /* YYDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2245FC231FEB917B00AE35F1 /* YYDiskCache.m */; };
 		224601E91EB317B9000D4A96 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 224601E81EB317B9000D4A96 /* Message.m */; };
 		22494FAC1FEA50D200165AB6 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22494FA91FEA50D000165AB6 /* libcrypto.a */; };
 		22494FAD1FEA50D200165AB6 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22494FAA1FEA50D000165AB6 /* AgoraRtcEngineKit.framework */; };
@@ -485,10 +489,6 @@
 		228B89C21EA85744002B8D3C /* VideoRZTwoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B89C01EA85744002B8D3C /* VideoRZTwoVC.xib */; };
 		228B89C61EA85F3D002B8D3C /* VideoRZResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89C41EA85F3D002B8D3C /* VideoRZResultVC.m */; };
 		228B89C71EA85F3D002B8D3C /* VideoRZResultVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228B89C51EA85F3D002B8D3C /* VideoRZResultVC.xib */; };
-		228B89D61EA866FB002B8D3C /* YYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89CD1EA866FB002B8D3C /* YYCache.m */; };
-		228B89D71EA866FB002B8D3C /* YYDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89CF1EA866FB002B8D3C /* YYDiskCache.m */; };
-		228B89D81EA866FB002B8D3C /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89D11EA866FB002B8D3C /* YYKVStorage.m */; };
-		228B89D91EA866FB002B8D3C /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89D31EA866FB002B8D3C /* YYMemoryCache.m */; };
 		228B89DC1EA8671B002B8D3C /* SPHttpWithYYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89DB1EA8671B002B8D3C /* SPHttpWithYYCache.m */; };
 		228B89DF1EA87778002B8D3C /* LXCachNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 228B89DE1EA87778002B8D3C /* LXCachNetWorking.m */; };
 		228CF7341EDE7C2C0045986D /* MyVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 228CF7321EDE7C2C0045986D /* MyVideoVC.m */; };
@@ -1223,6 +1223,14 @@
 		22453BAB1F1C74290000C006 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
 		22453BAC1F1C74290000C006 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		22453BAD1F1C74290000C006 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		2245FC201FEB917B00AE35F1 /* YYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMemoryCache.m; sourceTree = "<group>"; };
+		2245FC211FEB917B00AE35F1 /* YYKVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYKVStorage.m; sourceTree = "<group>"; };
+		2245FC221FEB917B00AE35F1 /* YYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCache.m; sourceTree = "<group>"; };
+		2245FC231FEB917B00AE35F1 /* YYDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDiskCache.m; sourceTree = "<group>"; };
+		2245FC241FEB917B00AE35F1 /* YYMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYMemoryCache.h; sourceTree = "<group>"; };
+		2245FC251FEB917B00AE35F1 /* YYKVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKVStorage.h; sourceTree = "<group>"; };
+		2245FC261FEB917C00AE35F1 /* YYDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDiskCache.h; sourceTree = "<group>"; };
+		2245FC271FEB917C00AE35F1 /* YYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCache.h; sourceTree = "<group>"; };
 		224601E71EB317B9000D4A96 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		224601E81EB317B9000D4A96 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		22494FA91FEA50D000165AB6 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -1403,14 +1411,6 @@
 		228B89C31EA85F3D002B8D3C /* VideoRZResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRZResultVC.h; sourceTree = "<group>"; };
 		228B89C41EA85F3D002B8D3C /* VideoRZResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideoRZResultVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		228B89C51EA85F3D002B8D3C /* VideoRZResultVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoRZResultVC.xib; sourceTree = "<group>"; };
-		228B89CC1EA866FB002B8D3C /* YYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCache.h; sourceTree = "<group>"; };
-		228B89CD1EA866FB002B8D3C /* YYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCache.m; sourceTree = "<group>"; };
-		228B89CE1EA866FB002B8D3C /* YYDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDiskCache.h; sourceTree = "<group>"; };
-		228B89CF1EA866FB002B8D3C /* YYDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDiskCache.m; sourceTree = "<group>"; };
-		228B89D01EA866FB002B8D3C /* YYKVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKVStorage.h; sourceTree = "<group>"; };
-		228B89D11EA866FB002B8D3C /* YYKVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYKVStorage.m; sourceTree = "<group>"; };
-		228B89D21EA866FB002B8D3C /* YYMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYMemoryCache.h; sourceTree = "<group>"; };
-		228B89D31EA866FB002B8D3C /* YYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMemoryCache.m; sourceTree = "<group>"; };
 		228B89DA1EA8671B002B8D3C /* SPHttpWithYYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHttpWithYYCache.h; sourceTree = "<group>"; };
 		228B89DB1EA8671B002B8D3C /* SPHttpWithYYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHttpWithYYCache.m; sourceTree = "<group>"; };
 		228B89DD1EA87778002B8D3C /* LXCachNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXCachNetWorking.h; sourceTree = "<group>"; };
@@ -2851,14 +2851,14 @@
 		228B89CB1EA866FB002B8D3C /* YYCache */ = {
 			isa = PBXGroup;
 			children = (
-				228B89CC1EA866FB002B8D3C /* YYCache.h */,
-				228B89CD1EA866FB002B8D3C /* YYCache.m */,
-				228B89CE1EA866FB002B8D3C /* YYDiskCache.h */,
-				228B89CF1EA866FB002B8D3C /* YYDiskCache.m */,
-				228B89D01EA866FB002B8D3C /* YYKVStorage.h */,
-				228B89D11EA866FB002B8D3C /* YYKVStorage.m */,
-				228B89D21EA866FB002B8D3C /* YYMemoryCache.h */,
-				228B89D31EA866FB002B8D3C /* YYMemoryCache.m */,
+				2245FC231FEB917B00AE35F1 /* YYDiskCache.m */,
+				2245FC251FEB917B00AE35F1 /* YYKVStorage.h */,
+				2245FC221FEB917B00AE35F1 /* YYCache.m */,
+				2245FC241FEB917B00AE35F1 /* YYMemoryCache.h */,
+				2245FC261FEB917C00AE35F1 /* YYDiskCache.h */,
+				2245FC271FEB917C00AE35F1 /* YYCache.h */,
+				2245FC211FEB917B00AE35F1 /* YYKVStorage.m */,
+				2245FC201FEB917B00AE35F1 /* YYMemoryCache.m */,
 			);
 			name = YYCache;
 			path = YYCache/YYCache;
@@ -4184,6 +4184,7 @@
 				2286DC681EF26AFE00FDF801 /* LHChatLocationBubbleView.m in Sources */,
 				222B38231ED9642B009DB58F /* FSActionSheetItem.m in Sources */,
 				225DC9D61ED818B3002ADA8F /* AcceptVC.m in Sources */,
+				2245FC2B1FEB917C00AE35F1 /* YYDiskCache.m in Sources */,
 				2291CBDB1F4D6FE7001AB139 /* LxMessageCell.m in Sources */,
 				224F24711EA7521A00C0FDC6 /* VideoOneVC.m in Sources */,
 				222B38651ED96843009DB58F /* UIImage+MSSScale.m in Sources */,
@@ -4269,7 +4270,6 @@
 				2291CBCC1F4D30E8001AB139 /* LxPersonHeader.m in Sources */,
 				8450DCEA1FA34ACA007729AA /* LxPersonNewCell3.m in Sources */,
 				2244280E1EA8A98900BF3E4D /* SelectedModel.m in Sources */,
-				228B89D61EA866FB002B8D3C /* YYCache.m in Sources */,
 				2291CBEF1F4DBCEA001AB139 /* BaseCellVC.m in Sources */,
 				222AA1501EB071C10038416D /* UIView+frameAdjust.m in Sources */,
 				22C329401FA8258400FDC973 /* VideoShowCell.m in Sources */,
@@ -4307,8 +4307,8 @@
 				222AA1721EB071C20038416D /* LHPhotoPreviewController.m in Sources */,
 				22721FB71EE8018F003A19D3 /* PVideoVC.m in Sources */,
 				22844F5A1ED2A1B800A9E32E /* IQToolbar.m in Sources */,
-				228B89D71EA866FB002B8D3C /* YYDiskCache.m in Sources */,
 				222AA14B1EB071C10038416D /* UIActionSheet+Blocks.m in Sources */,
+				2245FC291FEB917C00AE35F1 /* YYKVStorage.m in Sources */,
 				223DE5A61F20AB3700745E94 /* AGAudioBuffer.m in Sources */,
 				8483AAEA1F4E7BEB008BA674 /* ProfitCell2.m in Sources */,
 				22BBE5281F502B4B007631DC /* OtherVideoPlayVC.m in Sources */,
@@ -4320,6 +4320,7 @@
 				222AA1511EB071C10038416D /* UIViewController+Set.m in Sources */,
 				222AA1491EB071C10038416D /* NSCalendar+Establish.m in Sources */,
 				222DD1AA1EADD0E400B7A8D7 /* CityModel.m in Sources */,
+				2245FC2A1FEB917C00AE35F1 /* YYCache.m in Sources */,
 				222F57881EE5546B00A8A784 /* FindModel.m in Sources */,
 				222B38221ED9642B009DB58F /* FSActionSheetConfig.m in Sources */,
 				222AA1C81EB0775B0038416D /* YYImage.m in Sources */,
@@ -4351,8 +4352,8 @@
 				22CDA9651EA5DDD3006CD611 /* LXBaseModel.m in Sources */,
 				222AA1761EB071C20038416D /* XSBrowserAnimateDelegate.m in Sources */,
 				2204AA971EAD995F0034C0F3 /* Mymodel.m in Sources */,
-				228B89D81EA866FB002B8D3C /* YYKVStorage.m in Sources */,
 				22E8D76E1EA49AE300C5FC6B /* main.m in Sources */,
+				2245FC281FEB917C00AE35F1 /* YYMemoryCache.m in Sources */,
 				2244B4651F00B96800685217 /* GSPChatMessage.m in Sources */,
 				223BDF141EA70E51006DCD65 /* SetPriceVC.m in Sources */,
 				222AA14E1EB071C10038416D /* UIResponder+Router.m in Sources */,
@@ -4379,7 +4380,6 @@
 				224F24571EA7339200C0FDC6 /* UIView+WHC_AutoLayout.m in Sources */,
 				2286DC641EF26AFE00FDF801 /* LHContentModel.m in Sources */,
 				8413A2B31F4C412C00CB3CBC /* FixIndustryVC.m in Sources */,
-				228B89D91EA866FB002B8D3C /* YYMemoryCache.m in Sources */,
 				227971CD1EF8DC0900BC8E18 /* FileUnit.m in Sources */,
 				843E31F81F2B3879003C4EB2 /* RepetitionCount.m in Sources */,
 				222AA1D41EB0775B0038416D /* YYTextArchiver.m in Sources */,
@@ -4611,7 +4611,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lliaoda/Lliaoda.entitlements;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = GAKS8W6M82;
 				ENABLE_BITCODE = NO;
@@ -4696,8 +4696,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.YouLiao.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6fa516fa-c1d0-4526-b93e-b7cf93f4ac42";
-				PROVISIONING_PROFILE_SPECIFIER = "youliao HC";
+				PROVISIONING_PROFILE = "96194a77-7970-440e-a986-ad07480589d0";
+				PROVISIONING_PROFILE_SPECIFIER = "YouLiao dev";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -4796,8 +4796,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = niuniu.YouLiao.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6fa516fa-c1d0-4526-b93e-b7cf93f4ac42";
-				PROVISIONING_PROFILE_SPECIFIER = "youliao HC";
+				PROVISIONING_PROFILE = "c258612a-b303-4f87-ad5f-2e7295339ebf";
+				PROVISIONING_PROFILE_SPECIFIER = "youliao store";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				VALID_ARCHS = "arm64 armv7 armv7s";
