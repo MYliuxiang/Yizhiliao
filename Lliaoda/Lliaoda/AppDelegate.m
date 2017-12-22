@@ -101,11 +101,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
-//
-//        [self appconfig];
-//
-//    }
+    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
+
+        [self appconfig];
+
+    }
     [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
     [LXUserDefaults synchronize];
     //2222
@@ -650,7 +650,7 @@
                 
                                 BOOL paymentEnabled = [result[@"data"][@"config"][@"paymentEnabled"] boolValue];
                 
-                                BOOL oauthLoginEnabled = [result[@"data"][@"config"][@"oauthLoginEnabled"] boolValue];
+                                BOOL oauthLoginEnabled = [result[@"data"][@"config"]    [@"oauthLoginEnabled"] boolValue];
                 
                                 [LXUserDefaults setBool:!oauthLoginEnabled forKey:ISMEiGUO];
                                 [LXUserDefaults setBool:paymentEnabled forKey:payEnable];
