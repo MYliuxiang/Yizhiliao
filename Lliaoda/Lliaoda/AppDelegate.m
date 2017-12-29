@@ -101,13 +101,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
-
-        [self appconfig];
-
-    }
-    [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
-    [LXUserDefaults synchronize];
+//    if (![LXUserDefaults boolForKey:kIsFirstLauchApp]) {
+//
+//        [self appconfig];
+//
+//    }
+//    [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
+//    [LXUserDefaults synchronize];
     //2222
     
     [AppsFlyerTracker sharedTracker].appsFlyerDevKey = @"KqnwDx2iekh99XSrK76fr6";
@@ -1179,8 +1179,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
         
         NSLog(@"%@", error);
     }];
-
-
 
 }
 

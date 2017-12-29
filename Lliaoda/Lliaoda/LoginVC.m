@@ -336,7 +336,6 @@
         
     
                  [[AppDelegate shareAppDelegate] facebookLogin:result.token.tokenString];
-    
                 
              }
          }];

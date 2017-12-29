@@ -359,14 +359,9 @@ NSString *const kTableViewFrame = @"frame";
         
     } errorBlock:^(NSError *error) {
         
-        
     }];
     
-   
-    
 }
-
-
 
 - (void)loadData
 {
@@ -383,7 +378,6 @@ NSString *const kTableViewFrame = @"frame";
         self.text = _pmodel.nickname;
 
     }
-
     
     NSDictionary *params;
     
@@ -417,7 +411,6 @@ NSString *const kTableViewFrame = @"frame";
         
         
     }];
-    
     
     NSDictionary *params1;
     params1 = @{@"uid":[LXUserDefaults objectForKey:UID]};
@@ -683,7 +676,6 @@ NSString *const kTableViewFrame = @"frame";
     
     __weak LHChatVC *this = self;
     self.giftsView.giftBlock = ^(NSString *giftName, int diamonds, NSString *giftUid) {
-        
         
         NSString *content;
         NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];

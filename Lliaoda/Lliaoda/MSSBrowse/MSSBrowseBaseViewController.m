@@ -71,6 +71,13 @@
     }];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@"%f",_collectionView.contentOffset.x);
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -143,6 +150,7 @@
     [_collectionView registerClass:[MSSBrowseCollectionViewCell class] forCellWithReuseIdentifier:@"MSSBrowserCell"];
     _collectionView.contentOffset = CGPointMake(_currentIndex * (_screenWidth + kBrowseSpace), 0);
     [_bgView addSubview:_collectionView];
+    NSLog(@"%f",_collectionView.contentOffset.x);
     
     _countLabel = [[UILabel alloc]init];
     _countLabel.textColor = [UIColor whiteColor];
@@ -219,6 +227,8 @@
 #pragma mark UIScrollViewDeletate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    NSLog(@"%f",_collectionView.contentOffset.x);
+
     if(!_isRotate)
     {
         _currentIndex = scrollView.contentOffset.x / (_screenWidth + kBrowseSpace);
@@ -286,13 +296,14 @@
     }
     else
     {
-        [UIView animateWithDuration:0.1 animations:^{
-            self.view.alpha = 0.0;
-        } completion:^(BOOL finished) {
-            [self dismissViewControllerAnimated:NO completion:^{
-                
-            }];
+        [self dismissViewControllerAnimated:NO completion:^{
+            
         }];
+//        [UIView animateWithDuration:0.1 animations:^{
+//            self.view.alpha = 0.0;
+//        } completion:^(BOOL finished) {
+//           
+//        }];
     }
 }
 
