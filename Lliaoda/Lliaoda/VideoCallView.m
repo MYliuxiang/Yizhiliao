@@ -2228,13 +2228,18 @@
         [self.instMedia enableVideo];
         [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
         [self.instMedia startPreview];
-        
-        if (self.effectView.hidden) {
-            self.smallEffectView.hidden = YES;
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            if (self.effectView.hidden) {
+                self.smallEffectView.hidden = YES;
+            } else {
+                self.effectView.hidden = YES;
+                self.smallEffectView.hidden = NO;
+            }
         } else {
             self.effectView.hidden = YES;
-            self.smallEffectView.hidden = NO;
+            self.smallEffectView.hidden = YES;
         }
+        
         
     } else {
         
@@ -2254,12 +2259,18 @@
         [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
         [self.instMedia startPreview];
         
-        if (self.smallEffectView.hidden) {
-            self.effectView.hidden = YES;
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            if (self.smallEffectView.hidden) {
+                self.effectView.hidden = YES;
+            } else {
+                self.smallEffectView.hidden = YES;
+                self.effectView.hidden = NO;
+            }
         } else {
+            self.effectView.hidden = YES;
             self.smallEffectView.hidden = YES;
-            self.effectView.hidden = NO;
         }
+        
     }
 }
 

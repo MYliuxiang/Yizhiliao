@@ -93,29 +93,29 @@
 
 - (IBAction)completeAC:(id)sender {
     
-    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-    if ([lang hasPrefix:@"zh-Hant"]) {
-        
-        if (_textField.text.length != 10) {
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
-            [alert show];
-            return;
-            
-        }
-        
-    }else if ([lang hasPrefix:@"id"]){
-        
-        if (_textField.text.length != 12) {
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
-            [alert show];
-            return;
-            
-        }
-        
-    }else{
-        
+//    NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+//    if ([lang hasPrefix:@"zh-Hant"]) {
+//
+//        if (_textField.text.length != 10) {
+//
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+//            [alert show];
+//            return;
+//
+//        }
+//
+//    }else if ([lang hasPrefix:@"id"]){
+//
+//        if (_textField.text.length != 12) {
+//
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+//            [alert show];
+//            return;
+//
+//        }
+//
+//    }else{
+    
 //        if (_textField.text.length != 10) {
 //            
 //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"提示") message:LXSring(@"您输入的手機號碼不正确！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
@@ -123,7 +123,7 @@
 //            return;
 //            
 //        }
-    }
+//    }
 
     
   
