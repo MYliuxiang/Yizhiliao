@@ -50,7 +50,6 @@
     }else{
         mainStr = @"https://liao.yizhiliao.live/api/";
     }
-//    mainStr = @"https://liao.yizhiliao.live/api/";
 
     return mainStr;
     
@@ -63,17 +62,15 @@
     
     NSString *agoreappIDStr;
     NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-//    if ([lang hasPrefix:@"zh-Hant"]) {
-//        agoreappIDStr = @"e063233af0694b93a6639bbd7e92b26a";
-//    }else
+
     if ([lang hasPrefix:@"id"]){
         agoreappIDStr = @"e3748ab08d4448249fc99dbaaafb53c5";
     }else if ([lang hasPrefix:@"ar"]){
         agoreappIDStr = @"a0599c58c21e4c08b5502267a09b58cf";
     }
-//    else{
-//        agoreappIDStr = @"e063233af0694b93a6639bbd7e92b26a";
-//    }
+    agoreappIDStr = @"e3748ab08d4448249fc99dbaaafb53c5";
+
+
     
     return agoreappIDStr;
     
