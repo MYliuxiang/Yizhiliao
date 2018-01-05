@@ -718,7 +718,7 @@
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 self.pModel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
                 if (self.pModel.charge == -1) {
-                    self.pModel.charge = 100;
+                    self.pModel.charge = 101;
                 }
             }else{    //请求失败
                 
@@ -2034,6 +2034,7 @@
         _effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
         //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
         _effectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        _effectView.hidden = YES;
         [self.bigImageView addSubview:_effectView];
     }
     return _effectView;
@@ -2045,6 +2046,7 @@
         _smallEffectView = [[UIVisualEffectView alloc] initWithEffect:effect];
         //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
         _smallEffectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        _smallEffectView.hidden = YES;
         [self.smallImageView addSubview:_smallEffectView];
     }
     return _smallEffectView;
