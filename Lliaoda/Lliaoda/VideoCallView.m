@@ -717,6 +717,7 @@
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 self.pModel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
+                NSLog(@"%d", self.pModel.charge);
                 if (self.pModel.charge == -1) {
                     self.pModel.charge = 101;
                 }
@@ -1436,11 +1437,6 @@
 {
 
     self.keyTime++;
-    if (_keyTime != 60) {
-        
-        return;
-    }
-    
     NSString *timeStr = [self timeFormatted:self.callTime];
     self.timeLab.text = timeStr;
     
@@ -1467,6 +1463,15 @@
             _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
         }
     }
+    
+    if (_keyTime != 60) {
+        
+        return;
+    }
+    
+    
+    
+    
     
     
     
