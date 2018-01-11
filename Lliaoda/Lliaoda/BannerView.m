@@ -39,59 +39,73 @@
     SelectedBannersModel *model = self.list[index];
 //    NSString *url = model.link;
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-    if (model.target == 0) {
-        WebVC *vc = [[WebVC alloc] init];
-        vc.urlStr = model.link;
-        vc.deposit = self.model.deposit;
-        vc.model = self.model;
+    if ([model.link isEqualToString:@"#"]) {
+        return;
+    } else if ([model.link containsString:@"/app/user?id="]) {
+        NSString *userID = [model.link substringFromIndex:13];
+        LxPersonVC *vc = [[LxPersonVC alloc] init];
+        vc.personUID = userID;
+        vc.isFromHeader = YES;
         [[self viewController].navigationController pushViewController:vc animated:YES];
-        
     } else {
-        NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
-        if ([lang hasPrefix:@"id"]){
-            if ([model.link isEqualToString:@"/app/pay"]) {
-                // 支付
-                AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
-                [[self viewController].navigationController pushViewController:vc animated:YES];
+        if (model.target == 0) {
+            WebVC *vc = [[WebVC alloc] init];
+            vc.urlStr = model.link;
+            vc.deposit = self.model.deposit;
+            vc.model = self.model;
+            [[self viewController].navigationController pushViewController:vc animated:YES];
+            
+        } else {
+            NSString *lang = [LXUserDefaults valueForKey:@"appLanguage"];
+            if ([lang hasPrefix:@"id"]){
+                if ([model.link isEqualToString:@"/app/pay"]) {
+                    // 支付
+                    AccountPayTypeVC *vc = [[AccountPayTypeVC alloc] init];
+                    [[self viewController].navigationController pushViewController:vc animated:YES];
+                    
+                } else if ([model.link isEqualToString:@"/app/pay/unipin"]) {
+                    // 第三方支付
+                    [self unipinAC];
+                    
+                } else if ([model.link isEqualToString:@"/app/pay/unipin_dcb"]) {
+                    // 话费支付
+                    [self huafeiAC];
+                    
+                } else if ([model.link isEqualToString:@"/app/pay/store"]) {
+                    // 苹果支付
+                    [self appleAC];
+                    
+                } else if ([model.link isEqualToString:@"#"]) {
+                    return;
+                }
+                else {
+                    //邀请有奖
+                    InvitationVC *vc = [[InvitationVC alloc] init];
+                    vc.model = self.model;
+                    [[self viewController].navigationController pushViewController:vc animated:YES];
+                    
+                }
                 
-            } else if ([model.link isEqualToString:@"/app/pay/unipin"]) {
-                // 第三方支付
-                [self unipinAC];
-                
-            } else if ([model.link isEqualToString:@"/app/pay/unipin_dcb"]) {
-                // 话费支付
-                [self huafeiAC];
-                
-            } else if ([model.link isEqualToString:@"/app/pay/store"]) {
-                // 苹果支付
-                [self appleAC];
-                
-            } else {
-                //邀请有奖
-                InvitationVC *vc = [[InvitationVC alloc] init];
-                vc.model = self.model;
-                [[self viewController].navigationController pushViewController:vc animated:YES];
-                
+            }else if ([lang hasPrefix:@"ar"]){
+                if ([model.link hasPrefix:@"/app/pay"]) {
+                    // 支付
+                    AccountVC *vc = [[AccountVC alloc] init];
+                    [[self viewController].navigationController pushViewController:vc animated:YES];
+                } else {
+                    //邀请有奖
+                    InvitationVC *vc = [[InvitationVC alloc] init];
+                    vc.model = self.model;
+                    [[self viewController].navigationController pushViewController:vc animated:YES];
+                    
+                }
             }
             
-        }else if ([lang hasPrefix:@"ar"]){
-            if ([model.link hasPrefix:@"/app/pay"]) {
-                // 支付
-                AccountVC *vc = [[AccountVC alloc] init];
-                [[self viewController].navigationController pushViewController:vc animated:YES];
-            } else {
-                //邀请有奖
-                InvitationVC *vc = [[InvitationVC alloc] init];
-                vc.model = self.model;
-                [[self viewController].navigationController pushViewController:vc animated:YES];
-                
-            }
+            //        WebVC *vc = [[WebVC alloc] init];
+            //        vc.urlStr = model.link;
+            //        [[self viewController].navigationController pushViewController:vc animated:YES];
         }
-        
-//        WebVC *vc = [[WebVC alloc] init];
-//        vc.urlStr = model.link;
-//        [[self viewController].navigationController pushViewController:vc animated:YES];
     }
+    
 }
 
 // unipin
