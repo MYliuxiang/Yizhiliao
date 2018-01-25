@@ -655,8 +655,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
     NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
 }
 
-
-
 #pragma mark- JPUSHRegisterDelegate
 
 // iOS 10 Support
@@ -676,10 +674,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
     
 
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:userInfo];
-
-        
-        
+        [JPUSHService handleRemoteNotification:userInfo];        
     }
 //      completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以設定
 
