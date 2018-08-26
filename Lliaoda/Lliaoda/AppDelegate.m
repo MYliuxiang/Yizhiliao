@@ -106,8 +106,8 @@
 //        [self appconfig];
 //
 //    }
-//    [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
-//    [LXUserDefaults synchronize];
+    [LXUserDefaults setBool:YES forKey:kIsFirstLauchApp];
+    [LXUserDefaults synchronize];
     //2222
     
     [AppsFlyerTracker sharedTracker].appsFlyerDevKey = @"KqnwDx2iekh99XSrK76fr6";

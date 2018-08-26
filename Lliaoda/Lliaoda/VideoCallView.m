@@ -717,8 +717,9 @@
         if(result){
             if ([[result objectForKey:@"result"] integerValue] == 0) {
                 self.pModel = [PersonModel mj_objectWithKeyValues:result[@"data"]];
+                NSLog(@"%d", self.pModel.charge);
                 if (self.pModel.charge == -1) {
-                    self.pModel.charge = 100;
+                    self.pModel.charge = 101;
                 }
             }else{    //请求失败
                 
@@ -1436,11 +1437,6 @@
 {
 
     self.keyTime++;
-    if (_keyTime != 60) {
-        
-        return;
-    }
-    
     NSString *timeStr = [self timeFormatted:self.callTime];
     self.timeLab.text = timeStr;
     
@@ -1467,6 +1463,15 @@
             _jinbiLabel.text = [NSString stringWithFormat:@"%d", _charge];
         }
     }
+    
+    if (_keyTime != 60) {
+        
+        return;
+    }
+    
+    
+    
+    
     
     
     
@@ -2034,6 +2039,7 @@
         _effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
         //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
         _effectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        _effectView.hidden = YES;
         [self.bigImageView addSubview:_effectView];
     }
     return _effectView;
@@ -2045,6 +2051,7 @@
         _smallEffectView = [[UIVisualEffectView alloc] initWithEffect:effect];
         //必须给effcetView的frame赋值,因为UIVisualEffectView是一个加到UIIamgeView上的子视图.
         _smallEffectView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        _smallEffectView.hidden = YES;
         [self.smallImageView addSubview:_smallEffectView];
     }
     return _smallEffectView;
@@ -2161,12 +2168,21 @@
         [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
         [self.instMedia startPreview];
         
-        if (self.effectView.hidden) {
-            self.smallEffectView.hidden = YES;
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            // 是主播
+            if (self.effectView.hidden) {
+                self.smallEffectView.hidden = YES;
+            } else {
+                self.effectView.hidden = YES;
+                self.smallEffectView.hidden = NO;
+            }
         } else {
+            // 是用户
             self.effectView.hidden = YES;
-            self.smallEffectView.hidden = NO;
+            self.smallEffectView.hidden = YES;
         }
+        
+        
         
     } else {
 //        _local.view = self.bigImageView;
@@ -2186,12 +2202,18 @@
         [self.instMedia enableVideo];
         [self.instMedia setVideoProfile:AgoraRtc_VideoProfile_360P_7 swapWidthAndHeight:false];
         [self.instMedia startPreview];
-        
-        if (self.smallEffectView.hidden) {
-            self.effectView.hidden = YES;
+        if ([[LXUserDefaults objectForKey:itemNumber] isEqualToString:@"1"]) {
+            // 是主播
+            if (self.smallEffectView.hidden) {
+                self.effectView.hidden = YES;
+            } else {
+                self.smallEffectView.hidden = YES;
+                self.effectView.hidden = NO;
+            }
         } else {
+            // 是用户
+            self.effectView.hidden = YES;
             self.smallEffectView.hidden = YES;
-            self.effectView.hidden = NO;
         }
     }
 }

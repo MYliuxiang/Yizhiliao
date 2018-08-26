@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong)UIView *pickerBG;//选择器底
 @property (nonatomic, strong)UIPickerView *picker;//选择器
+@property (nonatomic, strong) NSMutableArray *chargeArr;
 
 @end
 
@@ -131,7 +132,8 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
    
-    return self.model.charges.count;
+    
+    return _chargeArr.count;
 }
 
 
@@ -143,7 +145,7 @@
     
         myView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, width, 30)];
         myView.textAlignment = NSTextAlignmentCenter;
-        Charge  *charge = self.model.charges[row];
+        Charge  *charge = _chargeArr[row];
         myView.text = charge.name;
         myView.font = [UIFont systemFontOfSize:[self fontWithString:myView.text]];         //用label来設定字体大小
         myView.backgroundColor = [UIColor clearColor];
@@ -165,6 +167,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.text = LXSring(@"收費設定");
+    _chargeArr = [NSMutableArray array];
+    for (Charge *charge in self.model.charges) {
+        if (!charge.disabled) {
+            [_chargeArr addObject:charge];
+        }
+    }
     
     [self setCorner];
     
@@ -293,9 +301,8 @@
 - (IBAction)setPrice:(UIButton *)sender {
     
     sender.selected = !sender.selected;
-    for (int i = 0; i < self.model.charges.count; i++) {
-        Charge *charge = self.model.charges[i];
-        NSLog(@"%@",self.setPriceLabel.text);
+    for (int i = 0; i < _chargeArr.count; i++) {
+        Charge *charge = _chargeArr[i];
         if ([self.setPriceLabel.text isEqualToString:charge.name]) {
             [self.picker selectRow:i inComponent:0 animated:NO];
         }

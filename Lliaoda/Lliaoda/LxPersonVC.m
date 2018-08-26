@@ -21,6 +21,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _inst =  [AgoraAPI getInstanceWithoutMedia:agoreappID];
+    
+    NSInteger redirect = [LXUserDefaults integerForKey:@"redirect"];
+    if (redirect == 1) {
+        [LXUserDefaults setInteger:0 forKey:@"redirect"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LXSring(@"欢迎来到Talkee") message:LXSring(@"您受此主播邀请所获的10钻奖励已入账，可立刻体验通话！") delegate:nil cancelButtonTitle:LXSring(@"確定") otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
 
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;

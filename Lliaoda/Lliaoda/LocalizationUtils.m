@@ -53,7 +53,9 @@
 
         }else{
             mainStr = @"https://www.yizhiliao.live/api/";
-            mainStr = @"http://demo.yizhiliao.live/api/";
+            
+//            mainStr = @"http://demo.yizhiliao.live/api/";
+//            mainStr = @"http://demo1.yizhiliao.live/api/";
         }
 
         
@@ -65,7 +67,9 @@
             
         }else{
             mainStr = @"https://www.yizhiliao.net/api/";
-            mainStr = @"http://demo.yizhiliao.net/api/";
+            
+//            mainStr = @"http://demo.yizhiliao.net/api/";
+//            mainStr = @"http://demo1.yizhiliao.net/api/";
         }
         
     }
@@ -100,8 +104,8 @@
 
 + (NSString *)getPayMainUrl
 {
-    NSString *mainUrl = @"http://demo.yizhiliao.live";
-//    NSString *mainUrl = @"https://www.yizhiliao.live";
+//    NSString *mainUrl = @"http://demo.yizhiliao.live";
+    NSString *mainUrl = @"https://www.yizhiliao.live";
     
     return mainUrl;
 }
